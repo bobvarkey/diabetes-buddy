@@ -350,13 +350,17 @@ const HypoRiskCalculator = () => {
 
           {expandedCats.has(group.key) && (
             <div className="mt-3 space-y-2">
-              {group.factors.map(factor => (
-                <label key={factor.id} className={`flex items-start gap-3 p-2.5 rounded-lg cursor-pointer transition-colors ${
+              {group.factors.map(factor => {
+                const isInputDriven = INPUT_DRIVEN_FACTORS.has(factor.id);
+
+                return (
+                <label key={factor.id} className={`flex items-start gap-3 p-2.5 rounded-lg transition-colors ${
                   factor.active ? "bg-warning/5 border border-warning/20" : "hover:bg-muted/30"
-                }`}>
+                } ${isInputDriven ? "cursor-not-allowed" : "cursor-pointer"}`}>
                   <Switch
                     checked={factor.active}
                     onCheckedChange={() => toggleFactor(factor.id)}
+                    disabled={isInputDriven}
                     className="mt-0.5 shrink-0"
                   />
                   <div className="flex-1 min-w-0">
@@ -369,11 +373,16 @@ const HypoRiskCalculator = () => {
                       }`}>
                         +{factor.points}
                       </span>
+                      {isInputDriven && (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground">
+                          from input
+                        </span>
+                      )}
                     </div>
                     <p className="text-xs text-muted-foreground mt-0.5">{factor.description}</p>
                   </div>
                 </label>
-              ))}
+              )})}
             </div>
           )}
         </div>
