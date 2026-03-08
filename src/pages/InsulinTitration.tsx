@@ -126,6 +126,24 @@ const InsulinTitration = () => {
     return "text-destructive font-medium";
   };
 
+  if (!hasPatient) {
+    return (
+      <div className="space-y-5 animate-slide-in">
+        <h1 className="text-xl font-heading font-bold">Insulin Titration Calculator</h1>
+        <div className="clinical-card flex flex-col items-center justify-center py-12 text-center">
+          <UserX className="w-12 h-12 text-muted-foreground mb-4" />
+          <h2 className="text-lg font-heading font-semibold mb-2">No Patient Data</h2>
+          <p className="text-sm text-muted-foreground mb-4 max-w-md">
+            Please enter patient demographics first. Insulin titration protocol selection depends on age, eGFR, and other patient factors.
+          </p>
+          <Button onClick={() => navigate("/patient")}>
+            Enter Patient Data
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-5 animate-slide-in">
       <div>
