@@ -15,6 +15,7 @@ import Progress from "./pages/Progress";
 import SummaryPage from "./pages/SummaryPage";
 import InsulinTitration from "./pages/InsulinTitration";
 import HypoRiskCalculator from "./pages/HypoRiskCalculator";
+import RenalDoseAdjustment from "./pages/RenalDoseAdjustment";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
