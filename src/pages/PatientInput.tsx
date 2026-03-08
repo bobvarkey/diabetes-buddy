@@ -285,7 +285,7 @@ const PatientInput = () => {
           {comorbidityCheck("ASCVD (atherosclerotic CVD)", "hasASCVD")}
           {comorbidityCheck("Post-Stroke", "hasPostStroke")}
           {comorbidityCheck("CKD (eGFR <60)", "hasCKD")}
-          {comorbidityCheck("Heart Failure", "hfNYHA" as any)}
+          {comorbidityCheck("Heart Failure", "hasHF")}
           {comorbidityCheck("Hypertension", "hasHypertension")}
           {comorbidityCheck("Diabetic Retinopathy", "hasRetinopathy")}
           {comorbidityCheck("Diabetic Neuropathy", "hasNeuropathy")}
@@ -295,14 +295,13 @@ const PatientInput = () => {
           {comorbidityCheck("Obstructive Sleep Apnea", "hasOSA")}
         </div>
 
-        {/* HF NYHA if HF selected */}
-        {(patient.hfNYHA > 0 || patient.currentMeds.some(m => m.toLowerCase().includes("hf"))) && (
+        {/* HF NYHA Class */}
+        {patient.hasHF && (
           <div className="mt-3">
             <Label className="text-xs text-muted-foreground">HF NYHA Class</Label>
             <Select value={String(patient.hfNYHA)} onValueChange={(v) => update("hfNYHA", parseInt(v))}>
               <SelectTrigger className="h-9 w-48"><SelectValue /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="0">No HF</SelectItem>
                 <SelectItem value="1">NYHA I</SelectItem>
                 <SelectItem value="2">NYHA II</SelectItem>
                 <SelectItem value="3">NYHA III</SelectItem>
@@ -311,21 +310,6 @@ const PatientInput = () => {
             </Select>
           </div>
         )}
-
-        {/* HF NYHA standalone if not in comorbidity list */}
-        <div className="mt-3">
-          <Label className="text-xs text-muted-foreground">Heart Failure NYHA Class</Label>
-          <Select value={String(patient.hfNYHA)} onValueChange={(v) => update("hfNYHA", parseInt(v))}>
-            <SelectTrigger className="h-9 w-48"><SelectValue /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="0">No HF</SelectItem>
-              <SelectItem value="1">NYHA I</SelectItem>
-              <SelectItem value="2">NYHA II</SelectItem>
-              <SelectItem value="3">NYHA III</SelectItem>
-              <SelectItem value="4">NYHA IV</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
       </div>
 
       {/* Post-Stroke */}
