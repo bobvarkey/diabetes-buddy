@@ -574,11 +574,11 @@ function hasASCVD(patient: PatientData): boolean {
 }
 
 function hasCKD(patient: PatientData): boolean {
-  return patient.eGFR < 60;
+  return patient.hasCKD || patient.eGFR < 60;
 }
 
 function hasHF(patient: PatientData): boolean {
-  return patient.hfNYHA >= 2;
+  return patient.hasHF || patient.hfNYHA >= 2;
 }
 
 function needsWeightManagement(patient: PatientData): boolean {

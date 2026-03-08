@@ -59,6 +59,7 @@ export const EXAMPLE_PATIENT: PatientData = {
   hasASCVD: true,
   hasPostStroke: true,
   hasCKD: true,
+  hasHF: true,
   hasHypertension: true,
   hasRetinopathy: false,
   hasNeuropathy: false,
