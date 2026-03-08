@@ -14,6 +14,26 @@ interface RiskFactor {
   category: "demographic" | "clinical" | "medication" | "history";
 }
 
+interface ManualPatientInputs {
+  age: string;
+  bmi: string;
+  eGFR: string;
+  onInsulin: boolean;
+  priorHypo: boolean;
+  severeHypo: boolean;
+}
+
+const INPUT_DRIVEN_FACTORS = new Set([
+  "age65",
+  "age75",
+  "lowBMI",
+  "ckd3",
+  "ckd4",
+  "insulin",
+  "priorHypo",
+  "severeHypo",
+]);
+
 const HypoRiskCalculator = () => {
   const patient = loadPatient();
 
@@ -50,9 +70,41 @@ const HypoRiskCalculator = () => {
 
   const [factors, setFactors] = useState<RiskFactor[]>(buildInitialFactors());
   const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["demographic", "clinical", "medication", "history"]));
-  const [hba1cTarget, setHba1cTarget] = useState(patient?.hba1c ? (patient.hba1c > 8 ? 8.0 : 7.0) : 7.0);
+  const [manualInputs, setManualInputs] = useState<ManualPatientInputs>({
+    age: "",
+    bmi: "",
+    eGFR: "",
+    onInsulin: false,
+    priorHypo: false,
+    severeHypo: false,
+  });
+
+  useEffect(() => {
+    const age = Number(manualInputs.age);
+    const bmi = Number(manualInputs.bmi);
+    const eGFR = Number(manualInputs.eGFR);
+
+    const hasAge = manualInputs.age.trim() !== "" && Number.isFinite(age);
+    const hasBMI = manualInputs.bmi.trim() !== "" && Number.isFinite(bmi);
+    const hasEGFR = manualInputs.eGFR.trim() !== "" && Number.isFinite(eGFR);
+
+    setFactors(prev =>
+      prev.map(f => {
+        if (f.id === "age65") return { ...f, active: hasAge && age >= 65 };
+        if (f.id === "age75") return { ...f, active: hasAge && age >= 75 };
+        if (f.id === "lowBMI") return { ...f, active: hasBMI && bmi < 20 };
+        if (f.id === "ckd3") return { ...f, active: hasEGFR && eGFR >= 30 && eGFR < 60 };
+        if (f.id === "ckd4") return { ...f, active: hasEGFR && eGFR < 30 };
+        if (f.id === "insulin") return { ...f, active: manualInputs.onInsulin };
+        if (f.id === "priorHypo") return { ...f, active: manualInputs.priorHypo };
+        if (f.id === "severeHypo") return { ...f, active: manualInputs.severeHypo };
+        return f;
+      }),
+    );
+  }, [manualInputs]);
 
   const toggleFactor = (id: string) => {
+    if (INPUT_DRIVEN_FACTORS.has(id)) return;
     setFactors(prev => prev.map(f => f.id === id ? { ...f, active: !f.active } : f));
   };
 
@@ -150,10 +202,79 @@ const HypoRiskCalculator = () => {
             <strong>{patient.name}</strong> · {patient.age}y · eGFR {patient.eGFR} ({getCKDStage(patient.eGFR)}) · HbA1c {patient.hba1c}%
           </p>
           <p className="text-xs text-muted-foreground mt-1">
-            Risk factors auto-populated from patient data. Toggle additional factors below.
+            Enter demographics below to drive score calculation for age, BMI, CKD, insulin use, and prior hypoglycemia.
           </p>
         </div>
       )}
+
+      {/* Manual patient factor inputs */}
+      <div className="clinical-card">
+        <h3 className="section-title mb-3">Manual Patient Inputs</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="space-y-1.5">
+            <Label htmlFor="hypo-age" className="text-xs text-muted-foreground">Age (years)</Label>
+            <Input
+              id="hypo-age"
+              type="number"
+              min={0}
+              value={manualInputs.age}
+              onChange={(e) => setManualInputs(prev => ({ ...prev, age: e.target.value }))}
+              placeholder="e.g., 68"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="hypo-bmi" className="text-xs text-muted-foreground">BMI</Label>
+            <Input
+              id="hypo-bmi"
+              type="number"
+              min={0}
+              step="0.1"
+              value={manualInputs.bmi}
+              onChange={(e) => setManualInputs(prev => ({ ...prev, bmi: e.target.value }))}
+              placeholder="e.g., 19.4"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="hypo-egfr" className="text-xs text-muted-foreground">eGFR (mL/min/1.73m²)</Label>
+            <Input
+              id="hypo-egfr"
+              type="number"
+              min={0}
+              value={manualInputs.eGFR}
+              onChange={(e) => setManualInputs(prev => ({ ...prev, eGFR: e.target.value }))}
+              placeholder="e.g., 42"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
+          <label className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-muted/20">
+            <span className="text-sm">On insulin therapy</span>
+            <Switch
+              checked={manualInputs.onInsulin}
+              onCheckedChange={(checked) => setManualInputs(prev => ({ ...prev, onInsulin: checked }))}
+            />
+          </label>
+          <label className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-muted/20">
+            <span className="text-sm">Prior hypoglycemia</span>
+            <Switch
+              checked={manualInputs.priorHypo}
+              onCheckedChange={(checked) => setManualInputs(prev => ({ ...prev, priorHypo: checked }))}
+            />
+          </label>
+          <label className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-muted/20">
+            <span className="text-sm">Prior severe hypo</span>
+            <Switch
+              checked={manualInputs.severeHypo}
+              onCheckedChange={(checked) => setManualInputs(prev => ({ ...prev, severeHypo: checked }))}
+            />
+          </label>
+        </div>
+
+        <p className="text-[10px] text-muted-foreground mt-2">
+          These entries auto-update matching risk factors; remaining factors can be toggled manually.
+        </p>
+      </div>
 
       {/* Score result card */}
       <div className={`clinical-card border-l-4 ${
@@ -229,13 +350,17 @@ const HypoRiskCalculator = () => {
 
           {expandedCats.has(group.key) && (
             <div className="mt-3 space-y-2">
-              {group.factors.map(factor => (
-                <label key={factor.id} className={`flex items-start gap-3 p-2.5 rounded-lg cursor-pointer transition-colors ${
+              {group.factors.map(factor => {
+                const isInputDriven = INPUT_DRIVEN_FACTORS.has(factor.id);
+
+                return (
+                <label key={factor.id} className={`flex items-start gap-3 p-2.5 rounded-lg transition-colors ${
                   factor.active ? "bg-warning/5 border border-warning/20" : "hover:bg-muted/30"
-                }`}>
+                } ${isInputDriven ? "cursor-not-allowed" : "cursor-pointer"}`}>
                   <Switch
                     checked={factor.active}
                     onCheckedChange={() => toggleFactor(factor.id)}
+                    disabled={isInputDriven}
                     className="mt-0.5 shrink-0"
                   />
                   <div className="flex-1 min-w-0">
@@ -248,11 +373,16 @@ const HypoRiskCalculator = () => {
                       }`}>
                         +{factor.points}
                       </span>
+                      {isInputDriven && (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground">
+                          from input
+                        </span>
+                      )}
                     </div>
                     <p className="text-xs text-muted-foreground mt-0.5">{factor.description}</p>
                   </div>
                 </label>
-              ))}
+              )})}
             </div>
           )}
         </div>
