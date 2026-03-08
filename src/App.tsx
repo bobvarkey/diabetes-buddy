@@ -14,6 +14,7 @@ import DietPlanPage from "./pages/DietPlanPage";
 import Progress from "./pages/Progress";
 import SummaryPage from "./pages/SummaryPage";
 import InsulinTitration from "./pages/InsulinTitration";
+import HypoRiskCalculator from "./pages/HypoRiskCalculator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ const App = () => (
                   <Route path="/progress" element={<Progress />} />
                   <Route path="/summary" element={<SummaryPage />} />
                   <Route path="/insulin-titration" element={<InsulinTitration />} />
+                  <Route path="/hypo-risk" element={<HypoRiskCalculator />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>

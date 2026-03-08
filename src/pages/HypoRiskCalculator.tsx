@@ -1,0 +1,287 @@
+import { useState, useEffect, useMemo } from "react";
+import { loadPatient, PatientData, getCKDStage } from "@/lib/patient-data";
+import { AlertTriangle, Shield, CheckCircle, Info, ChevronDown, ChevronUp } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+
+interface RiskFactor {
+  id: string;
+  label: string;
+  description: string;
+  points: number;
+  active: boolean;
+  category: "demographic" | "clinical" | "medication" | "history";
+}
+
+const HypoRiskCalculator = () => {
+  const patient = loadPatient();
+
+  const buildInitialFactors = (p: PatientData | null): RiskFactor[] => [
+    // Demographic
+    { id: "age65", label: "Age ≥ 65 years", description: "Impaired counter-regulatory response, slower symptom recognition", points: 2, active: p ? p.age >= 65 : false, category: "demographic" },
+    { id: "age75", label: "Age ≥ 75 years", description: "Very high risk — cognitive decline, fall risk, polypharmacy", points: 3, active: p ? p.age >= 75 : false, category: "demographic" },
+    { id: "lowBMI", label: "BMI < 20 (underweight)", description: "Reduced glycogen stores, less metabolic reserve", points: 1, active: p ? p.bmi > 0 && p.bmi < 20 : false, category: "demographic" },
+
+    // Clinical
+    { id: "ckd3", label: "CKD Stage 3 (eGFR 30–59)", description: "Reduced insulin clearance → prolonged drug action", points: 2, active: p ? p.eGFR >= 30 && p.eGFR < 60 : false, category: "clinical" },
+    { id: "ckd4", label: "CKD Stage 4–5 (eGFR < 30)", description: "Severely reduced insulin clearance — high risk", points: 4, active: p ? p.eGFR > 0 && p.eGFR < 30 : false, category: "clinical" },
+    { id: "hf", label: "Heart failure (NYHA ≥ II)", description: "Hepatic congestion impairs gluconeogenesis", points: 2, active: p ? (p.hasHF || p.hfNYHA >= 2) : false, category: "clinical" },
+    { id: "liver", label: "Hepatic impairment", description: "Reduced glycogen storage and gluconeogenesis", points: 3, active: false, category: "clinical" },
+    { id: "cognitive", label: "Cognitive impairment / dementia", description: "Inability to recognize or self-treat hypoglycemia", points: 3, active: false, category: "clinical" },
+    { id: "neuropathy", label: "Autonomic neuropathy", description: "Impaired counter-regulatory hormone response, hypo unawareness", points: 3, active: p ? p.hasNeuropathy : false, category: "clinical" },
+    { id: "malnutrition", label: "Poor oral intake / malnutrition", description: "Inadequate carbohydrate substrate", points: 2, active: false, category: "clinical" },
+    { id: "dysphagia", label: "Dysphagia / swallowing difficulty", description: "Cannot self-treat with oral glucose", points: 2, active: p ? p.postStrokeDysphagia : false, category: "clinical" },
+
+    // Medication
+    { id: "insulin", label: "On insulin therapy", description: "Dose-dependent hypo risk, especially basal-bolus", points: 3, active: p ? p.currentMeds.some(m => m.toLowerCase().includes("insulin")) : false, category: "medication" },
+    { id: "su", label: "On sulfonylurea (SU)", description: "Glimepiride/gliclazide/glipizide — insulin secretagogue", points: 3, active: p ? p.currentMeds.some(m => /glimepiride|gliclazide|glipizide|glibenclamide/i.test(m)) : false, category: "medication" },
+    { id: "meglitinide", label: "On meglitinide (repaglinide)", description: "Short-acting secretagogue — meal-time hypo risk", points: 1, active: p ? p.currentMeds.some(m => /repaglinide|nateglinide/i.test(m)) : false, category: "medication" },
+    { id: "insulinSU", label: "Insulin + SU combination", description: "Synergistic hypo risk — avoid if possible", points: 2, active: false, category: "medication" },
+    { id: "polypharm", label: "≥ 5 medications (polypharmacy)", description: "Drug interactions, adherence issues", points: 1, active: p ? p.currentMeds.length >= 5 : false, category: "medication" },
+
+    // History
+    { id: "priorHypo", label: "Prior hypoglycemia episode", description: "Strongest predictor of future hypoglycemia", points: 4, active: false, category: "history" },
+    { id: "severeHypo", label: "Prior severe hypo (needed assistance)", description: "Very high recurrence risk — triggers hypo unawareness cycle", points: 5, active: false, category: "history" },
+    { id: "unawareness", label: "Hypoglycemia unawareness", description: "Cannot feel symptoms below 54 mg/dL — life-threatening", points: 5, active: false, category: "history" },
+    { id: "recentHospital", label: "Recent hospitalization (< 3 months)", description: "Medication changes, deconditioning, altered eating", points: 2, active: false, category: "history" },
+    { id: "longDM", label: "Diabetes duration > 10 years", description: "Progressive beta-cell failure, impaired counter-regulation", points: 1, active: false, category: "history" },
+  ];
+
+  const [factors, setFactors] = useState<RiskFactor[]>(buildInitialFactors(patient));
+  const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["demographic", "clinical", "medication", "history"]));
+  const [hba1cTarget, setHba1cTarget] = useState(patient?.hba1c ? (patient.hba1c > 8 ? 8.0 : 7.0) : 7.0);
+
+  const toggleFactor = (id: string) => {
+    setFactors(prev => prev.map(f => f.id === id ? { ...f, active: !f.active } : f));
+  };
+
+  const toggleCat = (cat: string) => {
+    setExpandedCats(prev => {
+      const next = new Set(prev);
+      next.has(cat) ? next.delete(cat) : next.add(cat);
+      return next;
+    });
+  };
+
+  const result = useMemo(() => {
+    const activeFactors = factors.filter(f => f.active);
+    const totalScore = activeFactors.reduce((sum, f) => sum + f.points, 0);
+
+    let riskLevel: "low" | "moderate" | "high" | "very-high";
+    let recommendation: string;
+    let targetHba1c: string;
+    let color: string;
+
+    if (totalScore <= 3) {
+      riskLevel = "low";
+      recommendation = "Standard glycemic targets appropriate. Routine monitoring.";
+      targetHba1c = "< 7.0%";
+      color = "text-success";
+    } else if (totalScore <= 8) {
+      riskLevel = "moderate";
+      recommendation = "Consider relaxed targets. Avoid SU if possible. Prefer low-hypo-risk agents (GLP-1 RA, SGLT2i, DPP-4i).";
+      targetHba1c = "< 7.5%";
+      color = "text-warning";
+    } else if (totalScore <= 15) {
+      riskLevel = "high";
+      recommendation = "Relaxed HbA1c target. De-escalate SU/insulin if safe. Ensure hypo kit available. Educate caregiver. Consider CGM.";
+      targetHba1c = "< 8.0%";
+      color = "text-destructive";
+    } else {
+      riskLevel = "very-high";
+      recommendation = "Avoid hypoglycemia-causing agents. Prioritize safety over tight control. CGM strongly recommended. Caregiver education critical. Consider endocrinology referral.";
+      targetHba1c = "< 8.5%";
+      color = "text-destructive";
+    }
+
+    return { totalScore, riskLevel, recommendation, targetHba1c, color, activeFactors, activeCount: activeFactors.length };
+  }, [factors]);
+
+  const categoryLabels: Record<string, { label: string; icon: typeof Shield }> = {
+    demographic: { label: "Demographics", icon: Info },
+    clinical: { label: "Clinical Conditions", icon: AlertTriangle },
+    medication: { label: "Medications", icon: Shield },
+    history: { label: "Hypo History", icon: AlertTriangle },
+  };
+
+  const grouped = useMemo(() => {
+    const cats = ["demographic", "clinical", "medication", "history"];
+    return cats.map(cat => ({
+      key: cat,
+      ...categoryLabels[cat],
+      factors: factors.filter(f => f.category === cat),
+      activeCount: factors.filter(f => f.category === cat && f.active).length,
+      points: factors.filter(f => f.category === cat && f.active).reduce((s, f) => s + f.points, 0),
+    }));
+  }, [factors]);
+
+  const riskMeter = () => {
+    const maxScore = 40;
+    const pct = Math.min((result.totalScore / maxScore) * 100, 100);
+    return (
+      <div className="relative h-4 rounded-full overflow-hidden bg-muted">
+        <div
+          className="absolute inset-y-0 left-0 rounded-full transition-all duration-500"
+          style={{
+            width: `${pct}%`,
+            background: result.totalScore <= 3
+              ? "hsl(var(--success))"
+              : result.totalScore <= 8
+              ? "hsl(var(--warning))"
+              : "hsl(var(--destructive))",
+          }}
+        />
+      </div>
+    );
+  };
+
+  return (
+    <div className="space-y-5 animate-slide-in">
+      <div>
+        <h1 className="text-xl font-heading font-bold">Hypoglycemia Risk Score</h1>
+        <p className="text-sm text-muted-foreground">Multi-factor risk assessment — ADA 2026 + clinical evidence</p>
+      </div>
+
+      {/* Patient context */}
+      {patient && patient.name && (
+        <div className="clinical-card p-3 bg-muted/30">
+          <p className="text-sm">
+            <strong>{patient.name}</strong> · {patient.age}y · eGFR {patient.eGFR} ({getCKDStage(patient.eGFR)}) · HbA1c {patient.hba1c}%
+          </p>
+          <p className="text-xs text-muted-foreground mt-1">
+            Risk factors auto-populated from patient data. Toggle additional factors below.
+          </p>
+        </div>
+      )}
+
+      {/* Score result card */}
+      <div className={`clinical-card border-l-4 ${
+        result.riskLevel === "low" ? "border-l-success" :
+        result.riskLevel === "moderate" ? "border-l-warning" : "border-l-destructive"
+      }`}>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            {result.riskLevel === "low" ? (
+              <CheckCircle className="w-5 h-5 text-success" />
+            ) : (
+              <AlertTriangle className={`w-5 h-5 ${result.color}`} />
+            )}
+            <div>
+              <h3 className="font-heading font-bold text-lg capitalize">{result.riskLevel.replace("-", " ")} Risk</h3>
+              <p className="text-xs text-muted-foreground">{result.activeCount} active risk factors</p>
+            </div>
+          </div>
+          <div className="text-right">
+            <span className={`text-3xl font-heading font-bold ${result.color}`}>{result.totalScore}</span>
+            <span className="text-xs text-muted-foreground block">points</span>
+          </div>
+        </div>
+
+        {riskMeter()}
+        <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
+          <span>Low (0–3)</span>
+          <span>Moderate (4–8)</span>
+          <span>High (9–15)</span>
+          <span>Very High (16+)</span>
+        </div>
+
+        <div className="mt-4 grid grid-cols-2 gap-3">
+          <div className="p-2.5 rounded-lg bg-muted/50 text-center">
+            <span className="text-[10px] text-muted-foreground block">Recommended HbA1c</span>
+            <span className={`text-lg font-heading font-bold ${result.color}`}>{result.targetHba1c}</span>
+          </div>
+          <div className="p-2.5 rounded-lg bg-muted/50 text-center">
+            <span className="text-[10px] text-muted-foreground block">Category Scores</span>
+            <div className="flex justify-center gap-2 mt-1">
+              {grouped.map(g => (
+                <span key={g.key} className={`text-xs ${g.points > 0 ? "text-foreground font-medium" : "text-muted-foreground"}`}>
+                  {g.label.slice(0, 3)}: {g.points}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className={`mt-3 p-3 rounded-lg text-sm ${
+          result.riskLevel === "low" ? "bg-success/10" :
+          result.riskLevel === "moderate" ? "bg-warning/10" : "bg-destructive/10"
+        }`}>
+          <p>{result.recommendation}</p>
+        </div>
+      </div>
+
+      {/* Risk factor categories */}
+      {grouped.map(group => (
+        <div key={group.key} className="clinical-card">
+          <button onClick={() => toggleCat(group.key)} className="w-full flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <group.icon className={`w-4 h-4 ${group.points > 0 ? "text-warning" : "text-muted-foreground"}`} />
+              <h3 className="section-title">{group.label}</h3>
+              {group.activeCount > 0 && (
+                <span className="text-[10px] bg-warning/10 text-warning px-2 py-0.5 rounded-full">
+                  {group.activeCount} active · {group.points} pts
+                </span>
+              )}
+            </div>
+            {expandedCats.has(group.key) ? <ChevronUp className="w-4 h-4 text-muted-foreground" /> : <ChevronDown className="w-4 h-4 text-muted-foreground" />}
+          </button>
+
+          {expandedCats.has(group.key) && (
+            <div className="mt-3 space-y-2">
+              {group.factors.map(factor => (
+                <label key={factor.id} className={`flex items-start gap-3 p-2.5 rounded-lg cursor-pointer transition-colors ${
+                  factor.active ? "bg-warning/5 border border-warning/20" : "hover:bg-muted/30"
+                }`}>
+                  <Switch
+                    checked={factor.active}
+                    onCheckedChange={() => toggleFactor(factor.id)}
+                    className="mt-0.5 shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium">{factor.label}</span>
+                      <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                        factor.points >= 4 ? "bg-destructive/10 text-destructive" :
+                        factor.points >= 2 ? "bg-warning/10 text-warning" :
+                        "bg-muted text-muted-foreground"
+                      }`}>
+                        +{factor.points}
+                      </span>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-0.5">{factor.description}</p>
+                  </div>
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+
+      {/* Clinical actions */}
+      <div className="clinical-card">
+        <h3 className="section-title mb-3">Clinical Actions by Risk Level</h3>
+        <div className="space-y-3">
+          {[
+            { level: "Low (0–3)", color: "border-l-success", actions: ["Standard HbA1c < 7.0%", "Routine glucose monitoring", "Standard medication regimen"] },
+            { level: "Moderate (4–8)", color: "border-l-warning", actions: ["Consider HbA1c < 7.5%", "Prefer DPP-4i/GLP-1 RA/SGLT2i over SU", "Pre-meal BG checks if on insulin", "Hypo education for patient"] },
+            { level: "High (9–15)", color: "border-l-destructive", actions: ["Relax HbA1c to < 8.0%", "De-escalate or stop SU", "Reduce insulin dose", "Hypo kit + caregiver education", "Consider CGM", "Bedtime snack if on basal insulin"] },
+            { level: "Very High (16+)", color: "border-l-destructive", actions: ["Relax HbA1c to < 8.5%", "Avoid SU entirely", "Minimize insulin if possible", "CGM strongly recommended", "Endocrinology referral", "Structured hypo avoidance program"] },
+          ].map(tier => (
+            <div key={tier.level} className={`border-l-4 ${tier.color} pl-3`}>
+              <h4 className="text-sm font-medium mb-1">{tier.level}</h4>
+              <ul className="text-xs text-muted-foreground space-y-0.5">
+                {tier.actions.map((a, i) => <li key={i}>• {a}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p className="text-[10px] text-muted-foreground mt-3 italic">
+          Based on ADA Standards of Care 2026 §6.6 · Seaquist ER et al. Diabetes Care · NICE NG17 Hypo Guidelines
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default HypoRiskCalculator;
