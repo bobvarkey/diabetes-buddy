@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { PatientData, EXAMPLE_PATIENT, loadPatient, savePatient, calculateBMI, getBMICategory } from "@/lib/patient-data";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,10 +7,19 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
-import { User, Save, RotateCcw } from "lucide-react";
+import { User, Save, RotateCcw, Sparkles, X, Plus } from "lucide-react";
+
+const BLANK_PATIENT: PatientData = {
+  name: "", age: 0, gender: "M", heightCm: 0, weightKg: 0, bmi: 0,
+  eGFR: 90, creatinine: 1.0, hfNYHA: 0, postStrokeDysphagia: false,
+  dysphagiaLevel: "none", ldl: 100, fbs: 100, rbs: 140, hba1c: 6.5,
+  serialBG: [], currentMeds: [], hasT2DM: true,
+};
 
 const PatientInput = () => {
-  const [patient, setPatient] = useState<PatientData>(EXAMPLE_PATIENT);
+  const navigate = useNavigate();
+  const [patient, setPatient] = useState<PatientData>(BLANK_PATIENT);
+  const [newMed, setNewMed] = useState("");
 
   useEffect(() => {
     const saved = loadPatient();
@@ -29,15 +39,51 @@ const PatientInput = () => {
     });
   };
 
+  const addMed = () => {
+    if (!newMed.trim()) return;
+    update("currentMeds", [...patient.currentMeds, newMed.trim()]);
+    setNewMed("");
+  };
+
+  const removeMed = (idx: number) => {
+    update("currentMeds", patient.currentMeds.filter((_, i) => i !== idx));
+  };
+
   const handleSave = () => {
     savePatient(patient);
     toast.success("Patient data saved");
   };
 
   const handleReset = () => {
+    setPatient(BLANK_PATIENT);
+    localStorage.removeItem("dmo_patient");
+    toast.info("Cleared patient data");
+  };
+
+  const handleLoadExample = () => {
     setPatient(EXAMPLE_PATIENT);
     savePatient(EXAMPLE_PATIENT);
-    toast.info("Reset to example patient");
+    toast.info("Loaded Kerala example patient");
+  };
+
+  const handleGenerate = () => {
+    if (!patient.name || !patient.age || !patient.weightKg) {
+      toast.error("Please fill in at least name, age, and weight");
+      return;
+    }
+    savePatient(patient);
+    toast.success("Patient saved — generating recommendations...");
+    navigate("/medications");
+  };
+
+  const handleGenerateDiet = () => {
+    if (!patient.name || !patient.age || !patient.weightKg) {
+      toast.error("Please fill in at least name, age, and weight");
+      return;
+    }
+    savePatient(patient);
+    toast.success("Patient saved — generating diet plan...");
+    navigate("/diet-plan");
   };
 
   const bmiCat = getBMICategory(patient.bmi);
@@ -65,11 +111,14 @@ const PatientInput = () => {
           <h1 className="text-xl font-heading font-bold">Patient Profile</h1>
           <p className="text-sm text-muted-foreground">ADA 2026 assessment checklist</p>
         </div>
-        <div className="flex gap-2">
-          <Button variant="outline" size="sm" onClick={handleReset}>
-            <RotateCcw className="w-3.5 h-3.5 mr-1" /> Reset
+        <div className="flex gap-2 flex-wrap">
+          <Button variant="outline" size="sm" onClick={handleLoadExample}>
+            Load Example
           </Button>
-          <Button size="sm" onClick={handleSave}>
+          <Button variant="outline" size="sm" onClick={handleReset}>
+            <RotateCcw className="w-3.5 h-3.5 mr-1" /> Clear
+          </Button>
+          <Button variant="outline" size="sm" onClick={handleSave}>
             <Save className="w-3.5 h-3.5 mr-1" /> Save
           </Button>
         </div>
@@ -190,10 +239,44 @@ const PatientInput = () => {
       {/* Current Meds */}
       <div className="clinical-card">
         <h3 className="section-title mb-4">Current Medications</h3>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-3">
           {patient.currentMeds.map((med, i) => (
-            <span key={i} className="stat-badge bg-muted text-foreground">{med}</span>
+            <span key={i} className="stat-badge bg-muted text-foreground group">
+              {med}
+              <button onClick={() => removeMed(i)} className="ml-1 opacity-60 hover:opacity-100">
+                <X className="w-3 h-3" />
+              </button>
+            </span>
           ))}
+          {patient.currentMeds.length === 0 && <span className="text-sm text-muted-foreground">No medications added</span>}
+        </div>
+        <div className="flex gap-2">
+          <Input
+            placeholder="e.g. Metformin 500mg BD"
+            value={newMed}
+            onChange={e => setNewMed(e.target.value)}
+            className="h-9"
+            onKeyDown={e => e.key === "Enter" && addMed()}
+          />
+          <Button variant="outline" size="sm" onClick={addMed}>
+            <Plus className="w-3.5 h-3.5" />
+          </Button>
+        </div>
+      </div>
+
+      {/* Generate buttons */}
+      <div className="clinical-card border-primary/20 bg-primary/5">
+        <h3 className="section-title mb-3">Generate Recommendations</h3>
+        <p className="text-sm text-muted-foreground mb-4">
+          Save patient data and generate personalized ADA 2026 medication algorithm and Kerala diet plan based on entered comorbidities.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Button onClick={handleGenerate} className="flex-1 min-w-[180px]">
+            <Sparkles className="w-4 h-4 mr-2" /> Generate Medication Plan
+          </Button>
+          <Button onClick={handleGenerateDiet} variant="outline" className="flex-1 min-w-[180px]">
+            <Sparkles className="w-4 h-4 mr-2" /> Generate Diet Plan
+          </Button>
         </div>
       </div>
     </div>
