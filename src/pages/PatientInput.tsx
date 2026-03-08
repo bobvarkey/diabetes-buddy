@@ -1,26 +1,56 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { PatientData, EXAMPLE_PATIENT, loadPatient, savePatient, calculateBMI, getBMICategory } from "@/lib/patient-data";
+import {
+  PatientData, EXAMPLE_PATIENT, loadPatient, savePatient,
+  calculateBMI, calculateEGFR, getBMICategory, getCKDStage,
+} from "@/lib/patient-data";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
-import { User, Save, RotateCcw, Sparkles, X, Plus, TrendingDown } from "lucide-react";
+import { User, Save, RotateCcw, Sparkles, X, Plus, TrendingDown, Calculator, Heart, Brain, FileText } from "lucide-react";
 
 const BLANK_PATIENT: PatientData = {
   name: "", age: 0, gender: "M", heightCm: 0, weightKg: 0, bmi: 0,
-  eGFR: 90, creatinine: 1.0, hfNYHA: 0, postStrokeDysphagia: false,
-  dysphagiaLevel: "none", ldl: 100, fbs: 100, rbs: 140, hba1c: 6.5,
+  eGFR: 0, creatinine: 0, hfNYHA: 0, postStrokeDysphagia: false,
+  dysphagiaLevel: "none", ldl: 0, fbs: 0, rbs: 0, hba1c: 0,
   serialBG: [], currentMeds: [], hasT2DM: true,
+  hasASCVD: false, hasPostStroke: true, hasCKD: false, hasHypertension: false,
+  hasRetinopathy: false, hasNeuropathy: false, hasPAD: false, hasObesity: false,
+  hasNAFLD: false, hasOSA: false,
 };
+
+const COMMON_DM_MEDS = [
+  "Metformin 500mg BD", "Metformin 1000mg BD",
+  "Glimepiride 1mg OD", "Glimepiride 2mg OD",
+  "Gliclazide MR 30mg OD", "Gliclazide MR 60mg OD",
+  "Sitagliptin 100mg OD", "Sitagliptin 50mg OD",
+  "Linagliptin 5mg OD", "Vildagliptin 50mg BD",
+  "Empagliflozin 10mg OD", "Empagliflozin 25mg OD",
+  "Dapagliflozin 10mg OD",
+  "Pioglitazone 15mg OD", "Pioglitazone 30mg OD",
+  "Voglibose 0.2mg TDS", "Voglibose 0.3mg TDS",
+  "Insulin Glargine 10U HS", "Insulin Degludec 10U OD",
+  "Insulin Aspart before meals",
+  "Semaglutide 0.25mg weekly", "Semaglutide 0.5mg weekly",
+  "Liraglutide 0.6mg daily", "Dulaglutide 0.75mg weekly",
+  "Tirzepatide 2.5mg weekly",
+  "Rosuvastatin 10mg OD", "Rosuvastatin 20mg OD",
+  "Atorvastatin 40mg OD",
+  "Telmisartan 40mg OD", "Amlodipine 5mg OD",
+  "Aspirin 75mg OD", "Clopidogrel 75mg OD",
+];
 
 const PatientInput = () => {
   const navigate = useNavigate();
   const [patient, setPatient] = useState<PatientData>(BLANK_PATIENT);
   const [newMed, setNewMed] = useState("");
   const [newBG, setNewBG] = useState("");
+  const [showMedPicker, setShowMedPicker] = useState(false);
+  const [medSearch, setMedSearch] = useState("");
 
   useEffect(() => {
     const saved = loadPatient();
@@ -30,73 +60,88 @@ const PatientInput = () => {
   const update = (field: keyof PatientData, value: any) => {
     setPatient(prev => {
       const next = { ...prev, [field]: value };
+      // Auto-calculate BMI
       if (field === "heightCm" || field === "weightKg") {
         next.bmi = calculateBMI(
           field === "heightCm" ? value : next.heightCm,
           field === "weightKg" ? value : next.weightKg
         );
+        if (next.bmi >= 25) next.hasObesity = true;
+      }
+      // Auto-calculate eGFR when creatinine changes
+      if (field === "creatinine" && value > 0 && next.age > 0) {
+        next.eGFR = calculateEGFR(value, next.age, next.gender);
+        next.hasCKD = next.eGFR < 60;
+      }
+      // Recalc eGFR when age/gender changes too
+      if ((field === "age" || field === "gender") && next.creatinine > 0 && next.age > 0) {
+        next.eGFR = calculateEGFR(next.creatinine, field === "age" ? value : next.age, field === "gender" ? value : next.gender);
+        next.hasCKD = next.eGFR < 60;
       }
       return next;
     });
   };
 
-  const addMed = () => {
-    if (!newMed.trim()) return;
-    update("currentMeds", [...patient.currentMeds, newMed.trim()]);
+  const addMed = (med?: string) => {
+    const medToAdd = med || newMed.trim();
+    if (!medToAdd) return;
+    if (!patient.currentMeds.includes(medToAdd)) {
+      update("currentMeds", [...patient.currentMeds, medToAdd]);
+    }
     setNewMed("");
+    setShowMedPicker(false);
+    setMedSearch("");
   };
 
   const removeMed = (idx: number) => {
     update("currentMeds", patient.currentMeds.filter((_, i) => i !== idx));
   };
 
-  const handleSave = () => {
-    savePatient(patient);
-    toast.success("Patient data saved");
-  };
+  const handleSave = () => { savePatient(patient); toast.success("Patient data saved"); };
+  const handleReset = () => { setPatient(BLANK_PATIENT); localStorage.removeItem("dmo_patient"); toast.info("Cleared"); };
+  const handleLoadExample = () => { setPatient(EXAMPLE_PATIENT); savePatient(EXAMPLE_PATIENT); toast.info("Loaded Kerala example"); };
 
-  const handleReset = () => {
-    setPatient(BLANK_PATIENT);
-    localStorage.removeItem("dmo_patient");
-    toast.info("Cleared patient data");
-  };
-
-  const handleLoadExample = () => {
-    setPatient(EXAMPLE_PATIENT);
-    savePatient(EXAMPLE_PATIENT);
-    toast.info("Loaded Kerala example patient");
-  };
-
-  const handleGenerate = () => {
+  const handleGenerateSummary = () => {
     if (!patient.name || !patient.age || !patient.weightKg) {
       toast.error("Please fill in at least name, age, and weight");
       return;
     }
     savePatient(patient);
-    toast.success("Patient saved — generating recommendations...");
+    toast.success("Generating complete prescription summary...");
+    navigate("/summary");
+  };
+
+  const handleGenerate = () => {
+    if (!patient.name || !patient.age || !patient.weightKg) {
+      toast.error("Please fill in at least name, age, and weight"); return;
+    }
+    savePatient(patient);
     navigate("/medications");
   };
 
   const handleGenerateDiet = () => {
     if (!patient.name || !patient.age || !patient.weightKg) {
-      toast.error("Please fill in at least name, age, and weight");
-      return;
+      toast.error("Please fill in at least name, age, and weight"); return;
     }
     savePatient(patient);
-    toast.success("Patient saved — generating diet plan...");
     navigate("/diet-plan");
   };
 
   const bmiCat = getBMICategory(patient.bmi);
 
+  // Improved number field that allows empty/editing
   const numField = (label: string, field: keyof PatientData, unit?: string, step?: number) => (
     <div>
       <Label className="text-xs text-muted-foreground">{label}</Label>
       <div className="flex items-center gap-2">
         <Input
           type="number"
-          value={patient[field] as number}
-          onChange={(e) => update(field, parseFloat(e.target.value) || 0)}
+          value={(patient[field] as number) || ""}
+          onChange={(e) => {
+            const val = e.target.value === "" ? 0 : parseFloat(e.target.value);
+            update(field, val);
+          }}
+          placeholder={`Enter ${label.toLowerCase()}`}
           className="h-9"
           step={step}
         />
@@ -105,23 +150,32 @@ const PatientInput = () => {
     </div>
   );
 
+  const comorbidityCheck = (label: string, field: keyof PatientData) => (
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Checkbox
+        checked={patient[field] as boolean}
+        onCheckedChange={(v) => update(field, !!v)}
+      />
+      <span className="text-sm">{label}</span>
+    </label>
+  );
+
+  const filteredCommonMeds = COMMON_DM_MEDS.filter(m =>
+    !patient.currentMeds.includes(m) &&
+    (!medSearch || m.toLowerCase().includes(medSearch.toLowerCase()))
+  );
+
   return (
-    <div className="space-y-6 animate-slide-in">
-      <div className="flex items-center justify-between">
+    <div className="space-y-5 animate-slide-in">
+      <div className="flex items-center justify-between flex-wrap gap-2">
         <div>
           <h1 className="text-xl font-heading font-bold">Patient Profile</h1>
           <p className="text-sm text-muted-foreground">ADA 2026 assessment checklist</p>
         </div>
         <div className="flex gap-2 flex-wrap">
-          <Button variant="outline" size="sm" onClick={handleLoadExample}>
-            Load Example
-          </Button>
-          <Button variant="outline" size="sm" onClick={handleReset}>
-            <RotateCcw className="w-3.5 h-3.5 mr-1" /> Clear
-          </Button>
-          <Button variant="outline" size="sm" onClick={handleSave}>
-            <Save className="w-3.5 h-3.5 mr-1" /> Save
-          </Button>
+          <Button variant="outline" size="sm" onClick={handleLoadExample}>Load Example</Button>
+          <Button variant="outline" size="sm" onClick={handleReset}><RotateCcw className="w-3.5 h-3.5 mr-1" /> Clear</Button>
+          <Button variant="outline" size="sm" onClick={handleSave}><Save className="w-3.5 h-3.5 mr-1" /> Save</Button>
         </div>
       </div>
 
@@ -134,7 +188,7 @@ const PatientInput = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div>
             <Label className="text-xs text-muted-foreground">Name</Label>
-            <Input value={patient.name} onChange={(e) => update("name", e.target.value)} className="h-9" />
+            <Input value={patient.name} onChange={(e) => update("name", e.target.value)} className="h-9" placeholder="Patient name" />
           </div>
           {numField("Age", "age", "years")}
           <div>
@@ -157,38 +211,110 @@ const PatientInput = () => {
       {/* Anthropometrics */}
       <div className="clinical-card">
         <h3 className="section-title mb-4">Anthropometrics & BMI</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {numField("Height", "heightCm", "cm")}
           {numField("Weight", "weightKg", "kg", 0.1)}
           <div>
-            <Label className="text-xs text-muted-foreground">BMI (auto)</Label>
+            <Label className="text-xs text-muted-foreground">BMI (auto-calculated)</Label>
             <div className="h-9 flex items-center">
-              <span className={`text-xl font-heading font-bold ${bmiCat.color}`}>{patient.bmi}</span>
+              <span className={`text-xl font-heading font-bold ${bmiCat.color}`}>
+                {patient.bmi || "—"}
+              </span>
               <span className={`ml-2 text-xs ${bmiCat.color}`}>{bmiCat.label}</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Renal */}
+      {/* Renal Function with eGFR Calculator */}
       <div className="clinical-card">
-        <h3 className="section-title mb-4">Renal Function</h3>
-        <div className="grid grid-cols-2 gap-4">
-          {numField("eGFR", "eGFR", "mL/min")}
-          {numField("Creatinine", "creatinine", "mg/dL", 0.1)}
+        <div className="flex items-center gap-2 mb-4">
+          <Calculator className="w-4 h-4 text-primary" />
+          <h3 className="section-title">Renal Function & eGFR Calculator</h3>
         </div>
-        {patient.eGFR < 60 && (
-          <div className="mt-3 p-3 rounded-lg bg-warning/10 text-sm text-warning">
-            ⚠ CKD Stage {patient.eGFR >= 30 ? "3" : patient.eGFR >= 15 ? "4" : "5"} — Medication dose adjustments required
+        <p className="text-xs text-muted-foreground mb-3">
+          Enter serum creatinine → eGFR auto-calculates using CKD-EPI 2021 (race-free) equation
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {numField("Serum Creatinine", "creatinine", "mg/dL", 0.1)}
+          <div>
+            <Label className="text-xs text-muted-foreground">eGFR (auto / manual)</Label>
+            <div className="flex items-center gap-2">
+              <Input
+                type="number"
+                value={patient.eGFR || ""}
+                onChange={(e) => {
+                  const val = e.target.value === "" ? 0 : parseFloat(e.target.value);
+                  update("eGFR", val);
+                }}
+                placeholder="Auto or enter"
+                className="h-9"
+              />
+              <span className="text-xs text-muted-foreground whitespace-nowrap">mL/min</span>
+            </div>
+          </div>
+          {patient.eGFR > 0 && (
+            <div>
+              <Label className="text-xs text-muted-foreground">CKD Stage</Label>
+              <div className={`h-9 flex items-center text-sm font-medium ${patient.eGFR < 60 ? "text-warning" : "text-success"}`}>
+                {getCKDStage(patient.eGFR)}
+              </div>
+            </div>
+          )}
+        </div>
+        {patient.creatinine > 0 && patient.age > 0 && (
+          <div className="mt-3 p-3 rounded-lg bg-accent text-xs text-accent-foreground">
+            <strong>CKD-EPI 2021:</strong> Creatinine {patient.creatinine} mg/dL · Age {patient.age} · {patient.gender === "F" ? "Female" : "Male"} → eGFR = <strong>{patient.eGFR}</strong> mL/min/1.73m²
+          </div>
+        )}
+        {patient.eGFR > 0 && patient.eGFR < 60 && (
+          <div className="mt-2 p-3 rounded-lg bg-warning/10 text-sm text-warning">
+            ⚠ CKD {getCKDStage(patient.eGFR)} — Medication dose adjustments required
           </div>
         )}
       </div>
 
-      {/* Cardiac */}
+      {/* Comorbidities */}
       <div className="clinical-card">
-        <h3 className="section-title mb-4">Heart Failure</h3>
-        <div>
-          <Label className="text-xs text-muted-foreground">NYHA Class</Label>
+        <div className="flex items-center gap-2 mb-4">
+          <Heart className="w-4 h-4 text-destructive" />
+          <h3 className="section-title">Comorbidities</h3>
+        </div>
+        <p className="text-xs text-muted-foreground mb-3">Select all that apply — influences medication algorithm</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {comorbidityCheck("ASCVD (atherosclerotic CVD)", "hasASCVD")}
+          {comorbidityCheck("Post-Stroke", "hasPostStroke")}
+          {comorbidityCheck("CKD (eGFR <60)", "hasCKD")}
+          {comorbidityCheck("Heart Failure", "hfNYHA" as any)}
+          {comorbidityCheck("Hypertension", "hasHypertension")}
+          {comorbidityCheck("Diabetic Retinopathy", "hasRetinopathy")}
+          {comorbidityCheck("Diabetic Neuropathy", "hasNeuropathy")}
+          {comorbidityCheck("Peripheral Arterial Disease", "hasPAD")}
+          {comorbidityCheck("Obesity (BMI ≥25)", "hasObesity")}
+          {comorbidityCheck("NAFLD / Fatty Liver", "hasNAFLD")}
+          {comorbidityCheck("Obstructive Sleep Apnea", "hasOSA")}
+        </div>
+
+        {/* HF NYHA if HF selected */}
+        {(patient.hfNYHA > 0 || patient.currentMeds.some(m => m.toLowerCase().includes("hf"))) && (
+          <div className="mt-3">
+            <Label className="text-xs text-muted-foreground">HF NYHA Class</Label>
+            <Select value={String(patient.hfNYHA)} onValueChange={(v) => update("hfNYHA", parseInt(v))}>
+              <SelectTrigger className="h-9 w-48"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="0">No HF</SelectItem>
+                <SelectItem value="1">NYHA I</SelectItem>
+                <SelectItem value="2">NYHA II</SelectItem>
+                <SelectItem value="3">NYHA III</SelectItem>
+                <SelectItem value="4">NYHA IV</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        )}
+
+        {/* HF NYHA standalone if not in comorbidity list */}
+        <div className="mt-3">
+          <Label className="text-xs text-muted-foreground">Heart Failure NYHA Class</Label>
           <Select value={String(patient.hfNYHA)} onValueChange={(v) => update("hfNYHA", parseInt(v))}>
             <SelectTrigger className="h-9 w-48"><SelectValue /></SelectTrigger>
             <SelectContent>
@@ -204,7 +330,10 @@ const PatientInput = () => {
 
       {/* Post-Stroke */}
       <div className="clinical-card">
-        <h3 className="section-title mb-4">Post-Stroke Assessment</h3>
+        <div className="flex items-center gap-2 mb-4">
+          <Brain className="w-4 h-4 text-primary" />
+          <h3 className="section-title">Post-Stroke Assessment</h3>
+        </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="flex items-center gap-2">
             <Switch checked={patient.postStrokeDysphagia} onCheckedChange={(v) => update("postStrokeDysphagia", v)} />
@@ -226,7 +355,7 @@ const PatientInput = () => {
         </div>
       </div>
 
-      {/* Glycemic */}
+      {/* Glycemic & Lipids */}
       <div className="clinical-card">
         <h3 className="section-title mb-4">Blood Glucose & Lipids</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -234,6 +363,9 @@ const PatientInput = () => {
           {numField("RBS", "rbs", "mg/dL")}
           {numField("HbA1c", "hba1c", "%", 0.1)}
           {numField("LDL", "ldl", "mg/dL")}
+          {numField("HDL", "hdl", "mg/dL")}
+          {numField("Triglycerides", "triglycerides", "mg/dL")}
+          {numField("Total Cholesterol", "totalCholesterol", "mg/dL")}
         </div>
       </div>
 
@@ -243,21 +375,18 @@ const PatientInput = () => {
           <TrendingDown className="w-4 h-4 text-primary" />
           <h3 className="section-title">Serial BG Readings</h3>
         </div>
-        <p className="text-xs text-muted-foreground mb-3">Enter daily blood glucose readings to track trends (mg/dL)</p>
-        
-        {/* Existing readings */}
+        <p className="text-xs text-muted-foreground mb-3">Enter daily blood glucose readings (mg/dL)</p>
         {patient.serialBG.length > 0 && (
           <div className="mb-3">
             <div className="flex items-end gap-1.5 h-20 mb-2">
               {patient.serialBG.map((bg, i) => {
                 const maxBG = Math.max(...patient.serialBG, 200);
                 const height = (bg / maxBG) * 100;
-                const isHigh = bg > 180;
                 return (
                   <div key={i} className="flex-1 flex flex-col items-center gap-0.5 group relative">
                     <span className="text-[9px] text-muted-foreground">{bg}</span>
                     <div
-                      className={`w-full rounded-t-sm ${isHigh ? "bg-destructive/70" : bg < 70 ? "bg-warning/70" : "bg-primary/70"}`}
+                      className={`w-full rounded-t-sm ${bg > 180 ? "bg-destructive/70" : bg < 70 ? "bg-warning/70" : "bg-primary/70"}`}
                       style={{ height: `${height}%` }}
                     />
                     <button
@@ -271,56 +400,47 @@ const PatientInput = () => {
             <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-destructive/70" /> &gt;180</span>
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-primary/70" /> 70-180</span>
-              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-warning/70" /> &lt;70 Hypo</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-warning/70" /> &lt;70</span>
               <span className="ml-auto">{patient.serialBG.length} readings</span>
             </div>
           </div>
         )}
-
-        {/* Add new reading */}
         <div className="flex gap-2">
           <Input
             type="number"
-            placeholder="Enter BG reading (mg/dL)"
+            placeholder="BG reading (mg/dL)"
             value={newBG}
             onChange={e => setNewBG(e.target.value)}
             className="h-9"
             onKeyDown={e => {
               if (e.key === "Enter") {
                 const val = parseInt(newBG);
-                if (val > 0) {
-                  update("serialBG", [...patient.serialBG, val]);
-                  setNewBG("");
-                }
+                if (val > 0) { update("serialBG", [...patient.serialBG, val]); setNewBG(""); }
               }
             }}
           />
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => {
-              const val = parseInt(newBG);
-              if (val > 0) {
-                update("serialBG", [...patient.serialBG, val]);
-                setNewBG("");
-              }
-            }}
-          >
+          <Button variant="outline" size="sm" onClick={() => {
+            const val = parseInt(newBG);
+            if (val > 0) { update("serialBG", [...patient.serialBG, val]); setNewBG(""); }
+          }}>
             <Plus className="w-3.5 h-3.5" />
           </Button>
         </div>
         {patient.serialBG.length > 0 && (
           <div className="mt-2 flex gap-4 text-xs text-muted-foreground">
-            <span>Avg: <strong className="text-foreground">{Math.round(patient.serialBG.reduce((a, b) => a + b, 0) / patient.serialBG.length)}</strong> mg/dL</span>
+            <span>Avg: <strong className="text-foreground">{Math.round(patient.serialBG.reduce((a, b) => a + b, 0) / patient.serialBG.length)}</strong></span>
             <span>Min: <strong className="text-foreground">{Math.min(...patient.serialBG)}</strong></span>
             <span>Max: <strong className="text-foreground">{Math.max(...patient.serialBG)}</strong></span>
           </div>
         )}
       </div>
 
-      {/* Current Meds */}
+      {/* Current Medications with quick-pick */}
       <div className="clinical-card">
-        <h3 className="section-title mb-4">Current Medications</h3>
+        <h3 className="section-title mb-2">Current Diabetes Medications</h3>
+        <p className="text-xs text-muted-foreground mb-3">Add current medications — the algorithm will review and adjust</p>
+
+        {/* Current meds chips */}
         <div className="flex flex-wrap gap-2 mb-3">
           {patient.currentMeds.map((med, i) => (
             <span key={i} className="stat-badge bg-muted text-foreground group">
@@ -330,34 +450,66 @@ const PatientInput = () => {
               </button>
             </span>
           ))}
-          {patient.currentMeds.length === 0 && <span className="text-sm text-muted-foreground">No medications added</span>}
+          {patient.currentMeds.length === 0 && <span className="text-sm text-muted-foreground italic">No medications added yet</span>}
         </div>
-        <div className="flex gap-2">
+
+        {/* Free-text add */}
+        <div className="flex gap-2 mb-2">
           <Input
-            placeholder="e.g. Metformin 500mg BD"
+            placeholder="Type medication name & dose..."
             value={newMed}
             onChange={e => setNewMed(e.target.value)}
             className="h-9"
             onKeyDown={e => e.key === "Enter" && addMed()}
           />
-          <Button variant="outline" size="sm" onClick={addMed}>
+          <Button variant="outline" size="sm" onClick={() => addMed()}>
             <Plus className="w-3.5 h-3.5" />
           </Button>
         </div>
+
+        {/* Quick-pick toggle */}
+        <Button variant="ghost" size="sm" onClick={() => setShowMedPicker(!showMedPicker)} className="text-xs text-primary">
+          {showMedPicker ? "Hide" : "Show"} common diabetes medications ▾
+        </Button>
+
+        {showMedPicker && (
+          <div className="mt-2 border rounded-lg p-3 bg-muted/20">
+            <Input
+              placeholder="Search medications..."
+              value={medSearch}
+              onChange={e => setMedSearch(e.target.value)}
+              className="h-8 mb-2 text-sm"
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-1 max-h-48 overflow-y-auto">
+              {filteredCommonMeds.map(med => (
+                <button
+                  key={med}
+                  onClick={() => addMed(med)}
+                  className="text-left text-xs p-1.5 rounded hover:bg-accent transition-colors"
+                >
+                  + {med}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Generate buttons */}
       <div className="clinical-card border-primary/20 bg-primary/5">
-        <h3 className="section-title mb-3">Generate Recommendations</h3>
+        <h3 className="section-title mb-3">Generate Prescription</h3>
         <p className="text-sm text-muted-foreground mb-4">
-          Save patient data and generate personalized ADA 2026 medication algorithm and Kerala diet plan based on entered comorbidities.
+          Generate patient-specific ADA 2026 medication prescription based on demographics, comorbidities, blood sugar values, and current medications.
         </p>
         <div className="flex flex-wrap gap-3">
-          <Button onClick={handleGenerate} className="flex-1 min-w-[180px]">
-            <Sparkles className="w-4 h-4 mr-2" /> Generate Medication Plan
+          <Button onClick={handleGenerateSummary} className="flex-1 min-w-[200px]" size="lg">
+            <FileText className="w-4 h-4 mr-2" /> Generate Complete Summary
           </Button>
-          <Button onClick={handleGenerateDiet} variant="outline" className="flex-1 min-w-[180px]">
-            <Sparkles className="w-4 h-4 mr-2" /> Generate Diet Plan
+          <Button onClick={handleGenerate} variant="outline" className="flex-1 min-w-[160px]">
+            <Sparkles className="w-4 h-4 mr-2" /> Medication Only
+          </Button>
+          <Button onClick={handleGenerateDiet} variant="outline" className="flex-1 min-w-[160px]">
+            <Sparkles className="w-4 h-4 mr-2" /> Diet Only
           </Button>
         </div>
       </div>

@@ -12,6 +12,7 @@ import PlateMethod from "./pages/PlateMethod";
 import MedOptimizer from "./pages/MedOptimizer";
 import DietPlanPage from "./pages/DietPlanPage";
 import Progress from "./pages/Progress";
+import SummaryPage from "./pages/SummaryPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ const App = () => (
                   <Route path="/medications" element={<MedOptimizer />} />
                   <Route path="/diet-plan" element={<DietPlanPage />} />
                   <Route path="/progress" element={<Progress />} />
+                  <Route path="/summary" element={<SummaryPage />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>

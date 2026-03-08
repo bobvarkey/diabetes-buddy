@@ -1,5 +1,5 @@
 import {
-  LayoutDashboard, User, UtensilsCrossed, Circle, Pill, CalendarDays, TrendingUp,
+  LayoutDashboard, User, UtensilsCrossed, Circle, Pill, CalendarDays, TrendingUp, FileText,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -11,6 +11,7 @@ import {
 const items = [
   { title: "Dashboard", url: "/", icon: LayoutDashboard },
   { title: "Patient", url: "/patient", icon: User },
+  { title: "Summary", url: "/summary", icon: FileText },
   { title: "Foods", url: "/foods", icon: UtensilsCrossed },
   { title: "Plate Method", url: "/plate", icon: Circle },
   { title: "Medications", url: "/medications", icon: Pill },
