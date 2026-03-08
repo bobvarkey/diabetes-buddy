@@ -24,6 +24,7 @@ export interface PatientData {
   hasASCVD: boolean;
   hasPostStroke: boolean;
   hasCKD: boolean;
+  hasHF: boolean;
   hasHypertension: boolean;
   hasRetinopathy: boolean;
   hasNeuropathy: boolean;
@@ -58,6 +59,7 @@ export const EXAMPLE_PATIENT: PatientData = {
   hasASCVD: true,
   hasPostStroke: true,
   hasCKD: true,
+  hasHF: true,
   hasHypertension: true,
   hasRetinopathy: false,
   hasNeuropathy: false,

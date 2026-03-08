@@ -18,9 +18,9 @@ const BLANK_PATIENT: PatientData = {
   eGFR: 0, creatinine: 0, hfNYHA: 0, postStrokeDysphagia: false,
   dysphagiaLevel: "none", ldl: 0, fbs: 0, rbs: 0, hba1c: 0,
   serialBG: [], currentMeds: [], hasT2DM: true,
-  hasASCVD: false, hasPostStroke: true, hasCKD: false, hasHypertension: false,
-  hasRetinopathy: false, hasNeuropathy: false, hasPAD: false, hasObesity: false,
-  hasNAFLD: false, hasOSA: false,
+  hasASCVD: false, hasPostStroke: false, hasCKD: false, hasHF: false,
+  hasHypertension: false, hasRetinopathy: false, hasNeuropathy: false,
+  hasPAD: false, hasObesity: false, hasNAFLD: false, hasOSA: false,
 };
 
 const COMMON_DM_MEDS = [
@@ -67,6 +67,7 @@ const PatientInput = () => {
           field === "weightKg" ? value : next.weightKg
         );
         if (next.bmi >= 25) next.hasObesity = true;
+        else next.hasObesity = false;
       }
       // Auto-calculate eGFR when creatinine changes
       if (field === "creatinine" && value > 0 && next.age > 0) {
@@ -77,6 +78,15 @@ const PatientInput = () => {
       if ((field === "age" || field === "gender") && next.creatinine > 0 && next.age > 0) {
         next.eGFR = calculateEGFR(next.creatinine, field === "age" ? value : next.age, field === "gender" ? value : next.gender);
         next.hasCKD = next.eGFR < 60;
+      }
+      // Auto-set ASCVD when post-stroke is checked
+      if (field === "hasPostStroke" && value) {
+        next.hasASCVD = true;
+      }
+      // Auto-set HF NYHA when HF checkbox changes
+      if (field === "hasHF") {
+        if (!value) next.hfNYHA = 0;
+        else if (next.hfNYHA === 0) next.hfNYHA = 2; // default to NYHA II
       }
       return next;
     });
@@ -285,7 +295,7 @@ const PatientInput = () => {
           {comorbidityCheck("ASCVD (atherosclerotic CVD)", "hasASCVD")}
           {comorbidityCheck("Post-Stroke", "hasPostStroke")}
           {comorbidityCheck("CKD (eGFR <60)", "hasCKD")}
-          {comorbidityCheck("Heart Failure", "hfNYHA" as any)}
+          {comorbidityCheck("Heart Failure", "hasHF")}
           {comorbidityCheck("Hypertension", "hasHypertension")}
           {comorbidityCheck("Diabetic Retinopathy", "hasRetinopathy")}
           {comorbidityCheck("Diabetic Neuropathy", "hasNeuropathy")}
@@ -295,14 +305,13 @@ const PatientInput = () => {
           {comorbidityCheck("Obstructive Sleep Apnea", "hasOSA")}
         </div>
 
-        {/* HF NYHA if HF selected */}
-        {(patient.hfNYHA > 0 || patient.currentMeds.some(m => m.toLowerCase().includes("hf"))) && (
+        {/* HF NYHA Class */}
+        {patient.hasHF && (
           <div className="mt-3">
             <Label className="text-xs text-muted-foreground">HF NYHA Class</Label>
             <Select value={String(patient.hfNYHA)} onValueChange={(v) => update("hfNYHA", parseInt(v))}>
               <SelectTrigger className="h-9 w-48"><SelectValue /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="0">No HF</SelectItem>
                 <SelectItem value="1">NYHA I</SelectItem>
                 <SelectItem value="2">NYHA II</SelectItem>
                 <SelectItem value="3">NYHA III</SelectItem>
@@ -311,21 +320,6 @@ const PatientInput = () => {
             </Select>
           </div>
         )}
-
-        {/* HF NYHA standalone if not in comorbidity list */}
-        <div className="mt-3">
-          <Label className="text-xs text-muted-foreground">Heart Failure NYHA Class</Label>
-          <Select value={String(patient.hfNYHA)} onValueChange={(v) => update("hfNYHA", parseInt(v))}>
-            <SelectTrigger className="h-9 w-48"><SelectValue /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="0">No HF</SelectItem>
-              <SelectItem value="1">NYHA I</SelectItem>
-              <SelectItem value="2">NYHA II</SelectItem>
-              <SelectItem value="3">NYHA III</SelectItem>
-              <SelectItem value="4">NYHA IV</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
       </div>
 
       {/* Post-Stroke */}

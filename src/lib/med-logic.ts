@@ -570,16 +570,15 @@ function isOnDrugClass(patient: PatientData, cls: DrugClass): boolean {
 }
 
 function hasASCVD(patient: PatientData): boolean {
-  // Post-stroke patients are automatically ASCVD+
-  return true; // This app is specifically for post-stroke patients
+  return patient.hasASCVD || patient.hasPostStroke || patient.hasPAD;
 }
 
 function hasCKD(patient: PatientData): boolean {
-  return patient.eGFR < 60;
+  return patient.hasCKD || patient.eGFR < 60;
 }
 
 function hasHF(patient: PatientData): boolean {
-  return patient.hfNYHA >= 2;
+  return patient.hasHF || patient.hfNYHA >= 2;
 }
 
 function needsWeightManagement(patient: PatientData): boolean {
