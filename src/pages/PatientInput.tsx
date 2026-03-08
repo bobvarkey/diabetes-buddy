@@ -18,9 +18,9 @@ const BLANK_PATIENT: PatientData = {
   eGFR: 0, creatinine: 0, hfNYHA: 0, postStrokeDysphagia: false,
   dysphagiaLevel: "none", ldl: 0, fbs: 0, rbs: 0, hba1c: 0,
   serialBG: [], currentMeds: [], hasT2DM: true,
-  hasASCVD: false, hasPostStroke: true, hasCKD: false, hasHypertension: false,
-  hasRetinopathy: false, hasNeuropathy: false, hasPAD: false, hasObesity: false,
-  hasNAFLD: false, hasOSA: false,
+  hasASCVD: false, hasPostStroke: false, hasCKD: false, hasHF: false,
+  hasHypertension: false, hasRetinopathy: false, hasNeuropathy: false,
+  hasPAD: false, hasObesity: false, hasNAFLD: false, hasOSA: false,
 };
 
 const COMMON_DM_MEDS = [
