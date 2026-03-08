@@ -202,10 +202,79 @@ const HypoRiskCalculator = () => {
             <strong>{patient.name}</strong> · {patient.age}y · eGFR {patient.eGFR} ({getCKDStage(patient.eGFR)}) · HbA1c {patient.hba1c}%
           </p>
           <p className="text-xs text-muted-foreground mt-1">
-            Risk factors auto-populated from patient data. Toggle additional factors below.
+            Enter demographics below to drive score calculation for age, BMI, CKD, insulin use, and prior hypoglycemia.
           </p>
         </div>
       )}
+
+      {/* Manual patient factor inputs */}
+      <div className="clinical-card">
+        <h3 className="section-title mb-3">Manual Patient Inputs</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="space-y-1.5">
+            <Label htmlFor="hypo-age" className="text-xs text-muted-foreground">Age (years)</Label>
+            <Input
+              id="hypo-age"
+              type="number"
+              min={0}
+              value={manualInputs.age}
+              onChange={(e) => setManualInputs(prev => ({ ...prev, age: e.target.value }))}
+              placeholder="e.g., 68"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="hypo-bmi" className="text-xs text-muted-foreground">BMI</Label>
+            <Input
+              id="hypo-bmi"
+              type="number"
+              min={0}
+              step="0.1"
+              value={manualInputs.bmi}
+              onChange={(e) => setManualInputs(prev => ({ ...prev, bmi: e.target.value }))}
+              placeholder="e.g., 19.4"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="hypo-egfr" className="text-xs text-muted-foreground">eGFR (mL/min/1.73m²)</Label>
+            <Input
+              id="hypo-egfr"
+              type="number"
+              min={0}
+              value={manualInputs.eGFR}
+              onChange={(e) => setManualInputs(prev => ({ ...prev, eGFR: e.target.value }))}
+              placeholder="e.g., 42"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
+          <label className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-muted/20">
+            <span className="text-sm">On insulin therapy</span>
+            <Switch
+              checked={manualInputs.onInsulin}
+              onCheckedChange={(checked) => setManualInputs(prev => ({ ...prev, onInsulin: checked }))}
+            />
+          </label>
+          <label className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-muted/20">
+            <span className="text-sm">Prior hypoglycemia</span>
+            <Switch
+              checked={manualInputs.priorHypo}
+              onCheckedChange={(checked) => setManualInputs(prev => ({ ...prev, priorHypo: checked }))}
+            />
+          </label>
+          <label className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-muted/20">
+            <span className="text-sm">Prior severe hypo</span>
+            <Switch
+              checked={manualInputs.severeHypo}
+              onCheckedChange={(checked) => setManualInputs(prev => ({ ...prev, severeHypo: checked }))}
+            />
+          </label>
+        </div>
+
+        <p className="text-[10px] text-muted-foreground mt-2">
+          These entries auto-update matching risk factors; remaining factors can be toggled manually.
+        </p>
+      </div>
 
       {/* Score result card */}
       <div className={`clinical-card border-l-4 ${
