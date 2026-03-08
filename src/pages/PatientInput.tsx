@@ -239,10 +239,44 @@ const PatientInput = () => {
       {/* Current Meds */}
       <div className="clinical-card">
         <h3 className="section-title mb-4">Current Medications</h3>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-3">
           {patient.currentMeds.map((med, i) => (
-            <span key={i} className="stat-badge bg-muted text-foreground">{med}</span>
+            <span key={i} className="stat-badge bg-muted text-foreground group">
+              {med}
+              <button onClick={() => removeMed(i)} className="ml-1 opacity-60 hover:opacity-100">
+                <X className="w-3 h-3" />
+              </button>
+            </span>
           ))}
+          {patient.currentMeds.length === 0 && <span className="text-sm text-muted-foreground">No medications added</span>}
+        </div>
+        <div className="flex gap-2">
+          <Input
+            placeholder="e.g. Metformin 500mg BD"
+            value={newMed}
+            onChange={e => setNewMed(e.target.value)}
+            className="h-9"
+            onKeyDown={e => e.key === "Enter" && addMed()}
+          />
+          <Button variant="outline" size="sm" onClick={addMed}>
+            <Plus className="w-3.5 h-3.5" />
+          </Button>
+        </div>
+      </div>
+
+      {/* Generate buttons */}
+      <div className="clinical-card border-primary/20 bg-primary/5">
+        <h3 className="section-title mb-3">Generate Recommendations</h3>
+        <p className="text-sm text-muted-foreground mb-4">
+          Save patient data and generate personalized ADA 2026 medication algorithm and Kerala diet plan based on entered comorbidities.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Button onClick={handleGenerate} className="flex-1 min-w-[180px]">
+            <Sparkles className="w-4 h-4 mr-2" /> Generate Medication Plan
+          </Button>
+          <Button onClick={handleGenerateDiet} variant="outline" className="flex-1 min-w-[180px]">
+            <Sparkles className="w-4 h-4 mr-2" /> Generate Diet Plan
+          </Button>
         </div>
       </div>
     </div>
