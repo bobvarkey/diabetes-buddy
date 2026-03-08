@@ -1,10 +1,38 @@
 import { useState, useEffect, useMemo } from "react";
 import { PatientData, EXAMPLE_PATIENT, loadPatient } from "@/lib/patient-data";
-import { generateMedRecommendations, getHypoProtocol, getLipidTargets, MedRecommendation } from "@/lib/med-logic";
-import { Pill, AlertTriangle, Heart, Shield } from "lucide-react";
+import {
+  generateMedRecommendations, getHypoProtocol, getLipidTargets,
+  MedRecommendation, AlgorithmPriority, getCategoryLabel, getDrugClassLabel,
+} from "@/lib/med-logic";
+import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity } from "lucide-react";
+
+const categoryIcon: Record<AlgorithmPriority, typeof Heart> = {
+  "cvkd-risk": Heart,
+  "weight-management": Scale,
+  "glycemic-control": Activity,
+  "lipid": TrendingDown,
+  "current-med-review": Pill,
+};
+
+const categoryColor: Record<AlgorithmPriority, string> = {
+  "cvkd-risk": "border-l-destructive",
+  "weight-management": "border-l-warning",
+  "glycemic-control": "border-l-primary",
+  "lipid": "border-l-info",
+  "current-med-review": "border-l-muted-foreground",
+};
+
+const categoryBg: Record<AlgorithmPriority, string> = {
+  "cvkd-risk": "bg-destructive/5",
+  "weight-management": "bg-warning/5",
+  "glycemic-control": "bg-primary/5",
+  "lipid": "bg-info/5",
+  "current-med-review": "bg-muted/30",
+};
 
 const MedOptimizer = () => {
   const [patient, setPatient] = useState<PatientData>(EXAMPLE_PATIENT);
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set([0, 1, 2]));
 
   useEffect(() => {
     const saved = loadPatient();
@@ -15,18 +43,49 @@ const MedOptimizer = () => {
   const hypo = getHypoProtocol(patient);
   const lipids = getLipidTargets(patient);
 
-  const priorityColor = (p: string) => {
-    if (p === "first-line") return "bg-primary/10 text-primary border-primary/20";
-    if (p === "adjustment") return "bg-warning/10 text-warning border-warning/20";
-    if (p === "add-on") return "bg-info/10 text-info border-info/20";
-    return "bg-muted text-muted-foreground";
+  // Group meds by category
+  const grouped = useMemo(() => {
+    const groups: { category: AlgorithmPriority; label: string; meds: MedRecommendation[] }[] = [];
+    const catOrder: AlgorithmPriority[] = ["cvkd-risk", "weight-management", "glycemic-control", "lipid", "current-med-review"];
+    for (const cat of catOrder) {
+      const catMeds = meds.filter(m => m.category === cat);
+      if (catMeds.length > 0) {
+        groups.push({ category: cat, label: getCategoryLabel(cat), meds: catMeds });
+      }
+    }
+    return groups;
+  }, [meds]);
+
+  const toggleCard = (idx: number) => {
+    setExpandedCards(prev => {
+      const next = new Set(prev);
+      next.has(idx) ? next.delete(idx) : next.add(idx);
+      return next;
+    });
   };
+
+  const priorityBadge = (p: string) => {
+    const styles: Record<string, string> = {
+      "first-line": "bg-primary/10 text-primary border-primary/20",
+      "adjustment": "bg-warning/10 text-warning border-warning/20",
+      "add-on": "bg-info/10 text-info border-info/20",
+      "intensification": "bg-destructive/10 text-destructive border-destructive/20",
+      "de-escalate": "bg-muted text-muted-foreground border-border",
+      "emergency": "bg-destructive text-destructive-foreground border-destructive",
+    };
+    return styles[p] || "bg-muted text-muted-foreground";
+  };
+
+  const weightIcon = (w: string) => w === "loss" ? "↓ Weight loss" : w === "gain" ? "↑ Weight gain" : "→ Weight neutral";
+  const weightColor = (w: string) => w === "loss" ? "text-success" : w === "gain" ? "text-destructive" : "text-muted-foreground";
+
+  let globalIdx = 0;
 
   return (
     <div className="space-y-5 animate-slide-in">
       <div>
         <h1 className="text-xl font-heading font-bold">Medication Optimizer</h1>
-        <p className="text-sm text-muted-foreground">ADA 2026 + LAI lipid guidelines</p>
+        <p className="text-sm text-muted-foreground">ADA 2026 Priorities-First Algorithm + LAI Lipid Guidelines</p>
       </div>
 
       {/* Patient summary */}
@@ -41,47 +100,130 @@ const MedOptimizer = () => {
             <span>RBS {patient.rbs}</span>
             <span>LDL {patient.ldl}</span>
           </div>
+          {patient.currentMeds.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mt-2">
+              {patient.currentMeds.map((m, i) => (
+                <span key={i} className="text-[10px] bg-primary-foreground/20 rounded-full px-2 py-0.5">{m}</span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Medication cards */}
-      <div className="space-y-3">
-        {meds.map((med, i) => (
-          <div key={i} className={`clinical-card border-l-4 ${
-            med.priority === "first-line" ? "border-l-primary" :
-            med.priority === "adjustment" ? "border-l-warning" :
-            med.priority === "add-on" ? "border-l-info" : "border-l-muted"
-          }`}>
-            <div className="flex items-start justify-between mb-2">
-              <div className="flex items-center gap-2">
-                <Pill className="w-4 h-4 text-primary" />
-                <h3 className="font-medium text-sm">{med.drug}</h3>
+      {/* Algorithm flow */}
+      <div className="clinical-card p-3">
+        <h3 className="text-xs font-medium text-muted-foreground mb-2">ADA 2026 Priorities-First Approach</h3>
+        <div className="flex items-center gap-1 overflow-x-auto text-[10px]">
+          {(["cvkd-risk", "weight-management", "glycemic-control", "lipid", "current-med-review"] as AlgorithmPriority[]).map((cat, i) => {
+            const hasMeds = meds.some(m => m.category === cat);
+            return (
+              <div key={cat} className="flex items-center gap-1">
+                {i > 0 && <span className="text-muted-foreground">→</span>}
+                <span className={`px-2 py-1 rounded-full whitespace-nowrap ${hasMeds ? "bg-primary/10 text-primary font-medium" : "bg-muted text-muted-foreground"}`}>
+                  {getCategoryLabel(cat)}
+                </span>
               </div>
-              <span className={`stat-badge text-[10px] py-0.5 px-2 border ${priorityColor(med.priority)}`}>
-                {med.priority}
-              </span>
-            </div>
-            <div className="bg-muted/50 rounded-lg p-3 mb-3">
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                <div><span className="text-muted-foreground text-xs">Dose:</span> <strong>{med.dose}</strong></div>
-                <div><span className="text-muted-foreground text-xs">Freq:</span> <strong>{med.frequency}</strong></div>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground mb-2">{med.reason}</p>
-            {med.warnings.length > 0 && (
-              <div className="space-y-1">
-                {med.warnings.map((w, wi) => (
-                  <div key={wi} className="flex items-start gap-1.5 text-xs">
-                    <AlertTriangle className="w-3 h-3 text-warning mt-0.5 shrink-0" />
-                    <span>{w}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-            <p className="text-[10px] text-muted-foreground mt-2 italic">{med.adaReference}</p>
-          </div>
-        ))}
+            );
+          })}
+        </div>
+        <p className="text-[10px] text-muted-foreground mt-2">{meds.length} medications recommended across {grouped.length} priorities</p>
       </div>
+
+      {/* Grouped medication cards */}
+      {grouped.map((group) => (
+        <div key={group.category} className="space-y-2">
+          <div className={`flex items-center gap-2 px-3 py-2 rounded-lg ${categoryBg[group.category]}`}>
+            {(() => { const Icon = categoryIcon[group.category]; return <Icon className="w-4 h-4" />; })()}
+            <h2 className="text-sm font-heading font-semibold">{group.label}</h2>
+            <span className="text-[10px] text-muted-foreground ml-auto">{group.meds.length} medication{group.meds.length > 1 ? "s" : ""}</span>
+          </div>
+
+          {group.meds.map((med) => {
+            const idx = globalIdx++;
+            const isExpanded = expandedCards.has(idx);
+            return (
+              <div key={idx} className={`clinical-card border-l-4 ${categoryColor[group.category]}`}>
+                <button onClick={() => toggleCard(idx)} className="w-full text-left">
+                  <div className="flex items-start justify-between mb-1">
+                    <div className="flex items-center gap-2 flex-1 min-w-0">
+                      <Pill className="w-4 h-4 text-primary shrink-0" />
+                      <div className="min-w-0">
+                        <h3 className="font-medium text-sm truncate">{med.drug}</h3>
+                        <p className="text-[10px] text-muted-foreground">{getDrugClassLabel(med.drugClass)}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className={`stat-badge text-[10px] py-0.5 px-2 border ${priorityBadge(med.priority)}`}>
+                        {med.priority}
+                      </span>
+                      {isExpanded ? <ChevronUp className="w-3.5 h-3.5 text-muted-foreground" /> : <ChevronDown className="w-3.5 h-3.5 text-muted-foreground" />}
+                    </div>
+                  </div>
+
+                  {/* Always visible summary */}
+                  <div className="bg-muted/50 rounded-lg p-2.5 mt-2">
+                    <div className="grid grid-cols-2 gap-2 text-sm">
+                      <div><span className="text-muted-foreground text-[10px]">Dose:</span> <strong>{med.dose}</strong></div>
+                      <div><span className="text-muted-foreground text-[10px]">Freq:</span> <strong>{med.frequency}</strong></div>
+                    </div>
+                  </div>
+                </button>
+
+                {isExpanded && (
+                  <div className="mt-3 space-y-3 animate-slide-in">
+                    {/* Reason */}
+                    <p className="text-xs text-muted-foreground">{med.reason}</p>
+
+                    {/* Quick stats */}
+                    <div className="grid grid-cols-3 gap-2 text-center">
+                      <div className="p-1.5 rounded bg-muted/30">
+                        <span className="text-[10px] text-muted-foreground block">HbA1c ↓</span>
+                        <span className="text-xs font-medium">{med.hba1cReduction}</span>
+                      </div>
+                      <div className="p-1.5 rounded bg-muted/30">
+                        <span className="text-[10px] text-muted-foreground block">Weight</span>
+                        <span className={`text-xs font-medium ${weightColor(med.weightEffect)}`}>{weightIcon(med.weightEffect)}</span>
+                      </div>
+                      <div className="p-1.5 rounded bg-muted/30">
+                        <span className="text-[10px] text-muted-foreground block">CV Benefit</span>
+                        <span className={`text-xs font-medium ${med.cvBenefit ? "text-success" : "text-muted-foreground"}`}>
+                          {med.cvBenefit ? "✓ Proven" : "— Neutral"}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Warnings */}
+                    {med.warnings.length > 0 && (
+                      <div className="space-y-1">
+                        {med.warnings.map((w, wi) => (
+                          <div key={wi} className="flex items-start gap-1.5 text-xs">
+                            <AlertTriangle className="w-3 h-3 text-warning mt-0.5 shrink-0" />
+                            <span>{w}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Contraindications */}
+                    {med.contraindications.length > 0 && (
+                      <div>
+                        <span className="text-[10px] font-medium text-destructive">Contraindications:</span>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {med.contraindications.map((c, ci) => (
+                            <span key={ci} className="text-[10px] bg-destructive/10 text-destructive px-2 py-0.5 rounded-full">{c}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <p className="text-[10px] text-muted-foreground italic">{med.adaReference}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      ))}
 
       {/* Lipid targets */}
       <div className="clinical-card">
@@ -90,51 +232,44 @@ const MedOptimizer = () => {
           <h3 className="section-title">LAI Lipid Targets (Post-Stroke)</h3>
         </div>
         <p className="text-xs text-muted-foreground mb-3">Risk: {lipids.riskCategory}</p>
-        <div className="space-y-3">
-          <div>
-            <div className="flex justify-between text-sm mb-1">
-              <span>LDL-C</span>
-              <span className={lipids.ldlCurrent > lipids.ldlTarget ? "text-destructive" : "text-success"}>
-                {lipids.ldlCurrent} → Target &lt;{lipids.ldlTarget} mg/dL
-              </span>
-            </div>
-            <div className="h-2 bg-muted rounded-full overflow-hidden">
-              <div
-                className="h-full bg-destructive rounded-full transition-all"
-                style={{ width: `${Math.min((lipids.ldlCurrent / 200) * 100, 100)}%` }}
-              />
-            </div>
-            {lipids.ldlGap > 0 && <p className="text-xs text-destructive mt-1">Gap: {lipids.ldlGap} mg/dL to target</p>}
+        <div>
+          <div className="flex justify-between text-sm mb-1">
+            <span>LDL-C</span>
+            <span className={lipids.ldlCurrent > lipids.ldlTarget ? "text-destructive" : "text-success"}>
+              {lipids.ldlCurrent} → Target &lt;{lipids.ldlTarget} mg/dL
+            </span>
           </div>
+          <div className="h-2 bg-muted rounded-full overflow-hidden">
+            <div className="h-full bg-destructive rounded-full transition-all" style={{ width: `${Math.min((lipids.ldlCurrent / 200) * 100, 100)}%` }} />
+          </div>
+          {lipids.ldlGap > 0 && <p className="text-xs text-destructive mt-1">Gap: {lipids.ldlGap} mg/dL to target</p>}
         </div>
       </div>
 
       {/* Hypo protocol */}
-      {hypo && (
-        <div className="clinical-card border-destructive/20">
-          <div className="flex items-center gap-2 mb-3">
-            <Shield className="w-4 h-4 text-destructive" />
-            <h3 className="section-title">Hypoglycemia Protocol</h3>
-          </div>
-          <p className="text-xs text-muted-foreground mb-3">Trigger: {hypo.trigger}</p>
-          <div className="space-y-2">
-            <h4 className="text-xs font-medium text-destructive">Immediate Actions</h4>
-            {hypo.immediate.map((step, i) => (
-              <div key={i} className="flex items-start gap-2 text-sm">
-                <span className="bg-destructive/10 text-destructive rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0">{i + 1}</span>
-                <span>{step}</span>
-              </div>
-            ))}
-            <h4 className="text-xs font-medium text-warning mt-3">Follow-up</h4>
-            {hypo.followUp.map((step, i) => (
-              <div key={i} className="flex items-start gap-2 text-sm">
-                <span className="bg-warning/10 text-warning rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0">{i + 1}</span>
-                <span>{step}</span>
-              </div>
-            ))}
-          </div>
+      <div className="clinical-card border-destructive/20">
+        <div className="flex items-center gap-2 mb-3">
+          <Shield className="w-4 h-4 text-destructive" />
+          <h3 className="section-title">Hypoglycemia Protocol</h3>
         </div>
-      )}
+        <p className="text-xs text-muted-foreground mb-3">Trigger: {hypo.trigger}</p>
+        <div className="space-y-2">
+          <h4 className="text-xs font-medium text-destructive">Immediate Actions</h4>
+          {hypo.immediate.map((step, i) => (
+            <div key={i} className="flex items-start gap-2 text-sm">
+              <span className="bg-destructive/10 text-destructive rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0">{i + 1}</span>
+              <span>{step}</span>
+            </div>
+          ))}
+          <h4 className="text-xs font-medium text-warning mt-3">Follow-up</h4>
+          {hypo.followUp.map((step, i) => (
+            <div key={i} className="flex items-start gap-2 text-sm">
+              <span className="bg-warning/10 text-warning rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0">{i + 1}</span>
+              <span>{step}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
