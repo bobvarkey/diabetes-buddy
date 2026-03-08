@@ -237,6 +237,87 @@ const PatientInput = () => {
         </div>
       </div>
 
+      {/* Serial BG Trend */}
+      <div className="clinical-card">
+        <div className="flex items-center gap-2 mb-4">
+          <TrendingDown className="w-4 h-4 text-primary" />
+          <h3 className="section-title">Serial BG Readings</h3>
+        </div>
+        <p className="text-xs text-muted-foreground mb-3">Enter daily blood glucose readings to track trends (mg/dL)</p>
+        
+        {/* Existing readings */}
+        {patient.serialBG.length > 0 && (
+          <div className="mb-3">
+            <div className="flex items-end gap-1.5 h-20 mb-2">
+              {patient.serialBG.map((bg, i) => {
+                const maxBG = Math.max(...patient.serialBG, 200);
+                const height = (bg / maxBG) * 100;
+                const isHigh = bg > 180;
+                return (
+                  <div key={i} className="flex-1 flex flex-col items-center gap-0.5 group relative">
+                    <span className="text-[9px] text-muted-foreground">{bg}</span>
+                    <div
+                      className={`w-full rounded-t-sm ${isHigh ? "bg-destructive/70" : bg < 70 ? "bg-warning/70" : "bg-primary/70"}`}
+                      style={{ height: `${height}%` }}
+                    />
+                    <button
+                      onClick={() => update("serialBG", patient.serialBG.filter((_, idx) => idx !== i))}
+                      className="absolute -top-1 -right-0.5 w-3.5 h-3.5 rounded-full bg-destructive/80 text-destructive-foreground text-[8px] hidden group-hover:flex items-center justify-center"
+                    >×</button>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-destructive/70" /> &gt;180</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-primary/70" /> 70-180</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-warning/70" /> &lt;70 Hypo</span>
+              <span className="ml-auto">{patient.serialBG.length} readings</span>
+            </div>
+          </div>
+        )}
+
+        {/* Add new reading */}
+        <div className="flex gap-2">
+          <Input
+            type="number"
+            placeholder="Enter BG reading (mg/dL)"
+            value={newBG}
+            onChange={e => setNewBG(e.target.value)}
+            className="h-9"
+            onKeyDown={e => {
+              if (e.key === "Enter") {
+                const val = parseInt(newBG);
+                if (val > 0) {
+                  update("serialBG", [...patient.serialBG, val]);
+                  setNewBG("");
+                }
+              }
+            }}
+          />
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              const val = parseInt(newBG);
+              if (val > 0) {
+                update("serialBG", [...patient.serialBG, val]);
+                setNewBG("");
+              }
+            }}
+          >
+            <Plus className="w-3.5 h-3.5" />
+          </Button>
+        </div>
+        {patient.serialBG.length > 0 && (
+          <div className="mt-2 flex gap-4 text-xs text-muted-foreground">
+            <span>Avg: <strong className="text-foreground">{Math.round(patient.serialBG.reduce((a, b) => a + b, 0) / patient.serialBG.length)}</strong> mg/dL</span>
+            <span>Min: <strong className="text-foreground">{Math.min(...patient.serialBG)}</strong></span>
+            <span>Max: <strong className="text-foreground">{Math.max(...patient.serialBG)}</strong></span>
+          </div>
+        )}
+      </div>
+
       {/* Current Meds */}
       <div className="clinical-card">
         <h3 className="section-title mb-4">Current Medications</h3>
