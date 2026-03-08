@@ -14,6 +14,26 @@ interface RiskFactor {
   category: "demographic" | "clinical" | "medication" | "history";
 }
 
+interface ManualPatientInputs {
+  age: string;
+  bmi: string;
+  eGFR: string;
+  onInsulin: boolean;
+  priorHypo: boolean;
+  severeHypo: boolean;
+}
+
+const INPUT_DRIVEN_FACTORS = new Set([
+  "age65",
+  "age75",
+  "lowBMI",
+  "ckd3",
+  "ckd4",
+  "insulin",
+  "priorHypo",
+  "severeHypo",
+]);
+
 const HypoRiskCalculator = () => {
   const patient = loadPatient();
 
@@ -50,9 +70,41 @@ const HypoRiskCalculator = () => {
 
   const [factors, setFactors] = useState<RiskFactor[]>(buildInitialFactors());
   const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["demographic", "clinical", "medication", "history"]));
-  const [hba1cTarget, setHba1cTarget] = useState(patient?.hba1c ? (patient.hba1c > 8 ? 8.0 : 7.0) : 7.0);
+  const [manualInputs, setManualInputs] = useState<ManualPatientInputs>({
+    age: "",
+    bmi: "",
+    eGFR: "",
+    onInsulin: false,
+    priorHypo: false,
+    severeHypo: false,
+  });
+
+  useEffect(() => {
+    const age = Number(manualInputs.age);
+    const bmi = Number(manualInputs.bmi);
+    const eGFR = Number(manualInputs.eGFR);
+
+    const hasAge = manualInputs.age.trim() !== "" && Number.isFinite(age);
+    const hasBMI = manualInputs.bmi.trim() !== "" && Number.isFinite(bmi);
+    const hasEGFR = manualInputs.eGFR.trim() !== "" && Number.isFinite(eGFR);
+
+    setFactors(prev =>
+      prev.map(f => {
+        if (f.id === "age65") return { ...f, active: hasAge && age >= 65 };
+        if (f.id === "age75") return { ...f, active: hasAge && age >= 75 };
+        if (f.id === "lowBMI") return { ...f, active: hasBMI && bmi < 20 };
+        if (f.id === "ckd3") return { ...f, active: hasEGFR && eGFR >= 30 && eGFR < 60 };
+        if (f.id === "ckd4") return { ...f, active: hasEGFR && eGFR < 30 };
+        if (f.id === "insulin") return { ...f, active: manualInputs.onInsulin };
+        if (f.id === "priorHypo") return { ...f, active: manualInputs.priorHypo };
+        if (f.id === "severeHypo") return { ...f, active: manualInputs.severeHypo };
+        return f;
+      }),
+    );
+  }, [manualInputs]);
 
   const toggleFactor = (id: string) => {
+    if (INPUT_DRIVEN_FACTORS.has(id)) return;
     setFactors(prev => prev.map(f => f.id === id ? { ...f, active: !f.active } : f));
   };
 
