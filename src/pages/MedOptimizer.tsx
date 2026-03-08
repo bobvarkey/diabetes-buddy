@@ -4,7 +4,9 @@ import {
   generateMedRecommendations, getHypoProtocol, getLipidTargets,
   MedRecommendation, AlgorithmPriority, getCategoryLabel, getDrugClassLabel,
 } from "@/lib/med-logic";
-import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity } from "lucide-react";
+import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity, UserX } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const categoryIcon: Record<AlgorithmPriority, typeof Heart> = {
   "cvkd-risk": Heart,
@@ -31,12 +33,13 @@ const categoryBg: Record<AlgorithmPriority, string> = {
 };
 
 const MedOptimizer = () => {
-  const [patient, setPatient] = useState<PatientData>(EXAMPLE_PATIENT);
+  const navigate = useNavigate();
+  const [patient, setPatient] = useState<PatientData | null>(null);
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set([0, 1, 2]));
 
   useEffect(() => {
     const saved = loadPatient();
-    if (saved) setPatient(saved);
+    if (saved && saved.name && saved.age > 0) setPatient(saved);
   }, []);
 
   const meds = useMemo(() => generateMedRecommendations(patient), [patient]);

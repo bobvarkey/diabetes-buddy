@@ -70,13 +70,17 @@ const HypoRiskCalculator = () => {
 
   const [factors, setFactors] = useState<RiskFactor[]>(buildInitialFactors());
   const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["demographic", "clinical", "medication", "history"]));
-  const [manualInputs, setManualInputs] = useState<ManualPatientInputs>({
-    age: "",
-    bmi: "",
-    eGFR: "",
-    onInsulin: false,
-    priorHypo: false,
-    severeHypo: false,
+  const [manualInputs, setManualInputs] = useState<ManualPatientInputs>(() => {
+    const p = loadPatient();
+    const hasInsulin = p?.currentMeds?.some(m => /insulin/i.test(m)) ?? false;
+    return {
+      age: p && p.age > 0 ? String(p.age) : "",
+      bmi: p && p.bmi > 0 ? String(p.bmi) : "",
+      eGFR: p && p.eGFR > 0 ? String(p.eGFR) : "",
+      onInsulin: hasInsulin,
+      priorHypo: false,
+      severeHypo: false,
+    };
   });
 
   useEffect(() => {
