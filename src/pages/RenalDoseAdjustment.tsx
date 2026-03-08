@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pill, Kidney, Search, AlertTriangle } from "lucide-react";
+import { Pill, FlaskConical, Search, AlertTriangle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
   Table, TableHeader, TableBody, TableHead, TableRow, TableCell,
