@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { PatientData, EXAMPLE_PATIENT, loadPatient, savePatient, calculateBMI, getBMICategory } from "@/lib/patient-data";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
-import { User, Save, RotateCcw } from "lucide-react";
+import { User, Save, RotateCcw, Sparkles, X, Plus } from "lucide-react";
 
 const PatientInput = () => {
   const [patient, setPatient] = useState<PatientData>(EXAMPLE_PATIENT);
