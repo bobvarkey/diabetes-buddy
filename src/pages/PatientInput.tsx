@@ -39,15 +39,51 @@ const PatientInput = () => {
     });
   };
 
+  const addMed = () => {
+    if (!newMed.trim()) return;
+    update("currentMeds", [...patient.currentMeds, newMed.trim()]);
+    setNewMed("");
+  };
+
+  const removeMed = (idx: number) => {
+    update("currentMeds", patient.currentMeds.filter((_, i) => i !== idx));
+  };
+
   const handleSave = () => {
     savePatient(patient);
     toast.success("Patient data saved");
   };
 
   const handleReset = () => {
+    setPatient(BLANK_PATIENT);
+    localStorage.removeItem("dmo_patient");
+    toast.info("Cleared patient data");
+  };
+
+  const handleLoadExample = () => {
     setPatient(EXAMPLE_PATIENT);
     savePatient(EXAMPLE_PATIENT);
-    toast.info("Reset to example patient");
+    toast.info("Loaded Kerala example patient");
+  };
+
+  const handleGenerate = () => {
+    if (!patient.name || !patient.age || !patient.weightKg) {
+      toast.error("Please fill in at least name, age, and weight");
+      return;
+    }
+    savePatient(patient);
+    toast.success("Patient saved — generating recommendations...");
+    navigate("/medications");
+  };
+
+  const handleGenerateDiet = () => {
+    if (!patient.name || !patient.age || !patient.weightKg) {
+      toast.error("Please fill in at least name, age, and weight");
+      return;
+    }
+    savePatient(patient);
+    toast.success("Patient saved — generating diet plan...");
+    navigate("/diet-plan");
   };
 
   const bmiCat = getBMICategory(patient.bmi);
