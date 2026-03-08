@@ -20,6 +20,7 @@ const PatientInput = () => {
   const navigate = useNavigate();
   const [patient, setPatient] = useState<PatientData>(BLANK_PATIENT);
   const [newMed, setNewMed] = useState("");
+  const [newBG, setNewBG] = useState("");
 
   useEffect(() => {
     const saved = loadPatient();
