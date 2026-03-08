@@ -9,8 +9,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import { User, Save, RotateCcw, Sparkles, X, Plus } from "lucide-react";
 
+const BLANK_PATIENT: PatientData = {
+  name: "", age: 0, gender: "M", heightCm: 0, weightKg: 0, bmi: 0,
+  eGFR: 90, creatinine: 1.0, hfNYHA: 0, postStrokeDysphagia: false,
+  dysphagiaLevel: "none", ldl: 100, fbs: 100, rbs: 140, hba1c: 6.5,
+  serialBG: [], currentMeds: [], hasT2DM: true,
+};
+
 const PatientInput = () => {
-  const [patient, setPatient] = useState<PatientData>(EXAMPLE_PATIENT);
+  const navigate = useNavigate();
+  const [patient, setPatient] = useState<PatientData>(BLANK_PATIENT);
+  const [newMed, setNewMed] = useState("");
 
   useEffect(() => {
     const saved = loadPatient();
