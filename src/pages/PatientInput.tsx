@@ -111,11 +111,14 @@ const PatientInput = () => {
           <h1 className="text-xl font-heading font-bold">Patient Profile</h1>
           <p className="text-sm text-muted-foreground">ADA 2026 assessment checklist</p>
         </div>
-        <div className="flex gap-2">
-          <Button variant="outline" size="sm" onClick={handleReset}>
-            <RotateCcw className="w-3.5 h-3.5 mr-1" /> Reset
+        <div className="flex gap-2 flex-wrap">
+          <Button variant="outline" size="sm" onClick={handleLoadExample}>
+            Load Example
           </Button>
-          <Button size="sm" onClick={handleSave}>
+          <Button variant="outline" size="sm" onClick={handleReset}>
+            <RotateCcw className="w-3.5 h-3.5 mr-1" /> Clear
+          </Button>
+          <Button variant="outline" size="sm" onClick={handleSave}>
             <Save className="w-3.5 h-3.5 mr-1" /> Save
           </Button>
         </div>
