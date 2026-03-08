@@ -17,28 +17,28 @@ interface RiskFactor {
 const HypoRiskCalculator = () => {
   const patient = loadPatient();
 
-  const buildInitialFactors = (p: PatientData | null): RiskFactor[] => [
+  const buildInitialFactors = (): RiskFactor[] => [
     // Demographic
-    { id: "age65", label: "Age ≥ 65 years", description: "Impaired counter-regulatory response, slower symptom recognition", points: 2, active: p ? p.age >= 65 : false, category: "demographic" },
-    { id: "age75", label: "Age ≥ 75 years", description: "Very high risk — cognitive decline, fall risk, polypharmacy", points: 3, active: p ? p.age >= 75 : false, category: "demographic" },
-    { id: "lowBMI", label: "BMI < 20 (underweight)", description: "Reduced glycogen stores, less metabolic reserve", points: 1, active: p ? p.bmi > 0 && p.bmi < 20 : false, category: "demographic" },
+    { id: "age65", label: "Age ≥ 65 years", description: "Impaired counter-regulatory response, slower symptom recognition", points: 2, active: false, category: "demographic" },
+    { id: "age75", label: "Age ≥ 75 years", description: "Very high risk — cognitive decline, fall risk, polypharmacy", points: 3, active: false, category: "demographic" },
+    { id: "lowBMI", label: "BMI < 20 (underweight)", description: "Reduced glycogen stores, less metabolic reserve", points: 1, active: false, category: "demographic" },
 
     // Clinical
-    { id: "ckd3", label: "CKD Stage 3 (eGFR 30–59)", description: "Reduced insulin clearance → prolonged drug action", points: 2, active: p ? p.eGFR >= 30 && p.eGFR < 60 : false, category: "clinical" },
-    { id: "ckd4", label: "CKD Stage 4–5 (eGFR < 30)", description: "Severely reduced insulin clearance — high risk", points: 4, active: p ? p.eGFR > 0 && p.eGFR < 30 : false, category: "clinical" },
-    { id: "hf", label: "Heart failure (NYHA ≥ II)", description: "Hepatic congestion impairs gluconeogenesis", points: 2, active: p ? (p.hasHF || p.hfNYHA >= 2) : false, category: "clinical" },
+    { id: "ckd3", label: "CKD Stage 3 (eGFR 30–59)", description: "Reduced insulin clearance → prolonged drug action", points: 2, active: false, category: "clinical" },
+    { id: "ckd4", label: "CKD Stage 4–5 (eGFR < 30)", description: "Severely reduced insulin clearance — high risk", points: 4, active: false, category: "clinical" },
+    { id: "hf", label: "Heart failure (NYHA ≥ II)", description: "Hepatic congestion impairs gluconeogenesis", points: 2, active: false, category: "clinical" },
     { id: "liver", label: "Hepatic impairment", description: "Reduced glycogen storage and gluconeogenesis", points: 3, active: false, category: "clinical" },
     { id: "cognitive", label: "Cognitive impairment / dementia", description: "Inability to recognize or self-treat hypoglycemia", points: 3, active: false, category: "clinical" },
-    { id: "neuropathy", label: "Autonomic neuropathy", description: "Impaired counter-regulatory hormone response, hypo unawareness", points: 3, active: p ? p.hasNeuropathy : false, category: "clinical" },
+    { id: "neuropathy", label: "Autonomic neuropathy", description: "Impaired counter-regulatory hormone response, hypo unawareness", points: 3, active: false, category: "clinical" },
     { id: "malnutrition", label: "Poor oral intake / malnutrition", description: "Inadequate carbohydrate substrate", points: 2, active: false, category: "clinical" },
-    { id: "dysphagia", label: "Dysphagia / swallowing difficulty", description: "Cannot self-treat with oral glucose", points: 2, active: p ? p.postStrokeDysphagia : false, category: "clinical" },
+    { id: "dysphagia", label: "Dysphagia / swallowing difficulty", description: "Cannot self-treat with oral glucose", points: 2, active: false, category: "clinical" },
 
     // Medication
-    { id: "insulin", label: "On insulin therapy", description: "Dose-dependent hypo risk, especially basal-bolus", points: 3, active: p ? p.currentMeds.some(m => m.toLowerCase().includes("insulin")) : false, category: "medication" },
-    { id: "su", label: "On sulfonylurea (SU)", description: "Glimepiride/gliclazide/glipizide — insulin secretagogue", points: 3, active: p ? p.currentMeds.some(m => /glimepiride|gliclazide|glipizide|glibenclamide/i.test(m)) : false, category: "medication" },
-    { id: "meglitinide", label: "On meglitinide (repaglinide)", description: "Short-acting secretagogue — meal-time hypo risk", points: 1, active: p ? p.currentMeds.some(m => /repaglinide|nateglinide/i.test(m)) : false, category: "medication" },
+    { id: "insulin", label: "On insulin therapy", description: "Dose-dependent hypo risk, especially basal-bolus", points: 3, active: false, category: "medication" },
+    { id: "su", label: "On sulfonylurea (SU)", description: "Glimepiride/gliclazide/glipizide — insulin secretagogue", points: 3, active: false, category: "medication" },
+    { id: "meglitinide", label: "On meglitinide (repaglinide)", description: "Short-acting secretagogue — meal-time hypo risk", points: 1, active: false, category: "medication" },
     { id: "insulinSU", label: "Insulin + SU combination", description: "Synergistic hypo risk — avoid if possible", points: 2, active: false, category: "medication" },
-    { id: "polypharm", label: "≥ 5 medications (polypharmacy)", description: "Drug interactions, adherence issues", points: 1, active: p ? p.currentMeds.length >= 5 : false, category: "medication" },
+    { id: "polypharm", label: "≥ 5 medications (polypharmacy)", description: "Drug interactions, adherence issues", points: 1, active: false, category: "medication" },
 
     // History
     { id: "priorHypo", label: "Prior hypoglycemia episode", description: "Strongest predictor of future hypoglycemia", points: 4, active: false, category: "history" },
@@ -48,7 +48,7 @@ const HypoRiskCalculator = () => {
     { id: "longDM", label: "Diabetes duration > 10 years", description: "Progressive beta-cell failure, impaired counter-regulation", points: 1, active: false, category: "history" },
   ];
 
-  const [factors, setFactors] = useState<RiskFactor[]>(buildInitialFactors(patient));
+  const [factors, setFactors] = useState<RiskFactor[]>(buildInitialFactors());
   const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["demographic", "clinical", "medication", "history"]));
   const [hba1cTarget, setHba1cTarget] = useState(patient?.hba1c ? (patient.hba1c > 8 ? 8.0 : 7.0) : 7.0);
 
