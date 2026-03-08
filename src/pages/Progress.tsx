@@ -1,0 +1,120 @@
+import { useState, useEffect } from "react";
+import { PatientData, EXAMPLE_PATIENT, loadPatient, savePatient } from "@/lib/patient-data";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
+import { TrendingDown, Plus, Target } from "lucide-react";
+
+interface ProgressEntry {
+  date: string;
+  weight: number;
+  fbs: number;
+  rbs: number;
+}
+
+const Progress = () => {
+  const [patient, setPatient] = useState<PatientData>(EXAMPLE_PATIENT);
+  const [entries, setEntries] = useState<ProgressEntry[]>([]);
+  const [newEntry, setNewEntry] = useState<ProgressEntry>({ date: new Date().toISOString().split("T")[0], weight: 0, fbs: 0, rbs: 0 });
+
+  useEffect(() => {
+    const saved = loadPatient();
+    if (saved) setPatient(saved);
+    const savedEntries = localStorage.getItem("dmo_progress");
+    if (savedEntries) setEntries(JSON.parse(savedEntries));
+  }, []);
+
+  const targetWeight = patient.weightKg * 0.95;
+  const weightLost = entries.length > 0 ? patient.weightKg - entries[entries.length - 1].weight : 0;
+  const progressPct = Math.min((weightLost / (patient.weightKg * 0.05)) * 100, 100);
+
+  const addEntry = () => {
+    if (!newEntry.weight) return;
+    const updated = [...entries, { ...newEntry }].sort((a, b) => a.date.localeCompare(b.date));
+    setEntries(updated);
+    localStorage.setItem("dmo_progress", JSON.stringify(updated));
+    setNewEntry({ date: new Date().toISOString().split("T")[0], weight: 0, fbs: 0, rbs: 0 });
+    toast.success("Entry recorded");
+  };
+
+  return (
+    <div className="space-y-5 animate-slide-in">
+      <div>
+        <h1 className="text-xl font-heading font-bold">Progress Tracking</h1>
+        <p className="text-sm text-muted-foreground">5% weight loss goal + BG monitoring</p>
+      </div>
+
+      {/* Weight goal */}
+      <div className="clinical-card">
+        <div className="flex items-center gap-2 mb-3">
+          <Target className="w-4 h-4 text-primary" />
+          <h3 className="section-title">5% Weight Loss Goal</h3>
+        </div>
+        <div className="flex justify-between text-sm mb-2">
+          <span>Start: {patient.weightKg} kg</span>
+          <span>Target: {targetWeight.toFixed(1)} kg</span>
+        </div>
+        <div className="h-3 bg-muted rounded-full overflow-hidden">
+          <div
+            className="h-full rounded-full transition-all bg-primary"
+            style={{ width: `${Math.max(progressPct, 0)}%` }}
+          />
+        </div>
+        <p className="text-xs text-muted-foreground mt-1">
+          {weightLost > 0 ? `${weightLost.toFixed(1)} kg lost (${progressPct.toFixed(0)}% of goal)` : "Record entries to track progress"}
+        </p>
+      </div>
+
+      {/* Add entry */}
+      <div className="clinical-card">
+        <h3 className="section-title mb-3">Add Today's Reading</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div>
+            <Label className="text-xs text-muted-foreground">Date</Label>
+            <Input type="date" value={newEntry.date} onChange={e => setNewEntry(p => ({ ...p, date: e.target.value }))} className="h-9" />
+          </div>
+          <div>
+            <Label className="text-xs text-muted-foreground">Weight (kg)</Label>
+            <Input type="number" value={newEntry.weight || ""} onChange={e => setNewEntry(p => ({ ...p, weight: parseFloat(e.target.value) || 0 }))} className="h-9" step={0.1} />
+          </div>
+          <div>
+            <Label className="text-xs text-muted-foreground">FBS (mg/dL)</Label>
+            <Input type="number" value={newEntry.fbs || ""} onChange={e => setNewEntry(p => ({ ...p, fbs: parseInt(e.target.value) || 0 }))} className="h-9" />
+          </div>
+          <div>
+            <Label className="text-xs text-muted-foreground">RBS (mg/dL)</Label>
+            <Input type="number" value={newEntry.rbs || ""} onChange={e => setNewEntry(p => ({ ...p, rbs: parseInt(e.target.value) || 0 }))} className="h-9" />
+          </div>
+        </div>
+        <Button className="mt-3" size="sm" onClick={addEntry}>
+          <Plus className="w-3.5 h-3.5 mr-1" /> Record
+        </Button>
+      </div>
+
+      {/* BG trend */}
+      {entries.length > 0 && (
+        <div className="clinical-card">
+          <div className="flex items-center gap-2 mb-3">
+            <TrendingDown className="w-4 h-4 text-primary" />
+            <h3 className="section-title">Progress Log</h3>
+          </div>
+          <div className="space-y-2">
+            {entries.slice().reverse().map((e, i) => (
+              <div key={i} className="flex items-center justify-between text-sm p-2 rounded-lg bg-muted/30">
+                <span className="text-muted-foreground text-xs">{e.date}</span>
+                <div className="flex gap-4 text-xs">
+                  <span>Wt: <strong>{e.weight}</strong> kg</span>
+                  {e.fbs > 0 && <span>FBS: <strong>{e.fbs}</strong></span>}
+                  {e.rbs > 0 && <span>RBS: <strong>{e.rbs}</strong></span>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Progress;
