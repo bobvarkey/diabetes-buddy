@@ -67,6 +67,7 @@ const PatientInput = () => {
           field === "weightKg" ? value : next.weightKg
         );
         if (next.bmi >= 25) next.hasObesity = true;
+        else next.hasObesity = false;
       }
       // Auto-calculate eGFR when creatinine changes
       if (field === "creatinine" && value > 0 && next.age > 0) {
@@ -77,6 +78,15 @@ const PatientInput = () => {
       if ((field === "age" || field === "gender") && next.creatinine > 0 && next.age > 0) {
         next.eGFR = calculateEGFR(next.creatinine, field === "age" ? value : next.age, field === "gender" ? value : next.gender);
         next.hasCKD = next.eGFR < 60;
+      }
+      // Auto-set ASCVD when post-stroke is checked
+      if (field === "hasPostStroke" && value) {
+        next.hasASCVD = true;
+      }
+      // Auto-set HF NYHA when HF checkbox changes
+      if (field === "hasHF") {
+        if (!value) next.hfNYHA = 0;
+        else if (next.hfNYHA === 0) next.hfNYHA = 2; // default to NYHA II
       }
       return next;
     });
