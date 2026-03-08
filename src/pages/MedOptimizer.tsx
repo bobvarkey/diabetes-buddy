@@ -42,9 +42,9 @@ const MedOptimizer = () => {
     if (saved && saved.name && saved.age > 0) setPatient(saved);
   }, []);
 
-  const meds = useMemo(() => generateMedRecommendations(patient), [patient]);
-  const hypo = getHypoProtocol(patient);
-  const lipids = getLipidTargets(patient);
+  const meds = useMemo(() => patient ? generateMedRecommendations(patient) : [], [patient]);
+  const hypo = patient ? getHypoProtocol(patient) : null;
+  const lipids = patient ? getLipidTargets(patient) : null;
 
   // Group meds by category
   const grouped = useMemo(() => {
@@ -58,6 +58,24 @@ const MedOptimizer = () => {
     }
     return groups;
   }, [meds]);
+
+  if (!patient) {
+    return (
+      <div className="space-y-5 animate-slide-in">
+        <h1 className="text-xl font-heading font-bold">Medication Optimizer</h1>
+        <div className="clinical-card flex flex-col items-center justify-center py-12 text-center">
+          <UserX className="w-12 h-12 text-muted-foreground mb-4" />
+          <h2 className="text-lg font-heading font-semibold mb-2">No Patient Data</h2>
+          <p className="text-sm text-muted-foreground mb-4 max-w-md">
+            Please enter patient demographics, comorbidities, and lab values first. The medication algorithm requires this data to generate personalized recommendations.
+          </p>
+          <Button onClick={() => navigate("/patient")}>
+            Enter Patient Data
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   const toggleCard = (idx: number) => {
     setExpandedCards(prev => {
