@@ -13,6 +13,7 @@ import MedOptimizer from "./pages/MedOptimizer";
 import DietPlanPage from "./pages/DietPlanPage";
 import Progress from "./pages/Progress";
 import SummaryPage from "./pages/SummaryPage";
+import InsulinTitration from "./pages/InsulinTitration";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
