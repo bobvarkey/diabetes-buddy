@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
-import { User, Save, RotateCcw, Sparkles, X, Plus } from "lucide-react";
+import { User, Save, RotateCcw, Sparkles, X, Plus, TrendingDown } from "lucide-react";
 
 const BLANK_PATIENT: PatientData = {
   name: "", age: 0, gender: "M", heightCm: 0, weightKg: 0, bmi: 0,
