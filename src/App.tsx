@@ -13,6 +13,7 @@ import MedOptimizer from "./pages/MedOptimizer";
 import DietPlanPage from "./pages/DietPlanPage";
 import Progress from "./pages/Progress";
 import SummaryPage from "./pages/SummaryPage";
+import InsulinTitration from "./pages/InsulinTitration";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ const App = () => (
                   <Route path="/diet-plan" element={<DietPlanPage />} />
                   <Route path="/progress" element={<Progress />} />
                   <Route path="/summary" element={<SummaryPage />} />
+                  <Route path="/insulin-titration" element={<InsulinTitration />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
