@@ -1,5 +1,5 @@
 import {
-  LayoutDashboard, User, UtensilsCrossed, Circle, Pill, CalendarDays, TrendingUp,
+  LayoutDashboard, User, UtensilsCrossed, Circle, Pill, CalendarDays, TrendingUp, FileText,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
