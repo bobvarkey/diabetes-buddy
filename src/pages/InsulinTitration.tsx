@@ -1,8 +1,9 @@
 import { useState, useMemo } from "react";
 import { loadPatient } from "@/lib/patient-data";
-import { Syringe, Plus, Trash2, TrendingDown, AlertTriangle, CheckCircle, Info } from "lucide-react";
+import { Syringe, Plus, Trash2, TrendingDown, AlertTriangle, CheckCircle, Info, UserX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useNavigate } from "react-router-dom";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
@@ -55,7 +56,9 @@ const PROTOCOLS: Record<Protocol, { label: string; description: string; target: 
 };
 
 const InsulinTitration = () => {
+  const navigate = useNavigate();
   const patient = loadPatient();
+  const hasPatient = patient && patient.name && patient.age > 0;
   const [currentDose, setCurrentDose] = useState(10);
   const [insulinType, setInsulinType] = useState("Glargine (Lantus/Basaglar)");
   const [protocol, setProtocol] = useState<Protocol>(
@@ -122,6 +125,24 @@ const InsulinTitration = () => {
     if (val <= proto.target[1]) return "text-success font-medium";
     return "text-destructive font-medium";
   };
+
+  if (!hasPatient) {
+    return (
+      <div className="space-y-5 animate-slide-in">
+        <h1 className="text-xl font-heading font-bold">Insulin Titration Calculator</h1>
+        <div className="clinical-card flex flex-col items-center justify-center py-12 text-center">
+          <UserX className="w-12 h-12 text-muted-foreground mb-4" />
+          <h2 className="text-lg font-heading font-semibold mb-2">No Patient Data</h2>
+          <p className="text-sm text-muted-foreground mb-4 max-w-md">
+            Please enter patient demographics first. Insulin titration protocol selection depends on age, eGFR, and other patient factors.
+          </p>
+          <Button onClick={() => navigate("/patient")}>
+            Enter Patient Data
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-5 animate-slide-in">
