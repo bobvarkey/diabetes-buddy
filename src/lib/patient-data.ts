@@ -24,6 +24,7 @@ export interface PatientData {
   hasASCVD: boolean;
   hasPostStroke: boolean;
   hasCKD: boolean;
+  hasHF: boolean;
   hasHypertension: boolean;
   hasRetinopathy: boolean;
   hasNeuropathy: boolean;
