@@ -44,6 +44,7 @@ const App = () => (
                   <Route path="/diet-plan" element={<DietPlanPage />} />
                   <Route path="/progress" element={<Progress />} />
                   <Route path="/summary" element={<SummaryPage />} />
+                  <Route path="/insulin-titration" element={<InsulinTitration />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
