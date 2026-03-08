@@ -56,7 +56,9 @@ const PROTOCOLS: Record<Protocol, { label: string; description: string; target: 
 };
 
 const InsulinTitration = () => {
+  const navigate = useNavigate();
   const patient = loadPatient();
+  const hasPatient = patient && patient.name && patient.age > 0;
   const [currentDose, setCurrentDose] = useState(10);
   const [insulinType, setInsulinType] = useState("Glargine (Lantus/Basaglar)");
   const [protocol, setProtocol] = useState<Protocol>(
