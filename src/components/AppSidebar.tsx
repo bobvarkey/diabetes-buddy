@@ -16,6 +16,7 @@ const items = [
   { title: "Plate Method", url: "/plate", icon: Circle },
   { title: "Medications", url: "/medications", icon: Pill },
   { title: "Insulin Titration", url: "/insulin-titration", icon: Syringe },
+  { title: "Hypo Risk Score", url: "/hypo-risk", icon: ShieldAlert },
   { title: "Diet Plan", url: "/diet-plan", icon: CalendarDays },
   { title: "Progress", url: "/progress", icon: TrendingUp },
 ];
