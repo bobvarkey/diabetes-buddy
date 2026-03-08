@@ -48,7 +48,7 @@ const HypoRiskCalculator = () => {
     { id: "longDM", label: "Diabetes duration > 10 years", description: "Progressive beta-cell failure, impaired counter-regulation", points: 1, active: false, category: "history" },
   ];
 
-  const [factors, setFactors] = useState<RiskFactor[]>(buildInitialFactors(patient));
+  const [factors, setFactors] = useState<RiskFactor[]>(buildInitialFactors());
   const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["demographic", "clinical", "medication", "history"]));
   const [hba1cTarget, setHba1cTarget] = useState(patient?.hba1c ? (patient.hba1c > 8 ? 8.0 : 7.0) : 7.0);
 
