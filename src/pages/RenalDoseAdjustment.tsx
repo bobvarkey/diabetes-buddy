@@ -275,7 +275,7 @@ const RenalDoseAdjustment = () => {
     <div className="space-y-5 animate-slide-in">
       <div>
         <h1 className="text-xl font-heading font-bold flex items-center gap-2">
-          <Kidney className="w-5 h-5 text-primary" />
+          <FlaskConical className="w-5 h-5 text-primary" />
           Renal Dose Adjustment
         </h1>
         <p className="text-sm text-muted-foreground">eGFR-based dose modifications for diabetes medications (ADA 2026 + KDIGO)</p>
