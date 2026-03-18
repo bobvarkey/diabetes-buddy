@@ -3,6 +3,7 @@ import { PatientData, EXAMPLE_PATIENT, loadPatient } from "@/lib/patient-data";
 import {
   generateMedRecommendations, getHypoProtocol, getLipidTargets,
   MedRecommendation, AlgorithmPriority, getCategoryLabel, getDrugClassLabel,
+  getAlgorithmPathway, getPathwayLabel, AlgorithmPathway,
 } from "@/lib/med-logic";
 import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity, UserX } from "lucide-react";
 import { Button } from "@/components/ui/button";
