@@ -177,6 +177,12 @@ const MedOptimizer = () => {
         <p className="text-[10px] text-muted-foreground mt-2">{meds.length} medications recommended across {grouped.length} priorities</p>
       </div>
 
+      {/* Visual Flowchart */}
+      {pathway && <AlgorithmFlowchart patient={patient} pathway={pathway} />}
+
+      {/* Clinical Guidelines */}
+      <ClinicalGuidelines />
+
       {/* Grouped medication cards */}
       {grouped.map((group) => (
         <div key={group.category} className="space-y-2">
