@@ -44,6 +44,7 @@ const MedOptimizer = () => {
   }, []);
 
   const meds = useMemo(() => patient ? generateMedRecommendations(patient) : [], [patient]);
+  const pathway = patient ? getAlgorithmPathway(patient) : null;
   const hypo = patient ? getHypoProtocol(patient) : null;
   const lipids = patient ? getLipidTargets(patient) : null;
 
