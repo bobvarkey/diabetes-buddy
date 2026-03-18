@@ -3,6 +3,7 @@ import { PatientData, EXAMPLE_PATIENT, loadPatient } from "@/lib/patient-data";
 import {
   generateMedRecommendations, getHypoProtocol, getLipidTargets,
   MedRecommendation, AlgorithmPriority, getCategoryLabel, getDrugClassLabel,
+  getAlgorithmPathway, getPathwayLabel, AlgorithmPathway,
 } from "@/lib/med-logic";
 import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity, UserX } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -43,6 +44,7 @@ const MedOptimizer = () => {
   }, []);
 
   const meds = useMemo(() => patient ? generateMedRecommendations(patient) : [], [patient]);
+  const pathway = patient ? getAlgorithmPathway(patient) : null;
   const hypo = patient ? getHypoProtocol(patient) : null;
   const lipids = patient ? getLipidTargets(patient) : null;
 
@@ -131,9 +133,32 @@ const MedOptimizer = () => {
         </div>
       </div>
 
+      {/* Algorithm pathway indicator */}
+      {pathway && (
+        <div className="clinical-card p-3 border-l-4 border-l-primary">
+          <h3 className="text-xs font-medium text-muted-foreground mb-1">ADA 2026 Algorithm Pathway Detected</h3>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-sm font-heading font-semibold text-primary">
+              {getPathwayLabel(pathway)}
+            </span>
+            <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+              {pathway === "ascvd-predominant" && "Established ASCVD → GLP-1 RA / SGLT2i first"}
+              {pathway === "hf-ckd-predominant" && "HF/CKD → SGLT2i preferably, then GLP-1 RA"}
+              {pathway === "weight-management" && "No ASCVD/CKD → Weight-loss agents first"}
+              {pathway === "hypo-minimization" && "No ASCVD/CKD → Low-hypo agents preferred"}
+              {pathway === "cost-sensitive" && "Cost priority → SU / TZD"}
+              {pathway === "general" && "Standard glycemic approach"}
+            </span>
+          </div>
+          <p className="text-[10px] text-muted-foreground">
+            First-line: Metformin + lifestyle. If HbA1c above target → proceed as below.
+          </p>
+        </div>
+      )}
+
       {/* Algorithm flow */}
       <div className="clinical-card p-3">
-        <h3 className="text-xs font-medium text-muted-foreground mb-2">ADA 2026 Priorities-First Approach</h3>
+        <h3 className="text-xs font-medium text-muted-foreground mb-2">Priority Categories</h3>
         <div className="flex items-center gap-1 overflow-x-auto text-[10px]">
           {(["cvkd-risk", "weight-management", "glycemic-control", "lipid", "current-med-review"] as AlgorithmPriority[]).map((cat, i) => {
             const hasMeds = meds.some(m => m.category === cat);
