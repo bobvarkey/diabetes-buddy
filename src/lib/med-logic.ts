@@ -654,6 +654,43 @@ function buildRec(
   };
 }
 
+/**
+ * Determines which ADA 2026 pathway the patient falls into.
+ * Based on the glucose-lowering algorithm flowchart.
+ */
+export type AlgorithmPathway =
+  | "ascvd-predominant"
+  | "hf-ckd-predominant"
+  | "hypo-minimization"
+  | "weight-management"
+  | "cost-sensitive"
+  | "general";
+
+export function getAlgorithmPathway(patient: PatientData): AlgorithmPathway {
+  const establishedASCVD = patient.hasASCVD || patient.hasPostStroke || patient.hasPAD;
+  const establishedCKD = patient.hasCKD || patient.eGFR < 60;
+  const establishedHF = patient.hasHF || patient.hfNYHA >= 2;
+
+  if (establishedASCVD && !establishedHF && !establishedCKD) return "ascvd-predominant";
+  if (establishedHF || establishedCKD) return "hf-ckd-predominant";
+  // Without established ASCVD or CKD — check compelling needs
+  if (patient.bmi >= 25 || patient.hasObesity) return "weight-management";
+  // Default: minimize hypo
+  return "hypo-minimization";
+}
+
+export function getPathwayLabel(pathway: AlgorithmPathway): string {
+  const labels: Record<AlgorithmPathway, string> = {
+    "ascvd-predominant": "ASCVD Predominates",
+    "hf-ckd-predominant": "HF or CKD Predominates",
+    "hypo-minimization": "Minimize Hypoglycemia",
+    "weight-management": "Weight Management Priority",
+    "cost-sensitive": "Cost-Sensitive Approach",
+    "general": "General Glycemic Control",
+  };
+  return labels[pathway];
+}
+
 export function generateMedRecommendations(patient: PatientData): MedRecommendation[] {
   const recs: MedRecommendation[] = [];
   const addedClasses = new Set<DrugClass>();
@@ -667,172 +704,247 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
     }
   }
 
-  // ============================================================
-  // PRIORITY 1: CARDIOVASCULAR & KIDNEY DISEASE RISK REDUCTION
-  // ============================================================
-
-  // Post-stroke (ASCVD) → GLP-1 RA with proven CV benefit
-  if (hasASCVD(patient)) {
-    // Prefer semaglutide for CV + weight, or tirzepatide for maximum efficacy
-    if (patient.bmi >= 27) {
-      const tirz = DRUG_DB.find(d => d.generic === "Tirzepatide")!;
-      addRec(buildRec(tirz, patient,
-        `Post-stroke ASCVD + BMI ${patient.bmi} → Dual GIP/GLP-1 agonist for maximum CV risk reduction + weight loss (SURMOUNT, SURPASS)`,
-        "first-line", "cvkd-risk"));
-    }
-
-    const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
-    addRec(buildRec(sema, patient,
-      `Post-stroke ASCVD → GLP-1 RA with proven CV benefit (SUSTAIN-6, SELECT). ${patient.bmi > 27 ? "Also addresses obesity." : ""}`,
-      patient.bmi >= 27 ? "add-on" : "first-line", "cvkd-risk"));
-
-    // If HF → SGLT2i is essential
-    if (hasHF(patient) && patient.eGFR >= 20) {
-      const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
-      addRec(buildRec(empa, patient,
-        `HF NYHA ${patient.hfNYHA} + eGFR ${patient.eGFR} → SGLT2i for HF + renal protection (EMPEROR-Reduced/Preserved)`,
-        "first-line", "cvkd-risk"));
-
-      // Also consider dapagliflozin as alternative
-      if (patient.eGFR < 45) {
-        const dapa = DRUG_DB.find(d => d.generic === "Dapagliflozin")!;
-        addRec(buildRec(dapa, patient,
-          `CKD Stage 3 (eGFR ${patient.eGFR}) → SGLT2i for renal progression delay (DAPA-CKD). Alternative to empagliflozin.`,
-          "add-on", "cvkd-risk"));
-      }
-    } else if (hasCKD(patient) && patient.eGFR >= 20) {
-      // CKD without HF → still needs SGLT2i
-      const dapa = DRUG_DB.find(d => d.generic === "Dapagliflozin")!;
-      addRec(buildRec(dapa, patient,
-        `CKD (eGFR ${patient.eGFR}) → SGLT2i for renal protection (DAPA-CKD). Slows eGFR decline.`,
-        "first-line", "cvkd-risk"));
-    } else if (patient.eGFR >= 20) {
-      // No CKD, no HF but ASCVD → still benefit from SGLT2i
-      const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
-      addRec(buildRec(empa, patient,
-        `Post-stroke ASCVD → SGLT2i for additional CV benefit (EMPA-REG)`,
-        "add-on", "cvkd-risk"));
-    }
-  }
-
-  // ============================================================
-  // PRIORITY 2: WEIGHT MANAGEMENT
-  // ============================================================
-
-  if (needsWeightManagement(patient)) {
-    // If not already recommended a GLP-1 RA / dual agonist above
-    if (!addedClasses.has("glp1ra") && !addedClasses.has("dual-agonist")) {
-      const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
-      addRec(buildRec(sema, patient,
-        `BMI ${patient.bmi} (≥25) → GLP-1 RA for weight management (5-15% weight loss expected)`,
-        "first-line", "weight-management"));
-    }
-
-    // Avoid weight-gaining drugs note
-    if (patient.bmi >= 30) {
-      // Flag if on SU or TZD
-      if (isOnDrugClass(patient, "sulfonylurea")) {
-        const glic = DRUG_DB.find(d => d.generic === "Gliclazide")!;
-        recs.push({
-          ...buildRec(glic, patient, "", "de-escalate", "weight-management"),
-          reason: `BMI ${patient.bmi} (≥30) + on sulfonylurea → Consider de-escalation/switch to weight-neutral agent. SU causes 2-3 kg weight gain.`,
-          warnings: ["Consider replacing with DPP-4i or dose reduction if GLP-1 RA started", "High hypo risk with concurrent GLP-1 RA"],
-        });
-        addedGenerics.add("Gliclazide");
-      }
-    }
-  }
-
-  // ============================================================
-  // PRIORITY 3: GLYCEMIC CONTROL
-  // ============================================================
-
   const hba1c = patient.hba1c;
-  const rbs = patient.rbs;
+  const pathway = getAlgorithmPathway(patient);
+  const establishedASCVD = patient.hasASCVD || patient.hasPostStroke || patient.hasPAD;
+  const establishedCKD = patient.hasCKD || patient.eGFR < 60;
+  const establishedHF = patient.hasHF || patient.hfNYHA >= 2;
+  const hba1cAboveTarget = hba1c >= 7.0;
 
-  // Metformin — foundational therapy if eGFR allows
+  // ============================================================
+  // STEP 1: FIRST-LINE — Metformin + lifestyle (universal)
+  // ============================================================
   if (patient.eGFR >= 30 && !isOnDrug(patient, "Metformin")) {
     const met = DRUG_DB.find(d => d.generic === "Metformin")!;
     addRec(buildRec(met, patient,
-      `Foundational therapy for T2DM. eGFR ${patient.eGFR} ≥ 30 → Safe to use. ${patient.eGFR < 45 ? "Reduced dose for CKD." : ""}`,
-      addedClasses.size > 0 ? "add-on" : "first-line", "glycemic-control"));
+      `First-line therapy: Metformin + comprehensive lifestyle (including weight management and physical activity). eGFR ${patient.eGFR} ≥ 30 → safe. ${patient.eGFR < 45 ? "Reduced dose for CKD Stage 3b." : ""}`,
+      "first-line", "glycemic-control"));
   }
 
-  // HbA1c-based intensification
-  if (hba1c >= 7.0 && hba1c < 8.0) {
-    // Moderate: dual therapy
-    if (!addedClasses.has("dpp4i") && !addedClasses.has("glp1ra") && !addedClasses.has("dual-agonist")) {
-      // DPP-4i as add-on if GLP-1 RA not used
-      const lina = DRUG_DB.find(d => d.generic === "Linagliptin")!;
-      addRec(buildRec(lina, patient,
-        `HbA1c ${hba1c}% (7-8) → Add DPP-4i for additional 0.5-0.7% reduction. No renal dose adjustment needed.`,
-        "add-on", "glycemic-control"));
-    }
-  } else if (hba1c >= 8.0 && hba1c < 9.0) {
-    // High: triple therapy or intensification
-    if (!addedClasses.has("sglt2i") && patient.eGFR >= 20) {
-      const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
-      addRec(buildRec(empa, patient,
-        `HbA1c ${hba1c}% (≥8) → Add SGLT2i for glycemic + CV benefit`,
-        "add-on", "glycemic-control"));
-    }
+  // ============================================================
+  // STEP 2: ESTABLISHED ASCVD OR CKD? → Branch into pathways
+  // ============================================================
 
-    // Consider SU only if not obese and no better options
-    if (!addedClasses.has("sulfonylurea") && patient.bmi < 25 && !isOnDrugClass(patient, "sulfonylurea")) {
-      const glic = DRUG_DB.find(d => d.generic === "Gliclazide")!;
-      addRec(buildRec(glic, patient,
-        `HbA1c ${hba1c}% (≥8) + BMI ${patient.bmi} (<25) → Gliclazide MR (preferred SU, lower hypo risk). Use if cost is a factor.`,
-        "add-on", "glycemic-control"));
-    }
-  } else if (hba1c >= 9.0) {
-    // Very high: consider insulin
-    if (rbs > 300 || hba1c >= 10) {
-      // Symptomatic hyperglycemia → insulin
-      const glargine = DRUG_DB.find(d => d.generic === "Insulin Glargine")!;
-      addRec(buildRec(glargine, patient,
-        `HbA1c ${hba1c}% (≥9) + RBS ${rbs} → Basal insulin needed for glycemic control. Start with 10 units or 0.1-0.2 U/kg. Titrate +2 units q3 days to FBG target.`,
-        "first-line", "glycemic-control"));
+  if (establishedASCVD || establishedCKD || establishedHF) {
+    // ─── BRANCH A: ASCVD PREDOMINATES ───
+    if (pathway === "ascvd-predominant") {
+      // EITHER/OR: GLP-1 RA with proven CV benefit OR SGLT2i with proven CVD benefit
+      // GLP-1 RA: strongest evidence semaglutide > liraglutide > dulaglutide > exenatide ER
+      const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
+      addRec(buildRec(sema, patient,
+        `ASCVD predominates → GLP-1 RA with proven CV benefit (SUSTAIN-6, SELECT). Strongest evidence. ${patient.bmi >= 27 ? "Also addresses weight management." : ""}`,
+        "first-line", "cvkd-risk"));
 
-      // Consider degludec for lower hypo risk
-      const degludec = DRUG_DB.find(d => d.generic === "Insulin Degludec")!;
-      addRec(buildRec(degludec, patient,
-        `Alternative basal insulin: lower nocturnal hypoglycemia risk (DEVOTE). Preferred if hypo risk is a concern.`,
-        "add-on", "glycemic-control"));
-    } else {
-      // HbA1c 9-10 without severe symptoms → intensify orals + consider basal
-      if (!addedClasses.has("sulfonylurea") && patient.bmi < 27) {
-        const glic = DRUG_DB.find(d => d.generic === "Gliclazide")!;
-        addRec(buildRec(glic, patient,
-          `HbA1c ${hba1c}% (≥9) → Gliclazide MR for potent glucose lowering. Titrate slowly.`,
-          "add-on", "glycemic-control"));
+      if (patient.eGFR >= 20) {
+        const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
+        addRec(buildRec(empa, patient,
+          `ASCVD predominates → SGLT2i with proven CVD benefit, if eGFR adequate (${patient.eGFR} ≥ 20). EMPA-REG OUTCOME.`,
+          "first-line", "cvkd-risk"));
       }
 
-      const glargine = DRUG_DB.find(d => d.generic === "Insulin Glargine")!;
-      addRec(buildRec(glargine, patient,
-        `HbA1c ${hba1c}% (≥9) → Consider early basal insulin if oral combination insufficient. Target FBG 80-130.`,
-        "intensification", "glycemic-control"));
+      // If HbA1c still above target → intensify
+      if (hba1cAboveTarget) {
+        // Consider adding the other class, DPP-4i (if not on GLP-1 RA), basal insulin, TZD (low dose), SU
+        if (!addedClasses.has("dual-agonist") && patient.bmi >= 27) {
+          const tirz = DRUG_DB.find(d => d.generic === "Tirzepatide")!;
+          addRec(buildRec(tirz, patient,
+            `HbA1c ${hba1c}% above target + BMI ${patient.bmi} → Dual GIP/GLP-1 agonist for maximum efficacy (SURPASS, SURMOUNT). Alternative to semaglutide.`,
+            "add-on", "cvkd-risk"));
+        }
+
+        const lira = DRUG_DB.find(d => d.generic === "Liraglutide")!;
+        addRec(buildRec(lira, patient,
+          `ASCVD intensification → Alternative GLP-1 RA with proven CV benefit (LEADER). Consider if semaglutide not tolerated.`,
+          "add-on", "cvkd-risk"));
+
+        // Further intensification: DPP-4i, basal insulin, TZD, SU
+        addIntensificationAgents(patient, hba1c, recs, addRec, addedClasses, addedGenerics, true);
+      }
+    }
+
+    // ─── BRANCH B: HF OR CKD PREDOMINATES ───
+    else if (pathway === "hf-ckd-predominant") {
+      // PREFERABLY: SGLT2i with evidence of reducing HF and/or CKD progression (if eGFR adequate)
+      // Empagliflozin & canagliflozin both shown reduction in HF and CKD progression
+      if (patient.eGFR >= 20) {
+        const sglt2Choice = establishedHF
+          ? DRUG_DB.find(d => d.generic === "Empagliflozin")!   // EMPEROR trials
+          : DRUG_DB.find(d => d.generic === "Dapagliflozin")!;  // DAPA-CKD
+
+        addRec(buildRec(sglt2Choice, patient,
+          `HF/CKD predominates → PREFERABLY SGLT2i with evidence of reducing ${establishedHF ? "HF (EMPEROR-Reduced/Preserved)" : "CKD progression (DAPA-CKD)"}. eGFR ${patient.eGFR} adequate.`,
+          "first-line", "cvkd-risk"));
+
+        // Offer alternative SGLT2i
+        const altSGLT2 = establishedHF
+          ? DRUG_DB.find(d => d.generic === "Dapagliflozin")!
+          : DRUG_DB.find(d => d.generic === "Empagliflozin")!;
+        addRec(buildRec(altSGLT2, patient,
+          `Alternative SGLT2i for ${establishedHF ? "HF + CKD protection" : "CV + renal benefit"}. ${altSGLT2.adaReference}`,
+          "add-on", "cvkd-risk"));
+      }
+
+      // OR if SGLT2i not tolerated/contraindicated or eGFR inadequate → GLP-1 RA with proven CV benefit
+      const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
+      addRec(buildRec(sema, patient,
+        `${patient.eGFR < 20 ? "eGFR < 20 → SGLT2i contraindicated. " : "If SGLT2i not tolerated/contraindicated → "}Add GLP-1 RA with proven CV benefit.`,
+        patient.eGFR < 20 ? "first-line" : "add-on", "cvkd-risk"));
+
+      // If HbA1c above target → intensify
+      if (hba1cAboveTarget) {
+        // AVOID TZD in HF setting
+        // Choose agents demonstrating CV safety
+        // DPP-4i (not saxagliptin) in HF setting, basal insulin, SU
+        if (!addedClasses.has("dpp4i")) {
+          // Avoid saxagliptin in HF → use linagliptin or sitagliptin
+          const dpp4 = establishedHF
+            ? DRUG_DB.find(d => d.generic === "Linagliptin")!    // No HF signal + no renal dose adj
+            : DRUG_DB.find(d => d.generic === "Sitagliptin")!;
+          const warning = establishedHF ? "DPP-4i (NOT saxagliptin) in HF setting." : "";
+          addRec(buildRec(dpp4, patient,
+            `HbA1c ${hba1c}% above target → ${warning} ${dpp4.name} for additional glycemic control. ${dpp4.generic === "Linagliptin" ? "No renal dose adjustment needed." : ""}`,
+            "add-on", "glycemic-control"));
+        }
+
+        addIntensificationAgents(patient, hba1c, recs, addRec, addedClasses, addedGenerics, establishedHF);
+      }
     }
   }
 
-  // Pioglitazone — only if no HF and insulin resistance dominant
-  if (hba1c >= 7.5 && patient.hfNYHA < 2 && patient.bmi >= 30 && !addedClasses.has("tzd") && !isOnDrugClass(patient, "tzd")) {
-    const pio = DRUG_DB.find(d => d.generic === "Pioglitazone")!;
-    addRec(buildRec(pio, patient,
-      `HbA1c ${hba1c}% + BMI ${patient.bmi} + No HF → Pioglitazone addresses insulin resistance. CV benefit (PROactive). Caution: weight gain, edema.`,
-      "add-on", "glycemic-control"));
+  // ============================================================
+  // STEP 2 (NO): WITHOUT ESTABLISHED ASCVD OR CKD
+  // ============================================================
+  else {
+    if (!hba1cAboveTarget) {
+      // At target — no additional agents needed beyond metformin
+    } else {
+      // ─── COMPELLING NEED TO MINIMIZE HYPOGLYCEMIA ───
+      if (pathway === "hypo-minimization" || patient.age >= 65) {
+        // Prefer: DPP-4i, GLP-1 RA, SGLT2i, TZD (all low hypo risk)
+        if (!addedClasses.has("dpp4i") && !addedClasses.has("glp1ra") && !addedClasses.has("dual-agonist")) {
+          const lina = DRUG_DB.find(d => d.generic === "Linagliptin")!;
+          addRec(buildRec(lina, patient,
+            `Minimize hypoglycemia → DPP-4i: low hypo risk, weight neutral. No renal dose adjustment (biliary excretion).`,
+            "add-on", "glycemic-control"));
+        }
+
+        if (!addedClasses.has("glp1ra")) {
+          const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
+          addRec(buildRec(sema, patient,
+            `Minimize hypoglycemia → GLP-1 RA: low hypo risk + weight loss benefit.`,
+            "add-on", "glycemic-control"));
+        }
+
+        if (!addedClasses.has("sglt2i") && patient.eGFR >= 20) {
+          const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
+          addRec(buildRec(empa, patient,
+            `Minimize hypoglycemia → SGLT2i: low hypo risk + CV/renal benefit.`,
+            "add-on", "glycemic-control"));
+        }
+
+        // Second tier if HbA1c still above target
+        if (hba1c >= 8.0) {
+          // GLP-1 RA or SGLT2i add-ons, then continue with other agents
+          if (!addedClasses.has("sglt2i") && patient.eGFR >= 20) {
+            const dapa = DRUG_DB.find(d => d.generic === "Dapagliflozin")!;
+            addRec(buildRec(dapa, patient,
+              `HbA1c ${hba1c}% still above target → Add SGLT2i as second agent.`,
+              "add-on", "glycemic-control"));
+          }
+
+          // Third tier: consider SU (later gen) or basal insulin with lower hypo risk
+          if (hba1c >= 9.0) {
+            const glic = DRUG_DB.find(d => d.generic === "Gliclazide")!;
+            addRec(buildRec(glic, patient,
+              `HbA1c ${hba1c}% ≥ 9 → Consider SU OR basal insulin. Choose later-generation SU (gliclazide) with lower hypo risk.`,
+              "intensification", "glycemic-control"));
+
+            const degludec = DRUG_DB.find(d => d.generic === "Insulin Degludec")!;
+            addRec(buildRec(degludec, patient,
+              `Consider basal insulin with lower risk of hypoglycemia. Degludec preferred over glargine for nocturnal hypo safety (DEVOTE).`,
+              "intensification", "glycemic-control"));
+          }
+        }
+      }
+
+      // ─── COMPELLING NEED TO MINIMIZE WEIGHT GAIN / PROMOTE WEIGHT LOSS ───
+      else if (pathway === "weight-management") {
+        // EITHER/OR: GLP-1 RA with good efficacy for weight loss OR SGLT2i
+        if (patient.bmi >= 27) {
+          const tirz = DRUG_DB.find(d => d.generic === "Tirzepatide")!;
+          addRec(buildRec(tirz, patient,
+            `Weight management priority (BMI ${patient.bmi}) → Dual GIP/GLP-1 agonist: highest weight loss efficacy (15-20%). SURMOUNT/SURPASS trials.`,
+            "first-line", "weight-management"));
+        }
+
+        const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
+        addRec(buildRec(sema, patient,
+          `Weight management (BMI ${patient.bmi}) → GLP-1 RA with good efficacy for weight loss (5-15%). SELECT/STEP trials.`,
+          patient.bmi >= 27 ? "add-on" : "first-line", "weight-management"));
+
+        if (patient.eGFR >= 20) {
+          const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
+          addRec(buildRec(empa, patient,
+            `Weight management → SGLT2i: modest weight loss (2-3 kg) + CV/renal benefit.`,
+            "add-on", "weight-management"));
+        }
+
+        // If HbA1c still above target
+        if (hba1c >= 8.0) {
+          if (!addedClasses.has("sglt2i") && patient.eGFR >= 20) {
+            const dapa = DRUG_DB.find(d => d.generic === "Dapagliflozin")!;
+            addRec(buildRec(dapa, patient,
+              `HbA1c ${hba1c}% above target → Add SGLT2i for weight-neutral glycemic control.`,
+              "add-on", "weight-management"));
+          }
+
+          // If triple therapy needed and GLP-1 RA/SGLT2i not tolerated → DPP-4i (weight neutral)
+          if (!addedClasses.has("dpp4i")) {
+            const lina = DRUG_DB.find(d => d.generic === "Linagliptin")!;
+            addRec(buildRec(lina, patient,
+              `HbA1c ${hba1c}% → PREFERABLY DPP-4i (if not on GLP-1 RA) based on weight neutrality.`,
+              "add-on", "glycemic-control"));
+          }
+        }
+
+        // De-escalate weight-gaining agents
+        if (patient.bmi >= 30 && isOnDrugClass(patient, "sulfonylurea")) {
+          const glic = DRUG_DB.find(d => d.generic === "Gliclazide")!;
+          recs.push({
+            ...buildRec(glic, patient, "", "de-escalate", "weight-management"),
+            reason: `BMI ${patient.bmi} (≥30) + on sulfonylurea → Consider de-escalation/switch to weight-neutral agent. SU causes 2-3 kg weight gain.`,
+            warnings: ["Consider replacing with DPP-4i or dose reduction if GLP-1 RA started", "High hypo risk with concurrent GLP-1 RA"],
+          });
+          addedGenerics.add("Gliclazide");
+        }
+      }
+    }
+  }
+
+  // ============================================================
+  // SEVERE HYPERGLYCEMIA — insulin regardless of pathway
+  // ============================================================
+  if (hba1c >= 9.0 && (patient.rbs > 300 || hba1c >= 10)) {
+    if (!addedClasses.has("basal-insulin")) {
+      const glargine = DRUG_DB.find(d => d.generic === "Insulin Glargine")!;
+      addRec(buildRec(glargine, patient,
+        `HbA1c ${hba1c}% + RBS ${patient.rbs} → Symptomatic hyperglycemia: basal insulin required. Start 10 units or 0.1-0.2 U/kg. Titrate +2 U q3 days to FBG 80-130.`,
+        "first-line", "glycemic-control"));
+    }
+  } else if (hba1c >= 9.0 && !addedClasses.has("basal-insulin")) {
+    const glargine = DRUG_DB.find(d => d.generic === "Insulin Glargine")!;
+    addRec(buildRec(glargine, patient,
+      `HbA1c ${hba1c}% (≥9) → Consider early basal insulin if oral combination insufficient. Target FBG 80-130.`,
+      "intensification", "glycemic-control"));
   }
 
   // ============================================================
   // CURRENT MEDICATION REVIEW
   // ============================================================
-
   for (const med of patient.currentMeds) {
     const medLower = med.toLowerCase();
-
-    // Check each current med against drug database
     for (const drug of DRUG_DB) {
       if (medLower.includes(drug.generic.toLowerCase()) && !addedGenerics.has(drug.generic)) {
-        // Check if contraindicated
         let isContra = false;
         if (drug.minEGFR > 0 && patient.eGFR < drug.minEGFR) isContra = true;
         if (drug.generic === "Saxagliptin" && patient.hfNYHA >= 2) isContra = true;
@@ -843,7 +955,6 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
             `Currently on ${med} → ⚠ CONTRAINDICATED in this patient. Discontinue and switch.`,
             "de-escalate", "current-med-review"));
         } else {
-          // Check renal dose adjustment needed
           const needsAdj = drug.renalDoseAdjust?.some(a => patient.eGFR >= a.eGFRRange[0] && patient.eGFR < a.eGFRRange[1]);
           addRec(buildRec(drug, patient,
             `Currently on ${med}. ${needsAdj ? "⚠ DOSE ADJUSTMENT needed for current renal function." : "Review: appropriate for current clinical status."}`,
@@ -853,7 +964,6 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
       }
     }
 
-    // Voglibose special handling (common in India)
     if (medLower.includes("voglibose") && !addedGenerics.has("Voglibose")) {
       const vogl = DRUG_DB.find(d => d.generic === "Voglibose")!;
       addRec(buildRec(vogl, patient,
@@ -865,7 +975,6 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
   // ============================================================
   // LIPID MANAGEMENT (Post-stroke LAI targets)
   // ============================================================
-
   if (patient.ldl > 55) {
     const statin: MedRecommendation = {
       drug: patient.ldl > 100 ? "Rosuvastatin 20mg" : "Rosuvastatin 10mg",
@@ -891,7 +1000,6 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
     };
     addRec(statin);
 
-    // Ezetimibe if LDL very high
     if (patient.ldl > 100) {
       recs.push({
         drug: "Ezetimibe (Zetia)",
@@ -913,23 +1021,13 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
     }
   }
 
-  // Sort by priority order
+  // Sort
   const priorityOrder: Record<string, number> = {
-    "cvkd-risk": 0,
-    "weight-management": 1,
-    "glycemic-control": 2,
-    "lipid": 3,
-    "current-med-review": 4,
+    "cvkd-risk": 0, "weight-management": 1, "glycemic-control": 2, "lipid": 3, "current-med-review": 4,
   };
   const statusOrder: Record<string, number> = {
-    "first-line": 0,
-    "adjustment": 1,
-    "add-on": 2,
-    "intensification": 3,
-    "de-escalate": 4,
-    "emergency": 5,
+    "first-line": 0, "adjustment": 1, "add-on": 2, "intensification": 3, "de-escalate": 4, "emergency": 5,
   };
-
   recs.sort((a, b) => {
     const catDiff = (priorityOrder[a.category] ?? 5) - (priorityOrder[b.category] ?? 5);
     if (catDiff !== 0) return catDiff;
@@ -937,6 +1035,44 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
   });
 
   return recs;
+}
+
+/**
+ * Helper: add intensification agents after primary CV/Kidney agents.
+ * Avoids TZD in HF. Follows the ADA 2026 stepwise approach.
+ */
+function addIntensificationAgents(
+  patient: PatientData,
+  hba1c: number,
+  recs: MedRecommendation[],
+  addRec: (rec: MedRecommendation) => void,
+  addedClasses: Set<DrugClass>,
+  addedGenerics: Set<string>,
+  avoidTZD: boolean,
+) {
+  // Basal insulin if HbA1c very high
+  if (hba1c >= 9.0 && !addedClasses.has("basal-insulin")) {
+    const degludec = DRUG_DB.find(d => d.generic === "Insulin Degludec")!;
+    addRec(buildRec(degludec, patient,
+      `HbA1c ${hba1c}% ≥ 9 → Basal insulin for intensification. Degludec preferred (lower nocturnal hypo, DEVOTE). U100 glargine also CV-safe.`,
+      "intensification", "glycemic-control"));
+  }
+
+  // SU — later generation, lower hypo
+  if (hba1c >= 8.5 && !addedClasses.has("sulfonylurea") && patient.bmi < 27) {
+    const glic = DRUG_DB.find(d => d.generic === "Gliclazide")!;
+    addRec(buildRec(glic, patient,
+      `HbA1c ${hba1c}% → Later-generation SU with lower hypo risk (gliclazide MR, ADVANCE trial). Use if cost is a factor.`,
+      "intensification", "glycemic-control"));
+  }
+
+  // TZD — only if no HF
+  if (!avoidTZD && hba1c >= 7.5 && !addedClasses.has("tzd") && patient.hfNYHA < 2) {
+    const pio = DRUG_DB.find(d => d.generic === "Pioglitazone")!;
+    addRec(buildRec(pio, patient,
+      `Pioglitazone: addresses insulin resistance. CV benefit (PROactive). Low dose may be better tolerated. ⚠ Avoid in HF.`,
+      "add-on", "glycemic-control"));
+  }
 }
 
 // ============================================================
