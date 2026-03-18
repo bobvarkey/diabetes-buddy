@@ -8,6 +8,8 @@ import {
 import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity, UserX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { AlgorithmFlowchart } from "@/components/med/AlgorithmFlowchart";
+import { ClinicalGuidelines } from "@/components/med/ClinicalGuidelines";
 
 const categoryIcon: Record<AlgorithmPriority, typeof Heart> = {
   "cvkd-risk": Heart,
