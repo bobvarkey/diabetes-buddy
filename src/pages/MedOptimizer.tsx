@@ -3,13 +3,14 @@ import { PatientData, EXAMPLE_PATIENT, loadPatient } from "@/lib/patient-data";
 import {
   generateMedRecommendations, getHypoProtocol, getLipidTargets,
   MedRecommendation, AlgorithmPriority, getCategoryLabel, getDrugClassLabel,
-  getAlgorithmPathway, getPathwayLabel, AlgorithmPathway,
+  getAlgorithmPathway, getPathwayLabel, AlgorithmPathway, getNextBestMedication,
 } from "@/lib/med-logic";
 import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity, UserX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { AlgorithmFlowchart } from "@/components/med/AlgorithmFlowchart";
 import { ClinicalGuidelines } from "@/components/med/ClinicalGuidelines";
+import { NextBestMed } from "@/components/med/NextBestMed";
 
 const categoryIcon: Record<AlgorithmPriority, typeof Heart> = {
   "cvkd-risk": Heart,
@@ -49,6 +50,7 @@ const MedOptimizer = () => {
   const pathway = patient ? getAlgorithmPathway(patient) : null;
   const hypo = patient ? getHypoProtocol(patient) : null;
   const lipids = patient ? getLipidTargets(patient) : null;
+  const nextBest = useMemo(() => patient ? getNextBestMedication(patient) : null, [patient]);
 
   // Group meds by category
   const grouped = useMemo(() => {
@@ -176,6 +178,9 @@ const MedOptimizer = () => {
         </div>
         <p className="text-[10px] text-muted-foreground mt-2">{meds.length} medications recommended across {grouped.length} priorities</p>
       </div>
+
+      {/* Next Best Medication */}
+      {nextBest && <NextBestMed nextBest={nextBest} />}
 
       {/* Visual Flowchart */}
       {pathway && <AlgorithmFlowchart patient={patient} pathway={pathway} />}
