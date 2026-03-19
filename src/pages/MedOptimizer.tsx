@@ -3,13 +3,14 @@ import { PatientData, EXAMPLE_PATIENT, loadPatient } from "@/lib/patient-data";
 import {
   generateMedRecommendations, getHypoProtocol, getLipidTargets,
   MedRecommendation, AlgorithmPriority, getCategoryLabel, getDrugClassLabel,
-  getAlgorithmPathway, getPathwayLabel, AlgorithmPathway,
+  getAlgorithmPathway, getPathwayLabel, AlgorithmPathway, getNextBestMedication,
 } from "@/lib/med-logic";
 import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity, UserX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { AlgorithmFlowchart } from "@/components/med/AlgorithmFlowchart";
 import { ClinicalGuidelines } from "@/components/med/ClinicalGuidelines";
+import { NextBestMed } from "@/components/med/NextBestMed";
 
 const categoryIcon: Record<AlgorithmPriority, typeof Heart> = {
   "cvkd-risk": Heart,
