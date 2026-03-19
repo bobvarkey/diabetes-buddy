@@ -50,6 +50,7 @@ const MedOptimizer = () => {
   const pathway = patient ? getAlgorithmPathway(patient) : null;
   const hypo = patient ? getHypoProtocol(patient) : null;
   const lipids = patient ? getLipidTargets(patient) : null;
+  const nextBest = useMemo(() => patient ? getNextBestMedication(patient) : null, [patient]);
 
   // Group meds by category
   const grouped = useMemo(() => {
