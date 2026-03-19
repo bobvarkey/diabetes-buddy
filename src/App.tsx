@@ -50,6 +50,7 @@ const App = () => (
                   <Route path="/insulin-titration" element={<InsulinTitration />} />
                   <Route path="/hypo-risk" element={<HypoRiskCalculator />} />
                   <Route path="/renal-dosing" element={<RenalDoseAdjustment />} />
+                  <Route path="/prediabetes" element={<PrediabetesAlgorithm />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>

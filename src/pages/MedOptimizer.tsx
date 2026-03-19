@@ -179,6 +179,9 @@ const MedOptimizer = () => {
         <p className="text-[10px] text-muted-foreground mt-2">{meds.length} medications recommended across {grouped.length} priorities</p>
       </div>
 
+      {/* Next Best Medication */}
+      {nextBest && <NextBestMed nextBest={nextBest} />}
+
       {/* Visual Flowchart */}
       {pathway && <AlgorithmFlowchart patient={patient} pathway={pathway} />}
 
