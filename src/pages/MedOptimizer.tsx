@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { PatientData, EXAMPLE_PATIENT, loadPatient } from "@/lib/patient-data";
 import {
   generateMedRecommendations, getHypoProtocol, getLipidTargets,
