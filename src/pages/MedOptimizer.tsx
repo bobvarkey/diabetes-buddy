@@ -109,14 +109,89 @@ const MedOptimizer = () => {
   const weightIcon = (w: string) => w === "loss" ? "↓ Weight loss" : w === "gain" ? "↑ Weight gain" : "→ Weight neutral";
   const weightColor = (w: string) => w === "loss" ? "text-success" : w === "gain" ? "text-destructive" : "text-muted-foreground";
 
+  const handleExportPDF = useCallback(async () => {
+    if (!contentRef.current || !patient) return;
+    setExporting(true);
+
+    // Expand all collapsible sections temporarily
+    const allCollapsibles = contentRef.current.querySelectorAll('button');
+    const closedSections: HTMLButtonElement[] = [];
+    allCollapsibles.forEach(btn => {
+      const parent = btn.closest('[class*="clinical-card"]');
+      if (parent && !parent.querySelector('.animate-slide-in')) {
+        closedSections.push(btn);
+        btn.click();
+      }
+    });
+
+    // Wait for animations
+    await new Promise(r => setTimeout(r, 400));
+
+    try {
+      const html2canvas = (await import("html2canvas")).default;
+      const { jsPDF } = await import("jspdf");
+
+      const element = contentRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: "#ffffff",
+        windowWidth: 800,
+      });
+
+      const imgData = canvas.toDataURL("image/jpeg", 0.95);
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pdfW = pdf.internal.pageSize.getWidth();
+      const pdfH = pdf.internal.pageSize.getHeight();
+      const margin = 8;
+      const usableW = pdfW - margin * 2;
+      const imgH = (canvas.height * usableW) / canvas.width;
+
+      let yOffset = 0;
+      let page = 0;
+
+      while (yOffset < imgH) {
+        if (page > 0) pdf.addPage();
+        pdf.addImage(imgData, "JPEG", margin, margin - yOffset, usableW, imgH);
+        yOffset += pdfH - margin * 2;
+        page++;
+      }
+
+      // Header on first page
+      pdf.setPage(1);
+      pdf.setFontSize(7);
+      pdf.setTextColor(150);
+      pdf.text(`Generated ${new Date().toLocaleDateString()} · Diabetes Med Optimizer`, margin, pdfH - 4);
+
+      pdf.save(`${patient.name.replace(/\s+/g, "_")}_Medication_Summary.pdf`);
+    } catch (err) {
+      console.error("PDF export failed:", err);
+    } finally {
+      // Re-collapse sections that were closed
+      closedSections.forEach(btn => btn.click());
+      setExporting(false);
+    }
+  }, [patient]);
+
   let globalIdx = 0;
 
   return (
     <div className="space-y-5 animate-slide-in">
-      <div>
-        <h1 className="text-xl font-heading font-bold">Medication Optimizer</h1>
-        <p className="text-sm text-muted-foreground">ADA 2026 Priorities-First Algorithm + LAI Lipid Guidelines</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-xl font-heading font-bold">Medication Optimizer</h1>
+          <p className="text-sm text-muted-foreground">ADA 2026 Priorities-First Algorithm + LAI Lipid Guidelines</p>
+        </div>
+        {patient && (
+          <Button size="sm" variant="outline" onClick={handleExportPDF} disabled={exporting} className="gap-1.5">
+            {exporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
+            {exporting ? "Exporting…" : "Export PDF"}
+          </Button>
+        )}
       </div>
+
+      <div ref={contentRef}>
 
       {/* Patient summary */}
       <div className="clinical-card p-4" style={{ background: "var(--gradient-hero)" }}>
