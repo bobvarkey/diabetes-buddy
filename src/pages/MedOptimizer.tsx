@@ -189,6 +189,9 @@ const MedOptimizer = () => {
       {/* Clinical Guidelines */}
       <ClinicalGuidelines />
 
+      {/* GLP-1 Obesity Algorithm */}
+      <GLP1ObesityAlgorithm patient={patient} />
+
       {/* Grouped medication cards */}
       {grouped.map((group) => (
         <div key={group.category} className="space-y-2">
