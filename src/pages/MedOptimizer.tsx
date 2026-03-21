@@ -188,7 +188,7 @@ const MedOptimizer = () => {
         )}
       </div>
 
-      <div ref={contentRef}>
+      <div ref={contentRef} className="space-y-5">
 
       {/* Patient summary */}
       <div className="clinical-card p-4" style={{ background: "var(--gradient-hero)" }}>
