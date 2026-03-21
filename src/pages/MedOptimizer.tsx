@@ -5,7 +5,7 @@ import {
   MedRecommendation, AlgorithmPriority, getCategoryLabel, getDrugClassLabel,
   getAlgorithmPathway, getPathwayLabel, AlgorithmPathway, getNextBestMedication,
 } from "@/lib/med-logic";
-import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity, UserX } from "lucide-react";
+import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity, UserX, Download, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { AlgorithmFlowchart } from "@/components/med/AlgorithmFlowchart";
