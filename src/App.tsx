@@ -17,6 +17,7 @@ import InsulinTitration from "./pages/InsulinTitration";
 import HypoRiskCalculator from "./pages/HypoRiskCalculator";
 import RenalDoseAdjustment from "./pages/RenalDoseAdjustment";
 import PrediabetesAlgorithm from "./pages/PrediabetesAlgorithm";
+import CKDGuideline from "./pages/CKDGuideline";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -51,6 +52,7 @@ const App = () => (
                   <Route path="/hypo-risk" element={<HypoRiskCalculator />} />
                   <Route path="/renal-dosing" element={<RenalDoseAdjustment />} />
                   <Route path="/prediabetes" element={<PrediabetesAlgorithm />} />
+                  <Route path="/ckd-guideline" element={<CKDGuideline />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
