@@ -19,6 +19,7 @@ const items = [
   { title: "Insulin Titration", url: "/insulin-titration", icon: Syringe },
   { title: "Hypo Risk Score", url: "/hypo-risk", icon: ShieldAlert },
   { title: "Renal Dosing", url: "/renal-dosing", icon: FlaskConical },
+  { title: "CKD Guideline", url: "/ckd-guideline", icon: Kidney },
   { title: "Diet Plan", url: "/diet-plan", icon: CalendarDays },
   { title: "Progress", url: "/progress", icon: TrendingUp },
 ];

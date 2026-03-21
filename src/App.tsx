@@ -52,6 +52,7 @@ const App = () => (
                   <Route path="/hypo-risk" element={<HypoRiskCalculator />} />
                   <Route path="/renal-dosing" element={<RenalDoseAdjustment />} />
                   <Route path="/prediabetes" element={<PrediabetesAlgorithm />} />
+                  <Route path="/ckd-guideline" element={<CKDGuideline />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
