@@ -17,6 +17,7 @@ import InsulinTitration from "./pages/InsulinTitration";
 import HypoRiskCalculator from "./pages/HypoRiskCalculator";
 import RenalDoseAdjustment from "./pages/RenalDoseAdjustment";
 import PrediabetesAlgorithm from "./pages/PrediabetesAlgorithm";
+import CKDGuideline from "./pages/CKDGuideline";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
