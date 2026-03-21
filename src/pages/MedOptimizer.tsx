@@ -410,7 +410,6 @@ const MedOptimizer = () => {
       </div>
     </div>
   );
-  );
 };
 
 export default MedOptimizer;
