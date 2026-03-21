@@ -39,7 +39,9 @@ const categoryBg: Record<AlgorithmPriority, string> = {
 
 const MedOptimizer = () => {
   const navigate = useNavigate();
+  const contentRef = useRef<HTMLDivElement>(null);
   const [patient, setPatient] = useState<PatientData | null>(null);
+  const [exporting, setExporting] = useState(false);
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set([0, 1, 2]));
 
   useEffect(() => {
