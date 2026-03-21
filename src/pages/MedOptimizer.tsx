@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { AlgorithmFlowchart } from "@/components/med/AlgorithmFlowchart";
 import { ClinicalGuidelines } from "@/components/med/ClinicalGuidelines";
 import { NextBestMed } from "@/components/med/NextBestMed";
+import { GLP1ObesityAlgorithm } from "@/components/med/GLP1ObesityAlgorithm";
 
 const categoryIcon: Record<AlgorithmPriority, typeof Heart> = {
   "cvkd-risk": Heart,
