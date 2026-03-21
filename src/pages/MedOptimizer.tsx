@@ -68,6 +68,68 @@ const MedOptimizer = () => {
     return groups;
   }, [meds]);
 
+  const handleExportPDF = useCallback(async () => {
+    if (!contentRef.current || !patient) return;
+    setExporting(true);
+
+    // Expand all collapsible sections temporarily
+    const allCollapsibles = contentRef.current.querySelectorAll('button');
+    const closedSections: HTMLButtonElement[] = [];
+    allCollapsibles.forEach(btn => {
+      const parent = btn.closest('[class*="clinical-card"]');
+      if (parent && !parent.querySelector('.animate-slide-in')) {
+        closedSections.push(btn);
+        btn.click();
+      }
+    });
+
+    await new Promise(r => setTimeout(r, 400));
+
+    try {
+      const html2canvas = (await import("html2canvas")).default;
+      const { jsPDF } = await import("jspdf");
+
+      const element = contentRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: "#ffffff",
+        windowWidth: 800,
+      });
+
+      const imgData = canvas.toDataURL("image/jpeg", 0.95);
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pdfW = pdf.internal.pageSize.getWidth();
+      const pdfH = pdf.internal.pageSize.getHeight();
+      const margin = 8;
+      const usableW = pdfW - margin * 2;
+      const imgH = (canvas.height * usableW) / canvas.width;
+
+      let yOffset = 0;
+      let page = 0;
+
+      while (yOffset < imgH) {
+        if (page > 0) pdf.addPage();
+        pdf.addImage(imgData, "JPEG", margin, margin - yOffset, usableW, imgH);
+        yOffset += pdfH - margin * 2;
+        page++;
+      }
+
+      pdf.setPage(1);
+      pdf.setFontSize(7);
+      pdf.setTextColor(150);
+      pdf.text(`Generated ${new Date().toLocaleDateString()} · Diabetes Med Optimizer`, margin, pdfH - 4);
+
+      pdf.save(`${patient.name.replace(/\s+/g, "_")}_Medication_Summary.pdf`);
+    } catch (err) {
+      console.error("PDF export failed:", err);
+    } finally {
+      closedSections.forEach(btn => btn.click());
+      setExporting(false);
+    }
+  }, [patient]);
+
   if (!patient) {
     return (
       <div className="space-y-5 animate-slide-in">
@@ -76,7 +138,7 @@ const MedOptimizer = () => {
           <UserX className="w-12 h-12 text-muted-foreground mb-4" />
           <h2 className="text-lg font-heading font-semibold mb-2">No Patient Data</h2>
           <p className="text-sm text-muted-foreground mb-4 max-w-md">
-            Please enter patient demographics, comorbidities, and lab values first. The medication algorithm requires this data to generate personalized recommendations.
+            Please enter patient demographics, comorbidities, and lab values first.
           </p>
           <Button onClick={() => navigate("/patient")}>
             Enter Patient Data
