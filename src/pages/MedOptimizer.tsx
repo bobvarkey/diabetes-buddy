@@ -407,7 +407,9 @@ const MedOptimizer = () => {
           ))}
         </div>
       </div>
+      </div>
     </div>
+  );
   );
 };
 
