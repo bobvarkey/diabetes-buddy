@@ -395,6 +395,25 @@ const DRUG_DB: DrugProfile[] = [
     sideEffects: ["Hypoglycemia", "Weight gain", "GI disturbance"],
     adaReference: "ADA 2026 §9.2 – SU, shorter acting",
   },
+  {
+    name: "Glyburide (Diabeta/Glynase)",
+    generic: "Glyburide",
+    class: "sulfonylurea",
+    doses: [
+      { label: "Start", dose: "2.5mg", frequency: "Once daily with breakfast" },
+      { label: "Titrate", dose: "5mg", frequency: "Once daily" },
+      { label: "Max", dose: "10mg", frequency: "BD (20mg/day)" },
+    ],
+    hba1cReduction: "1.0-1.5%",
+    cvBenefit: false,
+    renalBenefit: false,
+    weightEffect: "gain",
+    hypoRisk: "high",
+    minEGFR: 30,
+    contraindications: ["eGFR <30", "Severe hepatic insufficiency", "Elderly (high hypo risk)"],
+    sideEffects: ["Hypoglycemia (HIGHEST among SUs)", "Weight gain (2-4 kg)", "Nausea"],
+    adaReference: "ADA 2026 §9.2 – SU, longest acting — higher hypo risk, avoid in elderly/CKD",
+  },
 
   // === THIAZOLIDINEDIONES (TZDs) ===
   {
