@@ -1142,210 +1142,234 @@ export function getCategoryLabel(cat: AlgorithmPriority): string {
 }
 
 // ============================================================
-// NEXT BEST MEDICATION ENGINE
-// Suggests the single optimal next drug to add based on
-// current medications, pathway, and clinical profile.
+// NEXT BEST MEDICATION ENGINE — Scoring-based
+// Evaluates ALL eligible drugs and ranks them by weighted score
 // ============================================================
 
 export interface NextBestMed {
   recommendation: MedRecommendation;
   reasoning: string[];
   clinicalBasis: string;
-  alternatives: { drug: string; reason: string }[];
+  alternatives: { drug: string; reason: string; score: number }[];
+  score: number;
+  scoreBreakdown: { factor: string; value: number; max: number }[];
+}
+
+interface ScoredDrug {
+  drug: DrugProfile;
+  score: number;
+  breakdown: { factor: string; value: number; max: number }[];
+  reasoning: string[];
+  clinicalBasis: string;
+}
+
+function scoreDrug(drug: DrugProfile, patient: PatientData, pathway: AlgorithmPathway): ScoredDrug | null {
+  const breakdown: { factor: string; value: number; max: number }[] = [];
+  const reasoning: string[] = [];
+  let score = 0;
+
+  // === HARD EXCLUSIONS ===
+  // Already on this drug
+  if (isOnDrug(patient, drug.generic)) return null;
+  // Already on same class (except insulin which can have basal+prandial)
+  if (isOnDrugClass(patient, drug.class) && !["basal-insulin", "prandial-insulin"].includes(drug.class)) return null;
+  // eGFR too low
+  if (patient.eGFR < drug.minEGFR) return null;
+  // DPP-4i + GLP-1 RA combo is pointless
+  if (drug.class === "dpp4i" && (isOnDrugClass(patient, "glp1ra") || isOnDrugClass(patient, "dual-agonist"))) return null;
+  if ((drug.class === "glp1ra" || drug.class === "dual-agonist") && isOnDrugClass(patient, "dpp4i")) {
+    // Allow but note DPP-4i should be stopped
+    reasoning.push("⚠ Stop current DPP-4i if starting this agent (no additive benefit)");
+  }
+  // Saxagliptin in HF
+  if (drug.generic === "Saxagliptin" && hasHF(patient)) return null;
+  // TZD in NYHA III-IV
+  if (drug.class === "tzd" && patient.hfNYHA >= 3) return null;
+  // Prandial insulin only if on basal
+  if (drug.class === "prandial-insulin" && !isOnDrugClass(patient, "basal-insulin")) return null;
+
+  // === PATHWAY ALIGNMENT (0-30 pts) ===
+  const maxPathway = 30;
+  let pathwayScore = 0;
+
+  if (pathway === "ascvd-predominant") {
+    if (drug.cvBenefit && (drug.class === "glp1ra" || drug.class === "dual-agonist")) { pathwayScore = 30; reasoning.push("Directly indicated for ASCVD pathway — GLP-1 RA with proven CV benefit"); }
+    else if (drug.cvBenefit && drug.class === "sglt2i") { pathwayScore = 28; reasoning.push("SGLT2i with proven CV benefit for ASCVD"); }
+    else if (drug.cvBenefit) { pathwayScore = 15; }
+    else { pathwayScore = 5; }
+  } else if (pathway === "hf-ckd-predominant") {
+    if (drug.class === "sglt2i" && drug.renalBenefit) { pathwayScore = 30; reasoning.push("SGLT2i is the PREFERRED agent for HF/CKD pathway"); }
+    else if (drug.class === "glp1ra" && drug.cvBenefit) { pathwayScore = 25; reasoning.push("GLP-1 RA with CV benefit — use if SGLT2i not tolerated"); }
+    else if (drug.class === "dual-agonist") { pathwayScore = 24; reasoning.push("Dual agonist provides CV + weight benefit in HF/CKD"); }
+    else if (drug.class === "tzd") { pathwayScore = 0; reasoning.push("TZD should be avoided in HF setting"); }
+    else { pathwayScore = 5; }
+  } else if (pathway === "weight-management") {
+    if (drug.class === "dual-agonist") { pathwayScore = 30; reasoning.push("Dual GIP/GLP-1 agonist has highest weight loss efficacy (15-20%)"); }
+    else if (drug.class === "glp1ra") { pathwayScore = 27; reasoning.push("GLP-1 RA provides significant weight loss (5-15%)"); }
+    else if (drug.class === "sglt2i") { pathwayScore = 20; reasoning.push("SGLT2i provides modest weight loss (2-3 kg)"); }
+    else if (drug.weightEffect === "gain") { pathwayScore = 0; reasoning.push("Weight-gaining agent avoided in weight management pathway"); }
+    else { pathwayScore = 8; }
+  } else if (pathway === "hypo-minimization") {
+    if (drug.hypoRisk === "low") { pathwayScore = 25; reasoning.push("Low hypoglycemia risk — appropriate for this pathway"); }
+    else if (drug.hypoRisk === "moderate") { pathwayScore = 12; }
+    else { pathwayScore = 2; reasoning.push("High hypoglycemia risk — generally avoided unless HbA1c very high"); }
+  } else {
+    pathwayScore = 10;
+  }
+  breakdown.push({ factor: "Pathway Alignment", value: pathwayScore, max: maxPathway });
+  score += pathwayScore;
+
+  // === HbA1c REDUCTION POWER (0-20 pts) ===
+  const maxHba1c = 20;
+  const hba1cGap = patient.hba1c - 7.0;
+  // Parse reduction range e.g. "1.5-2.0%"
+  const reductionMatch = drug.hba1cReduction.match(/([\d.]+)-([\d.]+)/);
+  const avgReduction = reductionMatch ? (parseFloat(reductionMatch[1]) + parseFloat(reductionMatch[2])) / 2 : 0;
+  // Score higher for drugs that can close the gap
+  let hba1cScore = 0;
+  if (hba1cGap <= 0) {
+    hba1cScore = 5; // At target, mild bonus for any agent
+  } else if (avgReduction >= hba1cGap) {
+    hba1cScore = 20; // Can fully close the gap
+    reasoning.push(`Expected HbA1c reduction (${drug.hba1cReduction}) can close the ${hba1cGap.toFixed(1)}% gap to target`);
+  } else {
+    hba1cScore = Math.min(18, Math.round((avgReduction / Math.max(hba1cGap, 0.5)) * 18));
+  }
+  breakdown.push({ factor: "HbA1c Reduction", value: hba1cScore, max: maxHba1c });
+  score += hba1cScore;
+
+  // === CV/RENAL BENEFIT (0-15 pts) ===
+  const maxCVRenal = 15;
+  let cvRenalScore = 0;
+  if (drug.cvBenefit && (hasASCVD(patient) || hasHF(patient))) { cvRenalScore += 10; reasoning.push("Proven cardiovascular benefit in a patient with established CV disease"); }
+  else if (drug.cvBenefit) { cvRenalScore += 5; }
+  if (drug.renalBenefit && hasCKD(patient)) { cvRenalScore += 5; reasoning.push("Renal protective effect in CKD patient"); }
+  cvRenalScore = Math.min(cvRenalScore, maxCVRenal);
+  breakdown.push({ factor: "CV/Renal Benefit", value: cvRenalScore, max: maxCVRenal });
+  score += cvRenalScore;
+
+  // === WEIGHT EFFECT (0-15 pts) ===
+  const maxWeight = 15;
+  let weightScore = 0;
+  if (patient.bmi >= 27) {
+    if (drug.weightEffect === "loss") { weightScore = 15; }
+    else if (drug.weightEffect === "neutral") { weightScore = 8; }
+    else { weightScore = 0; }
+  } else if (patient.bmi >= 23) {
+    if (drug.weightEffect === "loss") { weightScore = 12; }
+    else if (drug.weightEffect === "neutral") { weightScore = 10; }
+    else { weightScore = 4; }
+  } else {
+    if (drug.weightEffect === "neutral") { weightScore = 10; }
+    else if (drug.weightEffect === "loss") { weightScore = 8; }
+    else { weightScore = 6; }
+  }
+  breakdown.push({ factor: "Weight Effect", value: weightScore, max: maxWeight });
+  score += weightScore;
+
+  // === HYPOGLYCEMIA SAFETY (0-10 pts) ===
+  const maxHypo = 10;
+  let hypoScore = drug.hypoRisk === "low" ? 10 : drug.hypoRisk === "moderate" ? 5 : 1;
+  // Extra penalty if elderly or already on SU/insulin
+  if (drug.hypoRisk === "high" && (patient.age >= 65 || isOnDrugClass(patient, "sulfonylurea") || isOnDrugClass(patient, "basal-insulin"))) {
+    hypoScore = 0;
+    reasoning.push("⚠ High hypo risk compounded by age or concurrent SU/insulin");
+  }
+  breakdown.push({ factor: "Hypo Safety", value: hypoScore, max: maxHypo });
+  score += hypoScore;
+
+  // === ADHERENCE / CONVENIENCE (0-5 pts) ===
+  const maxAdherence = 5;
+  let adherenceScore = 3;
+  const freq = drug.doses[0]?.frequency?.toLowerCase() || "";
+  if (freq.includes("weekly")) { adherenceScore = 5; reasoning.push("Weekly dosing improves adherence"); }
+  else if (freq.includes("once daily") || freq.includes("od")) { adherenceScore = 4; }
+  else if (freq.includes("bd")) { adherenceScore = 3; }
+  else if (freq.includes("tds")) { adherenceScore = 2; }
+  // Oral vs injectable
+  if (drug.class === "glp1ra" || drug.class === "dual-agonist" || drug.class.includes("insulin")) {
+    adherenceScore = Math.max(adherenceScore - 1, 0); // Slight penalty for injectables
+  }
+  breakdown.push({ factor: "Adherence", value: adherenceScore, max: maxAdherence });
+  score += adherenceScore;
+
+  // === RENAL SAFETY BONUS (0-5 pts) ===
+  const maxRenal = 5;
+  let renalScore = 3;
+  if (patient.eGFR < 45) {
+    if (drug.minEGFR <= 15 && !drug.renalDoseAdjust) { renalScore = 5; reasoning.push("No renal dose adjustment needed despite low eGFR"); }
+    else if (drug.renalDoseAdjust) { renalScore = 3; }
+    else { renalScore = 2; }
+  }
+  breakdown.push({ factor: "Renal Safety", value: renalScore, max: maxRenal });
+  score += renalScore;
+
+  // === BUILD CLINICAL BASIS ===
+  const trialMap: Record<string, string> = {
+    "Semaglutide": "SUSTAIN-6, SELECT — proven CV benefit and 5-15% weight loss",
+    "Liraglutide": "LEADER — 13% reduction in MACE; also approved for obesity (Saxenda 3.0mg)",
+    "Dulaglutide": "REWIND — CV benefit even in primary prevention population",
+    "Tirzepatide": "SURPASS (T2DM) & SURMOUNT (obesity) — highest HbA1c reduction (2.0-2.6%) and weight loss (15-20%)",
+    "Empagliflozin": "EMPA-REG OUTCOME (CV), EMPEROR-Reduced/Preserved (HF) — proven cardiorenal protection",
+    "Dapagliflozin": "DECLARE-TIMI, DAPA-CKD, DAPA-HF — broad cardiorenal evidence base",
+    "Canagliflozin": "CANVAS, CREDENCE — CV and renal benefit; monitor foot health",
+    "Metformin": "UKPDS — long-term safety and efficacy; foundational T2DM therapy",
+    "Insulin Degludec": "DEVOTE — lower nocturnal hypo vs glargine with equivalent CV safety",
+    "Insulin Glargine": "ORIGIN — CV-safe; most widely used basal insulin globally",
+    "Linagliptin": "CARMELINA, CAROLINA — CV-safe; no renal dose adjustment (biliary excretion)",
+    "Sitagliptin": "TECOS — CV-safe; renal dose adjustment available down to eGFR <30",
+    "Gliclazide": "ADVANCE — lower hypo risk vs other SUs; preferred SU per ADA",
+    "Pioglitazone": "PROactive — modest CV benefit; insulin sensitizer; avoid in HF",
+  };
+  const clinicalBasis = trialMap[drug.generic] || drug.adaReference;
+
+  return { drug, score, breakdown, reasoning, clinicalBasis };
 }
 
 export function getNextBestMedication(patient: PatientData): NextBestMed | null {
   const pathway = getAlgorithmPathway(patient);
-  const hba1c = patient.hba1c;
-  const bmi = patient.bmi;
-  const onMet = isOnDrug(patient, "Metformin");
-  const onSGLT2 = isOnDrugClass(patient, "sglt2i");
-  const onGLP1 = isOnDrugClass(patient, "glp1ra");
-  const onDualAgonist = isOnDrugClass(patient, "dual-agonist");
-  const onDPP4 = isOnDrugClass(patient, "dpp4i");
-  const onSU = isOnDrugClass(patient, "sulfonylurea");
-  const onTZD = isOnDrugClass(patient, "tzd");
-  const onBasalInsulin = isOnDrugClass(patient, "basal-insulin");
-  const onAGI = isOnDrugClass(patient, "agi");
-  const establishedASCVD = hasASCVD(patient);
-  const establishedCKD = hasCKD(patient);
-  const establishedHF = hasHF(patient);
 
-  const reasoning: string[] = [];
-  const alternatives: { drug: string; reason: string }[] = [];
-
-  // Step 1: Not on metformin and eGFR adequate
-  if (!onMet && patient.eGFR >= 30) {
-    const met = DRUG_DB.find(d => d.generic === "Metformin")!;
-    reasoning.push("Patient is not on metformin — the universal first-line agent");
-    reasoning.push("Metformin is cost-effective, well-tolerated, and has the longest safety track record");
-    return {
-      recommendation: buildRec(met, patient,
-        "First-line: Start metformin. Foundation of all T2DM therapy (ADA 2026 §9.2).",
-        "first-line", "glycemic-control"),
-      reasoning,
-      clinicalBasis: "ADA 2026 §9.2 — Metformin is the preferred initial pharmacologic agent for T2DM unless contraindicated.",
-      alternatives: [
-        { drug: "Linagliptin", reason: "If metformin not tolerated (GI), DPP-4i is weight-neutral alternative" },
-      ],
-    };
+  // Score every drug in the database
+  const scored: ScoredDrug[] = [];
+  for (const drug of DRUG_DB) {
+    const result = scoreDrug(drug, patient, pathway);
+    if (result && result.score > 0) scored.push(result);
   }
 
-  // Step 2: ASCVD/CKD/HF — need SGLT2i or GLP-1 RA
-  if (establishedASCVD || establishedCKD || establishedHF) {
-    // HF/CKD → SGLT2i first
-    if ((establishedHF || establishedCKD) && !onSGLT2 && patient.eGFR >= 20) {
-      const drug = establishedHF
-        ? DRUG_DB.find(d => d.generic === "Empagliflozin")!
-        : DRUG_DB.find(d => d.generic === "Dapagliflozin")!;
-      reasoning.push(`Patient has ${establishedHF ? "Heart Failure" : "CKD (eGFR " + patient.eGFR + ")"} — SGLT2i is the preferred agent`);
-      reasoning.push(`${drug.name} has proven ${establishedHF ? "HF reduction (EMPEROR)" : "CKD progression reduction (DAPA-CKD)"}`);
-      reasoning.push("Independent of glycemic control — cardiorenal protection is the primary goal");
-      alternatives.push({ drug: "Semaglutide (GLP-1 RA)", reason: "If SGLT2i not tolerated or eGFR <20" });
-      if (!onGLP1 && !onDualAgonist) alternatives.push({ drug: "Tirzepatide", reason: "Dual agonist if weight loss also needed" });
-      return {
-        recommendation: buildRec(drug, patient,
-          `${establishedHF ? "HF" : "CKD"} predominates → SGLT2i with proven benefit. Priority over glycemic agents.`,
-          "first-line", "cvkd-risk"),
-        reasoning,
-        clinicalBasis: `ADA 2026 §9.4 — SGLT2i preferably for HF/CKD independent of HbA1c. ${establishedHF ? "EMPEROR-Reduced/Preserved" : "DAPA-CKD, CREDENCE"}.`,
-        alternatives,
-      };
-    }
+  if (scored.length === 0) return null;
 
-    // ASCVD → GLP-1 RA first (if not already on one)
-    if (establishedASCVD && !onGLP1 && !onDualAgonist) {
-      const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
-      reasoning.push("Patient has established ASCVD — GLP-1 RA with proven CV benefit is indicated");
-      reasoning.push("Semaglutide has strongest CV evidence (SUSTAIN-6, SELECT) + significant weight loss");
-      if (bmi >= 27) reasoning.push(`BMI ${bmi} ≥27 — additional weight loss benefit`);
-      alternatives.push({ drug: "Liraglutide", reason: "Daily injection alternative (LEADER trial)" });
-      alternatives.push({ drug: "Empagliflozin", reason: "If injectable not preferred, SGLT2i also has CV benefit" });
-      return {
-        recommendation: buildRec(sema, patient,
-          "ASCVD predominates → GLP-1 RA with proven CV benefit. Semaglutide preferred (strongest evidence).",
-          "first-line", "cvkd-risk"),
-        reasoning,
-        clinicalBasis: "ADA 2026 §9.3 — GLP-1 RA or SGLT2i with proven CV benefit for established ASCVD.",
-        alternatives,
-      };
-    }
+  // Sort by score descending
+  scored.sort((a, b) => b.score - a.score);
 
-    // Already on SGLT2i but not GLP-1 RA (or vice versa) and HbA1c still above target
-    if (onSGLT2 && !onGLP1 && !onDualAgonist && hba1c >= 7.0) {
-      const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
-      reasoning.push("Already on SGLT2i but HbA1c still above target → add GLP-1 RA for additive CV+glycemic benefit");
-      reasoning.push("Combination of SGLT2i + GLP-1 RA provides complementary mechanisms");
-      alternatives.push({ drug: "Tirzepatide", reason: "Dual agonist with highest HbA1c reduction (2.0-2.6%)" });
-      return {
-        recommendation: buildRec(sema, patient,
-          `On SGLT2i, HbA1c ${hba1c}% still above target → Add GLP-1 RA. Complementary mechanisms.`,
-          "add-on", "cvkd-risk"),
-        reasoning,
-        clinicalBasis: "ADA 2026 — Consider additive CV benefit of SGLT2i + GLP-1 RA combination.",
-        alternatives,
-      };
-    }
+  const best = scored[0];
+  const rec = buildRec(best.drug, patient, best.reasoning[0] || "Best match for patient profile", "first-line", 
+    pathway === "ascvd-predominant" || pathway === "hf-ckd-predominant" ? "cvkd-risk" :
+    pathway === "weight-management" ? "weight-management" : "glycemic-control"
+  );
 
-    if (onGLP1 && !onSGLT2 && patient.eGFR >= 20 && (establishedHF || establishedCKD)) {
-      const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
-      reasoning.push("Already on GLP-1 RA but has HF/CKD → add SGLT2i for cardiorenal protection");
-      return {
-        recommendation: buildRec(empa, patient,
-          `On GLP-1 RA + HF/CKD present → Add SGLT2i for cardiorenal protection (independent of HbA1c).`,
-          "add-on", "cvkd-risk"),
-        reasoning,
-        clinicalBasis: "ADA 2026 §9.4 — SGLT2i for HF/CKD independent of glycemic control.",
-        alternatives: [{ drug: "Dapagliflozin", reason: "Alternative SGLT2i with DAPA-CKD/DAPA-HF evidence" }],
-      };
+  // Build alternatives from next best options (different classes preferred)
+  const seenClasses = new Set<DrugClass>([best.drug.class]);
+  const alternatives: { drug: string; reason: string; score: number }[] = [];
+  for (const s of scored.slice(1)) {
+    if (alternatives.length >= 4) break;
+    if (!seenClasses.has(s.drug.class) || alternatives.length < 2) {
+      seenClasses.add(s.drug.class);
+      alternatives.push({
+        drug: s.drug.name,
+        reason: s.reasoning[0] || s.drug.adaReference,
+        score: s.score,
+      });
     }
   }
 
-  // Step 3: No ASCVD/CKD/HF — weight management or glycemic control
-  if (hba1c >= 7.0) {
-    // Weight management pathway
-    if (bmi >= 27 && !onGLP1 && !onDualAgonist) {
-      const tirz = DRUG_DB.find(d => d.generic === "Tirzepatide")!;
-      reasoning.push(`BMI ${bmi} ≥27 with HbA1c ${hba1c}% above target → weight-loss agent needed`);
-      reasoning.push("Tirzepatide (dual GIP/GLP-1) has highest weight loss (15-20%) + HbA1c reduction (2.0-2.6%)");
-      alternatives.push({ drug: "Semaglutide", reason: "GLP-1 RA alternative with 5-15% weight loss" });
-      alternatives.push({ drug: "Empagliflozin", reason: "SGLT2i if injectable not preferred (modest weight loss)" });
-      return {
-        recommendation: buildRec(tirz, patient,
-          `Weight management priority (BMI ${bmi}) + HbA1c ${hba1c}% → Dual agonist for maximum efficacy.`,
-          "first-line", "weight-management"),
-        reasoning,
-        clinicalBasis: "ADA 2026 — Weight management is a compelling need. GLP-1 RA / dual agonist preferred.",
-        alternatives,
-      };
-    }
-
-    if (bmi >= 25 && !onSGLT2 && patient.eGFR >= 20 && (onGLP1 || onDualAgonist)) {
-      const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
-      reasoning.push("Already on GLP-1 RA/dual agonist, HbA1c still above target → add SGLT2i");
-      reasoning.push("SGLT2i adds modest weight loss + renal protection");
-      return {
-        recommendation: buildRec(empa, patient,
-          `On GLP-1 RA, HbA1c ${hba1c}% → Add SGLT2i for additional glycemic + weight benefit.`,
-          "add-on", "weight-management"),
-        reasoning,
-        clinicalBasis: "ADA 2026 — Combination therapy for weight management and glycemic control.",
-        alternatives: [{ drug: "Dapagliflozin", reason: "Alternative SGLT2i" }],
-      };
-    }
-
-    // Hypo minimization pathway — DPP-4i
-    if (!onDPP4 && !onGLP1 && !onDualAgonist && (patient.age >= 65 || bmi < 25)) {
-      const lina = DRUG_DB.find(d => d.generic === "Linagliptin")!;
-      reasoning.push("Need to minimize hypoglycemia → DPP-4i is safe, weight-neutral, low hypo risk");
-      reasoning.push("Linagliptin requires no renal dose adjustment (biliary excretion)");
-      alternatives.push({ drug: "Sitagliptin", reason: "Alternative DPP-4i (needs renal dose adjustment)" });
-      alternatives.push({ drug: "Empagliflozin", reason: "SGLT2i also low hypo, adds weight loss" });
-      return {
-        recommendation: buildRec(lina, patient,
-          `Minimize hypoglycemia → DPP-4i: low hypo, weight neutral, no renal dose adjustment.`,
-          "add-on", "glycemic-control"),
-        reasoning,
-        clinicalBasis: "ADA 2026 — DPP-4i, GLP-1 RA, SGLT2i, TZD all have low hypoglycemia risk.",
-        alternatives,
-      };
-    }
-
-    // If on many agents and HbA1c still high → intensify with insulin
-    if (hba1c >= 9.0 && !onBasalInsulin) {
-      const degludec = DRUG_DB.find(d => d.generic === "Insulin Degludec")!;
-      reasoning.push(`HbA1c ${hba1c}% ≥ 9 on oral agents → basal insulin needed for definitive control`);
-      reasoning.push("Degludec preferred: lower nocturnal hypoglycemia risk vs glargine (DEVOTE trial)");
-      alternatives.push({ drug: "Insulin Glargine U-100", reason: "Widely available, cost-effective" });
-      return {
-        recommendation: buildRec(degludec, patient,
-          `HbA1c ${hba1c}% → Basal insulin intensification. Degludec preferred for lower hypo risk.`,
-          "intensification", "glycemic-control"),
-        reasoning,
-        clinicalBasis: "ADA 2026 §9.5 — Basal insulin when oral combination insufficient. Target FBG 80-130.",
-        alternatives,
-      };
-    }
-
-    // SU as cost-effective option
-    if (!onSU && hba1c >= 8.0 && bmi < 27 && !onBasalInsulin) {
-      const glic = DRUG_DB.find(d => d.generic === "Gliclazide")!;
-      reasoning.push("Cost-effective option for further glycemic reduction");
-      reasoning.push("Gliclazide MR has lower hypoglycemia risk than other SUs (ADVANCE trial)");
-      alternatives.push({ drug: "Glimepiride", reason: "Alternative SU (higher hypo risk)" });
-      return {
-        recommendation: buildRec(glic, patient,
-          `HbA1c ${hba1c}% → Consider later-gen SU. Gliclazide MR preferred (lower hypo risk).`,
-          "add-on", "glycemic-control"),
-        reasoning,
-        clinicalBasis: "ADA 2026 — SU provides significant HbA1c reduction (1.0-1.5%) at low cost.",
-        alternatives,
-      };
-    }
-  }
-
-  // If HbA1c at target — suggest monitoring
-  return null;
+  return {
+    recommendation: rec,
+    reasoning: best.reasoning.slice(0, 5),
+    clinicalBasis: `${best.clinicalBasis} (Score: ${best.score}/100)`,
+    alternatives,
+    score: best.score,
+    scoreBreakdown: best.breakdown,
+  };
 }
 
 // ============================================================
