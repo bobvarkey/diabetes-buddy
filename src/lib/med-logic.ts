@@ -514,6 +514,27 @@ const DRUG_DB: DrugProfile[] = [
     sideEffects: ["Hypoglycemia (less than SU)", "Weight gain", "Upper respiratory infection"],
     adaReference: "ADA 2026 §9.2 – Meglitinide, flexible meal-time dosing",
   },
+  {
+    name: "Nateglinide (Starlix)",
+    generic: "Nateglinide",
+    class: "meglitinide",
+    doses: [
+      { label: "Start", dose: "60mg", frequency: "TDS (1-30 min before meals)" },
+      { label: "Target", dose: "120mg", frequency: "TDS (before meals)" },
+    ],
+    hba1cReduction: "0.5-0.8%",
+    cvBenefit: false,
+    renalBenefit: false,
+    weightEffect: "gain",
+    hypoRisk: "moderate",
+    minEGFR: 0,
+    renalDoseAdjust: [
+      { eGFRRange: [0, 30], dose: "60mg", frequency: "TDS (use with caution)" },
+    ],
+    contraindications: ["Type 1 DM", "Diabetic ketoacidosis"],
+    sideEffects: ["Hypoglycemia (less than SU)", "Weight gain", "Dizziness", "Upper respiratory infection"],
+    adaReference: "ADA 2026 §9.2 – Meglitinide, rapid onset/short duration, ideal for irregular meals",
+  },
 
   // === BASAL INSULIN ===
   {
