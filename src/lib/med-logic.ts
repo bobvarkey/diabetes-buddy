@@ -474,6 +474,25 @@ const DRUG_DB: DrugProfile[] = [
     sideEffects: ["Flatulence (common)", "Diarrhea", "Elevated LFT (rare)"],
     adaReference: "ADA 2026 §9.2 – AGI for post-prandial glucose",
   },
+  {
+    name: "Miglitol (Glyset)",
+    generic: "Miglitol",
+    class: "agi",
+    doses: [
+      { label: "Start", dose: "25mg", frequency: "TDS (with first bite)" },
+      { label: "Target", dose: "50mg", frequency: "TDS" },
+      { label: "Max", dose: "100mg", frequency: "TDS" },
+    ],
+    hba1cReduction: "0.5-0.8%",
+    cvBenefit: false,
+    renalBenefit: false,
+    weightEffect: "neutral",
+    hypoRisk: "low",
+    minEGFR: 25,
+    contraindications: ["eGFR <25", "IBD", "Intestinal obstruction", "Diabetic ketoacidosis"],
+    sideEffects: ["Flatulence", "Diarrhea", "Abdominal pain", "Skin rash (rare)"],
+    adaReference: "ADA 2026 §9.2 – AGI, systemically absorbed unlike acarbose",
+  },
 
   // === MEGLITINIDES ===
   {
