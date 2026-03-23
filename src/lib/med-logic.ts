@@ -395,6 +395,25 @@ const DRUG_DB: DrugProfile[] = [
     sideEffects: ["Hypoglycemia", "Weight gain", "GI disturbance"],
     adaReference: "ADA 2026 §9.2 – SU, shorter acting",
   },
+  {
+    name: "Glyburide (Diabeta/Glynase)",
+    generic: "Glyburide",
+    class: "sulfonylurea",
+    doses: [
+      { label: "Start", dose: "2.5mg", frequency: "Once daily with breakfast" },
+      { label: "Titrate", dose: "5mg", frequency: "Once daily" },
+      { label: "Max", dose: "10mg", frequency: "BD (20mg/day)" },
+    ],
+    hba1cReduction: "1.0-1.5%",
+    cvBenefit: false,
+    renalBenefit: false,
+    weightEffect: "gain",
+    hypoRisk: "high",
+    minEGFR: 30,
+    contraindications: ["eGFR <30", "Severe hepatic insufficiency", "Elderly (high hypo risk)"],
+    sideEffects: ["Hypoglycemia (HIGHEST among SUs)", "Weight gain (2-4 kg)", "Nausea"],
+    adaReference: "ADA 2026 §9.2 – SU, longest acting — higher hypo risk, avoid in elderly/CKD",
+  },
 
   // === THIAZOLIDINEDIONES (TZDs) ===
   {
@@ -455,6 +474,25 @@ const DRUG_DB: DrugProfile[] = [
     sideEffects: ["Flatulence (common)", "Diarrhea", "Elevated LFT (rare)"],
     adaReference: "ADA 2026 §9.2 – AGI for post-prandial glucose",
   },
+  {
+    name: "Miglitol (Glyset)",
+    generic: "Miglitol",
+    class: "agi",
+    doses: [
+      { label: "Start", dose: "25mg", frequency: "TDS (with first bite)" },
+      { label: "Target", dose: "50mg", frequency: "TDS" },
+      { label: "Max", dose: "100mg", frequency: "TDS" },
+    ],
+    hba1cReduction: "0.5-0.8%",
+    cvBenefit: false,
+    renalBenefit: false,
+    weightEffect: "neutral",
+    hypoRisk: "low",
+    minEGFR: 25,
+    contraindications: ["eGFR <25", "IBD", "Intestinal obstruction", "Diabetic ketoacidosis"],
+    sideEffects: ["Flatulence", "Diarrhea", "Abdominal pain", "Skin rash (rare)"],
+    adaReference: "ADA 2026 §9.2 – AGI, systemically absorbed unlike acarbose",
+  },
 
   // === MEGLITINIDES ===
   {
@@ -475,6 +513,27 @@ const DRUG_DB: DrugProfile[] = [
     contraindications: ["Severe hepatic impairment", "Co-administration with gemfibrozil"],
     sideEffects: ["Hypoglycemia (less than SU)", "Weight gain", "Upper respiratory infection"],
     adaReference: "ADA 2026 §9.2 – Meglitinide, flexible meal-time dosing",
+  },
+  {
+    name: "Nateglinide (Starlix)",
+    generic: "Nateglinide",
+    class: "meglitinide",
+    doses: [
+      { label: "Start", dose: "60mg", frequency: "TDS (1-30 min before meals)" },
+      { label: "Target", dose: "120mg", frequency: "TDS (before meals)" },
+    ],
+    hba1cReduction: "0.5-0.8%",
+    cvBenefit: false,
+    renalBenefit: false,
+    weightEffect: "gain",
+    hypoRisk: "moderate",
+    minEGFR: 0,
+    renalDoseAdjust: [
+      { eGFRRange: [0, 30], dose: "60mg", frequency: "TDS (use with caution)" },
+    ],
+    contraindications: ["Type 1 DM", "Diabetic ketoacidosis"],
+    sideEffects: ["Hypoglycemia (less than SU)", "Weight gain", "Dizziness", "Upper respiratory infection"],
+    adaReference: "ADA 2026 §9.2 – Meglitinide, rapid onset/short duration, ideal for irregular meals",
   },
 
   // === BASAL INSULIN ===
