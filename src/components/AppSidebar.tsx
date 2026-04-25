@@ -1,5 +1,5 @@
 import {
-  LayoutDashboard, User, UtensilsCrossed, Circle, Pill, CalendarDays, TrendingUp, FileText, Syringe, ShieldAlert, FlaskConical, HeartPulse, Bean,
+  LayoutDashboard, User, UtensilsCrossed, Circle, Pill, CalendarDays, TrendingUp, FileText, Syringe, ShieldAlert, FlaskConical, HeartPulse, Bean, Droplet,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -15,8 +15,9 @@ const items = [
   { title: "Foods", url: "/foods", icon: UtensilsCrossed },
   { title: "Plate Method", url: "/plate", icon: Circle },
   { title: "Medications", url: "/medications", icon: Pill },
-  { title: "Prediabetes", url: "/prediabetes", icon: HeartPulse },
   { title: "Insulin Titration", url: "/insulin-titration", icon: Syringe },
+  { title: "GLP-1 Administration", url: "/glp1-administration", icon: Droplet },
+  { title: "Prediabetes", url: "/prediabetes", icon: HeartPulse },
   { title: "Hypo Risk Score", url: "/hypo-risk", icon: ShieldAlert },
   { title: "Renal Dosing", url: "/renal-dosing", icon: FlaskConical },
   { title: "CKD Guideline", url: "/ckd-guideline", icon: Bean },
