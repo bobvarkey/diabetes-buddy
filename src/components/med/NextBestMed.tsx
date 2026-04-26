@@ -1,15 +1,49 @@
-import { NextBestMed as NextBestMedType } from "@/lib/med-logic";
-import { Sparkles, ArrowRight, AlertTriangle, CheckCircle2, Lightbulb, BarChart3, Trophy } from "lucide-react";
+import { NextBestMed as NextBestMedType, getAllContraindicationChecks } from "@/lib/med-logic";
+import { Sparkles, ArrowRight, AlertTriangle, AlertCircle, CheckCircle2, Lightbulb, BarChart3, Trophy, Apple, Zap, Weight, Heart, Target, Calendar } from "lucide-react";
+import { useState } from "react";
+import { PatientData } from "@/lib/patient-data";
 
 interface Props {
   nextBest: NextBestMedType;
+  patient?: PatientData;
 }
 
-export function NextBestMed({ nextBest }: Props) {
-  const { recommendation: rec, reasoning, clinicalBasis, alternatives, score, scoreBreakdown } = nextBest;
+export function NextBestMed({ nextBest, patient }: Props) {
+  const { recommendation: rec, reasoning, clinicalBasis, alternatives, score, scoreBreakdown, smartGoals } = nextBest;
+  const [showGoals, setShowGoals] = useState(false);
+  const [showContraindications, setShowContraindications] = useState(false);
+
+  const contraindications = patient ? getAllContraindicationChecks(patient) : [];
+  const absoluteContraindications = contraindications.filter(c => c.severity === "absolute");
+  const relativeContraindications = contraindications.filter(c => c.severity === "relative");
+  const cautions = contraindications.filter(c => c.severity === "caution");
 
   const scoreColor = score >= 80 ? "text-success" : score >= 60 ? "text-primary" : score >= 40 ? "text-warning" : "text-destructive";
   const scoreBg = score >= 80 ? "bg-success/10" : score >= 60 ? "bg-primary/10" : score >= 40 ? "bg-warning/10" : "bg-destructive/10";
+
+  const getGoalCategoryColor = (category: string) => {
+    const colors: Record<string, string> = {
+      "medication-adherence": "bg-purple-950/40 border-purple-700/40",
+      "nutrition": "bg-orange-950/40 border-orange-700/40",
+      "physical-activity": "bg-blue-950/40 border-blue-700/40",
+      "weight-loss": "bg-pink-950/40 border-pink-700/40",
+      "glucose-monitoring": "bg-red-950/40 border-red-700/40",
+      "stress-sleep": "bg-indigo-950/40 border-indigo-700/40",
+    };
+    return colors[category] || "bg-gray-900/40 border-gray-700/40";
+  };
+
+  const getGoalCategoryIcon = (category: string) => {
+    switch (category) {
+      case "medication-adherence": return "💊";
+      case "nutrition": return "🍽️";
+      case "physical-activity": return "🏃";
+      case "weight-loss": return "⚖️";
+      case "glucose-monitoring": return "📊";
+      case "stress-sleep": return "😴";
+      default: return "✓";
+    }
+  };
 
   return (
     <div className="clinical-card border-2 border-primary/30 bg-primary/5">
@@ -37,6 +71,7 @@ export function NextBestMed({ nextBest }: Props) {
             <h4 className="font-medium text-sm">{rec.drug}</h4>
             <p className="text-[11px] text-muted-foreground mt-0.5">{rec.reason}</p>
             <div className="flex flex-wrap gap-2 mt-2 text-[11px]">
+              <span className="bg-blue-500/20 text-blue-300 px-2.5 py-1 rounded-full font-semibold border border-blue-500/40">📅 {rec.dosageFrequency || "OD"}</span>
               <span className="bg-primary/10 text-primary px-2 py-0.5 rounded-full">{rec.dose} {rec.frequency}</span>
               <span className="bg-muted px-2 py-0.5 rounded-full">HbA1c ↓ {rec.hba1cReduction}</span>
               {rec.cvBenefit && <span className="bg-success/10 text-success px-2 py-0.5 rounded-full">✓ CV Benefit</span>}
@@ -90,6 +125,73 @@ export function NextBestMed({ nextBest }: Props) {
         <p className="text-[11px] text-accent-foreground italic">{clinicalBasis}</p>
       </div>
 
+      {/* GLP-1 + DPP-4i De-escalation Warning */}
+      {nextBest.recommendation.drugClass === "glp1ra" && (
+        <div className="bg-amber-950/50 border border-amber-700/60 rounded-lg p-3 mb-3">
+          <h4 className="text-xs font-bold text-amber-200 mb-2">⚠️ GLP-1 + DPP-4i De-escalation Warning</h4>
+          <p className="text-[10px] text-amber-100 leading-relaxed font-semibold">
+            De-escalation Note: If patient is currently on a DPP-4 inhibitor (sitagliptin, linagliptin, vildagliptin, saxagliptin), <span className="text-amber-200">DISCONTINUE the DPP-4i when starting GLP-1 RA</span>. Both agents act on the incretin system with <span className="text-amber-200">NO added benefit</span> when combined. Per FDA and ADA guidance.
+          </p>
+        </div>
+      )}
+
+      {/* Contraindication Alerts */}
+      {absoluteContraindications.length > 0 && (
+        <div className="bg-red-950/60 border border-red-700/70 rounded-lg p-3 mb-3">
+          <h4 className="text-xs font-bold text-red-200 mb-2 flex items-center gap-1">
+            <AlertCircle className="w-3.5 h-3.5" /> ABSOLUTE CONTRAINDICATIONS
+          </h4>
+          <div className="space-y-1.5">
+            {absoluteContraindications.map((c, i) => (
+              <div key={i} className="text-[10px]">
+                <p className="text-red-100 font-semibold">{c.drug}</p>
+                <p className="text-red-100/80 ml-2">• {c.clinicalGuidance}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Relative Contraindications */}
+      {relativeContraindications.length > 0 && (
+        <div className="bg-orange-950/50 border border-orange-700/50 rounded-lg p-2.5 mb-3">
+          <h4 className="text-[10px] font-semibold text-orange-200 mb-1.5">Relative Contraindications:</h4>
+          <div className="space-y-1 text-[9px]">
+            {relativeContraindications.map((c, i) => (
+              <div key={i} className="text-orange-100/80">
+                <span className="font-semibold">{c.drug}:</span> {c.reasons.join(", ")} — Use with caution
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Clinical Cautions */}
+      {cautions.length > 0 && (
+        <div className="bg-yellow-950/40 border border-yellow-700/40 rounded-lg p-2.5 mb-3">
+          <h4 className="text-[10px] font-semibold text-yellow-200 mb-1.5">Clinical Cautions:</h4>
+          <div className="space-y-1 text-[9px]">
+            {cautions.map((c, i) => (
+              <div key={i} className="text-yellow-100/80">
+                <span className="font-semibold">{c.drug}:</span> {c.reasons.join(", ")} — Monitor closely
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Clinical Explanation */}
+      {nextBest.recommendation.clinicalExplanation && (
+        <div className="bg-blue-950/40 border border-blue-700/50 rounded-lg p-3 mb-3">
+          <h4 className="text-xs font-medium text-blue-200 mb-2 flex items-center gap-1">
+            <Lightbulb className="w-3 h-3" /> Why This Drug Is Optimal
+          </h4>
+          <p className="text-[10px] text-blue-100/90 leading-relaxed">
+            {nextBest.recommendation.clinicalExplanation}
+          </p>
+        </div>
+      )}
+
       {/* Warnings */}
       {rec.warnings.length > 0 && (
         <div className="mb-3 space-y-1">
@@ -99,6 +201,96 @@ export function NextBestMed({ nextBest }: Props) {
               <span className="text-muted-foreground">{w}</span>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Lifestyle Complement */}
+      {nextBest.recommendation.lifestyleComplement && (
+        <div className="border border-green-700/40 bg-green-950/30 rounded-lg p-3 mb-3">
+          <h4 className="text-xs font-medium text-green-200 mb-2">Pair With Lifestyle:</h4>
+          <div className="space-y-2">
+            <div className="text-[10px]">
+              <div className="flex items-start gap-2">
+                <Apple className="w-3 h-3 text-green-300 mt-0.5 shrink-0" />
+                <div className="text-green-100/90">
+                  <span className="font-medium">Nutrition: </span>{nextBest.recommendation.lifestyleComplement.nutrition}
+                </div>
+              </div>
+            </div>
+            <div className="text-[10px]">
+              <div className="flex items-start gap-2">
+                <Zap className="w-3 h-3 text-green-300 mt-0.5 shrink-0" />
+                <div className="text-green-100/90">
+                  <span className="font-medium">Activity: </span>{nextBest.recommendation.lifestyleComplement.physicalActivity}
+                </div>
+              </div>
+            </div>
+            {nextBest.recommendation.lifestyleComplement.weight && (
+              <div className="text-[10px]">
+                <div className="flex items-start gap-2">
+                  <Weight className="w-3 h-3 text-green-300 mt-0.5 shrink-0" />
+                  <div className="text-green-100/90">
+                    <span className="font-medium">Weight: </span>{nextBest.recommendation.lifestyleComplement.weight}
+                  </div>
+                </div>
+              </div>
+            )}
+            {nextBest.recommendation.lifestyleComplement.other.length > 0 && (
+              <div className="text-[10px]">
+                <div className="flex items-start gap-2">
+                  <Heart className="w-3 h-3 text-green-300 mt-0.5 shrink-0" />
+                  <div className="text-green-100/90">
+                    <span className="font-medium">Other: </span>
+                    <ul className="list-disc list-inside ml-1 space-y-0.5 mt-0.5">
+                      {nextBest.recommendation.lifestyleComplement.other.slice(0, 2).map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* SMART Goals */}
+      {smartGoals && smartGoals.length > 0 && (
+        <div className="border border-green-700/40 bg-green-950/20 rounded-lg p-3 mb-3">
+          <button
+            onClick={() => setShowGoals(!showGoals)}
+            className="w-full flex items-center justify-between text-xs font-medium text-green-200 hover:text-green-100 transition-colors"
+          >
+            <div className="flex items-center gap-1">
+              <Target className="w-3.5 h-3.5" />
+              SMART Goals for Success ({smartGoals.filter(g => g.isActive).length} active)
+            </div>
+            <span>{showGoals ? "▼" : "▶"}</span>
+          </button>
+
+          {showGoals && (
+            <div className="mt-3 space-y-2">
+              {smartGoals.filter(g => g.isActive).slice(0, 5).map((goal, i) => (
+                <div key={i} className={`border rounded-lg p-2.5 ${getGoalCategoryColor(goal.category)}`}>
+                  <div className="flex items-start gap-2">
+                    <span className="text-lg shrink-0">{getGoalCategoryIcon(goal.category)}</span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] font-semibold text-green-100">{goal.title}</p>
+                      <p className="text-[9px] text-green-50/80 mt-1">{goal.goal}</p>
+                      <div className="flex flex-wrap gap-2 mt-1.5 text-[8px]">
+                        <span className="bg-black/30 px-2 py-0.5 rounded">📍 {goal.specific}</span>
+                        <span className="bg-black/30 px-2 py-0.5 rounded">📈 {goal.measurable}</span>
+                      </div>
+                      <p className="text-[9px] text-green-100/70 mt-1">⏰ {goal.timeframe}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {smartGoals.filter(g => g.isActive).length > 5 && (
+                <p className="text-[9px] text-green-200/60 text-center">... and {smartGoals.filter(g => g.isActive).length - 5} more goals</p>
+              )}
+            </div>
+          )}
         </div>
       )}
 

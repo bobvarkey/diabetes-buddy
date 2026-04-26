@@ -4,8 +4,9 @@ import {
   generateMedRecommendations, getHypoProtocol, getLipidTargets,
   MedRecommendation, AlgorithmPriority, getCategoryLabel, getDrugClassLabel,
   getAlgorithmPathway, getPathwayLabel, AlgorithmPathway, getNextBestMedication,
+  downloadRecommendationsJSON, downloadRecommendationsText,
 } from "@/lib/med-logic";
-import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity, UserX, Download, Loader2 } from "lucide-react";
+import { Pill, AlertTriangle, Heart, Shield, ChevronDown, ChevronUp, TrendingDown, Scale, Activity, UserX, Download, Loader2, FileJson, Printer, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { AlgorithmFlowchart } from "@/components/med/AlgorithmFlowchart";
@@ -130,6 +131,20 @@ const MedOptimizer = () => {
     }
   }, [patient]);
 
+  const handleExportJSON = useCallback(() => {
+    if (!patient || meds.length === 0) return;
+    downloadRecommendationsJSON(patient, meds, nextBest);
+  }, [patient, meds, nextBest]);
+
+  const handleExportText = useCallback(() => {
+    if (!patient || meds.length === 0) return;
+    downloadRecommendationsText(patient, meds, nextBest);
+  }, [patient, meds, nextBest]);
+
+  const handlePrint = useCallback(() => {
+    window.print();
+  }, []);
+
   if (!patient) {
     return (
       <div className="space-y-5 animate-slide-in">
@@ -181,10 +196,38 @@ const MedOptimizer = () => {
           <p className="text-sm text-muted-foreground">ADA 2026 Priorities-First Algorithm + LAI Lipid Guidelines</p>
         </div>
         {patient && (
-          <Button size="sm" variant="outline" onClick={handleExportPDF} disabled={exporting} className="gap-1.5">
-            {exporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
-            {exporting ? "Exporting…" : "Export PDF"}
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button size="sm" variant="outline" onClick={handlePrint} className="gap-1.5" title="Print current page">
+              <Printer className="w-4 h-4" />
+              <span className="hidden sm:inline">Print</span>
+            </Button>
+            <div className="flex items-center">
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={handleExportJSON}
+                className="gap-1.5 rounded-r-none"
+                title="Download as JSON"
+              >
+                <FileJson className="w-4 h-4" />
+                <span className="hidden sm:inline">JSON</span>
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={handleExportText}
+                className="gap-1.5 rounded-l-none border-l-0"
+                title="Download as Text"
+              >
+                <Copy className="w-4 h-4" />
+                <span className="hidden sm:inline">Text</span>
+              </Button>
+            </div>
+            <Button size="sm" variant="outline" onClick={handleExportPDF} disabled={exporting} className="gap-1.5">
+              {exporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
+              {exporting ? "PDF…" : "PDF"}
+            </Button>
+          </div>
         )}
       </div>
 
@@ -255,7 +298,7 @@ const MedOptimizer = () => {
       </div>
 
       {/* Next Best Medication */}
-      {nextBest && <NextBestMed nextBest={nextBest} />}
+      {nextBest && <NextBestMed nextBest={nextBest} patient={patient} />}
 
       {/* Visual Flowchart */}
       {pathway && <AlgorithmFlowchart patient={patient} pathway={pathway} />}
