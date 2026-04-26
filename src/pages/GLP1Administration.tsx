@@ -188,7 +188,7 @@ const GLP1Administration = () => {
   ];
 
   return (
-    <div className="space-y-6 animate-slide-in bg-white min-h-screen">
+    <div className="space-y-6 animate-slide-in bg-green-50 min-h-screen">
       <div>
         <h1 className="text-4xl font-heading font-bold mb-2 text-black">💉 GLP-1 Agonist Administration</h1>
         <p className="text-lg text-gray-700">
