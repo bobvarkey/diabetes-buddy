@@ -13,84 +13,97 @@ export function InpatientGlycemicAssessment({ assessment, slidingScale }: Props)
   const getSeverityColor = (severity: string) => {
     switch (severity) {
       case "critical":
-        return "bg-red-950/50 border-red-700/60";
+        return "bg-red-100 border-2 border-red-500";
       case "high":
-        return "bg-orange-950/50 border-orange-700/60";
+        return "bg-orange-100 border-2 border-orange-500";
       case "warning":
-        return "bg-yellow-950/50 border-yellow-700/50";
+        return "bg-yellow-100 border-2 border-yellow-500";
       default:
-        return "bg-blue-950/50 border-blue-700/50";
+        return "bg-blue-100 border-2 border-blue-500";
     }
   };
 
   const getSeverityBadgeColor = (severity: string) => {
     switch (severity) {
       case "critical":
-        return "bg-red-500/20 text-red-200";
+        return "bg-red-500 text-white";
       case "high":
-        return "bg-orange-500/20 text-orange-200";
+        return "bg-orange-500 text-white";
       case "warning":
-        return "bg-yellow-500/20 text-yellow-200";
+        return "bg-yellow-600 text-white";
       default:
-        return "bg-blue-500/20 text-blue-200";
+        return "bg-blue-500 text-white";
+    }
+  };
+
+  const getSeverityTextColor = (severity: string) => {
+    switch (severity) {
+      case "critical":
+        return "text-red-800";
+      case "high":
+        return "text-orange-800";
+      case "warning":
+        return "text-yellow-800";
+      default:
+        return "text-blue-800";
     }
   };
 
   const getRegimensColor = (regimen: string) => {
     switch (regimen) {
       case "iv_insulin_protocol":
-        return "text-red-300 bg-red-950/30";
+        return "text-red-700 bg-red-100 border border-red-300";
       case "basal_bolus_correction":
-        return "text-green-300 bg-green-950/30";
+        return "text-green-700 bg-green-100 border border-green-300";
       case "basal_plus_correction":
-        return "text-blue-300 bg-blue-950/30";
+        return "text-blue-700 bg-blue-100 border border-blue-300";
       case "correction_only_exception":
-        return "text-yellow-300 bg-yellow-950/30";
+        return "text-yellow-700 bg-yellow-100 border border-yellow-300";
       default:
-        return "text-gray-300 bg-gray-950/30";
+        return "text-gray-700 bg-gray-100 border border-gray-300";
     }
   };
 
   return (
     <div className="space-y-4 animate-slide-in">
       {/* Status Header */}
-      <div className="clinical-card border-2 border-primary/30 bg-primary/5">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-            <Droplet className="w-4 h-4 text-primary" />
+      <div className="clinical-card border-2 border-primary bg-primary/5">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+            <Droplet className="w-5 h-5 text-primary font-bold" />
           </div>
-          <h3 className="text-sm font-heading font-bold text-primary">Inpatient Glycemic Management</h3>
+          <h3 className="text-lg font-heading font-bold text-primary">Inpatient Glycemic Management</h3>
           <div className="ml-auto">
-            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${assessment.status === "ok" ? "bg-success/10 text-success" : "bg-warning/10 text-warning"}`}>
-              {assessment.status === "ok" ? "Complete Assessment" : "Incomplete Data"}
+            <span className={`text-sm font-bold px-3 py-1.5 rounded-full ${assessment.status === "ok" ? "bg-green-500 text-white" : "bg-yellow-500 text-gray-900"}`}>
+              {assessment.status === "ok" ? "✓ Complete" : "⚠️ Incomplete"}
             </span>
           </div>
         </div>
 
         {/* Derived Features Summary */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-[10px] mb-3">
-          <div className={`p-2 rounded border ${assessment.derived_features.persistent_hyperglycemia ? "bg-orange-950/30 border-orange-700/40" : "bg-muted/30 border-border"}`}>
-            <span className="font-semibold">Persistent Hyperglycemia</span>
-            <p>{assessment.derived_features.persistent_hyperglycemia ? "✓ Yes" : "✗ No"}</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
+          <div className={`p-3 rounded-lg border ${assessment.derived_features.persistent_hyperglycemia ? "bg-orange-100 border-orange-400" : "bg-gray-100 border-gray-300"}`}>
+            <span className={`font-bold text-sm block ${assessment.derived_features.persistent_hyperglycemia ? "text-orange-900" : "text-gray-700"}`}>Persistent Hyperglycemia</span>
+            <p className={`text-sm font-semibold ${assessment.derived_features.persistent_hyperglycemia ? "text-orange-700" : "text-gray-600"}`}>{assessment.derived_features.persistent_hyperglycemia ? "✓ Yes" : "✗ No"}</p>
           </div>
-          <div className={`p-2 rounded border ${assessment.derived_features.severe_hyperglycemia ? "bg-red-950/30 border-red-700/40" : "bg-muted/30 border-border"}`}>
-            <span className="font-semibold">Severe Hyperglycemia</span>
-            <p>{assessment.derived_features.severe_hyperglycemia ? "✓ Yes" : "✗ No"}</p>
+          <div className={`p-3 rounded-lg border ${assessment.derived_features.severe_hyperglycemia ? "bg-red-100 border-red-400" : "bg-gray-100 border-gray-300"}`}>
+            <span className={`font-bold text-sm block ${assessment.derived_features.severe_hyperglycemia ? "text-red-900" : "text-gray-700"}`}>Severe Hyperglycemia</span>
+            <p className={`text-sm font-semibold ${assessment.derived_features.severe_hyperglycemia ? "text-red-700" : "text-gray-600"}`}>{assessment.derived_features.severe_hyperglycemia ? "✓ Yes" : "✗ No"}</p>
           </div>
-          <div className={`p-2 rounded border ${assessment.derived_features.hypoglycemia ? "bg-red-950/30 border-red-700/40" : "bg-muted/30 border-border"}`}>
-            <span className="font-semibold">Hypoglycemia</span>
-            <p>{assessment.derived_features.hypoglycemia ? "✓ Yes" : "✗ No"}</p>
+          <div className={`p-3 rounded-lg border ${assessment.derived_features.hypoglycemia ? "bg-red-100 border-red-400" : "bg-gray-100 border-gray-300"}`}>
+            <span className={`font-bold text-sm block ${assessment.derived_features.hypoglycemia ? "text-red-900" : "text-gray-700"}`}>Hypoglycemia</span>
+            <p className={`text-sm font-semibold ${assessment.derived_features.hypoglycemia ? "text-red-700" : "text-gray-600"}`}>{assessment.derived_features.hypoglycemia ? "✓ Yes" : "✗ No"}</p>
           </div>
-          <div className={`p-2 rounded border ${assessment.derived_features.type1_without_basal ? "bg-red-950/30 border-red-700/40" : "bg-muted/30 border-border"}`}>
-            <span className="font-semibold">Type 1 No Basal</span>
-            <p>{assessment.derived_features.type1_without_basal ? "⚠️ CRITICAL" : "✓ Safe"}</p>
+          <div className={`p-3 rounded-lg border ${assessment.derived_features.type1_without_basal ? "bg-red-100 border-red-400" : "bg-gray-100 border-gray-300"}`}>
+            <span className={`font-bold text-sm block ${assessment.derived_features.type1_without_basal ? "text-red-900" : "text-gray-700"}`}>Type 1 No Basal</span>
+            <p className={`text-sm font-semibold ${assessment.derived_features.type1_without_basal ? "text-red-700" : "text-gray-600"}`}>{assessment.derived_features.type1_without_basal ? "⚠️ CRITICAL" : "✓ Safe"}</p>
           </div>
         </div>
 
         {/* Recommended Regimen */}
-        <div className="border-t border-muted-foreground/20 pt-3">
-          <h4 className="text-xs font-medium text-muted-foreground mb-2">Recommended Regimen</h4>
-          <div className={`p-3 rounded-lg text-sm font-semibold ${getRegimensColor(assessment.recommended_regimen)}`}>
+        <div className="border-t border-muted-foreground/20 pt-4">
+          <h4 className="text-sm font-bold text-gray-900 mb-3">💊 Recommended Regimen</h4>
+          <div className={`p-4 rounded-lg text-base font-bold ${getRegimensColor(assessment.recommended_regimen)}`}>
             {assessment.recommended_regimen === "iv_insulin_protocol" && "🏥 IV Insulin Protocol (ICU/Hemodynamically Unstable)"}
             {assessment.recommended_regimen === "basal_bolus_correction" && "💉 Basal-Bolus-Correction (Eating Regular)"}
             {assessment.recommended_regimen === "basal_plus_correction" && "💉 Basal-Plus-Correction (NPO/Poor Intake)"}
@@ -103,34 +116,34 @@ export function InpatientGlycemicAssessment({ assessment, slidingScale }: Props)
 
       {/* Critical Alerts */}
       {assessment.alerts.length > 0 && (
-        <div className="space-y-2">
-          <h3 className="text-xs font-medium text-muted-foreground">Clinical Alerts ({assessment.alerts.length})</h3>
+        <div className="space-y-3">
+          <h3 className="text-sm font-bold text-gray-900">🔔 Clinical Alerts ({assessment.alerts.length})</h3>
           {assessment.alerts.map((alert, i) => (
-            <div key={i} className={`border rounded-lg p-3 mb-2 ${getSeverityColor(alert.severity)}`}>
+            <div key={i} className={`rounded-lg p-4 mb-3 ${getSeverityColor(alert.severity)}`}>
               <button
                 onClick={() => setExpandedAlert(expandedAlert === alert.code ? null : alert.code)}
-                className="w-full text-left"
+                className="w-full text-left hover:opacity-80 transition-opacity"
               >
-                <div className="flex items-start gap-2">
-                  {alert.severity === "critical" && <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />}
-                  {alert.severity === "high" && <AlertCircle className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />}
-                  {alert.severity === "warning" && <TrendingUp className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />}
-                  {alert.severity === "info" && <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />}
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="font-semibold text-sm">{alert.code}</span>
-                      <span className={`text-[9px] font-semibold px-2 py-0.5 rounded-full uppercase ${getSeverityBadgeColor(alert.severity)}`}>
+                <div className="flex items-start gap-3">
+                  {alert.severity === "critical" && <AlertTriangle className="w-5 h-5 text-red-700 shrink-0 mt-0.5 font-bold" />}
+                  {alert.severity === "high" && <AlertCircle className="w-5 h-5 text-orange-700 shrink-0 mt-0.5 font-bold" />}
+                  {alert.severity === "warning" && <TrendingUp className="w-5 h-5 text-yellow-700 shrink-0 mt-0.5 font-bold" />}
+                  {alert.severity === "info" && <CheckCircle2 className="w-5 h-5 text-blue-700 shrink-0 mt-0.5 font-bold" />}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                      <span className={`font-bold text-sm ${getSeverityTextColor(alert.severity)}`}>{alert.code}</span>
+                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full uppercase ${getSeverityBadgeColor(alert.severity)}`}>
                         {alert.severity}
                       </span>
                     </div>
-                    <p className="text-[10px] leading-relaxed">{alert.message}</p>
+                    <p className={`text-sm leading-relaxed font-semibold ${getSeverityTextColor(alert.severity)}`}>{alert.message}</p>
                   </div>
                 </div>
               </button>
               {expandedAlert === alert.code && (
-                <div className="mt-2 pt-2 border-t border-current/20 pl-6 text-[10px]">
-                  <p className="font-semibold mb-1">Recommended Action:</p>
-                  <p className="leading-relaxed">{alert.recommended_action}</p>
+                <div className={`mt-3 pt-3 border-t-2 pl-8 ${getSeverityTextColor(alert.severity)}`}>
+                  <p className="font-bold text-sm mb-2">Recommended Action:</p>
+                  <p className="text-sm leading-relaxed">{alert.recommended_action}</p>
                 </div>
               )}
             </div>
@@ -140,13 +153,13 @@ export function InpatientGlycemicAssessment({ assessment, slidingScale }: Props)
 
       {/* Recommended Actions */}
       {assessment.recommended_actions.length > 0 && (
-        <div className="clinical-card border-l-4 border-l-primary bg-primary/5 p-3">
-          <h4 className="text-xs font-medium text-primary mb-2">Recommended Actions</h4>
-          <ul className="space-y-1.5">
+        <div className="clinical-card border-l-4 border-l-primary bg-primary/10 p-4">
+          <h4 className="text-sm font-bold text-primary mb-3">✓ Recommended Actions</h4>
+          <ul className="space-y-2">
             {assessment.recommended_actions.map((action, i) => (
-              <li key={i} className="flex items-start gap-2 text-[10px]">
-                <span className="bg-primary/20 text-primary rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0">{i + 1}</span>
-                <span className="leading-relaxed pt-0.5">{action}</span>
+              <li key={i} className="flex items-start gap-3 text-sm">
+                <span className="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{i + 1}</span>
+                <span className="leading-relaxed pt-1 font-semibold text-gray-700">{action}</span>
               </li>
             ))}
           </ul>
