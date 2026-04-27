@@ -1,5 +1,5 @@
 import {
-  LayoutDashboard, User, UtensilsCrossed, Circle, Pill, CalendarDays, TrendingUp, FileText, Syringe, ShieldAlert, FlaskConical, HeartPulse, Bean, Droplet, BookOpen,
+  LayoutDashboard, User, UtensilsCrossed, Pizza, Pill, CalendarDays, TrendingDown, FileText, Syringe, ShieldAlert, FlaskConical, HeartPulse, Bean, Droplet, BookOpen, TableProperties, Activity,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -13,19 +13,19 @@ const items = [
   { title: "Patient", url: "/patient", icon: User },
   { title: "Summary", url: "/summary", icon: FileText },
   { title: "Foods", url: "/foods", icon: UtensilsCrossed },
-  { title: "Plate Method", url: "/plate", icon: Circle },
+  { title: "Plate Method", url: "/plate", icon: Pizza },
   { title: "Medications", url: "/medications", icon: Pill },
   { title: "Insulin Titration", url: "/insulin-titration", icon: Syringe },
-  { title: "Sliding Scale Insulin", url: "/sliding-scale", icon: Syringe },
+  { title: "Sliding Scale Insulin", url: "/sliding-scale", icon: TableProperties },
   { title: "GLP-1 Administration", url: "/glp1-administration", icon: Droplet },
   { title: "Prediabetes", url: "/prediabetes", icon: HeartPulse },
   { title: "Hypo Risk Score", url: "/hypo-risk", icon: ShieldAlert },
   { title: "Renal Dosing", url: "/renal-dosing", icon: FlaskConical },
   { title: "CKD Guideline", url: "/ckd-guideline", icon: Bean },
   { title: "Diet Plan", url: "/diet-plan", icon: CalendarDays },
-  { title: "Progress", url: "/progress", icon: TrendingUp },
+  { title: "Progress", url: "/progress", icon: TrendingDown },
   { title: "Daily Management", url: "/daily-management", icon: BookOpen },
-  { title: "Type 1 DM", url: "/type1-management", icon: Syringe },
+  { title: "Type 1 DM", url: "/type1-management", icon: Activity },
 ];
 
 export function AppSidebar() {

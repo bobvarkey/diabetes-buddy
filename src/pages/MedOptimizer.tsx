@@ -203,13 +203,13 @@ const MedOptimizer = () => {
 
   return (
     <div className="space-y-5 animate-slide-in">
-      <div className="flex items-center justify-between">
-        <div className="flex-1">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0">
           <h1 className="text-xl font-heading font-bold">Medication Optimizer</h1>
           <p className="text-sm text-muted-foreground">ADA 2026 Priorities-First Algorithm + LAI Lipid Guidelines</p>
         </div>
         {patient && (
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2">
             {/* Mode Toggle */}
             <div className="flex items-center bg-muted rounded-lg p-1 gap-1">
               <Button

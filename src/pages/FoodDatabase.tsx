@@ -65,7 +65,7 @@ const FoodDatabase = () => {
               </span>
             </div>
             <p className="text-xs text-muted-foreground mb-2">Serving: {food.serving}</p>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <div className="text-center p-1.5 rounded bg-muted/50">
                 <span className="text-xs text-muted-foreground block">Cal</span>
                 <span className="text-sm font-semibold">{food.calories}</span>
