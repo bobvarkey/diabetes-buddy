@@ -1,7 +1,8 @@
 import { ChevronDown, ChevronUp, Heart, Apple, Activity, Brain, Droplet, Pill, TrendingUp } from "lucide-react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 interface EducationSection {
+  id: string;
   title: string;
   icon: React.ReactNode;
   color: string;
@@ -13,11 +14,9 @@ interface EducationSection {
   }[];
 }
 
-const DailyManagementGuide = () => {
-  const [expanded, setExpanded] = useState<string | null>("daily-basics");
-
-  const sections: EducationSection[] = [
+const EDUCATION_SECTIONS: EducationSection[] = [
     {
+      id: "daily-management",
       title: "Daily Diabetes Management",
       icon: <Heart className="w-5 h-5" />,
       color: "bg-red-500/10 text-red-600",
@@ -40,6 +39,7 @@ const DailyManagementGuide = () => {
       ]
     },
     {
+      id: "glucose-monitoring",
       title: "Blood Glucose Monitoring",
       icon: <Droplet className="w-5 h-5" />,
       color: "bg-blue-500/10 text-blue-600",
@@ -61,6 +61,7 @@ const DailyManagementGuide = () => {
       ]
     },
     {
+      id: "nutrition",
       title: "Nutrition & Eating Habits",
       icon: <Apple className="w-5 h-5" />,
       color: "bg-green-500/10 text-green-600",
@@ -82,6 +83,7 @@ const DailyManagementGuide = () => {
       ]
     },
     {
+      id: "activity",
       title: "Physical Activity Routine",
       icon: <Activity className="w-5 h-5" />,
       color: "bg-purple-500/10 text-purple-600",
@@ -105,6 +107,7 @@ const DailyManagementGuide = () => {
       ]
     },
     {
+      id: "medication-adherence",
       title: "Medication Adherence",
       icon: <Pill className="w-5 h-5" />,
       color: "bg-yellow-500/10 text-yellow-600",
@@ -126,6 +129,7 @@ const DailyManagementGuide = () => {
       ]
     },
     {
+      id: "stress-management",
       title: "Stress Management",
       icon: <Brain className="w-5 h-5" />,
       color: "bg-indigo-500/10 text-indigo-600",
@@ -149,6 +153,7 @@ const DailyManagementGuide = () => {
       ]
     },
     {
+      id: "kidney-screening",
       title: "Kidney Health Screening",
       icon: <TrendingUp className="w-5 h-5" />,
       color: "bg-cyan-500/10 text-cyan-600",
@@ -171,7 +176,10 @@ const DailyManagementGuide = () => {
         }
       ]
     }
-  ];
+];
+
+const DailyManagementGuide = () => {
+  const [expanded, setExpanded] = useState<string | null>("daily-management");
 
   return (
     <div className="space-y-6 animate-slide-in max-w-4xl mx-auto">
@@ -183,14 +191,13 @@ const DailyManagementGuide = () => {
 
       {/* Education Sections */}
       <div className="space-y-3">
-        {sections.map((section, idx) => {
-          const sectionId = `section-${idx}`;
-          const isExpanded = expanded === sectionId;
+        {EDUCATION_SECTIONS.map((section) => {
+          const isExpanded = expanded === section.id;
 
           return (
-            <div key={sectionId} className="clinical-card border border-gray-200">
+            <div key={section.id} className="clinical-card border border-gray-200">
               <button
-                onClick={() => setExpanded(isExpanded ? null : sectionId)}
+                onClick={() => setExpanded(isExpanded ? null : section.id)}
                 className="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors"
               >
                 <div className="flex items-center gap-3">
