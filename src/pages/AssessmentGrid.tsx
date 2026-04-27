@@ -16,6 +16,7 @@ const TOOLS = [
   { id: 13, name: 'Patient Summary', category: 'Dashboard', pro: false, color: 'bg-neon-orange', route: '/summary' },
   { id: 14, name: 'Patient Input', category: 'Data Entry', pro: false, color: 'bg-neon-violet', route: '/patient' },
   { id: 15, name: 'Dashboard', category: 'Dashboard', pro: false, color: 'bg-neon-red', route: '/dashboard' },
+  { id: 16, name: 'Daily Management', category: 'Education', pro: false, color: 'bg-neon-yellow', route: '/daily-management' },
 ];
 
 export default function AssessmentGrid() {
@@ -66,7 +67,7 @@ export default function AssessmentGrid() {
           {/* Footer Note */}
           <div className="mt-8 p-4 border border-gray-800 rounded-lg text-center">
             <p className="text-xs text-gray-400">
-              All {TOOLS.length} clinical tools are now accessible for testing.
+              All {TOOLS.length} clinical tools and educational resources are now accessible for testing.
             </p>
             <p className="text-xs text-gray-500 mt-2">
               Evidence-based algorithms and decision support for diabetes management

@@ -1,5 +1,5 @@
 import {
-  LayoutDashboard, User, UtensilsCrossed, Circle, Pill, CalendarDays, TrendingUp, FileText, Syringe, ShieldAlert, FlaskConical, HeartPulse, Bean, Droplet,
+  LayoutDashboard, User, UtensilsCrossed, Circle, Pill, CalendarDays, TrendingUp, FileText, Syringe, ShieldAlert, FlaskConical, HeartPulse, Bean, Droplet, BookOpen,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -24,6 +24,7 @@ const items = [
   { title: "CKD Guideline", url: "/ckd-guideline", icon: Bean },
   { title: "Diet Plan", url: "/diet-plan", icon: CalendarDays },
   { title: "Progress", url: "/progress", icon: TrendingUp },
+  { title: "Daily Management", url: "/daily-management", icon: BookOpen },
 ];
 
 export function AppSidebar() {
