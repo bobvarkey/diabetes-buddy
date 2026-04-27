@@ -868,8 +868,8 @@ export function generateSMARTGoals(patient: PatientData, drugs: MedRecommendatio
     goals.push({
       category: "medication-adherence",
       title: `Take ${drugs[0].drug} daily`,
-      goal: `I will take ${drugs[0].drug} ${drugs[0].dosageFrequency === "OD" ? "with breakfast every day" : drugs[0].dosageFrequency === "BD" ? "with breakfast and dinner" : "before each meal"} for the next 30 days.`,
-      specific: `${drugs[0].dosageFrequency === "OD" ? "Same time daily (e.g., 7:00 AM with breakfast)" : "Consistent meals with medication"}`,
+      goal: `I will take ${drugs[0].drug} ${drugs[0].frequency === "OD" ? "with breakfast every day" : drugs[0].frequency === "BD" ? "with breakfast and dinner" : "before each meal"} for the next 30 days.`,
+      specific: `${drugs[0].frequency === "OD" ? "Same time daily (e.g., 7:00 AM with breakfast)" : "Consistent meals with medication"}`,
       measurable: "≥25 days of correct dosing in 30 days using a reminder system",
       timeframe: "1 month, then decide if habit is sustained",
       isActive: true,
@@ -927,7 +927,7 @@ export function generateSMARTGoals(patient: PatientData, drugs: MedRecommendatio
     goals.push({
       category: "weight-loss",
       title: "Achieve 5-10% weight loss",
-      goal: `I will lose ${Math.round(patient.weight * 0.05)} to ${Math.round(patient.weight * 0.10)} lbs over the next 12 weeks through diet and exercise.`,
+      goal: `I will lose ${Math.round(patient.weightKg * 0.05)} to ${Math.round(patient.weightKg * 0.10)} kg over the next 12 weeks through diet and exercise.`,
       specific: `Combine portion control (smaller plate) + 150 min/week activity + ${hasGLP1 ? "GLP-1 appetite reduction" : "calorie awareness"}`,
       measurable: "Weigh weekly on same day/time; track in health app",
       timeframe: "12 weeks (0.5–1 lbs per week)",
