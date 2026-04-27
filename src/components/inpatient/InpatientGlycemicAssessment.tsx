@@ -169,26 +169,26 @@ export function InpatientGlycemicAssessment({ assessment, slidingScale }: Props)
       {/* Sliding Scale Table */}
       {slidingScale && slidingScale.length > 0 && (
         <div className="clinical-card border-l-4 border-l-info bg-info/5 p-3">
-          <h4 className="text-xs font-medium text-info mb-2 flex items-center gap-1">
-            <Clock className="w-3 h-3" /> Insulin Sliding Scale
+          <h4 className="text-sm font-medium text-info mb-2 flex items-center gap-1">
+            <Clock className="w-4 h-4" /> Insulin Sliding Scale
           </h4>
           <div className="overflow-x-auto">
-            <table className="text-[9px] w-full">
+            <table className="text-sm w-full">
               <thead>
-                <tr className="border-b border-info/30">
-                  <th className="text-left py-1 px-2 font-semibold">Glucose Range</th>
-                  <th className="text-left py-1 px-2 font-semibold">Bolus Units</th>
-                  <th className="text-left py-1 px-2 font-semibold">Duration</th>
-                  <th className="text-left py-1 px-2 font-semibold">Notes</th>
+                <tr className="border-b border-info/30 bg-info/5">
+                  <th className="text-left py-2 px-3 font-semibold">Glucose Range</th>
+                  <th className="text-left py-2 px-3 font-semibold">Bolus Units</th>
+                  <th className="text-left py-2 px-3 font-semibold">Duration</th>
+                  <th className="text-left py-2 px-3 font-semibold">Notes</th>
                 </tr>
               </thead>
               <tbody>
                 {slidingScale.map((entry, i) => (
                   <tr key={i} className="border-b border-info/20 hover:bg-info/10">
-                    <td className="py-1.5 px-2">{entry.glucose_range.min}–{entry.glucose_range.max}</td>
-                    <td className="py-1.5 px-2 font-semibold">{entry.units_bolus} U</td>
-                    <td className="py-1.5 px-2">{entry.duration_hours}h</td>
-                    <td className="py-1.5 px-2 text-info/70">{entry.notes}</td>
+                    <td className="py-2 px-3">{entry.glucose_range.min}–{entry.glucose_range.max}</td>
+                    <td className="py-2 px-3 font-semibold">{entry.units_bolus} U</td>
+                    <td className="py-2 px-3">{entry.duration_hours}h</td>
+                    <td className="py-2 px-3 text-info/70">{entry.notes}</td>
                   </tr>
                 ))}
               </tbody>
@@ -200,12 +200,12 @@ export function InpatientGlycemicAssessment({ assessment, slidingScale }: Props)
       {/* Monitoring Plan */}
       {assessment.monitoring_plan.length > 0 && (
         <div className="clinical-card border-l-4 border-l-success bg-success/5 p-3">
-          <h4 className="text-xs font-medium text-success mb-2 flex items-center gap-1">
-            <Activity className="w-3 h-3" /> Monitoring Plan
+          <h4 className="text-sm font-medium text-success mb-2 flex items-center gap-1">
+            <Activity className="w-4 h-4" /> Monitoring Plan
           </h4>
-          <ul className="space-y-1">
+          <ul className="space-y-2">
             {assessment.monitoring_plan.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 text-[10px]">
+              <li key={i} className="flex items-start gap-2 text-xs">
                 <span className="text-success shrink-0 mt-0.5">•</span>
                 <span>{item}</span>
               </li>
@@ -217,10 +217,10 @@ export function InpatientGlycemicAssessment({ assessment, slidingScale }: Props)
       {/* Reassessment Triggers */}
       {assessment.reassessment_triggers.length > 0 && (
         <div className="clinical-card border-l-4 border-l-warning bg-warning/5 p-3">
-          <h4 className="text-xs font-medium text-warning mb-2">Reassessment Triggers</h4>
-          <ul className="space-y-1">
+          <h4 className="text-sm font-medium text-warning mb-2">Reassessment Triggers</h4>
+          <ul className="space-y-2">
             {assessment.reassessment_triggers.map((trigger, i) => (
-              <li key={i} className="flex items-start gap-2 text-[10px]">
+              <li key={i} className="flex items-start gap-2 text-xs">
                 <span className="text-warning shrink-0 mt-0.5">→</span>
                 <span>{trigger}</span>
               </li>
@@ -230,7 +230,7 @@ export function InpatientGlycemicAssessment({ assessment, slidingScale }: Props)
       )}
 
       {/* Audit Trail */}
-      <div className="text-[8px] text-muted-foreground/60 border-t border-muted-foreground/20 pt-2">
+      <div className="text-xs text-muted-foreground/80 border-t border-muted-foreground/20 pt-2">
         <p className="font-semibold mb-1">Audit Trail:</p>
         <p>Rules fired: {assessment.audit.rules_fired.join(", ") || "None"}</p>
         <p>Confidence: <span className={assessment.audit.confidence === "high" ? "text-success" : assessment.audit.confidence === "moderate" ? "text-warning" : "text-destructive"}>{assessment.audit.confidence}</span></p>
