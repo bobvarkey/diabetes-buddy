@@ -40,19 +40,13 @@ export default function LandingPage() {
           <span className="text-sm text-gray-400">2,847 healthcare providers</span>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col gap-3 w-full max-w-xs z-10 mb-12">
+        {/* CTA Button */}
+        <div className="w-full max-w-xs z-10 mb-12">
           <Button
             onClick={() => navigate('/app')}
             className="w-full bg-gradient-to-r from-fuchsia-600 to-cyan-500 hover:from-fuchsia-700 hover:to-cyan-600 text-white font-semibold py-6 text-lg"
           >
             Get Started Free
-          </Button>
-          <Button
-            variant="outline"
-            className="w-full border-fuchsia-500 text-fuchsia-400 hover:bg-fuchsia-950 py-6 text-lg"
-          >
-            View Pro Plans
           </Button>
         </div>
 
@@ -87,7 +81,7 @@ export default function LandingPage() {
             <p className="text-xs text-gray-400">Medications</p>
           </div>
           <div>
-            <p className="text-2xl font-bold text-cyan-400">12</p>
+            <p className="text-2xl font-bold text-cyan-400">16</p>
             <p className="text-xs text-gray-400">Tools</p>
           </div>
           <div>
@@ -97,42 +91,6 @@ export default function LandingPage() {
           <div>
             <p className="text-2xl font-bold text-lime-400">Free</p>
             <p className="text-xs text-gray-400">Core</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-16 px-6 max-w-[390px] mx-auto">
-        <h2 className="text-2xl font-bold mb-8 text-center font-heading">Simple Pricing</h2>
-        <div className="space-y-4">
-          {/* Free Plan */}
-          <div className="border border-gray-800 rounded-lg p-6 bg-gray-950/50">
-            <h3 className="font-semibold mb-4">Free</h3>
-            <p className="text-2xl font-bold mb-4">$0<span className="text-sm text-gray-400">/forever</span></p>
-            <ul className="space-y-2 mb-6 text-sm text-gray-300">
-              <li>✓ Medication database (180+)</li>
-              <li>✓ Basic dosing guides</li>
-              <li>✓ Carb counting tool</li>
-            </ul>
-          </div>
-
-          {/* Pro Plan */}
-          <div className="relative border border-fuchsia-500 rounded-lg p-6 bg-gradient-to-br from-fuchsia-950 to-black">
-            <div className="absolute -top-3 left-4 bg-black px-2">
-              <span className="text-xs font-bold text-fuchsia-500">⭐ RECOMMENDED</span>
-            </div>
-            <h3 className="font-semibold mb-2">Pro</h3>
-            <p className="text-2xl font-bold mb-1">$9.99<span className="text-sm text-gray-400">/year</span></p>
-            <p className="text-xs text-gray-400 line-through mb-4">was $29.99/year</p>
-            <ul className="space-y-2 mb-6 text-sm text-gray-200">
-              <li>✓ AI Med Optimizer</li>
-              <li>✓ Advanced HbA1c analytics</li>
-              <li>✓ Personalized meal plans</li>
-              <li>✓ Priority clinical support</li>
-            </ul>
-            <Button className="w-full bg-fuchsia-600 hover:bg-fuchsia-700 text-white">
-              Upgrade Now
-            </Button>
           </div>
         </div>
       </section>
