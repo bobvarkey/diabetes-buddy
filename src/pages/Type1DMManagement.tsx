@@ -37,12 +37,12 @@ export default function Type1DMManagement() {
       color: "text-blue-600",
       content: (
         <div className="space-y-3">
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <p className="text-sm text-gray-700"><strong>Patient Weight:</strong> {management.tdd_calculation.kg_weight} kg</p>
-            <p className="text-sm text-gray-700 mt-2"><strong>TDD Range:</strong> {management.tdd_calculation.tdd_range}</p>
-            <p className="text-lg font-bold text-blue-700 mt-3">Estimated TDD: {management.tdd_calculation.estimated_tdd} units/day</p>
+          <div className="bg-info/10 p-4 rounded-lg">
+            <p className="text-sm text-muted-foreground"><strong>Patient Weight:</strong> {management.tdd_calculation.kg_weight} kg</p>
+            <p className="text-sm text-muted-foreground mt-2"><strong>TDD Range:</strong> {management.tdd_calculation.tdd_range}</p>
+            <p className="text-lg font-bold text-info mt-3">Estimated TDD: {management.tdd_calculation.estimated_tdd} units/day</p>
           </div>
-          <p className="text-xs text-gray-600 italic">Higher TDD needed in puberty, insulin resistance, pregnancy, or acute illness.</p>
+          <p className="text-xs text-muted-foreground italic">Higher TDD needed in puberty, insulin resistance, pregnancy, or acute illness.</p>
         </div>
       ),
     },
@@ -53,16 +53,16 @@ export default function Type1DMManagement() {
       color: "text-red-600",
       content: (
         <div className="space-y-3">
-          <div className="bg-red-50 p-4 rounded-lg">
+          <div className="bg-destructive/5 p-4 rounded-lg">
             <p className="text-sm font-semibold text-gray-800 mb-2">Recommended Daily Basal Dose:</p>
             <p className="text-base font-bold text-red-700">{management.basal_insulin.recommended_daily_dose}</p>
-            <p className="text-xs text-gray-600 mt-3">{management.basal_insulin.percentage_of_tdd}</p>
+            <p className="text-xs text-muted-foreground mt-3">{management.basal_insulin.percentage_of_tdd}</p>
           </div>
           <div>
             <p className="text-sm font-semibold mb-2">Agent Options:</p>
             <ul className="space-y-2">
               {management.basal_insulin.agent_options.map((agent, idx) => (
-                <li key={idx} className="text-sm text-gray-700 flex gap-2">
+                <li key={idx} className="text-sm text-muted-foreground flex gap-2">
                   <span className="text-blue-600 font-bold flex-shrink-0">•</span>
                   <span>{agent}</span>
                 </li>
@@ -70,8 +70,8 @@ export default function Type1DMManagement() {
             </ul>
           </div>
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 mt-3">
-            <p className="text-xs text-gray-700"><strong>Target Fasting Glucose:</strong> {management.basal_insulin.fasting_glucose_target}</p>
-            <p className="text-xs text-gray-600 mt-2">{management.basal_insulin.notes}</p>
+            <p className="text-xs text-muted-foreground"><strong>Target Fasting Glucose:</strong> {management.basal_insulin.fasting_glucose_target}</p>
+            <p className="text-xs text-muted-foreground mt-2">{management.basal_insulin.notes}</p>
           </div>
         </div>
       ),
@@ -83,22 +83,22 @@ export default function Type1DMManagement() {
       color: "text-green-600",
       content: (
         <div className="space-y-3">
-          <div className="bg-green-50 p-4 rounded-lg">
+          <div className="bg-success/5 p-4 rounded-lg">
             <p className="text-sm font-semibold mb-2">Insulin-to-Carb Ratio (ICR):</p>
-            <p className="text-base text-green-700">{management.bolus_insulin.icr_insulin_to_carb_ratio}</p>
+            <p className="text-base text-success">{management.bolus_insulin.icr_insulin_to_carb_ratio}</p>
             <p className="text-sm font-semibold mt-4 mb-2">Correction Factor (CF):</p>
-            <p className="text-base text-green-700">{management.bolus_insulin.cf_correction_factor}</p>
+            <p className="text-base text-success">{management.bolus_insulin.cf_correction_factor}</p>
           </div>
           <div>
             <p className="text-sm font-semibold mb-2">Rapid-Acting Insulin Agents:</p>
             <ul className="space-y-1">
               {management.bolus_insulin.agents.map((agent, idx) => (
-                <li key={idx} className="text-xs text-gray-700">• {agent}</li>
+                <li key={idx} className="text-xs text-muted-foreground">• {agent}</li>
               ))}
             </ul>
           </div>
-          <p className="text-sm text-gray-600 bg-blue-50 p-2 rounded"><strong>Timing:</strong> {management.bolus_insulin.timing}</p>
-          <p className="text-sm text-gray-600"><strong>Carb Counting:</strong> {management.bolus_insulin.carb_counting_method}</p>
+          <p className="text-sm text-muted-foreground bg-info/10 p-2 rounded"><strong>Timing:</strong> {management.bolus_insulin.timing}</p>
+          <p className="text-sm text-muted-foreground"><strong>Carb Counting:</strong> {management.bolus_insulin.carb_counting_method}</p>
         </div>
       ),
     },
@@ -133,21 +133,21 @@ export default function Type1DMManagement() {
             <p className="text-sm font-semibold mb-2">🎯 CGM (Preferred):</p>
             <ul className="space-y-1">
               {management.monitoring_protocol.cgm_recommended.metrics.map((metric, idx) => (
-                <li key={idx} className="text-xs text-gray-700">• {metric}</li>
+                <li key={idx} className="text-xs text-muted-foreground">• {metric}</li>
               ))}
             </ul>
-            <p className="text-xs text-gray-600 mt-3"><strong>Review:</strong> {management.monitoring_protocol.cgm_recommended.review_frequency}</p>
-            <p className="text-xs text-gray-600"><strong>Targets:</strong> {management.monitoring_protocol.cgm_recommended.targets}</p>
+            <p className="text-xs text-muted-foreground mt-3"><strong>Review:</strong> {management.monitoring_protocol.cgm_recommended.review_frequency}</p>
+            <p className="text-xs text-muted-foreground"><strong>Targets:</strong> {management.monitoring_protocol.cgm_recommended.targets}</p>
           </div>
           <div>
             <p className="text-sm font-semibold mb-2">📍 SMBG (Minimum):</p>
             <ul className="space-y-1">
               {management.monitoring_protocol.smbg_minimum.map((item, idx) => (
-                <li key={idx} className="text-xs text-gray-700">• {item}</li>
+                <li key={idx} className="text-xs text-muted-foreground">• {item}</li>
               ))}
             </ul>
           </div>
-          <p className="text-sm text-gray-600 bg-yellow-50 p-2 rounded"><strong>Ketone Testing:</strong> {management.monitoring_protocol.ketone_testing}</p>
+          <p className="text-sm text-muted-foreground bg-yellow-50 p-2 rounded"><strong>Ketone Testing:</strong> {management.monitoring_protocol.ketone_testing}</p>
         </div>
       ),
     },
@@ -158,25 +158,25 @@ export default function Type1DMManagement() {
       color: "text-red-600",
       content: (
         <div className="space-y-3">
-          <div className="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+          <div className="bg-destructive/5 p-3 rounded-lg border-l-4 border-red-400">
             <p className="text-sm font-semibold text-gray-800 mb-2">Level 1 (70-54 mg/dL):</p>
-            <p className="text-xs text-gray-700"><strong>Treatment:</strong> {management.hypoglycemia_protocol.level_1_70_54.treatment}</p>
-            <p className="text-xs text-gray-700"><strong>Recheck:</strong> {management.hypoglycemia_protocol.level_1_70_54.recheck}</p>
+            <p className="text-xs text-muted-foreground"><strong>Treatment:</strong> {management.hypoglycemia_protocol.level_1_70_54.treatment}</p>
+            <p className="text-xs text-muted-foreground"><strong>Recheck:</strong> {management.hypoglycemia_protocol.level_1_70_54.recheck}</p>
           </div>
           <div className="bg-orange-50 p-3 rounded-lg border-l-4 border-orange-400">
             <p className="text-sm font-semibold text-gray-800 mb-2">Level 2 (Below 54 mg/dL):</p>
-            <p className="text-xs text-gray-700">{management.hypoglycemia_protocol.level_2_below_54.treatment}</p>
+            <p className="text-xs text-muted-foreground">{management.hypoglycemia_protocol.level_2_below_54.treatment}</p>
           </div>
           <div className="bg-red-100 p-3 rounded-lg border-l-4 border-red-600">
             <p className="text-sm font-semibold text-gray-800 mb-2">Level 3 (Severe):</p>
-            <p className="text-xs text-gray-700"><strong>Definition:</strong> {management.hypoglycemia_protocol.level_3_severe.definition}</p>
-            <p className="text-xs text-gray-700 mt-1"><strong>Treatment:</strong> {management.hypoglycemia_protocol.level_3_severe.treatment}</p>
+            <p className="text-xs text-muted-foreground"><strong>Definition:</strong> {management.hypoglycemia_protocol.level_3_severe.definition}</p>
+            <p className="text-xs text-muted-foreground mt-1"><strong>Treatment:</strong> {management.hypoglycemia_protocol.level_3_severe.treatment}</p>
           </div>
           <div>
             <p className="text-sm font-semibold mb-2">Prevention Strategies:</p>
             <ul className="space-y-1">
               {management.hypoglycemia_protocol.prevention_strategies.map((strategy, idx) => (
-                <li key={idx} className="text-xs text-gray-700">✓ {strategy}</li>
+                <li key={idx} className="text-xs text-muted-foreground">✓ {strategy}</li>
               ))}
             </ul>
           </div>
@@ -190,17 +190,17 @@ export default function Type1DMManagement() {
       color: "text-green-600",
       content: (
         <div className="space-y-3">
-          <div className="bg-green-50 p-3 rounded-lg">
+          <div className="bg-success/5 p-3 rounded-lg">
             <p className="text-sm font-semibold mb-2">Before Exercise:</p>
-            <p className="text-xs text-gray-700">{management.exercise_adjustments.pre_exercise}</p>
+            <p className="text-xs text-muted-foreground">{management.exercise_adjustments.pre_exercise}</p>
           </div>
-          <div className="bg-green-50 p-3 rounded-lg">
+          <div className="bg-success/5 p-3 rounded-lg">
             <p className="text-sm font-semibold mb-2">During Exercise:</p>
-            <p className="text-xs text-gray-700">{management.exercise_adjustments.during_exercise}</p>
+            <p className="text-xs text-muted-foreground">{management.exercise_adjustments.during_exercise}</p>
           </div>
-          <div className="bg-green-50 p-3 rounded-lg">
+          <div className="bg-success/5 p-3 rounded-lg">
             <p className="text-sm font-semibold mb-2">Post-Exercise:</p>
-            <p className="text-xs text-gray-700">{management.exercise_adjustments.post_exercise}</p>
+            <p className="text-xs text-muted-foreground">{management.exercise_adjustments.post_exercise}</p>
           </div>
         </div>
       ),
@@ -211,9 +211,9 @@ export default function Type1DMManagement() {
       icon: <Shield className="w-5 h-5" />,
       color: "text-red-600",
       content: (
-        <div className="bg-red-50 p-4 rounded-lg space-y-2">
+        <div className="bg-destructive/5 p-4 rounded-lg space-y-2">
           {management.key_safety_rules.map((rule, idx) => (
-            <p key={idx} className="text-xs text-gray-700 font-semibold">{rule}</p>
+            <p key={idx} className="text-xs text-muted-foreground font-semibold">{rule}</p>
           ))}
         </div>
       ),
@@ -223,9 +223,9 @@ export default function Type1DMManagement() {
   return (
     <div className="space-y-6 animate-slide-in max-w-4xl mx-auto">
       {/* Header */}
-      <div className="rounded-xl p-6 text-white" style={{ background: "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)" }}>
+      <div className="rounded-xl p-6 text-primary-foreground" style={{ background: "var(--gradient-hero)" }}>
         <h1 className="text-3xl font-heading font-bold mb-2">Type 1 Diabetes Management</h1>
-        <p className="text-blue-100">Comprehensive basal-bolus insulin therapy with CGM-guided adjustments for adults with T1D</p>
+        <p className="text-primary-foreground/80">Comprehensive basal-bolus insulin therapy with CGM-guided adjustments for adults with T1D</p>
       </div>
 
       {/* Patient Context */}
@@ -282,9 +282,9 @@ export default function Type1DMManagement() {
       {/* Sick Day Rules Alert */}
       <div className="clinical-card bg-gradient-to-r from-red-50 to-orange-50 border-red-200">
         <h3 className="section-title mb-3 text-red-700">⚠️ Sick Day Rules</h3>
-        <p className="text-sm text-gray-700 mb-3">{management.sick_day_rules.insulin_adjustment}</p>
-        <p className="text-sm text-gray-700 mb-3"><strong>Hydration:</strong> {management.sick_day_rules.hydration_goal}</p>
-        <p className="text-sm text-gray-700 mb-3"><strong>Monitoring:</strong> {management.sick_day_rules.monitoring}</p>
+        <p className="text-sm text-muted-foreground mb-3">{management.sick_day_rules.insulin_adjustment}</p>
+        <p className="text-sm text-muted-foreground mb-3"><strong>Hydration:</strong> {management.sick_day_rules.hydration_goal}</p>
+        <p className="text-sm text-muted-foreground mb-3"><strong>Monitoring:</strong> {management.sick_day_rules.monitoring}</p>
         <p className="text-sm font-semibold text-red-700 bg-red-100 p-2 rounded"><strong>🚨 Escalation:</strong> {management.sick_day_rules.escalation_criteria}</p>
       </div>
 
@@ -296,13 +296,13 @@ export default function Type1DMManagement() {
             <p className="text-sm font-semibold mb-2">Required Tests:</p>
             <ul className="space-y-1">
               {management.complication_screening.annual.map((test, idx) => (
-                <li key={idx} className="text-sm text-gray-700">✓ {test}</li>
+                <li key={idx} className="text-sm text-muted-foreground">✓ {test}</li>
               ))}
             </ul>
           </div>
           <div className="border-t pt-3">
-            <p className="text-sm"><strong>Blood Pressure Goal:</strong> <span className="text-blue-700 font-semibold">{management.complication_screening.blood_pressure_goal}</span></p>
-            <p className="text-sm"><strong>Lipid Goals:</strong> <span className="text-blue-700 font-semibold">{management.complication_screening.lipid_goals}</span></p>
+            <p className="text-sm"><strong>Blood Pressure Goal:</strong> <span className="text-info font-semibold">{management.complication_screening.blood_pressure_goal}</span></p>
+            <p className="text-sm"><strong>Lipid Goals:</strong> <span className="text-info font-semibold">{management.complication_screening.lipid_goals}</span></p>
           </div>
         </div>
       </div>

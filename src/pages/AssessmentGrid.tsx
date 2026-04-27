@@ -35,13 +35,13 @@ export default function AssessmentGrid() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-teal-900 to-slate-900 text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-background to-card text-white overflow-hidden">
       {/* Hero Section */}
-      <div className="relative w-full bg-gradient-to-b from-teal-950 to-slate-900 overflow-hidden pt-8 pb-12">
+      <div className="relative w-full bg-gradient-to-b from-card to-background overflow-hidden pt-8 pb-12">
         {/* Background gradient elements */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
         </div>
 
         {/* Hero Content */}
@@ -49,7 +49,7 @@ export default function AssessmentGrid() {
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold font-heading mb-4 leading-tight">
               Get access to all our<br />
-              <span className="text-teal-300">clinical tools</span>
+              <span className="text-secondary">clinical tools</span>
             </h1>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
               ✅ Hospital-grade medication optimizer with AI recommendations<br/>
@@ -94,19 +94,19 @@ export default function AssessmentGrid() {
           </div>
 
           {/* Feature Highlights */}
-          <div className="mt-12 p-6 bg-gradient-to-r from-teal-900/50 to-cyan-900/50 border border-teal-700/50 rounded-2xl">
+          <div className="mt-12 p-6 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-2xl">
             <h3 className="font-bold text-white mb-4 text-center">Why choose our platform?</h3>
             <div className="space-y-3">
               <div className="flex gap-3 text-sm">
-                <span className="text-teal-300 font-bold flex-shrink-0">✓</span>
+                <span className="text-secondary font-bold flex-shrink-0">✓</span>
                 <span className="text-gray-200">Hospital-grade algorithms trusted by clinicians</span>
               </div>
               <div className="flex gap-3 text-sm">
-                <span className="text-teal-300 font-bold flex-shrink-0">✓</span>
+                <span className="text-secondary font-bold flex-shrink-0">✓</span>
                 <span className="text-gray-200">Evidence-based with clinical trial citations</span>
               </div>
               <div className="flex gap-3 text-sm">
-                <span className="text-teal-300 font-bold flex-shrink-0">✓</span>
+                <span className="text-secondary font-bold flex-shrink-0">✓</span>
                 <span className="text-gray-200">All {TOOLS.length} tools accessible immediately</span>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function AssessmentGrid() {
           {/* CTA */}
           <button
             onClick={() => navigate('/patient')}
-            className="w-full mt-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/50"
+            className="w-full mt-8 py-4 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/50"
           >
             Start with Patient Input →
           </button>

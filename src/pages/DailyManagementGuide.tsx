@@ -19,7 +19,7 @@ const EDUCATION_SECTIONS: EducationSection[] = [
       id: "daily-management",
       title: "Daily Diabetes Management",
       icon: <Heart className="w-5 h-5" />,
-      color: "bg-red-500/10 text-red-600",
+      color: "bg-destructive/10 text-destructive",
       content: [
         {
           heading: "Core Habits for Success",
@@ -42,7 +42,7 @@ const EDUCATION_SECTIONS: EducationSection[] = [
       id: "glucose-monitoring",
       title: "Blood Glucose Monitoring",
       icon: <Droplet className="w-5 h-5" />,
-      color: "bg-blue-500/10 text-blue-600",
+      color: "bg-info/10 text-info",
       content: [
         {
           heading: "Monitoring Tips for Pattern Recognition",
@@ -64,7 +64,7 @@ const EDUCATION_SECTIONS: EducationSection[] = [
       id: "nutrition",
       title: "Nutrition & Eating Habits",
       icon: <Apple className="w-5 h-5" />,
-      color: "bg-green-500/10 text-green-600",
+      color: "bg-success/10 text-success",
       content: [
         {
           heading: "Evidence-Based Eating Strategies",
@@ -86,7 +86,7 @@ const EDUCATION_SECTIONS: EducationSection[] = [
       id: "activity",
       title: "Physical Activity Routine",
       icon: <Activity className="w-5 h-5" />,
-      color: "bg-purple-500/10 text-purple-600",
+      color: "bg-primary/10 text-primary",
       content: [
         {
           heading: "Exercise for Insulin Sensitivity",
@@ -110,7 +110,7 @@ const EDUCATION_SECTIONS: EducationSection[] = [
       id: "medication-adherence",
       title: "Medication Adherence",
       icon: <Pill className="w-5 h-5" />,
-      color: "bg-yellow-500/10 text-yellow-600",
+      color: "bg-warning/10 text-warning",
       content: [
         {
           heading: "Staying on Track with Meds",
@@ -156,7 +156,7 @@ const EDUCATION_SECTIONS: EducationSection[] = [
       id: "kidney-screening",
       title: "Kidney Health Screening",
       icon: <TrendingUp className="w-5 h-5" />,
-      color: "bg-cyan-500/10 text-cyan-600",
+      color: "bg-secondary/10 text-secondary",
       content: [
         {
           heading: "Annual Kidney Disease Screening",
@@ -184,9 +184,9 @@ const DailyManagementGuide = () => {
   return (
     <div className="space-y-6 animate-slide-in max-w-4xl mx-auto">
       {/* Header */}
-      <div className="rounded-xl p-6 text-white" style={{ background: "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)" }}>
+      <div className="rounded-xl p-6 text-primary-foreground" style={{ background: "var(--gradient-hero)" }}>
         <h1 className="text-3xl font-heading font-bold mb-2">Daily Diabetes Management Guide</h1>
-        <p className="text-blue-100">Evidence-based pearls for sustainable glucose control and complication prevention</p>
+        <p className="text-primary-foreground/80">Evidence-based pearls for sustainable glucose control and complication prevention</p>
       </div>
 
       {/* Education Sections */}
@@ -195,10 +195,10 @@ const DailyManagementGuide = () => {
           const isExpanded = expanded === section.id;
 
           return (
-            <div key={section.id} className="clinical-card border border-gray-200">
+            <div key={section.id} className="clinical-card border border-border">
               <button
                 onClick={() => setExpanded(isExpanded ? null : section.id)}
-                className="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between p-4 hover:bg-muted/50 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <div className={`p-2 rounded-lg ${section.color}`}>
@@ -224,15 +224,15 @@ const DailyManagementGuide = () => {
                         {content.tips.map((tip, tipIdx) => (
                           <li key={tipIdx} className="flex gap-3 text-sm">
                             <span className="text-primary font-bold flex-shrink-0 mt-0.5">•</span>
-                            <span className="text-gray-700">{tip}</span>
+                            <span className="text-muted-foreground">{tip}</span>
                           </li>
                         ))}
                       </ul>
 
                       {/* Details */}
                       {content.details && (
-                        <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-3">
-                          <p className="text-sm text-gray-700 italic">{content.details}</p>
+                        <div className="bg-muted/30 border border-border rounded-lg p-3 mb-3">
+                          <p className="text-sm text-muted-foreground italic">{content.details}</p>
                         </div>
                       )}
 
@@ -264,7 +264,7 @@ const DailyManagementGuide = () => {
       {/* Summary Card */}
       <div className="clinical-card bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
         <h3 className="section-title mb-3">Key Takeaway</h3>
-        <p className="text-sm text-gray-700">
+        <p className="text-sm text-muted-foreground">
           Diabetes management succeeds through consistent habits: monitor glucose regularly, eat balanced meals with fiber and protein,
           exercise 150 minutes weekly, manage stress, adhere to medications, and get annual kidney/eye screening.
           Small changes compound—focus on one habit at a time and build from there.

@@ -22,7 +22,7 @@ export default function LandingPage() {
 
         {/* Headline */}
         <h1 className="text-4xl font-bold text-center mb-6 font-heading z-10">
-          Manage Diabetes. <span className="text-fuchsia-500 neon-text">Smarter</span>.
+          Manage Diabetes. <span className="text-primary neon-text">Smarter</span>.
         </h1>
 
         {/* Subtitle */}
@@ -34,7 +34,7 @@ export default function LandingPage() {
         <div className="flex flex-col items-center gap-2 mb-12 z-10">
           <div className="flex gap-1">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
+              <Star key={i} size={20} className="fill-warning text-warning" />
             ))}
           </div>
           <span className="text-sm text-gray-400">2,847 healthcare providers</span>
@@ -77,7 +77,7 @@ export default function LandingPage() {
       <section className="py-12 px-6 border-t border-gray-800 max-w-[390px] mx-auto">
         <div className="grid grid-cols-4 gap-4 text-center">
           <div>
-            <p className="text-2xl font-bold text-fuchsia-500">180+</p>
+            <p className="text-2xl font-bold text-primary">180+</p>
             <p className="text-xs text-gray-400">Medications</p>
           </div>
           <div>
