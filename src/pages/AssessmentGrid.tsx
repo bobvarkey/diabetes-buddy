@@ -28,6 +28,7 @@ const TOOLS: Tool[] = [
   { id: 14, name: 'Patient Input', description: 'Enter patient demographics', category: 'Data Entry', emoji: '✍️', gradient: 'from-violet-600 to-indigo-600', route: '/patient' },
   { id: 15, name: 'Dashboard', category: 'Dashboard', description: 'Real-time patient metrics', emoji: '📊', gradient: 'from-red-600 to-pink-600', route: '/dashboard' },
   { id: 16, name: 'Daily Management', description: 'Evidence-based education pearls', category: 'Education', emoji: '📖', gradient: 'from-amber-600 to-yellow-600', route: '/daily-management' },
+  { id: 17, name: 'Type 1 DM', description: 'Basal-bolus insulin management', category: 'Dosing', emoji: '💉', gradient: 'from-indigo-600 to-purple-600', route: '/type1-management' },
 ];
 
 export default function AssessmentGrid() {

@@ -25,6 +25,7 @@ const items = [
   { title: "Diet Plan", url: "/diet-plan", icon: CalendarDays },
   { title: "Progress", url: "/progress", icon: TrendingUp },
   { title: "Daily Management", url: "/daily-management", icon: BookOpen },
+  { title: "Type 1 DM", url: "/type1-management", icon: Syringe },
 ];
 
 export function AppSidebar() {

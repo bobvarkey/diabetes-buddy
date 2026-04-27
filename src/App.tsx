@@ -23,6 +23,7 @@ import CKDGuideline from "./pages/CKDGuideline";
 import GLP1Administration from "./pages/GLP1Administration";
 import SlidingScaleInsulin from "./pages/SlidingScaleInsulin";
 import DailyManagementGuide from "./pages/DailyManagementGuide";
+import Type1DMManagement from "./pages/Type1DMManagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -70,6 +71,7 @@ const App = () => (
                         <Route path="/prediabetes" element={<PrediabetesAlgorithm />} />
                         <Route path="/ckd-guideline" element={<CKDGuideline />} />
                         <Route path="/daily-management" element={<DailyManagementGuide />} />
+                        <Route path="/type1-management" element={<Type1DMManagement />} />
                         <Route path="*" element={<NotFound />} />
                       </Routes>
                     </main>
