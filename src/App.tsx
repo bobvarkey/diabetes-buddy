@@ -21,6 +21,7 @@ import RenalDoseAdjustment from "./pages/RenalDoseAdjustment";
 import PrediabetesAlgorithm from "./pages/PrediabetesAlgorithm";
 import CKDGuideline from "./pages/CKDGuideline";
 import GLP1Administration from "./pages/GLP1Administration";
+import SlidingScaleInsulin from "./pages/SlidingScaleInsulin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -61,6 +62,7 @@ const App = () => (
                         <Route path="/progress" element={<Progress />} />
                         <Route path="/summary" element={<SummaryPage />} />
                         <Route path="/insulin-titration" element={<InsulinTitration />} />
+                        <Route path="/sliding-scale" element={<SlidingScaleInsulin />} />
                         <Route path="/glp1-administration" element={<GLP1Administration />} />
                         <Route path="/hypo-risk" element={<HypoRiskCalculator />} />
                         <Route path="/renal-dosing" element={<RenalDoseAdjustment />} />
