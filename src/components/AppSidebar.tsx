@@ -16,6 +16,7 @@ const items = [
   { title: "Plate Method", url: "/plate", icon: Circle },
   { title: "Medications", url: "/medications", icon: Pill },
   { title: "Insulin Titration", url: "/insulin-titration", icon: Syringe },
+  { title: "Sliding Scale Insulin", url: "/sliding-scale", icon: Syringe },
   { title: "GLP-1 Administration", url: "/glp1-administration", icon: Droplet },
   { title: "Prediabetes", url: "/prediabetes", icon: HeartPulse },
   { title: "Hypo Risk Score", url: "/hypo-risk", icon: ShieldAlert },
