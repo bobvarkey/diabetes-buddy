@@ -42,8 +42,8 @@
     --muted: 0 0% 30%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 280 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 270 60% 40%;
+    --accent-foreground: 0 0% 95%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -115,7 +115,7 @@
     @apply bg-card rounded-xl border shadow-sm p-5 transition-all duration-200;
   }
   .clinical-card:hover {
-    @apply shadow-md;
+    @apply shadow-md bg-card/80 border-border/60;
   }
   .stat-badge {
     @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium;

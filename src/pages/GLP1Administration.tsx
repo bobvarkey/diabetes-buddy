@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Syringe, ShieldAlert, CheckCircle2, AlertTriangle, ChevronDown, ChevronUp } from "lucide-react";
 
 const GLP1Administration = () => {
   const [expandedMed, setExpandedMed] = useState<string | null>("semaglutide");
@@ -188,55 +189,58 @@ const GLP1Administration = () => {
   ];
 
   return (
-    <div className="space-y-6 animate-slide-in bg-green-50 min-h-screen">
+    <div className="space-y-6 animate-slide-in">
       <div>
-        <h1 className="text-4xl font-heading font-bold mb-2 text-black">💉 GLP-1 Agonist Administration</h1>
-        <p className="text-lg text-gray-700">
+        <h1 className="text-4xl font-heading font-bold mb-2 flex items-center gap-3">
+          <Syringe className="w-8 h-8 text-primary" />
+          GLP-1 Agonist Administration
+        </h1>
+        <p className="text-lg text-muted-foreground">
           Comprehensive guide to GLP-1 receptor agonist medications, dosing, and injection techniques
         </p>
       </div>
 
       {/* Quick Overview */}
-      <Card className="p-6 bg-white border-2 border-blue-200">
-        <h2 className="font-bold mb-3 text-xl text-black">Quick Reference</h2>
+      <Card className="p-6 bg-card border-2 border-blue-200">
+        <h2 className="font-bold mb-3 text-xl text-foreground">Quick Reference</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-base">
           <div>
-            <span className="font-semibold block text-black">Route:</span>
-            <span className="text-gray-700">Subcutaneous</span>
+            <span className="font-semibold block text-foreground">Route:</span>
+            <span className="text-muted-foreground">Subcutaneous</span>
           </div>
           <div>
-            <span className="font-semibold block text-black">Frequency:</span>
-            <span className="text-gray-700">Daily or Weekly</span>
+            <span className="font-semibold block text-foreground">Frequency:</span>
+            <span className="text-muted-foreground">Daily or Weekly</span>
           </div>
           <div>
-            <span className="font-semibold block text-black">Onset:</span>
-            <span className="text-gray-700">30 min - 1 hour</span>
+            <span className="font-semibold block text-foreground">Onset:</span>
+            <span className="text-muted-foreground">30 min - 1 hour</span>
           </div>
           <div>
-            <span className="font-semibold block text-black">Peak:</span>
-            <span className="text-gray-700">8-12 hours</span>
+            <span className="font-semibold block text-foreground">Peak:</span>
+            <span className="text-muted-foreground">8-12 hours</span>
           </div>
         </div>
       </Card>
 
       {/* Medications */}
-      <Card className="p-6 bg-white border border-gray-200">
-        <h2 className="text-3xl font-heading font-bold mb-4 text-black">GLP-1 Medications & Dosing</h2>
+      <Card className="p-6 bg-card border border-border">
+        <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">GLP-1 Medications & Dosing</h2>
         <div className="space-y-3">
           {glp1Medications.map((med) => (
             <div
               key={med.id}
-              className="border-2 border-gray-300 rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition-colors bg-white"
+              className="border-2 border-border rounded-lg p-4 cursor-pointer hover:bg-muted/50 transition-colors bg-card"
               onClick={() => setExpandedMed(expandedMed === med.id ? null : med.id)}
             >
               <div className="flex items-center justify-between mb-2">
                 <div>
-                  <h3 className="font-bold text-xl text-black">{med.name}</h3>
-                  <p className="text-base text-gray-700">{med.brands.join(", ")}</p>
+                  <h3 className="font-bold text-xl text-foreground">{med.name}</h3>
+                  <p className="text-base text-muted-foreground">{med.brands.join(", ")}</p>
                 </div>
-                <span className="text-3xl text-black">{expandedMed === med.id ? "▼" : "▶"}</span>
+                <span className="text-3xl text-foreground">{expandedMed === med.id ? "▼" : "▶"}</span>
               </div>
-              <p className="text-base bg-blue-100 text-blue-900 p-3 rounded inline-block font-semibold">
+              <p className="text-base bg-info/10 text-info p-3 rounded inline-block font-semibold">
                 {med.frequency}
               </p>
 
@@ -244,23 +248,23 @@ const GLP1Administration = () => {
                 <div className="mt-4 space-y-4 border-t pt-4">
                   {Object.entries(med.doses).map(([brand, dosing]) => (
                     <div key={brand}>
-                      <h4 className="font-semibold capitalize mb-2 text-lg text-black">{brand}</h4>
+                      <h4 className="font-semibold capitalize mb-2 text-lg text-foreground">{brand}</h4>
                       <table className="w-full text-base">
                         <thead>
-                          <tr className="border-b-2 border-gray-300">
-                            <th className="text-left py-3 font-bold text-black">Dose</th>
-                            <th className="text-left py-3 font-bold text-black">Indication</th>
-                            <th className="text-left py-3 font-bold text-black">Timeline</th>
+                          <tr className="border-b-2 border-border">
+                            <th className="text-left py-3 font-bold text-foreground">Dose</th>
+                            <th className="text-left py-3 font-bold text-foreground">Indication</th>
+                            <th className="text-left py-3 font-bold text-foreground">Timeline</th>
                           </tr>
                         </thead>
                         <tbody>
                           {dosing.map((d, idx) => (
-                            <tr key={idx} className="border-b border-gray-200 hover:bg-blue-50">
-                              <td className="py-3 font-semibold text-blue-700">
+                            <tr key={idx} className="border-b border-border hover:bg-primary/5">
+                              <td className="py-3 font-semibold text-info">
                                 {d.dose}
                               </td>
-                              <td className="py-3 text-gray-700">{d.indication}</td>
-                              <td className="py-3 text-gray-700">{d.week}</td>
+                              <td className="py-3 text-muted-foreground">{d.indication}</td>
+                              <td className="py-3 text-muted-foreground">{d.week}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -269,14 +273,14 @@ const GLP1Administration = () => {
                   ))}
 
                   <div>
-                    <h4 className="font-semibold mb-2 text-lg text-black">Storage</h4>
-                    <p className="text-base bg-amber-100 text-amber-900 p-3 rounded font-semibold">
+                    <h4 className="font-semibold mb-2 text-lg text-foreground">Storage</h4>
+                    <p className="text-base bg-warning/10 text-warning p-3 rounded font-semibold">
                       {med.storage}
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold mb-2 text-lg text-black">Administration Tips</h4>
+                    <h4 className="font-semibold mb-2 text-lg text-foreground">Administration Tips</h4>
                     <ul className="text-base space-y-2">
                       {med.administrationTips.map((tip, idx) => (
                         <li key={idx} className="flex gap-2 text-gray-800">
@@ -294,13 +298,13 @@ const GLP1Administration = () => {
       </Card>
 
       {/* Injection Technique */}
-      <Card className="p-6 bg-white border border-gray-200">
-        <h2 className="text-3xl font-heading font-bold mb-4 text-black">💉 Injection Technique & Sites</h2>
+      <Card className="p-6 bg-card border border-border">
+        <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">💉 Injection Technique & Sites</h2>
 
         <Tabs defaultValue="technique" className="w-full">
           <TabsList className="grid w-full grid-cols-2 bg-gray-200">
-            <TabsTrigger value="technique" className="text-base font-semibold text-black">Step-by-Step</TabsTrigger>
-            <TabsTrigger value="sites" className="text-base font-semibold text-black">Injection Sites</TabsTrigger>
+            <TabsTrigger value="technique" className="text-base font-semibold text-foreground">Step-by-Step</TabsTrigger>
+            <TabsTrigger value="sites" className="text-base font-semibold text-foreground">Injection Sites</TabsTrigger>
           </TabsList>
 
           <TabsContent value="technique" className="space-y-4">
@@ -356,7 +360,7 @@ const GLP1Administration = () => {
                   key={idx}
                   className="p-4 border-2 border-green-200 rounded-lg bg-green-50"
                 >
-                  <h4 className="font-bold text-xl mb-3 text-black">{section.step}</h4>
+                  <h4 className="font-bold text-xl mb-3 text-foreground">{section.step}</h4>
                   <ul className="space-y-2">
                     {section.details.map((detail, didx) => (
                       <li key={didx} className="flex gap-2 text-base text-gray-800">
@@ -373,10 +377,10 @@ const GLP1Administration = () => {
           <TabsContent value="sites">
             <div className="grid md:grid-cols-3 gap-4">
               {injectionSites.map((site, idx) => (
-                <div key={idx} className="p-4 border-2 border-gray-300 rounded-lg bg-white">
+                <div key={idx} className="p-4 border-2 border-border rounded-lg bg-card">
                   <div className="text-5xl mb-3">{site.icon}</div>
-                  <h4 className="font-bold text-xl mb-2 text-black">{site.area}</h4>
-                  <p className="text-base text-gray-700 mb-3">{site.details}</p>
+                  <h4 className="font-bold text-xl mb-2 text-foreground">{site.area}</h4>
+                  <p className="text-base text-muted-foreground mb-3">{site.details}</p>
 
                   <div className="space-y-3 text-base">
                     <div>
@@ -393,15 +397,15 @@ const GLP1Administration = () => {
             </div>
 
             <div className="mt-4 p-4 bg-purple-100 rounded-lg border-2 border-purple-300">
-              <h4 className="font-bold mb-2 text-lg text-black">Rotation Pattern Example</h4>
+              <h4 className="font-bold mb-2 text-lg text-foreground">Rotation Pattern Example</h4>
               <p className="text-base text-gray-800 mb-3">
                 To prevent lipohypertrophy (fat lumps):
               </p>
               <div className="grid grid-cols-4 gap-2 text-sm font-mono text-center">
-                <div className="p-2 bg-blue-200 text-black rounded font-semibold">Week 1<br/>Abd L</div>
-                <div className="p-2 bg-blue-300 text-black rounded font-semibold">Week 2<br/>Abd R</div>
-                <div className="p-2 bg-green-200 text-black rounded font-semibold">Week 3<br/>Thigh L</div>
-                <div className="p-2 bg-green-300 text-black rounded font-semibold">Week 4<br/>Thigh R</div>
+                <div className="p-2 bg-blue-200 text-foreground rounded font-semibold">Week 1<br/>Abd L</div>
+                <div className="p-2 bg-blue-300 text-foreground rounded font-semibold">Week 2<br/>Abd R</div>
+                <div className="p-2 bg-green-200 text-foreground rounded font-semibold">Week 3<br/>Thigh L</div>
+                <div className="p-2 bg-green-300 text-foreground rounded font-semibold">Week 4<br/>Thigh R</div>
               </div>
               <p className="text-sm text-gray-800 mt-2 font-semibold">
                 Then repeat with upper arms, thighs, and abdomen in different spots
@@ -412,11 +416,11 @@ const GLP1Administration = () => {
       </Card>
 
       {/* Side Effects Management */}
-      <Card className="p-6 bg-white border border-gray-200">
-        <h2 className="text-3xl font-heading font-bold mb-4 text-black">Side Effects & Management</h2>
+      <Card className="p-6 bg-card border border-border">
+        <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">Side Effects & Management</h2>
         <div className="space-y-3">
           {commonSideEffects.map((se, idx) => (
-            <div key={idx} className="p-4 border-2 border-gray-300 rounded-lg bg-white">
+            <div key={idx} className="p-4 border-2 border-border rounded-lg bg-card">
               <div className="flex items-start gap-3 mb-2">
                 <span className="text-4xl">
                   {se.effect === "Nausea"
@@ -432,17 +436,17 @@ const GLP1Administration = () => {
                             : "⚠️"}
                 </span>
                 <div className="flex-1">
-                  <h4 className="font-bold text-lg text-black">{se.effect}</h4>
-                  <p className="text-base text-gray-700">Onset: {se.onset}</p>
+                  <h4 className="font-bold text-lg text-foreground">{se.effect}</h4>
+                  <p className="text-base text-muted-foreground">Onset: {se.onset}</p>
                 </div>
               </div>
               <div className="space-y-2 text-base">
                 <div>
-                  <span className="font-semibold text-black">Management:</span>
+                  <span className="font-semibold text-foreground">Management:</span>
                   <p className="text-gray-800">{se.management}</p>
                 </div>
                 <div>
-                  <span className="font-semibold text-black">Resolution:</span>
+                  <span className="font-semibold text-foreground">Resolution:</span>
                   <p className="text-gray-800">{se.resolve}</p>
                 </div>
               </div>
@@ -465,8 +469,8 @@ const GLP1Administration = () => {
       </Card>
 
       {/* Medication Interactions */}
-      <Card className="p-6 bg-white border border-gray-200">
-        <h2 className="text-3xl font-heading font-bold mb-4 text-black">⚗️ Important Medication Interactions</h2>
+      <Card className="p-6 bg-card border border-border">
+        <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">⚗️ Important Medication Interactions</h2>
         <div className="space-y-3">
           {[
             {
@@ -524,9 +528,9 @@ const GLP1Administration = () => {
             { param: "Thyroid (TSH if hx of thyroid)", frequency: "Annually", target: "Normal" },
             { param: "Lipid Panel", frequency: "6-12 months", target: "Individual goals" },
           ].map((monitor, idx) => (
-            <div key={idx} className="p-3 border-2 border-green-300 rounded-lg bg-white">
-              <h4 className="font-bold text-lg text-black">{monitor.param}</h4>
-              <p className="text-base text-gray-700 font-semibold">Frequency: {monitor.frequency}</p>
+            <div key={idx} className="p-3 border-2 border-green-300 rounded-lg bg-card">
+              <h4 className="font-bold text-lg text-foreground">{monitor.param}</h4>
+              <p className="text-base text-muted-foreground font-semibold">Frequency: {monitor.frequency}</p>
               <p className="text-base mt-1 text-gray-800">
                 <span className="font-bold">Target:</span> {monitor.target}
               </p>
