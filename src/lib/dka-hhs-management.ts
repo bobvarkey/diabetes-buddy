@@ -238,70 +238,151 @@ export function generateDKA_HHS_ManagementPlan(input: DKA_HHS_Input): DKA_HHS_Ma
     },
   ];
 
-  // === FLUID MANAGEMENT ===
-  const initial_bolus = crisis.hemodynamic_status === "decompensated_shock" ? "1-2 L over 1-2 hours" : "500 mL to 1 L over 1 hour";
+  // === FLUID MANAGEMENT (DKA vs HHS specific) ===
+  const isDKA = crisis.crisis_type === "dka";
+  const isHHS = crisis.crisis_type === "hhs";
+
+  let initial_rate: string;
+  let maintenance_rate: string;
+  let fluid_type_initial: string;
+  let total_first_4h: string;
+
+  if (isDKA) {
+    initial_rate = "1-1.5 L 0.9% NaCl IV in first hour";
+    maintenance_rate = "250-500 mL/hr 0.9% NaCl, adjust based on hydration, urine output, corrected sodium";
+    fluid_type_initial = "0.9% NaCl (isotonic)";
+    total_first_4h = "Estimated 2-4 L";
+  } else if (isHHS) {
+    initial_rate = "1 L 0.9% NaCl IV in first hour (more cautious if elderly or heart failure)";
+    maintenance_rate = "250-500 mL/hr 0.9% NaCl, target osmolality decrease 3-8 mOsm/kg/hr";
+    fluid_type_initial = "0.9% NaCl (isotonic) - slower initial rate than DKA";
+    total_first_4h = "Estimated 3-6 L (more severe dehydration)";
+  } else {
+    initial_rate = "1-1.5 L 0.9% NaCl IV in first hour";
+    maintenance_rate = "250-500 mL/hr per individual assessment";
+    fluid_type_initial = "0.9% NaCl (isotonic)";
+    total_first_4h = "Estimated 2-5 L";
+  }
+
   const fluid_management: TreatmentStep[] = [
     {
       step_number: 2,
-      name: "Fluid Resuscitation",
+      name: "Fluid Resuscitation (DKA vs HHS Specific)",
       priority: "immediate",
       actions: [
-        `Start isotonic crystalloid (0.9% NaCl or LR) immediately: ${initial_bolus} initial bolus.`,
-        `Reassess after initial bolus. If hypotensive or in shock, continue aggressive resuscitation.`,
-        `After initial stabilization, change to 0.45% NaCl or 5% dextrose-containing fluids based on corrected sodium and osmolality.`,
-        `Target urine output: 200-300 mL/hour (or 0.5 mL/kg/hour).`,
-        `Adjust fluid rate based on hemodynamics, urine output, and trend in osmolality.`,
+        `Initial: ${initial_rate}`,
+        `Maintenance: ${maintenance_rate}`,
+        `When glucose reaches target (DKA: <250 mg/dL, HHS: <300 mg/dL), transition to 5% dextrose + 0.45% NaCl`,
+        `Target urine output: 200-300 mL/hour or 0.5 mL/kg/hour`,
+        `Total first 4 hours: ${total_first_4h}`,
+        crisis.hemodynamic_status === "decompensated_shock" ? "SHOCK PRESENT: Prioritize 1-2 L bolus over 1-2 hours, consider vasopressors if SBP <90 after fluids" : "Hemodynamically stable: titrate to urine output and corrected sodium",
       ],
-      monitoring: ["Urine output q1h initially", "Corrected sodium and osmolality q4h", "Fluid balance chart"],
+      monitoring: [
+        "Urine output q1h initially",
+        "Corrected sodium q2-4h",
+        "Osmolality q4-6h (especially HHS)",
+        "Vital signs q1h",
+        "Fluid balance chart (strict I&Os)",
+      ],
       safety_alerts: [
-        "Avoid hypotonic fluids initially (risk of cerebral edema).",
-        "Monitor for fluid overload, especially in renal impairment or heart failure.",
-        "In HHS, avoid overly rapid correction of osmolality (target 3 mOsm/kg/hour reduction).",
+        "Avoid hypotonic fluids initially (cerebral edema risk)",
+        "Monitor for hyperchloremic acidosis (high normal chloride)",
+        isHHS ? "HHS: Avoid osmolality correction >3 mOsm/kg/hr in first 8h to prevent cerebral edema" : "DKA: Aggressive fluids acceptable due to acidosis",
+        "In renal impairment: reduce fluid rate, monitor for pulmonary edema",
+        "In heart failure: use central venous pressure monitoring if available",
       ],
     },
   ];
 
-  // === POTASSIUM MANAGEMENT ===
+  // === POTASSIUM MANAGEMENT (CRITICAL - INSULIN GATED) ===
   let potassium_action = "";
+  let potassium_monitoring = "";
+  let potassium_alerts: string[] = [];
+
   if (labs.potassium_meq_l < 3.3) {
-    potassium_action = "HOLD INSULIN. Replace K+ to ≥3.3 mEq/L before starting insulin. Use 20-40 mEq/L in IV fluids or central line if severe.";
+    potassium_action = `K+ ${labs.potassium_meq_l} mEq/L — CRITICAL: HOLD ALL INSULIN. Replace K+ to ≥3.3 immediately. Use 40 mEq KCl/L in IV fluids (max 40 mEq/L peripheral, 10 mEq/hr) or 20 mEq/hr via central line. Recheck q1-2h.`;
+    potassium_monitoring = "q1h until >3.3, then q2h × 3, then q4h";
+    potassium_alerts.push("FATAL HYPOKALEMIA RISK: Never start insulin with K+ <3.3 — insulin drives K+ into cells");
+    potassium_alerts.push("12-lead ECG if <3.0 mEq/L (look for flattened T waves, widened QRS)");
   } else if (labs.potassium_meq_l <= 5.2) {
-    potassium_action = "Start K+ replacement with IV fluids (10-20 mEq/L) to target 4.0-5.0 mEq/L. Begin insulin therapy.";
+    potassium_action = `K+ ${labs.potassium_meq_l} mEq/L (safe) — Start insulin 0.1 U/kg/hr. Add 20-30 mEq KCl/L to IV fluids. Target K+ 4-5 mEq/L range during insulin.`;
+    potassium_monitoring = "q2h × 3 (first 6h), then q4h";
+  } else if (labs.potassium_meq_l > 5.2 && labs.potassium_meq_l < 6.0) {
+    potassium_action = `K+ ${labs.potassium_meq_l} mEq/L — Do NOT supplement potassium. Start insulin 0.1 U/kg/hr. Recheck q2h.`;
+    potassium_monitoring = "q2h until <5.0";
   } else {
-    potassium_action = "Do NOT give K+ initially. Recheck K+ q2h. Begin insulin therapy and closely monitor for hyperkalemia.";
+    potassium_action = `K+ ${labs.potassium_meq_l} mEq/L (HYPERKALEMIA) — Obtain 12-lead ECG. If ECG changes present: give 10 mL calcium gluconate 10% IV over 2-5 min. Consider beta-agonists or insulin + dextrose per hyperkalemia protocol. HOLD insulin if ECG abnormalities.`;
+    potassium_monitoring = "q1-2h, continuous ECG monitoring";
+    potassium_alerts.push("Peaked T waves, widened QRS, or flattened P waves on ECG = emergency");
   }
 
   const electrolyte_management: TreatmentStep[] = [
     {
       step_number: 3,
-      name: "Electrolyte Management",
-      priority: "early",
-      actions: [potassium_action, "Monitor Na+, Cl-, K+, CO3- q2-4h initially. Plot anion gap trend.", "Phosphate replacement as needed if severe."],
-      monitoring: ["K+ before insulin and q2h initially", "Full electrolytes q4h until stable"],
-      safety_alerts: ["Risk of cardiac arrhythmia if K+ <3.0 or >6.0. Obtain ECG if abnormal.", "Insulin causes K+ shift into cells — risk of hypokalemia."],
+      name: "Potassium Management (INSULIN GATED)",
+      priority: "immediate",
+      actions: [
+        potassium_action,
+        "Obtain 12-lead ECG if K+ <3.5 or >5.5 mEq/L",
+        "Once K+ safe, maintain 4-5 mEq/L range by adjusting IV K+ replacement with insulin dosing",
+        "Check for concurrent hypomagnesemia — if <2.0 mg/dL, replace Mg first (K+ refractory without it)",
+        "Max peripheral IV: 40 mEq K+/L, 10 mEq/hr; central line: 60 mEq/L, 20 mEq/hr",
+        "Max 240 mEq K+/day unless severe symptomatic hypokalemia",
+      ],
+      monitoring: [
+        `K+ ${potassium_monitoring}`,
+        "ECG at baseline and if K+ abnormal",
+        "Magnesium level daily (supplement if <2.0 mg/dL)",
+        "Urine output (oliguria worsens hypokalemia)",
+      ],
+      safety_alerts: [
+        "CRITICAL: Never start insulin with K+ <3.3 — risk of fatal hypokalemia",
+        ...potassium_alerts,
+        "Insulin causes K+ shift into cells by 0.6 mEq/L per 10 U — account for this",
+        "Hyperkalemia >6.0 with ECG changes: immediately notify MD, prepare for emergent K+ reduction",
+      ],
     },
   ];
 
-  // === INSULIN THERAPY ===
-  const weight_kg = 75; // Default assumption; should be in input
-  const insulin_bolus = input.clinical_context.diabetes_type === "type1" ? `0.1 U/kg (${0.1 * weight_kg} U)` : `0.05-0.1 U/kg`;
-  const insulin_drip = `0.05-0.1 U/kg/hour (${0.05 * weight_kg}-${0.1 * weight_kg} U/hour)`;
+  // === INSULIN THERAPY (WEIGHT-BASED DOSING) ===
+  const weight_kg = input.patient?.weight_kg || 75; // Use patient weight if provided
+  const has_prominent_acidosis = labs.pH < 7.20;
+  const insulin_bolus_dose = `0.1 U/kg = ${(0.1 * weight_kg).toFixed(0)} U IV`;
+  const insulin_infusion_dose = `0.1 U/kg/hr = ${(0.1 * weight_kg).toFixed(1)} U/hr`;
+  const insulin_reduced_dose = `0.02-0.05 U/kg/hr = ${((0.02 * weight_kg).toFixed(1))}-${((0.05 * weight_kg).toFixed(1))} U/hr`;
 
   const insulin_therapy: TreatmentStep[] = [
     {
       step_number: 4,
-      name: "Insulin Therapy",
+      name: "Insulin Therapy (Weight-Based, K+-Dependent)",
       priority: "early",
       actions: [
-        `Start IV regular insulin ONLY after potassium is ≥3.3 mEq/L and initial fluids given.`,
-        `Initial IV bolus: ${insulin_bolus} (optional; some protocols start without bolus).`,
-        `Continuous IV infusion: ${insulin_drip}.`,
-        `Target glucose reduction: 100 mg/dL per hour initially (max 200 mg/dL/hour).`,
-        `When glucose reaches ~250 mg/dL, add dextrose to IV fluids and reduce insulin to 0.02-0.05 U/kg/hour.`,
-        `Continue insulin until anion gap closes (DKA) or osmolality improves (HHS).`,
+        `PREREQUISITE: K+ ≥3.3 mEq/L AND initial fluid resuscitation (1-1.5L) completed.`,
+        isDKA && has_prominent_acidosis ? `DKA with pH <7.20: Give 0.1 U/kg IV bolus (${insulin_bolus_dose}) as 50 U IV regular insulin in 50 mL normal saline over 1 min, then continuous infusion` : `HHS or mild DKA (pH >7.20): Skip bolus, start infusion only`,
+        `Continuous IV regular (Humulin R) insulin infusion: Start at ${insulin_infusion_dose}`,
+        `Glucose reduction targets: 50-75 mg/dL/hr (avoid >100 mg/dL/hr to prevent hypoglycemia)`,
+        `Glucose-based insulin adjustments:`,
+        `  • Glucose >350 mg/dL: ${insulin_infusion_dose} (continue)`,
+        `  • Glucose 250-350 mg/dL: ${((0.05 * weight_kg).toFixed(1))}-${((0.075 * weight_kg).toFixed(1))} U/hr (reduce)`,
+        `  • Glucose <250 mg/dL (DKA) or <300 mg/dL (HHS): ${insulin_reduced_dose} + switch to D5 0.45% NaCl`,
+        `Discontinue insulin when:`,
+        `  • DKA: anion gap ≤12, pH >7.30, HCO3- ≥18, able to eat`,
+        `  • HHS: osmolality <310, mental status improved, able to eat`,
       ],
-      monitoring: ["Glucose q1h initially", "Anion gap q2h", "Osmolality trend"],
-      safety_alerts: ["Do not start insulin if K+ <3.3.", "Beware hypoglycemia during transition phase.", "Consider ICU monitoring for insulin drip."],
+      monitoring: [
+        "Glucose q1h during IV infusion",
+        "Anion gap q2-4h (DKA) — plot trend",
+        "Osmolality q4-6h (HHS)",
+        "Potassium q2h ×3 (first 6h), then q4h",
+        "Mental status, vital signs q1h",
+      ],
+      safety_alerts: [
+        "NEVER reduce insulin rate >50% at once — risk of DKA recurrence",
+        "Hypoglycemia <70 mg/dL: Give 10 mL 50% dextrose IV, reduce insulin 50%",
+        "Glucose falls >100 mg/dL/hr: add more dextrose (D5 or higher), reduce insulin by 25%",
+        "Euglycemic DKA (glucose <250 but anion gap open): continue insulin, monitor beta-hydroxybutyrate not just glucose",
+        "Renal impairment: clearance may be delayed, monitor closely for hypoglycemia",
+      ],
     },
   ];
 
