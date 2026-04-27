@@ -44,13 +44,26 @@ const MedOptimizer = () => {
   const [patient, setPatient] = useState<PatientData | null>(null);
   const [exporting, setExporting] = useState(false);
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set([0, 1, 2]));
+  const [mode, setMode] = useState<"new-patient" | "optimize-current">("new-patient");
 
   useEffect(() => {
     const saved = loadPatient();
     if (saved && saved.name && saved.age > 0) setPatient(saved);
   }, []);
 
-  const meds = useMemo(() => patient ? generateMedRecommendations(patient) : [], [patient]);
+  const allMeds = useMemo(() => patient ? generateMedRecommendations(patient) : [], [patient]);
+
+  const meds = useMemo(() => {
+    if (mode === "optimize-current") {
+      return allMeds.filter(m =>
+        m.category === "current-med-review" ||
+        m.priority === "adjustment" ||
+        m.priority === "intensification"
+      );
+    }
+    return allMeds;
+  }, [allMeds, mode]);
+
   const pathway = patient ? getAlgorithmPathway(patient) : null;
   const hypo = patient ? getHypoProtocol(patient) : null;
   const lipids = patient ? getLipidTargets(patient) : null;
@@ -191,12 +204,32 @@ const MedOptimizer = () => {
   return (
     <div className="space-y-5 animate-slide-in">
       <div className="flex items-center justify-between">
-        <div>
+        <div className="flex-1">
           <h1 className="text-xl font-heading font-bold">Medication Optimizer</h1>
           <p className="text-sm text-muted-foreground">ADA 2026 Priorities-First Algorithm + LAI Lipid Guidelines</p>
         </div>
         {patient && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            {/* Mode Toggle */}
+            <div className="flex items-center bg-muted rounded-lg p-1 gap-1">
+              <Button
+                size="sm"
+                variant={mode === "new-patient" ? "default" : "ghost"}
+                onClick={() => setMode("new-patient")}
+                className="text-xs"
+              >
+                New Patient
+              </Button>
+              <Button
+                size="sm"
+                variant={mode === "optimize-current" ? "default" : "ghost"}
+                onClick={() => setMode("optimize-current")}
+                className="text-xs"
+              >
+                Optimize Current
+              </Button>
+            </div>
+            {/* Export Buttons */}
             <Button size="sm" variant="outline" onClick={handlePrint} className="gap-1.5" title="Print current page">
               <Printer className="w-4 h-4" />
               <span className="hidden sm:inline">Print</span>
