@@ -71,7 +71,7 @@ export function NextBestMed({ nextBest, patient }: Props) {
             <h4 className="font-medium text-sm">{rec.drug}</h4>
             <p className="text-[11px] text-muted-foreground mt-0.5">{rec.reason}</p>
             <div className="flex flex-wrap gap-2 mt-2 text-[11px]">
-              <span className="bg-blue-500/20 text-blue-300 px-2.5 py-1 rounded-full font-semibold border border-blue-500/40">📅 {rec.dosageFrequency || "OD"}</span>
+              <span className="bg-blue-500/20 text-blue-300 px-2.5 py-1 rounded-full font-semibold border border-blue-500/40">📅 {rec.frequency || "OD"}</span>
               <span className="bg-primary/10 text-primary px-2 py-0.5 rounded-full">{rec.dose} {rec.frequency}</span>
               <span className="bg-muted px-2 py-0.5 rounded-full">HbA1c ↓ {rec.hba1cReduction}</span>
               {rec.cvBenefit && <span className="bg-success/10 text-success px-2 py-0.5 rounded-full">✓ CV Benefit</span>}
