@@ -396,7 +396,11 @@ const MedOptimizer = () => {
                       </div>
                     )}
 
-                    <p className="text-[10px] text-muted-foreground italic">{med.adaReference}</p>
+                    <div className="border-t border-muted-foreground/10 pt-1.5 mt-2">
+                      <p className="text-[8px] text-muted-foreground/60 leading-tight">
+                        {med.adaReference}
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>

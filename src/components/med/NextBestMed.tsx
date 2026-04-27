@@ -314,6 +314,22 @@ export function NextBestMed({ nextBest, patient }: Props) {
           </div>
         </div>
       )}
+
+      {/* Citations */}
+      <div className="border-t border-muted-foreground/20 pt-2 mt-3">
+        <p className="text-[8px] text-muted-foreground/70 leading-tight">
+          <span className="font-semibold">Evidence Base:</span> ADA Standards of Care 2026 · EASD Guidelines 2023-2026 ·
+          {rec.drugClass === "sglt2i" && "DAPA-HF, EMPEROR-Reduced/Preserved, CREDENCE, DECLARE-TIMI "}
+          {rec.drugClass === "glp1ra" && "SUSTAIN-6, LEADER, REWIND, SELECT "}
+          {rec.drugClass === "dual-agonist" && "SURPASS, SURMOUNT "}
+          {rec.drugClass === "biguanide" && "UKPDS "}
+          {rec.drugClass === "dpp4i" && "TECOS, CARMELINA, CAROLINA "}
+          {rec.drugClass === "sulfonylurea" && "ADVANCE "}
+          {rec.drugClass === "tzd" && "PROactive "}
+          {rec.drugClass.includes("insulin") && "DEVOTE, ORIGIN "}
+          · Patient context: CKD-EPI 2021, ADA Hypertension Guidelines · Lifestyle: 150 min/week moderate activity per AACE
+        </p>
+      </div>
     </div>
   );
 }
