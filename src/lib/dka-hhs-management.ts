@@ -238,14 +238,16 @@ export function generateDKA_HHS_ManagementPlan(input: DKA_HHS_Input): DKA_HHS_Ma
     },
   ];
 
-  // === FLUID MANAGEMENT (DKA vs HHS specific) ===
+  // === FLUID MANAGEMENT (DKA vs HHS vs MIXED specific) ===
   const isDKA = crisis.crisis_type === "dka";
   const isHHS = crisis.crisis_type === "hhs";
+  const isMixed = crisis.crisis_type === "mixed_dka_hhs";
 
   let initial_rate: string;
   let maintenance_rate: string;
   let fluid_type_initial: string;
   let total_first_4h: string;
+  let mixed_phase_info: string = "";
 
   if (isDKA) {
     initial_rate = "1-1.5 L 0.9% NaCl IV in first hour";
@@ -257,6 +259,12 @@ export function generateDKA_HHS_ManagementPlan(input: DKA_HHS_Input): DKA_HHS_Ma
     maintenance_rate = "250-500 mL/hr 0.9% NaCl, target osmolality decrease 3-8 mOsm/kg/hr";
     fluid_type_initial = "0.9% NaCl (isotonic) - slower initial rate than DKA";
     total_first_4h = "Estimated 3-6 L (more severe dehydration)";
+  } else if (isMixed) {
+    initial_rate = "1 L 0.9% NaCl IV in first hour (HHS-FIRST approach — NOT 1.5L to avoid cerebral edema)";
+    maintenance_rate = "250-500 mL/hr 0.9% NaCl with osmolality monitoring q4h";
+    fluid_type_initial = "0.9% NaCl (isotonic) - conservative HHS rates initially";
+    total_first_4h = "Estimated 3-5 L (HHS-driven dehydration)";
+    mixed_phase_info = "PHASE 1 (HHS priority): Fluids at HHS-conservative rates, osmolality q4h + acidosis q4h. When osmolality <320 mOsm/kg, ESCALATE TO PHASE 2 (DKA protocols).";
   } else {
     initial_rate = "1-1.5 L 0.9% NaCl IV in first hour";
     maintenance_rate = "250-500 mL/hr per individual assessment";
@@ -349,6 +357,7 @@ export function generateDKA_HHS_ManagementPlan(input: DKA_HHS_Input): DKA_HHS_Ma
   const has_prominent_acidosis = labs.pH < 7.20;
   const insulin_bolus_dose = `0.1 U/kg = ${(0.1 * weight_kg).toFixed(0)} U IV`;
   const insulin_infusion_dose = `0.1 U/kg/hr = ${(0.1 * weight_kg).toFixed(1)} U/hr`;
+  const insulin_half_dose = `0.05 U/kg/hr = ${(0.05 * weight_kg).toFixed(1)} U/hr (MIXED ONLY - Phase 1)`;
   const insulin_reduced_dose = `0.02-0.05 U/kg/hr = ${((0.02 * weight_kg).toFixed(1))}-${((0.05 * weight_kg).toFixed(1))} U/hr`;
 
   const insulin_therapy: TreatmentStep[] = [
@@ -358,31 +367,34 @@ export function generateDKA_HHS_ManagementPlan(input: DKA_HHS_Input): DKA_HHS_Ma
       priority: "early",
       actions: [
         `PREREQUISITE: K+ ≥3.3 mEq/L AND initial fluid resuscitation (1-1.5L) completed.`,
-        isDKA && has_prominent_acidosis ? `DKA with pH <7.20: Give 0.1 U/kg IV bolus (${insulin_bolus_dose}) as 50 U IV regular insulin in 50 mL normal saline over 1 min, then continuous infusion` : `HHS or mild DKA (pH >7.20): Skip bolus, start infusion only`,
-        `Continuous IV regular (Humulin R) insulin infusion: Start at ${insulin_infusion_dose}`,
+        isDKA && has_prominent_acidosis ? `DKA with pH <7.20: Give 0.1 U/kg IV bolus (${insulin_bolus_dose}) as 50 U IV regular insulin in 50 mL normal saline over 1 min, then continuous infusion` : isMixed ? `MIXED DKA/HHS: Skip bolus. Start Phase 1 at ${insulin_half_dose} (half-rate to avoid rapid osmolality drop).` : `HHS or mild DKA (pH >7.20): Skip bolus, start infusion only`,
+        isMixed ? `Continuous IV regular (Humulin R) insulin infusion - PHASE 1: Start at ${insulin_half_dose}. Continue until osmolality <320 mOsm/kg, then ESCALATE TO PHASE 2.` : `Continuous IV regular (Humulin R) insulin infusion: Start at ${insulin_infusion_dose}`,
         `Glucose reduction targets: 50-75 mg/dL/hr (avoid >100 mg/dL/hr to prevent hypoglycemia)`,
         `Glucose-based insulin adjustments:`,
-        `  • Glucose >350 mg/dL: ${insulin_infusion_dose} (continue)`,
+        `  • Glucose >350 mg/dL: ${isMixed ? insulin_half_dose + " (Phase 1) → " + insulin_infusion_dose + " (Phase 2)" : insulin_infusion_dose} (continue)`,
         `  • Glucose 250-350 mg/dL: ${((0.05 * weight_kg).toFixed(1))}-${((0.075 * weight_kg).toFixed(1))} U/hr (reduce)`,
         `  • Glucose <250 mg/dL (DKA) or <300 mg/dL (HHS): ${insulin_reduced_dose} + switch to D5 0.45% NaCl`,
         `Discontinue insulin when:`,
         `  • DKA: anion gap ≤12, pH >7.30, HCO3- ≥18, able to eat`,
         `  • HHS: osmolality <310, mental status improved, able to eat`,
-      ],
+        isMixed ? `  • MIXED: BOTH osmolality <310 AND anion gap ≤12 AND pH >7.30 — dual resolution criteria` : ``,
+      ].filter(a => a),
       monitoring: [
         "Glucose q1h during IV infusion",
         "Anion gap q2-4h (DKA) — plot trend",
-        "Osmolality q4-6h (HHS)",
+        isMixed ? "Osmolality q4h (critical for Phase 1 → Phase 2 transition)" : "Osmolality q4-6h (HHS)",
         "Potassium q2h ×3 (first 6h), then q4h",
         "Mental status, vital signs q1h",
       ],
       safety_alerts: [
+        isMixed ? "MIXED CASE - Phase transition critical: When osmolality <320 mOsm/kg, escalate insulin to full 0.1 U/kg/hr and intensify DKA protocols" : "",
+        isMixed ? "MIXED CASE: If osmolality drops >3 mOsm/kg/hr, slow fluids immediately (cerebral edema risk)" : "",
         "NEVER reduce insulin rate >50% at once — risk of DKA recurrence",
         "Hypoglycemia <70 mg/dL: Give 10 mL 50% dextrose IV, reduce insulin 50%",
         "Glucose falls >100 mg/dL/hr: add more dextrose (D5 or higher), reduce insulin by 25%",
         "Euglycemic DKA (glucose <250 but anion gap open): continue insulin, monitor beta-hydroxybutyrate not just glucose",
         "Renal impairment: clearance may be delayed, monitor closely for hypoglycemia",
-      ],
+      ].filter(a => a),
     },
   ];
 
@@ -393,24 +405,82 @@ export function generateDKA_HHS_ManagementPlan(input: DKA_HHS_Input): DKA_HHS_Ma
       name: "Glucose and Dextrose Management",
       priority: "ongoing",
       actions: [
-        "Once glucose reaches ~250 mg/dL, add dextrose to IV fluids (5% or 10% dextrose in 0.45% NaCl).",
-        "Target glucose 150-250 mg/dL during acute phase (allows continued insulin action while preventing hypoglycemia).",
-        "Continue insulin infusion throughout recovery phase even as glucose improves, until anion gap closed (DKA) or osmolality <310 (HHS).",
-      ],
-      monitoring: ["Glucose q1h during insulin drip", "Point-of-care β-hydroxybutyrate or serum ketones"],
-      safety_alerts: ["Risk of hypoglycemia if insulin not reduced when glucose falls.", "Euglycemic DKA can occur with SGLT2i use — may present with normal glucose and low anion gap."],
+        isMixed ? "MIXED DKA/HHS - PHASE 1: Target glucose 200-300 mg/dL (less aggressive than pure DKA to prevent osmolality overcorrection)" : "Once glucose reaches ~250 mg/dL, add dextrose to IV fluids (5% or 10% dextrose in 0.45% NaCl).",
+        isMixed ? "MIXED DKA/HHS - PHASE 2 (after osmolality <320): Transition to DKA glucose targets (150-250 mg/dL) with escalated insulin rate (0.1 U/kg/hr)" : "Target glucose 150-250 mg/dL during acute phase (allows continued insulin action while preventing hypoglycemia).",
+        "Continue insulin infusion throughout recovery phase even as glucose improves, until anion gap closed (DKA) or osmolality <310 (HHS)",
+        isMixed ? "or BOTH criteria met (MIXED)" : "",
+      ].filter(a => a),
+      monitoring: [
+        "Glucose q1h during insulin drip",
+        isMixed ? "Osmolality q4h (to trigger Phase 2 transition)" : "",
+        "Point-of-care β-hydroxybutyrate or serum ketones",
+      ].filter(a => a),
+      safety_alerts: [
+        "Risk of hypoglycemia if insulin not reduced when glucose falls.",
+        "Euglycemic DKA can occur with SGLT2i use — may present with normal glucose and low anion gap.",
+        isMixed ? "MIXED CASE: Do NOT titrate aggressively to <200 in Phase 1 — risk of cerebral edema if osmolality drops too fast" : "",
+      ].filter(a => a),
     },
   ];
+
+  // === MIXED DKA/HHS PHASE MANAGEMENT ===
+  const mixed_phase_management: TreatmentStep[] = isMixed ? [
+    {
+      step_number: 6,
+      name: "MIXED DKA/HHS Phase Transition (HHS→DKA Escalation)",
+      priority: "ongoing",
+      actions: [
+        "PHASE 1 (HHS Priority - Initial 4-8 hours): Conservative HHS-first approach",
+        "  • Insulin: 0.05 U/kg/hr (half rate to prevent rapid osmolality drop)",
+        "  • Fluids: 1 L initial + 250-500 mL/hr HHS-conservative rate",
+        "  • Goal: Reduce osmolality from extreme dehydration (>330) to <320 mOsm/kg",
+        "  • Monitor: Osmolality q4h, acidosis q4h, glucose q1h",
+        "  • Safety: If osmolality drops >3 mOsm/kg/hr, slow fluids to prevent cerebral edema",
+        "",
+        "PHASE 2 TRIGGER (When osmolality <320 mOsm/kg AND anion gap still open): Escalate to DKA protocols",
+        "  • Insulin: Escalate to 0.1 U/kg/hr (DOUBLE from Phase 1)",
+        "  • Fluids: Switch to DKA-aggressive rates (1-1.5 L/hr if volume depleted)",
+        "  • Glucose target: Transition to DKA targets (150-250 mg/dL)",
+        "  • Anion gap: Now the primary marker — close gap to ≤12, achieve pH >7.30",
+        "  • K+ supplementation: Maintain 20-30 mEq/L (K+ will shift again with insulin escalation)",
+        "",
+        "PHASE 2 TRANSITION CHECKLIST:",
+        "  ✓ Osmolality <320 mOsm/kg (HHS component improving)",
+        "  ✓ Anion gap still >12 mEq/L (DKA component unresolved)",
+        "  ✓ pH <7.30 or HCO3- <18 (acidosis worsening or persistent)",
+        "  → YES to all? ESCALATE TO FULL DKA THERAPY",
+      ],
+      monitoring: [
+        "Osmolality q4h — is it <320?",
+        "Anion gap q2h — is it closing?",
+        "pH q4h — is it improving?",
+        "K+ q2h during Phase 2 (due to second insulin dose escalation)",
+        "If osmolality drops >3 mOsm/kg/hr in Phase 1: obtain head CT if neuro symptoms",
+      ],
+      safety_alerts: [
+        "CRITICAL TRANSITION: Must check BOTH osmolality <320 AND anion gap open before escalating",
+        "If only osmolality <320 but anion gap closed: STOP Phase 2, HHS component resolved, continue monitoring DKA component",
+        "If osmolality still >320: STAY in Phase 1 even if glucose high; prevent rapid osmolality drop",
+        "Dual insulin escalation in Phase 2: K+ will drop further — must have K+ ≥3.3 before escalating insulin",
+        "Cerebral edema risk: osmolality correction >4 mOsm/kg/hr in first 24h → obtain CT, restrict fluids if symptoms",
+      ],
+    },
+  ] : [];
 
   // === MONITORING FREQUENCIES ===
   const monitoring_frequencies: Record<string, string> = {
     glucose: "Every 1 hour initially; every 4 hours once stable",
     electrolytes: "Every 2-4 hours until stable; then q6-8h",
     arterial_or_venous_gas: "Baseline, 4 hours, then q6-8h or as clinically indicated",
-    anion_gap: "Every 2 hours until closed",
-    osmolality: "Every 4-6 hours in HHS",
+    anion_gap: isMixed ? "Every 2 hours (DKA resolution tracking during Phase 2)" : "Every 2 hours until closed",
+    osmolality: isMixed ? "Every 4 hours (critical: <320 triggers Phase 1→Phase 2 transition)" : "Every 4-6 hours in HHS",
     urinalysis: "Baseline; monitor for ketones and glucose",
     urine_output: "Every 1 hour",
+    ...(isMixed && {
+      mixed_phase_transition: "Monitor osmolality q4h: when <320 mOsm/kg (AND acidosis still present), escalate insulin to 0.1 U/kg/hr and intensify DKA fluids",
+      phase_2_trigger: "Osmolality <320 mOsm/kg + ongoing anion gap opening/elevation (indicates DKA component now predominant)",
+      cerebral_edema_watch: "If osmolality drops >3 mOsm/kg/hr in Phase 1, slow fluids immediately and obtain head CT if symptoms develop",
+    }),
   };
 
   // === RESOLUTION CRITERIA ===
@@ -427,6 +497,17 @@ export function generateDKA_HHS_ManagementPlan(input: DKA_HHS_Input): DKA_HHS_Ma
       "Glucose 200-300 mg/dL (controlled)",
       "Mental status alert or clearly improving",
       "Hemodynamically stable",
+    ],
+    MIXED: [
+      "PHASE 1 RESOLUTION (HHS component closed):",
+      "  • Osmolality < 320 mOsm/kg (HHS threshold for Phase 1→2 transition)",
+      "  • Mental status normalized",
+      "PHASE 2 RESOLUTION (DKA component closed + HHS maintained):",
+      "  • Anion gap ≤ 12 mEq/L",
+      "  • pH > 7.30",
+      "  • Bicarbonate ≥ 18 mEq/L",
+      "  • Osmolality remains < 310 mOsm/kg (HHS resolved AND maintained)",
+      "FINAL RESOLUTION: Both Phase 1 AND Phase 2 criteria met for ≥2 hours",
     ],
   };
 
@@ -457,6 +538,7 @@ export function generateDKA_HHS_ManagementPlan(input: DKA_HHS_Input): DKA_HHS_Ma
     insulin_therapy,
     electrolyte_management,
     glucose_management,
+    ...(isMixed && { mixed_phase_management }),
     monitoring_frequencies,
     resolution_criteria,
     transition_to_subq,
