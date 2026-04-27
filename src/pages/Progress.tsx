@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { TrendingDown, Plus, Target } from "lucide-react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, ReferenceLine, ResponsiveContainer } from "recharts";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import type { ChartConfig } from "@/components/ui/chart";
 
 interface ProgressEntry {
   date: string;
@@ -12,6 +15,12 @@ interface ProgressEntry {
   fbs: number;
   rbs: number;
 }
+
+const progressChartConfig: ChartConfig = {
+  weight: { label: "Weight (kg)", color: "hsl(var(--primary))" },
+  fbs: { label: "Fasting BG", color: "hsl(var(--secondary))" },
+  rbs: { label: "Random BG", color: "hsl(var(--warning))" },
+} satisfies ChartConfig;
 
 const Progress = () => {
   const [patient, setPatient] = useState<PatientData>(EXAMPLE_PATIENT);
@@ -28,6 +37,12 @@ const Progress = () => {
   const targetWeight = patient.weightKg * 0.95;
   const weightLost = entries.length > 0 ? patient.weightKg - entries[entries.length - 1].weight : 0;
   const progressPct = Math.min((weightLost / (patient.weightKg * 0.05)) * 100, 100);
+
+  const chartData = entries.map(e => ({
+    ...e,
+    fbs: e.fbs > 0 ? e.fbs : undefined,
+    rbs: e.rbs > 0 ? e.rbs : undefined,
+  }));
 
   const addEntry = () => {
     if (!newEntry.weight) return;
@@ -92,7 +107,69 @@ const Progress = () => {
         </Button>
       </div>
 
-      {/* BG trend */}
+      {/* Trend Chart */}
+      {entries.length >= 2 && (
+        <div className="clinical-card">
+          <div className="flex items-center gap-2 mb-4">
+            <TrendingDown className="w-4 h-4 text-primary" />
+            <h3 className="section-title">BG & Weight Trend</h3>
+          </div>
+          <ChartContainer config={progressChartConfig} className="h-[200px] w-full">
+            <LineChart data={chartData} margin={{ top: 5, right: 10, left: -16, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis
+                dataKey="date"
+                tick={{ fontSize: 11, fill: "hsl(var(--muted-foreground))" }}
+                tickFormatter={(d) => d.slice(5)}
+              />
+              <YAxis
+                yAxisId="bg"
+                tick={{ fontSize: 11, fill: "hsl(var(--muted-foreground))" }}
+              />
+              <YAxis
+                yAxisId="wt"
+                orientation="right"
+                tick={{ fontSize: 11, fill: "hsl(var(--muted-foreground))" }}
+              />
+              <ReferenceLine yAxisId="bg" y={130} stroke="hsl(var(--warning))" strokeDasharray="4 2" strokeWidth={1} />
+              <ReferenceLine yAxisId="bg" y={180} stroke="hsl(var(--destructive))" strokeDasharray="4 2" strokeWidth={1} />
+              <ChartTooltip content={<ChartTooltipContent />} />
+              <Line
+                yAxisId="bg"
+                type="monotone"
+                dataKey="fbs"
+                stroke="var(--color-fbs)"
+                strokeWidth={2}
+                dot={{ r: 3 }}
+                connectNulls
+              />
+              <Line
+                yAxisId="bg"
+                type="monotone"
+                dataKey="rbs"
+                stroke="var(--color-rbs)"
+                strokeWidth={2}
+                dot={{ r: 3 }}
+                connectNulls
+              />
+              <Line
+                yAxisId="wt"
+                type="monotone"
+                dataKey="weight"
+                stroke="var(--color-weight)"
+                strokeWidth={2}
+                dot={{ r: 3 }}
+                connectNulls
+              />
+            </LineChart>
+          </ChartContainer>
+          <p className="text-xs text-muted-foreground mt-2">
+            Dashed lines: 130 mg/dL target (warning) / 180 mg/dL threshold (danger)
+          </p>
+        </div>
+      )}
+
+      {/* Progress Log */}
       {entries.length > 0 && (
         <div className="clinical-card">
           <div className="flex items-center gap-2 mb-3">
@@ -101,7 +178,7 @@ const Progress = () => {
           </div>
           <div className="space-y-2">
             {entries.slice().reverse().map((e, i) => (
-              <div key={i} className="flex items-center justify-between text-sm p-2 rounded-lg bg-muted/30">
+              <div key={i} className="flex items-center justify-between text-sm p-2 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-default">
                 <span className="text-muted-foreground text-xs">{e.date}</span>
                 <div className="flex gap-4 text-xs">
                   <span>Wt: <strong>{e.weight}</strong> kg</span>
