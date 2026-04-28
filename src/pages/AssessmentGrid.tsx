@@ -33,7 +33,6 @@ const TOOLS: Tool[] = [
   { id: 19, name: 'T1D Pitfalls', description: '7 common insulin prescribing errors', category: 'Safety', emoji: '⚠️', gradient: 'from-red-600 to-orange-600', route: '/type1-pitfalls' },
   { id: 20, name: 'T2D Transition', description: 'Orals to basal insulin guide', category: 'Dosing', emoji: '🔄', gradient: 'from-teal-600 to-cyan-600', route: '/type2-transition' },
   { id: 21, name: 'Feedback & Tips', description: 'Share bugs, tips, and suggestions', category: 'Community', emoji: '💬', gradient: 'from-violet-600 to-purple-600', route: '/feedback' },
-  { id: 22, name: 'Case Interpreter', description: 'AI auto-fills patient data from case sheet', category: 'Data Entry', emoji: '🤖', gradient: 'from-emerald-600 to-teal-600', route: '/case-interpreter' },
 ];
 
 export default function AssessmentGrid() {

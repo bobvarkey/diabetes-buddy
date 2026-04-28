@@ -28,7 +28,6 @@ import InsulinTherapy from "./pages/InsulinTherapy";
 import Type1Pitfalls from "./pages/Type1Pitfalls";
 import Type2Transition from "./pages/Type2Transition";
 import FeedbackTips from "./pages/FeedbackTips";
-import CaseSheetInterpreter from "./pages/CaseSheetInterpreter";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -81,7 +80,6 @@ const App = () => (
                         <Route path="/type1-pitfalls" element={<Type1Pitfalls />} />
                         <Route path="/type2-transition" element={<Type2Transition />} />
                         <Route path="/feedback" element={<FeedbackTips />} />
-                        <Route path="/case-interpreter" element={<CaseSheetInterpreter />} />
                         <Route path="*" element={<NotFound />} />
                       </Routes>
                     </main>
