@@ -1,5 +1,5 @@
 import {
-  LayoutDashboard, User, UtensilsCrossed, Pizza, Pill, CalendarDays, TrendingDown, FileText, Syringe, ShieldAlert, FlaskConical, HeartPulse, Bean, Droplet, BookOpen, TableProperties, Activity, BookMarked,
+  LayoutDashboard, User, UtensilsCrossed, Pizza, Pill, CalendarDays, TrendingDown, FileText, Syringe, ShieldAlert, FlaskConical, HeartPulse, Bean, Droplet, BookOpen, TableProperties, Activity, BookMarked, TriangleAlert, ArrowLeftRight, MessageSquare,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -27,6 +27,9 @@ const items = [
   { title: "Daily Management", url: "/daily-management", icon: BookOpen },
   { title: "Type 1 DM", url: "/type1-management", icon: Activity },
   { title: "Insulin Therapy", url: "/insulin-therapy", icon: BookMarked },
+  { title: "T1D Pitfalls", url: "/type1-pitfalls", icon: TriangleAlert },
+  { title: "T2D Transition", url: "/type2-transition", icon: ArrowLeftRight },
+  { title: "Feedback & Tips", url: "/feedback", icon: MessageSquare },
 ];
 
 export function AppSidebar() {
