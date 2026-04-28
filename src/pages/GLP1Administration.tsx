@@ -5,9 +5,33 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Syringe, ShieldAlert, CheckCircle2, AlertTriangle, ChevronDown, ChevronUp } from "lucide-react";
 
 const GLP1Administration = () => {
-  const [expandedMed, setExpandedMed] = useState<string | null>("semaglutide");
+  const [expandedMed, setExpandedMed] = useState<string | null>("tirzepatide");
 
   const glp1Medications = [
+    {
+      id: "tirzepatide",
+      name: "Tirzepatide (GLP-1/GIP Agonist)",
+      brands: ["Mounjaro", "Zepbound"],
+      frequency: "Once weekly (subcutaneous)",
+      doses: {
+        mounjaro: [
+          { dose: "2.5 mg", indication: "Starting dose", week: "Weeks 0-4" },
+          { dose: "5.0 mg", indication: "Escalation", week: "Weeks 4-8" },
+          { dose: "7.5 mg", indication: "Escalation", week: "Weeks 8-12" },
+          { dose: "10.0 mg", indication: "Escalation", week: "Weeks 12-16" },
+          { dose: "12.5 mg", indication: "Escalation", week: "Weeks 16-20" },
+          { dose: "15.0 mg", indication: "Maximum dose", week: "Week 20+" },
+        ],
+      },
+      storage: "Refrigerate 2-8°C. After first use: room temp max 30°C for 21 days",
+      administrationTips: [
+        "Dual GLP-1/GIP receptor agonist - enhanced efficacy",
+        "Inject same day each week, any time of day",
+        "Abdomen, thigh, or upper arm",
+        "Stronger weight loss and glycemic effect than GLP-1 alone",
+        "More frequent titration required",
+      ],
+    },
     {
       id: "semaglutide",
       name: "Semaglutide",
@@ -85,30 +109,6 @@ const GLP1Administration = () => {
         "Abdomen, thigh, or upper arm injection",
         "Minimal dose titration - faster to therapeutic dose",
         "Can switch injection day as long as 3 days apart",
-      ],
-    },
-    {
-      id: "tirzepatide",
-      name: "Tirzepatide (GLP-1/GIP Agonist)",
-      brands: ["Mounjaro", "Zepbound"],
-      frequency: "Once weekly (subcutaneous)",
-      doses: {
-        mounjaro: [
-          { dose: "2.5 mg", indication: "Starting dose", week: "Weeks 0-4" },
-          { dose: "5.0 mg", indication: "Escalation", week: "Weeks 4-8" },
-          { dose: "7.5 mg", indication: "Escalation", week: "Weeks 8-12" },
-          { dose: "10.0 mg", indication: "Escalation", week: "Weeks 12-16" },
-          { dose: "12.5 mg", indication: "Escalation", week: "Weeks 16-20" },
-          { dose: "15.0 mg", indication: "Maximum dose", week: "Week 20+" },
-        ],
-      },
-      storage: "Refrigerate 2-8°C. After first use: room temp max 30°C for 21 days",
-      administrationTips: [
-        "Dual GLP-1/GIP receptor agonist - enhanced efficacy",
-        "Inject same day each week, any time of day",
-        "Abdomen, thigh, or upper arm",
-        "Stronger weight loss and glycemic effect than GLP-1 alone",
-        "More frequent titration required",
       ],
     },
   ];
