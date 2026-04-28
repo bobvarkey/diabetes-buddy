@@ -29,6 +29,7 @@ const TOOLS: Tool[] = [
   { id: 15, name: 'Dashboard', category: 'Dashboard', description: 'Real-time patient metrics', emoji: '📊', gradient: 'from-red-600 to-pink-600', route: '/dashboard' },
   { id: 16, name: 'Daily Management', description: 'Evidence-based education pearls', category: 'Education', emoji: '📖', gradient: 'from-amber-600 to-yellow-600', route: '/daily-management' },
   { id: 17, name: 'Type 1 DM', description: 'Basal-bolus insulin management', category: 'Dosing', emoji: '💉', gradient: 'from-indigo-600 to-purple-600', route: '/type1-management' },
+  { id: 18, name: 'Insulin Therapy', description: 'Core insulin protocols for T1D & T2D', category: 'Dosing', emoji: '🩸', gradient: 'from-blue-600 to-indigo-600', route: '/insulin-therapy' },
 ];
 
 export default function AssessmentGrid() {
