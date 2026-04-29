@@ -6,6 +6,10 @@ import {
   CareSetting,
   NutritionStatus,
   DiabetesType,
+  calculateSSIDoses,
+  INSULIN_PRODUCTS,
+  InsulinProduct,
+  CorrectionScale,
 } from "@/lib/sliding-scale-logic";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
