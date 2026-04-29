@@ -116,7 +116,12 @@ function generateType2Therapy(weightKg: number, hba1c: number = 8): InsulinThera
       basal_units: basalUnits,
       prandial_units: prandialUnits,
     },
-    regimen_modes: ["Once-daily basal insulin (most common)", "Twice-daily basal", "Basal-bolus (advanced)", "Premixed injections"],
+    regimen_modes: [
+      "Once-daily basal insulin (most common) — Glargine U-100 (Lantus, Basalog, Glaritus), Glargine U-300 (Toujeo), Degludec (Tresiba), or Detemir (Levemir) at bedtime",
+      "Twice-daily basal — NPH (Insugen-N, Huminsulin-N, Insulatard) split 2/3 AM + 1/3 HS, or Detemir (Levemir) BID",
+      "Basal-bolus (advanced) — Basal: Glargine/Degludec/Detemir once daily PLUS Prandial: Lispro (Humalog), Aspart (NovoRapid), Glulisine (Apidra), or Regular (Actrapid, Insugen-R, Huminsulin-R) before each meal",
+      "Premixed injections — Biphasic 30/70 (Insugen 30/70, Mixtard 30, Huminsulin 30/70), 50/50 (Mixtard 50), or analogue premix (NovoMix 30, Humalog Mix 25/50, Ryzodeg 70/30) BID before breakfast & dinner",
+    ],
     basal_agents: ["Glargine (U-100, U-300)", "Detemir", "Degludec", "NPH"],
     prandial_agents: ["Lispro", "Aspart", "Glulisine", "Regular human insulin"],
     premixed_agents: ["70/30", "50/50", "IDeg/Asp (Ryzodeg)"],
