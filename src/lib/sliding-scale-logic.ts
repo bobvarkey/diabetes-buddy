@@ -329,3 +329,286 @@ export function evaluateSSI(input: SSIInput): SSIResult {
     scale_table: SLIDING_SCALES,
   };
 }
+
+// ============================================================
+// Insulin-product-specific SSI Dose Calculator
+// ============================================================
+
+export type InsulinProduct =
+  | "regular"        // Generic regular human insulin (short-acting)
+  | "actrapid"       // Novo Nordisk regular human insulin
+  | "insugen_r"      // Biocon regular short-acting
+  | "insugen_n"      // Biocon NPH intermediate-acting
+  | "insugen_30_70"; // Biocon 30/70 premix (30% regular + 70% NPH)
+
+export interface InsulinProductMeta {
+  id: InsulinProduct;
+  label: string;
+  kind: "short" | "intermediate" | "premix";
+  onset_min: string;
+  peak_hr: string;
+  duration_hr: string;
+  notes: string;
+  use_for_correction: boolean; // can be used at the BG-based correction column
+  use_for_basal: boolean;
+  premix_split?: { fast: number; intermediate: number };
+}
+
+export const INSULIN_PRODUCTS: Record<InsulinProduct, InsulinProductMeta> = {
+  regular: {
+    id: "regular",
+    label: "Regular insulin (generic)",
+    kind: "short",
+    onset_min: "30–60 min",
+    peak_hr: "2–3",
+    duration_hr: "5–8",
+    notes: "Give 30 min before meals. Acceptable for SSI correction when rapid-acting unavailable.",
+    use_for_correction: true,
+    use_for_basal: false,
+  },
+  actrapid: {
+    id: "actrapid",
+    label: "Actrapid (regular human insulin)",
+    kind: "short",
+    onset_min: "30 min",
+    peak_hr: "1.5–3.5",
+    duration_hr: "7–8",
+    notes: "Soluble human insulin. Inject 30 min before meals. Suitable for SC correction & IV infusion.",
+    use_for_correction: true,
+    use_for_basal: false,
+  },
+  insugen_r: {
+    id: "insugen_r",
+    label: "Insugen-R (regular short-acting)",
+    kind: "short",
+    onset_min: "30 min",
+    peak_hr: "1–3",
+    duration_hr: "6–8",
+    notes: "Biocon recombinant human regular insulin. Use 30 min pre-meal & for correction.",
+    use_for_correction: true,
+    use_for_basal: false,
+  },
+  insugen_n: {
+    id: "insugen_n",
+    label: "Insugen-N (NPH intermediate)",
+    kind: "intermediate",
+    onset_min: "1–2 h",
+    peak_hr: "4–10",
+    duration_hr: "12–18",
+    notes: "Isophane (NPH). Use as basal — usually split 2/3 AM + 1/3 HS. Do NOT use for correction.",
+    use_for_correction: false,
+    use_for_basal: true,
+  },
+  insugen_30_70: {
+    id: "insugen_30_70",
+    label: "Insugen 30/70 premix (30% R + 70% NPH)",
+    kind: "premix",
+    onset_min: "30 min",
+    peak_hr: "2–8 (biphasic)",
+    duration_hr: "up to 24",
+    notes:
+      "Biphasic premix. Give 2/3 TDD before breakfast + 1/3 TDD before dinner, 30 min pre-meal. Avoid in NPO patients & avoid for ad-hoc correction (use Insugen-R/Actrapid instead).",
+    use_for_correction: false,
+    use_for_basal: false,
+    premix_split: { fast: 0.3, intermediate: 0.7 },
+  },
+};
+
+export interface POCBgDose {
+  range: string;
+  bg_low: number; // inclusive
+  bg_high: number; // inclusive (use 999 for ≥400)
+  premeal_units: number;
+  bedtime_units: number;
+  correction_only_units: number;
+  action?: string;
+}
+
+export interface SSIDoseCalcInput {
+  weight_kg: number;
+  egfr: number;
+  npo: boolean;
+  on_glucocorticoid: boolean;
+  steroid_dose_pred_eq_mg?: number;
+  age_years: number;
+  diabetes_type: DiabetesType;
+  product: InsulinProduct;
+  scale_override?: CorrectionScale;
+  total_daily_dose_units?: number;
+  // pass-through to reuse pickScale:
+  min_glucose?: number;
+  max_glucose?: number;
+  events_ge_180?: number;
+  events_ge_250?: number;
+  events_le_70?: number;
+  events_le_80?: number;
+  dialysis?: boolean;
+  liver_failure?: boolean;
+}
+
+export interface SSIDoseCalcResult {
+  product: InsulinProductMeta;
+  scale: CorrectionScale;
+  tdd_units: number;
+  basal_units?: number;
+  basal_split?: { am: number; hs: number };
+  prandial_units_per_meal?: number;
+  premix_breakfast_units?: number;
+  premix_dinner_units?: number;
+  // POC table — exact units at each BG range for pre-meal, bedtime, and correction-only
+  poc_table: POCBgDose[];
+  adjustments: string[];
+  warnings: string[];
+}
+
+/**
+ * Build the exact-unit POC dose table for the chosen insulin product.
+ * Pre-meal     = scheduled (basal-bolus) prandial dose + correction
+ * Bedtime      = correction only, reduced ~50% (NPH-aware: never give NPH at bedtime as correction)
+ * Correction-only = stand-alone correction (e.g. NPO patients q4–6h)
+ */
+export function calculateSSIDoses(input: SSIDoseCalcInput): SSIDoseCalcResult {
+  const product = INSULIN_PRODUCTS[input.product];
+  const adjustments: string[] = [];
+  const warnings: string[] = [];
+
+  // 1) TDD with renal/age/steroid adjustment
+  let factor = input.diabetes_type === "type1" ? 0.5 : 0.4;
+  if (input.age_years >= 70) { factor -= 0.1; adjustments.push("Age ≥70 → TDD −0.1 U/kg"); }
+  if (input.egfr < 30 || input.dialysis) { factor -= 0.1; adjustments.push("eGFR <30 / dialysis → TDD −0.1 U/kg"); }
+  else if (input.egfr < 45) { factor -= 0.05; adjustments.push("eGFR 30–44 → TDD −0.05 U/kg"); }
+  if (input.liver_failure) { factor -= 0.05; adjustments.push("Hepatic failure → TDD −0.05 U/kg"); }
+  if (input.npo) { factor -= 0.1; adjustments.push("NPO → TDD −0.1 U/kg (basal only)"); }
+  if (input.on_glucocorticoid && (input.steroid_dose_pred_eq_mg ?? 0) >= 10) {
+    factor += 0.1;
+    adjustments.push(`Glucocorticoid ${input.steroid_dose_pred_eq_mg} mg pred-eq → TDD +0.1 U/kg (steroid-driven hyperglycemia)`);
+  }
+  factor = Math.max(0.2, factor);
+
+  const tdd = input.total_daily_dose_units && input.total_daily_dose_units > 0
+    ? input.total_daily_dose_units
+    : Math.round(input.weight_kg * factor);
+
+  // 2) Pick scale
+  const scale: CorrectionScale = input.scale_override
+    ?? pickScale(
+      {
+        weight_kg: input.weight_kg, age_years: input.age_years, egfr: input.egfr,
+        diabetes_type: input.diabetes_type, dialysis: input.dialysis,
+        npo: input.npo, min_glucose: input.min_glucose ?? 100,
+        max_glucose: input.max_glucose ?? 180,
+        events_ge_180: input.events_ge_180 ?? 0,
+        events_ge_250: input.events_ge_250 ?? 0,
+        events_le_70: input.events_le_70 ?? 0,
+        events_le_80: input.events_le_80 ?? 0,
+        // unused but required by SSIInput:
+        care_setting: "ward", nutrition_status: "eating_regular",
+        basal_ordered: true, prandial_ordered: !input.npo,
+        correction_ordered: true, sliding_scale_only: false, iv_insulin: false,
+      } as SSIInput,
+      tdd,
+    );
+
+  // 3) Pre-meal prandial component (scheduled bolus)
+  const prandial_per_meal = input.npo ? 0 : Math.max(0, Math.round((tdd * 0.5) / 3));
+
+  // 4) Build POC table
+  const poc_table: POCBgDose[] = SLIDING_SCALES.map((row, idx) => {
+    const corr = row[scale as "low" | "medium" | "high"];
+    const bgRange = parseRange(row.range);
+    const isHypo = bgRange.high < 70;
+    let action: string | undefined;
+    let premeal = prandial_per_meal + (corr ?? 0);
+    let bedtime = isHypo ? 0 : Math.max(0, Math.round((corr ?? 0) * 0.5));
+    let correctionOnly = corr ?? 0;
+
+    if (isHypo) {
+      action = "HOLD insulin. Treat hypoglycemia per protocol (15 g rapid carbs, recheck in 15 min).";
+      premeal = 0; bedtime = 0; correctionOnly = 0;
+    } else if (bgRange.low >= 400) {
+      action = "Severe hyperglycemia. Check ketones/anion gap. Notify MD; consider IV insulin.";
+    }
+
+    // Premix products: only the breakfast/dinner scheduled doses are valid;
+    // ad-hoc correction must use a regular/short-acting insulin.
+    if (product.kind === "premix") {
+      premeal = 0;
+      bedtime = 0;
+      correctionOnly = 0;
+      action = action ?? "Premix 30/70 is dosed BID (breakfast/dinner). Use Insugen-R or Actrapid for ad-hoc correction.";
+    }
+
+    // NPH (intermediate) cannot be used for correction
+    if (product.kind === "intermediate") {
+      premeal = 0;
+      bedtime = 0;
+      correctionOnly = 0;
+      action = action ?? "NPH is basal only. Use a short-acting insulin for pre-meal/correction doses.";
+    }
+
+    return {
+      range: row.range,
+      bg_low: bgRange.low,
+      bg_high: bgRange.high,
+      premeal_units: premeal,
+      bedtime_units: bedtime,
+      correction_only_units: correctionOnly,
+      action,
+    };
+  });
+
+  // 5) Product-specific basal / premix split
+  let basal_units: number | undefined;
+  let basal_split: { am: number; hs: number } | undefined;
+  let premix_breakfast_units: number | undefined;
+  let premix_dinner_units: number | undefined;
+
+  if (product.kind === "intermediate") {
+    basal_units = Math.round(tdd * 0.5);
+    basal_split = {
+      am: Math.round(basal_units * (2 / 3)),
+      hs: Math.round(basal_units * (1 / 3)),
+    };
+  } else if (product.kind === "premix") {
+    if (input.npo) {
+      warnings.push("Premix 30/70 is contraindicated in NPO patients — switch to basal (NPH) + correction (R).");
+    }
+    premix_breakfast_units = Math.round(tdd * (2 / 3));
+    premix_dinner_units = Math.round(tdd * (1 / 3));
+  }
+
+  // 6) Warnings
+  if (input.diabetes_type === "type1" && product.kind === "premix") {
+    warnings.push("T1DM should NOT be managed on premix 30/70 — risk of inter-meal hypoglycemia & DKA.");
+  }
+  if (product.kind === "intermediate" && input.npo) {
+    warnings.push("In NPO patient on NPH only: reduce dose by 50% and monitor q4–6h.");
+  }
+  if ((input.egfr < 30 || input.dialysis) && scale !== "low") {
+    warnings.push("Severe renal impairment — LOW scale strongly preferred.");
+  }
+  if (input.on_glucocorticoid && product.kind === "intermediate") {
+    adjustments.push("Steroid pattern: give NPH with the morning steroid dose to match hyperglycemia peak.");
+  }
+
+  return {
+    product,
+    scale,
+    tdd_units: tdd,
+    basal_units,
+    basal_split,
+    prandial_units_per_meal: product.kind === "short" && !input.npo ? prandial_per_meal : undefined,
+    premix_breakfast_units,
+    premix_dinner_units,
+    poc_table,
+    adjustments,
+    warnings,
+  };
+}
+
+function parseRange(range: string): { low: number; high: number } {
+  if (range.startsWith("<")) return { low: 0, high: parseInt(range.replace(/[^0-9]/g, ""), 10) - 1 };
+  if (range.startsWith("≥")) return { low: parseInt(range.replace(/[^0-9]/g, ""), 10), high: 999 };
+  const [a, b] = range.split("–").map((s) => parseInt(s.replace(/[^0-9]/g, ""), 10));
+  return { low: a, high: b };
+}

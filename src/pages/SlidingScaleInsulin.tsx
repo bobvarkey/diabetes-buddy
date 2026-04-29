@@ -6,6 +6,10 @@ import {
   CareSetting,
   NutritionStatus,
   DiabetesType,
+  calculateSSIDoses,
+  INSULIN_PRODUCTS,
+  InsulinProduct,
+  CorrectionScale,
 } from "@/lib/sliding-scale-logic";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -289,6 +293,171 @@ export default function SlidingScaleInsulin() {
           Always pair with scheduled basal insulin in T1DM and most T2DM patients — SSI-alone is discouraged by ADA.
         </p>
       </Card>
+
+      <SSIDoseCalculator
+        weight_kg={input.weight_kg}
+        age_years={input.age_years}
+        egfr={input.egfr}
+        npo={input.npo}
+        on_glucocorticoid={!!input.on_glucocorticoid}
+        steroid_dose_pred_eq_mg={input.steroid_dose_pred_eq_mg}
+        diabetes_type={input.diabetes_type}
+        dialysis={input.dialysis}
+        liver_failure={input.liver_failure}
+        total_daily_dose_units={input.total_daily_dose_units}
+        min_glucose={input.min_glucose}
+        max_glucose={input.max_glucose}
+        events_ge_180={input.events_ge_180}
+        events_ge_250={input.events_ge_250}
+        events_le_70={input.events_le_70}
+        events_le_80={input.events_le_80}
+      />
     </div>
+  );
+}
+
+// ============================================================
+// SSI Dose Calculator — exact units per POC BG range
+// ============================================================
+type CalcProps = {
+  weight_kg: number;
+  age_years: number;
+  egfr: number;
+  npo: boolean;
+  on_glucocorticoid: boolean;
+  steroid_dose_pred_eq_mg?: number;
+  diabetes_type: DiabetesType;
+  dialysis?: boolean;
+  liver_failure?: boolean;
+  total_daily_dose_units?: number;
+  min_glucose: number;
+  max_glucose: number;
+  events_ge_180: number;
+  events_ge_250: number;
+  events_le_70: number;
+  events_le_80: number;
+};
+
+function SSIDoseCalculator(props: CalcProps) {
+  const [product, setProduct] = useState<InsulinProduct>("insugen_r");
+  const [scaleOverride, setScaleOverride] = useState<CorrectionScale | "auto">("auto");
+
+  const result = useMemo(
+    () =>
+      calculateSSIDoses({
+        ...props,
+        product,
+        scale_override: scaleOverride === "auto" ? undefined : scaleOverride,
+      }),
+    [props, product, scaleOverride],
+  );
+
+  const meta = result.product;
+
+  return (
+    <Card className="p-5 space-y-4 border-accent/40 bg-accent/5">
+      <div className="flex items-center gap-2">
+        <Syringe className="h-5 w-5 text-accent-foreground" />
+        <h2 className="font-heading font-semibold">SSI Dose Calculator — exact units per POC BG</h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div>
+          <Label>Insulin product</Label>
+          <Select value={product} onValueChange={(v) => setProduct(v as InsulinProduct)}>
+            <SelectTrigger><SelectValue /></SelectTrigger>
+            <SelectContent>
+              {Object.values(INSULIN_PRODUCTS).map((p) => (
+                <SelectItem key={p.id} value={p.id}>{p.label}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <Label>Correction scale</Label>
+          <Select value={scaleOverride} onValueChange={(v) => setScaleOverride(v as any)}>
+            <SelectTrigger><SelectValue /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="auto">Auto ({result.scale.toUpperCase()})</SelectItem>
+              <SelectItem value="low">Low (sensitive)</SelectItem>
+              <SelectItem value="medium">Medium (usual)</SelectItem>
+              <SelectItem value="high">High (resistant)</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      <div className="rounded-md border bg-background p-3 text-xs space-y-1">
+        <div className="font-semibold text-sm">{meta.label} <Badge variant="outline" className="ml-1 text-[10px]">{meta.kind}</Badge></div>
+        <div>Onset {meta.onset_min} · Peak {meta.peak_hr} h · Duration {meta.duration_hr} h</div>
+        <div className="text-muted-foreground">{meta.notes}</div>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
+        <Badge variant="secondary">TDD ≈ {result.tdd_units} U</Badge>
+        <Badge variant="secondary">Scale: {result.scale.toUpperCase()}</Badge>
+        {result.prandial_units_per_meal !== undefined && (
+          <Badge>Scheduled bolus {result.prandial_units_per_meal} U/meal</Badge>
+        )}
+        {result.basal_units !== undefined && (
+          <Badge>NPH basal {result.basal_units} U/day</Badge>
+        )}
+        {result.basal_split && (
+          <Badge variant="outline">{result.basal_split.am} U AM + {result.basal_split.hs} U HS</Badge>
+        )}
+        {result.premix_breakfast_units !== undefined && (
+          <Badge>Premix: {result.premix_breakfast_units} U breakfast + {result.premix_dinner_units} U dinner</Badge>
+        )}
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="bg-muted">
+              <th className="text-left p-2 border">POC BG (mg/dL)</th>
+              <th className="p-2 border">Pre-meal (U)</th>
+              <th className="p-2 border">Bedtime (U)</th>
+              <th className="p-2 border">Correction-only (U)</th>
+              <th className="text-left p-2 border">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {result.poc_table.map((r) => (
+              <tr key={r.range} className={r.bg_high < 70 ? "bg-destructive/5" : r.bg_low >= 400 ? "bg-warning/10" : ""}>
+                <td className="p-2 border font-medium">{r.range}</td>
+                <td className="p-2 border text-center font-bold">{r.premeal_units}</td>
+                <td className="p-2 border text-center">{r.bedtime_units}</td>
+                <td className="p-2 border text-center">{r.correction_only_units}</td>
+                <td className="p-2 border text-xs text-muted-foreground">{r.action ?? "—"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {result.adjustments.length > 0 && (
+        <div className="text-xs space-y-1">
+          <div className="font-semibold">Dose adjustments applied:</div>
+          <ul className="list-disc pl-5 space-y-0.5">
+            {result.adjustments.map((a, i) => <li key={i}>{a}</li>)}
+          </ul>
+        </div>
+      )}
+
+      {result.warnings.length > 0 && (
+        <div className="rounded-md border border-warning/40 bg-warning/10 p-3 text-xs space-y-1">
+          <div className="font-semibold flex items-center gap-1"><AlertTriangle className="h-3.5 w-3.5" /> Warnings</div>
+          <ul className="list-disc pl-5 space-y-0.5">
+            {result.warnings.map((w, i) => <li key={i}>{w}</li>)}
+          </ul>
+        </div>
+      )}
+
+      <p className="text-[11px] text-muted-foreground">
+        Pre-meal column = scheduled bolus + correction. Bedtime column = correction reduced ~50% (no scheduled prandial). 
+        Correction-only column = stand-alone correction for NPO patients (q4–6h with regular insulin).
+        For premix 30/70 and NPH, ad-hoc correction must use Insugen-R, Actrapid, or generic regular insulin.
+      </p>
+    </Card>
   );
 }
