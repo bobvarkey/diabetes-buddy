@@ -66,7 +66,8 @@ const App = () => (
                         <Route path="/glp1-administration" element={<GLP1Administration />} />
                         <Route path="/hypo-risk" element={<HypoRiskCalculator />} />
                         <Route path="/renal-dosing" element={<RenalDoseAdjustment />} />
-              <Route path="/respiratory" element={<RespiratoryPage />} />
+                        <Route path="/renal-dosing" element={<RenalDoseAdjustment />} />
+                        <Route path="/respiratory" element={<RespiratoryPage />} />
               <Route path="/respiratory/simple" element={<RespiratorySimple />} />
                         <Route path="/prediabetes" element={<PrediabetesAlgorithm />} />
                         <Route path="/ckd-guideline" element={<CKDGuideline />} />
