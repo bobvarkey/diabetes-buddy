@@ -18,6 +18,8 @@ import SummaryPage from "./pages/SummaryPage";
 import InsulinTitration from "./pages/InsulinTitration";
 import HypoRiskCalculator from "./pages/HypoRiskCalculator";
 import RenalDoseAdjustment from "./pages/RenalDoseAdjustment";
+import RespiratoryPage from "./pages/Respiratory";
+import RespiratorySimple from "./pages/RespiratorySimple";
 import PrediabetesAlgorithm from "./pages/PrediabetesAlgorithm";
 import CKDGuideline from "./pages/CKDGuideline";
 import GLP1Administration from "./pages/GLP1Administration";
@@ -64,6 +66,8 @@ const App = () => (
                         <Route path="/glp1-administration" element={<GLP1Administration />} />
                         <Route path="/hypo-risk" element={<HypoRiskCalculator />} />
                         <Route path="/renal-dosing" element={<RenalDoseAdjustment />} />
+              <Route path="/respiratory" element={<RespiratoryPage />} />
+              <Route path="/respiratory/simple" element={<RespiratorySimple />} />
                         <Route path="/prediabetes" element={<PrediabetesAlgorithm />} />
                         <Route path="/ckd-guideline" element={<CKDGuideline />} />
                         <Route path="*" element={<NotFound />} />
