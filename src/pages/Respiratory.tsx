@@ -13,8 +13,8 @@ import {
   CollapsibleContent, 
   CollapsibleTrigger, 
 } from "@/components/ui/collapsible";
-import { SectionCard } from "@/components/ui/section-card";
-import { AbbreviationHover, AbbrText } from "@/components/AbbreviationHover";
+
+
 
 // ─── GOLD 2025 Global Strategy ───
 const COPD_SEVERITY = [
@@ -200,7 +200,7 @@ export default function RespiratoryTab() {
               Respiratory Management
             </h1>
             <p className="text-muted-foreground">
-              COPD <AbbrText text="GOLD 2025" /> and Asthma <AbbrText text="GINA 2025" /> guidelines
+              COPD "GOLD 2025" /> and Asthma "GINA 2025" /> guidelines
             </p>
           </div>
         </div>
@@ -217,7 +217,7 @@ export default function RespiratoryTab() {
 
           {/* COPD TAB */}
           <TabsContent value="copd" className="mt-0 space-y-6">
-            <SectionCard title="GOLD 2025 Severity Classification" icon={<Activity className="h-4 w-4" />} tone="cyan" collapsible={false}>
+            <div class="p-4 border rounded">} tone="cyan" collapsible={false}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {COPD_SEVERITY.map((stage) => (
                   <div key={stage.stage} className="p-4 rounded-lg border border-border bg-card">
@@ -230,9 +230,9 @@ export default function RespiratoryTab() {
                   </div>
                 ))}
               </div>
-            </SectionCard>
+            </div>
 
-            <SectionCard title="Inhaler Classes (COPD)" icon={<Pill className="h-4 w-4" />} tone="cyan" collapsible={false}>
+            <div class="p-4 border rounded">} tone="cyan" collapsible={false}>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -253,9 +253,9 @@ export default function RespiratoryTab() {
                   </tbody>
                 </table>
               </div>
-            </SectionCard>
+            </div>
 
-            <SectionCard title="Exacerbation Warning Signs" icon={<AlertTriangle className="h-4 w-4" />} tone="danger" collapsible={false}>
+            <div class="p-4 border rounded">} tone="danger" collapsible={false}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {EXACERBATION_SIGNS.map((item) => (
                   <div key={item.sign} className="flex items-start gap-3 p-3 rounded-lg bg-red-50/50 border border-red-200/30">
@@ -267,12 +267,12 @@ export default function RespiratoryTab() {
                   </div>
                 ))}
               </div>
-            </SectionCard>
+            </div>
           </TabsContent>
 
           {/* ASTHMA TAB */}
           <TabsContent value="asthma" className="mt-0 space-y-6">
-            <SectionCard title="GINA 2025 Stepwise Management" icon={<FileText className="h-4 w-4" />} tone="amber" collapsible={false}>
+            <div class="p-4 border rounded">} tone="amber" collapsible={false}>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -295,9 +295,9 @@ export default function RespiratoryTab() {
                   </tbody>
                 </table>
               </div>
-            </SectionCard>
+            </div>
 
-            <SectionCard title="SABA Over-reliance Warning" icon={<AlertTriangle className="h-4 w-4" />} tone="danger" collapsible={false}>
+            <div class="p-4 border rounded">} tone="danger" collapsible={false}>
               <div className="p-4 bg-amber-50/50 rounded-lg border border-amber-200/30">
                 <p className="text-sm text-amber-800">
                   <strong>Red flag:</strong> Using SABA &gt;2 times/week (excluding PRN for exercise) indicates uncontrolled asthma.
@@ -314,9 +314,9 @@ export default function RespiratoryTab() {
                   </li>
                 </ul>
               </div>
-            </SectionCard>
+            </div>
 
-            <SectionCard title="Inhaler Technique" icon={<Info className="h-4 w-4" />} tone="neutral" collapsible={false}>
+            <div class="p-4 border rounded">} tone="neutral" collapsible={false}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <div className="p-3 rounded-lg bg-muted/30">
                   <h4 className="font-semibold mb-2">MDI (Metered Dose)</h4>
@@ -341,11 +341,11 @@ export default function RespiratoryTab() {
                   </ol>
                 </div>
               </div>
-            </SectionCard>
+            </div>
 
-            <SectionCard title="Acute Asthma Rescue Protocol" icon={<AlertTriangle className="h-4 w-4" />} tone="danger" collapsible={false}>
+            <div class="p-4 border rounded">} tone="danger" collapsible={false}>
               <ResucerProtocol />
-            </SectionCard>
+            </div>
           </TabsContent>
         </Tabs>
 
