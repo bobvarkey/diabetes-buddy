@@ -37,6 +37,7 @@ const App = () => (
           <Routes>
             {/* Landing & Assessment - Full screen, no sidebar */}
             <Route path="/" element={<LandingPage />} />
+            <Route path="/respiratory" element={<RespiratoryPage />} />
             <Route path="/app" element={<AssessmentGrid />} />
 
             {/* Legacy app with sidebar */}
