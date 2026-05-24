@@ -434,6 +434,12 @@ const QuickCalculatorLinks = () => {
       description: "Adjust doses based on kidney function",
       icon: Activity,
     },
+    {
+      path: "/meal-planner",
+      title: "Meal Planner",
+      description: "Plan meals by cuisine",
+      icon: Utensils,
+    },
   ];
 
   return (
