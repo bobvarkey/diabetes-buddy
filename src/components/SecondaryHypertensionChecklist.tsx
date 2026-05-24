@@ -1,11 +1,11 @@
 import { useState } from "react";
-import GfrCalculator, { type GfrResult } from "./GfrCalculator";
-import DrugInteractionChecker, { type DrugSelectionData } from "./DrugInteractionChecker";
+import GfrCalculator, { type GfrResult } from "@/calculators/htn/GfrCalculator";
+import DrugInteractionChecker, { type DrugSelectionData } from "@/calculators/htn/DrugInteractionChecker";
 import PrintableReport from "./PrintableReport";
 import CitationsPanel from "./CitationsPanel";
 import TreatmentAlgorithm from "./TreatmentAlgorithm";
 import HtnAlgorithmFlowchart from "./HtnAlgorithmFlowchart";
-import AntihypertensivePotencyTable from "./AntihypertensivePotencyTable";
+import AntihypertensivePotencyTable from "@/calculators/htn/AntihypertensivePotencyTable";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";

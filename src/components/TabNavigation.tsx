@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Home, Heart, Syringe, Dna, Activity, Wind, Menu, X, Zap, Brain } from "lucide-react";
 import { useState } from "react";
 import { Search, Search as SearchIcon } from "lucide-react";

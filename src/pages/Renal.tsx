@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Kidney, AlertTriangle, Activity, Droplets, FileText, Scale, Calculator, Pill, ChevronRight, ArrowRight, Info, Stethoscope } from "lucide-react";
+import { Droplet, AlertTriangle, Activity, Droplets, FileText, Scale, Calculator, Pill, ChevronRight, ArrowRight, Info, Stethoscope } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -59,7 +59,7 @@ export default function RenalTab() {
       <div className="max-w-6xl mx-auto px-4 py-6 md:py-8">
         <div className="mb-6 flex items-center gap-3">
           <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20">
-            <Kidney className="h-6 w-6 text-amber-500" />
+            <Droplet className="h-6 w-6 text-amber-500" />
           </div>
           <div>
             <h1 className="text-3xl font-serif font-semibold tracking-tight text-foreground">
@@ -74,7 +74,7 @@ export default function RenalTab() {
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-4 h-auto p-1 bg-muted/50">
             <TabsTrigger value="ckd" className="py-2 text-sm data-[state=active]:bg-amber-500/10">
-              <Kidney className="h-4 w-4 mr-1" />Stage
+              <Droplet className="h-4 w-4 mr-1" />Stage
             </TabsTrigger>
             <TabsTrigger value="labs" className="py-2 text-sm data-[state=active]:bg-amber-500/10">
               <Activity className="h-4 w-4 mr-1" />Labs
@@ -173,8 +173,8 @@ export default function RenalTab() {
             <SectionCard title="When to Refer to Nephrology" icon={<ChevronRight className="h-4 w-4" />} tone="amber" collapsible={false}>
               <div className="space-y-2">
                 <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />eGFR &lt;30 mL/min (any time)</li>
-                <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />eGFR declines >5 mL/min/yr</li>
-                <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />UACR >300 mg/g</li>
+                <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />eGFR declines &gt;5 mL/min/yr</li>
+                <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />UACR &gt;300 mg/g</li>
                 <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />Hematuria with RBC casts</li>
                 <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />Resistant hypertension</li>
                 <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />Suspected hereditary disease</li>
