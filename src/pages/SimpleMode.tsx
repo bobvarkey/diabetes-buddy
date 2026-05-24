@@ -50,8 +50,8 @@ function ModeNav() {
       </Button>
       <div className="flex items-center gap-1.5 bg-muted/50 rounded-lg p-1">
         <button onClick={() => navigate("/simple")} className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-green-500/15 text-green-600 border border-green-500/30">Simple</button>
-        <button onClick={() => navigate("/moderate")} className="px-3 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">Moderate</button>
-        <button onClick={() => navigate("/home")} className="px-3 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">Complex</button>
+        
+        <button onClick={() => navigate("/home")} className="px-3 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">🧠 Complex</button>
       </div>
     </div>
   );
@@ -553,7 +553,7 @@ export default function SimpleMode() {
         <button onClick={() => window.location.href = "/"} className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors">🏠 Homepage</button>
         <span className="text-[10px] text-muted-foreground/40">|</span>
         <button onClick={() => window.location.href = "/simple"} className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-green-500/15 text-green-600 border border-green-500/30 hover:bg-green-500/25 transition-colors">🟢 Simple</button>
-        <button onClick={() => window.location.href = "/moderate"} className="px-3 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted transition-colors">🟠 Moderate</button>
+        
         <button onClick={() => window.location.href = "/home"} className="px-3 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted transition-colors">🔴 Complex</button>
       </div>
       <div className="h-14" />{/* spacer for fixed bottom nav */}
