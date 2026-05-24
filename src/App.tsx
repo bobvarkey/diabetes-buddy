@@ -150,8 +150,8 @@ const App = () => (
 
           {/* Hard Mode (full app) — all under /home or direct paths */}
           <Route path="/home" element={<><TabNavigation /><Home /></>} />
-          <Route path="/diabetes" element={<><TabNavigation /><Diabetes /></>} />
-          <Route path="/hypertension" element={<><TabNavigation /><Hypertension /></>} />
+          <Route path="/diabetes" element={<><TabNavigation /><DiabetesAssessment /></>} />
+          <Route path="/hypertension" element={<><TabNavigation /><HypertensionAssessment /></>} />
           <Route path="/lipids" element={<><TabNavigation /><LipidsAssessment /></>} />
           <Route path="/diabetes/assessment" element={<><TabNavigation /><DiabetesAssessment /></>} />
           <Route path="/diabetes/overview" element={<><TabNavigation /><DiabetesOverview /></>} />
