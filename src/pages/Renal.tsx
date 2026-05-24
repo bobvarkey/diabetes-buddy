@@ -173,8 +173,8 @@ export default function RenalTab() {
             <SectionCard title="When to Refer to Nephrology" icon={<ChevronRight className="h-4 w-4" />} tone="amber" collapsible={false}>
               <div className="space-y-2">
                 <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />eGFR &lt;30 mL/min (any time)</li>
-                <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />eGFR declines >5 mL/min/yr</li>
-                <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />UACR >300 mg/g</li>
+                <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />eGFR declines &gt;5 mL/min/yr</li>
+                <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />UACR &gt;300 mg/g</li>
                 <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />Hematuria with RBC casts</li>
                 <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />Resistant hypertension</li>
                 <li className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-amber-500" />Suspected hereditary disease</li>
