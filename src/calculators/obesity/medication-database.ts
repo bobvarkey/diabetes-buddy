@@ -241,8 +241,7 @@ export const ANTI_OBESITY_MEDICATIONS: Medication[] = [
       { label: "Max", dose: "15/92mg", frequency: "Daily" },
     ],
     contraindications: [
-      "Pregnancy (teratogenic)
-- negative pregnancy test required",
+      "Pregnancy (teratogenic) - negative pregnancy test required",
       "Glaucoma",
       "Hyperthyroidism",
       "MAO inhibitor use within 14 days",
