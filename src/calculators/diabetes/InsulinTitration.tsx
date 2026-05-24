@@ -60,6 +60,27 @@ const InsulinTitration = () => {
   const patient = loadPatient();
   const hasPatient = patient && patient.name && patient.age > 0;
   const [currentDose, setCurrentDose] = useState(10);
+  
+// Brand name mappings - US and India
+const INSULIN_BRANDS = {
+  "Glargine": {
+    US: ["Lantus", "Basaglar", "Semglee", "Abasaglar"],
+    India: ["Glaritus", "Glucominis", "Gemeria", "Sigmart", "Glar-ON", "Baspar"],
+  },
+  "Degludec": {
+    US: ["Tresiba"],
+    India: ["Deglumed", "Degmilife", "Tresiper"],
+  },
+  "Detemir": {
+    US: ["Levemir"],
+    India: ["Gluinis", "Demet"],
+  },
+  "NPH": {
+    US: ["Humulin N", "Novolin N"],
+    India: ["Huminsulin", "Nuformules", "Insulin-NPH"],
+  },
+};
+
   const [insulinType, setInsulinType] = useState("Glargine (Lantus/Basaglar)");
   const [protocol, setProtocol] = useState<Protocol>(
     patient && (patient.age > 65 || patient.eGFR < 30) ? "conservative" : "treat-to-target"
