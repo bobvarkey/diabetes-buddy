@@ -45,7 +45,7 @@ function SubChecklist({
               checked[item.id] ? "bg-warning/10 ring-1 ring-warning/15" : "hover:bg-muted/50"
             }`}
           >
-            <Checkbox checked={!!checked[item.id]} onCheckedChange={() => toggle(item.id)} className="mt-0.5" />
+            <Checkbox checked={!!checked[item.id]} onCheckedChange={(c) => toggle(item.id)} className="mt-0.5" />
             <div className="flex-1 min-w-0">
               <span className="text-sm leading-snug text-foreground">{item.label}</span>
               {item.qualifier && (
@@ -93,7 +93,7 @@ function TodSubChecklist({
                     checked[tod.id] ? `bg-${colorClass}/10 ring-1 ring-${colorClass}/15` : "hover:bg-muted/50"
                   }`}
                 >
-                  <Checkbox checked={!!checked[tod.id]} onCheckedChange={() => toggle(tod.id)} className="mt-0.5" />
+                  <Checkbox checked={!!checked[tod.id]} onCheckedChange={(c) => toggle(tod.id)} className="mt-0.5" />
                   <div className="flex-1 min-w-0">
                     <span className="text-sm leading-snug text-foreground">{tod.label}</span>
                     <p className="text-[11px] text-muted-foreground leading-snug mt-0.5">{tod.qualifier}</p>
