@@ -243,6 +243,24 @@ export default function BmiCalculator() {
                       </div>
                     </div>
 
+                    {/* Selectable BMI Grade */}
+                    <Collapsible defaultOpen={false}>
+                      <CollapsibleTrigger asChild>
+                        <button className="flex w-full items-center justify-between rounded-lg border border-border bg-muted/30 px-3 py-2 text-sm hover:bg-muted/50">
+                          <span className="font-semibold">Select BMI Grade</span>
+                          <ChevronDown className="h-4 w-4" />
+                        </button>
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="p-3 border rounded bg-muted/20 space-y-2">
+                        <p className="text-xs text-muted-foreground">Tap to select treatment grade:</p>
+                        {["Underweight", "Normal", "Overweight", "Obese Class I", "Obese Class II", "Obese Class III"].map(g => (
+                          <button key={g} className="w-full text-left p-2 rounded hover:bg-white/50 border" onClick={() => { /* could expand treatment */ }}>
+                            <span className="text-sm">{g}</span>
+                          </button>
+                        ))}
+                      </CollapsibleContent>
+                    </Collapsible>
+
                     {/* ADA 2025 Treatment Guidelines */}
                     <div className="space-y-3">
                       <Button
