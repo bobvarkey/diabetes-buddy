@@ -1015,6 +1015,7 @@ export default function Home() {
         "Sliding scale reference",
         "Hypoglycemia risk calculator",
         "Renal dosing adjustments",
+        "Meal planner by cuisine",
         "GLP-1 administration guide",
       ],
       linkTo: "/diabetes",
