@@ -365,6 +365,13 @@ const InsulinDosingCalculator = () => {
             <li>• Degludec (Tresiba): Once daily, flexible timing</li>
             <li>• <AbbreviationHover term="NPH">NPH</AbbreviationHover>: Bedtime dosing (higher hypoglycemia risk)</li>
           </ul>
+          <p className="font-medium mt-2 mb-1">Meal Bolus Options:</p>
+          <ul className="space-y-0.5">
+            <li>• Lispro (Humalog/Novolog): Rapid-acting, give 0-15 min before meals</li>
+            <li>• Aspart (NovoRapid/Fiasp): Ultra-rapid, give at start of meal</li>
+            <li>• Glulisine (Apidra): Rapid-acting, give 0-2 min before meals</li>
+            <li>• Regular (Novolin R): Short-acting, give 30 min before meals</li>
+          </ul>
         </div>
       </CardContent>
     </Card>
