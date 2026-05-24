@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 
 // Combined navigation: Easy & Complex modes appear alongside Home
 const mainNavItems = [
-  { path: "/easy", label: "🔰 Easy", icon: "🔰", color: "green-500", description: "Quick calculators" },
   { path: "/home", label: "🏠 Home", icon: "🏠", color: "primary", description: "Dashboard" },
+  { path: "/easy", label: "🔰 Easy", icon: "🔰", color: "green-500", description: "Quick calculators" },
   { path: "/complex", label: "🧠 Complex", icon: "🧠", color: "purple-500", description: "Full details" },
 ];
 
