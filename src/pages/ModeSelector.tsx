@@ -58,7 +58,7 @@ export default function ModeSelector() {
         </div>
 
         {/* Hero: Decision Support */}
-        <Card className="mt-6 relative overflow-hidden" style={{ backgroundImage: "url(/assets/doctor-main.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}>
+        <Card className="mt-6 relative overflow-hidden" style={{ backgroundImage: "url(/assets/doctor-new.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}>
           <div className="absolute inset-0 bg-slate-900/80" />
           <CardContent className="p-5">
             <h1 className="text-2xl font-bold">
