@@ -210,7 +210,7 @@ export default function LipidsAssessment({ onClassificationChange = () => {}, on
   const b = parseFloat(bmi) || 0;
   const e = parseFloat(egfr) || 0;
 
-  const classification = classifyLAI(checked, a, l);
+  const classification = useMemo(() => classifyLAI(checked, a, l), [checked, a, l]);
   const key = classification.cat + (classification.sub ? "-" + classification.sub : "");
   const details = BUCKET_DETAILS[key] || BUCKET_DETAILS["LOW"];
   const rec = TREATMENT_RECS[key] || TREATMENT_RECS["LOW"];
