@@ -83,6 +83,10 @@ const MODIFIER_GROUPS = [
       { id: "enh_autoimmune", label: "RA / Psoriasis / Spondyloarthropathy", qualifier: "Chronic inflammatory condition" },
       { id: "enh_hiv", label: "HIV infection", qualifier: "Viral inflammatory risk" },
       { id: "enh_pcos", label: "Premature menopause / PCOS / Pre-eclampsia", qualifier: "Women-specific" },
+      { id: "enh_ckd", label: "CKD Stage 3-5 (non-dialysis)", qualifier: "eGFR 15-59 mL/min" },
+      { id: "enh_metabolic", label: "Metabolic Syndrome", qualifier: "3+ ATP III criteria" },
+      { id: "enh_family", label: "Family history of hypercholesterolemia", qualifier: "LDL-C >190 mg/dL in 1st-degree" },
+      { id: "enh_ejection", label: "ABI <0.9 (asymptomatic PAD)", qualifier: "Ankle-brachial index" },
     ],
   },
 ];
