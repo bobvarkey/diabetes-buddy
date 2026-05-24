@@ -46,16 +46,14 @@ export function TabNavigation() {
         <Menu className="h-5 w-5" />
       </button>
       
-      {/* Back Button */}
-      {currentPath !== "/home" && (
-        <button 
-          onClick={() => navigate(-1)}
-          className="fixed top-3 left-16 z-50 p-2 rounded-lg bg-card border border-border lg:hidden hover:bg-slate-100"
-          title="Go back"
-        >
-          <ArrowLeft className="h-5 w-5" />
-        </button>
-      )}
+      {/* Home Button */}
+      <button 
+        onClick={() => navigate("/home")}
+        className="fixed top-3 left-16 z-50 p-2 rounded-lg bg-card border border-border lg:hidden hover:bg-slate-100"
+        title="Go to Landing"
+      >
+        <Home className="h-5 w-5" />
+      </button>
       
       {/* Search Button - navigates to sections */}
       <button 
