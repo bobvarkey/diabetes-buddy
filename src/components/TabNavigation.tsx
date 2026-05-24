@@ -45,6 +45,15 @@ export function TabNavigation() {
       >
         <Menu className="h-5 w-5" />
       </button>
+      
+      {/* Search Button - navigates to sections */}
+      <button 
+        onClick={() => navigate("/lipids")}
+        className="fixed top-3 right-3 z-50 p-2 rounded-lg bg-card border border-border lg:hidden hover:bg-slate-100"
+        title="Jump to section"
+      >
+        <Search className="h-5 w-5 text-blue-600" />
+      </button>
 
       {/* Sidebar */}
       <aside className={cn(
