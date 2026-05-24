@@ -418,6 +418,55 @@ export default function RenalDoseAdjustment() {
             </div>
           )}
         </CardContent>
+
+      {/* AKI Diagnostic Criteria - KDIGO 2012 */}
+      <Card className="mb-4 border-amber-200 bg-amber-50">
+        <CardHeader className="pb-2">
+          <CardTitle className="flex items-center gap-2 text-lg text-amber-800">
+            <AlertTriangle className="h-5 w-5" />
+            AKI Diagnostic Criteria (KDIGO 2012)
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-amber-700 mb-3">
+            Patient meets <strong>AKI</strong> definition if <strong>ANY ONE</strong> of:
+          </p>
+          <ul className="space-y-2 mb-3">
+            <li className="flex items-start gap-2 text-sm">
+              <span className="font-bold text-amber-600">1.</span>
+              <span>Increase in SCr <strong>≥0.3 mg/dL</strong> within <strong>48 hours</strong></span>
+            </li>
+            <li className="flex items-start gap-2 text-sm">
+              <span className="font-bold text-amber-600">2.</span>
+              <span>Increase in SCr <strong>≥1.5× baseline</strong> (known or presumed within <strong>7 days</strong>)</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm">
+              <span className="font-bold text-amber-600">3.</span>
+              <span><strong>Oliguria:</strong> Urine output <strong>&lt;0.5 mL/kg/h</strong> for <strong>6 hours</strong></span>
+            </li>
+          </ul>
+          
+          {/* AKI Severity Stages */}
+          <p className="text-sm font-semibold text-amber-800 mb-2 mt-4">AKI Severity Stage:</p>
+          <div className="grid grid-cols-3 gap-2 text-xs">
+            <div className="bg-yellow-100 rounded p-2">
+              <p className="font-bold">Stage 1</p>
+              <p className="text-slate-600">1.5-1.9× baseline</p>
+              <p className="text-slate-600">or ≥0.3 mg/dL</p>
+            </div>
+            <div className="bg-orange-100 rounded p-2">
+              <p className="font-bold">Stage 2</p>
+              <p className="text-slate-600">2.0-2.9× baseline</p>
+            </div>
+            <div className="bg-red-100 rounded p-2">
+              <p className="font-bold">Stage 3</p>
+              <p className="text-slate-600">≥3.0× baseline</p>
+              <p className="text-slate-600">or SCr ≥4.0</p>
+              <p className="text-slate-600">or RRT</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
       </Card>
 
       {/* Drug Dosing Table */}
