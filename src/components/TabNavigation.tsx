@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Heart, Syringe, Dna, Activity, Wind, Kidney, Menu, X } from "lucide-react";
+import { Home, Heart, Syringe, Dna, Activity, Wind, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 

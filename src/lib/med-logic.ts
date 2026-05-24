@@ -1605,6 +1605,8 @@ function addIntensificationAgents(
   addedGenerics: Set<string>,
   avoidTZD: boolean,
 ) {
+  const getDrug = (generic: string): DrugProfile => DRUG_DB.find(d => d.generic === generic)!;
+
   // Basal insulin if HbA1c very high
   if (hba1c >= 9.0 && !addedClasses.has("basal-insulin")) {
     const degludec = getDrug("Insulin Degludec");
