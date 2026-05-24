@@ -32,8 +32,8 @@ const MODIFIER_GROUPS = [
     items: [
       { id: "ascvd_cad", label: "Coronary artery disease", qualifier: "Prior MI, CABG, PCI, or ≥50% stenosis" },
       { id: "ascvd_cva", label: "Cerebrovascular disease", qualifier: "Ischemic stroke, TIA, carotid revascularization" },
-      { id: "ascvd_pad", label: "Peripheral arterial disease", qualifier: "ABI <0.9, claudication, prior revascularization" },
-      { id: "ascvd_aa", label: "Aortic atherosclerosis", qualifier: "Carotid plaque >50%" },
+      { id: "ascvd_pad", label: "Peripheral arterial disease", qualifier: "ABI <0.9, femoral/below-knee plaque or prior revascularization" },
+      { id: "ascvd_aa", label: "Aortic/Carotid atherosclerosis", qualifier: "USG: IMT≥1mm or plaque >50%" },
       { id: "ascvd_chronic", label: "Chronic coronary syndrome", qualifier: "Post-revascularization" },
     ],
   },
