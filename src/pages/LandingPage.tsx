@@ -1,174 +1,225 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Star } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { FileText, Pill, ArrowRight } from 'lucide-react';
 
 export default function LandingPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-16 max-w-[390px] mx-auto">
-        {/* Ambient Blobs */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-fuchsia-600 rounded-full blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute bottom-40 right-10 w-72 h-72 bg-cyan-400 rounded-full blur-3xl opacity-20 animate-blob" style={{ animationDelay: '2s' }}></div>
-
-        {/* Heart Icon with Glow */}
-        <div className="relative mb-8 z-10">
-          <div className="glow-fuchsia">
-            <div className="text-8xl animate-pulse">❤️</div>
+    <div className="min-h-screen bg-black text-white">
+      {/* Header Badge */}
+      <header className="pt-5 pb-3 px-4">
+        <div className="flex justify-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs font-semibold tracking-wider">
+            DIABETES CARE
           </div>
         </div>
+      </header>
 
-        {/* Headline */}
-        <h1 className="text-4xl font-bold text-center mb-6 font-heading z-10">
-          Manage Diabetes. <span className="text-fuchsia-500 neon-text">Smarter</span>.
-        </h1>
+      {/* Hero */}
+      <section className="px-4 pb-4">
+        <div className="max-w-md mx-auto">
+          <h1 className="text-4xl font-bold mb-3 text-center">
+            Diabetes Risk <span className="italic text-pink-500">Predictor</span>
+          </h1>
+          
+          <p className="text-gray-400 text-sm mb-6 text-center leading-relaxed">
+            An intuitive, clinician-designed tool for diabetes care. Leverage evidence-based protocols to deliver guideline-concordant patient care.
+          </p>
 
-        {/* Subtitle */}
-        <p className="text-gray-400 text-center mb-8 max-w-xs z-10">
-          Evidence-based tools for medication optimization, diet planning, and comprehensive diabetes management
-        </p>
-
-        {/* Rating */}
-        <div className="flex flex-col items-center gap-2 mb-12 z-10">
-          <div className="flex gap-1">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
-            ))}
-          </div>
-          <span className="text-sm text-gray-400">2,847 healthcare providers</span>
-        </div>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col gap-3 w-full max-w-xs z-10 mb-12">
-          <Button
-            onClick={() => navigate('/app')}
-            className="w-full bg-gradient-to-r from-fuchsia-600 to-cyan-500 hover:from-fuchsia-700 hover:to-cyan-600 text-white font-semibold py-6 text-lg"
-          >
-            Get Started Free
-          </Button>
-          <Button
-            variant="outline"
-            className="w-full border-fuchsia-500 text-fuchsia-400 hover:bg-fuchsia-950 py-6 text-lg"
-          >
-            View Pro Plans
-          </Button>
-        </div>
-
-        {/* Bounce Indicator */}
-        <div className="absolute bottom-8 z-10 animate-bounce-slow">
-          <div className="text-3xl">⬇️</div>
-        </div>
-      </section>
-
-      {/* Feature Pills Section */}
-      <section className="py-16 px-6 max-w-[390px] mx-auto">
-        <div className="grid grid-cols-2 gap-4">
-          {[
-            { icon: '💊', label: 'Med Optimizer', color: 'bg-yellow-500/10 border-yellow-500/30' },
-            { icon: '📊', label: 'HbA1c Tracking', color: 'bg-cyan-500/10 border-cyan-500/30' },
-            { icon: '🍽️', label: 'Meal Planner', color: 'bg-fuchsia-500/10 border-fuchsia-500/30' },
-            { icon: '🏥', label: 'Clinical Guides', color: 'bg-lime-500/10 border-lime-500/30' },
-          ].map((pill, idx) => (
-            <div key={idx} className={`${pill.color} border rounded-lg p-4 text-center`}>
-              <div className="text-3xl mb-2">{pill.icon}</div>
-              <p className="text-sm font-medium">{pill.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Stats Bar */}
-      <section className="py-12 px-6 border-t border-gray-800 max-w-[390px] mx-auto">
-        <div className="grid grid-cols-4 gap-4 text-center">
-          <div>
-            <p className="text-2xl font-bold text-fuchsia-500">180+</p>
-            <p className="text-xs text-gray-400">Medications</p>
-          </div>
-          <div>
-            <p className="text-2xl font-bold text-cyan-400">12</p>
-            <p className="text-xs text-gray-400">Tools</p>
-          </div>
-          <div>
-            <p className="text-2xl font-bold text-yellow-400">50K+</p>
-            <p className="text-xs text-gray-400">Users</p>
-          </div>
-          <div>
-            <p className="text-2xl font-bold text-lime-400">Free</p>
-            <p className="text-xs text-gray-400">Core</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-16 px-6 max-w-[390px] mx-auto">
-        <h2 className="text-2xl font-bold mb-8 text-center font-heading">Simple Pricing</h2>
-        <div className="space-y-4">
-          {/* Free Plan */}
-          <div className="border border-gray-800 rounded-lg p-6 bg-gray-950/50">
-            <h3 className="font-semibold mb-4">Free</h3>
-            <p className="text-2xl font-bold mb-4">$0<span className="text-sm text-gray-400">/forever</span></p>
-            <ul className="space-y-2 mb-6 text-sm text-gray-300">
-              <li>✓ Medication database (180+)</li>
-              <li>✓ Basic dosing guides</li>
-              <li>✓ Carb counting tool</li>
-            </ul>
-          </div>
-
-          {/* Pro Plan */}
-          <div className="relative border border-fuchsia-500 rounded-lg p-6 bg-gradient-to-br from-fuchsia-950 to-black">
-            <div className="absolute -top-3 left-4 bg-black px-2">
-              <span className="text-xs font-bold text-fuchsia-500">⭐ RECOMMENDED</span>
-            </div>
-            <h3 className="font-semibold mb-2">Pro</h3>
-            <p className="text-2xl font-bold mb-1">$9.99<span className="text-sm text-gray-400">/year</span></p>
-            <p className="text-xs text-gray-400 line-through mb-4">was $29.99/year</p>
-            <ul className="space-y-2 mb-6 text-sm text-gray-200">
-              <li>✓ AI Med Optimizer</li>
-              <li>✓ Advanced HbA1c analytics</li>
-              <li>✓ Personalized meal plans</li>
-              <li>✓ Priority clinical support</li>
-            </ul>
-            <Button className="w-full bg-fuchsia-600 hover:bg-fuchsia-700 text-white">
-              Upgrade Now
+          {/* Horizontal Buttons */}
+          <div className="flex gap-3 mb-6">
+            <Button 
+              onClick={() => navigate('/app')}
+              className="flex-1 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-5"
+            >
+              Get Started
+            </Button>
+            <Button 
+              variant="outline"
+              className="flex-1 border border-white/30 text-white hover:bg-white/10 py-5"
+              onClick={() => navigate('/diabetes')}
+            >
+              Clinic Tool
             </Button>
           </div>
-        </div>
-      </section>
 
-      {/* Tools Grid */}
-      <section className="py-16 px-6 max-w-[390px] mx-auto">
-        <h2 className="text-2xl font-bold mb-8 text-center font-heading">Clinical Tools</h2>
-        <div className="grid grid-cols-2 gap-3">
-          {[
-            { icon: '💉', name: 'Insulin Titration' },
-            { icon: '🧬', name: 'GLP-1 Dosing' },
-            { icon: '🩺', name: 'HbA1c Tracker' },
-            { icon: '⚠️', name: 'Hypo Risk' },
-            { icon: '🍽️', name: 'Plate Method' },
-            { icon: '🏥', name: 'CKD Guidelines' },
-          ].map((tool, idx) => (
-            <div key={idx} className="border border-gray-800 rounded-lg p-4 text-center hover:border-fuchsia-500 transition-colors cursor-pointer">
-              <p className="text-3xl mb-2">{tool.icon}</p>
-              <p className="text-sm font-medium">{tool.name}</p>
+          {/* Hero Image - Doctor with Monitors */}
+          <div className="relative rounded-2xl overflow-hidden mb-6 aspect-video bg-gradient-to-br from-pink-600/40 via-purple-500/30 to-rose-500/40 flex items-center justify-center">
+            <div className="text-center">
+              <div className="text-7xl mb-2">👨‍⚕️</div>
+              <p className="text-sm text-gray-300 font-medium">Clinical Decision Support</p>
             </div>
-          ))}
+            <div className="absolute top-1/3 left-1/4 w-24 h-24 rounded-full bg-pink-500/30 blur-2xl" />
+            <div className="absolute bottom-1/3 right-1/4 w-20 h-20 rounded-full bg-purple-500/30 blur-2xl" />
+          </div>
         </div>
       </section>
 
-      {/* Footer CTA */}
-      <section className="py-12 px-6 border-t border-gray-800 bg-gradient-to-r from-fuchsia-600 to-cyan-500 max-w-[390px] mx-auto">
-        <div className="text-center">
-          <h3 className="text-2xl font-bold mb-4 text-white">Ready to optimize care?</h3>
-          <Button
-            onClick={() => navigate('/app')}
-            className="bg-black hover:bg-gray-900 text-white font-semibold py-3 px-8"
+      {/* Trust Bars */}
+      <section className="py-6 border-y border-white/10">
+        <div className="max-w-md mx-auto px-4">
+          <div className="grid grid-cols-3 gap-3">
+            <div className="text-center">
+              <p className="text-2xl font-bold text-pink-400">180+</p>
+              <p className="text-xs text-gray-500">Medications</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-emerald-400">98.4%</p>
+              <p className="text-xs text-gray-500">Accuracy</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-cyan-400">ADA 2024</p>
+              <p className="text-xs text-gray-500">guidelines</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ★ COMPREHENSIVE PRESCRIPTION GENERATOR - TOP FEATURE ★ */}
+      <section className="py-6 px-4">
+        <div className="max-w-md mx-auto">
+          <h2 className="text-lg font-bold mb-4 ml-1">Comprehensive Prescription Generator</h2>
+          
+          {/* Featured Card - Top of list */}
+          <Card 
+            className="bg-gradient-to-r from-pink-500/20 to-purple-500/20 border-pink-500/40 cursor-pointer hover:from-pink-500/30 hover:to-purple-500/30 transition-all"
+            onClick={() => navigate('/summary')}
           >
-            Access Dashboard
+            <CardContent className="p-5">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center">
+                  <FileText className="h-6 w-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold text-lg">Integrated Prescriptions</p>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Generate comprehensive prescriptions for all four NCDs — Diabetes, Hypertension, Lipids, and Obesity. 
+                    Combined or condition-specific Rx with dosage, frequency, duration, and clinical notes.
+                  </p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <span className="text-xs bg-white/10 px-2 py-0.5 rounded">Diabetes</span>
+                    <span className="text-xs bg-white/10 px-2 py-0.5 rounded">HTN</span>
+                    <span className="text-xs bg-white/10 px-2 py-0.5 rounded">Lipids</span>
+                    <span className="text-xs bg-white/10 px-2 py-0.5 rounded">Obesity</span>
+                  </div>
+                </div>
+                <ArrowRight className="h-5 w-5 text-pink-400 mt-2" />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Diagnostic Arsenal */}
+      <section className="py-6 px-4 border-t border-white/10">
+        <div className="max-w-md mx-auto">
+          <h2 className="text-lg font-bold mb-4 ml-1">Diagnostic Arsenal</h2>
+          
+          <div className="grid gap-2.5">
+            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/diabetes')}>
+              <CardContent className="p-4 flex items-center justify-between">
+                <div>
+                  <p className="font-semibold">Insulin Titration</p>
+                  <p className="text-xs text-gray-500">Correction doses & basal rates</p>
+                </div>
+                <span className="text-gray-500">→</span>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/diabetes')}>
+              <CardContent className="p-4 flex items-center justify-between">
+                <div>
+                  <p className="font-semibold">HbA1c Tracker</p>
+                  <p className="text-xs text-gray-500">Glycemic trends</p>
+                </div>
+                <span className="text-gray-500">→</span>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/diabetes')}>
+              <CardContent className="p-4 flex items-center justify-between">
+                <div>
+                  <p className="font-semibold">GLP-1 Dosing</p>
+                  <p className="text-xs text-gray-500">Semaglutide, tirzepatide</p>
+                </div>
+                <span className="text-gray-500">→</span>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/db/medications')}>
+              <CardContent className="p-4 flex items-center justify-between">
+                <div>
+                  <p className="font-semibold">Medication Optimizer</p>
+                  <p className="text-xs text-gray-500">Drug selection</p>
+                </div>
+                <span className="text-gray-500">→</span>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/db/ckd-guideline')}>
+              <CardContent className="p-4 flex items-center justify-between">
+                <div>
+                  <p className="font-semibold">CKD Guidelines</p>
+                  <p className="text-xs text-gray-500">Renal dose adjustment</p>
+                </div>
+                <span className="text-gray-500">→</span>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/db/daily-management')}>
+              <CardContent className="p-4 flex items-center justify-between">
+                <div>
+                  <p className="font-semibold">Clinical Guides</p>
+                  <p className="text-xs text-gray-500">References</p>
+                </div>
+                <span className="text-gray-500">→</span>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Data Driven / CTA */}
+      <section className="py-6 px-4 border-t border-white/10">
+        <div className="max-w-md mx-auto text-center">
+          <h2 className="text-lg font-bold mb-3">Data-Driven Decision Support</h2>
+          <p className="text-gray-400 text-sm mb-5">
+            Precision medicine at your fingertips.
+          </p>
+          
+          <div className="grid grid-cols-2 gap-2 text-sm text-left mb-6">
+            <div className="bg-white/5 rounded-lg p-3 flex items-center gap-2">
+              <span className="text-pink-400">✓</span> LDL-C Targets
+            </div>
+            <div className="bg-white/5 rounded-lg p-3 flex items-center gap-2">
+              <span className="text-pink-400">✓</span> Non-HDL-C
+            </div>
+            <div className="bg-white/5 rounded-lg p-3 flex items-center gap-2">
+              <span className="text-pink-400">✓</span> ApoB
+            </div>
+            <div className="bg-white/5 rounded-lg p-3 flex items-center gap-2">
+              <span className="text-pink-400">✓</span> eGFR
+            </div>
+          </div>
+
+          <Button 
+            onClick={() => navigate('/app')}
+            className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-5"
+          >
+            Start Assessment
           </Button>
         </div>
       </section>
+
+      {/* Footer Disclaimer */}
+      <footer className="py-5 px-4 text-center border-t border-white/10">
+        <p className="text-xs text-gray-600 mb-2">Based on ADA Standards of Care 2024 & AACE Guidelines</p>
+        <p className="text-xs text-gray-600">
+          For educational and clinical decision support use only. Always consult current guidelines and clinical judgment.
+        </p>
+      </footer>
     </div>
   );
 }

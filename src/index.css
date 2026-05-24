@@ -1,7 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Fonts loaded in HTML */
 
-@layer base {}
+@layer base {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  p, span, li, a, button {
+    line-height: 1.6;
+  }
+
+  h1 { @apply text-2xl md:text-3xl font-bold; }
+  h2 { @apply text-xl md:text-2xl font-bold; }
+  h3 { @apply text-lg md:text-xl font-bold; }
+  h4 { @apply text-base md:text-lg font-semibold; }
+
+  :root {
+    /* Clean medical theme - slate blue with teal accents */
+    --background: 220 20% 8%;
+    --foreground: 210 30% 96%;
+
+    --card: 220 18% 11%;
+    --card-foreground: 210 30% 96%;
+
+    --popover: 220 18% 11%;
+    --popover-foreground: 210 30% 96%;
+
+    --primary: 185 60% 48%;
+    --primary-foreground: 220 20% 8%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 210 30% 96%;
+
+    --muted: 220 15% 16%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 175 55% 40%;
+    --accent-foreground: 210 30% 96%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 30% 96%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 20%;
+    --ring: 185 60% 48%;
+
+    --radius: 0.625rem;
+
+    /* Clinical result tokens */
+    --success: 152 55% 45%;
+    --success-foreground: 210 30% 96%;
+    --warning: 38 85% 50%;
+    --warning-foreground: 210 30% 96%;
+    --info: 200 65% 55%;
+    --info-foreground: 210 30% 96%;
+
+    /* Mode accent colors */
+    --mode-simple: 142 50% 45%;
+    --mode-moderate: 32 85% 50%;
+    --mode-complex: 265 60% 55%;
+
+    /* Sidebar tokens */
+    --sidebar-background: 220 20% 6%;
+    --sidebar-foreground: 210 30% 96%;
+    --sidebar-primary: 185 60% 48%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 210 30% 96%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 185 60% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply bg-background;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .clinical-card {
+    @apply rounded-xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md;
+  }
+  .stat-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium;
+  }
+  .section-title {
+    @apply text-sm font-heading font-semibold text-foreground;
+  }
+
+  /* Animated gradient accent bar */
+  .accent-bar {
+    @apply absolute top-0 left-0 right-0 h-1 rounded-t-xl opacity-80;
+  }
+
+  /* Smooth card entrance */
+  .card-enter {
+    animation: cardSlideUp 0.3s ease-out;
+  }
+
+  /* Nav pill styling */
+  .nav-pill {
+    @apply px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200;
+  }
+  .nav-pill-active {
+    @apply ring-1 ring-inset;
+  }
+  .nav-pill-hover {
+    @apply hover:bg-muted/60;
+  }
+
+  /* Result card with data value emphasis */
+  .result-value {
+    @apply text-2xl font-bold tracking-tight;
+  }
+  .result-label {
+    @apply text-[10px] font-semibold text-muted-foreground uppercase tracking-wider;
+  }
+
+  /* Tooltip for abbreviation hover */
+  .abbr-hover {
+    @apply underline decoration-dotted decoration-primary/40 cursor-help;
+  }
+}
+
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

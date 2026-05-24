@@ -152,7 +152,7 @@ const PatientInput = () => {
             update(field, val);
           }}
           placeholder={`Enter ${label.toLowerCase()}`}
-          className="h-9"
+          className="h-10 px-3 rounded-lg border-border/60 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
           step={step}
         />
         {unit && <span className="text-xs text-muted-foreground whitespace-nowrap">{unit}</span>}
@@ -198,13 +198,13 @@ const PatientInput = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div>
             <Label className="text-xs text-muted-foreground">Name</Label>
-            <Input value={patient.name} onChange={(e) => update("name", e.target.value)} className="h-9" placeholder="Patient name" />
+            <Input value={patient.name} onChange={(e) => update("name", e.target.value)} className="h-10 px-3 rounded-lg border-border/60 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="Patient name" />
           </div>
           {numField("Age", "age", "years")}
           <div>
             <Label className="text-xs text-muted-foreground">Gender</Label>
             <Select value={patient.gender} onValueChange={(v) => update("gender", v)}>
-              <SelectTrigger className="h-9"><SelectValue /></SelectTrigger>
+              <SelectTrigger className="h-10 px-3 rounded-lg border-border/60 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"><SelectValue /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="M">Male</SelectItem>
                 <SelectItem value="F">Female</SelectItem>
@@ -258,7 +258,7 @@ const PatientInput = () => {
                   update("eGFR", val);
                 }}
                 placeholder="Auto or enter"
-                className="h-9"
+                className="h-10 px-3 rounded-lg border-border/60 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
               />
               <span className="text-xs text-muted-foreground whitespace-nowrap">mL/min</span>
             </div>
@@ -337,7 +337,7 @@ const PatientInput = () => {
             <div>
               <Label className="text-xs text-muted-foreground">Dysphagia Level</Label>
               <Select value={patient.dysphagiaLevel} onValueChange={(v) => update("dysphagiaLevel", v)}>
-                <SelectTrigger className="h-9"><SelectValue /></SelectTrigger>
+                <SelectTrigger className="h-10 px-3 rounded-lg border-border/60 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"><SelectValue /></SelectTrigger>
                 <SelectContent>
                   <SelectItem value="mild">Mild</SelectItem>
                   <SelectItem value="moderate">Moderate</SelectItem>
@@ -405,7 +405,7 @@ const PatientInput = () => {
             placeholder="BG reading (mg/dL)"
             value={newBG}
             onChange={e => setNewBG(e.target.value)}
-            className="h-9"
+            className="h-10 px-3 rounded-lg border-border/60 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
             onKeyDown={e => {
               if (e.key === "Enter") {
                 const val = parseInt(newBG);
@@ -453,7 +453,7 @@ const PatientInput = () => {
             placeholder="Type medication name & dose..."
             value={newMed}
             onChange={e => setNewMed(e.target.value)}
-            className="h-9"
+            className="h-10 px-3 rounded-lg border-border/60 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
             onKeyDown={e => e.key === "Enter" && addMed()}
           />
           <Button variant="outline" size="sm" onClick={() => addMed()}>

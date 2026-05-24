@@ -44,13 +44,26 @@ const MedOptimizer = () => {
   const [patient, setPatient] = useState<PatientData | null>(null);
   const [exporting, setExporting] = useState(false);
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set([0, 1, 2]));
+  const [mode, setMode] = useState<"new-patient" | "optimize-current">("new-patient");
 
   useEffect(() => {
     const saved = loadPatient();
     if (saved && saved.name && saved.age > 0) setPatient(saved);
   }, []);
 
-  const meds = useMemo(() => patient ? generateMedRecommendations(patient) : [], [patient]);
+  const allMeds = useMemo(() => patient ? generateMedRecommendations(patient) : [], [patient]);
+
+  const meds = useMemo(() => {
+    if (mode === "optimize-current") {
+      return allMeds.filter(m =>
+        m.category === "current-med-review" ||
+        m.priority === "adjustment" ||
+        m.priority === "intensification"
+      );
+    }
+    return allMeds;
+  }, [allMeds, mode]);
+
   const pathway = patient ? getAlgorithmPathway(patient) : null;
   const hypo = patient ? getHypoProtocol(patient) : null;
   const lipids = patient ? getLipidTargets(patient) : null;
@@ -190,13 +203,33 @@ const MedOptimizer = () => {
 
   return (
     <div className="space-y-5 animate-slide-in">
-      <div className="flex items-center justify-between">
-        <div>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0">
           <h1 className="text-xl font-heading font-bold">Medication Optimizer</h1>
           <p className="text-sm text-muted-foreground">ADA 2026 Priorities-First Algorithm + LAI Lipid Guidelines</p>
         </div>
         {patient && (
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Mode Toggle */}
+            <div className="flex items-center bg-muted rounded-lg p-1 gap-1">
+              <Button
+                size="sm"
+                variant={mode === "new-patient" ? "default" : "ghost"}
+                onClick={() => setMode("new-patient")}
+                className="text-xs"
+              >
+                New Patient
+              </Button>
+              <Button
+                size="sm"
+                variant={mode === "optimize-current" ? "default" : "ghost"}
+                onClick={() => setMode("optimize-current")}
+                className="text-xs"
+              >
+                Optimize Current
+              </Button>
+            </div>
+            {/* Export Buttons */}
             <Button size="sm" variant="outline" onClick={handlePrint} className="gap-1.5" title="Print current page">
               <Printer className="w-4 h-4" />
               <span className="hidden sm:inline">Print</span>
@@ -248,7 +281,7 @@ const MedOptimizer = () => {
           {patient.currentMeds.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mt-2">
               {patient.currentMeds.map((m, i) => (
-                <span key={i} className="text-[10px] bg-primary-foreground/20 rounded-full px-2 py-0.5">{m}</span>
+                <span key={i} className="text-xs bg-primary-foreground/20 rounded-full px-2.5 py-1">{m}</span>
               ))}
             </div>
           )}
@@ -258,12 +291,12 @@ const MedOptimizer = () => {
       {/* Algorithm pathway indicator */}
       {pathway && (
         <div className="clinical-card p-3 border-l-4 border-l-primary">
-          <h3 className="text-xs font-medium text-muted-foreground mb-1">ADA 2026 Algorithm Pathway Detected</h3>
+          <h3 className="text-sm font-medium text-muted-foreground mb-1">ADA 2026 Algorithm Pathway Detected</h3>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-sm font-heading font-semibold text-primary">
+            <span className="text-base font-heading font-semibold text-primary">
               {getPathwayLabel(pathway)}
             </span>
-            <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+            <span className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full whitespace-nowrap">
               {pathway === "ascvd-predominant" && "Established ASCVD → GLP-1 RA / SGLT2i first"}
               {pathway === "hf-ckd-predominant" && "HF/CKD → SGLT2i preferably, then GLP-1 RA"}
               {pathway === "weight-management" && "No ASCVD/CKD → Weight-loss agents first"}
@@ -272,7 +305,7 @@ const MedOptimizer = () => {
               {pathway === "general" && "Standard glycemic approach"}
             </span>
           </div>
-          <p className="text-[10px] text-muted-foreground">
+          <p className="text-xs text-muted-foreground leading-relaxed">
             First-line: Metformin + lifestyle. If HbA1c above target → proceed as below.
           </p>
         </div>
@@ -280,21 +313,21 @@ const MedOptimizer = () => {
 
       {/* Algorithm flow */}
       <div className="clinical-card p-3">
-        <h3 className="text-xs font-medium text-muted-foreground mb-2">Priority Categories</h3>
-        <div className="flex items-center gap-1 overflow-x-auto text-[10px]">
+        <h3 className="text-sm font-medium text-muted-foreground mb-2">Priority Categories</h3>
+        <div className="flex items-center gap-2 overflow-x-auto text-xs">
           {(["cvkd-risk", "weight-management", "glycemic-control", "lipid", "current-med-review"] as AlgorithmPriority[]).map((cat, i) => {
             const hasMeds = meds.some(m => m.category === cat);
             return (
-              <div key={cat} className="flex items-center gap-1">
+              <div key={cat} className="flex items-center gap-2">
                 {i > 0 && <span className="text-muted-foreground">→</span>}
-                <span className={`px-2 py-1 rounded-full whitespace-nowrap ${hasMeds ? "bg-primary/10 text-primary font-medium" : "bg-muted text-muted-foreground"}`}>
+                <span className={`px-2.5 py-1.5 rounded-full whitespace-nowrap ${hasMeds ? "bg-primary/10 text-primary font-medium" : "bg-muted text-muted-foreground"}`}>
                   {getCategoryLabel(cat)}
                 </span>
               </div>
             );
           })}
         </div>
-        <p className="text-[10px] text-muted-foreground mt-2">{meds.length} medications recommended across {grouped.length} priorities</p>
+        <p className="text-sm text-muted-foreground mt-2">{meds.length} medications recommended across {grouped.length} priorities</p>
       </div>
 
       {/* Next Best Medication */}
@@ -314,8 +347,8 @@ const MedOptimizer = () => {
         <div key={group.category} className="space-y-2">
           <div className={`flex items-center gap-2 px-3 py-2 rounded-lg ${categoryBg[group.category]}`}>
             {(() => { const Icon = categoryIcon[group.category]; return <Icon className="w-4 h-4" />; })()}
-            <h2 className="text-sm font-heading font-semibold">{group.label}</h2>
-            <span className="text-[10px] text-muted-foreground ml-auto">{group.meds.length} medication{group.meds.length > 1 ? "s" : ""}</span>
+            <h2 className="text-base font-heading font-semibold">{group.label}</h2>
+            <span className="text-xs text-muted-foreground ml-auto">{group.meds.length} medication{group.meds.length > 1 ? "s" : ""}</span>
           </div>
 
           {group.meds.map((med) => {
@@ -328,12 +361,12 @@ const MedOptimizer = () => {
                     <div className="flex items-center gap-2 flex-1 min-w-0">
                       <Pill className="w-4 h-4 text-primary shrink-0" />
                       <div className="min-w-0">
-                        <h3 className="font-medium text-sm truncate">{med.drug}</h3>
-                        <p className="text-[10px] text-muted-foreground">{getDrugClassLabel(med.drugClass)}</p>
+                        <h3 className="font-semibold text-base truncate">{med.drug}</h3>
+                        <p className="text-xs text-muted-foreground">{getDrugClassLabel(med.drugClass)}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
-                      <span className={`stat-badge text-[10px] py-0.5 px-2 border ${priorityBadge(med.priority)}`}>
+                      <span className={`stat-badge text-xs py-1 px-2.5 border ${priorityBadge(med.priority)}`}>
                         {med.priority}
                       </span>
                       {isExpanded ? <ChevronUp className="w-3.5 h-3.5 text-muted-foreground" /> : <ChevronDown className="w-3.5 h-3.5 text-muted-foreground" />}
@@ -341,10 +374,10 @@ const MedOptimizer = () => {
                   </div>
 
                   {/* Always visible summary */}
-                  <div className="bg-muted/50 rounded-lg p-2.5 mt-2">
-                    <div className="grid grid-cols-2 gap-2 text-sm">
-                      <div><span className="text-muted-foreground text-[10px]">Dose:</span> <strong>{med.dose}</strong></div>
-                      <div><span className="text-muted-foreground text-[10px]">Freq:</span> <strong>{med.frequency}</strong></div>
+                  <div className="bg-muted/50 rounded-lg p-3 mt-2">
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div><span className="text-muted-foreground text-xs font-medium">Dose:</span> <strong className="text-base">{med.dose}</strong></div>
+                      <div><span className="text-muted-foreground text-xs font-medium">Freq:</span> <strong className="text-base">{med.frequency}</strong></div>
                     </div>
                   </div>
                 </button>
@@ -356,17 +389,17 @@ const MedOptimizer = () => {
 
                     {/* Quick stats */}
                     <div className="grid grid-cols-3 gap-2 text-center">
-                      <div className="p-1.5 rounded bg-muted/30">
-                        <span className="text-[10px] text-muted-foreground block">HbA1c ↓</span>
-                        <span className="text-xs font-medium">{med.hba1cReduction}</span>
+                      <div className="p-2 rounded bg-muted/30">
+                        <span className="text-xs text-muted-foreground block font-medium">HbA1c ↓</span>
+                        <span className="text-sm font-semibold">{med.hba1cReduction}</span>
                       </div>
-                      <div className="p-1.5 rounded bg-muted/30">
-                        <span className="text-[10px] text-muted-foreground block">Weight</span>
-                        <span className={`text-xs font-medium ${weightColor(med.weightEffect)}`}>{weightIcon(med.weightEffect)}</span>
+                      <div className="p-2 rounded bg-muted/30">
+                        <span className="text-xs text-muted-foreground block font-medium">Weight</span>
+                        <span className={`text-sm font-semibold ${weightColor(med.weightEffect)}`}>{weightIcon(med.weightEffect)}</span>
                       </div>
-                      <div className="p-1.5 rounded bg-muted/30">
-                        <span className="text-[10px] text-muted-foreground block">CV Benefit</span>
-                        <span className={`text-xs font-medium ${med.cvBenefit ? "text-success" : "text-muted-foreground"}`}>
+                      <div className="p-2 rounded bg-muted/30">
+                        <span className="text-xs text-muted-foreground block font-medium">CV Benefit</span>
+                        <span className={`text-sm font-semibold ${med.cvBenefit ? "text-success" : "text-muted-foreground"}`}>
                           {med.cvBenefit ? "✓ Proven" : "— Neutral"}
                         </span>
                       </div>
@@ -387,16 +420,20 @@ const MedOptimizer = () => {
                     {/* Contraindications */}
                     {med.contraindications.length > 0 && (
                       <div>
-                        <span className="text-[10px] font-medium text-destructive">Contraindications:</span>
-                        <div className="flex flex-wrap gap-1 mt-1">
+                        <span className="text-xs font-semibold text-destructive block mb-2">Contraindications:</span>
+                        <div className="flex flex-wrap gap-1.5">
                           {med.contraindications.map((c, ci) => (
-                            <span key={ci} className="text-[10px] bg-destructive/10 text-destructive px-2 py-0.5 rounded-full">{c}</span>
+                            <span key={ci} className="text-xs bg-destructive/10 text-destructive px-2.5 py-1 rounded-full">{c}</span>
                           ))}
                         </div>
                       </div>
                     )}
 
-                    <p className="text-[10px] text-muted-foreground italic">{med.adaReference}</p>
+                    <div className="border-t border-muted-foreground/10 pt-2 mt-2">
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        {med.adaReference}
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>

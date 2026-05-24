@@ -17,6 +17,7 @@ export interface PatientData {
   serialBG: number[];
   currentMeds: string[];
   hasT2DM: boolean;
+  diabetesType: "type1" | "type2";
   triglycerides?: number;
   hdl?: number;
   totalCholesterol?: number;
@@ -53,6 +54,7 @@ export const EXAMPLE_PATIENT: PatientData = {
   serialBG: [280, 245, 210, 195, 180, 165, 155],
   currentMeds: ["Voglibose 0.3mg TDS", "Sitagliptin 100mg OD"],
   hasT2DM: true,
+  diabetesType: "type2",
   triglycerides: 220,
   hdl: 38,
   totalCholesterol: 210,

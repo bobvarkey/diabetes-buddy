@@ -168,7 +168,7 @@ const InsulinTitration = () => {
           <div>
             <Label className="text-xs text-muted-foreground">Insulin Type</Label>
             <Select value={insulinType} onValueChange={setInsulinType}>
-              <SelectTrigger className="h-9"><SelectValue /></SelectTrigger>
+              <SelectTrigger className="h-10 px-3 rounded-lg border-border/60 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"><SelectValue /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="Glargine (Lantus/Basaglar)">Glargine (Lantus/Basaglar)</SelectItem>
                 <SelectItem value="Degludec (Tresiba)">Degludec (Tresiba)</SelectItem>
@@ -183,14 +183,14 @@ const InsulinTitration = () => {
               type="number"
               value={currentDose || ""}
               onChange={e => setCurrentDose(e.target.value === "" ? 0 : parseInt(e.target.value))}
-              className="h-9"
+              className="h-10 px-3 rounded-lg border-border/60 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
               min={0}
             />
           </div>
           <div>
             <Label className="text-xs text-muted-foreground">Titration Protocol</Label>
             <Select value={protocol} onValueChange={v => setProtocol(v as Protocol)}>
-              <SelectTrigger className="h-9"><SelectValue /></SelectTrigger>
+              <SelectTrigger className="h-10 px-3 rounded-lg border-border/60 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"><SelectValue /></SelectTrigger>
               <SelectContent>
                 {Object.entries(PROTOCOLS).map(([key, p]) => (
                   <SelectItem key={key} value={key}>{p.label}</SelectItem>

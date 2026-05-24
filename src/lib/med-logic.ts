@@ -868,8 +868,8 @@ export function generateSMARTGoals(patient: PatientData, drugs: MedRecommendatio
     goals.push({
       category: "medication-adherence",
       title: `Take ${drugs[0].drug} daily`,
-      goal: `I will take ${drugs[0].drug} ${drugs[0].dosageFrequency === "OD" ? "with breakfast every day" : drugs[0].dosageFrequency === "BD" ? "with breakfast and dinner" : "before each meal"} for the next 30 days.`,
-      specific: `${drugs[0].dosageFrequency === "OD" ? "Same time daily (e.g., 7:00 AM with breakfast)" : "Consistent meals with medication"}`,
+      goal: `I will take ${drugs[0].drug} ${drugs[0].frequency === "OD" ? "with breakfast every day" : drugs[0].frequency === "BD" ? "with breakfast and dinner" : "before each meal"} for the next 30 days.`,
+      specific: `${drugs[0].frequency === "OD" ? "Same time daily (e.g., 7:00 AM with breakfast)" : "Consistent meals with medication"}`,
       measurable: "≥25 days of correct dosing in 30 days using a reminder system",
       timeframe: "1 month, then decide if habit is sustained",
       isActive: true,
@@ -927,7 +927,7 @@ export function generateSMARTGoals(patient: PatientData, drugs: MedRecommendatio
     goals.push({
       category: "weight-loss",
       title: "Achieve 5-10% weight loss",
-      goal: `I will lose ${Math.round(patient.weight * 0.05)} to ${Math.round(patient.weight * 0.10)} lbs over the next 12 weeks through diet and exercise.`,
+      goal: `I will lose ${Math.round(patient.weightKg * 0.05)} to ${Math.round(patient.weightKg * 0.10)} kg over the next 12 weeks through diet and exercise.`,
       specific: `Combine portion control (smaller plate) + 150 min/week activity + ${hasGLP1 ? "GLP-1 appetite reduction" : "calorie awareness"}`,
       measurable: "Weigh weekly on same day/time; track in health app",
       timeframe: "12 weeks (0.5–1 lbs per week)",
@@ -1242,6 +1242,15 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
   const addedClasses = new Set<DrugClass>();
   const addedGenerics = new Set<string>();
 
+  // Memoized drug lookup to avoid repeated DRUG_DB.find() calls
+  const drugCache = new Map<string, DrugProfile>();
+  const getDrug = (generic: string): DrugProfile => {
+    if (!drugCache.has(generic)) {
+      drugCache.set(generic, DRUG_DB.find(d => d.generic === generic)!);
+    }
+    return drugCache.get(generic)!;
+  };
+
   function addRec(rec: MedRecommendation) {
     if (!addedGenerics.has(rec.genericName)) {
       recs.push(rec);
@@ -1261,7 +1270,7 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
   // STEP 1: FIRST-LINE — Metformin + lifestyle (universal)
   // ============================================================
   if (patient.eGFR >= 30 && !isOnDrug(patient, "Metformin")) {
-    const met = DRUG_DB.find(d => d.generic === "Metformin")!;
+    const met = getDrug("Metformin");
     addRec(buildRec(met, patient,
       `First-line therapy: Metformin + comprehensive lifestyle (including weight management and physical activity). eGFR ${patient.eGFR} ≥ 30 → safe. ${patient.eGFR < 45 ? "Reduced dose for CKD Stage 3b." : ""}`,
       "first-line", "glycemic-control"));
@@ -1276,13 +1285,13 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
     if (pathway === "ascvd-predominant") {
       // EITHER/OR: GLP-1 RA with proven CV benefit OR SGLT2i with proven CVD benefit
       // GLP-1 RA: strongest evidence semaglutide > liraglutide > dulaglutide > exenatide ER
-      const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
+      const sema = getDrug("Semaglutide");
       addRec(buildRec(sema, patient,
         `ASCVD predominates → GLP-1 RA with proven CV benefit (SUSTAIN-6, SELECT). Strongest evidence. ${patient.bmi >= 27 ? "Also addresses weight management." : ""}`,
         "first-line", "cvkd-risk"));
 
       if (patient.eGFR >= 20) {
-        const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
+        const empa = getDrug("Empagliflozin");
         addRec(buildRec(empa, patient,
           `ASCVD predominates → SGLT2i with proven CVD benefit, if eGFR adequate (${patient.eGFR} ≥ 20). EMPA-REG OUTCOME.`,
           "first-line", "cvkd-risk"));
@@ -1292,13 +1301,13 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
       if (hba1cAboveTarget) {
         // Consider adding the other class, DPP-4i (if not on GLP-1 RA), basal insulin, TZD (low dose), SU
         if (!addedClasses.has("dual-agonist") && patient.bmi >= 27) {
-          const tirz = DRUG_DB.find(d => d.generic === "Tirzepatide")!;
+          const tirz = getDrug("Tirzepatide");
           addRec(buildRec(tirz, patient,
             `HbA1c ${hba1c}% above target + BMI ${patient.bmi} → Dual GIP/GLP-1 agonist for maximum efficacy (SURPASS, SURMOUNT). Alternative to semaglutide.`,
             "add-on", "cvkd-risk"));
         }
 
-        const lira = DRUG_DB.find(d => d.generic === "Liraglutide")!;
+        const lira = getDrug("Liraglutide");
         addRec(buildRec(lira, patient,
           `ASCVD intensification → Alternative GLP-1 RA with proven CV benefit (LEADER). Consider if semaglutide not tolerated.`,
           "add-on", "cvkd-risk"));
@@ -1314,8 +1323,8 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
       // Empagliflozin & canagliflozin both shown reduction in HF and CKD progression
       if (patient.eGFR >= 20) {
         const sglt2Choice = establishedHF
-          ? DRUG_DB.find(d => d.generic === "Empagliflozin")!   // EMPEROR trials
-          : DRUG_DB.find(d => d.generic === "Dapagliflozin")!;  // DAPA-CKD
+          ? getDrug("Empagliflozin")   // EMPEROR trials
+          : getDrug("Dapagliflozin");  // DAPA-CKD
 
         addRec(buildRec(sglt2Choice, patient,
           `HF/CKD predominates → PREFERABLY SGLT2i with evidence of reducing ${establishedHF ? "HF (EMPEROR-Reduced/Preserved)" : "CKD progression (DAPA-CKD)"}. eGFR ${patient.eGFR} adequate.`,
@@ -1323,15 +1332,15 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
 
         // Offer alternative SGLT2i
         const altSGLT2 = establishedHF
-          ? DRUG_DB.find(d => d.generic === "Dapagliflozin")!
-          : DRUG_DB.find(d => d.generic === "Empagliflozin")!;
+          ? getDrug("Dapagliflozin")
+          : getDrug("Empagliflozin");
         addRec(buildRec(altSGLT2, patient,
           `Alternative SGLT2i for ${establishedHF ? "HF + CKD protection" : "CV + renal benefit"}. ${altSGLT2.adaReference}`,
           "add-on", "cvkd-risk"));
       }
 
       // OR if SGLT2i not tolerated/contraindicated or eGFR inadequate → GLP-1 RA with proven CV benefit
-      const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
+      const sema = getDrug("Semaglutide");
       addRec(buildRec(sema, patient,
         `${patient.eGFR < 20 ? "eGFR < 20 → SGLT2i contraindicated. " : "If SGLT2i not tolerated/contraindicated → "}Add GLP-1 RA with proven CV benefit.`,
         patient.eGFR < 20 ? "first-line" : "add-on", "cvkd-risk"));
@@ -1344,8 +1353,8 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
         if (!addedClasses.has("dpp4i")) {
           // Avoid saxagliptin in HF → use linagliptin or sitagliptin
           const dpp4 = establishedHF
-            ? DRUG_DB.find(d => d.generic === "Linagliptin")!    // No HF signal + no renal dose adj
-            : DRUG_DB.find(d => d.generic === "Sitagliptin")!;
+            ? getDrug("Linagliptin")    // No HF signal + no renal dose adj
+            : getDrug("Sitagliptin");
           const warning = establishedHF ? "DPP-4i (NOT saxagliptin) in HF setting." : "";
           addRec(buildRec(dpp4, patient,
             `HbA1c ${hba1c}% above target → ${warning} ${dpp4.name} for additional glycemic control. ${dpp4.generic === "Linagliptin" ? "No renal dose adjustment needed." : ""}`,
@@ -1368,21 +1377,21 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
       if (pathway === "hypo-minimization" || patient.age >= 65) {
         // Prefer: DPP-4i, GLP-1 RA, SGLT2i, TZD (all low hypo risk)
         if (!addedClasses.has("dpp4i") && !addedClasses.has("glp1ra") && !addedClasses.has("dual-agonist")) {
-          const lina = DRUG_DB.find(d => d.generic === "Linagliptin")!;
+          const lina = getDrug("Linagliptin");
           addRec(buildRec(lina, patient,
             `Minimize hypoglycemia → DPP-4i: low hypo risk, weight neutral. No renal dose adjustment (biliary excretion).`,
             "add-on", "glycemic-control"));
         }
 
         if (!addedClasses.has("glp1ra")) {
-          const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
+          const sema = getDrug("Semaglutide");
           addRec(buildRec(sema, patient,
             `Minimize hypoglycemia → GLP-1 RA: low hypo risk + weight loss benefit.`,
             "add-on", "glycemic-control"));
         }
 
         if (!addedClasses.has("sglt2i") && patient.eGFR >= 20) {
-          const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
+          const empa = getDrug("Empagliflozin");
           addRec(buildRec(empa, patient,
             `Minimize hypoglycemia → SGLT2i: low hypo risk + CV/renal benefit.`,
             "add-on", "glycemic-control"));
@@ -1392,7 +1401,7 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
         if (hba1c >= 8.0) {
           // GLP-1 RA or SGLT2i add-ons, then continue with other agents
           if (!addedClasses.has("sglt2i") && patient.eGFR >= 20) {
-            const dapa = DRUG_DB.find(d => d.generic === "Dapagliflozin")!;
+            const dapa = getDrug("Dapagliflozin");
             addRec(buildRec(dapa, patient,
               `HbA1c ${hba1c}% still above target → Add SGLT2i as second agent.`,
               "add-on", "glycemic-control"));
@@ -1400,12 +1409,12 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
 
           // Third tier: consider SU (later gen) or basal insulin with lower hypo risk
           if (hba1c >= 9.0) {
-            const glic = DRUG_DB.find(d => d.generic === "Gliclazide")!;
+            const glic = getDrug("Gliclazide");
             addRec(buildRec(glic, patient,
               `HbA1c ${hba1c}% ≥ 9 → Consider SU OR basal insulin. Choose later-generation SU (gliclazide) with lower hypo risk.`,
               "intensification", "glycemic-control"));
 
-            const degludec = DRUG_DB.find(d => d.generic === "Insulin Degludec")!;
+            const degludec = getDrug("Insulin Degludec");
             addRec(buildRec(degludec, patient,
               `Consider basal insulin with lower risk of hypoglycemia. Degludec preferred over glargine for nocturnal hypo safety (DEVOTE).`,
               "intensification", "glycemic-control"));
@@ -1417,19 +1426,19 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
       else if (pathway === "weight-management") {
         // EITHER/OR: GLP-1 RA with good efficacy for weight loss OR SGLT2i
         if (patient.bmi >= 27) {
-          const tirz = DRUG_DB.find(d => d.generic === "Tirzepatide")!;
+          const tirz = getDrug("Tirzepatide");
           addRec(buildRec(tirz, patient,
             `Weight management priority (BMI ${patient.bmi}) → Dual GIP/GLP-1 agonist: highest weight loss efficacy (15-20%). SURMOUNT/SURPASS trials.`,
             "first-line", "weight-management"));
         }
 
-        const sema = DRUG_DB.find(d => d.generic === "Semaglutide")!;
+        const sema = getDrug("Semaglutide");
         addRec(buildRec(sema, patient,
           `Weight management (BMI ${patient.bmi}) → GLP-1 RA with good efficacy for weight loss (5-15%). SELECT/STEP trials.`,
           patient.bmi >= 27 ? "add-on" : "first-line", "weight-management"));
 
         if (patient.eGFR >= 20) {
-          const empa = DRUG_DB.find(d => d.generic === "Empagliflozin")!;
+          const empa = getDrug("Empagliflozin");
           addRec(buildRec(empa, patient,
             `Weight management → SGLT2i: modest weight loss (2-3 kg) + CV/renal benefit.`,
             "add-on", "weight-management"));
@@ -1438,7 +1447,7 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
         // If HbA1c still above target
         if (hba1c >= 8.0) {
           if (!addedClasses.has("sglt2i") && patient.eGFR >= 20) {
-            const dapa = DRUG_DB.find(d => d.generic === "Dapagliflozin")!;
+            const dapa = getDrug("Dapagliflozin");
             addRec(buildRec(dapa, patient,
               `HbA1c ${hba1c}% above target → Add SGLT2i for weight-neutral glycemic control.`,
               "add-on", "weight-management"));
@@ -1446,7 +1455,7 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
 
           // If triple therapy needed and GLP-1 RA/SGLT2i not tolerated → DPP-4i (weight neutral)
           if (!addedClasses.has("dpp4i")) {
-            const lina = DRUG_DB.find(d => d.generic === "Linagliptin")!;
+            const lina = getDrug("Linagliptin");
             addRec(buildRec(lina, patient,
               `HbA1c ${hba1c}% → PREFERABLY DPP-4i (if not on GLP-1 RA) based on weight neutrality.`,
               "add-on", "glycemic-control"));
@@ -1455,7 +1464,7 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
 
         // De-escalate weight-gaining agents
         if (patient.bmi >= 30 && isOnDrugClass(patient, "sulfonylurea")) {
-          const glic = DRUG_DB.find(d => d.generic === "Gliclazide")!;
+          const glic = getDrug("Gliclazide");
           recs.push({
             ...buildRec(glic, patient, "", "de-escalate", "weight-management"),
             reason: `BMI ${patient.bmi} (≥30) + on sulfonylurea → Consider de-escalation/switch to weight-neutral agent. SU causes 2-3 kg weight gain.`,
@@ -1472,13 +1481,13 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
   // ============================================================
   if (hba1c >= 9.0 && (patient.rbs > 300 || hba1c >= 10)) {
     if (!addedClasses.has("basal-insulin")) {
-      const glargine = DRUG_DB.find(d => d.generic === "Insulin Glargine")!;
+      const glargine = getDrug("Insulin Glargine");
       addRec(buildRec(glargine, patient,
         `HbA1c ${hba1c}% + RBS ${patient.rbs} → Symptomatic hyperglycemia: basal insulin required. Start 10 units or 0.1-0.2 U/kg. Titrate +2 U q3 days to FBG 80-130.`,
         "first-line", "glycemic-control"));
     }
   } else if (hba1c >= 9.0 && !addedClasses.has("basal-insulin")) {
-    const glargine = DRUG_DB.find(d => d.generic === "Insulin Glargine")!;
+    const glargine = getDrug("Insulin Glargine");
     addRec(buildRec(glargine, patient,
       `HbA1c ${hba1c}% (≥9) → Consider early basal insulin if oral combination insufficient. Target FBG 80-130.`,
       "intensification", "glycemic-control"));
@@ -1511,7 +1520,7 @@ export function generateMedRecommendations(patient: PatientData): MedRecommendat
     }
 
     if (medLower.includes("voglibose") && !addedGenerics.has("Voglibose")) {
-      const vogl = DRUG_DB.find(d => d.generic === "Voglibose")!;
+      const vogl = getDrug("Voglibose");
       addRec(buildRec(vogl, patient,
         `Currently on ${med}. Limited HbA1c reduction (0.5-0.8%). Consider de-escalation if GLP-1 RA or SGLT2i started.`,
         "adjustment", "current-med-review"));
@@ -1598,7 +1607,7 @@ function addIntensificationAgents(
 ) {
   // Basal insulin if HbA1c very high
   if (hba1c >= 9.0 && !addedClasses.has("basal-insulin")) {
-    const degludec = DRUG_DB.find(d => d.generic === "Insulin Degludec")!;
+    const degludec = getDrug("Insulin Degludec");
     addRec(buildRec(degludec, patient,
       `HbA1c ${hba1c}% ≥ 9 → Basal insulin for intensification. Degludec preferred (lower nocturnal hypo, DEVOTE). U100 glargine also CV-safe.`,
       "intensification", "glycemic-control"));
@@ -1606,7 +1615,7 @@ function addIntensificationAgents(
 
   // SU — later generation, lower hypo
   if (hba1c >= 8.5 && !addedClasses.has("sulfonylurea") && patient.bmi < 27) {
-    const glic = DRUG_DB.find(d => d.generic === "Gliclazide")!;
+    const glic = getDrug("Gliclazide");
     addRec(buildRec(glic, patient,
       `HbA1c ${hba1c}% → Later-generation SU with lower hypo risk (gliclazide MR, ADVANCE trial). Use if cost is a factor.`,
       "intensification", "glycemic-control"));
@@ -1614,7 +1623,7 @@ function addIntensificationAgents(
 
   // TZD — only if no HF
   if (!avoidTZD && hba1c >= 7.5 && !addedClasses.has("tzd") && patient.hfNYHA < 2) {
-    const pio = DRUG_DB.find(d => d.generic === "Pioglitazone")!;
+    const pio = getDrug("Pioglitazone");
     addRec(buildRec(pio, patient,
       `Pioglitazone: addresses insulin resistance. CV benefit (PROactive). Low dose may be better tolerated. ⚠ Avoid in HF.`,
       "add-on", "glycemic-control"));
