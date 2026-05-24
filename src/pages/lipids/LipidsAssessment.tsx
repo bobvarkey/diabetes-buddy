@@ -347,7 +347,7 @@ export default function LipidsAssessment({ onClassificationChange = () => {}, on
                 <CollapsibleContent className="space-y-1 border-x border-b border-border rounded-b-lg bg-card p-3">
                   {group.items.map(item => (
                     <label key={item.id} className={cn("flex cursor-pointer items-start gap-2.5 rounded-md px-3 py-2 transition-colors", checked[item.id] ? "bg-danger/5 ring-1 ring-danger/20" : "hover:bg-muted/50")}>
-                      <Checkbox checked={!!checked[item.id]} onCheckedChange={(checked) => setChecked(prev => ({ ...prev, [item.id]: checked ?? !prev[item.id] }))} className="mt-0.5" />
+                      <Checkbox checked={!!checked[item.id]} onCheckedChange={(c) => setChecked(prev => ({ ...prev, [item.id]: c === true }))} className="mt-0.5" />
                       <div>
                         <span className="text-sm text-foreground font-medium">{item.label}</span>
                         <p className="text-[11px] text-muted-foreground">{item.qualifier}</p>
