@@ -45,7 +45,7 @@ function SubChecklist({
               checked[item.id] ? "bg-warning/10 ring-1 ring-warning/15" : "hover:bg-muted/50"
             }`}
           >
-            <Checkbox checked={!!checked[item.id]} onCheckedChange={(checked) => { const prev = checked; setChecked(p => ({...p, [item.id]: !p[item.id]})); }} className="mt-0.5" />
+            <Checkbox checked={!!checked[item.id]} onCheckedChange={() => toggle(item.id)} className="mt-0.5" />
             <div className="flex-1 min-w-0">
               <span className="text-sm leading-snug text-foreground">{item.label}</span>
               {item.qualifier && (
