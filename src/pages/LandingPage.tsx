@@ -1,222 +1,197 @@
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { FileText, Pill, ArrowRight } from 'lucide-react';
+import { Heart, ArrowRight, FileText, Activity, Pill, Droplet, Stethoscope, BookOpen, ShieldCheck, Check } from 'lucide-react';
+import heroImage from '@/assets/landing-hero.jpg';
+
+const arsenal = [
+  { title: 'Insulin Titration', desc: 'Correction doses & basal rates aligned to ADA 2026.', icon: Activity, route: '/db/insulin-titration' },
+  { title: 'HbA1c Tracker', desc: 'Glycemic trend analysis with statistical summaries.', icon: Droplet, route: '/diabetes' },
+  { title: 'GLP-1 Dosing', desc: 'Semaglutide & tirzepatide escalation schedules.', icon: Pill, route: '/db/glp1-administration' },
+  { title: 'Medication Optimizer', desc: '100-point weighted scoring for next-best Rx.', icon: Stethoscope, route: '/db/medications' },
+  { title: 'CKD Guidelines', desc: 'NICE NG28 renal dose adjustment pathway.', icon: ShieldCheck, route: '/db/ckd-guideline' },
+  { title: 'Clinical Guides', desc: 'ADA 2026, AACE & LAI bedside references.', icon: BookOpen, route: '/db/daily-management' },
+];
 
 export default function LandingPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Header Badge */}
-      <header className="pt-5 pb-3 px-4">
-        <div className="flex justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs font-semibold tracking-wider">
-            DIABETES CARE
+    <div className="min-h-screen bg-[hsl(0_0%_99%)] text-slate-900 font-sans">
+      {/* HERO */}
+      <section className="px-6 pt-12 pb-16">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 text-rose-600 text-[11px] font-bold tracking-widest mb-8">
+            <Heart className="h-3.5 w-3.5 fill-rose-600 stroke-rose-600" />
+            CARDIOVASCULAR · METABOLIC CARE
           </div>
-        </div>
-      </header>
 
-      {/* Hero */}
-      <section className="px-4 pb-4">
-        <div className="max-w-md mx-auto">
-          <h1 className="text-4xl font-bold mb-3 text-center">
-            Diabetes Risk <span className="italic text-pink-500">Predictor</span>
+          {/* H1 */}
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
+            Diabetes Risk <span className="italic font-bold text-rose-600">Predictor</span>
           </h1>
-          
-          <p className="text-gray-400 text-sm mb-6 text-center leading-relaxed">
-            An intuitive, clinician-designed tool for diabetes care. Leverage evidence-based protocols to deliver guideline-concordant patient care.
+
+          <p className="text-slate-500 text-lg leading-relaxed max-w-xl mx-auto mb-10">
+            An intuitive, clinician-designed tool for cardiovascular &amp; metabolic risk stratification.
+            Leverage evidence-based protocols to deliver guideline-concordant patient care.
           </p>
 
-          {/* Horizontal Buttons */}
-          <div className="flex gap-3 mb-6">
-            <Button 
+          {/* CTAs */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <button
               onClick={() => navigate('/app')}
-              className="flex-1 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-5"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-sm font-semibold transition-colors shadow-sm"
             >
-              Get Started
-            </Button>
-            <Button 
-              variant="outline"
-              className="flex-1 border border-white/30 text-white hover:bg-white/10 py-5"
+              Get Started <ArrowRight className="h-4 w-4" />
+            </button>
+            <button
               onClick={() => navigate('/diabetes')}
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-800 text-sm font-semibold transition-colors"
             >
-              Clinic Tool
-            </Button>
+              Clinic ASCVD Analysis
+            </button>
           </div>
 
-          {/* Hero Image - Doctor with Monitors */}
-          <div className="relative rounded-2xl overflow-hidden mb-6 aspect-video bg-gradient-to-br from-pink-600/40 via-purple-500/30 to-rose-500/40 flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-7xl mb-2">👨‍⚕️</div>
-              <p className="text-sm text-gray-300 font-medium">Clinical Decision Support</p>
-            </div>
-            <div className="absolute top-1/3 left-1/4 w-24 h-24 rounded-full bg-pink-500/30 blur-2xl" />
-            <div className="absolute bottom-1/3 right-1/4 w-20 h-20 rounded-full bg-purple-500/30 blur-2xl" />
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Bars */}
-      <section className="py-6 border-y border-white/10">
-        <div className="max-w-md mx-auto px-4">
-          <div className="grid grid-cols-3 gap-3">
-            <div className="text-center">
-              <p className="text-2xl font-bold text-pink-400">180+</p>
-              <p className="text-xs text-gray-500">Medications</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold text-emerald-400">98.4%</p>
-              <p className="text-xs text-gray-500">Accuracy</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold text-cyan-400">ADA 2024</p>
-              <p className="text-xs text-gray-500">guidelines</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ★ COMPREHENSIVE PRESCRIPTION GENERATOR - TOP FEATURE ★ */}
-      <section className="py-6 px-4">
-        <div className="max-w-md mx-auto">
-          <h2 className="text-lg font-bold mb-4 ml-1">Comprehensive Prescription Generator</h2>
-          
-          {/* Featured Card - Top of list */}
-          <Card 
-            className="bg-gradient-to-r from-pink-500/20 to-purple-500/20 border-pink-500/40 cursor-pointer hover:from-pink-500/30 hover:to-purple-500/30 transition-all"
-            onClick={() => navigate('/summary')}
-          >
-            <CardContent className="p-5">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center">
-                  <FileText className="h-6 w-6 text-white" />
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-lg">Integrated Prescriptions</p>
-                  <p className="text-xs text-gray-400 mt-1">
-                    Generate comprehensive prescriptions for all four NCDs — Diabetes, Hypertension, Lipids, and Obesity. 
-                    Combined or condition-specific Rx with dosage, frequency, duration, and clinical notes.
-                  </p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <span className="text-xs bg-white/10 px-2 py-0.5 rounded">Diabetes</span>
-                    <span className="text-xs bg-white/10 px-2 py-0.5 rounded">HTN</span>
-                    <span className="text-xs bg-white/10 px-2 py-0.5 rounded">Lipids</span>
-                    <span className="text-xs bg-white/10 px-2 py-0.5 rounded">Obesity</span>
-                  </div>
-                </div>
-                <ArrowRight className="h-5 w-5 text-pink-400 mt-2" />
+          {/* Hero image with floating card */}
+          <div className="relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+            <img
+              src={heroImage}
+              alt="Clinician reviewing cardiovascular risk monitors"
+              width={1280}
+              height={800}
+              className="w-full h-auto block"
+            />
+            {/* Floating overlay card */}
+            <div className="absolute left-4 right-4 bottom-4 md:left-6 md:right-auto md:bottom-6 md:w-[340px] bg-white rounded-2xl shadow-lg p-3.5 flex items-center gap-3">
+              <div className="w-11 h-11 rounded-full bg-gradient-to-br from-rose-500 to-rose-600 flex items-center justify-center shrink-0">
+                <Heart className="h-5 w-5 text-white fill-white" />
               </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Diagnostic Arsenal */}
-      <section className="py-6 px-4 border-t border-white/10">
-        <div className="max-w-md mx-auto">
-          <h2 className="text-lg font-bold mb-4 ml-1">Diagnostic Arsenal</h2>
-          
-          <div className="grid gap-2.5">
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/diabetes')}>
-              <CardContent className="p-4 flex items-center justify-between">
-                <div>
-                  <p className="font-semibold">Insulin Titration</p>
-                  <p className="text-xs text-gray-500">Correction doses & basal rates</p>
-                </div>
-                <span className="text-gray-500">→</span>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/diabetes')}>
-              <CardContent className="p-4 flex items-center justify-between">
-                <div>
-                  <p className="font-semibold">HbA1c Tracker</p>
-                  <p className="text-xs text-gray-500">Glycemic trends</p>
-                </div>
-                <span className="text-gray-500">→</span>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/diabetes')}>
-              <CardContent className="p-4 flex items-center justify-between">
-                <div>
-                  <p className="font-semibold">GLP-1 Dosing</p>
-                  <p className="text-xs text-gray-500">Semaglutide, tirzepatide</p>
-                </div>
-                <span className="text-gray-500">→</span>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/db/medications')}>
-              <CardContent className="p-4 flex items-center justify-between">
-                <div>
-                  <p className="font-semibold">Medication Optimizer</p>
-                  <p className="text-xs text-gray-500">Drug selection</p>
-                </div>
-                <span className="text-gray-500">→</span>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/db/ckd-guideline')}>
-              <CardContent className="p-4 flex items-center justify-between">
-                <div>
-                  <p className="font-semibold">CKD Guidelines</p>
-                  <p className="text-xs text-gray-500">Renal dose adjustment</p>
-                </div>
-                <span className="text-gray-500">→</span>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer" onClick={() => navigate('/db/daily-management')}>
-              <CardContent className="p-4 flex items-center justify-between">
-                <div>
-                  <p className="font-semibold">Clinical Guides</p>
-                  <p className="text-xs text-gray-500">References</p>
-                </div>
-                <span className="text-gray-500">→</span>
-              </CardContent>
-            </Card>
+              <div className="text-left">
+                <p className="text-sm font-bold text-slate-900 leading-tight">10-Year ASCVD Risk</p>
+                <p className="text-xs text-slate-500 tracking-wide">PREVENT 2024 Equations</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Data Driven / CTA */}
-      <section className="py-6 px-4 border-t border-white/10">
-        <div className="max-w-md mx-auto text-center">
-          <h2 className="text-lg font-bold mb-3">Data-Driven Decision Support</h2>
-          <p className="text-gray-400 text-sm mb-5">
-            Precision medicine at your fingertips.
-          </p>
-          
-          <div className="grid grid-cols-2 gap-2 text-sm text-left mb-6">
-            <div className="bg-white/5 rounded-lg p-3 flex items-center gap-2">
-              <span className="text-pink-400">✓</span> LDL-C Targets
-            </div>
-            <div className="bg-white/5 rounded-lg p-3 flex items-center gap-2">
-              <span className="text-pink-400">✓</span> Non-HDL-C
-            </div>
-            <div className="bg-white/5 rounded-lg p-3 flex items-center gap-2">
-              <span className="text-pink-400">✓</span> ApoB
-            </div>
-            <div className="bg-white/5 rounded-lg p-3 flex items-center gap-2">
-              <span className="text-pink-400">✓</span> eGFR
-            </div>
+      {/* DIAGNOSTIC ARSENAL */}
+      <section className="px-6 py-16 border-t border-slate-200/70">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">Diagnostic Arsenal</h2>
+            <p className="text-slate-500 text-base">Integrated suite of tools for comprehensive cardiovascular &amp; metabolic risk management.</p>
           </div>
 
-          <Button 
-            onClick={() => navigate('/app')}
-            className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-5"
+          {/* Featured prescription card */}
+          <button
+            onClick={() => navigate('/summary')}
+            className="w-full text-left group bg-gradient-to-r from-rose-50 to-pink-50 border border-rose-100 hover:border-rose-200 rounded-2xl p-6 mb-4 flex items-center gap-5 transition-all"
           >
-            Start Assessment
-          </Button>
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center shrink-0 shadow-sm">
+              <FileText className="h-7 w-7 text-white" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-lg font-bold text-slate-900 mb-1">Comprehensive Prescription Generator</p>
+              <p className="text-sm text-slate-600">Combined Rx across Diabetes, HTN, Lipids &amp; Obesity — dosage, frequency, duration &amp; clinical notes.</p>
+            </div>
+            <ArrowRight className="h-5 w-5 text-rose-600 group-hover:translate-x-1 transition-transform shrink-0" />
+          </button>
+
+          {/* 2-col grid */}
+          <div className="grid sm:grid-cols-2 gap-4">
+            {arsenal.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.title}
+                  onClick={() => navigate(item.route)}
+                  className="group text-left bg-white border border-slate-200 hover:border-rose-200 hover:shadow-md rounded-2xl p-5 flex items-start gap-4 transition-all"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-base font-semibold text-slate-900 mb-1">{item.title}</p>
+                    <p className="text-sm text-slate-500 leading-snug">{item.desc}</p>
+                  </div>
+                  <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-rose-600 group-hover:translate-x-1 transition-all mt-1 shrink-0" />
+                </button>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* Footer Disclaimer */}
-      <footer className="py-5 px-4 text-center border-t border-white/10">
-        <p className="text-xs text-gray-600 mb-2">Based on ADA Standards of Care 2024 & AACE Guidelines</p>
-        <p className="text-xs text-gray-600">
+      {/* DATA-DRIVEN DECISION SUPPORT */}
+      <section className="px-6 py-16 border-t border-slate-200/70 bg-slate-50/50">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+              Data-Driven <mark className="bg-rose-100 text-rose-700 px-2 rounded">Decision Support</mark>
+            </h2>
+            <p className="text-slate-500 text-base mb-6 leading-relaxed">
+              Precision medicine at your fingertips. Validated algorithms combine PREVENT equations and dual-guideline
+              logic (ADA 2026 &amp; LAI 2023) for actionable risk profiles.
+            </p>
+            <ul className="space-y-2.5 mb-8">
+              {['Data-driven lipid risk estimates', 'Patient-friendly report generation', 'Race-free CKD-EPI 2021 eGFR', 'Renal dose adjustments for 20+ meds'].map((t) => (
+                <li key={t} className="flex items-center gap-3 text-sm text-slate-700">
+                  <span className="w-5 h-5 rounded-full bg-rose-600 flex items-center justify-center shrink-0">
+                    <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                  </span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={() => navigate('/app')}
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-sm font-semibold transition-colors"
+            >
+              Start Assessment <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+            <p className="text-6xl font-bold text-rose-600 mb-1 tracking-tight">98.4%</p>
+            <p className="text-sm font-semibold text-slate-900 mb-6">Guideline Accuracy</p>
+            <div className="flex flex-wrap gap-2 mb-6">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold">
+                <ShieldCheck className="h-3.5 w-3.5" /> HIPAA Compliant
+              </span>
+              <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">ADA 2026</span>
+              <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">LAI 2023</span>
+              <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">NICE NG28</span>
+            </div>
+            <div className="pt-6 border-t border-slate-100 grid grid-cols-3 gap-3 text-center">
+              <div>
+                <p className="text-xl font-bold text-slate-900">180+</p>
+                <p className="text-[11px] text-slate-500 uppercase tracking-wide">Medications</p>
+              </div>
+              <div>
+                <p className="text-xl font-bold text-slate-900">21</p>
+                <p className="text-[11px] text-slate-500 uppercase tracking-wide">Risk Factors</p>
+              </div>
+              <div>
+                <p className="text-xl font-bold text-slate-900">7-day</p>
+                <p className="text-[11px] text-slate-500 uppercase tracking-wide">Diet Plan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="px-6 py-10 border-t border-slate-200/70 text-center">
+        <p className="text-xs font-semibold text-slate-700 mb-2">
+          <span className="inline-flex items-center gap-1.5">
+            <Heart className="h-3 w-3 fill-rose-600 stroke-rose-600" />
+            Comprehensive Diagnostics
+          </span>
+          <span className="mx-2 text-slate-300">·</span>
+          LDL-C · Non-HDL-C · ApoB · Lp(a) · PREVENT Score
+        </p>
+        <p className="text-xs text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          Based on ADA 2026 Standards of Care, LAI 2023 Consensus Statement IV, and NICE NG28.
           For educational and clinical decision support use only. Always consult current guidelines and clinical judgment.
         </p>
       </footer>
