@@ -1,15 +1,20 @@
 import { useState, useMemo } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button"
+import { Select } from "@/components/ui/select";
+import { Input } from "@/components/ui/input"
+import { Select } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox"
+import { Select } from "@/components/ui/select";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { ClipboardCopy, ArrowLeft, AlertTriangle, Heart, ChevronDown, User, TestTube, FileText, TrendingUp, ShieldQuestion } from "lucide-react";
-import { SectionCard } from "@/components/ui/section-card";
-import { RiskFactorChip } from "@/components/ui/risk-factor-chip";
+import { SectionCard } from "@/components/ui/section-card"
+import { Select } from "@/components/ui/select";
+import { RiskFactorChip } from "@/components/ui/risk-factor-chip"
+import { Select } from "@/components/ui/select";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import {
@@ -318,7 +323,13 @@ export default function AscvdEmr() {
             </div>
             <div>
               <label className="mb-1 block text-xs font-semibold text-muted-foreground">Sex</label>
-              <Input value={patient.sex} onChange={(e) => setPatient({ ...patient, sex: e.target.value })} />
+              <Select value={patient.sex} onValueChange={(v) => setPatient({ ...patient, sex: v })}>
+                <SelectTrigger><SelectValue placeholder="Select sex" /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="male">Male</SelectItem>
+                  <SelectItem value="female">Female</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
         </SectionCard>
