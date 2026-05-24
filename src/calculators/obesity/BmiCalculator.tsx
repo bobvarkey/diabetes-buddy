@@ -66,8 +66,8 @@ export default function BmiCalculator() {
     formState: { errors },
   } = useForm<BmiFormData>({
     resolver: zodResolver(bmiSchema),
-    defaultValues: {
-      ethnicity: "standard",
+    defaultValues: { ethnicity: "indian",
+      ethnicity: "indian",
     },
   });
 
@@ -103,7 +103,7 @@ export default function BmiCalculator() {
     <div className="min-h-screen bg-background">
       {/* Sticky Header */}
       <div className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-        <div className="mx-auto max-w-2xl px-4">
+        <div className="mx-auto max-w-md sm:max-w-2xl px-3 sm:px-4">
           <div className="flex items-center gap-3 py-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 shadow-md">
               <Scale className="h-5 w-5 text-white" />
@@ -144,7 +144,7 @@ export default function BmiCalculator() {
         </div>
       </div>
 
-      <main className="mx-auto max-w-2xl px-4 py-6 space-y-6">
+      <main className="mx-auto max-w-md sm:max-w-2xl px-3 sm:px-4 py-6 space-y-6">
         {activeTab === "calculator" && (
           <>
             <Card className="clinical-card border-primary/20">
@@ -166,10 +166,10 @@ export default function BmiCalculator() {
                       }}
                       {...register("ethnicity")}
                     >
-                      <SelectTrigger id="ethnicity" className="bg-slate-900 border-slate-700">
+                      <SelectTrigger id="ethnicity" className="bg-slate-800 border-primary w-full h-12 text-base">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent className="bg-slate-900 border-slate-700">
+                      <SelectContent className="bg-slate-800 border-primary w-full h-12 text-base">
                         {ETHNICITY_GUIDELINES.map((guideline) => (
                           <SelectItem
                             key={guideline.id}
@@ -193,7 +193,7 @@ export default function BmiCalculator() {
                       id="height"
                       type="number"
                       placeholder="e.g., 170"
-                      className="bg-slate-900 border-slate-700"
+                      className="bg-slate-800 border-primary w-full h-12 text-base"
                       {...register("height", { valueAsNumber: true })}
                     />
                     {errors.height && (
@@ -208,7 +208,7 @@ export default function BmiCalculator() {
                       id="weight"
                       type="number"
                       placeholder="e.g., 70"
-                      className="bg-slate-900 border-slate-700"
+                      className="bg-slate-800 border-primary w-full h-12 text-base"
                       {...register("weight", { valueAsNumber: true })}
                     />
                     {errors.weight && (
