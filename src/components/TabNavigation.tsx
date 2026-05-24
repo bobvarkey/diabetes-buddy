@@ -17,7 +17,7 @@ const clinicalTabs = [
   { path: "/diabetes", label: "💉 Diabetes", icon: "💉", color: "red-500" },
   { path: "/hypertension", label: "❤️ HTN", icon: "❤️", color: "orange-500" },
   { path: "/lipids", label: "💧 Lipids", icon: "💧", color: "blue-500" },
-  { path: "/respiratory", label: "🫁 COPD", icon: "🫁", color: "cyan-500" },
+  { path: "/respiratory", label: "🫁 COPD/Asthma", icon: "🫁", color: "cyan-500" },
   { path: "/renal", label: "🫘 Renal", icon: "🫘", color: "amber-500" },
 ];
 
