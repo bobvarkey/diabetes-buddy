@@ -213,6 +213,13 @@ export default function LipidsAssessment({ onClassificationChange = () => {}, on
   const b = parseFloat(bmi) || 0;
   const e = parseFloat(egfr) || 0;
 
+  const polyIndicator = isPolyVascular ? (
+    <div className="mb-3 p-2 bg-purple-100 border border-purple-300 rounded-lg">
+      <span className="font-bold text-purple-700">🔬 Polyvascular Disease</span>
+      <p className="text-xs text-purple-600">Multiple vascular beds - higher risk category</p>
+    </div>
+  ) : null;
+
   const classification = useMemo(() => classifyLAI(checked, a, l), [checked, a, l]);
   const key = classification.cat + (classification.sub ? "-" + classification.sub : "");
   const details = BUCKET_DETAILS[key] || BUCKET_DETAILS["LOW"];
