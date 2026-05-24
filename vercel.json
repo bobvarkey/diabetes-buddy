@@ -1,0 +1,1 @@
+{"name":"ncd-combined","buildCommand":"npm run build","publicDir":"dist"}
