@@ -258,11 +258,11 @@ export default function RespiratoryTab() {
             <SectionCard title="Exacerbation Warning Signs" icon={<AlertTriangle className="h-4 w-4" />} tone="danger" collapsible={false}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {EXACERBATION_SIGNS.map((item) => (
-                  <div key={item.sign} className="flex items-start gap-3 p-3 rounded-lg bg-red-50/50 border border-red-200/30">
-                    <AlertTriangle className="h-4 w-4 text-red-500 shrink-0 mt-0.5" />
+                  <div key={item.sign} className="flex items-start gap-3 p-3 rounded-lg bg-slate-100 border border-slate-200">
+                    <AlertTriangle className="h-5 w-5 text-red-600 shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-medium text-foreground text-sm">{item.sign}</span>
-                      <p className="text-xs text-red-600 mt-1">{item.action}</p>
+                      <span className="font-semibold text-slate-900 text-sm">{item.sign}</span>
+                      <p className="text-xs font-medium text-red-800 mt-1">{item.action}</p>
                     </div>
                   </div>
                 ))}
