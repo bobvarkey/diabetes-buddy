@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Select, Button } from "@/components/ui/button";
 import { Calculator, RotateCcw, ArrowLeftRight } from "lucide-react";
 
 type CreatinineUnit = "mgdl" | "umol";
