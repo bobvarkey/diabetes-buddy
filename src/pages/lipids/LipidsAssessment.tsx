@@ -324,7 +324,30 @@ export default function LipidsAssessment({ onClassificationChange = () => {}, on
       </SectionCard>
 
       {/* ─── LAI 2023 Risk Modifiers ─── */}
-      <SectionCard title="LAI 2023 Risk Modifiers" icon={<AlertTriangle className="h-4 w-4" />} tone="danger" collapsible={false}>
+      <SectionCard title="LAI 2023 Risk Modifiers" icon={<AlertTriangle className="h-4 w-4" />} tone="danger" collapsible={true}>
+        {/* Diagnostic Criteria - Women-Specific */}
+        <Collapsible defaultOpen={false}>
+          <CollapsibleTrigger asChild>
+            <button className="flex w-full items-center justify-between rounded-lg border border-border bg-muted/30 px-3 py-2 mb-2 hover:bg-muted/50">
+              <span className="text-xs font-semibold">Diagnostic Criteria (Women)</span>
+              <ChevronDown className="h-4 w-4" />
+            </button>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="space-y-2 p-2 border rounded-lg bg-muted/20">
+            <label className="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-white/50">
+              <Checkbox checked={!!checked['enh_pmos']} onCheckedChange={() => toggle('enh_pmos')} className="mt-0.5" />
+              <div><span className="text-sm font-medium">Premature menopause / PMOS</span><p className="text-xs text-muted-foreground">Menopause before age 40</p></div>
+            </label>
+            <label className="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-white/50">
+              <Checkbox checked={!!checked['enh_preeclampsia']} onCheckedChange={() => toggle('enh_preeclampsia')} className="mt-0.5" />
+              <div><span className="text-sm font-medium">Pre-eclampsia</span><p className="text-xs text-muted-foreground">History of pregnancy hypertension</p></div>
+            </label>
+            <label className="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-white/50">
+              <Checkbox checked={!!checked['enh_gestational']} onCheckedChange={() => toggle('enh_gestational')} className="mt-0.5" />
+              <div><span className="text-sm font-medium">Gestational diabetes</span><p className="text-xs text-muted-foreground">Pregnancy-induced glucose intolerance</p></div>
+            </label>
+          </CollapsibleContent>
+        </Collapsible>
         <p className="text-xs text-muted-foreground mb-3">
           Select applicable modifiers. The system classifies per LAI 2023 into EHR/VHR/HR/MOD/LOW with A/B/C subcategories.
           Toggle modifiers and see the classification update live.
