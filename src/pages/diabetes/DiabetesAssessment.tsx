@@ -240,6 +240,7 @@ const InsulinDosingCalculator = () => {
   const [isInsulinNaive, setIsInsulinNaive] = useState(true);
   const [hasCkd, setHasCkd] = useState(false);
   const [isElderly, setIsElderly] = useState(false);
+  const [insulinType, setInsulinType] = useState<string>("basal");
 
   const calculations = useMemo(() => {
     const wt = parseFloat(weight);
@@ -325,6 +326,16 @@ const InsulinDosingCalculator = () => {
             <span className="text-sm"><AbbreviationHover term="CKD">CKD</AbbreviationHover> (<AbbreviationHover term="eGFR">eGFR</AbbreviationHover> &lt; 60)</span>
             <Switch checked={hasCkd} onCheckedChange={setHasCkd} />
           </label>
+          <div className="mb-3">
+            <Label className="text-xs text-muted-foreground mb-1.5 block">Insulin Type</Label>
+            <Select value={insulinType} onValueChange={setInsulinType}>
+              <SelectTrigger><SelectValue placeholder="Select type" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="basal">Basal (Long-acting)</SelectItem>
+                <SelectItem value="bolus">Meal Bolus (Rapid-acting)</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
           <label className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-muted/20">
             <span className="text-sm">Age {'>'} 65 years</span>
             <Switch checked={isElderly} onCheckedChange={setIsElderly} />
