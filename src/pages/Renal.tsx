@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Kidney, AlertTriangle, Activity, Droplets, FileText, Scale, Calculator, Pill, ChevronRight, ArrowRight, Info, Stethoscope } from "lucide-react";
+import { Droplet, AlertTriangle, Activity, Droplets, FileText, Scale, Calculator, Pill, ChevronRight, ArrowRight, Info, Stethoscope } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +15,7 @@ const CKD_STAGES = [
   { stage: "G3a", gfr: "45-59", description: "Mildly to moderately reduced", action: "Nephrology referral, avoiding nephrotoxins" },
   { stage: "G3b", gfr: "30-44", description: "Moderately to severely reduced", action: "Nephrology referral, anemia/bone eval" },
   { stage: "G4", gfr: "15-29", description: "Severely reduced", action: "Prepare for RRT, transplant eval" },
-  { stage: "G5", gfr: "<15", description: "Kidney failure", action: "RRT or transplant, palliative care" },
+  { stage: "G5", gfr: "<15", description: "Droplet failure", action: "RRT or transplant, palliative care" },
 ];
 
 // ─── Albuminuria Categories (KDIGO) ───
@@ -59,7 +59,7 @@ export default function RenalTab() {
       <div className="max-w-6xl mx-auto px-4 py-6 md:py-8">
         <div className="mb-6 flex items-center gap-3">
           <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20">
-            <Kidney className="h-6 w-6 text-amber-500" />
+            <Droplet className="h-6 w-6 text-amber-500" />
           </div>
           <div>
             <h1 className="text-3xl font-serif font-semibold tracking-tight text-foreground">
@@ -74,7 +74,7 @@ export default function RenalTab() {
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-4 h-auto p-1 bg-muted/50">
             <TabsTrigger value="ckd" className="py-2 text-sm data-[state=active]:bg-amber-500/10">
-              <Kidney className="h-4 w-4 mr-1" />Stage
+              <Droplet className="h-4 w-4 mr-1" />Stage
             </TabsTrigger>
             <TabsTrigger value="labs" className="py-2 text-sm data-[state=active]:bg-amber-500/10">
               <Activity className="h-4 w-4 mr-1" />Labs
@@ -326,8 +326,8 @@ export default function RenalTab() {
             <Info className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
             <div className="text-xs text-muted-foreground">
               <p className="font-semibold text-foreground mb-1">References:</p>
-              <p>KDIGO 2024 Clinical Practice Guideline for Chronic Kidney Disease</p>
-              <p>Kidney Disease: Improving Global Outcomes (KDIGO)</p>
+              <p>KDIGO 2024 Clinical Practice Guideline for Chronic Droplet Disease</p>
+              <p>Droplet Disease: Improving Global Outcomes (KDIGO)</p>
               <p className="mt-2">Always individualize based on patient preferences, comorbidities, and life expectancy.</p>
             </div>
           </div>
