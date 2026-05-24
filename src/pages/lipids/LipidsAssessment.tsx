@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { SectionCard } from "@/components/ui/section-card";
 import { toast } from "sonner";
+import { PageSummaryBar } from "@/components/SummaryWithCopy";
 import { cn } from "@/lib/utils";
 import { calculatePrevent, type PreventResult } from "@/lib/prevent";
 import type { LAIResult } from "./LipidsTab";
