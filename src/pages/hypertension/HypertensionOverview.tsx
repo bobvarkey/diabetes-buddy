@@ -437,8 +437,24 @@ export default function HypertensionOverview() {
               <li>• Cushing's: Screen if central obesity, purple striae, proximal myopathy</li>
             </ul>
           </div>
+
+          <Separator className="my-4" />
+
+          {/* Secondary HTN Evaluation Images */}
+          <Collapsible>
+            <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-lg bg-pink-500/10 border border-pink-500/20 hover:bg-pink-500/20 transition-colors">
+              <span className="font-medium text-pink-700">🩺 Secondary HTN Evaluation</span>
+              <ChevronDown className="h-4 w-4 text-pink-700" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-2 space-y-3">
+              <img src="/assets/secondary-htn-chamelle.jpg" alt="CHAMELLE Causes" className="w-full rounded-lg" />
+              <img src="/assets/secondary-htn-evaluation.jpg" alt="Evaluation Flowchart" className="w-full rounded-lg" />
+              <img src="/assets/secondary-htn-workup.jpg" alt="Workup" className="w-full rounded-lg" />
+              <img src="/assets/secondary-htn-classification.jpg" alt="Classification" className="w-full rounded-lg" />
+            </CollapsibleContent>
+          </Collapsible>
+
         </CardContent>
       </Card>
     </div>
-  );
-}
+  );}
