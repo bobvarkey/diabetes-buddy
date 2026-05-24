@@ -66,7 +66,7 @@ export default function BmiCalculator() {
     formState: { errors },
   } = useForm<BmiFormData>({
     resolver: zodResolver(bmiSchema),
-    defaultValues: {
+    defaultValues: { ethnicity: "indian",
       ethnicity: "indian",
     },
   });
