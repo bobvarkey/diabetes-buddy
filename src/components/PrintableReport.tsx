@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Printer, FileText } from "lucide-react";
-import type { GfrResult } from "./GfrCalculator";
-import type { DrugSelectionData, Severity } from "./DrugInteractionChecker";
+import type { GfrResult } from "@/calculators/htn/GfrCalculator";
+import type { DrugSelectionData, Severity } from "@/calculators/htn/DrugInteractionChecker";
 
 interface PrintableReportProps {
   gfrResult: GfrResult | null;
