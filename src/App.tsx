@@ -170,8 +170,8 @@ const App = () => (
           <Route path="/sliding-scale" element={<><TabNavigation /><SlidingScaleInsulinCalc /></>} />
           <Route path="/hypo-risk" element={<><TabNavigation /><HypoRiskCalculatorCalc /></>} />
           <Route path="/renal-dosing" element={<><TabNavigation /><RenalDoseAdjustmentCalc /></>} />
-          <Route path="/respiratory/simple" element={<><ModeNavSimple /><RespiratorySimple /></>} />
-          <Route path="/respiratory/moderate" element={<><ModeNavSimple /><RespiratoryModerate /></>} />
+          <Route path="/respiratory/simple" element={<RespiratorySimple />} />
+          <Route path="/respiratory/moderate" element={<RespiratoryModerate />} />
           <Route path="/respiratory" element={<><TabNavigation /><RespiratoryPage /></>} />
           <Route path="/diabetes/medication-algorithm" element={<><TabNavigation /><DiabetesMedicationAlgorithmCalc /></>} />
           <Route path="/lipid-panel" element={<><TabNavigation /><LipidPanelCalc /></>} />
