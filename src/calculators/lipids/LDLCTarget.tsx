@@ -103,7 +103,7 @@ export default function LDLCTargetCalculator() {
   const [activeTab, setActiveTab] = useState("calculator");
 
   // Count risk factors
-  const riskFactorsCount = [hasSmoker, hasHTN, hasFamilyHistory, hasCKD].filter(Boolean).length;
+  const riskFactorsCount = [isSmoker, hasHTN, hasFamilyHistory, hasCKD].filter(Boolean).length;
   const hasHighRisk = hasASCVD || hasCKD || (hasDiabetes && riskFactorsCount >= 1);
 
   // Determine category
