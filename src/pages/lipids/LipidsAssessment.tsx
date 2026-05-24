@@ -85,7 +85,7 @@ const MODIFIER_GROUPS = [
       { id: "enh_lpa_minor", label: "Lp(a) 20-49 mg/dL", qualifier: "Minor elevation" },
       { id: "enh_autoimmune", label: "RA / Psoriasis / Spondyloarthropathy", qualifier: "Chronic inflammatory condition" },
       { id: "enh_hiv", label: "HIV infection", qualifier: "Viral inflammatory risk" },
-      { id: "enh_pcos", label: "Premature menopause / PCOS / Pre-eclampsia", qualifier: "Women-specific" },
+      { id: "enh_pmos", label: "Premature menopause / PMOS / Pre-eclampsia", qualifier: "Women-specific" },
       { id: "enh_ckd", label: "CKD Stage 3-5 (non-dialysis)", qualifier: "eGFR 15-59 mL/min" },
       { id: "enh_metabolic", label: "Metabolic Syndrome", qualifier: "3+ ATP III criteria" },
       { id: "enh_family", label: "Family history of hypercholesterolemia", qualifier: "LDL-C >190 mg/dL in 1st-degree" },
@@ -107,7 +107,7 @@ function classifyLAI(
   const hasFH = h("fh_clinical") || h("fh_genetic") || h("fh_xanthoma");
 
   const hrfCount = ["hrf_lpa", "hrf_apob", "hrf_mets", "hrf_cac", "hrf_nafld", "hrf_extreme"].filter(k => h(k)).length;
-  const enhCount = ["enh_fhx", "enh_hscrp", "enh_lpa_minor", "enh_autoimmune", "enh_hiv", "enh_pcos"].filter(k => h(k)).length;
+  const enhCount = ["enh_fhx", "enh_hscrp", "enh_lpa_minor", "enh_autoimmune", "enh_hiv", "enh_pmos"].filter(k => h(k)).length;
 
   if (hasASCVD) {
     if (hrfCount >= 2) return { cat: "EHR", sub: "C", label: "Extreme High Risk C" };
