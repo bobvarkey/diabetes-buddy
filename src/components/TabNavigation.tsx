@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Home, Heart, Syringe, Dna, Activity, Wind, Menu, X, Zap, Brain } from "lucide-react";
 import { useState } from "react";
+import { Search, Search as SearchIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Combined navigation: Easy & Complex modes appear alongside Home
@@ -23,7 +24,9 @@ const clinicalTabs = [
 
 export function TabNavigation() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const currentPath = location.pathname;
   const activeSection = currentPath.split("/")[1] || "home";
 
