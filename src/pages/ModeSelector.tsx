@@ -58,11 +58,12 @@ export default function ModeSelector() {
         </div>
 
         {/* Hero: Decision Support */}
-        <Card className="bg-slate-900 border-slate-700 mt-6">
+        <Card className="mt-6 relative overflow-hidden" style={{ backgroundImage: "url(/assets/doctor-main.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}>
+          <div className="absolute inset-0 bg-slate-900/80" />
           <CardContent className="p-5">
             <h1 className="text-2xl font-bold">
               <span className="text-white">Data-Driven </span>
-              <span className="text-blue-500">Decision Support</span>
+              <span className="text-blue-300">Decision Support</span>
             </h1>
             <p className="text-sm text-slate-400 mt-2 mb-4">
               Powered by PREVENT equations, ACC/AHA 2026 & LAI 2023 guidelines
