@@ -18,7 +18,7 @@ const clinicalTabs = [
   { path: "/hypertension", label: "❤️ HTN", icon: "❤️", color: "orange-500" },
   { path: "/lipids", label: "💧 Lipids", icon: "💧", color: "blue-500" },
   { path: "/respiratory", label: "🫁 COPD/Asthma", icon: "🫁", color: "cyan-500" },
-  { path: "/renal", label: "🫘 Renal", icon: "🫘", color: "amber-500" },
+  { path: "/renal-dosing", label: "🫘 Renal", icon: "🫘", color: "amber-500" },
 ];
 
 export function TabNavigation() {
