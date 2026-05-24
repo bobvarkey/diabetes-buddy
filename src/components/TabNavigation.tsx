@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Home, Heart, Syringe, Dna, Activity, Wind, Menu, X, Zap, Brain } from "lucide-react";
+import { ArrowLeft, Home, Heart, Syringe, Dna, Activity, Wind, Menu, X, Zap, Brain } from "lucide-react";
 import { useState } from "react";
 import { Search, Search as SearchIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -45,6 +45,17 @@ export function TabNavigation() {
       >
         <Menu className="h-5 w-5" />
       </button>
+      
+      {/* Back Button */}
+      {currentPath !== "/home" && (
+        <button 
+          onClick={() => navigate(-1)}
+          className="fixed top-3 left-16 z-50 p-2 rounded-lg bg-card border border-border lg:hidden hover:bg-slate-100"
+          title="Go back"
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </button>
+      )}
       
       {/* Search Button - navigates to sections */}
       <button 
