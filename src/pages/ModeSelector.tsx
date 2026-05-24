@@ -1,13 +1,16 @@
+
 import { useNavigate } from "react-router-dom";
-import { Heart, Activity, Calculator, Shield, BookOpen, ChevronLeft, Menu, HelpCircle, Check, ArrowRight, ShieldCheck } from "lucide-react";
+import { Heart, Activity, Calculator, Shield, BookOpen, ChevronLeft, Menu, HelpCircle, Check, ArrowRight, ShieldCheck, Wind, Droplets } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { label: "Lipid Risk Calculator", desc: "AHA PREVENT 2024 equations", icon: Heart, color: "bg-pink-500", iconBg: "bg-pink-100", iconColor: "text-pink-600" },
+  { label: "Lipid Risk Calculator", desc: "AHA PREVENT 2024", icon: Heart, color: "bg-pink-500", iconBg: "bg-pink-100", iconColor: "text-pink-600" },
   { label: "ASCVD Assessment", desc: "10-year risk scoring", icon: Activity, color: "bg-blue-500", iconBg: "bg-blue-100", iconColor: "text-blue-600" },
+  { label: "COPD/Asthma", desc: "GOLD 2025 & GINA", icon: Wind, color: "bg-cyan-500", iconBg: "bg-cyan-100", iconColor: "text-cyan-600" },
+  { label: "Kidney Disease", desc: "KDIGO 2024", icon: Droplets, color: "bg-amber-500", iconBg: "bg-amber-100", iconColor: "text-amber-600" },
   { label: "Prevention Guidelines", desc: "Latest recommendations", icon: Shield, color: "bg-green-500", iconBg: "bg-green-100", iconColor: "text-green-600" },
-  { label: "Education", desc: "Clinical learning", icon: BookOpen, color: "bg-orange-500", iconBg: "bg-orange-100", iconColor: "text-orange-600" },
+  { label: "Clinical Education", desc: "Evidence-based", icon: BookOpen, color: "bg-orange-500", iconBg: "bg-orange-100", iconColor: "text-orange-600" },
 ];
 
 const labs = [
@@ -56,10 +59,10 @@ export default function ModeSelector() {
           NCD <span className="italic text-red-600 font-light">Risk</span> Predictor
         </h1>
         <p className="text-sm text-slate-500 mb-6">
-          Precision cardiovascular risk management
+          Precision cardiovascular & chronic disease management
         </p>
 
-        {/* Feature Grid 2x2 */}
+        {/* 2x3 Feature Grid */}
         <div className="grid grid-cols-2 gap-3 mb-8">
           {features.map((f) => (
             <Card 
@@ -79,18 +82,18 @@ export default function ModeSelector() {
           ))}
         </div>
 
-        {/* Decision Support Section */}
+        {/* Decision Support */}
         <Card className="mb-4 border-slate-100">
           <CardContent className="p-4">
             <h2 className="font-bold mb-2">Data-Driven <span className="text-blue-600">Decision Support</span></h2>
             <p className="text-sm text-slate-500 mb-4">
-              Powered by PREVENT equations, ACC/AHA 2026 & LAI 2023 guidelines
+              PREVENT, KDIGO 2024, GOLD 2025 & LAI 2023 guidelines
             </p>
             
             <div className="space-y-2 mb-4">
               <div className="flex items-center gap-2 text-sm">
                 <Check className="h-4 w-4 text-green-500" />
-                <span>Real-time risk calculation</span>
+                <span>6 clinical areas covered</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Check className="h-4 w-4 text-green-500" />
@@ -107,7 +110,7 @@ export default function ModeSelector() {
           </CardContent>
         </Card>
 
-        {/* Stats Cards */}
+        {/* Stats */}
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div className="bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl p-4 text-white">
             <p className="text-3xl font-bold">98.4%</p>
@@ -119,7 +122,7 @@ export default function ModeSelector() {
           </div>
         </div>
 
-        {/* Lab Values Card */}
+        {/* Labs */}
         <Card className="mb-4 border-slate-100 bg-purple-50 border-purple-100">
           <CardContent className="p-4">
             <h3 className="font-semibold mb-3">Comprehensive Diagnostics</h3>
@@ -140,13 +143,11 @@ export default function ModeSelector() {
           <div className="w-2 h-1 bg-slate-300 rounded-full" />
         </div>
 
-        {/* URL Footer */}
         <p className="text-center text-xs text-slate-400 mt-4 font-mono">
           ncd-risk.app
         </p>
       </main>
 
-      {/* Floating Help Button */}
       <div className="fixed bottom-6 right-6 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg">
         <HelpCircle className="h-6 w-6 text-white" />
       </div>
