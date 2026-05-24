@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Heart, Activity, Calculator, Shield, BookOpen, ChevronLeft, Menu, HelpCircle, Check, ArrowRight, ShieldCheck, Wind, Droplets } from "lucide-react";
+import { Heart, Activity, Calculator, Shield, BookOpen, ChevronLeft, Menu, HelpCircle, ArrowRight, Wind, Droplets } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -16,10 +16,10 @@ export default function ModeSelector() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900">
       {/* Status Bar */}
-      <div className="flex items-center justify-between px-4 py-2 bg-white text-xs text-slate-500">
-        <span>11:31</span>
+      <div className="flex items-center justify-between px-4 py-2 bg-white text-xs text-slate-600">
+        <span className="font-medium">11:31</span>
         <div className="flex items-center gap-2">
           <span>5G</span>
           <span>55%</span>
@@ -27,31 +27,29 @@ export default function ModeSelector() {
       </div>
 
       {/* Header */}
-      <header className="flex items-center justify-between px-4 py-3 bg-white border-b border-slate-100">
-        <div className="flex items-center gap-2">
-          <ChevronLeft className="h-5 w-5 text-slate-400" />
-        </div>
-        <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-1.5 rounded-lg">
+      <header className="flex items-center justify-between px-4 py-3 bg-white border-b border-slate-200">
+        <ChevronLeft className="h-5 w-5 text-slate-700" />
+        <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-1.5 rounded-lg">
           Edit
         </Button>
-        <Menu className="h-5 w-5 text-slate-400" />
+        <Menu className="h-5 w-5 text-slate-700" />
       </header>
 
       <main className="max-w-md mx-auto pb-24">
         {/* Badge */}
         <div className="px-4 pt-6">
-          <span className="inline-flex items-center gap-1 px-3 py-1 bg-pink-100 text-pink-600 text-xs font-semibold rounded-full">
+          <span className="inline-flex items-center gap-1 px-3 py-1 bg-pink-100 text-pink-700 text-xs font-semibold rounded-full">
             <Heart className="h-3 w-3" />
-            CARDIOVASCULAR RISK
+            <span className="tracking-wide">CARDIOVASCULAR RISK</span>
           </span>
         </div>
 
         {/* Title & Description */}
-        <div className="px-4 py-4 text-center">
-          <h1 className="text-3xl font-bold">
+        <div className="px-4 py-5 text-center">
+          <h1 className="text-[32px] font-bold tracking-tight text-slate-900">
             Lipid <span className="italic text-pink-600 font-light">Risk</span> Predictor
           </h1>
-          <p className="text-sm text-slate-500 mt-2">
+          <p className="text-base text-slate-600 mt-2 max-w-xs mx-auto">
             Precision cardiovascular risk assessment using AHA PREVENT 2024 equations
           </p>
         </div>
@@ -59,26 +57,26 @@ export default function ModeSelector() {
         {/* CTAs - side by side */}
         <div className="flex gap-3 px-4">
           <Button 
-            className="flex-1 bg-pink-600 hover:bg-pink-700 text-white rounded-full py-2.5"
+            className="flex-1 bg-pink-600 hover:bg-pink-700 text-white font-semibold rounded-full py-3"
             onClick={() => navigate("/complex")}
           >
             Get Started <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <Button 
             variant="outline"
-            className="flex-1 border-slate-200 text-slate-600 rounded-full py-2.5"
+            className="flex-1 border-2 border-slate-200 text-slate-700 font-medium rounded-full py-3 hover:bg-slate-50"
             onClick={() => navigate("/complex")}
           >
             Clinic ASCVD
           </Button>
         </div>
 
-        {/* Hero Image Area - mimicking the doctor with monitors */}
+        {/* Hero Image Area */}
         <div className="mx-4 mt-6 relative">
           <div className="w-full h-64 rounded-2xl overflow-hidden bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center">
             <div className="text-white text-center">
-              <Activity className="h-16 w-16 mx-auto mb-2 opacity-80" />
-              <p className="text-lg font-medium">Clinical Assessment</p>
+              <Activity className="h-16 w-16 mx-auto mb-2 opacity-90" />
+              <p className="text-lg font-semibold">Clinical Assessment</p>
             </div>
           </div>
           
@@ -89,30 +87,30 @@ export default function ModeSelector() {
             </div>
             <div>
               <p className="text-xs text-slate-500">10-Year ASCVD Risk</p>
-              <p className="text-xs font-medium">PREVENT 2024</p>
+              <p className="text-xs font-semibold text-slate-800">PREVENT 2024</p>
             </div>
           </div>
         </div>
 
         {/* Diagnostic Arsenal Section */}
         <div className="px-4 mt-8">
-          <h2 className="text-lg font-semibold mb-1">Diagnostic Arsenal</h2>
-          <p className="text-sm text-slate-500 mb-4">Choose a clinical area to begin</p>
+          <h2 className="text-xl font-bold text-slate-900 mb-1">Diagnostic Arsenal</h2>
+          <p className="text-base text-slate-600 mb-4">Choose a clinical area to begin</p>
 
           {/* Features Grid - 2 columns */}
           <div className="grid grid-cols-2 gap-3">
             {features.map((f) => (
               <Card 
                 key={f.label}
-                className="cursor-pointer hover:shadow-md transition-all border-slate-100"
+                className="cursor-pointer hover:shadow-md transition-all border-slate-200"
                 onClick={() => navigate("/complex")}
               >
                 <CardContent className="p-4">
                   <div className={`w-10 h-10 ${f.iconBg} rounded-lg flex items-center justify-center mb-3`}>
                     <f.icon className={`h-5 w-5 ${f.iconColor}`} />
                   </div>
-                  <h3 className="font-semibold text-sm mb-0.5">{f.label}</h3>
-                  <p className="text-xs text-slate-400">{f.desc}</p>
+                  <h3 className="font-semibold text-slate-900 text-sm mb-0.5">{f.label}</h3>
+                  <p className="text-xs text-slate-500">{f.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -121,13 +119,13 @@ export default function ModeSelector() {
 
         {/* Page Indicator */}
         <div className="flex justify-center gap-2 mt-8">
-          <div className="w-6 h-1 bg-slate-800 rounded-full" />
-          <div className="w-2 h-1 bg-slate-300 rounded-full" />
-          <div className="w-2 h-1 bg-slate-300 rounded-full" />
+          <div className="w-6 h-1.5 bg-slate-900 rounded-full" />
+          <div className="w-2 h-1.5 bg-slate-300 rounded-full" />
+          <div className="w-2 h-1.5 bg-slate-300 rounded-full" />
         </div>
 
         {/* Footer URL */}
-        <p className="text-center text-xs text-slate-400 mt-4 font-mono truncate mx-4">
+        <p className="text-center text-xs text-slate-400 mt-4 font-mono">
           lipid-risk.app
         </p>
       </main>
