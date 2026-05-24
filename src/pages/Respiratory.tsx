@@ -44,7 +44,7 @@ const COPD_SEVERITY = [
   },
 ];
 
-// ─── Asthma: GINA 2025 Stepwise ───
+// ─── Asthma: GINA 2026 Stepwise ───
 const ASTHMA_STEPS = [
   {
     step: "Step 1",
@@ -200,7 +200,7 @@ export default function RespiratoryTab() {
               Respiratory Management
             </h1>
             <p className="text-muted-foreground">
-              COPD <AbbrText text="GOLD 2025" /> and Asthma <AbbrText text="GINA 2025" /> guidelines
+              COPD <AbbrText text="GOLD 2025" /> and Asthma <AbbrText text="GINA 2026" /> guidelines
             </p>
           </div>
         </div>
@@ -272,7 +272,7 @@ export default function RespiratoryTab() {
 
           {/* ASTHMA TAB */}
           <TabsContent value="asthma" className="mt-0 space-y-6">
-            <SectionCard title="GINA 2025 Stepwise Management" icon={<FileText className="h-4 w-4" />} tone="amber" collapsible={false}>
+            <SectionCard title="GINA 2026 Stepwise Management" icon={<FileText className="h-4 w-4" />} tone="amber" collapsible={false}>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -356,7 +356,7 @@ export default function RespiratoryTab() {
             <div className="text-xs text-muted-foreground">
               <p className="font-semibold text-foreground mb-1">References:</p>
               <p>GOLD 2025: Global Strategy for Diagnosis, Management and Prevention of COPD</p>
-              <p>GINA 2025: Global Initiative for Asthma</p>
+              <p>GINA 2026: Global Initiative for Asthma</p>
               <p className="mt-2">Always individualize based on severity, comorbidities, and patient preference.</p>
             </div>
           </div>
