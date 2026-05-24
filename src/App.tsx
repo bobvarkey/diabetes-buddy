@@ -72,6 +72,7 @@ import RenalDosePage from "@/pages/RenalDoseAdjustment";
 import RespiratoryPage from "@/pages/Respiratory";
 import RespiratorySimple from "@/pages/RespiratorySimple";
 import RespiratoryModerate from "@/pages/RespiratoryModerate";
+import RenalPage from "@/pages/Renal";
 import PrediabetesAlgorithm from "@/pages/PrediabetesAlgorithm";
 import CKDGuideline from "@/pages/CKDGuideline";
 import GLP1Administration from "@/pages/GLP1Administration";
@@ -136,9 +137,8 @@ const App = () => (
         <Routes>
           {/* Mode Selector — landing */}
           <Route path="/" element={<ModeSelector />} />
-          <Route path="/simple" element={<SimpleMode />} />
-          <Route path="/moderate" element={<ModerateMode />} />
-          <Route path="/hard" element={<Navigate to="/home" replace />} />
+          <Route path="/easy" element={<SimpleMode />} />
+          <Route path="/complex" element={<Navigate to="/home" replace />} />
 
           {/* Full-screen routes — no sidebar */}
           <Route path="/landing" element={<LandingPage />} />

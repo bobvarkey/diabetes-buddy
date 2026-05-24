@@ -4,6 +4,14 @@ import { Home, Heart, Syringe, Dna, Activity, Wind, Menu, X } from "lucide-react
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
+// Main Navigation Items for Easy and Complex modes
+const mainNavItems = [
+  { path: "/easy", label: "🔰 Easy Mode", icon: "🔰", color: "green-500", description: "Quick calculators & simple decision tools" },
+  { path: "/home", label: "🏠 Home", icon: "🏠", color: "primary", description: "Full NCD dashboard" },
+  { path: "/complex", label: "🧠 Complex", icon: "🧠", color: "purple-500", description: "Advanced clinical details" },
+];
+
+// Clinical area tabs (shown in Complex mode)
 const navItems = [
   { path: "/home", label: "🏠 Homepage", icon: "🏠", color: "primary" },
   { path: "/diabetes", label: "Diabetes", icon: "💉", color: "red-500" },
