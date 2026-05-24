@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { Heart, Activity, Shield, BookOpen, ChevronLeft, Menu, HelpCircle, ArrowRight, Wind, Droplets, Bell } from "lucide-react";
+import { Heart, Activity, Shield, BookOpen, ChevronLeft, Menu, HelpCircle, ArrowRight, Wind, Droplets, Scale } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { label: "Cholesterol Panel", desc: "Full lipid profile", icon: Heart, iconBg: "bg-red-100", iconColor: "text-red-600" },
-  { label: "ASCVD Risk Score", desc: "10-year cardiovascular", icon: Activity, iconBg: "bg-blue-100", iconColor: "text-blue-600" },
-  { label: "LDL-C Target", desc: "ILA 2024 goals", icon: Bell, iconBg: "bg-purple-100", iconColor: "text-purple-600" },
-  { label: "Blood Pressure", desc: "HTN management", icon: Shield, iconBg: "bg-green-100", iconColor: "text-green-600" },
-  { label: "Weight & BMI", desc: "Obesity tracking", icon: Droplets, iconBg: "bg-amber-100", iconColor: "text-amber-600" },
-  { label: "Patient Education", desc: "Learning modules", icon: BookOpen, iconBg: "bg-orange-100", iconColor: "text-orange-600" },
+  { label: "Diabetes", desc: "Glycemic control & medications", icon: Heart, iconBg: "bg-red-100", iconColor: "text-red-600" },
+  { label: "Hypertension", desc: "BP management & targets", icon: Activity, iconBg: "bg-blue-100", iconColor: "text-blue-600" },
+  { label: "Lipids", desc: "Cholesterol & ASCVD risk", icon: Shield, iconBg: "bg-purple-100", iconColor: "text-purple-600" },
+  { label: "Obesity", desc: "BMI & weight management", icon: Scale, iconBg: "bg-green-100", iconColor: "text-green-600" },
+  { label: "COPD/Asthma", desc: "Respiratory guidelines", icon: Wind, iconBg: "bg-cyan-100", iconColor: "text-cyan-600" },
+  { label: "Kidney Disease", desc: "CKD, AKI & dosing", icon: Droplets, iconBg: "bg-amber-100", iconColor: "text-amber-600" },
 ];
 
 export default function ModeSelector() {
@@ -42,17 +42,17 @@ export default function ModeSelector() {
         <div className="px-4 pt-6">
           <span className="inline-flex items-center gap-1 px-3 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full">
             <Heart className="h-3 w-3 fill-current" />
-            <span>CARDIOVASCULAR RISK</span>
+            <span>NCD MANAGEMENT</span>
           </span>
         </div>
 
         {/* Title & Description */}
         <div className="px-4 py-5 text-center">
-          <h1 className="text-[32px] font-bold tracking-tight text-slate-900">
-            Lipid <span className="italic text-red-600 font-light">Risk</span> Predictor
+          <h1 className="text-[28px] font-bold tracking-tight text-slate-900">
+            Comprehensive <span className="italic text-red-600 font-light">NCD</span> Tools
           </h1>
           <p className="text-base text-slate-600 mt-2 max-w-xs mx-auto">
-            Precision cardiovascular risk assessment using AHA PREVENT 2024 equations
+            Non-communicable disease management for all 6 conditions
           </p>
         </div>
 
@@ -69,40 +69,16 @@ export default function ModeSelector() {
             className="flex-1 border-2 border-slate-200 text-slate-600 font-medium rounded-full py-3 hover:bg-slate-50"
             onClick={() => navigate("/complex")}
           >
-            Clinic ASCVD
+            All Tools
           </Button>
         </div>
 
-        {/* Hero Image with Doctor */}
-        <div className="mx-4 mt-6 relative">
-          <div className="w-full h-56 rounded-2xl overflow-hidden">
-            <img 
-              src="/doctor.jpg" 
-              alt="Doctor with medical monitors"
-              className="w-full h-full object-cover"
-            />
-            {/* Pink tint overlay */}
-            <div className="absolute inset-0 bg-pink-500/30" />
-          </div>
-          
-          {/* Overlay Card */}
-          <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur rounded-xl shadow-lg px-3 py-2 flex items-center gap-2">
-            <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-              <Heart className="h-4 w-4 text-red-600 fill-current" />
-            </div>
-            <div>
-              <p className="text-xs text-slate-500">10-Year ASCVD Risk</p>
-              <p className="text-xs font-bold text-slate-800">PREVENT 2024</p>
-            </div>
-          </div>
-        </div>
+        {/* Comprehensive NCD Tools Overview */}
+        <div className="mx-4 mt-6">
+          <h2 className="text-lg font-bold text-slate-900 mb-1">All 6 NCD Conditions</h2>
+          <p className="text-sm text-slate-600 mb-4">Choose a condition to begin assessment</p>
 
-        {/* Diagnostic Arsenal */}
-        <div className="px-4 mt-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-1">Diagnostic Arsenal</h2>
-          <p className="text-base text-slate-600 mb-4">Choose a clinical area to begin</p>
-
-          {/* Features Grid */}
+          {/* 2x3 Grid - All 6 conditions */}
           <div className="grid grid-cols-2 gap-3">
             {features.map((f) => (
               <Card 
@@ -122,6 +98,27 @@ export default function ModeSelector() {
           </div>
         </div>
 
+        {/* More Tools Section */}
+        <div className="px-4 mt-8">
+          <h2 className="text-lg font-bold text-slate-900 mb-1">Additional Tools</h2>
+          <div className="grid grid-cols-2 gap-3 mt-3">
+            <Card className="cursor-pointer hover:shadow-md border-slate-200">
+              <CardContent className="p-4">
+                <BookOpen className="h-5 w-5 text-orange-500 mb-2" />
+                <p className="font-medium text-sm">Education</p>
+                <p className="text-xs text-slate-500">Patient learning</p>
+              </CardContent>
+            </Card>
+            <Card className="cursor-pointer hover:shadow-md border-slate-200">
+              <CardContent className="p-4">
+                <Activity className="h-5 w-5 text-indigo-500 mb-2" />
+                <p className="font-medium text-sm">Risk Calculators</p>
+                <p className="text-xs text-slate-500">ASCVD, LDL targets</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
         {/* Page Indicator */}
         <div className="flex justify-center gap-2 mt-8">
           <div className="w-6 h-1.5 bg-slate-900 rounded-full" />
@@ -131,7 +128,7 @@ export default function ModeSelector() {
 
         {/* URL */}
         <p className="text-center text-xs text-slate-400 mt-4 font-mono">
-          lipid-risk.app
+          ncd-management.app
         </p>
       </main>
 
