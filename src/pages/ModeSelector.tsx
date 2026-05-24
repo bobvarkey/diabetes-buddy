@@ -1,132 +1,146 @@
 import { useNavigate } from "react-router-dom";
-import { Check, Activity, Heart, Scale, Syringe, Wind, Gamepad2, ArrowRight } from "lucide-react";
+import { Heart, Activity, Calculator, Scale, Syringe, Wind, ArrowRight, Menu, ChevronLeft } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-const clinicalAreas = [
-  { path: "/diabetes", label: "💉 Diabetes", icon: Syringe, color: "text-red-500", bg: "bg-red-50" },
-  { path: "/hypertension", label: "❤️ Hypertension", icon: Heart, color: "text-orange-500", bg: "bg-orange-50" },
-  { path: "/lipids", label: "💧 Lipids", icon: Scale, color: "text-blue-500", bg: "bg-blue-50" },
-  { path: "/respiratory", label: "🫁 Respiratory", icon: Wind, color: "text-cyan-500", bg: "bg-cyan-50" },
-  { path: "/renal", label: "🫘 Renal", icon: Gamepad2, color: "text-amber-500", bg: "bg-amber-50" },
+// Color palette matching reference
+const COLORS = {
+  primary: "#DC2626",    // Red for CTA
+  secondary: "#2563EB",  // Blue for Edit
+  accent: "#EC4899",    // Pink/magenta
+};
+
+// Feature cards for display
+const features = [
+  { label: "Lipid Risk Calculator", icon: Heart, color: "bg-red-100", iconColor: "text-red-600" },
+  { label: "ASCVD Assessment", icon: Calculator, color: "bg-blue-100", iconColor: "text-blue-600" },
+  { label: "Hypertension Guide", icon: Activity, color: "bg-orange-100", iconColor: "text-orange-600" },
+  { label: "GLP-1 Eligibility", icon: Syringe, color: "bg-purple-100", iconColor: "text-purple-600" },
 ];
 
 const modes = [
   {
     id: "easy",
-    title: "🔰 Easy Mode",
+    title: "Easy",
     tagline: "Quick & Simple",
-    description: "Fast calculators for routine decisions. Ideal for quick checks and simple referrals.",
-    features: ["BMI Calculator", "Blood Pressure staging", "Basic lipid panel", "GLP-1 eligibility"],
-    color: "green",
-    gradient: "from-green-500 to-emerald-600",
+    description: "Fast calculators for routine decisions",
+    gradient: "from-red-500 to-red-600",
   },
   {
-    id: "complex",
-    title: "🧠 Complex Mode",
+    id: "complex", 
+    title: "Complex",
     tagline: "Full Details",
-    description: "Complete NCD management with all guidelines, treatment algorithms, and clinical details.",
-    features: ["Full clinical guidelines", "Treatment algorithms", "Drug interactions", "Prevention scoring"],
-    color: "purple",
-    gradient: "from-purple-500 to-violet-600",
-  },
+    description: "Complete NCD management with all guidelines",
+    gradient: "from-blue-500 to-blue-600",
+  }
 ];
 
 export default function ModeSelector() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      {/* Header */}
-      <header className="border-b border-white/10">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
-              <Activity className="h-5 w-5 text-white" />
-            </div>
-            <span className="text-xl font-bold tracking-tight">NCD Toolkit</span>
+    <div className="min-h-screen bg-white text-slate-900">
+      {/* Sticky Header */}
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div className="flex items-center justify-between px-4 py-3 max-w-md mx-auto">
+          <div className="flex items-center gap-2">
+            <ChevronLeft className="h-5 w-5 text-slate-400" />
+            <span className="text-sm text-slate-500">Back</span>
           </div>
+          <Button 
+            variant="outline" 
+            className="h-8 text-sm border-slate-200 text-slate-600"
+            onClick={() => navigate("/complex")}
+          >
+            Edit
+          </Button>
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="max-w-5xl mx-auto px-6 py-12">
-        {/* Welcome */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Choose Your Mode
-          </h1>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Select a mode to access clinical calculators and guidelines
-          </p>
-        </div>
-
-        {/* Mode Cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
-          {modes.map((mode) => (
-            <Card 
-              key={mode.id}
-              className={`bg-gradient-to-br ${mode.gradient} border-0 cursor-pointer hover:scale-[1.02] transition-all group overflow-hidden`}
-              onClick={() => navigate(mode.id === "easy" ? "/easy" : "/complex")}
-            >
-              <CardContent className="p-8">
-                <div className="mb-4">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white/20 mb-3">
-                    {mode.tagline}
-                  </span>
-                  <h2 className="text-3xl font-bold mb-2">{mode.title.replace(/^. /, "")}</h2>
-                  <p className="text-white/80 text-sm mb-4">{mode.description}</p>
-                </div>
-                
-                <ul className="space-y-2 mb-6">
-                  {mode.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-white/70">
-                      <Check className="h-4 w-4 text-white/50" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <Button 
-                  variant="outline" 
-                  className="w-full bg-white/10 border-white/20 text-white hover:bg-white/20 group-hover:translate-x-2 transition-all"
-                >
-                  Enter {mode.title} <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Quick Links to Clinical Areas */}
-        <div>
-          <h3 className="text-center text-slate-400 text-sm font-semibold uppercase tracking-wider mb-6">
-            Or Jump to a Clinical Area
-          </h3>
+      <main className="max-w-md mx-auto px-4 pb-8">
+        {/* Hero Section */}
+        <div className="text-center py-8">
+          {/* Badge */}
+          <span className="inline-block px-3 py-1 bg-pink-50 text-pink-600 text-xs font-medium rounded-full mb-4">
+            CARDIOVASCULAR RISK
+          </span>
           
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            {clinicalAreas.map((area) => (
-              <button
-                key={area.path}
-                onClick={() => navigate(`/complex${area.path}`)}
-                className={`${area.bg} rounded-xl p-4 text-left hover:scale-105 transition-all group`}
+          {/* Title */}
+          <h1 className="text-3xl font-bold mb-2">
+            Lipid<span className="italic text-red-600 font-light">Risk</span> Predictor
+          </h1>
+          
+          <p className="text-slate-500 text-sm mb-6">
+            Precision cardiovascular risk assessment using AHA PREVENT 2024
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex gap-3 justify-center mb-8">
+            <Button 
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-medium"
+              onClick={() => navigate("/complex")}
+            >
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button 
+              variant="outline"
+              className="border-slate-200 text-slate-600 px-4 py-2.5 rounded-full"
+              onClick={() => navigate("/easy")}
+            >
+              Easy Mode
+            </Button>
+          </div>
+
+          {/* Floating Risk Card - positioned like in reference */}
+          <div className="relative">
+            <div className="absolute -bottom-4 left-4 bg-white rounded-xl shadow-lg border border-slate-100 p-4 flex items-center gap-3 z-10">
+              <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                <Heart className="h-5 w-5 text-red-600" />
+              </div>
+              <div>
+                <p className="text-xs text-slate-500">10-Year ASCVD Risk</p>
+                <p className="text-sm font-semibold">PREVENT 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <div className="mt-12">
+          <h2 className="text-lg font-semibold mb-4">Diagnostic Arsenal</h2>
+          <p className="text-sm text-slate-500 mb-4">Choose a clinical area to begin</p>
+
+          <div className="grid grid-cols-2 gap-3">
+            {features.map((feature) => (
+              <Card 
+                key={feature.label}
+                className="cursor-pointer hover:shadow-md transition-shadow border-slate-100"
+                onClick={() => navigate("/complex")}
               >
-                <area.icon className={`h-6 w-6 ${area.color} mb-2`} />
-                <span className={`block font-medium text-sm text-slate-700`}>
-                  {area.label.replace(/^. /, "")}
-                </span>
-              </button>
+                <CardContent className="p-4 flex items-center gap-3">
+                  <div className={`w-10 h-10 ${feature.color} rounded-lg flex items-center justify-center`}>
+                    <feature.icon className={`h-5 w-5 ${feature.iconColor}`} />
+                  </div>
+                  <span className="text-sm font-medium flex-1">{feature.label}</span>
+                  <ArrowRight className="h-4 w-4 text-slate-300" />
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
-      </main>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 mt-auto">
-        <div className="max-w-5xl mx-auto px-6 py-6 text-center text-slate-500 text-sm">
-          Based on ADA, ESC/ESH, KDIGO 2024 • For educational purposes
+        {/* Page Indicator */}
+        <div className="flex justify-center gap-2 mt-8">
+          <div className="w-2 h-2 bg-slate-900 rounded-full" />
+          <div className="w-2 h-2 bg-slate-200 rounded-full" />
+          <div className="w-2 h-2 bg-slate-200 rounded-full" />
         </div>
-      </footer>
+
+        {/* Footer URL */}
+        <p className="text-center text-xs text-slate-400 mt-6 font-mono">
+          lipid-risk.app
+        </p>
+      </main>
     </div>
   );
 }
