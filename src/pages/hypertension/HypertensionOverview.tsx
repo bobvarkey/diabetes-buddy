@@ -447,7 +447,7 @@ export default function HypertensionOverview() {
               <ChevronDown className="h-4 w-4 text-pink-700" />
             </CollapsibleTrigger>
             <CollapsibleContent className="mt-2 space-y-3">
-              <img src="/assets/secondary-htn-chamelle.jpg" alt="CHAMELLE Causes" className="w-full rounded-lg" />
+              <img src="/assets/secondary-hypertension-new.jpg" alt="CHAMELLE Causes" className="w-full rounded-lg" />
               <img src="/assets/secondary-htn-evaluation.jpg" alt="Evaluation Flowchart" className="w-full rounded-lg" />
               <img src="/assets/secondary-htn-workup.jpg" alt="Workup" className="w-full rounded-lg" />
               <img src="/assets/secondary-htn-classification.jpg" alt="Classification" className="w-full rounded-lg" />
