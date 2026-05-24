@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1280&h=800&fit=crop\" -o \"c:/Users/bobva/OneDrive/Documents/GitHub/diabetes-buddy/src/assets/landing-hero.jpg\")",
+      "Bash(curl -s http://localhost:8082/)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(curl -s http://localhost:8080/)",
+      "Bash(curl -s http://localhost:8081/)",
+      "Bash(curl -s http://localhost:8083/)",
+      "Bash(curl -s http://localhost:8084/)",
+      "Bash(netstat -tlnp)",
+      "Bash([ -f \"c:/Users/bobva/OneDrive/Documents/GitHub/diabetes-buddy/src/calculators/diabetes/$file.tsx\" ])",
+      "Bash([ -f \"c:/Users/bobva/OneDrive/Documents/GitHub/diabetes-buddy/src/calculators/lipids/$file.tsx\" ])",
+      "Bash([ -f \"c:/Users/bobva/OneDrive/Documents/GitHub/diabetes-buddy/src/calculators/htn/$file.tsx\" ])",
+      "Bash([ -f \"c:/Users/bobva/OneDrive/Documents/GitHub/diabetes-buddy/src/calculators/obesity/$file.tsx\" ])",
+      "Bash(awk '{print $2}')",
+      "Bash(xargs kill -9)",
+      "Bash(curl -s http://localhost:8080/index.html)",
+      "Bash(curl -s http://localhost:8081/index.html)",
+      "Bash(curl -s http://localhost:8082/index.html)",
+      "Bash(git checkout *)"
+    ]
+  }
+}

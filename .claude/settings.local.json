@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pkill -9 node)",
+      "Bash(npm run *)"
+    ]
+  }
+}
