@@ -24,6 +24,7 @@ import DiabetesOverview from "@/pages/diabetes/DiabetesOverview";
 import DiabetesTab from "@/pages/diabetes/DiabetesTab";
 import DiabetesTreatment from "@/pages/diabetes/DiabetesTreatment";
 import InsulinGuide from "@/pages/diabetes/InsulinGuide";
+import MealPlanner from "@/pages/diabetes/MealPlanner";
 
 // Big Four — Hypertension sub-pages
 import HypertensionAssessment from "@/pages/hypertension/HypertensionAssessment";
