@@ -156,7 +156,7 @@ export default function LDLCTargetCalculator() {
 
           {/* Calculator Tab */}
           <TabsContent value="calculator" className="mt-0 space-y-6">
-            <SectionCard title="Patient Risk Factors" icon={<ShieldCheck className="h-4 w-4" />} tone="blue" collapsible={false}>
+            <SectionCard title="Patient Risk Factors" icon={<ShieldCheck className="h-4 w-4" />} tone="cyan" collapsible={false}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <label className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 cursor-pointer">
                   <input 
@@ -255,7 +255,7 @@ export default function LDLCTargetCalculator() {
             </Card>
 
             {/* Treatment Recommendation */}
-            <SectionCard title="ILA Treatment Recommendation" icon={<ArrowRight className="h-4 w-4" />} tone="blue" collapsible={false}>
+            <SectionCard title="ILA Treatment Recommendation" icon={<ArrowRight className="h-4 w-4" />} tone="cyan" collapsible={false}>
               <div className="space-y-4">
                 <div className="p-4 rounded-lg bg-blue-50/50 border border-blue-200/30">
                   <h4 className="font-semibold text-blue-700 mb-2">{treatmentRec?.therapy}</h4>
@@ -277,7 +277,7 @@ export default function LDLCTargetCalculator() {
 
           {/* Guidelines Tab */}
           <TabsContent value="guidelines" className="mt-0 space-y-6">
-            <SectionCard title="ILA LDL-C Target Categories" icon={<Target className="h-4 w-4" />} tone="blue" collapsible={false}>
+            <SectionCard title="ILA LDL-C Target Categories" icon={<Target className="h-4 w-4" />} tone="cyan" collapsible={false}>
               <div className="space-y-4">
                 {RISK_CATEGORIES.map((cat) => (
                   <div key={cat.category} className="p-4 rounded-lg border border-border">
