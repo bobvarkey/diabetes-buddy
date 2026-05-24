@@ -1,20 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Gauge, AlertTriangle, Home } from "lucide-react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Gauge } from "lucide-react";
 
 type Potency = "Very high" | "High" | "Moderate" | "Moderate to low" | "Low to moderate" | "Low";
 
-interface DrugRow {
+interface Row {
   potency: Potency;
   drugClass: string;
   examples: string;
@@ -22,7 +12,7 @@ interface DrugRow {
   bestUse: string;
 }
 
-const drugData: DrugRow[] = [
+const rows: Row[] = [
   {
     potency: "Very high",
     drugClass: "Direct vasodilators",
@@ -95,150 +85,88 @@ const drugData: DrugRow[] = [
   },
 ];
 
-const getPotencyColor = (potency: Potency): string => {
-  switch (potency) {
-    case "Very high":
-      return "bg-red-500/20 text-red-400 border-red-500/30";
-    case "High":
-      return "bg-orange-500/20 text-orange-400 border-orange-500/30";
-    case "Moderate":
-      return "bg-amber-500/20 text-amber-400 border-amber-500/30";
-    case "Moderate to low":
-    case "Low to moderate":
-      return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30";
-    case "Low":
-      return "bg-muted text-muted-foreground border-border";
-    default:
-      return "bg-muted text-muted-foreground border-border";
-  }
+const potencyBadge: Record<Potency, string> = {
+  "Very high": "bg-destructive/15 text-destructive border-destructive/30",
+  "High": "bg-primary/15 text-primary border-primary/30",
+  "Moderate": "bg-accent/15 text-accent-foreground border-accent/30",
+  "Moderate to low": "bg-amber-500/15 text-amber-700 dark:text-amber-400 border-amber-500/30",
+  "Low to moderate": "bg-amber-500/15 text-amber-700 dark:text-amber-400 border-amber-500/30",
+  "Low": "bg-muted text-muted-foreground border-border",
 };
 
 export default function AntihypertensivePotencyTable() {
-  const navigate = useNavigate();
-
   return (
-    <div className="min-h-screen bg-background">
-      {/* Sticky Header */}
-      <div className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-        <div className="mx-auto max-w-5xl px-4">
-          <div className="flex items-center gap-3 py-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 shadow-md">
-              <Gauge className="h-5 w-5 text-white" />
-            </div>
-            <div className="min-w-0 flex-1">
-              <h1 className="font-display text-xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-600 bg-clip-text text-transparent truncate">
-                Antihypertensive Potency
-              </h1>
-              <p className="text-xs font-medium text-emerald-500 dark:text-emerald-400 truncate">
-                Drug Efficacy and Clinical Application
-              </p>
-            </div>
-            <div className="flex items-center gap-2 no-print shrink-0">
-              <Button variant="ghost" size="sm" onClick={() => navigate("/")} title="Back to Home">
-                <Home className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
+    <Card className="border-primary/20">
+      <CardHeader>
+        <div className="flex items-center space-x-2">
+          <Gauge className="h-5 w-5 text-primary" />
+          <CardTitle className="text-xl">Antihypertensives by Relative Potency</CardTitle>
         </div>
-      </div>
-
-      <main className="mx-auto max-w-5xl px-4 py-5 space-y-6">
-        {/* Key Considerations Alert */}
-        <div className="rounded-lg border-2 border-amber-500/40 bg-amber-500/5 p-4">
-          <div className="flex items-start gap-3">
-            <AlertTriangle className="h-5 w-5 text-amber-500 mt-0.5" />
-            <div className="space-y-2">
-              <p className="text-sm font-medium text-foreground">Key Considerations in Drug Selection</p>
-              <ul className="text-xs text-muted-foreground space-y-1 list-disc pl-4">
-                <li>Potency alone should not drive drug selection — consider comorbidities, side effects, and patient preferences</li>
-                <li>Thiazide-like diuretics (chlorthalidone, indapamide) preferred over HCTZ for cardiovascular outcomes</li>
-                <li>ACE inhibitors and ARBs have similar efficacy but different side effect profiles</li>
-                <li>Beta-blockers are no longer first-line for uncomplicated hypertension</li>
-                <li>Combination therapy often needed for BP control — start with complementary mechanisms</li>
-              </ul>
-            </div>
-          </div>
+        <p className="text-sm text-muted-foreground">
+          Practical clinical ranking of BP-lowering strength with representative drugs and typical
+          oral starting doses. Potency is approximate — first-line choice still depends on
+          comorbidities and outcome data, not BP-lowering magnitude alone.
+        </p>
+      </CardHeader>
+      <CardContent>
+        {/* Desktop / tablet table */}
+        <div className="hidden md:block overflow-x-auto rounded-lg border">
+          <table className="w-full text-sm">
+            <thead className="bg-muted/40">
+              <tr className="text-left">
+                <th className="p-3 font-semibold text-foreground">Relative potency</th>
+                <th className="p-3 font-semibold text-foreground">Drug class</th>
+                <th className="p-3 font-semibold text-foreground">Examples</th>
+                <th className="p-3 font-semibold text-foreground">Typical starting dose</th>
+                <th className="p-3 font-semibold text-foreground">Best use cases</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr
+                  key={`${r.drugClass}-${i}`}
+                  className="border-t hover:bg-muted/20 transition-colors align-top"
+                >
+                  <td className="p-3">
+                    <Badge variant="outline" className={`${potencyBadge[r.potency]} whitespace-nowrap`}>
+                      {r.potency}
+                    </Badge>
+                  </td>
+                  <td className="p-3 font-medium text-foreground">{r.drugClass}</td>
+                  <td className="p-3 text-foreground">{r.examples}</td>
+                  <td className="p-3 text-foreground">{r.startingDose}</td>
+                  <td className="p-3 text-muted-foreground">{r.bestUse}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
-        {/* Potency Table */}
-        <Card className="clinical-card">
-          <CardHeader>
-            <CardTitle className="text-lg">Drug Potency and Clinical Application</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-32">Potency</TableHead>
-                    <TableHead>Drug Class</TableHead>
-                    <TableHead>Examples</TableHead>
-                    <TableHead>Starting Dose</TableHead>
-                    <TableHead className="w-1/3">Best Use</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {drugData.map((row, index) => (
-                    <TableRow key={index} className="hover:bg-muted/50">
-                      <TableCell>
-                        <Badge variant="outline" className={getPotencyColor(row.potency)}>
-                          {row.potency}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="font-medium">{row.drugClass}</TableCell>
-                      <TableCell className="text-sm text-muted-foreground">{row.examples}</TableCell>
-                      <TableCell className="text-sm">{row.startingDose}</TableCell>
-                      <TableCell className="text-sm text-muted-foreground">{row.bestUse}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+        {/* Mobile cards */}
+        <div className="md:hidden space-y-3">
+          {rows.map((r, i) => (
+            <div
+              key={`${r.drugClass}-m-${i}`}
+              className="rounded-lg border p-3 bg-muted/10 space-y-1.5"
+            >
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-sm font-semibold text-foreground">{r.drugClass}</span>
+                <Badge variant="outline" className={potencyBadge[r.potency]}>
+                  {r.potency}
+                </Badge>
+              </div>
+              <p className="text-xs text-foreground"><span className="font-medium">Examples:</span> {r.examples}</p>
+              <p className="text-xs text-foreground"><span className="font-medium">Start:</span> {r.startingDose}</p>
+              <p className="text-xs text-muted-foreground"><span className="font-medium text-foreground">Best use:</span> {r.bestUse}</p>
             </div>
-          </CardContent>
-        </Card>
+          ))}
+        </div>
 
-        {/* Reference Card */}
-        <Card className="clinical-card border-primary/20">
-          <CardHeader>
-            <CardTitle className="text-base">Clinical Pearls</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <p className="text-sm font-medium">Resistant Hypertension (≥3 drugs)</p>
-                <p className="text-xs text-muted-foreground">
-                  Confirm adherence, white-coat effect, and secondary causes first. Then add spironolactone 25 mg
-                  — PATHWAY-2 trial showed best add-on efficacy.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <p className="text-sm font-medium">Thiazide vs Loop Diuretics</p>
-                <p className="text-xs text-muted-foreground">
-                  Switch to loop diuretics (furosemide, torsemide) when eGFR &lt;30 mL/min/1.73m².
-                  Thiazides lose efficacy at low GFR.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <p className="text-sm font-medium">ACEi/ARB Combination</p>
-                <p className="text-xs text-muted-foreground">
-                  NEVER combine ACEi + ARB (dual RAAS blockade) — increases hyperkalemia and AKI risk
-                  without additional benefit (ONTARGET/ALTITUDE trials).
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <p className="text-sm font-medium">Beta-Blocker Selection</p>
-                <p className="text-xs text-muted-foreground">
-                  Prefer cardioselective beta-blockers (metoprolol, bisoprolol) or vasodilating beta-blockers
-                  (carvedilol, labetalol). Atenolol has inferior outcomes data.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </main>
-    </div>
+        <div className="mt-4 space-y-1 text-[11px] text-muted-foreground italic">
+          <p>• Relative potency reflects usual outpatient BP-lowering effect, not outcome superiority or mg-to-mg equivalence across classes.</p>
+          <p>• High-potency agents like minoxidil and clonidine are typically reserved due to tolerability and adverse-effect profiles.</p>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
