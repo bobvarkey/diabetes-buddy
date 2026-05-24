@@ -187,6 +187,37 @@ const INSULIN_BRANDS = {
                 <SelectItem value="NPH (Humulin N)">NPH (Humulin N)</SelectItem>
               </SelectContent>
             </Select>
+            
+            {/* Country Brand Names - collapsible */}
+            <details className="mt-2 rounded-lg border border-slate-200 bg-slate-50">
+              <summary className="cursor-pointer px-3 py-2 text-sm font-medium text-slate-600 select-none flex items-center gap-2">
+                <span>🌐 View brand names by country</span>
+              </summary>
+              <div className="px-3 pb-3 text-sm">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-blue-50 p-2 rounded">
+                    <p className="font-semibold text-blue-800 text-xs mb-1">US Brands 🇺🇸</p>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="px-1.5 py-0.5 bg-white text-blue-700 rounded text-xs">Lantus</span>
+                      <span className="px-1.5 py-0.5 bg-white text-blue-700 rounded text-xs">Basaglar</span>
+                      <span className="px-1.5 py-0.5 bg-white text-blue-700 rounded text-xs">Semglee</span>
+                      <span className="px-1.5 py-0.5 bg-white text-blue-700 rounded text-xs">Tresiba</span>
+                      <span className="px-1.5 py-0.5 bg-white text-blue-700 rounded text-xs">Levemir</span>
+                    </div>
+                  </div>
+                  <div className="bg-green-50 p-2 rounded">
+                    <p className="font-semibold text-green-800 text-xs mb-1">India Brands 🇮🇳</p>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="px-1.5 py-0.5 bg-white text-green-700 rounded text-xs">Glaritus</span>
+                      <span className="px-1.5 py-0.5 bg-white text-green-700 rounded text-xs">Glucominis</span>
+                      <span className="px-1.5 py-0.5 bg-white text-green-700 rounded text-xs">Gemeria</span>
+                      <span className="px-1.5 py-0.5 bg-white text-green-700 rounded text-xs">Deglumed</span>
+                      <span className="px-1.5 py-0.5 bg-white text-green-700 rounded text-xs">Tresiper</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
           </div>
           <div>
             <Label className="text-xs text-muted-foreground">Current Dose (units)</Label>
