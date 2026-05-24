@@ -152,7 +152,7 @@ const App = () => (
           <Route path="/home" element={<><TabNavigation /><Home /></>} />
           <Route path="/diabetes" element={<><TabNavigation /><Diabetes /></>} />
           <Route path="/hypertension" element={<><TabNavigation /><Hypertension /></>} />
-          <Route path="/lipids" element={<><TabNavigation /><Lipids /></>} />
+          <Route path="/lipids" element={<><TabNavigation /><LipidsAssessment /></>} />
           <Route path="/diabetes/assessment" element={<><TabNavigation /><DiabetesAssessment /></>} />
           <Route path="/diabetes/overview" element={<><TabNavigation /><DiabetesOverview /></>} />
           <Route path="/diabetes/tab" element={<><TabNavigation /><DiabetesTab /></>} />
