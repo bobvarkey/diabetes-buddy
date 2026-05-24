@@ -166,10 +166,10 @@ export default function BmiCalculator() {
                       }}
                       {...register("ethnicity")}
                     >
-                      <SelectTrigger id="ethnicity" className="bg-slate-900 border-slate-700">
+                      <SelectTrigger id="ethnicity" className="bg-slate-800 border-primary w-full h-12 text-base">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent className="bg-slate-900 border-slate-700">
+                      <SelectContent className="bg-slate-800 border-primary w-full h-12 text-base">
                         {ETHNICITY_GUIDELINES.map((guideline) => (
                           <SelectItem
                             key={guideline.id}
@@ -193,7 +193,7 @@ export default function BmiCalculator() {
                       id="height"
                       type="number"
                       placeholder="e.g., 170"
-                      className="bg-slate-900 border-slate-700"
+                      className="bg-slate-800 border-primary w-full h-12 text-base"
                       {...register("height", { valueAsNumber: true })}
                     />
                     {errors.height && (
@@ -208,7 +208,7 @@ export default function BmiCalculator() {
                       id="weight"
                       type="number"
                       placeholder="e.g., 70"
-                      className="bg-slate-900 border-slate-700"
+                      className="bg-slate-800 border-primary w-full h-12 text-base"
                       {...register("weight", { valueAsNumber: true })}
                     />
                     {errors.weight && (
