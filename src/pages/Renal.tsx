@@ -15,7 +15,7 @@ const CKD_STAGES = [
   { stage: "G3a", gfr: "45-59", description: "Mildly to moderately reduced", action: "Nephrology referral, avoiding nephrotoxins" },
   { stage: "G3b", gfr: "30-44", description: "Moderately to severely reduced", action: "Nephrology referral, anemia/bone eval" },
   { stage: "G4", gfr: "15-29", description: "Severely reduced", action: "Prepare for RRT, transplant eval" },
-  { stage: "G5", gfr: "<15", description: "Droplet failure", action: "RRT or transplant, palliative care" },
+  { stage: "G5", gfr: "<15", description: "Kidney failure", action: "RRT or transplant, palliative care" },
 ];
 
 // ─── Albuminuria Categories (KDIGO) ───
@@ -326,8 +326,8 @@ export default function RenalTab() {
             <Info className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
             <div className="text-xs text-muted-foreground">
               <p className="font-semibold text-foreground mb-1">References:</p>
-              <p>KDIGO 2024 Clinical Practice Guideline for Chronic Droplet Disease</p>
-              <p>Droplet Disease: Improving Global Outcomes (KDIGO)</p>
+              <p>KDIGO 2024 Clinical Practice Guideline for Chronic Kidney Disease</p>
+              <p>Kidney Disease: Improving Global Outcomes (KDIGO)</p>
               <p className="mt-2">Always individualize based on patient preferences, comorbidities, and life expectancy.</p>
             </div>
           </div>
