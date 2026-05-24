@@ -128,11 +128,14 @@ const SAFETY_NOTE = `
 `;
 
 interface Props {
-  laiResult: LAIResult;
-  onBackToAssessment: () => void;
+  laiResult?: LAIResult | null;
+  onBackToAssessment?: () => void;
 }
 
-export default function LipidsTreatment({ laiResult, onBackToAssessment }: Props) {
+export default function LipidsTreatment({ laiResult, onBackToAssessment = () => {} }: Props = {}) {
+  if (!laiResult) {
+    return <div className="p-6 text-sm text-muted-foreground">Complete the lipid assessment first to see treatment recommendations.</div>;
+  }
   const { cat, sub, ldlTarget, nonHdlTarget, apoBTarget, intensity, drug, ldlCurrent, atTarget, riskFactors } = laiResult;
   const key = cat + (sub ? "-" : "") + sub;
   const rec = TREATMENT_RECS[key] || TREATMENT_RECS["LOW"];

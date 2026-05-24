@@ -168,11 +168,11 @@ const LIDDLE_FEATURES = [
 ];
 
 interface Props {
-  onClassificationChange: (result: LAIResult | null) => void;
-  onNavigateToTreatment: () => void;
+  onClassificationChange?: (result: LAIResult | null) => void;
+  onNavigateToTreatment?: () => void;
 }
 
-export default function LipidsAssessment({ onClassificationChange, onNavigateToTreatment }: Props) {
+export default function LipidsAssessment({ onClassificationChange = () => {}, onNavigateToTreatment = () => {} }: Props = {}) {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [sex, setSex] = useState("male");
