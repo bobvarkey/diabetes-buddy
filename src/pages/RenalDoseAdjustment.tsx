@@ -1,10 +1,40 @@
-import { useState } from "react";
-import { Pill, FlaskConical, Search, AlertTriangle } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Pill, FlaskConical, Search, AlertTriangle, Calculator, RotateCcw, ArrowLeftRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Table, TableHeader, TableBody, TableHead, TableRow, TableCell,
 } from "@/components/ui/table";
 
+type Sex = "male" | "female";
+type CreatinineUnit = "mgdl" | "umol";
+
+// ============ eGFR Calculation (CKD-EPI 2021) ============
+function calculateCkdEpi(creatinine: number, age: number, sex: Sex): number {
+  if (!creatinine || !age || !sex) return 0;
+  const isFemale = sex === "female";
+  const kappa = isFemale ? 0.7 : 0.9;
+  const alpha = isFemale ? -0.241 : -0.302;
+  const sexMultiplier = isFemale ? 1.012 : 1.0;
+  const crRatio = creatinine / kappa;
+  const minRatio = Math.min(crRatio, 1);
+  const maxRatio = Math.max(crRatio, 1);
+  const gfr = 142 * Math.pow(minRatio, alpha) * Math.pow(maxRatio, -1.200) * Math.pow(0.9938, age) * sexMultiplier;
+  return Math.round(gfr * 10) / 10;
+}
+
+function getGfrStage(gfr: number): { stage: string; label: string; color: string } {
+  if (gfr >= 90) return { stage: "G1", label: "Normal or High", color: "bg-green-100 text-green-700 border-green-200" };
+  if (gfr >= 60) return { stage: "G2", label: "Mildly Decreased", color: "bg-green-100 text-green-700 border-green-200" };
+  if (gfr >= 45) return { stage: "G3a", label: "Mild-Moderate", color: "bg-yellow-100 text-yellow-700 border-yellow-200" };
+  if (gfr >= 30) return { stage: "G3b", label: "Moderate-Severe", color: "bg-orange-100 text-orange-700 border-orange-200" };
+  if (gfr >= 15) return { stage: "G4", label: "Severely Decreased", color: "bg-red-100 text-red-700 border-red-200" };
+  return { stage: "G5", label: "Kidney Failure", color: "bg-red-200 text-red-800 border-red-300" };
+}
+
+// ============ Drug Dosing Data ============
 type DoseEntry = {
   drug: string;
   drugClass: string;
@@ -36,9 +66,9 @@ const RENAL_DATA: DoseEntry[] = [
     eGFR60_89: "No adjustment",
     eGFR45_59: "No adjustment",
     eGFR30_44: "No adjustment",
-    eGFR15_29: "Do not initiate; may continue if already on",
+    eGFR15_29: "Do not initiate; may continue",
     eGFRBelow15: "Contraindicated",
-    notes: "CV/renal benefit persists at lower eGFR. Glycemic efficacy reduced below 45.",
+    notes: "CV/renal benefit persists at lower eGFR.",
   },
   {
     drug: "Dapagliflozin",
@@ -47,9 +77,9 @@ const RENAL_DATA: DoseEntry[] = [
     eGFR60_89: "No adjustment",
     eGFR45_59: "No adjustment",
     eGFR30_44: "No adjustment",
-    eGFR15_29: "Do not initiate; may continue if already on",
+    eGFR15_29: "Do not initiate; may continue",
     eGFRBelow15: "Contraindicated",
-    notes: "Approved for CKD and HF benefit regardless of diabetes.",
+    notes: "Approved for CKD/HF regardless of diabetes.",
   },
   {
     drug: "Canagliflozin",
@@ -60,18 +90,7 @@ const RENAL_DATA: DoseEntry[] = [
     eGFR30_44: "Max 100 mg/day",
     eGFR15_29: "Contraindicated",
     eGFRBelow15: "Contraindicated",
-    notes: "Monitor for amputation risk in peripheral vascular disease.",
-  },
-  {
-    drug: "Semaglutide (oral)",
-    drugClass: "GLP-1 RA",
-    normalDose: "3–14 mg/day",
-    eGFR60_89: "No adjustment",
-    eGFR45_59: "No adjustment",
-    eGFR30_44: "No adjustment",
-    eGFR15_29: "Use with caution",
-    eGFRBelow15: "Limited data",
-    notes: "GI side effects may worsen dehydration in CKD.",
+    notes: "Monitor amputation risk.",
   },
   {
     drug: "Semaglutide (SC)",
@@ -82,7 +101,7 @@ const RENAL_DATA: DoseEntry[] = [
     eGFR30_44: "No adjustment",
     eGFR15_29: "Use with caution",
     eGFRBelow15: "Limited data",
-    notes: "Proven CV benefit (SUSTAIN-6, SELECT).",
+    notes: "CV benefit proven.",
   },
   {
     drug: "Liraglutide",
@@ -92,8 +111,8 @@ const RENAL_DATA: DoseEntry[] = [
     eGFR45_59: "No adjustment",
     eGFR30_44: "No adjustment",
     eGFR15_29: "Use with caution",
-    eGFRBelow15: "Limited data",
-    notes: "CV benefit proven (LEADER trial).",
+    eGFRBelow15: "Not recommended",
+    notes: "CV benefit proven.",
   },
   {
     drug: "Dulaglutide",
@@ -103,41 +122,19 @@ const RENAL_DATA: DoseEntry[] = [
     eGFR45_59: "No adjustment",
     eGFR30_44: "No adjustment",
     eGFR15_29: "Use with caution",
-    eGFRBelow15: "Limited data",
-    notes: "Renal composite benefit shown in REWIND.",
-  },
-  {
-    drug: "Tirzepatide",
-    drugClass: "GIP/GLP-1 RA",
-    normalDose: "2.5–15 mg/week",
-    eGFR60_89: "No adjustment",
-    eGFR45_59: "No adjustment",
-    eGFR30_44: "No adjustment",
-    eGFR15_29: "Use with caution",
-    eGFRBelow15: "Limited data",
-    notes: "Superior HbA1c and weight reduction (SURPASS trials).",
+    eGFRBelow15: "Not recommended",
+    notes: "Weekly injection.",
   },
   {
     drug: "Sitagliptin",
     drugClass: "DPP-4 Inhibitor",
-    normalDose: "100 mg/day",
+    normalDose: "25–100 mg/day",
     eGFR60_89: "No adjustment",
-    eGFR45_59: "50 mg/day",
+    eGFR45_59: "No adjustment",
     eGFR30_44: "50 mg/day",
     eGFR15_29: "25 mg/day",
     eGFRBelow15: "25 mg/day",
-    notes: "Can be used across all stages of CKD with dose adjustment.",
-  },
-  {
-    drug: "Saxagliptin",
-    drugClass: "DPP-4 Inhibitor",
-    normalDose: "5 mg/day",
-    eGFR60_89: "No adjustment",
-    eGFR45_59: "2.5 mg/day",
-    eGFR30_44: "2.5 mg/day",
-    eGFR15_29: "2.5 mg/day",
-    eGFRBelow15: "2.5 mg/day",
-    notes: "Caution: associated with HF hospitalization (SAVOR-TIMI 53).",
+    notes: "Adjust dose by eGFR.",
   },
   {
     drug: "Linagliptin",
@@ -148,232 +145,358 @@ const RENAL_DATA: DoseEntry[] = [
     eGFR30_44: "No adjustment",
     eGFR15_29: "No adjustment",
     eGFRBelow15: "No adjustment",
-    notes: "No renal dose adjustment needed — hepatic elimination.",
+    notes: "No dose adjustment needed.",
   },
   {
-    drug: "Vildagliptin",
-    drugClass: "DPP-4 Inhibitor",
-    normalDose: "50 mg BID",
+    drug: "Glimepiride",
+    drugClass: "Sulfonylurea",
+    normalDose: "1–8 mg/day",
     eGFR60_89: "No adjustment",
-    eGFR45_59: "50 mg OD",
-    eGFR30_44: "50 mg OD",
-    eGFR15_29: "50 mg OD",
-    eGFRBelow15: "50 mg OD",
-    notes: "Widely used in India. Monitor LFTs.",
+    eGFR45_59: "Reduce dose",
+    eGFR30_44: "Reduce dose",
+    eGFR15_29: "Avoid",
+    eGFRBelow15: "Avoid",
+    notes: "Risk of hypoglycemia.",
   },
   {
-    drug: "Pioglitazone",
-    drugClass: "Thiazolidinedione",
-    normalDose: "15–45 mg/day",
+    drug: "Gliclazide",
+    drugClass: "Sulfonylurea",
+    normalDose: "30–120 mg/day",
+    eGFR60_89: "No adjustment",
+    eGFR45_59: "No adjustment",
+    eGFR30_44: "Use low dose",
+    eGFR15_29: "Avoid",
+    eGFRBelow15: "Avoid",
+    notes: "Partial oxidation.",
+  },
+  {
+    drug: "Rosuvastatin",
+    drugClass: "Statin",
+    normalDose: "5–20 mg/day",
+    eGFR60_89: "No adjustment",
+    eGFR45_59: "No adjustment",
+    eGFR30_44: "Start 5 mg",
+    eGFR15_29: "Start 5 mg", 
+    eGFRBelow15: "Start 5 mg",
+    notes: "Pooled data for high-intensity.",
+  },
+  {
+    drug: "Atorvastatin",
+    drugClass: "Statin",
+    normalDose: "20–80 mg/day",
+    eGFR60_89: "No adjustment",
+    eGFR45_59: "No adjustment",
+    eGFR30_44: "No adjustment",
+    eGFR15_29: "Use with caution",
+    eGFRBelow15: "Use with caution",
+    notes: "PK not significantly changed.",
+  },
+  {
+    drug: "Spironolactone",
+    drugClass: "MRA",
+    normalDose: "12.5–50 mg/day",
+    eGFR60_89: "No adjustment",
+    eGFR45_59: "Use with caution",
+    eGFR30_44: "Avoid",
+    eGFR15_29: "Avoid",
+    eGFRBelow15: "Avoid",
+    notes: "Hyperkalemia risk.",
+  },
+  {
+    drug: "Furosemide",
+    drugClass: "Loop Diuretic",
+    normalDose: "20–80 mg/day",
+    eGFR60_89: "No adjustment",
+    eGFR45_59: "No adjustment",
+    eGFR30_44: "May need higher",
+    eGFR15_29: "May need higher",
+    eGFRBelow15: "Higher doses",
+    notes: "Diminished response at low eGFR.",
+  },
+  {
+    drug: "Amlodipine",
+    drugClass: "CCB",
+    normalDose: "2.5–10 mg/day",
     eGFR60_89: "No adjustment",
     eGFR45_59: "No adjustment",
     eGFR30_44: "No adjustment",
     eGFR15_29: "No adjustment",
     eGFRBelow15: "No adjustment",
-    notes: "Avoid in HF (NYHA III–IV). Risk of fluid retention.",
+    notes: "No dose adjustment.",
   },
   {
-    drug: "Glimepiride",
-    drugClass: "Sulfonylurea",
-    normalDose: "1–4 mg/day",
+    drug: "Lisinopril",
+    drugClass: "ACE Inhibitor",
+    normalDose: "5–40 mg/day",
     eGFR60_89: "No adjustment",
-    eGFR45_59: "Start at 1 mg",
-    eGFR30_44: "Start at 1 mg",
-    eGFR15_29: "Avoid",
-    eGFRBelow15: "Avoid",
-    notes: "High hypo risk in CKD — active metabolites accumulate.",
-  },
-  {
-    drug: "Gliclazide",
-    drugClass: "Sulfonylurea",
-    normalDose: "40–320 mg/day",
-    eGFR60_89: "No adjustment",
-    eGFR45_59: "No adjustment",
-    eGFR30_44: "Use with caution",
-    eGFR15_29: "Avoid",
-    eGFRBelow15: "Avoid",
-    notes: "Preferred SU in CKD (hepatic metabolism). Still carries hypo risk.",
-  },
-  {
-    drug: "Glipizide",
-    drugClass: "Sulfonylurea",
-    normalDose: "2.5–20 mg/day",
-    eGFR60_89: "No adjustment",
-    eGFR45_59: "No adjustment",
+    eGFR45_59: "Use with caution",
     eGFR30_44: "Start low",
     eGFR15_29: "Avoid",
     eGFRBelow15: "Avoid",
-    notes: "Short-acting, hepatic metabolism. Preferred SU if CKD stage 3.",
+    notes: "_monitor K+ and eGFR.",
   },
   {
-    drug: "Insulin Glargine",
-    drugClass: "Basal Insulin",
-    normalDose: "Individualized",
+    drug: "Losartan",
+    drugClass: "ARB",
+    normalDose: "50–100 mg/day",
     eGFR60_89: "No adjustment",
-    eGFR45_59: "No adjustment",
-    eGFR30_44: "Reduce dose 25%",
-    eGFR15_29: "Reduce dose 50%",
-    eGFRBelow15: "Reduce dose 50%+",
-    notes: "Insulin clearance is reduced in CKD — high hypo risk.",
-  },
-  {
-    drug: "Insulin Degludec",
-    drugClass: "Basal Insulin",
-    normalDose: "Individualized",
-    eGFR60_89: "No adjustment",
-    eGFR45_59: "No adjustment",
-    eGFR30_44: "Reduce dose 25%",
-    eGFR15_29: "Reduce dose 50%",
-    eGFRBelow15: "Reduce dose 50%+",
-    notes: "Ultra-long acting — lower hypo risk vs glargine in CKD.",
-  },
-  {
-    drug: "Finerenone",
-    drugClass: "MRA (non-steroidal)",
-    normalDose: "10–20 mg/day",
-    eGFR60_89: "20 mg/day",
-    eGFR45_59: "20 mg/day",
-    eGFR30_44: "10 mg/day",
-    eGFR15_29: "10 mg/day",
+    eGFR45_59: "Use with caution",
+    eGFR30_44: "Start low",
+    eGFR15_29: "Avoid",
     eGFRBelow15: "Avoid",
-    notes: "Indicated for CKD + T2DM. Monitor K+ closely. Do not start if K >5.0.",
+    notes: "Monitor K+ and eGFR.",
   },
 ];
 
-const eGFRColumns = [
-  { key: "eGFR60_89" as const, label: "60–89" },
-  { key: "eGFR45_59" as const, label: "45–59" },
-  { key: "eGFR30_44" as const, label: "30–44" },
-  { key: "eGFR15_29" as const, label: "15–29" },
-  { key: "eGFRBelow15" as const, label: "<15" },
-];
+function getDoseByEGFR(entry: DoseEntry, gfr: number | null): { dose: string; highlight: boolean } {
+  if (gfr === null) return { dose: entry.normalDose, highlight: false };
+  if (gfr >= 60) return { dose: entry.eGFR60_89, highlight: gfr < 90 };
+  if (gfr >= 45) return { dose: entry.eGFR45_59, highlight: true };
+  if (gfr >= 30) return { dose: entry.eGFR30_44, highlight: true };
+  if (gfr >= 15) return { dose: entry.eGFR15_29, highlight: true };
+  return { dose: entry.eGFRBelow15, highlight: true };
+}
 
-const cellStyle = (val: string) => {
-  const v = val.toLowerCase();
-  if (v.includes("contraindicated") || v === "avoid")
-    return "bg-destructive/10 text-destructive font-medium";
-  if (v.includes("caution") || v.includes("reduce") || v.includes("start low") || v.includes("start at") || v.includes("max") || v.includes("do not initiate"))
-    return "bg-warning/10 text-warning font-medium";
-  if (v.includes("limited"))
-    return "bg-muted text-muted-foreground";
-  return "";
-};
+// ============ Main Component ============
+export default function RenalDoseAdjustment() {
+  const [creatinine, setCreatinine] = useState("");
+  const [age, setAge] = useState("");
+  const [sex, setSex] = useState<Sex | null>(null);
+  const [unit, setUnit] = useState<CreatinineUnit>("mgdl");
+  const [customEgfr, setCustomEgfr] = useState<string>("");
+  const [useCustom, setUseCustom] = useState(false);
+  
+  const calculatedGfr = calculateCkdEpi(
+    parseFloat(creatinine) * (unit === "umol" ? 1/88.42 : 1),
+    parseFloat(age),
+    sex
+  );
+  
+  const effectiveGfr = useCustom && customEgfr ? parseFloat(customEgfr) : (calculatedGfr > 0 ? calculatedGfr : null);
+  const stage = effectiveGfr ? getGfrStage(effectiveGfr) : null;
+  
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedClass, setSelectedClass] = useState<string>("all");
 
-const RenalDoseAdjustment = () => {
-  const [search, setSearch] = useState("");
-  const [classFilter, setClassFilter] = useState<string>("all");
+  // Clear custom when using calculator
+  useEffect(() => {
+    if (calculatedGfr > 0) setUseCustom(false);
+  }, [creatinine, age, sex]);
 
-  const classes = [...new Set(RENAL_DATA.map(d => d.drugClass))];
-
+  const drugClasses = ["all", ...new Set(RENAL_DATA.map(d => d.drugClass))];
+  
   const filtered = RENAL_DATA.filter(d => {
-    const matchSearch = !search || d.drug.toLowerCase().includes(search.toLowerCase()) || d.drugClass.toLowerCase().includes(search.toLowerCase());
-    const matchClass = classFilter === "all" || d.drugClass === classFilter;
-    return matchSearch && matchClass;
+    const matchesSearch = d.drug.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                      d.drugClass.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesClass = selectedClass === "all" || d.drugClass === selectedClass;
+    return matchesSearch && matchesClass;
   });
 
+  const reset = () => {
+    setCreatinine("");
+    setAge("");
+    setSex(null);
+    setCustomEgfr("");
+    setUseCustom(false);
+  };
+
   return (
-    <div className="space-y-5 animate-slide-in">
-      <div>
-        <h1 className="text-xl font-heading font-bold flex items-center gap-2">
-          <FlaskConical className="w-5 h-5 text-primary" />
-          Renal Dose Adjustment
-        </h1>
-        <p className="text-sm text-muted-foreground">eGFR-based dose modifications for diabetes medications (ADA 2026 + KDIGO)</p>
-      </div>
-
-      {/* Legend */}
-      <div className="clinical-card p-3 flex flex-wrap gap-4 text-xs">
-        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-destructive/20 border border-destructive/30" /> Contraindicated / Avoid</span>
-        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-warning/20 border border-warning/30" /> Dose adjustment required</span>
-        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-muted border border-border" /> Limited data</span>
-        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-background border border-border" /> No adjustment</span>
-      </div>
-
-      {/* Filters */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-          <Input
-            placeholder="Search drug or class..."
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            className="pl-9"
-          />
-        </div>
-        <select
-          value={classFilter}
-          onChange={e => setClassFilter(e.target.value)}
-          className="h-10 rounded-md border border-input bg-background px-3 text-sm"
-        >
-          <option value="all">All Classes</option>
-          {classes.map(c => <option key={c} value={c}>{c}</option>)}
-        </select>
-      </div>
-
-      {/* Table */}
-      <div className="clinical-card p-0 overflow-hidden">
-        <div className="overflow-x-auto">
-          <Table>
-            <TableHeader>
-              <TableRow className="bg-muted/50">
-                <TableHead className="min-w-[140px] sticky left-0 bg-muted/50 z-10">Drug</TableHead>
-                <TableHead className="min-w-[100px]">Class</TableHead>
-                <TableHead className="min-w-[120px]">Normal Dose</TableHead>
-                {eGFRColumns.map(col => (
-                  <TableHead key={col.key} className="min-w-[110px] text-center">
-                    <div className="text-[10px] text-muted-foreground">eGFR</div>
-                    <div>{col.label}</div>
-                  </TableHead>
-                ))}
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {filtered.map((d, i) => (
-                <TableRow key={i}>
-                  <TableCell className="font-medium sticky left-0 bg-card z-10">
-                    <div className="flex items-center gap-1.5">
-                      <Pill className="w-3.5 h-3.5 text-primary shrink-0" />
-                      {d.drug}
-                    </div>
-                  </TableCell>
-                  <TableCell className="text-xs text-muted-foreground">{d.drugClass}</TableCell>
-                  <TableCell className="text-xs">{d.normalDose}</TableCell>
-                  {eGFRColumns.map(col => (
-                    <TableCell key={col.key} className={`text-xs text-center ${cellStyle(d[col.key])}`}>
-                      {d[col.key]}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-              {filtered.length === 0 && (
-                <TableRow>
-                  <TableCell colSpan={8} className="text-center text-muted-foreground py-8">
-                    No medications found
-                  </TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </div>
-      </div>
-
-      {/* Clinical Notes */}
-      <div className="clinical-card">
-        <div className="flex items-center gap-2 mb-3">
-          <AlertTriangle className="w-4 h-4 text-warning" />
-          <h3 className="section-title">Clinical Notes</h3>
-        </div>
-        <div className="space-y-2">
-          {filtered.filter(d => d.notes).map((d, i) => (
-            <div key={i} className="flex items-start gap-2 text-xs">
-              <span className="font-medium text-primary min-w-[100px]">{d.drug}:</span>
-              <span className="text-muted-foreground">{d.notes}</span>
+    <div className="min-h-screen bg-slate-50 p-4">
+      {/* eGFR Calculator Card */}
+      <Card className="mb-4 shadow-md">
+        <CardHeader className="pb-2">
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <Calculator className="h-5 w-5 text-blue-600" />
+            eGFR Calculator (CKD-EPI 2021)
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-2 gap-3 mb-3">
+            <div>
+              <Label className="text-xs">Creatinine</Label>
+              <div className="flex gap-1">
+                <Input
+                  type="number"
+                  placeholder={unit === "mgdl" ? "1.2" : "106"}
+                  value={creatinine}
+                  onChange={(e) => setCreatinine(e.target.value)}
+                  className="h-9"
+                />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setUnit(unit === "mgdl" ? "umol" : "mgdl")}
+                  className="h-9 px-2"
+                >
+                  {unit === "mgdl" ? "mg/dL" : "µmol"}
+                </Button>
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
+            <div>
+              <Label className="text-xs">Age (years)</Label>
+              <Input
+                type="number"
+                placeholder="65"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                className="h-9"
+              />
+            </div>
+          </div>
+          
+          <div className="mb-3">
+            <Label className="text-xs">Sex</Label>
+            <div className="flex gap-2 mt-1">
+              <Button
+                variant={sex === "male" ? "default" : "outline"}
+                size="sm"
+                onClick={() => setSex("male")}
+                className="flex-1"
+              >
+                Male
+              </Button>
+              <Button
+                variant={sex === "female" ? "default" : "outline"}
+                size="sm"
+                onClick={() => setSex("female")}
+                className="flex-1"
+              >
+                Female
+              </Button>
+            </div>
+          </div>
+
+          {/* OR Divider */}
+          <div className="flex items-center gap-2 my-3">
+            <div className="flex-1 h-px bg-slate-200" />
+            <span className="text-xs text-slate-400">OR enter manually</span>
+            <div className="flex-1 h-px bg-slate-200" />
+          </div>
+
+          {/* Manual eGFR Override */}
+          <div className="flex items-center gap-2 mb-3">
+            <input
+              type="checkbox"
+              id="useCustom"
+              checked={useCustom}
+              onChange={(e) => setUseCustom(e.target.checked)}
+              className="w-4 h-4"
+            />
+            <Label htmlFor="useCustom" className="text-xs">Enter eGFR directly:</Label>
+            <Input
+              type="number"
+              placeholder="e.g. 45"
+              value={customEgfr}
+              onChange={(e) => {
+                setCustomEgfr(e.target.value);
+                if (e.target.value) setUseCustom(true);
+              }}
+              disabled={!useCustom}
+              className="h-9 w-20"
+            />
+            <span className="text-sm text-slate-500">mL/min/1.73m²</span>
+          </div>
+
+          {/* Results Display */}
+          {(effectiveGfr || calculatedGfr > 0) && (
+            <div className="flex items-center justify-between bg-slate-100 rounded-lg p-3">
+              <div>
+                <p className="text-xs text-slate-500">Calculated eGFR</p>
+                <p className="text-2xl font-bold text-slate-800">
+                  {effectiveGfr?.toFixed(1) ?? "—"}
+                  <span className="text-sm font-normal ml-1">mL/min</span>
+                </p>
+              </div>
+              {stage && (
+                <div className={`px-3 py-1 rounded-full text-sm font-medium border ${stage.color}`}>
+                  {stage.stage}: {stage.label}
+                </div>
+              )}
+              <Button variant="ghost" size="sm" onClick={reset}>
+                <RotateCcw className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Drug Dosing Table */}
+      <Card className="shadow-md">
+        <CardHeader className="pb-2">
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <Pill className="h-5 w-5 text-purple-600" />
+            Drug Dose Adjustment by eGFR
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {/* Search & Filter */}
+          <div className="flex gap-2 mb-3">
+            <div className="flex-1 relative">
+              <Search className="absolute left-2 top-2.5 h-4 w-4 text-slate-400" />
+              <Input
+                placeholder="Search drug..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-8 h-9"
+              />
+            </div>
+            <select
+              value={selectedClass}
+              onChange={(e) => setSelectedClass(e.target.value)}
+              className="h-9 px-2 rounded border bg-white"
+            >
+              {drugClasses.map(c => (
+                <option key={c} value={c}>{c === "all" ? "All Classes" : c}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Warning if eGFR < 30 */}
+          {effectiveGfr && effectiveGfr < 30 && (
+            <div className="flex items-center gap-2 p-2 mb-3 bg-red-50 border border-red-200 rounded-lg">
+              <AlertTriangle className="h-4 w-4 text-red-500" />
+              <span className="text-xs text-red-700">
+                Many drugs are contraindicated or require dose reduction below eGFR 30
+              </span>
+            </div>
+          )}
+
+          {/* Table */}
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-xs">Drug</TableHead>
+                  <TableHead className="text-xs">Class</TableHead>
+                  <TableHead className="text-xs">Adjusted Dose</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filtered.map((d, i) => {
+                  const { dose, highlight } = getDoseByEGFR(d, effectiveGfr);
+                  return (
+                    <TableRow key={i} className={highlight ? "bg-yellow-50" : ""}>
+                      <TableCell className="font-medium text-sm">{d.drug}</TableCell>
+                      <TableCell className="text-xs text-slate-500">{d.drugClass}</TableCell>
+                      <TableCell>
+                        <span className={highlight ? "font-bold text-blue-700" : "text-slate-600"}>
+                          {dose}
+                        </span>
+                        {d.notes && highlight && (
+                          <p className="text-xs text-slate-400 mt-0.5">{d.notes}</p>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </div>
+          {filtered.length === 0 && (
+            <p className="text-center text-slate-400 py-4">No drugs found</p>
+          )}
+        </CardContent>
+      </Card>
     </div>
   );
-};
-
-export default RenalDoseAdjustment;
+}
