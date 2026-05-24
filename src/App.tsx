@@ -45,6 +45,7 @@ import RenalDoseAdjustmentCalc from "@/calculators/diabetes/RenalDosing";
 import SlidingScaleInsulinCalc from "@/calculators/diabetes/SlidingScale";
 import DiabetesMedicationAlgorithmCalc from "@/calculators/diabetes/DiabetesMedicationAlgorithm";
 import AscvdEmrCalc from "@/calculators/lipids/AscvdRisk";
+import LDLCTargetCalc from "@/calculators/lipids/LDLCTarget";
 import LipidPanelCalc from "@/calculators/lipids/LipidPanel";
 import GfrCalculatorCalc from "@/calculators/htn/GfrCalculator";
 import DrugInteractionCheckerCalc from "@/calculators/htn/DrugInteractions";
@@ -176,6 +177,7 @@ const App = () => (
           <Route path="/diabetes/medication-algorithm" element={<><TabNavigation /><DiabetesMedicationAlgorithmCalc /></>} />
           <Route path="/lipid-panel" element={<><TabNavigation /><LipidPanelCalc /></>} />
           <Route path="/ascvd-risk" element={<><TabNavigation /><AscvdEmrCalc /></>} />
+          <Route path="/ldl-target" element={<><TabNavigation /><LDLCTargetCalc /></>} />
           <Route path="/gfr-calculator" element={<><TabNavigation /><GfrCalculatorCalc /></>} />
           <Route path="/drug-interactions" element={<><TabNavigation /><DrugInteractionCheckerCalc /></>} />
           <Route path="/htn/treatment-algorithm" element={<><TabNavigation /><AntihypertensiveTreatmentAlgorithmCalc /></>} />
