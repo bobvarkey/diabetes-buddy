@@ -383,7 +383,25 @@ const InsulinDosingCalculator = () => {
             <li>• Glulisine (Apidra): Rapid-acting, give 0-2 min before meals</li>
             <li>• Regular (Novolin R): Short-acting, give 30 min before meals</li>
           </ul>
-        </div>
+          </div>
+
+          {/* Meal Planner by Cuisine */}
+          <div className="text-xs text-muted-foreground mt-4 pt-3 border-t border-border">
+            <p className="font-medium mb-1">Meal Planner by Cuisine:</p>
+            <Select defaultValue="">
+              <SelectTrigger><SelectValue placeholder="Select cuisine" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="asian">Asian (Rice-based)</SelectItem>
+                <SelectItem value="indian">Indian (Roti/Rice)</SelectItem>
+                <SelectItem value="kerala">Kerala (Sadya, Puttu, Appam)</SelectItem>
+                <SelectItem value="european">European (Bread/Meat)</SelectItem>
+                <SelectItem value="japanese">Japanese (Rice/Fish)</SelectItem>
+                <SelectItem value="chinese">Chinese (Rice/Noodles)</SelectItem>
+                <SelectItem value="korean">Korean (Rice/Banchan)</SelectItem>
+                <SelectItem value="american">American (Mixed)</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
       </CardContent>
     </Card>
   );
