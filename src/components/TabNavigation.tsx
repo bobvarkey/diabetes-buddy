@@ -16,6 +16,7 @@ const mainNavItems = [
 const clinicalTabs = [
   { path: "/home", label: "🏠 Dashboard", icon: "🏠", color: "primary" },
   { path: "/diabetes", label: "💉 Diabetes", icon: "💉", color: "red-500" },
+  { path: "/meal-planner", label: "🍽️ Meals", icon: "🍽️", color: "purple-500" },
   { path: "/hypertension", label: "❤️ HTN", icon: "❤️", color: "orange-500" },
   { path: "/lipids", label: "💧 Lipids", icon: "💧", color: "blue-500" },
   { path: "/obesity", label: "⚖️ Obesity", icon: "⚖️", color: "pink-500" },
