@@ -1,40 +1,37 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Heart, Syringe, Dna, Activity, Wind, Menu, X } from "lucide-react";
+import { Home, Heart, Syringe, Dna, Activity, Wind, Menu, X, Zap, Brain } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
-// Main Navigation Items for Easy and Complex modes
+// Combined navigation: Easy & Complex modes appear alongside Home
 const mainNavItems = [
-  { path: "/easy", label: "🔰 Easy Mode", icon: "🔰", color: "green-500", description: "Quick calculators & simple decision tools" },
-  { path: "/home", label: "🏠 Home", icon: "🏠", color: "primary", description: "Full NCD dashboard" },
-  { path: "/complex", label: "🧠 Complex", icon: "🧠", color: "purple-500", description: "Advanced clinical details" },
+  { path: "/easy", label: "🔰 Easy", icon: "🔰", color: "green-500", description: "Quick calculators" },
+  { path: "/home", label: "🏠 Home", icon: "🏠", color: "primary", description: "Dashboard" },
+  { path: "/complex", label: "🧠 Complex", icon: "🧠", color: "purple-500", description: "Full details" },
 ];
 
-// Clinical area tabs (shown in Complex mode)
-const navItems = [
-  { path: "/home", label: "🏠 Homepage", icon: "🏠", color: "primary" },
-  { path: "/diabetes", label: "Diabetes", icon: "💉", color: "red-500" },
-  { path: "/hypertension", label: "Hypertension", icon: "❤️", color: "orange-500" },
-  { path: "/lipids", label: "Lipids", icon: "💧", color: "blue-500" },
-  { path: "/respiratory", label: "COPD/Asthma", icon: "🫁", color: "cyan-500" },
-  { path: "/renal-dosing", label: "Renal", icon: "🫘", color: "amber-500" },
-];
-
-const modeLinks = [
-  { path: "/", label: "← Mode Selector", icon: "⬅️" },
-  { path: "/simple", label: "🟢 Simple", icon: "🟢" },
-  { path: "/moderate", label: "🟠 Moderate", icon: "🟠" },
-  { path: "/home", label: "🔴 Complex", icon: "🔴" },
+// Clinical area tabs (accessible from Complex mode)
+const clinicalTabs = [
+  { path: "/home", label: "🏠 Dashboard", icon: "🏠", color: "primary" },
+  { path: "/diabetes", label: "💉 Diabetes", icon: "💉", color: "red-500" },
+  { path: "/hypertension", label: "❤️ HTN", icon: "❤️", color: "orange-500" },
+  { path: "/lipids", label: "💧 Lipids", icon: "💧", color: "blue-500" },
+  { path: "/respiratory", label: "🫁 COPD", icon: "🫁", color: "cyan-500" },
+  { path: "/renal", label: "🫘 Renal", icon: "🫘", color: "amber-500" },
 ];
 
 export function TabNavigation() {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const currentPath = location.pathname;
-
-  // Determine active main section
   const activeSection = currentPath.split("/")[1] || "home";
+
+  // Determine which mainnav is active
+  const getMainNavClass = (path: string) => {
+    if (path === "/home" && (currentPath === "/home" || currentPath.startsWith("/diabetes") || currentPath.startsWith("/hypertension") || currentPath.startsWith("/lipids") || currentPath.startsWith("/respiratory") || currentPath.startsWith("/renal"))) return true;
+    return currentPath === path || currentPath.startsWith(path + "/");
+  };
 
   return (
     <>
@@ -67,61 +64,58 @@ export function TabNavigation() {
           </Link>
         </div>
 
-        {/* Main Navigation */}
+        {/* Main Navigation (Easy, Home, Complex as top-level tabs) */}
         <nav className="p-2 space-y-1">
-          <div className="text-xs font-semibold text-muted-foreground px-2 py-2">CLINICAL AREAS</div>
-          {navItems.map((item) => {
-            const isActive = currentPath === item.path || 
-              (item.path !== "/home" && currentPath.startsWith(item.path));
+          <div className="text-xs font-semibold text-muted-foreground px-2 py-2">MODES</div>
+          {mainNavItems.map((item) => {
+            const isActive = item.path === "/home" 
+              ? (currentPath === "/home" || currentPath.match(/^\/(diabetes|hypertension|lipids|respiratory|renal)/))
+              : currentPath === item.path;
             return (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setSidebarOpen(false)}
                 className={cn(
-                  "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
+                  "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all mb-1",
                   isActive 
                     ? `bg-${item.color}/10 text-${item.color} border-l-2 border-${item.color}` 
                     : "text-muted-foreground hover:bg-muted hover:text-foreground"
                 )}
               >
-                <span>{item.icon}</span>
                 <span>{item.label}</span>
               </Link>
             );
           })}
         </nav>
 
-        {/* Mode Switcher at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 p-2 border-t border-border">
-          <div className="text-xs font-semibold text-muted-foreground px-2 py-2">MODE SWITCHER</div>
-          <nav className="space-y-1">
-            {modeLinks.map((item) => {
-              const isActive = currentPath === item.path || 
-                (item.path === "/home" && currentPath === "/home") ||
-                (item.path === "/" && currentPath === "/");
+        {/* Clinical Tabs (shown when in Complex mode → any /diabetes, /hypertension etc) */}
+        {(currentPath === "/home" || currentPath.match(/^\/(diabetes|hypertension|lipids|respiratory|renal)/)) && (
+          <nav className="p-2 space-y-1 border-t border-border">
+            <div className="text-xs font-semibold text-muted-foreground px-2 py-2">AREAS</div>
+            {clinicalTabs.map((item) => {
+              const isActive = currentPath === item.path || currentPath.startsWith(item.path + "/");
               return (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setSidebarOpen(false)}
                   className={cn(
-                    "flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all",
+                    "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all",
                     isActive 
-                      ? "bg-primary/10 text-primary" 
+                      ? `bg-${item.color}/10 text-${item.color} border-l-2 border-${item.color}` 
                       : "text-muted-foreground hover:bg-muted hover:text-foreground"
                   )}
                 >
-                  <span>{item.icon}</span>
                   <span>{item.label}</span>
                 </Link>
               );
             })}
           </nav>
-        </div>
+        )}
       </aside>
 
-      {/* Sidebar spacer - push content right */}
+      {/* Sidebar spacer */}
       <div className="hidden lg:block w-56 shrink-0" />
 
       {/* Mobile overlay */}
@@ -132,10 +126,11 @@ export function TabNavigation() {
         />
       )}
 
-      {/* Mobile top bar with hamburger */}
+      {/* Mobile top bar */}
       <div className="lg:hidden h-14 flex items-center pl-14 border-b border-border bg-background/95">
         <span className="text-sm font-medium">
-          {navItems.find(n => currentPath === n.path || currentPath.startsWith(n.path + "/"))?.label || "NCD Rx"}
+          {mainNavItems.find(n => getMainNavClass(n.path))?.label || 
+           clinicalTabs.find(n => currentPath.startsWith(n.path))?.label || "NCD Rx"}
         </span>
       </div>
     </>

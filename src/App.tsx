@@ -138,7 +138,7 @@ const App = () => (
           {/* Mode Selector — landing */}
           <Route path="/" element={<ModeSelector />} />
           <Route path="/easy" element={<SimpleMode />} />
-          <Route path="/complex" element={<Navigate to="/home" replace />} />
+          <Route path="/complex" element={<><TabNavigation /><Home /></>} />
 
           {/* Full-screen routes — no sidebar */}
           <Route path="/landing" element={<LandingPage />} />
