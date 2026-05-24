@@ -175,6 +175,7 @@ const App = () => (
           <Route path="/respiratory/simple" element={<RespiratorySimple />} />
           <Route path="/respiratory/moderate" element={<RespiratoryModerate />} />
           <Route path="/respiratory" element={<><TabNavigation /><RespiratoryPage /></>} />
+          <Route path="/obesity" element={<><TabNavigation /><BmiCalculatorCalc /></>} />
           <Route path="/diabetes/medication-algorithm" element={<><TabNavigation /><DiabetesMedicationAlgorithmCalc /></>} />
           <Route path="/lipid-panel" element={<><TabNavigation /><LipidPanelCalc /></>} />
           <Route path="/ascvd-risk" element={<><TabNavigation /><AscvdEmrCalc /></>} />
