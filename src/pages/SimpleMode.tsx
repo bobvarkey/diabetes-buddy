@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AbbreviationHover } from "@/components/AbbreviationHover";
 import { useNavigate } from "react-router-dom";
-import { Syringe, Heart, Dna, Scale, Activity, ArrowLeft, Calculator, Info } from "lucide-react";
+import { Syringe, Heart, Dna, Scale, Activity, ArrowLeft, Calculator, Info, Wind, Droplets } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,6 +59,7 @@ function ModeNav() {
 
 /* ─── Diabetes Calculator (Easy) ─── */
 function DiabetesCalc() {
+  /* Diabetes - ADA 2026 */
   const [fbg, setFbg] = useState("");
   const [hba1c, setHba1c] = useState("");
   const [age, setAge] = useState("");
@@ -116,6 +117,7 @@ function DiabetesCalc() {
 
 /* ─── Hypertension Calculator (Easy) ─── */
 function HypertensionCalc() {
+  /* Hypertension - ESC/ESH 2024 */
   const [sbp, setSbp] = useState("");
   const [dbp, setDbp] = useState("");
   const [age, setAge] = useState("");
@@ -181,6 +183,7 @@ function HypertensionCalc() {
 
 /* ─── Lipids Calculator (Easy) with Risk Modifiers ─── */
 function LipidsCalc() {
+  /* Lipids - ILA 2023 */
   const [ldl, setLdl] = useState("");
   const [hdl, setHdl] = useState("");
   const [tg, setTg] = useState("");
@@ -324,6 +327,7 @@ function LipidsCalc() {
 
 /* ─── Obesity Calculator (Easy) ─── */
 function ObesityCalc() {
+  /* Obesity */
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [result, setResult] = useState<React.ReactNode>(null);
@@ -384,6 +388,146 @@ function ObesityCalc() {
   );
 }
 
+/* ─── COPD/Asthma Calculator (Easy) - GINA 2026 ─── */
+// Simplified COPD/Asthma calculator for quick assessments
+function COPDCalc() {
+  const [condition, setCondition] = useState("asthma");
+  const [severity, setSeverity] = useState("");
+  const [pefr, setPefr] = useState("");
+  
+  const severities = condition === "asthma" 
+    ? [
+        { value: "intermittent", label: "Intermittent", action: "SABA PRN" },
+        { value: "mild", label: "Mild Persistent", action: "Low-dose ICS + SABA" },
+        { value: "moderate", label: "Moderate Persistent", action: "Medium-dose ICS + SABA" },
+        { value: "severe", label: "Severe Persistent", action: "High-dose ICS/LABA or oral steroids" },
+      ]
+    : [
+        { value: "mild", label: "GOLD 1 - Mild", action: "SABA PRN" },
+        { value: "moderate", label: "GOLD 2 - Moderate", action: "LAMA or LABA + pulmonary rehab" },
+        { value: "severe", label: "GOLD 3 - Severe", action: "Triple therapy (ICS+LABA+LAMA)" },
+        { value: "verysevere", label: "GOLD 4 - Very Severe", action: "Consider LTOT, lung volume reduction" },
+      ];
+
+  return (
+    <Card>
+      <CardHeader className="pb-2">
+        <CardTitle className="flex items-center gap-2 text-base">
+          <Wind className="h-4 w-4 text-cyan-500" />
+          COPD/Asthma ({condition === "asthma" ? "GINA 2026" : "GOLD 2025"})
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-3">
+          <div>
+            <Label className="text-xs">Condition</Label>
+            <Select value={condition} onValueChange={setCondition}>
+              <SelectTrigger className="h-8"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="asthma">Asthma</SelectItem>
+                <SelectItem value="copd">COPD</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <Label className="text-xs">Severity/Stage</Label>
+            <Select value={severity} onValueChange={setSeverity}>
+              <SelectTrigger className="h-8"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                {severities.map(s => (
+                  <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          {severity && (
+            <div className="p-2 bg-cyan-50 rounded-lg">
+              <p className="text-xs font-medium">Recommended Action:</p>
+              <p className="text-sm font-bold text-cyan-700">
+                {severities.find(s => s.value === severity)?.action}
+              </p>
+            </div>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+/* ─── Kidney/eGFR Calculator (Easy) - KDIGO 2024 ─── */
+// Simplified eGFR calculator for quick assessments
+function KidneyCalc() {
+  const [creatinine, setCreatinine] = useState("");
+  const [age, setAge] = useState("");
+  const [sex, setSex] = useState("male");
+  const [egfr, setEgfr] = useState<number | null>(null);
+  
+  const calculate = () => {
+    const cr = parseFloat(creatinine);
+    const a = parseFloat(age);
+    if (!cr || !a) return;
+    
+    // Simple CKD-EPI approximation
+    const k = sex === "female" ? 0.7 : 0.9;
+    const alpha = sex === "female" ? -0.241 : -0.302;
+    const mult = sex === "female" ? 1.012 : 1.0;
+    const gfr = 142 * Math.pow(Math.min(cr/k, 1), alpha) * Math.pow(Math.max(cr/k, 1), -1.200) * Math.pow(0.9938, a) * mult;
+    setEgfr(Math.round(gfr));
+  };
+  
+  const getStage = (e: number) => {
+    if (e >= 90) return { stage: "G1", label: "Normal", color: "bg-green-100 text-green-700" };
+    if (e >= 60) return { stage: "G2", label: "Mildly reduced", color: "bg-green-100 text-green-700" };
+    if (e >= 45) return { stage: "G3a", label: "Mild-moderate", color: "bg-yellow-100 text-yellow-700" };
+    if (e >= 30) return { stage: "G3b", label: "Moderate-severe", color: "bg-orange-100 text-orange-700" };
+    if (e >= 15) return { stage: "G4", label: "Severely reduced", color: "bg-red-100 text-red-700" };
+    return { stage: "G5", label: "Kidney failure", color: "bg-red-200 text-red-800" };
+  };
+  
+  return (
+    <Card>
+      <CardHeader className="pb-2">
+        <CardTitle className="flex items-center gap-2 text-base">
+          <Droplets className="h-4 w-4 text-amber-500" />
+          Kidney/eGFR (KDIGO 2024)
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-3 gap-2">
+          <div>
+            <Label className="text-xs">SCr (mg/dL)</Label>
+            <Input type="number" placeholder="1.2" value={creatinine} onChange={e => setCreatinine(e.target.value)} className="h-8" />
+          </div>
+          <div>
+            <Label className="text-xs">Age</Label>
+            <Input type="number" placeholder="65" value={age} onChange={e => setAge(e.target.value)} className="h-8" />
+          </div>
+          <div>
+            <Label className="text-xs">Sex</Label>
+            <Select value={sex} onValueChange={setSex}>
+              <SelectTrigger className="h-8"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="male">Male</SelectItem>
+                <SelectItem value="female">Female</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+        <Button onClick={calculate} className="w-full mt-2 h-8 text-xs bg-amber-500 hover:bg-amber-600">
+          Calculate eGFR
+        </Button>
+        {egfr && (
+          <div className={`mt-2 p-2 rounded-lg ${getStage(egfr).color}`}>
+            <p className="text-lg font-bold">eGFR: {egfr} mL/min</p>
+            <p className="text-sm font-medium">Stage {getStage(egfr).stage}: {getStage(egfr).label}</p>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+
 export default function SimpleMode() {
   return (
     <div className="min-h-screen bg-background p-4 md:p-6">
@@ -391,15 +535,17 @@ export default function SimpleMode() {
         <ModeNav />
         <div className="mb-6">
           <h1 className="text-2xl font-bold">Simple Mode</h1>
-          <p className="text-sm text-muted-foreground">Quick calculators for all 4 NCDs. Simple inputs, clear outputs.</p>
+          <p className="text-sm text-muted-foreground">Quick calculators for all 6 NCDs. Simple inputs, clear outputs.</p>
         </div>
         <div className="space-y-4">
           <DiabetesCalc />
           <HypertensionCalc />
           <LipidsCalc />
           <ObesityCalc />
+          <COPDCalc />
+          <KidneyCalc />
         </div>
-        <p className="text-center text-xs text-muted-foreground/60 mt-6">v1.0 · ADA 2026 · ESC/ESH 2024 · LAI 2023</p>
+        <p className="text-center text-xs text-muted-foreground/60 mt-6">v1.0 · ADA 2026 · ESC/ESH 2024 · LAI 2023 · GINA 2026 · GOLD 2025 · KDIGO 2024</p>
       </div>
 
       {/* Bottom nav */}
