@@ -14,9 +14,9 @@ const mainNavItems = [
 
 // Clinical area tabs (accessible from Complex mode)
 const clinicalTabs = [
-  { path: "/home", label: "🏠 Dashboard", icon: "🏠", color: "primary" },
+  { path: "/home", label: "🏠 NCD Rx Home", icon: "🏠", color: "primary" },
   { path: "/diabetes", label: "💉 Diabetes", icon: "💉", color: "red-500" },
-  { path: "/hypertension", label: "❤️ HTN", icon: "❤️", color: "orange-500" },
+  { path: "/hypertension", label: "❤️ Hypertension", icon: "❤️", color: "orange-500" },
   { path: "/lipids", label: "💧 Lipids", icon: "💧", color: "blue-500" },
   { path: "/obesity", label: "⚖️ Obesity", icon: "⚖️", color: "pink-500" },
   { path: "/respiratory", label: "🫁 COPD/Asthma", icon: "🫁", color: "cyan-500" },
@@ -151,10 +151,36 @@ export function TabNavigation() {
       {/* Mobile top bar */}
       <div className="lg:hidden h-14 flex items-center pl-14 border-b border-border bg-background/95">
         <span className="text-sm font-medium">
-          {mainNavItems.find(n => getMainNavClass(n.path))?.label || 
+          {mainNavItems.find(n => getMainNavClass(n.path))?.label ||
            clinicalTabs.find(n => currentPath.startsWith(n.path))?.label || "NCD Rx"}
         </span>
       </div>
+
+      {/* Desktop Horizontal Top Navigation - Clinical Areas */}
+      <div className="hidden lg:flex fixed top-0 left-56 right-0 h-14 bg-card border-b border-border z-30 items-center px-4 overflow-x-auto">
+        <div className="flex items-center gap-1">
+          {clinicalTabs.map((item) => {
+            const isActive = currentPath === item.path || currentPath.startsWith(item.path + "/");
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={cn(
+                  "px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap",
+                  isActive
+                    ? `bg-${item.color}/10 text-${item.color} border border-${item.color}/30`
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Spacer for fixed top nav */}
+      <div className="hidden lg:block h-14" />
     </>
   );
 }

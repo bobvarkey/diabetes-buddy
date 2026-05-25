@@ -25,6 +25,7 @@ import {
   CheckCircle,
   Info,
 } from "lucide-react";
+import SecondaryHypertensionChecklist from "@/components/SecondaryHypertensionChecklist";
 
 // Category colors for hypertension (orange theme)
 const categoryColors = {
@@ -678,6 +679,9 @@ export default function HypertensionAssessment() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Full Secondary Hypertension Workup Algorithm */}
+      <SecondaryHypertensionChecklist />
     </div>
   );
 }

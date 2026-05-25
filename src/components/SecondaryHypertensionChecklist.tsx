@@ -5,18 +5,19 @@ import PrintableReport from "./PrintableReport";
 import CitationsPanel from "./CitationsPanel";
 import TreatmentAlgorithm from "./TreatmentAlgorithm";
 import HtnAlgorithmFlowchart from "./HtnAlgorithmFlowchart";
+import InvestigationFlowchart from "./InvestigationFlowchart";
 import AntihypertensivePotencyTable from "@/calculators/htn/AntihypertensivePotencyTable";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Heart, 
-  Wine, 
-  Pill, 
-  Activity, 
-  Zap, 
+import {
+  Heart,
+  Wine,
+  Pill,
+  Activity,
+  Zap,
   Moon,
   TestTube,
   Stethoscope,
@@ -25,7 +26,8 @@ import {
   Syringe,
   Tablets,
   Info,
-  AlertTriangle
+  AlertTriangle,
+  Workflow
 } from "lucide-react";
 
 interface ChecklistItem {
@@ -943,10 +945,14 @@ export default function SecondaryHypertensionChecklist() {
 
         {/* Tabs */}
         <Tabs defaultValue="evaluation" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+          <TabsList className="grid w-full max-w-lg mx-auto grid-cols-3 mb-8">
             <TabsTrigger value="evaluation" className="flex items-center space-x-2">
               <Stethoscope className="h-4 w-4" />
               <span>Evaluation</span>
+            </TabsTrigger>
+            <TabsTrigger value="flowchart" className="flex items-center space-x-2">
+              <Workflow className="h-4 w-4" />
+              <span>Workup Flowchart</span>
             </TabsTrigger>
             <TabsTrigger value="treatment" className="flex items-center space-x-2">
               <Tablets className="h-4 w-4" />
@@ -1067,6 +1073,21 @@ export default function SecondaryHypertensionChecklist() {
                 </CardContent>
               </Card>
             )}
+          </TabsContent>
+
+          {/* Workup Flowchart Tab */}
+          <TabsContent value="flowchart" className="space-y-6">
+            <div className="text-center space-y-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                Secondary Hypertension Workup
+              </h2>
+              <p className="text-muted-foreground">
+                5-Step Investigation Flowchart
+              </p>
+            </div>
+
+            {/* Investigation Flowchart */}
+            <InvestigationFlowchart />
           </TabsContent>
 
           {/* Treatment Tab */}

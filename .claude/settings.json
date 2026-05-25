@@ -19,7 +19,18 @@
       "Bash(curl -s http://localhost:8080/index.html)",
       "Bash(curl -s http://localhost:8081/index.html)",
       "Bash(curl -s http://localhost:8082/index.html)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(python -m http.server 3000 -d dist)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "Read(//c/Users/bobva/AppData/Local/Temp/**)",
+      "Bash(pkill -f \"python.*http.server\")",
+      "Bash(python -m http.server 3000 -d c:/Users/bobva/OneDrive/Documents/GitHub/diabetes-buddy/dist)",
+      "Bash(pkill -f \"http.server\")",
+      "Bash(npx serve *)",
+      "Bash(curl -s \"https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=600&fit=crop\" -o \"c:/Users/bobva/OneDrive/Documents/GitHub/diabetes-buddy/public/hero-doctor.jpg\")"
     ]
   }
 }

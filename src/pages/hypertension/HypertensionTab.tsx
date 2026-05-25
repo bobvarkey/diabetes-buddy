@@ -117,11 +117,12 @@ export default function HypertensionTab() {
             { label: "Drug Interactions", icon: Pill, tab: "assessment" },
             { label: "Treatment Algorithm", icon: ClipboardList, tab: "treatment" },
             { label: "Potency Table", icon: BookOpen, tab: "treatment" },
+            { label: "Secondary HTN Workup", icon: Stethoscope, tab: "assessment", fullWidth: true },
           ].map((item) => (
             <Button
               key={item.label}
               variant="outline"
-              className="h-auto py-4 flex flex-col items-center gap-2 hover:border-orange-500/30"
+              className={`h-auto py-4 flex flex-col items-center gap-2 hover:border-orange-500/30 ${item.fullWidth ? 'col-span-2 md:col-span-1' : ''}`}
               onClick={() => setActiveTab(item.tab)}
             >
               <item.icon className="h-5 w-5" style={{ color: categoryColors.accent }} />

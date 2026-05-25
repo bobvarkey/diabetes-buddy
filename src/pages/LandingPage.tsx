@@ -54,7 +54,7 @@ export default function LandingPage() {
           {/* Hero image with floating card */}
           <div className="relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
             <img
-              src={heroImage}
+              src="/hero-doctor.jpg"
               alt="Clinician reviewing cardiovascular risk monitors"
               width={1280}
               height={800}
