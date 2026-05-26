@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Heart, Syringe, Dna, Activity, Scale, Wind, Droplets, Sparkles, Layers } from "lucide-react";
+import { Home, Heart, Syringe, Dna, Activity, Scale, Wind, Droplets, Sparkles, Layers, Beaker } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMode } from "@/hooks/use-mode";
 
@@ -20,6 +20,7 @@ const tabs: TabItem[] = [
   { path: "/obesity", label: "Obesity", icon: <Scale className="h-4 w-4" />, color: "text-violet-500", dotClass: "bg-violet-500" },
   { path: "/asthma-copd", label: "Asthma/COPD", icon: <Wind className="h-4 w-4" />, color: "text-cyan-500", dotClass: "bg-cyan-500" },
   { path: "/renal", label: "Renal", icon: <Droplets className="h-4 w-4" />, color: "text-emerald-500", dotClass: "bg-emerald-500" },
+  { path: "/anemia", label: "Anemia", icon: <Beaker className="h-4 w-4" />, color: "text-rose-500", dotClass: "bg-rose-500" },
 ];
 
 export function TabNavigation() {
