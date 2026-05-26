@@ -317,6 +317,39 @@ export default function GenerateRx() {
               placeholder="e.g. Metformin 1000mg BD, Glimepiride 2mg OD"
             />
           </div>
+
+          <div className="md:col-span-3 pt-2">
+            <div className="flex items-center gap-2 mb-2">
+              <Beaker className="h-4 w-4 text-rose-500" />
+              <span className="text-sm font-semibold">Anemia labs (optional — fill Hb to enable)</span>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {([
+                ["Hb (g/dL)", "hb", "0.1"],
+                ["MCV (fL)", "mcv", "1"],
+                ["Ferritin (ng/mL)", "ferritin", "1"],
+                ["TSAT (%)", "tsat", "1"],
+                ["B12 (pg/mL)", "b12", "1"],
+                ["Folate (ng/mL)", "folate", "0.1"],
+                ["CRP (mg/L)", "crp", "0.1"],
+              ] as const).map(([label, key, step]) => (
+                <div key={key} className="space-y-1">
+                  <Label className="text-xs">{label}</Label>
+                  <Input
+                    type="number"
+                    step={step}
+                    value={anemiaLabs[key] ?? ""}
+                    onChange={(e) =>
+                      setAnemiaLabs((p) => ({
+                        ...p,
+                        [key]: e.target.value === "" ? undefined : Number(e.target.value),
+                      }))
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </CardContent>
       </Card>
 
