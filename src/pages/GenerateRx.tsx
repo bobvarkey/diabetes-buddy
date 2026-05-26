@@ -22,7 +22,8 @@ import {
   generateRecommendationText,
   downloadRecommendationsText,
 } from "@/lib/med-logic";
-import { Copy, Download, FileText, Sparkles } from "lucide-react";
+import { assessAnemia, severityLabel, causeLabel, AnemiaInput } from "@/lib/anemia-logic";
+import { Copy, Download, FileText, Sparkles, Beaker } from "lucide-react";
 
 type ComorbidityKey =
   | "hasASCVD"
