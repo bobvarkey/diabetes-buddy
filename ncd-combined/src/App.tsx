@@ -9,8 +9,8 @@ import { AppSidebar } from "@/components/AppSidebar";
 
 // Mode Pages
 import ModeSelector from "@/pages/ModeSelector";
-import SimpleMode from "@/pages/SimpleMode";
-import ModerateMode from "@/pages/ModerateMode";
+import SimpleMode, { ModeNav as ModeNavSimple } from "@/pages/SimpleMode";
+import ModerateMode, { ModeNav as ModeNavModerate } from "@/pages/ModerateMode";
 
 // Big Four NCD Pages
 import Home from "@/pages/Home";
