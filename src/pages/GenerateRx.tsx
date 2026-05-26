@@ -56,6 +56,9 @@ export default function GenerateRx() {
   const [patient, setPatient] = useState<PatientData>({ ...EXAMPLE_PATIENT });
   const [currentMedsText, setCurrentMedsText] = useState(EXAMPLE_PATIENT.currentMeds.join(", "));
   const [generated, setGenerated] = useState(false);
+  const [anemiaLabs, setAnemiaLabs] = useState<{
+    hb?: number; mcv?: number; ferritin?: number; tsat?: number; b12?: number; folate?: number; crp?: number;
+  }>({ hb: undefined, mcv: undefined, ferritin: undefined, tsat: undefined, b12: undefined, folate: undefined, crp: undefined });
 
   // Derived values
   const bmi = useMemo(
@@ -89,6 +92,22 @@ export default function GenerateRx() {
     () => (generated ? getAlgorithmPathway(workingPatient) : null),
     [generated, workingPatient]
   );
+  const anemia = useMemo(() => {
+    if (!generated || anemiaLabs.hb === undefined) return null;
+    const a: AnemiaInput = {
+      age: workingPatient.age,
+      sex: workingPatient.gender,
+      hb: anemiaLabs.hb,
+      mcv: anemiaLabs.mcv,
+      ferritin: anemiaLabs.ferritin,
+      tsat: anemiaLabs.tsat,
+      b12: anemiaLabs.b12,
+      folate: anemiaLabs.folate,
+      crp: anemiaLabs.crp,
+      eGFR: workingPatient.eGFR,
+    };
+    return assessAnemia(a);
+  }, [generated, anemiaLabs, workingPatient]);
 
   const update = <K extends keyof PatientData>(key: K, value: PatientData[K]) =>
     setPatient((p) => ({ ...p, [key]: value }));
