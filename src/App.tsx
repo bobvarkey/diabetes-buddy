@@ -23,6 +23,7 @@ import DiabetesOverview from "@/pages/diabetes/DiabetesOverview";
 import DiabetesTab from "@/pages/diabetes/DiabetesTab";
 import DiabetesTreatment from "@/pages/diabetes/DiabetesTreatment";
 import InsulinGuide from "@/pages/diabetes/InsulinGuide";
+import GenerateRx from "@/pages/GenerateRx";
 
 // Big Four — Hypertension sub-pages
 import HypertensionAssessment from "@/pages/hypertension/HypertensionAssessment";
@@ -145,6 +146,7 @@ const App = () => (
                 <TabNavigation />
                 <Routes>
                   <Route path="/" element={<Home />} />
+                  <Route path="/generate-rx" element={<ErrorBoundary><GenerateRx /></ErrorBoundary>} />
                   {/* Tab Pages */}
                   <Route path="/diabetes" element={<ErrorBoundary><Diabetes /></ErrorBoundary>} />
                   <Route path="/hypertension" element={<ErrorBoundary><Hypertension /></ErrorBoundary>} />
