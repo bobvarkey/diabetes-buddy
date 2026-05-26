@@ -22,7 +22,8 @@ import {
   generateRecommendationText,
   downloadRecommendationsText,
 } from "@/lib/med-logic";
-import { Copy, Download, FileText, Sparkles } from "lucide-react";
+import { assessAnemia, severityLabel, causeLabel, AnemiaInput } from "@/lib/anemia-logic";
+import { Copy, Download, FileText, Sparkles, Beaker } from "lucide-react";
 
 type ComorbidityKey =
   | "hasASCVD"
@@ -55,6 +56,9 @@ export default function GenerateRx() {
   const [patient, setPatient] = useState<PatientData>({ ...EXAMPLE_PATIENT });
   const [currentMedsText, setCurrentMedsText] = useState(EXAMPLE_PATIENT.currentMeds.join(", "));
   const [generated, setGenerated] = useState(false);
+  const [anemiaLabs, setAnemiaLabs] = useState<{
+    hb?: number; mcv?: number; ferritin?: number; tsat?: number; b12?: number; folate?: number; crp?: number;
+  }>({ hb: undefined, mcv: undefined, ferritin: undefined, tsat: undefined, b12: undefined, folate: undefined, crp: undefined });
 
   // Derived values
   const bmi = useMemo(
@@ -88,6 +92,22 @@ export default function GenerateRx() {
     () => (generated ? getAlgorithmPathway(workingPatient) : null),
     [generated, workingPatient]
   );
+  const anemia = useMemo(() => {
+    if (!generated || anemiaLabs.hb === undefined) return null;
+    const a: AnemiaInput = {
+      age: workingPatient.age,
+      sex: workingPatient.gender,
+      hb: anemiaLabs.hb,
+      mcv: anemiaLabs.mcv,
+      ferritin: anemiaLabs.ferritin,
+      tsat: anemiaLabs.tsat,
+      b12: anemiaLabs.b12,
+      folate: anemiaLabs.folate,
+      crp: anemiaLabs.crp,
+      eGFR: workingPatient.eGFR,
+    };
+    return assessAnemia(a);
+  }, [generated, anemiaLabs, workingPatient]);
 
   const update = <K extends keyof PatientData>(key: K, value: PatientData[K]) =>
     setPatient((p) => ({ ...p, [key]: value }));
@@ -297,6 +317,39 @@ export default function GenerateRx() {
               placeholder="e.g. Metformin 1000mg BD, Glimepiride 2mg OD"
             />
           </div>
+
+          <div className="md:col-span-3 pt-2">
+            <div className="flex items-center gap-2 mb-2">
+              <Beaker className="h-4 w-4 text-rose-500" />
+              <span className="text-sm font-semibold">Anemia labs (optional — fill Hb to enable)</span>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {([
+                ["Hb (g/dL)", "hb", "0.1"],
+                ["MCV (fL)", "mcv", "1"],
+                ["Ferritin (ng/mL)", "ferritin", "1"],
+                ["TSAT (%)", "tsat", "1"],
+                ["B12 (pg/mL)", "b12", "1"],
+                ["Folate (ng/mL)", "folate", "0.1"],
+                ["CRP (mg/L)", "crp", "0.1"],
+              ] as const).map(([label, key, step]) => (
+                <div key={key} className="space-y-1">
+                  <Label className="text-xs">{label}</Label>
+                  <Input
+                    type="number"
+                    step={step}
+                    value={anemiaLabs[key] ?? ""}
+                    onChange={(e) =>
+                      setAnemiaLabs((p) => ({
+                        ...p,
+                        [key]: e.target.value === "" ? undefined : Number(e.target.value),
+                      }))
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </CardContent>
       </Card>
 
@@ -414,6 +467,62 @@ export default function GenerateRx() {
               AI-assisted clinical decision support based on ADA 2026 guidelines.
               Always confirm with a qualified clinician.
             </p>
+          </CardContent>
+        </Card>
+      )}
+
+      {generated && anemia && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg flex items-center gap-2">
+              <Beaker className="h-5 w-5 text-rose-500" />
+              Anemia
+              <Badge variant="secondary">{severityLabel(anemia.severity)}</Badge>
+              {anemia.morphology !== "unknown" && (
+                <Badge variant="outline">{anemia.morphology}</Badge>
+              )}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="text-sm"><strong>Hb target:</strong> {anemia.hbTarget}</div>
+            {anemia.likelyCauses.length > 0 && (
+              <div className="text-sm">
+                <strong>Likely cause(s):</strong> {anemia.likelyCauses.map(causeLabel).join(" · ")}
+              </div>
+            )}
+            {anemia.workup.length > 0 && (
+              <div>
+                <div className="font-semibold mb-1">Workup</div>
+                <ul className="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
+                  {anemia.workup.map((w, i) => <li key={i}>{w}</li>)}
+                </ul>
+              </div>
+            )}
+            {anemia.prescriptions.length > 0 && (
+              <div>
+                <div className="font-semibold mb-2">Anemia prescription</div>
+                <div className="space-y-3">
+                  {anemia.prescriptions.map((rx, i) => (
+                    <div key={i} className="rounded-md border bg-card p-3 space-y-1">
+                      <div className="font-medium text-foreground">{i + 1}. {rx.drug}</div>
+                      <div className="text-sm"><strong>Dose:</strong> {rx.dose} — {rx.frequency}</div>
+                      <div className="text-sm"><strong>Duration:</strong> {rx.duration}</div>
+                      {rx.notes && (
+                        <div className="text-xs text-muted-foreground italic">{rx.notes}</div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {anemia.warnings.length > 0 && (
+              <div className="rounded-md border border-destructive/40 bg-destructive/5 p-3 text-sm space-y-1">
+                {anemia.warnings.map((w, i) => (
+                  <div key={i} className="text-destructive">⚠ {w}</div>
+                ))}
+              </div>
+            )}
+            <div className="text-xs text-muted-foreground">{anemia.guidelineRefs.join(" · ")}</div>
           </CardContent>
         </Card>
       )}
