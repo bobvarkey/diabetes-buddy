@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Sparkles, Heart, Activity, Syringe, Dna, Scale, Wind } from 'lucide-react';
+import { ArrowRight, Sparkles, Heart, Activity, Syringe, Dna, Scale, Wind, Droplets, Droplet } from 'lucide-react';
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ export default function LandingPage() {
             Global health · WHO data
           </p>
           <p className="text-lg md:text-xl text-gray-400 text-center max-w-2xl mx-auto mb-8 leading-relaxed">
-            NCDs kill 41 million people each year — 74% of all global deaths. Evidence-based management for diabetes, hypertension, lipids, obesity, and more, powered by the latest international guidelines.
+            Evidence-based tools for diabetes, hypertension, lipids, obesity, asthma/COPD, renal and blood diseases
           </p>
 
           {/* CTA Buttons */}
@@ -171,7 +171,8 @@ export default function LandingPage() {
               { name: "Lipids", icon: Dna, color: "text-blue-400", desc: "ASCVD risk, LDL targets, statin intensity" },
               { name: "Obesity", icon: Scale, color: "text-violet-400", desc: "BMI calculator, weight loss algorithms, GLP-1" },
               { name: "COPD/Asthma", icon: Wind, color: "text-cyan-400", desc: "GINA/GOLD guidelines, step-up therapy" },
-              { name: "Renal", icon: Kidney, color: "text-amber-400", desc: "eGFR-based dosing, CKD management" },
+              { name: "Renal", icon: Droplets, color: "text-amber-400", desc: "eGFR-based dosing, CKD management" },
+              { name: "Blood Diseases", icon: Droplet, color: "text-rose-400", desc: "Anemia & thrombocytopenia evaluation" },
             ].map((area) => (
               <div
                 key={area.name}
