@@ -16,6 +16,7 @@ import Lipids from "@/pages/Lipids";
 import Obesity from "@/pages/Obesity";
 import AsthmaCopd from "@/pages/AsthmaCopd";
 import RenalDisease from "@/pages/RenalDisease";
+import Anemia from "@/pages/Anemia";
 
 // Big Four — Diabetes sub-pages
 import DiabetesAssessment from "@/pages/diabetes/DiabetesAssessment";
@@ -154,6 +155,7 @@ const App = () => (
                   <Route path="/obesity" element={<ErrorBoundary><Obesity /></ErrorBoundary>} />
                   <Route path="/asthma-copd" element={<ErrorBoundary><AsthmaCopd /></ErrorBoundary>} />
                   <Route path="/renal" element={<ErrorBoundary><RenalDisease /></ErrorBoundary>} />
+                  <Route path="/anemia" element={<ErrorBoundary><Anemia /></ErrorBoundary>} />
                   {/* Diabetes Sub-pages */}
                   <Route path="/diabetes/assessment" element={<ErrorBoundary><DiabetesAssessment /></ErrorBoundary>} />
                   <Route path="/diabetes/overview" element={<ErrorBoundary><DiabetesOverview /></ErrorBoundary>} />
