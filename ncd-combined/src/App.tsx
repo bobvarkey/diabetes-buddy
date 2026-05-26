@@ -9,8 +9,8 @@ import { AppSidebar } from "@/components/AppSidebar";
 
 // Mode Pages
 import ModeSelector from "@/pages/ModeSelector";
-import SimpleMode from "@/pages/SimpleMode";
-import ModerateMode from "@/pages/ModerateMode";
+import SimpleMode, { ModeNav as ModeNavSimple } from "@/pages/SimpleMode";
+import ModerateMode, { ModeNav as ModeNavModerate } from "@/pages/ModerateMode";
 
 // Big Four NCD Pages
 import Home from "@/pages/Home";
@@ -140,6 +140,7 @@ const App = () => (
         <Routes>
           {/* Mode Selector — landing */}
           <Route path="/" element={<LandingPage />} />
+          <Route path="/index" element={<LandingPage />} />
           <Route path="/simple" element={<SimpleMode />} />
           <Route path="/moderate" element={<ModerateMode />} />
           <Route path="/hard" element={<Navigate to="/home" replace />} />
@@ -177,7 +178,7 @@ const App = () => (
           <Route path="/hypo-risk" element={<><TabNavigation /><HypoRiskCalculatorCalc /></>} />
           <Route path="/renal-dosing" element={<><TabNavigation /><RenalDoseAdjustmentCalc /></>} />
           <Route path="/respiratory/simple" element={<><ModeNavSimple /><RespiratorySimple /></>} />
-          <Route path="/respiratory/moderate" element={<><ModeNavSimple /><RespiratoryModerate /></>} />
+          <Route path="/respiratory/moderate" element={<><ModeNavModerate /><RespiratoryModerate /></>} />
           <Route path="/respiratory" element={<><TabNavigation /><RespiratoryPage /></>} />
           <Route path="/diabetes/medication-algorithm" element={<><TabNavigation /><DiabetesMedicationAlgorithmCalc /></>} />
           <Route path="/lipid-panel" element={<><TabNavigation /><LipidPanelCalc /></>} />

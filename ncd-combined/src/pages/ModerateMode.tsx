@@ -13,7 +13,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
 
-function ModeNav() {
+export function ModeNav() {
   const navigate = useNavigate();
   return (
     <div className="flex items-center justify-between mb-6 px-1">
