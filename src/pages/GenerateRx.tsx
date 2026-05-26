@@ -470,6 +470,62 @@ export default function GenerateRx() {
           </CardContent>
         </Card>
       )}
+
+      {generated && anemia && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg flex items-center gap-2">
+              <Beaker className="h-5 w-5 text-rose-500" />
+              Anemia
+              <Badge variant="secondary">{severityLabel(anemia.severity)}</Badge>
+              {anemia.morphology !== "unknown" && (
+                <Badge variant="outline">{anemia.morphology}</Badge>
+              )}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="text-sm"><strong>Hb target:</strong> {anemia.hbTarget}</div>
+            {anemia.likelyCauses.length > 0 && (
+              <div className="text-sm">
+                <strong>Likely cause(s):</strong> {anemia.likelyCauses.map(causeLabel).join(" · ")}
+              </div>
+            )}
+            {anemia.workup.length > 0 && (
+              <div>
+                <div className="font-semibold mb-1">Workup</div>
+                <ul className="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
+                  {anemia.workup.map((w, i) => <li key={i}>{w}</li>)}
+                </ul>
+              </div>
+            )}
+            {anemia.prescriptions.length > 0 && (
+              <div>
+                <div className="font-semibold mb-2">Anemia prescription</div>
+                <div className="space-y-3">
+                  {anemia.prescriptions.map((rx, i) => (
+                    <div key={i} className="rounded-md border bg-card p-3 space-y-1">
+                      <div className="font-medium text-foreground">{i + 1}. {rx.drug}</div>
+                      <div className="text-sm"><strong>Dose:</strong> {rx.dose} — {rx.frequency}</div>
+                      <div className="text-sm"><strong>Duration:</strong> {rx.duration}</div>
+                      {rx.notes && (
+                        <div className="text-xs text-muted-foreground italic">{rx.notes}</div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {anemia.warnings.length > 0 && (
+              <div className="rounded-md border border-destructive/40 bg-destructive/5 p-3 text-sm space-y-1">
+                {anemia.warnings.map((w, i) => (
+                  <div key={i} className="text-destructive">⚠ {w}</div>
+                ))}
+              </div>
+            )}
+            <div className="text-xs text-muted-foreground">{anemia.guidelineRefs.join(" · ")}</div>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }
