@@ -1235,6 +1235,28 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Generate Prescription CTA */}
+        <section className="mb-6">
+          <Link to="/generate-rx">
+            <Card className="border-primary/40 bg-gradient-to-r from-primary/10 to-primary/5 hover:from-primary/15 hover:to-primary/10 transition-colors cursor-pointer">
+              <CardContent className="flex items-center justify-between gap-4 py-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/15 flex items-center justify-center">
+                    <Sparkles className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Generate NCD Prescription</p>
+                    <p className="text-xs text-muted-foreground">
+                      Enter patient data and produce an ADA 2026 T2DM prescription instantly.
+                    </p>
+                  </div>
+                </div>
+                <ArrowRight className="h-5 w-5 text-primary" />
+              </CardContent>
+            </Card>
+          </Link>
+        </section>
+
         {/* Quick Actions */}
         <section>
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
