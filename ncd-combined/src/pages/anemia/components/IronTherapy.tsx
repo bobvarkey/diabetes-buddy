@@ -186,6 +186,24 @@ export default function IronTherapy() {
             References: Camaschella C. NEJM 2015; Cappellini MD et al. Am J Hematol 2020; Ponikowski P et al. ESC HF Guidelines 2021;
             KDIGO CKD Guidelines 2012/2024; Trenkwalder C et al. Lancet Neurol 2018.
           </p>
+
+          {/* Investigating IDA Cause */}
+          <div className="rounded-xl border border-amber-800/40 bg-amber-900/10 p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0" />
+              <span className="text-sm font-semibold text-amber-400">Investigating Cause of Iron Deficiency</span>
+            </div>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              For unexplained iron deficiency anemia, investigate the underlying cause:
+            </p>
+            <ul className="mt-2 space-y-1 text-xs text-gray-400">
+              <li>• <strong className="text-gray-300">Stool occult blood</strong> x3 — for gastrointestinal bleeding</li>
+              <li>• <strong className="text-gray-300">Colonoscopy</strong> — if &gt;50 years or alarm symptoms</li>
+              <li>• <strong className="text-gray-300">Stool ova & parasite examination</strong> — hookworm, whipworm (especially in tropical regions, eosinophilia)</li>
+              <li>• <strong className="text-gray-300">H. pylori</strong> testing — can cause iron malabsorption</li>
+              <li>• <strong className="text-gray-300">Celiac serology</strong> — anti-tTG for celiac disease</li>
+            </ul>
+          </div>
         </div>
       )}
     </div>
