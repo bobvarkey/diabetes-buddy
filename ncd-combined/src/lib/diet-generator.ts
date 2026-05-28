@@ -74,7 +74,7 @@ function buildMeal(
 export function generate7DayPlan(patient: PatientData, cuisine: CuisineType = "Kerala"): DayPlan[] {
   const cuisineFoods = ALL_FOODS.filter(f => {
     if (cuisine === "Kerala") return f.cuisine === "Kerala";
-    if (cuisine === "Indian") return f.cuisine === "Kerala" || f.cuisine === "North Indian" || f.cuisine === "South Indian";
+    if ((cuisine as string) === "Indian") return f.cuisine === "North Indian" || f.cuisine === "South Indian";
     return f.cuisine === cuisine;
   });
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];

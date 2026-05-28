@@ -353,7 +353,7 @@ export function generateDKA_HHS_ManagementPlan(input: DKA_HHS_Input): DKA_HHS_Ma
   ];
 
   // === INSULIN THERAPY (WEIGHT-BASED DOSING) ===
-  const weight_kg = input.patient?.weight_kg || 75; // Use patient weight if provided
+  const weight_kg = (input as any).patient?.weight_kg || 75; // Use patient weight if provided
   const has_prominent_acidosis = labs.pH < 7.20;
   const insulin_bolus_dose = `0.1 U/kg = ${(0.1 * weight_kg).toFixed(0)} U IV`;
   const insulin_infusion_dose = `0.1 U/kg/hr = ${(0.1 * weight_kg).toFixed(1)} U/hr`;

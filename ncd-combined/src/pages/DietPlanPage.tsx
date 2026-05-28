@@ -55,7 +55,7 @@ const DietPlanPage = () => {
                 : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
             }`}
           >
-            {c === "Kerala" ? "🇮🇳 Kerala" : c === "Indian" ? "🇮🇳 Indian" : c === "European" ? "🇪🇺 European" : c === "Japanese" ? "🇯🇵 Japanese" : c === "Chinese" ? "🇨🇳 Chinese" : c === "Korean" ? "🇰🇷 Korean" : "🇺🇸 American"}
+            {(c as string) === "Kerala" ? "🇮🇳 Kerala" : (c as string) === "Indian" ? "🇮🇳 Indian" : c === "European" ? "🇪🇺 European" : c === "Japanese" ? "🇯🇵 Japanese" : c === "Chinese" ? "🇨🇳 Chinese" : c === "Korean" ? "🇰🇷 Korean" : "🇺🇸 American"}
           </button>
         ))}
       </div>

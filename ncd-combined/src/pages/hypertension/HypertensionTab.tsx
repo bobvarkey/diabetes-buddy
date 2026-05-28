@@ -12,7 +12,8 @@ import {
   BookOpen,
   ChevronRight,
   Stethoscope,
-  Search
+  Search,
+  AlertTriangle
 } from "lucide-react";
 import HypertensionOverview from "./HypertensionOverview";
 import HypertensionAssessment from "./HypertensionAssessment";

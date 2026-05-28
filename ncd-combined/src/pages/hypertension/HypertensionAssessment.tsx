@@ -612,9 +612,9 @@ export default function HypertensionAssessment() {
           </div>
         </CardContent>
       </Card>
-    </div>
-  );
-}      {/* Drug Interaction Checker */}
+
+      {/* Drug Interaction Checker */}
+
       <Card className="border-2 border-orange-500/20">
         <CardHeader className="pb-3">
           <div className="flex items-center justify-between">
@@ -699,3 +699,6 @@ export default function HypertensionAssessment() {
       </Card>
 
 
+    </div>
+  );
+}

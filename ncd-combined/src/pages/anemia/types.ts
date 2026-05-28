@@ -21,7 +21,7 @@ export interface DiscriminantResult {
 }
 
 export interface AnemiaClassification {
-  severity: 'None' | 'Mild' | 'Moderate' | 'Severe';
+  severity: 'None' | 'Mild' | 'Moderate' | 'Severe' | 'N/A';
   morphology: 'Microcytic' | 'Normocytic' | 'Macrocytic' | 'N/A';
   hgbThreshold: { mild: number; moderate: number; severe: number };
 }

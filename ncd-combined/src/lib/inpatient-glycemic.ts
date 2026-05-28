@@ -165,9 +165,11 @@ export function analyzeInpatientGlycemia(input: InpatientGlycemicInput): Inpatie
   const maxGlucose = glucose24h.length > 0 ? glucose24h[glucose24h.length - 1] : null;
   const avgGlucose = glucose24h.length > 0 ? glucose24h.reduce((a, b) => a + b) / glucose24h.length : null;
 
+  const persistent_hyperglycemia = glucose24h.filter((g) => g >= 180).length >= 2;
+  const severe_hyperglycemia = glucose24h.filter((g) => g >= 250).length >= 1;
   const derived: DerivedFeatures = {
-    persistent_hyperglycemia: glucose24h.filter((g) => g >= 180).length >= 2,
-    severe_hyperglycemia: glucose24h.filter((g) => g >= 250).length >= 1,
+    persistent_hyperglycemia,
+    severe_hyperglycemia,
     impending_hypoglycemia: glucose24h.filter((g) => g <= 80).length >= 1,
     hypoglycemia: glucose24h.filter((g) => g <= 70).length >= 1,
     is_ssi_only: input.current_therapy.inpatient_insulin.sliding_scale_only,
@@ -178,7 +180,7 @@ export function analyzeInpatientGlycemia(input: InpatientGlycemicInput): Inpatie
     npo_prandial_mismatch: input.clinical_state.npo && input.current_therapy.inpatient_insulin.prandial_ordered,
     steroid_hyperglycemia_pattern:
       input.clinical_state.steroid_status.on_glucocorticoid &&
-      (derived.persistent_hyperglycemia || derived.severe_hyperglycemia),
+      (persistent_hyperglycemia || severe_hyperglycemia),
     high_hypoglycemia_risk: false, // Will set after renal check
   };
 

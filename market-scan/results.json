@@ -1,82 +1,17 @@
 {
-  "scan_date": "2026-05-26T08:00:13.785309",
-  "stocks_scanned": 5,
+  "scan_date": "2026-05-27T08:00:14.973836",
+  "stocks_scanned": 7,
   "opportunities": [
     {
-      "ticker": "MFSL.BSE",
-      "name": "MFSL",
-      "price": 1727.75,
-      "change": 2.8545,
-      "signals": [
-        {
-          "type": "price_rally",
-          "value": 2.8545,
-          "reason": "Rally: +2.9%"
-        },
-        {
-          "type": "volatility",
-          "value": 3.6513579671290284,
-          "reason": "Range: 3.7%"
-        }
-      ],
-      "prediction_score": 25,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "MARUTI.BSE",
-      "name": "MARUTI",
-      "price": 13170.7,
-      "change": 1.411,
-      "signals": [
-        {
-          "type": "price_rally",
-          "value": 1.411,
-          "reason": "Rally: +1.4%"
-        }
-      ],
-      "prediction_score": 15,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "BAJAJ-AUTO.BSE",
-      "name": "BAJAJ-AUTO",
-      "price": 10491.2998,
-      "change": -0.5262,
+      "ticker": "COALINDIA.BSE",
+      "name": "COALINDIA",
+      "price": 458.25,
+      "change": 0.0546,
       "signals": [
         {
           "type": "volatility",
-          "value": 3.407182906220333,
-          "reason": "Range: 3.4%"
-        }
-      ],
-      "prediction_score": 10,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "CONCOR.BSE",
-      "name": "CONCOR",
-      "price": 512.3,
-      "change": 1.2851,
-      "signals": [
-        {
-          "type": "price_rally",
-          "value": 1.2851,
-          "reason": "Rally: +1.3%"
-        }
-      ],
-      "prediction_score": 15,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "HEROMOTOCO.BSE",
-      "name": "HEROMOTOCO",
-      "price": 4980.85,
-      "change": 0.3122,
-      "signals": [
-        {
-          "type": "volatility",
-          "value": 2.3463698236006114,
-          "reason": "Range: 2.3%"
+          "value": 4.486899563318767,
+          "reason": "Range: 4.5%"
         }
       ],
       "prediction_score": 10,

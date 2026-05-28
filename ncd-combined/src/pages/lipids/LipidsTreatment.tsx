@@ -128,8 +128,8 @@ const SAFETY_NOTE = `
 `;
 
 interface Props {
-  laiResult: LAIResult;
-  onBackToAssessment: () => void;
+  laiResult?: LAIResult;
+  onBackToAssessment?: () => void;
 }
 
 export default function LipidsTreatment({ laiResult, onBackToAssessment }: Props) {

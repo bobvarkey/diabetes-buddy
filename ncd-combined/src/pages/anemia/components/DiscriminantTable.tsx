@@ -1,13 +1,40 @@
 import { useState } from 'react';
 import type { DiscriminantResult, EvaluationResult } from '../types';
-import { FlaskConical, ChevronDown, ChevronUp, Info } from 'lucide-react';
+import { FlaskConical, ChevronDown, ChevronUp, Info, AlertCircle, TrendingUp, TrendingDown } from 'lucide-react';
 
 interface Props {
   results: DiscriminantResult[];
   idaCount: number;
   thalCount: number;
   consensus: EvaluationResult['consensus'];
+  cbcParams: { mcv: number; mch: number; rbc: number; rdw: number; hgb: number };
 }
+
+// Interpretation explanations
+const INTERPRETATION_EXPLANATIONS: Record<string, { ida: string; thal: string }> = {
+  'Mentzer Index': { ida: 'MCV/RBC >13 → higher ratio suggests IDA', thal: '≤13 suggests thalassemia trait' },
+  'England-Fraser Index': { ida: 'Positive → favors IDA', thal: 'Negative → favors thalassemia' },
+  'Shine-Lal Index': { ida: '>1530 suggests IDA', thal: '≤1530 suggests thalassemia' },
+  'Green-King Index': { ida: '>65 suggests IDA', thal: '≤65 suggests thalassemia' },
+  'RDW Index (RDWI / Jayabose)': { ida: '>220 suggests IDA', thal: '≤220 suggests thalassemia' },
+  'Srivastava Index': { ida: '>3.8 suggests IDA', thal: '≤3.8 suggests thalassemia' },
+  'Ricerca Index': { ida: '>4.4 suggests IDA', thal: '≤4.4 suggests thalassemia' },
+  'Das Gupta Index': { ida: 'Negative → IDA', thal: 'Positive → thalassemia' },
+  'Bordbar Index': { ida: 'Higher = more IDA-like', thal: 'Lower = more thalassemia-like' },
+};
+
+// Required parameters for each index
+const INDEX_PARAMS: Record<string, string[]> = {
+  'Mentzer Index': ['MCV', 'RBC'],
+  'England-Fraser Index': ['MCV', 'RBC', 'Hgb'],
+  'Shine-Lal Index': ['MCV', 'MCH'],
+  'Green-King Index': ['MCV', 'RDW', 'Hgb'],
+  'RDW Index (RDWI / Jayabose)': ['MCV', 'RDW', 'RBC'],
+  'Srivastava Index': ['MCH', 'RBC'],
+  'Ricerca Index': ['RDW', 'RBC'],
+  'Das Gupta Index': ['RBC', 'RDW'],
+  'Bordbar Index': ['MCV', 'MCH'],
+};
 
 const consensusConfig = {
   IDA:          { bg: 'bg-rose-900/30',    border: 'border-rose-800',    text: 'text-rose-400',    label: 'Iron Deficiency Anemia (IDA) likely' },
@@ -16,10 +43,25 @@ const consensusConfig = {
   'N/A':        { bg: 'bg-gray-900/30',    border: 'border-gray-800',    text: 'text-gray-500',    label: 'Not applicable' },
 };
 
-export default function DiscriminantTable({ results, idaCount, thalCount, consensus }: Props) {
+export default function DiscriminantTable({ results, idaCount, thalCount, consensus, cbcParams }: Props) {
   const [expanded, setExpanded] = useState(true);
   const total = idaCount + thalCount;
   const cc = consensusConfig[consensus];
+
+  // Check which params are provided
+  const providedParams = [
+    ...(cbcParams.hgb ? ['Hgb'] : []),
+    ...(cbcParams.mcv ? ['MCV'] : []),
+    ...(cbcParams.mch ? ['MCH'] : []),
+    ...(cbcParams.rbc ? ['RBC'] : []),
+    ...(cbcParams.rdw ? ['RDW'] : []),
+  ];
+
+  // Check for each index if required params exist
+  const getMissingParams = (indexName: string): string[] => {
+    const required = INDEX_PARAMS[indexName] || [];
+    return required.filter(p => !providedParams.includes(p));
+  };
 
   return (
     <div className="bg-gray-900 rounded-2xl shadow-sm border border-gray-800 overflow-hidden">
@@ -114,6 +156,12 @@ export default function DiscriminantTable({ results, idaCount, thalCount, consen
                           <div className="font-medium text-white text-xs leading-tight">{r.name}</div>
                           <div className="text-xs text-gray-500 mt-0.5 md:hidden">{r.formula}</div>
                           <div className="text-xs text-gray-500 mt-0.5">{r.direction}</div>
+                          {r.value === null && getMissingParams(r.name).length > 0 && (
+                            <div className="text-xs text-amber-500 mt-1 flex items-center gap-1">
+                              <AlertCircle className="w-3 h-3" />
+                              Missing: {getMissingParams(r.name).join(', ')}
+                            </div>
+                          )}
                         </td>
                         <td className="py-3 px-4 text-gray-500 font-mono text-xs hidden md:table-cell">{r.formula}</td>
                         <td className="py-3 px-4 text-right font-mono font-semibold text-white">
@@ -124,9 +172,15 @@ export default function DiscriminantTable({ results, idaCount, thalCount, consen
                           {r.interpretation === 'N/A' ? (
                             <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-gray-800 text-gray-500 border border-gray-700">—</span>
                           ) : r.interpretation === 'IDA' ? (
-                            <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-900/30 text-rose-400 border border-rose-800">IDA</span>
+                            <div className="flex flex-col items-center gap-1">
+                              <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-900/30 text-rose-400 border border-rose-800">IDA</span>
+                              <span className="text-[10px] text-rose-400/70">{INTERPRETATION_EXPLANATIONS[r.name]?.ida.split(' → ')[0] || 'Iron def.'}</span>
+                            </div>
                           ) : (
-                            <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-sky-900/30 text-sky-400 border border-sky-800">Thalassemia</span>
+                            <div className="flex flex-col items-center gap-1">
+                              <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-sky-900/30 text-sky-400 border border-sky-800">Thalassemia</span>
+                              <span className="text-[10px] text-sky-400/70">{INTERPRETATION_EXPLANATIONS[r.name]?.thal.split(' → ')[0] || 'Trait'}</span>
+                            </div>
                           )}
                         </td>
                         <td className="py-3 px-4 text-xs text-gray-500 hidden lg:table-cell">{r.reference}</td>

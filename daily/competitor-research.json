@@ -1,0 +1,253 @@
+---
+topic: daily
+date: 2026-05-27
+tags: []
+---
+
+# Competitor Research
+
+{
+  "meta": {
+    "generated": "2026-05-26",
+    "note": "These are the X/Twitter handles researched. Not all represent commercial products — some are individual clinicians and journals. Pricing is recorded as found; never guessed."
+  },
+  "competitors": [
+    {
+      "handle": "@hyderabaddoctor",
+      "full_name": "Dr Sudhir Kumar MD DM",
+      "url": "https://x.com/hyderabaddoctor",
+      "category": "Individual Clinician / Influencer",
+      "tagline": "Neurologist, Apollo Hospitals, Hyderabad / Running, Fitness, Health / On a mission to prevent people from becoming patients",
+      "about": "Dr Sudhir Kumar is a practicing neurologist at Apollo Hospitals, Jubilee Hills, Hyderabad with 26+ years experience. He uses X to share health advice, running/fitness content, and neurology insights. Consultations are through the Apollo 24/7 platform.",
+      "pricing": {
+        "note": "This is a medical practitioner, not a SaaS product. Fees are per consultation.",
+        "plans": [
+          {
+            "name": "In-Person Consultation",
+            "monthly_price_note": "Per visit",
+            "price_display": "₹1,200 (~$14 USD) as listed on Lybrate/Practo",
+            "top_features": [
+              "Face-to-face neurological examination at Apollo Jubilee Hills",
+              "Prescriptions and follow-up care",
+              "Access to Apollo Hospitals diagnostic network"
+            ]
+          },
+          {
+            "name": "Online Consultation (Apollo 24/7)",
+            "monthly_price_note": "Per session via platform",
+            "price_display": "Varies — set by Apollo 24/7 platform (~₹500–₹1,000)",
+            "top_features": [
+              "Virtual video consultation from anywhere",
+              "Digital prescription delivery",
+              "Integrated with Apollo's pharmacy and lab network"
+            ]
+          }
+        ]
+      },
+      "top_5_features": [
+        "26+ years of neurology expertise at Apollo Hospitals",
+        "Active health education on X (running, fitness, disease prevention)",
+        "Online consultation via Apollo 24/7 platform",
+        "Trusted voice on stroke, epilepsy, headache, and neurological disorders",
+        "Large engaged following for health awareness content"
+      ],
+      "target_customer": "Individual patients seeking neurological care in India; health-conscious general public on X",
+      "most_recent_content": {
+        "type": "X posts (ongoing daily threads)",
+        "note": "Dr Sudhir Kumar posts daily health/fitness threads on X. No formal blog or changelog."
+      },
+      "what_makes_them_different": "N/A — this is an individual clinician-influencer, not a product business. No comparison page exists."
+    },
+    {
+      "handle": "@EricTopol",
+      "full_name": "Eric Topol — Ground Truths (Substack)",
+      "url": "https://erictopol.substack.com/",
+      "category": "Newsletter / Podcast / Individual Influencer",
+      "tagline": "Facts, data and analytics about biomedical matters",
+      "about": "Eric Topol, MD, is Executive Vice President of Scripps Research, a cardiologist, and author. Ground Truths is his Substack newsletter and podcast covering biomedical advances, AI in medicine, and longevity. 206K+ free subscribers.",
+      "pricing": {
+        "plans": [
+          {
+            "name": "Free",
+            "monthly_price_display": "$0",
+            "top_features": [
+              "All core written posts delivered to inbox",
+              "Access to Ground Truths archive",
+              "Email notifications for new editions"
+            ]
+          },
+          {
+            "name": "Paid",
+            "monthly_price_display": "$8/month or $80/year",
+            "top_features": [
+              "Podcast episodes (Ground Truths podcast)",
+              "Q&A sessions with Eric Topol",
+              "Recommendations and requests for future post topics"
+            ],
+            "note": "All proceeds support research at Scripps Research"
+          }
+        ]
+      },
+      "top_5_features": [
+        "In-depth analysis of cutting-edge biomedical research",
+        "Podcast with leading experts in medicine and biotech",
+        "Coverage of AI in healthcare (Deep Medicine author)",
+        "Weekly long-form newsletter format",
+        "Non-profit — all proceeds fund Scripps research"
+      ],
+      "target_customer": "Biomedical professionals, healthcare executives, informed general public interested in science and medicine",
+      "most_recent_post": {
+        "title": "The Remarkable Proliferation of Cancer Immunotherapies",
+        "date": "May 24, 2026",
+        "summary": "A comprehensive look at the explosion of cancer immunotherapy approaches, including prevention vaccines and the path toward intercepting cancers before they develop."
+      },
+      "what_makes_them_different": "Ground Truths is a personal brand Substack, not a competing product. Differentiation lies in Topol's stature as one of the most cited biomedical researchers globally (380K+ citations), his TIME100 Health recognition, and his best-selling books (Deep Medicine, Super Agers)."
+    },
+    {
+      "handle": "@theliverdoc",
+      "full_name": "Dr Cyriac Abby Philips — The Liver Doc",
+      "url": "https://x.com/theliverdoc",
+      "category": "Individual Clinician / Misinformation Debunker",
+      "tagline": "Multi-award winning clinician scientist, certified Hepatologist actively battling Ayush misinformation, busting medical and nutrition myths",
+      "about": "Dr Cyriac Abby Philips is a Senior Consultant in Clinical & Translational Hepatology at Rajagiri Hospital, Kochi, India. He is known for his vocal stance against alternative medicine (Ayurveda, homeopathy) and raising awareness about drug-induced liver injury from unregulated supplements.",
+      "pricing": {
+        "note": "This is a medical practitioner. No product or subscription pricing exists. Hospital consultation fees vary."
+      },
+      "top_5_features": [
+        "Expert hepatologist at Rajagiri Hospital, Kochi",
+        "Leading voice against alternative medicine misinformation in India",
+        "Highly published researcher on drug-induced liver injury",
+        "Active YouTube channel for liver health education",
+        "Multi-award winning clinician scientist"
+      ],
+      "target_customer": "Patients with liver conditions in India; general public interested in evidence-based medicine",
+      "most_recent_content": {
+        "type": "Daily X posts and YouTube videos",
+        "note": "Dr Philips posts regularly on X about liver health, supplement dangers, and alternative medicine myths. No formal blog or changelog."
+      },
+      "what_makes_them_different": "N/A — this is an individual clinician. No comparison page exists."
+    },
+    {
+      "handle": "@JAMANeuro",
+      "full_name": "JAMA Neurology",
+      "url": "https://jamanetwork.com/journals/jamaneurology",
+      "category": "Peer-Reviewed Medical Journal",
+      "tagline": "Advancing Brain and Nervous System Science",
+      "about": "Published by the American Medical Association (AMA). Covers brain science including dementia, traumatic brain injury, stroke, and more. Impact Factor: 21.4 (2024). One of the highest-ranked neurology journals globally.",
+      "pricing": {
+        "plans": [
+          {
+            "name": "Individual Subscription (Print + Online)",
+            "monthly_price_note": "Annual",
+            "price_display": "$649/year (full individual rate)",
+            "top_features": [
+              "Print issues delivered monthly",
+              "Full online access to current and past issues",
+              "CME opportunities from journal content"
+            ]
+          },
+          {
+            "name": "Open Access (Author APC)",
+            "monthly_price_note": "Per article",
+            "price_display": "~$5,000 USD (APC for open access publication)",
+            "top_features": [
+              "Immediate open access to published article",
+              "Compliance with funder OA mandates",
+              "CC-BY license option"
+            ]
+          },
+          {
+            "name": "Institutional Subscription",
+            "monthly_price_note": "Custom",
+            "price_display": "Custom — contact AMA/Ovid for site license pricing",
+            "top_features": [
+              "Unlimited access for all institution members",
+              "IP-authenticated or SSO access",
+              "Usage statistics and COUNTER reporting"
+            ]
+          }
+        ]
+      },
+      "top_5_features": [
+        "Impact Factor 21.4 — top-tier neurology journal",
+        "Rigorous peer review by the JAMA Network",
+        "Original investigations, reviews, and clinical trials",
+        "Global perspective from leading neurological research centers",
+        "Multimedia content including podcasts and video summaries"
+      ],
+      "target_customer": "Academic researchers, neurologists, clinicians, medical institutions, and libraries",
+      "most_recent_post": {
+        "title": "Incidence and Prevalence of Dementia With Lewy Bodies",
+        "date": "May 11, 2026",
+        "summary": "Original investigation examining the epidemiological burden of dementia with Lewy bodies, published as an online-first article ahead of print."
+      },
+      "what_makes_them_different": "As part of the JAMA Network consortium of 13 peer-reviewed journals, JAMA Neurology benefits from the AMA's editorial infrastructure and brand authority. Key differentiators: extremely high selectivity (low acceptance rate), top-tier impact factor (21.4), and integration with JAMA Network's broader clinical content ecosystem."
+    },
+    {
+      "handle": "@GreenJournal",
+      "full_name": "Neurology (The Green Journal)",
+      "url": "https://www.neurology.org/journal/wnl",
+      "category": "Peer-Reviewed Medical Journal",
+      "tagline": "The most widely read and highly cited peer-reviewed neurology journal",
+      "about": "Official journal of the American Academy of Neurology (AAN). Publishes 24 issues per year. Covers all aspects of neurology research and clinical practice. Impact Factor: 9 (2024). Celebrating 75 years of publication in 2026.",
+      "pricing": {
+        "plans": [
+          {
+            "name": "AAN Member Subscription",
+            "monthly_price_note": "Included in membership",
+            "price_display": "Included with AAN membership (membership dues vary by category)",
+            "top_features": [
+              "Print + online access to Neurology journal",
+              "Access to Neurology: Clinical Practice",
+              "Full archive and CME opportunities"
+            ]
+          },
+          {
+            "name": "Non-Member Individual (Print + Online)",
+            "monthly_price_note": "Annual",
+            "price_display": "Custom — contact LWW/Wolters Kluwer",
+            "top_features": [
+              "24 print compendia per year (biweekly)",
+              "Online access to full article text",
+              "eTOC alerts and saved searches"
+            ]
+          },
+          {
+            "name": "Online Only (Non-Member)",
+            "monthly_price_note": "Annual",
+            "price_display": "Custom — contact LWW/Wolters Kluwer",
+            "top_features": [
+              "Full-text online access only",
+              "Searchable archive back to 1951",
+              "Mobile-optimized reading experience"
+            ]
+          },
+          {
+            "name": "Institutional / Site License",
+            "monthly_price_note": "Custom",
+            "price_display": "Custom — contact Ovid/Wolters Kluwer",
+            "top_features": [
+              "IP-authenticated campus-wide access",
+              "Remote access support",
+              "Usage statistics via COUNTER"
+            ]
+          }
+        ]
+      },
+      "top_5_features": [
+        "The most widely read and highly cited peer-reviewed neurology journal",
+        "Official journal of the American Academy of Neurology (AAN)",
+        "75-year publishing history and established brand",
+        "Short-form article format introduced in 2018 for faster publication",
+        "Integrated CME available through AAN Online Learning Center"
+      ],
+      "target_customer": "Neurologists, neuroscience researchers, AAN members, academic institutions, and hospital libraries",
+      "most_recent_post": {
+        "title": "Characterizing Heterogeneity in Brain Morphology in Traumatic Brain Injury Using Normative Modeling",
+        "date": "May 20, 2026",
+        "summary": "A study using normative modeling to characterize brain morphology heterogeneity in patients with traumatic brain injury, published as an advance online article."
+      },
+      "what_makes_them_different": "As the official journal of the American Academy of Neurology (AAN), Neurology has a built-in subscriber base of ~40,000 members. Key differentiators: 75-year legacy, 'most widely read' claim in the specialty, short-form article model for faster turnaround, and deep integration with AAN clinical practice guidelines and education."
+    }
+  ]
+}

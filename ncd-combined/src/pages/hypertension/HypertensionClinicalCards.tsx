@@ -87,6 +87,7 @@ interface WorkupTest {
   tag: "screening" | "confirmatory" | "localization" | "history" | "monitoring";
   reference?: string;
   detail?: string;
+  required?: boolean;
 }
 
 interface WorkupCategory {
@@ -94,6 +95,18 @@ interface WorkupCategory {
   group: "Endocrine" | "Renal" | "Vascular" | "Lifestyle" | "Other";
   tests: WorkupTest[];
 }
+
+interface DrugProfile {
+  name: string;
+  class: string;
+  dosing: string;
+  pearls: string;
+  caution: string;
+}
+
+const COMBINATION_TABLE: { combo: string; safe: boolean; note: string }[] = [];
+const ANTIHYPERTENSIVE_DRUGS: DrugProfile[] = [];
+
 
 const SECONDARY_WORKUP: WorkupCategory[] = [
   {

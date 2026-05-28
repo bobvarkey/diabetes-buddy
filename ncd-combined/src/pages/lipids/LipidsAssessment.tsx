@@ -168,8 +168,8 @@ const LIDDLE_FEATURES = [
 ];
 
 interface Props {
-  onClassificationChange: (result: LAIResult | null) => void;
-  onNavigateToTreatment: () => void;
+  onClassificationChange?: (result: LAIResult | null) => void;
+  onNavigateToTreatment?: () => void;
 }
 
 export default function LipidsAssessment({ onClassificationChange, onNavigateToTreatment }: Props) {

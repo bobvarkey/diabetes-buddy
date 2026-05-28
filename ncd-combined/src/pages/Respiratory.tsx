@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { 
   Wind, AlertTriangle, CheckCircle, XCircle, Activity, 
-  Thermometer, Wind, Pill, Info, ArrowRight,
+  Thermometer, Pill, Info, ArrowRight,
   FileText, Scale
 } from "lucide-react";
 import { Card } from "@/components/ui/card";

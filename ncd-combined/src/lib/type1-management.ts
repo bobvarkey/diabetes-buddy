@@ -73,7 +73,7 @@ export interface Type1Management {
 }
 
 export function generateType1Management(patient: PatientData): Type1Management {
-  const weight_kg = patient.weight_kg || 75;
+  const weight_kg = (patient as any).weight_kg || patient.weightKg || 75;
 
   // TDD Calculation: 0.4-0.6 U/kg/day (higher in insulin resistance, puberty, illness)
   const tdd_low = 0.4 * weight_kg;
