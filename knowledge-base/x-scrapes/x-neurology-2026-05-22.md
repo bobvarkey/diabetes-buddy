@@ -1,129 +1,134 @@
----
-date: 2026-05-28T03:00+05:30
-source: X/Twitter
-query: "neurology OR #neurotwitter OR #NeuroX"
-tab: Latest
-scraped_at: 2026-05-27 21:30 UTC
----
-
-# 🧠 Neurology X Scrape — 2026-05-27/28
-
-## Top Posts (Latest, filtered for neurology relevance)
+# X/Twitter Neurology News Scrape
+**Date:** 2026-05-29 (scraped at ~2026-05-30 03:00 IST / 2026-05-29 21:30 UTC)
+**Source:** X/Twitter search: `neurology OR #neurotwitter OR #NeuroX`
+**Tabs:** Top + Latest
 
 ---
 
-### 1. 🟢 Neurology Journal (GreenJournal) — REM Sleep Behavior Disorder Study
-**Author:** @GreenJournal  
-**Time:** 2 hours ago  
-**Text:** Published in Neurology Open Access: Discordance Between Striatal Dopaminergic Imaging and Motor Performances in REM Sleep Behavior Disorder  
-**Engagement:** 1 repost · 3 likes · 3 bookmarks · 386 views  
-**URL:** https://x.com/GreenJournal/status/2059711603826659765  
-**Flag:** ✅ Breaking research — Neurology Open Access publication
+## Top Posts (by relevance)
+
+### 1. 🏆 Practical Neurology — McDonald Criteria 2024 for MS
+**Author:** @PracticalNeurol
+**Engagement:** ❤️ 126 likes | 🔄 39 retweets | 👁️ 5,198 views
+**Posted:** 2026-05-26
+**Text:**
+> The 2024 #McDonaldCriteria are changing #MS diagnosis:
+> 1. Optic nerve = 5th site
+> 2. KFLC joins CSF biomarkers
+> 3. MRI markers (CVS/PRL) ↑ specificity
+> = Earlier & more confident dx of #MultipleSclerosis
+> doi.org/10.1136/pn-2025-004938
+**URL:** https://x.com/PracticalNeurol/status/2059367403348165038
+**⭐ Flagged:** >100 likes — high engagement, substantive clinical update
 
 ---
 
-### 2. 🟢 Richard Yeselson — Neurology vs. Oncology Commentary
-**Author:** @yeselson  
-**Time:** 1 minute ago  
-**Text:** Seems like oncology is just so much more thriving and advanced than neurology—exciting time in cancer research. Things don't seem nearly as promising in finding treatments for dementia. (Quoting @EricTopol on cancer immunotherapy)  
-**Engagement:** 0 likes · 13 views  
-**URL:** https://x.com/yeselson/status/2059750704999215176  
-**Flag:** — Commentary, low engagement
+### 2. The Lancet — Neurology Editorial
+**Author:** @TheLancet
+**Engagement:** ❤️ 33 likes | 🔄 17 retweets | 👁️ 3,244 views
+**Posted:** 2026-05-29
+**Text:**
+> Neurological disorders are the leading cause of disability worldwide. But neurology is transforming.
+>
+> "Neurology is entering a biologically informed era with unprecedented potential to prevent or delay disease onset and reduce disability", states our latest Editorial.
+**URL:** https://x.com/TheLancet/status/2060391970824962192
 
 ---
 
-### 3. 🟢 UCSF Bakar ImmunoX Initiative — EBV-RMS Autoantibody Assay
-**Author:** @immunox  
-**Time:** 16 minutes ago  
-**Text:** Autoantibody assay refines EBV-RMS risk. Neurology(R) reports an autoantibody diagnostic assay tuned to a consensus motif to predict risk of EBV-related multiple sclerosis—aiming for earlier, more stratified identification.  
-**Engagement:** 1 repost · 1 like · 24 views  
-**URL:** https://x.com/immunox/status/2059746927361847650  
-**Flag:** ✅ Breaking research — MS risk prediction advancement
+### 3. Continuum AAN — Family Planning in Neuroinflammatory Disease
+**Author:** @ContinuumAAN
+**Engagement:** ❤️ 12 likes | 🔄 4 retweets | 👁️ 659 views
+**Posted:** 2026-05-26
+**Text:**
+> Key Point 5 from the article Family Planning in Neuroinflammatory Disease by Drs. Ruth Dobson and Kerstin Hellwig from the April #MultipleSclerosis and Related Disorders issue.
+>
+> Pregnancy can be planned directly after rituximab infusions in patients with neuroinflammatory disease; rituximab infusions can be considered during the first trimester depending on the timing of the last infusion and duration of treatment to minimize relapse risk.
+**URL:** https://x.com/ContinuumAAN/status/2059379044454416654
 
 ---
 
-### 4. 🟢 Continuum: Lifelong Learning in Neurology (AAN)
-**Author:** @ContinuumAAN  
-**Time:** 37 minutes ago  
-**Text:** Key Point 6 from "Family Planning in Neuroinflammatory Disease" by Drs. Ruth Dobson and Kerstin Hellwig from the April #MultipleSclerosis and Related Disorders issue.  
-**Engagement:** 2 reposts · 3 likes · 1 bookmark · 63 views  
-**URL:** https://x.com/ContinuumAAN/status/2059741434874405321  
-**Flag:** ✅ Educational content — Neurology CME/resource
+### 4. Continuum AAN — Advanced Practice Providers in Neurology
+**Author:** @ContinuumAAN
+**Engagement:** ❤️ 1 like | 🔄 0 retweets | 👁️ 35 views
+**Posted:** 2026-05-29
+**Text:**
+> Key Point 2 from the article Advanced Practice Providers in Neurology Practice by Drs. Calli L. Cook and Joel Morgenlander from the April #MultipleSclerosis and Related Disorders issue.
+**URL:** https://x.com/ContinuumAAN/status/2060466211561906335
 
 ---
 
-### 5. 🟢 John J. Millichap MD — Cutaneous Ictal Phenomena Review
-**Author:** @JohnMillichapMD  
-**Time:** 2 hours ago  
-**Text:** Localizing value of cutaneous ictal phenomena: A systematic review  
-**Engagement:** (minimal)  
-**URL:** https://x.com/JohnMillichapMD/status/2059718865772872093  
-**Flag:** ✅ Published systematic review — Epilepsy
+### 5. @PJaseja — NP-C Presenting with Catatonia
+**Author:** @PJaseja
+**Engagement:** ❤️ 0 likes | 👁️ 5 views
+**Posted:** 2026-05-29
+**Text:**
+> so cool 🤩, had suspected patient with NP-C presenting with catatonia!
+**URL:** https://x.com/PJaseja/status/2060462491323490637
 
 ---
 
-### 6. 🟢 The Biotech Newswire — HEALEY ALS Platform Trial Expansion
-**Author:** @BiotechNewswire  
-**Time:** 3 hours ago  
-**Text:** HEALEY ALS Platform Trial Regimen I expands to 240 participants. The expansion is driven by the enrolment rate exceeding original expectations.  
-**Engagement:** (minimal)  
-**URL:** https://x.com/BiotechNewswire/status/2059699929625174444  
-**Flag:** ✅ Breaking trial news — ALS
+## Latest Posts (chronological)
+
+### 6. Braydon Dymm — Game-Based Learning in Neurology
+**Author:** @BraydonDymm
+**Engagement:** ❤️ 0 likes
+**Posted:** 2026-05-29 21:33 UTC
+**Text:**
+> As game-based learning gains real traction in neurology, interactive media is proving to be a fantastic tool for exploring the mind, brain, and patient experience. Have you played any of these? What other games would you add to a medical/neurology must-play list?
+**URL:** https://x.com/BraydonDymm/status/2060474585741451626
+
+### 7. John Millichap MD — Acute Symptomatic Seizures
+**Author:** @JohnMillichapMD
+**Engagement:** ❤️ 0 likes
+**Posted:** 2026-05-29 21:27 UTC
+**Text:**
+> Patient voices in acute symptomatic seizures: A qualitative approach to outcome assessment
+> dlvr.it/TSnJNj #Neurology #Epilepsy
+**URL:** https://x.com/JohnMillichapMD/status/2060473062613832107
+
+### 8. John Millichap MD — HRQOL in Transgender/Gender Diverse Adults with Epilepsy
+**Author:** @JohnMillichapMD
+**Engagement:** ❤️ 0 likes
+**Posted:** 2026-05-29 21:24 UTC
+**Text:**
+> Health-related quality of life among transgender and gender diverse adults with epilepsy: Florida behavioral risk factor surveillance system 2017-2019
+> dlvr.it/TSnJKJ #Neurology #Epilepsy
+**URL:** https://x.com/JohnMillichapMD/status/2060472310910607566
+
+### 9. John Millichap MD — Epileptics as Drivers (1906 Historical Report)
+**Author:** @JohnMillichapMD
+**Engagement:** ❤️ 0 likes
+**Posted:** 2026-05-29 21:21 UTC
+**Text:**
+> "Epileptics as drivers" — the first report on motor vehicle accidents due to epileptic seizures in 1906
+> dlvr.it/TSnJF6 #Neurology #Epilepsy
+**URL:** https://x.com/JohnMillichapMD/status/2060471561677873648
+
+### 10. John Millichap MD — IC-CoDE Phenotype Classification in Frontal Lobe Epilepsy
+**Author:** @JohnMillichapMD
+**Engagement:** ❤️ 0 likes
+**Posted:** 2026-05-29 21:18 UTC
+**Text:**
+> Comparing normative and ipsative methods of IC-CoDE phenotype classification in frontal lobe epilepsy
+> dlvr.it/TSnJ9w #Neurology #Epilepsy
+**URL:** https://x.com/JohnMillichapMD/status/2060470806237589793
 
 ---
 
-### 7. 🟢 DR SHEIKH RADIOLOGIST — Neurology Case Quiz
-**Author:** @ScouserNigerian  
-**Time:** 1 hour ago  
-**Text:** NEUROLOGY CASE. Adult with headaches and features of raised intracranial pressure. CT brain done. What are your differential diagnosis? #MedX  
-**Engagement:** 1 reply · 3 reposts · 6 likes · 205 views  
-**URL:** https://x.com/ScouserNigerian/status/2059729997162549266  
-**Flag:** — Educational case, moderate engagement
+## Bonus Posts
+
+### 11. John Millichap MD — sEEG-Guided Surgery for Temporal vs Extratemporal Epilepsy in Children
+**Posted:** 2026-05-29 21:15 UTC
+**URL:** https://x.com/JohnMillichapMD/status/2060470046309429399
+
+### 12. John Millichap MD — Alcohol Use Disorder & Epileptogenesis in Primary Malignant Brain Tumors
+**Posted:** 2026-05-29 21:12 UTC
+**URL:** https://x.com/JohnMillichapMD/status/2060469298846732306
 
 ---
 
-### 8. 🟢 Peter Kang MD — Neurology Resident Fellowship News
-**Author:** @PeterKangMD  
-**Time:** 2 hours ago  
-**Text:** So proud of my PGY-2 resident, Dr. Julio Cuevas Cruz who has been accepted as a fellow in the AMA SHLI Medical Justice in Advocacy Fellowship! #neurology #advocacy #socialjustice  
-**Engagement:** (minimal)  
-**URL:** https://x.com/PeterKangMD/status/2059716425283936306  
-**Flag:** — Neurology training/accolade
-
----
-
-### 9. 🟢 Richard Choi, DO, FNCS — Neurocritical Care New Paper
-**Author:** @rkchoi  
-**Time:** 1 hour ago  
-**Text:** Hello #medtwitter #neurotwitter #neurocritcare #FOAMed — wanted to start with a brief case and then talk about a very exciting new paper out of @neurocritcarej  
-**Engagement:** 1 reply · 1 repost · 7 likes · 2 bookmarks · 596 views  
-**URL:** https://x.com/rkchoi/status/2059726394054037884  
-**Flag:** ✅ >100 views (596 views) — neurocritical care paper discussion
-
----
-
-### 10. 🟢 Rachel Turner — Late-Onset Tay-Sachs Awareness
-**Author:** @RachelT0324  
-**Time:** 30 minutes ago  
-**Text:** Announcement: When most people hear 'Tay-Sachs,' they think of a disease that only affects infants. But there is a rare form called Late-Onset Tay-Sachs (LOTS) — slide show created. #LateOnsetTaySachs #LOTS #rarediseaseawareness #Neurology #Ataxia  
-**Engagement:** 0 reposts · 0 likes · views (minimal)  
-**URL:** https://x.com/RachelT0324/status/2059743223325597763  
-**Flag:** — Rare disease awareness
-
----
-
-## 🚩 Posts Flagged
-
-| # | Post | Reason |
-|---|------|--------|
-| 1 | @GreenJournal - REM Sleep Behavior Disorder | >386 views, Open Access publication in Neurology |
-| 2 | @immunox - EBV-RMS Autoantibody Assay | Breaking MS risk prediction research |
-| 3 | @BiotechNewswire - HEALEY ALS Trial Expansion | Major ALS trial expansion to 240 participants |
-| 4 | @rkchoi - Neurocrit Care Paper | 596 views, active neurocritical care discussion |
-| 5 | @ContinuumAAN - Family Planning in MS | Educational content from Neurology journal |
-
-## Notes
-- Scraped from Latest tab (not Top) to capture breaking/current content.
-- General audience posts that mention "neurology" tangentially were excluded from top 10.
-- Search query also matched "neurodivergence", "neurology" in political/trans contexts — filtered out.
-- No posts exceeded 100 likes in the neurology-relevant subset; highest like count was 7 (@rkchoi).
+## Summary
+- **High-engagement posts flagged (>100 likes):** @PracticalNeurol on McDonald Criteria 2024 (126 likes) — **breaking/notable**
+- **Notable sources today:** @PracticalNeurol, @TheLancet, @ContinuumAAN (AAN), @JohnMillichapMD (epilepsy research roundup)
+- **Hot topics:** MS diagnostic criteria (McDonald 2024), epilepsy research (multiple papers), neuroinflammatory disease, neurology's transformation
+- **Trend:** @JohnMillichapMD had a burst of epilepsy paper shares — 5 posts in ~20 minutes

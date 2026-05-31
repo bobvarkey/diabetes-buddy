@@ -873,3 +873,59 @@ Top Movers:
   Gainers: ONGC.BSE:+0.9%, HINDUNILVR.BSE:+0.6%, PIDILITIND.BSE:+0.1%
   Losers: POWERGRID.BSE:-0.9%, SBIN.BSE:-0.1%, SUNPHARMA.BSE:-0.0%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ HDFCBANK: ₹758.50 (-2.63%)
+  ⚠️ INFY: Failed
+  ✅ ICICIBANK: ₹1272.80 (-0.50%)
+  ⚠️ BHARTIARTL: Failed
+  ✅ KOTAKBANK: ₹388.35 (-0.09%)
+  ✅ SBIN: ₹967.65 (-0.10%)
+  ✅ LT: ₹4045.80 (+0.20%)
+  ⚠️ PIDILITIND: Failed
+  ✅ ADANIPOWER: ₹248.75 (+1.72%)
+  ⚠️ CONCOR: Failed
+
+=======================================================
+MARKET SCAN - 2026-05-28 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 6 stocks | Opportunities: 3
+
+BUY (50-75):
+  HDFCBANK.BSE ₹758.50 (-2.63%) | 60
+WATCH (30-50):
+  ADANIPOWER.BSE ₹248.75 (+1.72%) | 40
+
+Top Movers:
+  Gainers: ADANIPOWER.BSE:+1.7%, LT.BSE:+0.2%, KOTAKBANK.BSE:+-0.1%
+  Losers: HDFCBANK.BSE:-2.6%, ICICIBANK.BSE:-0.5%, SBIN.BSE:-0.1%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ TITAN: ₹4140.25 (+0.84%)
+  ✅ TORNTPHARM: ₹4540.90 (+2.02%)
+  ✅ MFSL: ₹1682.75 (-2.43%)
+  ✅ AARTIIND: ₹500.45 (+1.98%)
+  ✅ MARUTI: ₹13365.85 (+1.22%)
+  ⚠️ ADANIPOWER: Failed
+  ✅ CONCOR: ₹472.45 (-0.77%)
+  ⚠️ DEEPAKNTR: Failed
+  ✅ GODREJCP: ₹1044.45 (+1.19%)
+  ✅ HEROMOTOCO: ₹5074.30 (+1.83%)
+
+=======================================================
+MARKET SCAN - 2026-05-29 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 8 stocks | Opportunities: 7
+
+WATCH (30-50):
+  MFSL.BSE ₹1682.75 (-2.43%) | 35
+
+Top Movers:
+  Gainers: TORNTPHARM.BSE:+2.0%, AARTIIND.BSE:+2.0%, HEROMOTOCO.BSE:+1.8%
+  Losers: MFSL.BSE:-2.4%, CONCOR.BSE:-0.8%, TITAN.BSE:0.8%
+=======================================================

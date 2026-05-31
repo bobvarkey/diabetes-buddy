@@ -1,20 +1,140 @@
 {
-  "scan_date": "2026-05-27T08:00:14.973836",
-  "stocks_scanned": 7,
+  "scan_date": "2026-05-29T08:00:18.901753",
+  "stocks_scanned": 8,
   "opportunities": [
     {
-      "ticker": "COALINDIA.BSE",
-      "name": "COALINDIA",
-      "price": 458.25,
-      "change": 0.0546,
+      "ticker": "TORNTPHARM.BSE",
+      "name": "TORNTPHARM",
+      "price": 4540.9,
+      "change": 2.0152,
+      "signals": [
+        {
+          "type": "price_rally",
+          "value": 2.0152,
+          "reason": "Rally: +2.0%"
+        },
+        {
+          "type": "volatility",
+          "value": 2.5335171309780513,
+          "reason": "Range: 2.5%"
+        }
+      ],
+      "prediction_score": 25,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "MFSL.BSE",
+      "name": "MFSL",
+      "price": 1682.75,
+      "change": -2.4295,
+      "signals": [
+        {
+          "type": "price_drop",
+          "value": -2.4295,
+          "reason": "Drop: -2.4%"
+        },
+        {
+          "type": "volatility",
+          "value": 3.013226663552215,
+          "reason": "Range: 3.0%"
+        }
+      ],
+      "prediction_score": 35,
+      "recommendation": "WATCH"
+    },
+    {
+      "ticker": "AARTIIND.BSE",
+      "name": "AARTIIND",
+      "price": 500.45,
+      "change": 1.9766,
+      "signals": [
+        {
+          "type": "price_rally",
+          "value": 1.9766,
+          "reason": "Rally: +2.0%"
+        },
+        {
+          "type": "volatility",
+          "value": 2.29170910572418,
+          "reason": "Range: 2.3%"
+        }
+      ],
+      "prediction_score": 25,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "MARUTI.BSE",
+      "name": "MARUTI",
+      "price": 13365.85,
+      "change": 1.2177,
+      "signals": [
+        {
+          "type": "price_rally",
+          "value": 1.2177,
+          "reason": "Rally: +1.2%"
+        },
+        {
+          "type": "volatility",
+          "value": 2.332321905710792,
+          "reason": "Range: 2.3%"
+        }
+      ],
+      "prediction_score": 25,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "CONCOR.BSE",
+      "name": "CONCOR",
+      "price": 472.45,
+      "change": -0.7666,
       "signals": [
         {
           "type": "volatility",
-          "value": 4.486899563318767,
-          "reason": "Range: 4.5%"
+          "value": 2.1500887172528986,
+          "reason": "Range: 2.2%"
         }
       ],
       "prediction_score": 10,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "GODREJCP.BSE",
+      "name": "GODREJCP",
+      "price": 1044.45,
+      "change": 1.1868,
+      "signals": [
+        {
+          "type": "price_rally",
+          "value": 1.1868,
+          "reason": "Rally: +1.2%"
+        },
+        {
+          "type": "volatility",
+          "value": 2.4271844660194173,
+          "reason": "Range: 2.4%"
+        }
+      ],
+      "prediction_score": 25,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "HEROMOTOCO.BSE",
+      "name": "HEROMOTOCO",
+      "price": 5074.3,
+      "change": 1.8322,
+      "signals": [
+        {
+          "type": "price_rally",
+          "value": 1.8322,
+          "reason": "Rally: +1.8%"
+        },
+        {
+          "type": "volatility",
+          "value": 2.442303833032306,
+          "reason": "Range: 2.4%"
+        }
+      ],
+      "prediction_score": 25,
       "recommendation": "NEUTRAL"
     }
   ],
