@@ -1,134 +1,108 @@
-# X/Twitter Neurology News Scrape
-**Date:** 2026-05-29 (scraped at ~2026-05-30 03:00 IST / 2026-05-29 21:30 UTC)
-**Source:** X/Twitter search: `neurology OR #neurotwitter OR #NeuroX`
-**Tabs:** Top + Latest
+# X/Twitter Neurology News — June 2-3, 2026
+
+**Scraped:** 2026-06-03 03:00 IST (2026-06-02 21:30 UTC)  
+**Source:** X/Twitter search (`#neurology OR #neurotwitter OR #NeuroX OR "neurology" OR "neurologist"` — Top posts)  
+**Total posts scanned:** ~60
 
 ---
 
-## Top Posts (by relevance)
+## Top 10 Neurology Posts
 
-### 1. 🏆 Practical Neurology — McDonald Criteria 2024 for MS
-**Author:** @PracticalNeurol
-**Engagement:** ❤️ 126 likes | 🔄 39 retweets | 👁️ 5,198 views
-**Posted:** 2026-05-26
-**Text:**
-> The 2024 #McDonaldCriteria are changing #MS diagnosis:
-> 1. Optic nerve = 5th site
-> 2. KFLC joins CSF biomarkers
-> 3. MRI markers (CVS/PRL) ↑ specificity
-> = Earlier & more confident dx of #MultipleSclerosis
-> doi.org/10.1136/pn-2025-004938
-**URL:** https://x.com/PracticalNeurol/status/2059367403348165038
-**⭐ Flagged:** >100 likes — high engagement, substantive clinical update
+### 1. 🧠 **Sultan** — *The General Neurologist: Best Description*
+- **Handle:** [@Sultan__Shehri](https://x.com/Sultan__Shehri/status/2060654581395198115)
+- **Time:** May 30, 2026
+- **Engagement:** 74 ❤️ | 12 🔁 | 4.6K 👁️
+- **Text:** *"Maybe the best description of the general neurologist: 1. Knows the 3 C's — The Common, The Critical, The Curious. 2. Comfortable in the ward and ICU. 3. Skilled in diagnosis (localization, imaging, EDX, LP) and treatment (thrombolysis, ASMs, immunotherapy etc)."*
+- **🔴 Flagged (74 likes, 4.6K views)**
 
----
+### 2. 🧠 **RADIOLOGISTS (@DrAyubaD)** — *Neurology Case: Post-op MRI*
+- **Handle:** [@DrAyubaD](https://x.com/DrAyubaD/status/2060631208740933898)
+- **Time:** May 30, 2026
+- **Engagement:** 48 ❤️ | 9 🔁 | 5.4K 👁️
+- **Text:** *"Neurology case. 45 year old male. Operated 3 years back. Complains of headaches. MRI done (lesion is low on T1). What are your differential diagnoses? #MedX"*
+- **🔴 Flagged (48 likes, 5.4K views)**
 
-### 2. The Lancet — Neurology Editorial
-**Author:** @TheLancet
-**Engagement:** ❤️ 33 likes | 🔄 17 retweets | 👁️ 3,244 views
-**Posted:** 2026-05-29
-**Text:**
-> Neurological disorders are the leading cause of disability worldwide. But neurology is transforming.
->
-> "Neurology is entering a biologically informed era with unprecedented potential to prevent or delay disease onset and reduce disability", states our latest Editorial.
-**URL:** https://x.com/TheLancet/status/2060391970824962192
+### 3. 🧠 **Dr.Priyanshu Jaseja (@PJaseja)** — *Neuronym Game #Neurotwitter*
+- **Handle:** [@PJaseja](https://x.com/PJaseja/status/2061571444916813902)
+- **Time:** Jun 1, 2026
+- **Engagement:** 26 ❤️ | 2 🔁 | 3.1K 👁️
+- **Text:** *"Neuronym Game — Tried for damn 52 guesses... still reached 87.5% ... this is so involving #Neurotwitter"*
+- **🔴 Flagged (26 likes, 3.1K views)**
 
----
+### 4. ⚡ **Aravind Palraj (@Rheumat_Aravind)** — *Young Stroke Differential*
+- **Handle:** [@Rheumat_Aravind](https://x.com/Rheumat_Aravind/status/2061882248018976826)
+- **Time:** Jun 2, 2026 — 18:46 UTC
+- **Engagement:** 16 ❤️ | 6 🔁 | 761 👁️
+- **Text:** *"YOUNG STROKE? Don't stop at APS. Important causes to consider: PFO, Cardioembolism, Cervical artery dissection, Thrombophilia, Vasculitis, CADASIL, ↑ Homocysteine, ↑ Lipoprotein(a)."*
+- **🔴 Flagged (newsworthy clinical pearl, 16 likes + 6 reposts)**
 
-### 3. Continuum AAN — Family Planning in Neuroinflammatory Disease
-**Author:** @ContinuumAAN
-**Engagement:** ❤️ 12 likes | 🔄 4 retweets | 👁️ 659 views
-**Posted:** 2026-05-26
-**Text:**
-> Key Point 5 from the article Family Planning in Neuroinflammatory Disease by Drs. Ruth Dobson and Kerstin Hellwig from the April #MultipleSclerosis and Related Disorders issue.
->
-> Pregnancy can be planned directly after rituximab infusions in patients with neuroinflammatory disease; rituximab infusions can be considered during the first trimester depending on the timing of the last infusion and duration of treatment to minimize relapse risk.
-**URL:** https://x.com/ContinuumAAN/status/2059379044454416654
+### 5. 🧠 **Case Western Reserve Univ/UH Epilepsy Program (@CwruEpilepsy)** — *Epilepsy Fellowship Graduation*
+- **Handle:** [@CwruEpilepsy](https://x.com/CwruEpilepsy/status/2061448740955693442)
+- **Time:** Jun 1, 2026
+- **Engagement:** 15 ❤️ | 4 🔁 | 802 👁️
+- **Text:** *"The Epilepsy Center 2025-2026! What a fantastic year with an incredible group of fellows! As we prepare for their upcoming graduation... #Epilepsy #EpilepsyFellowship #NeuroX"*
 
----
+### 6. ⚡ **Neurology Journal (@GreenJournal)** — *IV Fosphenytoin for Trigeminal Neuralgia*
+- **Handle:** [@GreenJournal](https://x.com/GreenJournal/status/2061809622625706209)
+- **Time:** Jun 2, 2026 — 13:58 UTC
+- **Engagement:** 13 ❤️ | 2 🔁 | 1.8K 👁️
+- **Text:** *"This study provides Class I evidence that in patients with acute trigeminal neuralgia exacerbations, IV fosphenytoin is superior to placebo in reducing pain intensity at 120 minutes."*
+- **🔴 Flagged (Class I evidence, newsworthy)**
 
-### 4. Continuum AAN — Advanced Practice Providers in Neurology
-**Author:** @ContinuumAAN
-**Engagement:** ❤️ 1 like | 🔄 0 retweets | 👁️ 35 views
-**Posted:** 2026-05-29
-**Text:**
-> Key Point 2 from the article Advanced Practice Providers in Neurology Practice by Drs. Calli L. Cook and Joel Morgenlander from the April #MultipleSclerosis and Related Disorders issue.
-**URL:** https://x.com/ContinuumAAN/status/2060466211561906335
+### 7. 🧠 **Dr Sudhir Kumar MD DM (@hyderabaddoctor)** — *9-Year Longevity Equation*
+- **Handle:** [@hyderabaddoctor](https://x.com/hyderabaddoctor/status/2061809067811868958)
+- **Time:** Jun 2, 2026 — 13:56 UTC
+- **Engagement:** 13 ❤️ | 0 🔁 | 4K 👁️
+- **Text:** *"Neurologist shares simple '9-year longevity equation' for healthier ageing. Healthy ageing may depend less on extreme wellness routines and more on consistent habits. A neurologist explains the daily lifestyle targets linked to longer healthspan."*
+- **🔴 Flagged (4K views — breaking/popular)**
 
----
+### 8. 🧠 **Saudi Neurology Interest Club (@NeurologyIC)** — *MS Myth vs Fact #MSDay*
+- **Handle:** [@NeurologyIC](https://x.com/NeurologyIC/status/2060741604856500482)
+- **Time:** May 30, 2026
+- **Engagement:** 13 ❤️ | 2 🔁 | 973 👁️
+- **Text:** *"Myth vs Fact: Multiple Sclerosis (MS) #MSDay #SNIC"*
 
-### 5. @PJaseja — NP-C Presenting with Catatonia
-**Author:** @PJaseja
-**Engagement:** ❤️ 0 likes | 👁️ 5 views
-**Posted:** 2026-05-29
-**Text:**
-> so cool 🤩, had suspected patient with NP-C presenting with catatonia!
-**URL:** https://x.com/PJaseja/status/2060462491323490637
+### 9. ⚡ **Neurology Journal (@GreenJournal)** — *Cluster Headache Prevalence Shift*
+- **Handle:** [@GreenJournal](https://x.com/GreenJournal/status/2061856865919598953)
+- **Time:** Jun 2, 2026 — 17:05 UTC
+- **Engagement:** 5 ❤️ | 1 🔁 | 534 👁️
+- **Text:** *"This Norwegian nationwide registry-based cohort study revealed a substantial increase in cluster headache prevalence from 2009 to 2022, accompanied by a notable shift from predominance in men to predominance in women."*
+- **🔴 Flagged (notable epidemiological shift)**
 
----
-
-## Latest Posts (chronological)
-
-### 6. Braydon Dymm — Game-Based Learning in Neurology
-**Author:** @BraydonDymm
-**Engagement:** ❤️ 0 likes
-**Posted:** 2026-05-29 21:33 UTC
-**Text:**
-> As game-based learning gains real traction in neurology, interactive media is proving to be a fantastic tool for exploring the mind, brain, and patient experience. Have you played any of these? What other games would you add to a medical/neurology must-play list?
-**URL:** https://x.com/BraydonDymm/status/2060474585741451626
-
-### 7. John Millichap MD — Acute Symptomatic Seizures
-**Author:** @JohnMillichapMD
-**Engagement:** ❤️ 0 likes
-**Posted:** 2026-05-29 21:27 UTC
-**Text:**
-> Patient voices in acute symptomatic seizures: A qualitative approach to outcome assessment
-> dlvr.it/TSnJNj #Neurology #Epilepsy
-**URL:** https://x.com/JohnMillichapMD/status/2060473062613832107
-
-### 8. John Millichap MD — HRQOL in Transgender/Gender Diverse Adults with Epilepsy
-**Author:** @JohnMillichapMD
-**Engagement:** ❤️ 0 likes
-**Posted:** 2026-05-29 21:24 UTC
-**Text:**
-> Health-related quality of life among transgender and gender diverse adults with epilepsy: Florida behavioral risk factor surveillance system 2017-2019
-> dlvr.it/TSnJKJ #Neurology #Epilepsy
-**URL:** https://x.com/JohnMillichapMD/status/2060472310910607566
-
-### 9. John Millichap MD — Epileptics as Drivers (1906 Historical Report)
-**Author:** @JohnMillichapMD
-**Engagement:** ❤️ 0 likes
-**Posted:** 2026-05-29 21:21 UTC
-**Text:**
-> "Epileptics as drivers" — the first report on motor vehicle accidents due to epileptic seizures in 1906
-> dlvr.it/TSnJF6 #Neurology #Epilepsy
-**URL:** https://x.com/JohnMillichapMD/status/2060471561677873648
-
-### 10. John Millichap MD — IC-CoDE Phenotype Classification in Frontal Lobe Epilepsy
-**Author:** @JohnMillichapMD
-**Engagement:** ❤️ 0 likes
-**Posted:** 2026-05-29 21:18 UTC
-**Text:**
-> Comparing normative and ipsative methods of IC-CoDE phenotype classification in frontal lobe epilepsy
-> dlvr.it/TSnJ9w #Neurology #Epilepsy
-**URL:** https://x.com/JohnMillichapMD/status/2060470806237589793
+### 10. 🧠 **NEJM (@NEJM)** — *MGH Case Record: Fatigue, Memory Changes, Falls*
+- **Handle:** [@NEJM](https://x.com/NEJM/status/2061915806661828941)
+- **Time:** Jun 2, 2026 — 21:00 UTC
+- **Engagement:** 6 ❤️ | 1 🔁 | 1.7K 👁️
+- **Text:** *"Case Record of the Massachusetts General Hospital: A 64-Year-Old Woman with Fatigue, Memory Changes, and Falls. #Neurology #InfectiousDisease"*
 
 ---
 
-## Bonus Posts
+## Honorable Mentions
 
-### 11. John Millichap MD — sEEG-Guided Surgery for Temporal vs Extratemporal Epilepsy in Children
-**Posted:** 2026-05-29 21:15 UTC
-**URL:** https://x.com/JohnMillichapMD/status/2060470046309429399
-
-### 12. John Millichap MD — Alcohol Use Disorder & Epileptogenesis in Primary Malignant Brain Tumors
-**Posted:** 2026-05-29 21:12 UTC
-**URL:** https://x.com/JohnMillichapMD/status/2060469298846732306
+| Author | Topic | Likes | Views |
+|--------|-------|-------|-------|
+| @NatRevNeurol | Aquaporin-4 variants & Alzheimer's phenotypes | 4 | — |
+| @touchNEUROLOGY | EAN Congress 2026 Presidential Symposium | 0 | 23 |
+| @Drmostafameshr1 | Parkinson's olfactory dysfunction study accepted | 3 | 59 |
+| @NeuroHNetwork | Neuropraxis podcast on APP neurology education | 3 | 54 |
+| @albertoortegana | Tabes dorsalis neuro case | 5 | 488 |
+| @ManualOMedicine | Stroke & TIA: Diagnosis to Treatment | 2 | 1.8K |
+| @WillekeVE (Ireland, MS & Me) | Neurology waiting room essay | 1 | — |
+| @GreenJournal | Mission Thrombectomy — SVIN global effort | 3 | 318 |
 
 ---
 
-## Summary
-- **High-engagement posts flagged (>100 likes):** @PracticalNeurol on McDonald Criteria 2024 (126 likes) — **breaking/notable**
-- **Notable sources today:** @PracticalNeurol, @TheLancet, @ContinuumAAN (AAN), @JohnMillichapMD (epilepsy research roundup)
-- **Hot topics:** MS diagnostic criteria (McDonald 2024), epilepsy research (multiple papers), neuroinflammatory disease, neurology's transformation
-- **Trend:** @JohnMillichapMD had a burst of epilepsy paper shares — 5 posts in ~20 minutes
+## Key Themes This Period
+
+1. **Stroke** — Young stroke differential (CADASIL, dissection, PFO); Mission Thrombectomy global access initiative
+2. **Headache/Pain** — Cluster headache sex-shift epidemiology; IV fosphenytoin Class I evidence for trigeminal neuralgia
+3. **Neurodegenerative** — Alzheimer's AQP4 genetics; Parkinson's olfactory dysfunction; dementia risk from red meat (referenced)
+4. **Multiple Sclerosis** — World MS Day awareness content
+5. **Epilepsy** — Fellowship graduation; patient access concerns
+6. **Neurology Education** — Neuronym game; Neuropraxis podcast; case discussions
+
+**Flags: ⚡ = Breaking/Newsworthy | 🧠 = Neurology community content**
+**Posts with >100 likes or significant breaking news flagged with 🔴**
+
+---
+*Saved by Neurology News Scrape cron job*

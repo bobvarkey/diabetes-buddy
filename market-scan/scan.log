@@ -929,3 +929,86 @@ Top Movers:
   Gainers: TORNTPHARM.BSE:+2.0%, AARTIIND.BSE:+2.0%, HEROMOTOCO.BSE:+1.8%
   Losers: MFSL.BSE:-2.4%, CONCOR.BSE:-0.8%, TITAN.BSE:0.8%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ EICHERMOT: ₹7177.80 (-3.26%)
+  ✅ ONGC: ₹266.00 (-2.90%)
+  ✅ COALINDIA: ₹457.60 (-1.15%)
+  ✅ POWERGRID: ₹289.75 (-3.46%)
+  ✅ SUNPHARMA: ₹1800.90 (-2.39%)
+  ✅ HEROMOTOCO: ₹4898.40 (-3.47%)
+  ✅ NTPC: ₹386.75 (-2.86%)
+  ✅ CIPLA: ₹1398.50 (-1.39%)
+  ✅ BHARTIARTL: ₹1829.70 (-1.16%)
+  ✅ LT: ₹4076.65 (+0.76%)
+
+=======================================================
+MARKET SCAN - 2026-06-01 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 10 stocks | Opportunities: 10
+
+WATCH (30-50):
+  EICHERMOT.BSE ₹7177.80 (-3.26%) | 45
+  ONGC.BSE ₹266.00 (-2.90%) | 45
+  POWERGRID.BSE ₹289.75 (-3.46%) | 45
+  HEROMOTOCO.BSE ₹4898.40 (-3.47%) | 45
+  NTPC.BSE ₹386.75 (-2.86%) | 45
+
+Top Movers:
+  Gainers: LT.BSE:+0.8%, COALINDIA.BSE:+-1.1%, BHARTIARTL.BSE:+-1.2%
+  Losers: HEROMOTOCO.BSE:-3.5%, POWERGRID.BSE:-3.5%, EICHERMOT.BSE:-3.3%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ RELIANCE: ₹1320.30 (-0.02%)
+  ✅ TCS: ₹2297.95 (+1.95%)
+  ✅ HDFCBANK: ₹742.65 (-0.28%)
+  ⚠️ INFY: Failed
+  ✅ ICICIBANK: ₹1239.50 (-1.31%)
+  ⚠️ BHARTIARTL: Failed
+  ✅ LT: ₹4009.35 (-1.65%)
+  ⚠️ PIDILITIND: Failed
+  ✅ ADANIPOWER: ₹232.25 (-4.62%)
+  ✅ CONCOR: ₹464.55 (+0.02%)
+
+=======================================================
+MARKET SCAN - 2026-06-02 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 7 stocks | Opportunities: 5
+
+BUY (50-75):
+  ADANIPOWER.BSE ₹232.25 (-4.62%) | 60
+
+Top Movers:
+  Gainers: TCS.BSE:+2.0%, CONCOR.BSE:+0.0%, RELIANCE.BSE:+-0.0%
+  Losers: ADANIPOWER.BSE:-4.6%, LT.BSE:-1.7%, ICICIBANK.BSE:-1.3%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ COLPAL: ₹1998.65 (+0.42%)
+  ✅ TITAN: ₹4079.05 (+1.34%)
+  ✅ TORNTPHARM: ₹4314.25 (-0.79%)
+  ✅ MFSL: ₹1595.40 (-1.85%)
+  ✅ CONCOR: ₹459.20 (-1.15%)
+  ✅ PIDILITIND: ₹1454.65 (-0.14%)
+  ✅ ADANIPOWER: ₹235.90 (+1.57%)
+  ⚠️ DEEPAKNTR: Failed
+  ✅ GODREJCP: ₹999.05 (-1.00%)
+  ⚠️ HEROMOTOCO: Failed
+
+=======================================================
+MARKET SCAN - 2026-06-03 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 8 stocks | Opportunities: 7
+
+
+Top Movers:
+  Gainers: ADANIPOWER.BSE:+1.6%, TITAN.BSE:+1.3%, COLPAL.BSE:+0.4%
+  Losers: MFSL.BSE:-1.8%, CONCOR.BSE:-1.2%, GODREJCP.BSE:-1.0%
+=======================================================
