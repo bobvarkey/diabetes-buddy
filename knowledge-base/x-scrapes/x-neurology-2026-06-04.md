@@ -1,108 +1,219 @@
-# 🧠 X/Twitter Neurology News — 2026-06-04
+---
+title: "X/Twitter Neurology News — June 4, 2026"
+source: "X (via Nitter)"
+search_query: "neurology OR #neurotwitter OR #NeuroX"
+date: 2026-06-04T21:00+05:30
+flags: {}
+---
 
-**Scraped:** 2026-06-04 03:00 IST (2026-06-03 21:30 UTC)  
-**Source:** Nitter.net search aggregator (X.com login required, scraped via Nitter)  
-**Queries:** `neurology`, `#neurotwitter`, `#NeuroX`, `neurotwitter OR #NeuroX OR neurology`
+# 🧠 X/Twitter Neurology News
+**Scraped:** June 4, 2026 21:00 IST  
+**Source:** Nitter (nitter.net) — X/Twitter search  
+**Search:** `neurology OR #neurotwitter OR #NeuroX`  
+**Filter:** Today (since 2026-06-04), Top
 
 ---
 
-## Top Posts (Curated — 10 most relevant/breaking)
+## Top 10 Neurology Posts
 
-### 1. 🔬 P-tau217 detects Alzheimer co-pathology in Lewy body disorders
-**Author:** Ahmed Negida, MD PhD (@NegidaMD)  
-**Time:** 48m ago (relative to scrape)  
-**Content:** New study in Annals of Neurology — plasma P-tau217 detects AD co-pathology in Lewy body disorders and predicts cognitive decline in Parkinson's disease. AUC 0.84 for discriminating co-pathology. 1.6x risk of cognitive progression (HR 1.597, p=0.003).  
-**URL:** https://nitter.net/NegidaMD/status/2062183029091561821#m  
-**🔴 BREAKING / HIGH IMPACT** — Major biomarker finding for Lewy body disorders
+---
 
-### 2. 🔬 Parkinson's may be more than one disease — distinct neural pathways
-**Author:** InnoDexis LLC (@innodexis)  
-**Time:** 1h ago  
-**Content:** Carnegie Mellon University researchers found tremor and bradykinesia in Parkinson's originate from distinct neural pathways. Tremor linked to cerebellum-connected motor thalamus; bradykinesia to widespread thalamic activity. Could enable precision DBS approaches.  
-**URL:** https://nitter.net/innodexis/status/2062180003299696881#m  
-**🔴 BREAKING / HIGH IMPACT** — Fundamental shift in understanding Parkinson's pathophysiology
+### #1 🔥 — Dr. Heidi Klessig
+**Author:** Dr. Heidi Klessig  
+**Handle:** [@heidiklessigmd](https://x.com/heidiklessigmd)  
+**Posted:** 9 hours ago  
+**Likes:** 103 ✅ (>100)  
+**Retweets:** 25  
+**Replies:** 2  
+**Views:** 3,214  
+**URL:** https://nitter.net/heidiklessigmd/status/2062324054787321955#m
 
-### 3. 🔬 Vitamin D linked to lower tau in midlife (Framingham data)
-**Author:** Culture War Notes (@culturewarnotes)  
-**Time:** 58m ago  
-**Content:** Framingham Heart Study (n=793, 16yr follow-up). Higher midlife 25-hydroxyvitamin D associated with less tau in entorhinal cortex, parahippocampal gyrus, fusiform gyrus. Continuous relationship — more D, less tau. No association with amyloid. Mulligan et al., Neurology Open Access, 2026. DOI: 10.1212/WN9.0000000000000057  
-**URL:** https://nitter.net/culturewarnotes/status/2062180512307773701#m  
-**🔴 HIGH IMPACT** — Important Alzheimer's risk factor study
+> The American Academy of Neurology brain death guideline DOES NOT comply with the law under the Uniform Determination of Death Act.
+>
+> Annelise's doctors need to understand that using this guideline leaves them open to legal action for not following the law.
+>
+> tandfonline.com/doi/full/10.…
 
-### 4. 🧪 High-frequency oscillations & sleep spindles in epilepsy
-**Author:** Frontiers - Neurology (@FrontNeurol)  
-**Time:** 22m ago  
-**Content:** New Research: High-frequency oscillations and sleep spindles in epilepsy — from mechanisms to modeling. Published in Frontiers in Neurology.  
-**URL:** https://nitter.net/frontneurol/status/2062189712371224622#m
+**Links:** [Taylor & Francis — The Uniform Determination of Death Act is Not Changing](https://tandfonline.com/doi/full/10.…)
 
-### 5. 🧪 Fenfluramine Phase III trial in CDKL5 deficiency disorder
-**Author:** VJ Neurology (@VJNeurology)  
-**Time:** 4h ago  
-**Content:** Nicola Specchio shares Phase III trial findings of fenfluramine in patients with CDKL5 deficiency disorder.  
-**URL:** https://nitter.net/VJNeurology/status/2062218089777774946#m  
-**🔴 BREAKING** — Phase III data for rare epilepsy
+**🏷️ BREAKING / HIGH ENGAGEMENT**
 
-### 6. 📚 Continuum: Cerebrovascular Disease June Issue
-**Author:** Continuum: Lifelong Learning in Neurology (@ContinuumAAN)  
-**Time:** 5h ago  
-**Content:** June #CerebrovascularDisease issue, guest edited by Dr. Cheryl Bushnell, now available. Podcast featuring Drs. Lyell K. Jones and Cheryl Bushnell.  
-**URL:** https://nitter.net/ContinuumAAN/status/2062204792970051915#m
+---
 
-### 7. 💊 Chronic spinal meningitis diagnostic challenges
-**Author:** Springer Medicine (@Springer_Med)  
-**Time:** 5h ago  
-**Content:** #MedCase — Four cases revealing challenges distinguishing infectious, autoimmune, and neoplastic etiologies of chronic spinal meningitis despite diagnostic advances.  
-**URL:** https://nitter.net/Springer_Med/status/2062203659459411998#m
+### #2 — Neurology Journal (@GreenJournal)
+**Author:** Neurology Journal  
+**Handle:** [@GreenJournal](https://x.com/GreenJournal)  
+**Posted:** 18 hours ago  
+**Likes:** 37  
+**Retweets:** 6  
+**Views:** 1,681  
+**URL:** https://nitter.net/GreenJournal/status/2062190093847171319#m
 
-### 8. 📚 Neurology: Clinical Practice June 2026 Issue
-**Author:** Neurology: Clinical Practice (@NeurologyCP)  
-**Time:** 3h ago  
-**Content:** June 2026 issue of Neurology Clinical Practice out now. Cover art by Leana Pande, DO.  
-**URL:** https://nitter.net/NeurologyCP/status/2062141721694069234#m
+> Teaching #NeuroImage: Cervical Myelopathy Due to Alveolar Spinal Echinococcosis Cysts hubs.la/Q04hXV4L0
 
-### 9. 🔬 MS: Escalating therapy without waiting for MRI reduces relapses
-**Author:** Neurologia Castellon (@NeurologiaCaste)  
-**Time:** 8h ago  
-**Content:** Study on escalating MS therapy without waiting for MRI — fewer relapses. Published in SAGE journals.  
-**URL:** https://nitter.net/NeurologiaCaste/status/2062161197714002431#m
+> #NeurologyRF
 
-### 10. 🗓️ SCCM Neuro ICU — Spinal cord injury BP targets webinar
-**Author:** SCCM Neuroscience Section (@SCCM_Neuro)  
-**Time:** 7h ago  
-**Content:** SAVE THE DATE — Journal club webinar on "Early Blood Pressure Targets in Acute Spinal Cord Injury." Thursday, June 18, 3PM CST.  
-**URL:** https://nitter.net/SCCM_Neuro/status/2062172461895135682#m
+**Links:** [Neurology Journal — Teaching NeuroImage](https://hubs.la/Q04hXV4L0)
 
-### 11. 🎙️ American Academy of Neurology — Educator Training
-**Author:** American Academy of Neurology (@AANmember)  
-**Time:** 7h ago  
-**Content:** Neurology Educator Training on educational leadership and scholarship. Thursday, June 11, 6PM CT. Register via AAN.  
-**URL:** https://nitter.net/AANmember/status/2062172790610854105#m
+---
 
-### 12. 🧪 Down the Stairs Dystonia — case report
-**Author:** Vishal Chandra Sharma (@NeuroJediMaster)  
-**Time:** 9h ago  
-**Content:** Interesting phenomenon — dystonia triggered only by going downstairs. Sensorimotor integration defect hypothesis.  
-**URL:** https://nitter.net/NeuroJediMaster/status/2062145632106865094#m
+### #3 — Frontiers in Neurology (New Stroke Research)
+**Author:** Frontiers - Neurology  
+**Handle:** [@FrontNeurol](https://x.com/FrontNeurol)  
+**Posted:** 59 minutes ago  
+**Likes:** —  
+**Views:** 26  
+**URL:** https://nitter.net/FrontNeurol/status/2062453199488073732#m
+
+> New Research: A prognostic model incorporating MCP-1 and IL-8 for early risk stratification in acute ischemic stroke patients receiving intravenous thrombolysis: a retrospective development with temporal validation
+
+> frontiersin.org/articles/10.…#FrontiersIn #Neurology
+
+**Links:** [Frontiers — MCP-1/IL-8 Stroke Prognostic Model](https://frontiersin.org/articles/10.…)
+
+---
+
+### #4 — Elissaios Karageorgiou (Cognition & Diet)
+**Author:** Elissaios Karageorgiou  
+**Handle:** [@E_Karageorgiou](https://x.com/E_Karageorgiou)  
+**Posted:** 1 hour ago  
+**Likes:** —  
+**Views:** 7  
+**URL:** https://nitter.net/E_Karageorgiou/status/2062447976371437867#m
+
+> Higher Meat Intake Linked to Slower Cognitive Decline in APOE34/44 Carriers | Neurology Today
+
+> neurologytoday.aan.com/doi/1…
+
+**Links:** [Neurology Today — Meat Intake & Cognitive Decline in APOE34/44](https://neurologytoday.aan.com/doi/1…)
+
+---
+
+### #5 — Frontiers in Neurology (Chemotherapy Neuropathy)
+**Author:** Frontiers - Neurology  
+**Handle:** [@FrontNeurol](https://x.com/FrontNeurol)  
+**Posted:** 2 hours ago  
+**Views:** 25  
+**URL:** https://nitter.net/FrontNeurol/status/2062436585170448531#m
+
+> New Research: Correlation between nerve conduction velocity abnormality patterns and clinical severity grading in chemotherapy-induced peripheral neuropathy: a retrospective cohort study
+
+> frontiersin.org/articles/10.… #FrontiersIn #Neurology
+
+**Links:** [Frontiers — Chemotherapy Peripheral Neuropathy Severity](https://frontiersin.org/articles/10.…)
+
+---
+
+### #6 — Dr. Osama Khan (Smoking Cessation & Dementia — Arabic)
+**Author:** د. أسامة خان Dr. Osama Khan  
+**Handle:** [@drOsamaD](https://x.com/drOsamaD)  
+**Posted:** Jun 3  
+**Likes:** 2  
+**Views:** 195  
+**URL:** https://nitter.net/drOsamaD/status/2062021290630771095#m
+
+> دراسة حديثة نُشرت في مجلة Neurology التابعة للأكاديمية الأمريكية لطب الأعصاب، وكان التساؤل: هل الاقلاع عن التدخين يحمي الدماغ من الخرف؟
+
+> #صوت_الطبيب
+
+*(Translation: New study published in Neurology journal from the AAN: Does quitting smoking protect the brain from dementia?)*
+
+---
+
+### #7 — KimH (FND Advocacy)
+**Author:** KimH  
+**Handle:** [@KH118118](https://x.com/KH118118)  
+**Posted:** 35 minutes ago  
+**Views:** 7  
+**URL:** https://nitter.net/KH118118/status/2062459048088211552#m
+
+> Thank you. I'll continue doing what I've done for the last 12 years. Advocating for people living with FND because it is a real neurological condition with a rightful place in neurology. That isn't dependent on how people choose to talk about us online.
+
+*(Replying to @TheAmazins, @Fionas_Story, @SalvMattera, @FndNope)*
+
+---
+
+### #8 — Dr Rpsingh_chauhan (Neurocysticercosis)
+**Author:** Dr Rpsingh_chauhan  
+**Handle:** [@rpsingh1894](https://x.com/rpsingh1894)  
+**Posted:** 2 hours ago  
+**Likes:** 2  
+**Views:** 44  
+**URL:** https://nitter.net/rpsingh1894/status/2062433147501834629#m
+
+> 🧠 A tiny parasite.
+> ⚡ A single seizure.
+> 📸 A diagnosis hiding in plain sight.
+>
+> Neurocysticercosis remains one of the leading causes of acquired epilepsy worldwide.
+>
+> 🔍 Can you identify the imaging finding that is considered virtually pathognomonic for NCC?
+
+---
+
+### #9 — John J. Millichap MD (Epilepsy Readmission)
+**Author:** John J. Millichap MD  
+**Handle:** [@JohnMillichapMD](https://x.com/JohnMillichapMD)  
+**Posted:** 2 hours ago  
+**Likes:** 2  
+**Retweets:** 1  
+**Views:** 14  
+**URL:** https://nitter.net/JohnMillichapMD/status/2062427213790957790#m
+
+> Seizure leading to hospital presentation: does a period of inpatient observation reduce hospital readmission rates? dlvr.it/TSsdtj #Neurology #Epilepsy
+
+---
+
+### #10 — Legend (Neurology Redlining — Lifestyle)
+**Author:** 𝐋𝐞𝐠𝐞𝐧𝐝  
+**Handle:** [@Be_like_legend](https://x.com/Be_like_legend)  
+**Posted:** 1 hour ago  
+**Likes:** 2  
+**Views:** 150  
+**URL:** https://nitter.net/Be_like_legend/status/2062445026756468768#m
+
+> From the outside, her family usually sees:
+> • hitting snooze three times
+> • staring blankly at the ceiling
+> • scrolling her phone in bed
+> • moving in slow motion
+>
+> But internally, her neurology is redlining.
+
+*(Popular-style post about neurodivergence/internal experience)*
+
+---
+
+## 📊 Flagged Posts (>100 likes or breaking news)
+
+| # | Author | Post Topic | Likes | Retweets | Flag |
+|---|--------|-----------|-------|---------|------|
+| 1 | @heidiklessigmd | AAN brain death guideline & UDDA violation | **103** | 25 | 🔥 **>100 likes + potential breaking news** |
+| 2 | @GreenJournal | Cervical Myelopathy — NeuroImage | 37 | 6 | — |
+| 3 | @E_Karageorgiou | Meat intake & cognitive decline in APOE34/44 | — | — | 📰 New research |
+
+## 🏆 Most Notable Post
+**Dr. Heidi Klessig (@heidiklessigmd)** — AAN brain death guideline doesn't comply with UDDA law.  
+> 103 likes, 25 retweets, 3,214 views — highest engagement of the day.
+
+---
+
+## Additional Posts (Non-Top-10 but Relevant)
+
+| Author | Topic | Views |
+|--------|-------|-------|
+| @RanaBeser | First Hajj season as Neurology Resident 🧠🕋 | 9 |
+| @thodkyaat | Tourette Syndrome awareness (Marathi) | 102 |
+| @D4rk_n3ws | Cognitive/weaponized neurology discussion | 3,251 |
+| @Fewtrella1 | #brain #neuro #neurology hashtag post | 17 |
 
 ---
 
 ## Summary
 
-| Category | Count | Notable |
-|---|---|---|
-| **🔴 Breaking Research** | 5 | P-tau217 in LBD, Parkinson's dual-pathway, Vitamin D-tau link, Fenfluramine Phase III, MS therapy escalation |
-| **📚 Journal Issues/Podcasts** | 3 | Continuum Cerebrovascular, Neurology CP June, AAN Educator Training |
-| **💊 Clinical Cases** | 2 | Spinal meningitis, Down-stairs dystonia |
-| **🗓️ Events/Webinars** | 2 | SCCM Neuro ICU journal club, AAN training |
-| **General Discussion** | 3 | Neurology access, patient experiences, career advice |
-
-## 🔴 Flagged Posts (>100 likes or breaking news)
-
-1. **@NegidaMD** — P-tau217 in Lewy body disorders (biomarker breakthrough) — 🔴 BREAKING
-2. **@innodexis** — Parkinson's dual-pathway finding — 🔴 BREAKING
-3. **@culturewarnotes** — Vitamin D-tau midlife association — 🔴 HIGH IMPACT
-4. **@VJNeurology** — Fenfluramine Phase III in CDKL5 — 🔴 BREAKING
-
----
-
-*Report generated by OpenClaw · Nitter source (anonymous X access)*
+**Scraped at:** 2026-06-04 21:00 IST  
+**Source:** X/Twitter via Nitter  
+**Total posts captured:** 19  
+**Flagged (>100 likes):** 1 post  
+**Breaking news candidates:** 1 (brain death guideline controversy)  
+**New research shared:** 4 papers (stroke biomarkers, chemotherapy neuropathy, cognitive decline/diet, neurocysticercosis)
