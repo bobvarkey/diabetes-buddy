@@ -1,135 +1,115 @@
-# X/Twitter Neurology News Scrape
-**Date:** Monday, June 8, 2026
-**Time:** ~21:00 IST (15:30 UTC)
-**Source:** X Search (Top + Latest) — query: `neurology OR #neurotwitter OR #NeuroX`
+# 🧠 Neurology News — X/Twitter Scrape
+**Date:** Friday, June 12, 2026 · 15:00 IST (09:30 UTC)
+**Search:** `neurology OR #neurotwitter OR #NeuroX` (Top Tweets)
+**Scraped via:** OpenClaw Browser (profile=openclaw)
 
 ---
 
-## 🔴 FLAGGED — High Engagement / Breaking
+## Top Posts
 
-### 1. Valerie Anne Smith — Statins & Stroke Risk
-- **Handle:** @ValerieAnne1970
-- **Posted:** ~2h ago
-- **Content:** "Informed Consent...Cholesterol Lowering Statins Are One Of The Most Dangerous Drugs... 46% increase in 'new onset' Type 2 Diabetes. For every 30 mg drop in Cholesterol, all cause mortality goes up 22%. Lowering LDL below <70 mg/dL raises stroke risk 2X."
-- **Stats:** 10 replies, 276 reposts, **443 likes**, 224 bookmarks, 8.8K views
-- **URL:** https://x.com/ValerieAnne1970/status/2063969298444329098
-- **⚠️ Flagged:** >100 likes, high engagement (443 likes, 8.8K views), controversial claim
+### 1. Neurology Journal @GreenJournal 🏆
+**Time:** Jun 6 · **Engagement:** 6 ❤️ · 1 🔁 · 1.7K 👁️
+**URL:** https://x.com/GreenJournal/status/2063033156836475077
+> In this episode of the Neurology Podcast: Dr. Andy Southerland and Dr. Dan Ackerman discuss a few rapid‑fire concepts from the 2026 guidelines, focusing on what is new and how emerging data may shape patient care. Listen now: hubs.la/Q04kkP3Z0 #Stroke
+**🔴 FLAG:** 1.7K views — High visibility. 2026 guidelines update is notable.
 
 ---
 
-## Top Posts (Sorted by Relevance)
-
-### 2. Neurology Journal (@GreenJournal) — 2026 Stroke Guidelines Podcast
-- **Handle:** @GreenJournal
-- **Posted:** Jun 6
-- **Content:** "In this episode of the Neurology Podcast: Dr. Andy Southerland and Dr. Dan Ackerman discuss a few rapid-fire concepts from the 2026 guidelines, focusing on what is new and how emerging data may shape patient care. Listen now."
-- **Link:** hubs.la/Q04kkP3Z0
-- **Tags:** #Stroke
-- **Stats:** 1 repost, 6 likes, 1 bookmark, 1.6K views
-- **URL:** https://x.com/GreenJournal/status/2063033156836475077
-- **Status:** Official journal content, moderate engagement
-
-### 3. Neurology Journal (@GreenJournal) — Acute Ischemic Stroke Guidelines
-- **Handle:** @GreenJournal
-- **Posted:** Jun 3
-- **Content:** "Neurology Podcast: Drs. Andy Southerland & Dan Ackerman discuss the latest guidelines for managing acute ischemic #stroke, emphasizing thrombolytic therapy, imaging techniques, and decision-making regarding treatment in extended time windows."
-- **Link:** hubs.la/Q04jQHWD0
-- **Stats:** 4 reposts, 14 likes, 2 bookmarks, 2.1K views
-- **URL:** https://x.com/GreenJournal/status/2061928370552635840
-- **Status:** Official journal content
-
-### 4. Neurology Journal (@GreenJournal) — 75th Anniversary Trivia
-- **Handle:** @GreenJournal
-- **Posted:** Jun 5
-- **Content:** "It's time for this week's Journal History Trivia to celebrate Neurology turning 75! Check out the 75th Anniversary landing page to learn more about our history."
-- **Tags:** #Neurology75
-- **Stats:** 3 likes, 1 bookmark, 1K views
-- **URL:** https://x.com/GreenJournal/status/2062882428356604255
-- **Status:** Milestone/anniversary content
+### 2. Practical Neurology @PracticalNeurol
+**Time:** 1h ago · **Engagement:** 1 💬 · 76 👁️
+**URL:** https://x.com/PracticalNeurol/status/2065339555088097296
+> 🎙️ New Practical Neurology podcast! What's the difference between a night owl and a morning lark? Prof. @guy_lesch discusses sleep and neurological practice. pnbmj.podbean.com/e/not-all-inso… #Neurology #SleepMedicine #Insomnia #MedTwitter
+**🟢** Sleep neurology podcast — relevant clinical content.
 
 ---
 
-## Latest Posts (Chronological, Today)
+### 3. NeurixDev @StudioAi7030
+**Time:** 16m ago · **Engagement:** 2 👁️
+**URL:** https://x.com/StudioAi7030/status/2065362309292437805
+> Most founders ask "does it work?" The best founders ask "what happens when it breaks?" That question is why Neurix exists. #AI #Founders #Startups
+**🟢** AI/Tech — only tangentially neurology (Neurix namedrop). Low engagement.
 
-### 5. CME University — Generalized Myasthenia Gravis CME
-- **Handle:** @CmeUniversity
-- **Posted:** ~1 min ago
-- **Content:** "🚨 LAST CHANCE for Free CME! Awareness, Advances, Action: Optimizing Outcomes for Patients with Generalized Myasthenia Gravis. Designed for clinicians and NPs in neurology, neuromuscular, and neuroimmunology care."
-- **Link:** bit.ly/4dlewgq
-- **URL:** https://x.com/CmeUniversity/status/2064007827379671499
-- **Status:** CME opportunity, neurology subspecialty
+---
 
-### 6. Circular Genomics — Alzheimer's & Brain Awareness Month
-- **Handle:** @CircGenomics (Verified)
-- **Posted:** ~11 min ago
-- **Content:** "June is Alzheimer's & Brain Awareness Month 💜 More than 55 million people worldwide are living with dementia, with Alzheimer's disease accounting for the majority of cases."
-- **URL:** https://x.com/CircGenomics/status/2064005298327896257
-- **Status:** Awareness campaign, Alzheimer's
+### 4. Neurology Journal @GreenJournal 🔥
+**Time:** 20h ago · **Engagement:** 10 ❤️ · 2 🔁 · 2 💬 · 1.8K 👁️
+**URL:** https://x.com/GreenJournal/status/2065056042937983335
+> Test your neuro knowledge in today's #NeurologyRF quiz:
+**🔴 FLAG:** >10 likes + 1.8K views. Interactive neurology quiz from official journal.
 
-### 7. MarcJacksonLA — Roche/Nurix BTK Degrader (Neuro Indications)
-- **Handle:** @MarcJacksonLA (Verified)
-- **Posted:** ~20 min ago
-- **Content:** "$RHHBY $NRIX Roche makes up to $3B blood cancer play with Nurix's protein degrader — Roche and Nurix Therapeutics will advance their BTK degrader for chronic lymphocytic leukemia, as well as immunology and neurology indications."
-- **Source:** biospace.com
-- **URL:** https://x.com/MarcJacksonLA/status/2064003113619784043
-- **⚠️ Flagged:** Breaking business news — Roche/Nurix deal includes neurology indications
+---
 
-### 8. Barbados Heart & Stroke — Stroke Prevention Workshop
-- **Handle:** @hsfbarbados (Verified)
-- **Posted:** ~32 min ago
-- **Content:** "Prevention is the best medicine. Calling all Barbados healthcare professionals! Join us at the Barbados Yacht Club on Thursday June 25th 2026 for a deep dive into stroke prevention. Keynote: Dr. Simeona S.M. Jacinto."
-- **URL:** https://x.com/hsfbarbados/status/2064000023390540179
-- **Status:** Event announcement, stroke prevention
+### 5. 𖤓 heather @boksevngah0325
+**Time:** 9m ago · **Engagement:** 2 👁️
+**URL:** https://x.com/boksevngah0325/status/2065364079582048734
+> tysm mai <333 and yeah my neurodivergence really shows because it would drive me crazy if they weren't organized 😭
+**🟢** Personal post about neurodivergence, not clinical neurology news.
 
-### 9. DrsansariOrd / IhabFathiSulima — Limbic Encephalitis Neuroimaging Case
-- **Handle:** @DrsansariOrd (Verified) / @IhabFathiSulima (Verified)
-- **Posted:** ~40-51 min ago
-- **Content:** 🧠 MRI teaching case: bilateral mesial temporal FLAIR hyperintensities suggestive of Limbic Encephalitis. Differential includes HSV-1 Encephalitis.
-- **Stats:** 1 like, 53 views (reply)
-- **URL:** https://x.com/DrsansariOrd/status/2063998225829462401
-- **Status:** Educational neuroimaging
+---
 
-### 10. American Epilepsy Society — Advocacy Update
-- **Handle:** @AmEpilepsySoc
-- **Posted:** ~48 min ago
-- **Content:** "Many thanks to @DrAatifHusain for serving as the alternate delegate to the @AmerMedicalAssn on our behalf. #epilepsy #neurology #publichealth #advocacy"
-- **Stats:** 2 likes, 97 views
-- **URL:** https://x.com/AmEpilepsySoc/status/2063996501613850639
-- **Status:** Professional society advocacy
+### 6. Continental Hospitals @Continental_hyd 🏆
+**Time:** 3h ago · **Engagement:** 12 👁️
+**URL:** https://x.com/Continental_hyd/status/2065315610729537881
+> Most people think strokes happen out of nowhere, but your body sends out high-priority distress signals first. Recognizing these signs early can save lives because when it comes to a Stroke, time is brain. Dr. Sumathi Jarugu (Consultant Neurologist) breaks...
+**🟢** Stroke awareness post — educational content from a hospital. Moderate reach.
 
-### 11. Isaac Lamb, MD — Hand Omega Infarct Teaching Point
-- **Handle:** @IsaacLamb01
-- **Posted:** ~55 min ago
-- **Content:** "A small, localized infarct to the 'hand omega' of the primary motor cortex can produce isolated hand weakness... can humble any neurologist. #neurology #neuroX #MedEd"
-- **Quote:** @nirmalregency on small infarcts not requiring thrombolysis
-- **Stats:** 2 replies, 1 repost, 5 likes, 2 bookmarks, 363 views
-- **URL:** https://x.com/IsaacLamb01/status/2063994729683902853
-- **Status:** Educational, stroke neurology
+---
 
-### 12. DrZeaMedAI — World Brain Tumor Day
-- **Handle:** @DrZeamedAI
-- **Posted:** ~58 min ago
-- **Content:** "Have questions about brain tumors? Talk to our Dr.ZeaMedAI Neurology Assistant anytime for trusted guidance and support. #WorldBrainTumorDay #BrainTumorAwareness"
-- **Stats:** 1 repost, 6 views
-- **URL:** https://x.com/DrZeamedAI/status/2063994074680742173
-- **Status:** AI health assistant, awareness
+### 7. Neurology Journal @GreenJournal 🔥
+**Time:** 11h ago · **Engagement:** 15 ❤️ · 4 🔁 · 2 💬 · 1.8K 👁️
+**URL:** https://x.com/GreenJournal/status/2065190115090042937
+> Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with #EmbolicStroke of undetermined source. Listen now: hubs.la/Q04l5L0Q0 #Stroke
+**🔴 FLAG:** >10 likes + 4 reposts + 1.8K views. Breaking clinical content on embolic stroke diagnostics.
+
+---
+
+### 8. Sikandar Adwani @SikandarAdwani 🔥
+**Time:** 2h ago · **Engagement:** 9 ❤️ · 2 🔁 · 215 👁️
+**URL:** https://x.com/SikandarAdwani/status/2065321946817208391
+> A valuable learning from #ICTRIMS2026: In neuroimmunology, don't just ask: Which antibody is positive? Ask: Which IgG subclass is driving the disease? IgG1 diseases (AQP4, MOGAD, NMDAR): → Complement activation → Inflammation. IgG4 diseases (LGI1, CASPR2, MuSK-MG, NF155):...
+**🔴 FLAG:** Breaking conference content from #ICTRIMS2026. Important neuroimmunology insight. Approaching 10+ likes.
+
+---
+
+### 9. DD Uttar Pradesh @DDUttarPradesh
+**Time:** 43m ago · **Engagement:** 4 👁️
+**URL:** https://x.com/DDUttarPradesh/status/2065355969354494053
+> सिरदर्द और माइग्रेन से बचाव के आसान टिप्स | Headache | Migraine | Health Tips #Wellness #HealthCare #Neurology #MindHealth #StayHealthy #HealthEducation #DDUP
+**🟢** Hindi-language headache/migraine awareness post. Low engagement.
+
+---
+
+### 10. S @Nrig021 🔥
+**Time:** 3h ago · **Engagement:** 78 ❤️ · 5 🔁 · 2 💬 · 2.2K 👁️
+**URL:** https://x.com/Nrig021/status/2065312634417934520
+> My cousin, who has been battling with a rare neurological condition, underwent a successful surgery under Dr. Rana Patir, Chairman of the Neurology Dept at Fortis, & one of the country's leading neurosurgeons. Delighted to know that he is from Assam (from Mishing tribe)
+**🔴 FLAG:** ❤️ **78 likes** (>100 threshold approaching) + 5 reposts + **2.2K views** — highest engagement in the feed. Personal story about successful neurosurgery.
 
 ---
 
 ## Summary
 
-| Category | Count | Highlights |
-|---|---|---|
-| **Flagged Posts (>100 likes / breaking)** | 2 | Statins controversy (443 likes), Roche/Nurix deal |
-| **Stroke / Cerebrovascular** | 4 | Guidelines podcast, hand omega infarct, Barbados workshop, small vessel disease |
-| **Alzheimer's / Dementia** | 2 | Brain Awareness Month, patient stage 3 dementia |
-| **Neuroimaging** | 1 | Limbic encephalitis MRI case |
-| **Epilepsy** | 1 | AES advocacy |
-| **Myasthenia Gravis** | 1 | CME opportunity |
-| **Neuro-oncology** | 1 | Brain Tumor Day |
-| **Neuro-business** | 1 | Roche/Nurix BTK degrader |
-| **General Neurology** | 2 | Journal trivia, public health advocacy |
+| # | Author | Likes | Reposts | Views | Flag |
+|---|--------|-------|---------|-------|------|
+| 1 | @GreenJournal | 6 | 1 | 1.7K | 🟡 High views |
+| 2 | @PracticalNeurol | — | — | 76 | 🟢 |
+| 3 | @StudioAi7030 | — | — | 2 | 🟢 |
+| 4 | @GreenJournal | 10 | 2 | 1.8K | 🔥 Breaking quiz |
+| 5 | @boksevngah0325 | — | — | 2 | 🟢 |
+| 6 | @Continental_hyd | — | — | 12 | 🟢 |
+| 7 | @GreenJournal | 15 | 4 | 1.8K | 🔥 Stroke diagnostics |
+| 8 | @SikandarAdwani | 9 | 2 | 215 | 🔥 ICTRIMS2026 |
+| 9 | @DDUttarPradesh | — | — | 4 | 🟢 |
+| 10 | @Nrig021 | 78 | 5 | 2.2K | 🔥 Top engagement |
 
----
+**🏆 Key Findings:**
+- **Neurology Journal (@GreenJournal)** dominates with 3 posts — all high-view count (1.7-1.8K)
+- **#ICTRIMS2026** conference insights (post #8) — clinically significant neuroimmunology pearl
+- **Embolic stroke diagnostic modalities** podcast (post #7) — highly actionable clinical content
+- Personal story about successful neurosurgery (post #10) — highest engagement (78 likes)
+- No posts exceeded 100 likes, but post #10 (78 likes) is the closest
 
-*Scraped via browser automation. Some posts may not show full engagement data due to X's dynamic loading.*
+**📊 Metrics total across 10 posts:**
+- Total visible likes: ~118
+- Total reposts: ~14
+- Total views across feed: ~6K+

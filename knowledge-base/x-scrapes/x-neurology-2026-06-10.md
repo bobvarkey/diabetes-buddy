@@ -1,150 +1,129 @@
-# Neurology News — X/Twitter & News Aggregation
-**Scraped:** 2026-06-10 | **Source:** X/Twitter (search) + Google News
-**Note:** X/Twitter is login-walled — direct X posts unavailable. Results compiled from Google News indexing of neurology coverage.
+# X/Twitter Neurology News Scrape
+**Date:** Wednesday, June 10, 2026 (09:00 Asia/Calcutta | 03:30 UTC)
+**Search:** `neurology OR #neurotwitter OR #NeuroX` (Top tab)
+**Source Tab:** [X Search](https://x.com/search?q=neurology%20OR%20%23neurotwitter%20OR%20%23NeuroX&src=typed_query&f=top)
 
 ---
 
-## 🚨 BREAKING / FLAGGED STORIES
+## Top 10 Posts (Ranked by Relevance & Engagement)
 
-### 1. Brain & Spinal Cord Institute Halts Research Citing Funding Problems
-- **Source:** MedPage Today
-- **Time:** ~5 hours ago
-- **Author:** Judy George
-- **Significance:** Major research institute halts operations over funding crisis. Includes Parkinson's deaths data and 'Dementia Rebels' feature.
-- **Flag:** 🏷️ BREAKING NEWS
-
-### 2. World's First WWOX Gene Therapy Performed on Infant in Israel
-- **Source:** Multiple (Israeli doctors)
-- **Time:** Recent
-- **Significance:** First-in-the-world gene injection therapy delivers missing gene directly to infant's brain. Historic milestone in precision medicine.
-- **Flag:** 🏷️ BREAKING / >100 LIKES
-
-### 3. Insurance Dispute Leaves Local Neurology Patients in the Lurch
-- **Source:** RochesterFirst
-- **Time:** ~3 hours ago
-- **Author:** Adam Chodak
-- **Significance:** Neurology patients caught in insurance coverage dispute in Rochester area.
-- **Flag:** 🏷️ BREAKING NEWS
-
-### 4. Blood Test May Pinpoint Best Time to Start Alzheimer's Treatment
-- **Source:** Research study
-- **Time:** Recent
-- **Significance:** Novel blood biomarker approach to optimize Alzheimer's treatment timing.
-- **Flag:** 🏷️ BREAKING NEWS
-
-### 5. Donanemab Shows Durable Amyloid Clearance and Consistent Safety in Early-Start Patients
-- **Source:** Neurology Journals
-- **Time:** Recent
-- **Significance:** Long-term follow-up data on amyloid-targeting Alzheimer's therapy.
-- **Flag:** 🏷️ >100 LIKES
+### 1. 🏥 **Neurology Journal** @GreenJournal
+**Posted:** 14 hours ago (Jun 9, 2026)
+**Post:** "Check out our June 9, 2026 issue"
+**Engagement:** 🔁 4 reposts · ❤️ 14 likes · 🔖 2 bookmarks · 👁️ 921 views
+**URL:** https://x.com/GreenJournal/status/[extracted-from-timeline]
+**🏷️ Tags:** #Neurology
+**Flag:** ✅ Breaking — New journal issue
 
 ---
 
-## 📰 TOP NEUROLOGY NEWS (Jun 10, 2026)
-
-### 6. Parkinson's Disease Impact on Daily Life and Family Burden
-- **Source:** NeurologyLive — 3 hours ago
-- **Summary:** Analysis of Parkinson's disease burden on patients and families.
-
-### 7. Improved Non-Invasive Brain Stimulation Targets Deep-Seated Neurological Disorders
-- **Source:** Research — Recent
-- **Summary:** Advances in non-invasive brain stimulation technology reaching deeper brain targets.
-
-### 8. Type 1 Diabetes and Incident Dementia — New Research Link
-- **Source:** Neurology Journals — Recent
-- **Summary:** Research identifying connection between Type 1 diabetes and dementia risk.
-
-### 9. GLP-1 Receptor Agonist Use and Epilepsy Risk in Type 2 Diabetes
-- **Source:** Neurology Journals — Recent
-- **Summary:** Association study between GLP-1 RA use and epilepsy risk reduction in T2D patients.
-
-### 10. Striatal Dopamine Transporter and Rest Tremor in Parkinson Disease
-- **Source:** Neurology Journals — Recent
-- **Summary:** Imaging study linking dopamine transporter levels to rest tremor severity in PD.
+### 2. 🔬 **Neurology: Clinical Practice** @NeurologyCP
+**Posted:** 9 hours ago (Jun 10, 2026)
+**Post:** "Tolebrutinib may influence disability worsening through mechanisms not fully reflected by relapse activity, highlighting a potential avenue for addressing an important unmet need in MS treatment."
+**Engagement:** ❤️ 9 likes · 🔁 2 reposts · 🔖 1 bookmark · 👁️ 538 views
+**URL:** https://x.com/NeurologyCP/status/[extracted-from-timeline]
+**🏷️ Tags:** #MS #MultipleSclerosis
+**Flag:** ✅ Breaking — New MS treatment research
 
 ---
 
-## 📋 COMPLETE NEWS INDEX (55 Articles)
-
-| # | Title | Source | Time | Flag |
-|---|-------|--------|------|------|
-| 1 | Parkinson's Disease Impact on Daily Life and Family Burden | NeurologyLive | 3h ago | |
-| 2 | Insurance dispute leaves neurology patients in the lurch | RochesterFirst | 3h ago | 🚨 |
-| 3 | Brain Institute Halts Research; Parkinson's Deaths Fall; 'Dementia Rebels' | MedPage Today | 5h ago | 🚨 |
-| 4 | Lifetime Cognitive Enrichment & Incident AD Dementia | Neurology® Journals | Feb 12 | |
-| 5 | Journal of the Neurological Sciences issue 487 | WFN | 2d ago | |
-| 6 | Inpatient Stroke Care Lags Community Stroke Care | Cleveland Clinic | 19h ago | |
-| 7 | Montgomery County Neurological Center Urges Specialized PT | yourvalley.net | 5h ago | |
-| 8 | Improving Stability with Advanced Therapies in PD | NeurologyLive | 12h ago | |
-| 9 | Type 1 Diabetes and Incident Dementia | Neurology Journals | Recent | |
-| 10 | ATMRD 2026: Future of Clinical Trials Closer to Home | Conference | Recent | |
-| 11 | Acute Environmental Triggers & Migraine Encounters | Neurology Journals | Recent | |
-| 12 | Vidofludimus Calcium Mechanism for Multiple Sclerosis | Research | Recent | |
-| 13 | Wearable Technology in Neurologic Care | Review | Recent | |
-| 14 | A Call for Greater Education in Stem Cell Therapies | Opinion | Recent | |
-| 15 | Circadian Rest-Activity Rhythms and Incident Dementia | Neurology Journals | Recent | |
-| 16 | Striatal Dopamine Transporter & Rest Tremor in PD | Neurology Journals | Recent | |
-| 17 | RECAP: Neurology News Network — June 6th | NeurologyLive | Recent | |
-| 18 | Activity Patterns, Brain Atrophy & Disability in MS | Neurology Journals | Recent | |
-| 19 | Virtual vs In-Person Neurologic Ambulatory Care | Research | Recent | |
-| 20 | CMSC 2026: Aging and Treatment Strategies in MS | Conference | Recent | |
-| 21 | Recalled pet foods may cause neurological issues | Consumer | Recent | |
-| 22 | Dynamic Smoking Patterns & Risk of Parkinson Disease | Neurology Journals | Recent | |
-| 23 | FIFA World Cup — Temple neurologist on head impacts | Local | Recent | |
-| 24 | Living With MS: Advice From an Expert | Patient Ed | Recent | |
-| 25 | **Brain/spinal cord institute halts research — funding** | Investigative | Recent | 🚨 |
-| 26 | Five-Year Follow-Up: Work Disability After TBI | Neurology Journals | Recent | |
-| 27 | MS Treatment: High-Efficacy vs Escalation Approach | Clinical | Recent | |
-| 28 | Anti-CD20 Therapies in MS: Treatment to Long-Term Mgmt | Review | Recent | |
-| 29 | **World's first WWOX gene therapy on infant in Israel** | 🚨 BREAKING | Recent | 🚨 |
-| 30 | Skin-to-Skin Holding & White Matter in Preterm Infants | Pediatrics | Recent | |
-| 31 | SKY-0515 Reduces mHTT; Alexion C5; Stem Cells in PD | Drug Dev | Recent | |
-| 32 | Lipoic Acid for Progressive Multiple Sclerosis | Clinical Trial | Recent | |
-| 33 | **Donanemab Durable Amyloid Clearance in Early-Start** | Alzheimer's | Recent | ⭐ |
-| 34 | Kidney Function, AD Blood Biomarkers & Dementia Risk | Neurology Journals | Recent | |
-| 35 | Poststroke Dementia Prognostic Model (Multi-Cohort) | Neurology Journals | Recent | |
-| 36 | Sport-Related Head Exposure in Former Collegiate Athletes | Neurology Journals | Recent | |
-| 37 | Heavy Alcohol Use & Intracerebral Hemorrhage | Neurology Journals | Recent | |
-| 38 | A Roadmap to Neurologic Health Equity | Policy | Recent | |
-| 39 | Risk of Suicide Attempts After Head Injury | Neurology Journals | Recent | |
-| 40 | Stem Cell Therapy vs Traditional Parkinson Treatments | Comparison | Recent | |
-| 41 | Rising Cognitive Disability as Public Health Concern — US | Neurology Journals | Recent | |
-| 42 | Glaucoma Risk With CGRP Inhibitors in Migraine | Neurology Journals | Recent | |
-| 43 | **Blood test may pinpoint best Alzheimer's treatment timing** | 🚨 BREAKING | Recent | 🚨 |
-| 44 | GLP-1 RA & Epilepsy Risk in Type 2 Diabetes | Neurology Journals | Recent | |
-| 45 | Dementia May Be Worse for People Taking Popular Supplement | Alert | Recent | |
-| 46 | Botulinum Toxin in Movement Disorders — Masterclass | Clinical | Recent | |
-| 47 | **Improved Non-Invasive Brain Stimulation — Deep Targets** | Tech | Recent | ⭐ |
-| 48 | Primitive Reflexes May Predict Dementia | Neurology Journals | Recent | |
-| 49 | MS Diagnostic Criteria: 2024 McDonald Criteria Update | Clinical | Recent | |
-| 50 | Brain Changes During Menopause — New Findings | Research | Recent | |
-| 51 | Ionis ASO for Ultra-Rare Neurological Disorder Awaits FDA | Drug Dev | Recent | |
-| 52 | Towards Biomarker-Based Diagnosis of Parkinson Disease | Review | Recent | |
-| 53 | Evolving Understanding of Freezing of Gait — Updated Def | Movement Dx | Recent | |
-| 54 | Global Burden of Meningitis 1990-2023 (GBD 2023) | Epidemiology | Recent | |
-| 55 | Physical Exercise, Brain Structure & Cognition in Early PD | Neurology Journals | Recent | |
+### 3. 🧪 **Pharmacy Practice News** @PharmPracNews
+**Posted:** Jun 8, 2026
+**Post:** "What's next in symptomatic treatment for Huntington's disease? Dr. Erin Furr-Stimming explains in Part 7."
+**Engagement:** 🔁 1 repost · ❤️ 4 likes · 👁️ 169 views
+**URL:** https://x.com/PharmPracNews/status/[extracted-from-timeline]
+**🏷️ Tags:** #HuntingtonsDisease #Neurology
+**Flag:** 🆕 New
 
 ---
 
-## 📊 X/Twitter-Specific Results
-**Status:** ❌ X/Twitter login-walled. Direct scraping not possible without authentication.
-**Tool:** xurl CLI installed but not authenticated (no OAuth2 tokens configured).
-**Workaround:** Google News indexing captured X/Twitter-adjacent content:
-- "The Legacy of #Neurotwitter" — Neurology® Journals (Oct 2024)
-- "Education Research: Role of Social Media in Neurology Trainees' Professional Identity Formation" — Neurology® Journals (Apr 2024)
+### 4. 🧠 **Neurology Journal** @GreenJournal
+**Posted:** 5 hours ago (Jun 10, 2026)
+**Post:** "Neurology Podcast: Dr. Shuvro Roy and Dr. Amanda Piquet discuss the efficacy and safety of **miv-cel** in patients with #StiffPersonSyndrome."
+**Engagement:** ❤️ 5 likes · 🔁 0 reposts · 👁️ 1,157 views
+**URL:** https://x.com/GreenJournal/status/2064464336379154604
+**🏷️ Tags:** #StiffPersonSyndrome
+**Flag:** ✅ Breaking — Novel therapy for SPS
 
 ---
 
-## 🏷️ FLAGGED POSTS SUMMARY
-
-| # | Headline | Flag Reason |
-|---|----------|-------------|
-| 1 | Brain Institute Halts Research; Parkinson's Deaths Fall | 🚨 BREAKING NEWS |
-| 2 | World's First WWOX Gene Therapy on Infant in Israel | 🚨 BREAKING / >100 LIKES |
-| 3 | Insurance Dispute — Neurology Patients in the Lurch | 🚨 BREAKING NEWS |
-| 4 | Blood Test May Pinpoint Best Alzheimer's Treatment Timing | 🚨 BREAKING NEWS |
-| 5 | Donanemab Durable Amyloid Clearance | ⭐ IMPORTANT (>100 likes) |
-| 6 | Improved Non-Invasive Brain Stimulation | ⭐ IMPORTANT ADVANCE |
+### 5. 🩺 **Neurology Journal** @GreenJournal
+**Posted:** Jun 6, 2026
+**Post:** "Neurology Podcast: Dr. Andy Southerland and Dr. Dan Ackerman discuss rapid-fire concepts from the **2026 guidelines** on stroke."
+**Engagement:** ❤️ 6 likes · 🔁 1 repost · 🔖 1 bookmark · 👁️ 1,714 views
+**URL:** https://x.com/GreenJournal/status/2063033156836475077
+**🏷️ Tags:** #Stroke
+**Flag:** ✅ Breaking — 2026 stroke guidelines
 
 ---
-*Generated by Hermes — Neurology News Scanner | 2026-06-10*
+
+### 6. 🏛️ **Do No Harm** @donoharm
+**Posted:** Jun 9, 2026
+**Post:** "Medical societies are supposed to follow the science. But the ANA's latest roadmap appears to deviate. The AAN claims Black men are the least likely to receive treatment for headaches, but the study it cites tracks prevalence, not treatment."
+**Engagement:** ❤️ 22 likes · 🔁 7 reposts · 🔖 3 bookmarks · 👁️ 1,000 views
+**URL:** https://x.com/donoharm/status/[extracted-from-timeline]
+**🏷️ Tags:** #Headache #HealthEquity
+**Flag:** 🔥 High engagement (>20 likes) · Hot topic
+
+---
+
+### 7. 🧠 **C.Alberto Ortega** @albertoortegana
+**Posted:** 3 hours ago (Jun 10, 2026)
+**Post:** "🧠 The Dementia That Progresses in Months, Not Years — Most neurodegenerative dementias evolve slowly over years. When cognitive decline accelerates over just a few months and is accompanied by abnormal movements and gait disturbance, think beyond the usual causes."
+**Engagement:** 💬 3 replies · ❤️ 2 likes · 👁️ 99 views
+**URL:** https://x.com/albertoortegana/status/2064501215048663127
+**🏷️ Tags:** #Dementia #Neurology
+**Flag:** 🆕 New · Educational
+
+---
+
+### 8. 📚 **XRP Ledger Announces** @XRPL__A
+**Posted:** Mar 14, 2026
+**Post:** "🧵 The 9-hour midpoint strategy for wake-up strokes (INSC 2026) — 8-30% of ischemic strokes happen during sleep. Unknown onset = often disqualified. The fix: Use midpoint between sleep and wake as proxy for timing."
+**Engagement:** 🔁 6 reposts · ❤️ 22 likes · 🔖 22 bookmarks · 👁️ 1,551 views
+**URL:** https://x.com/XRPL__A/status/[extracted-from-timeline]
+**🏷️ Tags:** #Stroke #INSC2026
+**Flag:** 🔥 High engagement (>20 likes) · Clinical pearl
+
+---
+
+### 9. 🏥 **Dr RP Singh, MD** @rpsingh1894
+**Posted:** ~1 hour ago (Jun 10, 2026)
+**Post:** "🧠 Memory loss is not always the first symptom of dementia. Early signs can include: difficulty planning, trouble managing finances, getting lost in familiar places, word-finding difficulties, poor judgment."
+**Engagement:** ❤️ 6 likes · 🔖 8 bookmarks · 👁️ 8,606 views
+**URL:** https://x.com/rpsingh1894/status/2064536386833973482
+**🏷️ Tags:** #Dementia #Neurology
+**Flag:** 🔥 High views (8.6K) · Educational
+
+---
+
+### 10. 📖 **Internal Medicine** @pgMedicine
+**Posted:** ~1 hour ago (Jun 10, 2026)
+**Post:** "Wasting of Small Muscles of the Hand: A Clinical Localization Guide"
+**Engagement:** 🔁 4 reposts · ❤️ 9 likes · 🔖 3 bookmarks · 👁️ 206 views
+**URL:** https://x.com/pgMedicine/status/2064536528110653715
+**🏷️ Tags:** #ClinicalLocalization #Neurology #MedicalEducation
+**Flag:** 🆕 New · Educational
+
+---
+
+## 📊 Summary
+
+| Metric | Value |
+|---|---|
+| Total posts scraped | 25+ |
+| High-engagement flagged (>100 likes) | 0 in today's fresh results; older evergreen posts from Dr. Glaucomflecken (4,534), All Day Astronomy (5,458) exceed threshold but are not breaking |
+| Breaking news flagged | 4 posts (new journal issue, MS therapy, Stiff-Person Syndrome miv-cel, 2026 stroke guidelines) |
+| Time period covered | Jun 6 – Jun 10, 2026 |
+
+**Key Takeaways:**
+- **Neurology Journal** (@GreenJournal) is the dominant source, with multiple posts on podcast content covering 2026 stroke guidelines, Stiff-Person Syndrome (miv-cel), and the new June 9 issue
+- **Tolebrutinib for MS** featured by Neurology: Clinical Practice — potentially disease-modifying beyond relapse activity
+- **Huntington's disease** symptomatic treatment update from Pharmacy Practice News
+- **Wake-up stroke** 9-hour midpoint strategy from INSC 2026 conference — practical clinical guidance
+- Several **dementia education** posts trending, including rapid-progression dementias and early non-memory signs
+- **Healthcare equity debate** around AAN headache treatment claims gaining traction
+
+---
+
+*Scraped via OpenClaw Browser Automation | Profile: openclaw*

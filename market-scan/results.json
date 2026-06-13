@@ -1,16 +1,16 @@
 {
-  "scan_date": "2026-06-09T08:00:14.230029",
-  "stocks_scanned": 9,
+  "scan_date": "2026-06-12T08:00:16.740373",
+  "stocks_scanned": 8,
   "opportunities": [
     {
-      "ticker": "MARUTI.BSE",
-      "name": "MARUTI",
-      "price": 12909.15,
-      "change": -1.0687,
+      "ticker": "CONCOR.BSE",
+      "name": "CONCOR",
+      "price": 440.1,
+      "change": -1.09,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.0687,
+          "value": -1.09,
           "reason": "Drop: -1.1%"
         }
       ],
@@ -18,44 +18,29 @@
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "BAJAJ-AUTO.BSE",
-      "name": "BAJAJ-AUTO",
-      "price": 10213.2998,
-      "change": -1.2277,
+      "ticker": "AARTIIND.BSE",
+      "name": "AARTIIND",
+      "price": 427.4,
+      "change": -1.3844,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.2277,
-          "reason": "Drop: -1.2%"
+          "value": -1.3844,
+          "reason": "Drop: -1.4%"
         }
       ],
       "prediction_score": 15,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "COALINDIA.BSE",
-      "name": "COALINDIA",
-      "price": 465.25,
-      "change": -1.4927,
-      "signals": [
-        {
-          "type": "price_drop",
-          "value": -1.4927,
-          "reason": "Drop: -1.5%"
-        }
-      ],
-      "prediction_score": 15,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "GODREJCP.BSE",
-      "name": "GODREJCP",
-      "price": 995.95,
-      "change": -0.2704,
+      "ticker": "EICHERMOT.BSE",
+      "name": "EICHERMOT",
+      "price": 7177.6,
+      "change": -0.2952,
       "signals": [
         {
           "type": "volatility",
-          "value": 2.0700879914551678,
+          "value": 2.095757729560541,
           "reason": "Range: 2.1%"
         }
       ],
@@ -63,39 +48,24 @@
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "HEROMOTOCO.BSE",
-      "name": "HEROMOTOCO",
-      "price": 4776.35,
-      "change": -1.2549,
+      "ticker": "GODREJCP.BSE",
+      "name": "GODREJCP",
+      "price": 1008.4,
+      "change": -1.9829,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.2549,
-          "reason": "Drop: -1.3%"
-        }
-      ],
-      "prediction_score": 15,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "NTPC.BSE",
-      "name": "NTPC",
-      "price": 362.75,
-      "change": 0.3042,
-      "signals": [
-        {
-          "type": "high_volume",
-          "value": 3.265742,
-          "reason": "Vol: 3.3M"
+          "value": -1.9829,
+          "reason": "Drop: -2.0%"
         },
         {
           "type": "volatility",
-          "value": 2.8037383177570128,
-          "reason": "Range: 2.8%"
+          "value": 2.043021314212756,
+          "reason": "Range: 2.0%"
         }
       ],
-      "prediction_score": 25,
-      "recommendation": "NEUTRAL"
+      "prediction_score": 35,
+      "recommendation": "WATCH"
     }
   ],
   "config": {

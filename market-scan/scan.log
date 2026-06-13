@@ -1114,3 +1114,80 @@ Top Movers:
   Gainers: NTPC.BSE:+0.3%, ONGC.BSE:+-0.0%, EICHERMOT.BSE:+-0.2%
   Losers: COALINDIA.BSE:-1.5%, HEROMOTOCO.BSE:-1.3%, BAJAJ-AUTO.BSE:-1.2%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ SUNPHARMA: ₹1779.40 (-0.51%)
+  ✅ DRREDDY: ₹1268.75 (-0.55%)
+  ⚠️ APOLLOHOSP: Failed
+  ✅ TCS: ₹2149.55 (-0.09%)
+  ✅ HDFCBANK: ₹738.40 (-0.02%)
+  ⚠️ CIPLA: Failed
+  ✅ RELIANCE: ₹1269.60 (+0.46%)
+  ⚠️ INFY: Failed
+  ✅ LT: ₹3900.50 (+0.66%)
+  ✅ PIDILITIND: ₹1481.80 (+1.56%)
+
+=======================================================
+MARKET SCAN - 2026-06-10 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 7 stocks | Opportunities: 1
+
+
+Top Movers:
+  Gainers: PIDILITIND.BSE:+1.6%, LT.BSE:+0.7%, RELIANCE.BSE:+0.5%
+  Losers: DRREDDY.BSE:-0.5%, SUNPHARMA.BSE:-0.5%, TCS.BSE:-0.1%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ BHARTIARTL: ₹1775.40 (-1.25%)
+  ✅ KOTAKBANK: ₹388.00 (+1.64%)
+  ✅ HINDUNILVR: ₹2169.30 (+1.70%)
+  ✅ COLPAL: ₹2056.65 (+1.63%)
+  ⚠️ TITAN: Failed
+  ✅ LT: ₹3917.35 (+0.43%)
+  ✅ PIDILITIND: ₹1503.95 (+1.49%)
+  ⚠️ ADANIPOWER: Failed
+  ⚠️ DEEPAKNTR: Failed
+  ✅ GODREJCP: ₹1028.80 (+1.55%)
+
+=======================================================
+MARKET SCAN - 2026-06-11 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 7 stocks | Opportunities: 6
+
+
+Top Movers:
+  Gainers: HINDUNILVR.BSE:+1.7%, KOTAKBANK.BSE:+1.6%, COLPAL.BSE:+1.6%
+  Losers: BHARTIARTL.BSE:-1.3%, LT.BSE:0.4%, PIDILITIND.BSE:1.5%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ CONCOR: ₹440.10 (-1.09%)
+  ✅ AARTIIND: ₹427.40 (-1.38%)
+  ⚠️ MARUTI: Failed
+  ✅ BAJAJ-AUTO: ₹10118.05 (-0.22%)
+  ✅ EICHERMOT: ₹7177.60 (-0.30%)
+  ⚠️ DEEPAKNTR: Failed
+  ✅ GODREJCP: ₹1008.40 (-1.98%)
+  ✅ HEROMOTOCO: ₹4836.10 (-0.40%)
+  ✅ NTPC: ₹352.00 (+0.11%)
+  ✅ CIPLA: ₹1383.00 (+0.49%)
+
+=======================================================
+MARKET SCAN - 2026-06-12 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 8 stocks | Opportunities: 4
+
+WATCH (30-50):
+  GODREJCP.BSE ₹1008.40 (-1.98%) | 35
+
+Top Movers:
+  Gainers: CIPLA.BSE:+0.5%, NTPC.BSE:+0.1%, BAJAJ-AUTO.BSE:+-0.2%
+  Losers: GODREJCP.BSE:-2.0%, AARTIIND.BSE:-1.4%, CONCOR.BSE:-1.1%
+=======================================================
