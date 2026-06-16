@@ -1191,3 +1191,28 @@ Top Movers:
   Gainers: CIPLA.BSE:+0.5%, NTPC.BSE:+0.1%, BAJAJ-AUTO.BSE:+-0.2%
   Losers: GODREJCP.BSE:-2.0%, AARTIIND.BSE:-1.4%, CONCOR.BSE:-1.1%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ NTPC: ₹353.95 (+0.55%)
+  ✅ POWERGRID: ₹284.80 (-0.65%)
+  ✅ SUNPHARMA: ₹1807.25 (+0.72%)
+  ✅ DRREDDY: ₹1273.90 (-0.09%)
+  ✅ APOLLOHOSP: ₹8496.45 (+0.01%)
+  ⚠️ CIPLA: Failed
+  ✅ INFY: ₹1116.45 (+0.22%)
+  ✅ LT: ₹4050.20 (+4.94%)
+  ✅ PIDILITIND: ₹1536.00 (+2.48%)
+  ✅ TITAN: ₹4187.05 (+4.03%)
+
+=======================================================
+MARKET SCAN - 2026-06-15 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 9 stocks | Opportunities: 4
+
+
+Top Movers:
+  Gainers: LT.BSE:+4.9%, TITAN.BSE:+4.0%, PIDILITIND.BSE:+2.5%
+  Losers: POWERGRID.BSE:-0.6%, DRREDDY.BSE:-0.1%, APOLLOHOSP.BSE:0.0%
+=======================================================

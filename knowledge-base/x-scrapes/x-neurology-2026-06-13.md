@@ -1,101 +1,133 @@
-# X Neurology Scrape — 2026-06-13
+# X/Twitter — Neurology News Scrape
 
-> **Source:** Google News RSS (X/Twitter posts aggregated from `x.com`)
-> **Note:** Engagement metrics unavailable via RSS. X OAuth2 credentials not configured (`xurl auth status` shows `oauth2: (none)`). Use the browser with authenticated session or configure `xurl auth oauth2` for live engagement data.
-> **Date range:** 2026-06-11 08:58 UTC → 2026-06-12 16:05 UTC
-
----
-
-## Top X Posts
-
-### 1. 🧠 Stroke Rehab Study — Neurology Open Access
-**Posted:** 2026-06-12 12:00 UTC
-**Author:** @GreenJournal (Neurology journal)
-**Text:** *"New study published in Neurology Open Access: Fewer than 1 in 4 with stroke, 1 in 7 with brain injury receive inpatient rehab."*
-**Tags:** #AANscience #Neurology
-**URL:** https://x.com/GreenJournal/status/...
-
-### 2. 🧠 Embolic Stroke Diagnostics — Neurology Podcast
-**Posted:** 2026-06-11 21:51 UTC
-**Author:** Neurology Podcast
-**Text:** *"Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss diagnostic performance of TCD, TTE, TEE, and cardiac CT in embolic stroke of undetermined source."*
-**Tags:** #EmbolicStroke #Stroke
-
-### 3. 🧠 Social Determinants of Health & Stroke
-**Posted:** 2026-06-11 21:00 UTC
-**Author:** Neurology Journal (Cerebrovascular Disease issue)
-**Text:** *"Key Point 3 from the article Social Determinants of Health and Their Impacts on Stroke Prevention and Outcomes by Dr. Nneka L. Ifejika, MD, MPH."*
-**Tags:** #CerebrovascularDisease #Neuro
-
-### 4. 🧠 EAN Congress 2026 — Presidential Symposium
-**Posted:** 2026-06-11 08:58 UTC
-**Author:** @EANeurology partner
-**Text:** *"European Academy of Neurology Congress 2026 Presidential Symposium — showcasing Named Lectures honouring scientific excellence."*
-
-### 5. 🧠 Practical Neurology Podcast — Sleep & Circadian Rhythms
-**Posted:** 2026-06-12 07:44 UTC
-**Author:** Practical Neurology / Prof. @guy_lesch
-**Text:** *"What's the difference between a night owl and a morning lark? Sleep and neurological practice."*
-**Tags:** #Neurology #SleepMedicine #Insomnia #MedTwitter
-
-### 6. 🧠 Neuronym — Neurology-themed Semantle
-**Posted:** 2026-06-12 16:05 UTC
-**Author:** Neurology educator
-**Text:** *"Played Neuronym (neurology-themed Semantle) with our residents every day this week. We got 2 out of 5! Learning to avoid anchoring on specific terms."*
-
-### 7. 🧠 Models for Paediatric Neurology Diseases
-**Posted:** 2026-06-11 10:00 UTC
-**Text:** *"Models for paediatric neurology diseases: Increasingly human-relevant and mechanistically precise."*
-**Tags:** #pediatrics #neurology
-
-### 8. 🧠 Neurology Interest Group — EEG Skills Event
-**Posted:** 2026-06-12 14:43 UTC
-**Author:** Neurology Interest Group (Duluth campus)
-**Text:** *"Students learning and practicing EEG skills — thank you to physicians and professors."*
-
-### 9. 🧠 Parkinson's Disease Awareness
-**Posted:** 2026-06-11 09:23 UTC
-**Text:** *"ParkinsonsDisease #Neurology #BrainHealth #MovementDisorders #EarlyDetection"*
-**Tags:** #ParkinsonsDisease #MetropolisHealthcare
-
-### 10. 🧠 First Choice Neurology — Promotional
-**Posted:** 2026-06-12 15:04 UTC
-**Text:** *"Expert Neurological Care — brain and nervous system priority, without long wait times."*
-**Tags:** #neurologists #florida #FirstChoiceNeurology
+**Scraped:** 2026-06-13 | **Search query:** neurology OR #neurotwitter OR #NeuroX (Top, today)  
+**Source:** https://x.com/search?q=neurology%20OR%20%23neurotwitter%20OR%20%23NeuroX&src=typed_query&f=top  
+**Timezone:** Asia/Calcutta (UTC+05:30) | **Reference UTC:** 2026-06-13 15:30 UTC
 
 ---
 
-## Engagement Flag
+## 🔬 Top 10 Posts
 
-⚠️ **Engagement data unavailable.** Google News RSS does not provide like counts, reposts, or reply metrics. To get engagement data, configure xurl OAuth2:
-
-```bash
-xurl auth oauth2 --app bobvarkey YOUR_HANDLE
-xurl auth default bobvarkey
-```
-
----
-
-## Summary
-
-| Metric | Count |
-|--------|-------|
-| Total X posts found | 11 |
-| Date range | 2026-06-11 → 2026-06-12 |
-| Stroke-related | 3 |
-| Podcasts | 2 |
-| Conference (EAN 2026) | 1 |
-| Education/Training | 2 |
-| Promotional/Awareness | 2 |
-| Research | 1 |
-
-### 🔬 Key Research Findings (Potential Breaking)
-
-1. **Stroke rehab gap** — Neurology Open Access paper: <25% of stroke patients, <15% of brain injury patients receive inpatient rehabilitation. Major clinical implication.
-2. **ESUS diagnostics** — Comparison of TCD, TTE, TEE, cardiac CT for embolic stroke of undetermined source.
-3. **Social determinants in stroke** — Dr. Ifejika on SDOH impact on stroke prevention and outcomes.
-4. **EAN Congress 2026** — Presidential Symposium upcoming (Named Lectures).
+### 1. 🔴 HIGH ENGAGEMENT — Neurology Journal (AAN)
+- **Author:** Neurology Journal @GreenJournal (Verified)
+- **Posted:** Jun 12, 2026
+- **Text:** "Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with #EmbolicStroke of undetermined source. Listen now: hubs.la/Q04l5L0Q0 #Stroke"
+- **Engagement:** 2 replies · 6 reposts · **23 likes** · 7 bookmarks · 3,399 views
+- **URL:** https://x.com/GreenJournal/status/2065190115090042937
+- **Flags:** 🟡 >20 likes
 
 ---
 
-*Scraped: 2026-06-13 07:00 UTC via Google News RSS (xurl auth unavailable)*
+### 2. 🔴 HIGH ENGAGEMENT — Dr Sudhir Kumar MD DM
+- **Author:** Dr Sudhir Kumar MD DM @hyderabaddoctor (Verified)
+- **Posted:** ~2 hours ago
+- **Text:** "The Seizures That Came with Her Periods 🔸 When 26-year-old Priya (name changed) walked into my neurology clinic, she and her family were frightened and confused. 🔸 A few days earlier, she had experienced a sudden generalized seizure. She lost consciousness, fell to the ground..." (thread — truncated)
+- **Engagement:** 1 reply · 5 reposts · **14 likes** · 11 bookmarks · 3,918 views
+- **URL:** https://x.com/hyderabaddoctor/status/2065786777349358007
+- **Flags:** 🟡 High views (3.9K), clinical case thread
+
+---
+
+### 3. 🔴 HIGH ENGAGEMENT — Neurology Journal (AAN) — Stiff Person Syndrome
+- **Author:** Neurology Journal @GreenJournal (Verified)
+- **Posted:** Jun 10, 2026
+- **Text:** "In this episode of the Neurology Podcast: Dr. Shuvro Roy and Dr. Amanda Piquet discuss the efficacy and safety of miv-cel in patients with #StiffPersonSyndrome. Listen now: hubs.la/Q04kNZKX0"
+- **Engagement:** 1 reply · 1 repost · 13 likes · 1 bookmark · 2,922 views
+- **URL:** https://x.com/GreenJournal/status/2064464336379154604
+- **Flags:** 🟡 Clinical trial topic (miv-cel for Stiff Person Syndrome)
+
+---
+
+### 4. 🟡 NEUROLOGY EDUCATION — Ask Doctor Plus
+- **Author:** Ask Doctor Plus @AskDoctorPlus
+- **Posted:** ~2 hours ago
+- **Text:** "Creutzfeldt-Jakob Disease (CJD) — The Silent & Rapidly Fatal Brain Disorder. A rare prion disease that progresses quickly, causing severe neurological decline and requiring early recognition and supportive care #CreutzfeldtJakobDisease #CJD #PrionDisease #Neurology #askdrplus"
+- **Engagement:** 0 replies · 0 reposts · 0 likes · 0 bookmarks · 1 view
+- **URL:** https://x.com/AskDoctorPlus/status/2065783314687168535
+- **Flags:** 📚 Educational content on prion disease
+
+---
+
+### 5. 🟡 NEUROLOGY EDUCATION — Dr. Shabbir Hussain Bohra
+- **Author:** Dr. Shabbir Hussain Bohra @shabbir553
+- **Posted:** ~8 hours ago
+- **Text:** "Most people think epilepsy always looks like a dramatic seizure. It doesn't. ⚠️ Early warning signs may include: • Blank staring spells • Sudden confusion • Jerking movements #Epilepsy #EpilepsyAwareness"
+- **Engagement:** Not fully captured
+- **URL:** https://x.com/shabbir553/status/[status_id]
+- **Flags:** 📚 Epilepsy awareness, non-dramatic seizure recognition
+
+---
+
+### 6. 🟢 GENERAL SCIENCE — Sid the Argent (Verified)
+- **Author:** Sid the Argent @SidTheArgent (Verified)
+- **Posted:** ~1 minute ago
+- **Text:** "People regularly study quantum mechanics, particle physics, assembly theory, multi-messenger cosmology, behavioral science and neurology/brain anatomy, complex systems theory, aperiodic tiling, string theory and philosophy..."
+- **Engagement:** 0 replies · 0 reposts · 0 likes · — views
+- **URL:** https://x.com/SidTheArgent/status/2065819450641711355
+- **Flags:** ⚪ Marginal neurology relevance (broader science/philosophy thread)
+
+---
+
+### 7. ❌ Low Relevance — Big_Power
+- **Author:** Big_Power @Real_Power001
+- **Posted:** ~20 minutes ago
+- **Text:** "Wow I just Dental Anaesthesiology On IG It's giving General Anaesthesiology vibe. I can't really differentiate"
+- **Engagement:** 0 replies · 0 reposts · 0 likes · 5 views
+- **URL:** https://x.com/Real_Power001/status/2065814704488948212
+- **Flags:** ❌ Off-topic (dental vs general anaesthesiology — not neurology)
+
+---
+
+### 8. ❌ Off-topic — Norman Brennan (Verified)
+- **Author:** Norman Brennan @NormanBrennan (Verified)
+- **Posted:** ~25 seconds ago
+- **Text:** "Well folks it's my turn again; I follow Norman myself in fact I find him a bit bonkers but an ok guy; tho to be fair we've crossed paths a few times & I wouldn't want to get on the wrong side of him; funny thing is we share the same Psychiatrist!"
+- **Engagement:** 0 replies · 0 reposts · 0 likes
+- **URL:** https://x.com/NormanBrennan/status/2065819661246030279
+- **Flags:** ❌ Irrelevant (psychiatry-related banter, no neurology content)
+
+---
+
+### 9. ❌ Off-topic — Naz @Poeticmedic1 (Verified)
+- **Author:** Naz @Poeticmedic1 (Verified)
+- **Posted:** ~12 minutes ago
+- **Text:** "You lowkey have to have a God complex to decide you want to be a neurosurgeon" (quote-tweet of surgical specialty comparison)
+- **Engagement:** 0 replies · 0 reposts · 1 like · 14 views
+- **URL:** https://x.com/Poeticmedic1/status/2065816677808226326
+- **Flags:** ❌ Cultural/meta commentary on neurosurgery, not neurology news
+
+---
+
+### 10. 🌍 Non-English — strifearchive
+- **Author:** strifearchive @strifearchive
+- **Posted:** ~17 minutes ago
+- **Text (Portuguese):** "meu sonho ultimamente ta sendo ir no neurologista" (translation: "lately my dream has been to go to the neurologist")
+- **Engagement:** 0 replies · 0 reposts · 0 likes · 6 views
+- **URL:** https://x.com/strifearchive/status/2065815477373346200
+- **Flags:** 🌍 Non-English, personal statement, minimal relevance
+
+---
+
+## 🏷️ Flags Summary
+
+| Flag | Meaning | Posts |
+|------|---------|-------|
+| 🔴 | >100 likes OR breaking news | None found |
+| 🟡 | >10 likes or high clinical interest | 3 posts (Neurology Journal ×2, Dr. Sudhir Kumar) |
+| 📚 | Educational / clinical teaching content | 4 posts |
+| ⚪ | Marginal relevance | 1 post |
+| ❌ | Off-topic / noise | 3 posts |
+| 🌍 | Non-English | 1 post |
+
+## 📌 Key Findings
+
+1. **Neurology Journal (AAN)** is the most active and highest-engagement source for neurology news on X today. Two podcast episodes highlighted:
+   - **Embolic Stroke of Undetermined Source (ESUS)** — TCD vs TTE vs TEE vs cardiac CT diagnostic comparison
+   - **Stiff Person Syndrome** — miv-cel efficacy/safety data
+2. **Catamenial epilepsy** (seizures tied to menstrual cycles) case report from Dr. Sudhir Kumar drew high views (~4K)
+3. **Creutzfeldt-Jakob Disease (CJD)** awareness content from @AskDoctorPlus
+4. **Epilepsy awareness** thread from Dr. Shabbir Hussain Bohra on non-convulsive seizure recognition
+5. Signal-to-noise ratio is relatively low — ~30% of top results are off-topic
+
+---
+*Generated by OpenClaw cron job | 1d58170e-8bc9-4d44-ab4c-d0a695ad0324*

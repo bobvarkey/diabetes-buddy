@@ -1,71 +1,81 @@
 {
-  "scan_date": "2026-06-12T08:00:16.740373",
-  "stocks_scanned": 8,
+  "scan_date": "2026-06-15T08:00:17.389326",
+  "stocks_scanned": 9,
   "opportunities": [
     {
-      "ticker": "CONCOR.BSE",
-      "name": "CONCOR",
-      "price": 440.1,
-      "change": -1.09,
-      "signals": [
-        {
-          "type": "price_drop",
-          "value": -1.09,
-          "reason": "Drop: -1.1%"
-        }
-      ],
-      "prediction_score": 15,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "AARTIIND.BSE",
-      "name": "AARTIIND",
-      "price": 427.4,
-      "change": -1.3844,
-      "signals": [
-        {
-          "type": "price_drop",
-          "value": -1.3844,
-          "reason": "Drop: -1.4%"
-        }
-      ],
-      "prediction_score": 15,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "EICHERMOT.BSE",
-      "name": "EICHERMOT",
-      "price": 7177.6,
-      "change": -0.2952,
+      "ticker": "POWERGRID.BSE",
+      "name": "POWERGRID",
+      "price": 284.8,
+      "change": -0.6454,
       "signals": [
         {
           "type": "volatility",
-          "value": 2.095757729560541,
-          "reason": "Range: 2.1%"
+          "value": 2.449120386340106,
+          "reason": "Range: 2.4%"
         }
       ],
       "prediction_score": 10,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "GODREJCP.BSE",
-      "name": "GODREJCP",
-      "price": 1008.4,
-      "change": -1.9829,
+      "ticker": "LT.BSE",
+      "name": "LT",
+      "price": 4050.2,
+      "change": 4.9424,
       "signals": [
         {
-          "type": "price_drop",
-          "value": -1.9829,
-          "reason": "Drop: -2.0%"
+          "type": "price_rally",
+          "value": 4.9424,
+          "reason": "Rally: +4.9%"
         },
         {
           "type": "volatility",
-          "value": 2.043021314212756,
-          "reason": "Range: 2.0%"
+          "value": 3.494220754477332,
+          "reason": "Range: 3.5%"
         }
       ],
-      "prediction_score": 35,
-      "recommendation": "WATCH"
+      "prediction_score": 25,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "PIDILITIND.BSE",
+      "name": "PIDILITIND",
+      "price": 1536.0,
+      "change": 2.482,
+      "signals": [
+        {
+          "type": "price_rally",
+          "value": 2.482,
+          "reason": "Rally: +2.5%"
+        },
+        {
+          "type": "volatility",
+          "value": 2.4699884887354027,
+          "reason": "Range: 2.5%"
+        }
+      ],
+      "prediction_score": 25,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "TITAN.BSE",
+      "name": "TITAN",
+      "price": 4187.05,
+      "change": 4.0287,
+      "signals": [
+        {
+          "type": "price_rally",
+          "value": 4.0287,
+          "reason": "Rally: +4.0%"
+        },
+        {
+          "type": "volatility",
+          "value": 3.6998629680382185,
+          "reason": "Range: 3.7%"
+        }
+      ],
+      "prediction_score": 25,
+      "recommendation": "NEUTRAL"
     }
   ],
   "config": {
