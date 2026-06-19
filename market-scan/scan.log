@@ -1216,3 +1216,78 @@ Top Movers:
   Gainers: LT.BSE:+4.9%, TITAN.BSE:+4.0%, PIDILITIND.BSE:+2.5%
   Losers: POWERGRID.BSE:-0.6%, DRREDDY.BSE:-0.1%, APOLLOHOSP.BSE:0.0%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ ICICIBANK: ₹1327.75 (-0.94%)
+  ⚠️ SBIN: Failed
+  ✅ BHARTIARTL: ₹1840.85 (+1.00%)
+  ✅ KOTAKBANK: ₹405.65 (+0.57%)
+  ✅ HINDUNILVR: ₹2155.90 (-0.54%)
+  ✅ LT: ₹4171.45 (+2.99%)
+  ✅ PIDILITIND: ₹1570.10 (+2.22%)
+  ⚠️ TITAN: Failed
+  ✅ ADANIPOWER: ₹220.50 (-1.08%)
+  ⚠️ DEEPAKNTR: Failed
+
+=======================================================
+MARKET SCAN - 2026-06-16 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 7 stocks | Opportunities: 7
+
+
+Top Movers:
+  Gainers: LT.BSE:+3.0%, PIDILITIND.BSE:+2.2%, BHARTIARTL.BSE:+1.0%
+  Losers: ADANIPOWER.BSE:-1.1%, ICICIBANK.BSE:-0.9%, HINDUNILVR.BSE:-0.5%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ MFSL: ₹1611.75 (-1.27%)
+  ✅ CONCOR: ₹463.75 (+0.98%)
+  ⚠️ AARTIIND: Failed
+  ✅ BAJAJ-AUTO: ₹9934.10 (-0.09%)
+  ⚠️ EICHERMOT: Failed
+  ✅ ADANIPOWER: ₹222.60 (+0.95%)
+  ⚠️ DEEPAKNTR: Failed
+  ✅ GODREJCP: ₹1036.10 (-0.08%)
+  ✅ MARUTI: ₹13692.85 (-0.81%)
+  ⚠️ HEROMOTOCO: Failed
+
+=======================================================
+MARKET SCAN - 2026-06-17 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 6 stocks | Opportunities: 4
+
+
+Top Movers:
+  Gainers: CONCOR.BSE:+1.0%, ADANIPOWER.BSE:+1.0%, GODREJCP.BSE:+-0.1%
+  Losers: MFSL.BSE:-1.3%, MARUTI.BSE:-0.8%, BAJAJ-AUTO.BSE:-0.1%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ ONGC: ₹245.15 (-1.25%)
+  ✅ COALINDIA: ₹455.55 (+1.01%)
+  ⚠️ NTPC: Failed
+  ✅ POWERGRID: ₹286.35 (+0.42%)
+  ✅ SUNPHARMA: ₹1819.95 (+1.07%)
+  ✅ CIPLA: ₹1350.75 (-1.60%)
+  ✅ INFY: ₹1158.10 (+3.73%)
+  ✅ SBIN: ₹1026.00 (+1.03%)
+  ✅ LT: ₹4206.95 (+0.51%)
+  ✅ ADANIPOWER: ₹220.35 (-1.01%)
+
+=======================================================
+MARKET SCAN - 2026-06-18 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 9 stocks | Opportunities: 7
+
+
+Top Movers:
+  Gainers: INFY.BSE:+3.7%, SUNPHARMA.BSE:+1.1%, SBIN.BSE:+1.0%
+  Losers: CIPLA.BSE:-1.6%, ONGC.BSE:-1.2%, ADANIPOWER.BSE:-1.0%
+=======================================================

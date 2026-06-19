@@ -1,80 +1,120 @@
 {
-  "scan_date": "2026-06-15T08:00:17.389326",
+  "scan_date": "2026-06-18T08:00:17.918652",
   "stocks_scanned": 9,
   "opportunities": [
     {
-      "ticker": "POWERGRID.BSE",
-      "name": "POWERGRID",
-      "price": 284.8,
-      "change": -0.6454,
+      "ticker": "ONGC.BSE",
+      "name": "ONGC",
+      "price": 245.15,
+      "change": -1.2487,
       "signals": [
         {
-          "type": "volatility",
-          "value": 2.449120386340106,
-          "reason": "Range: 2.4%"
+          "type": "price_drop",
+          "value": -1.2487,
+          "reason": "Drop: -1.2%"
         }
       ],
-      "prediction_score": 10,
+      "prediction_score": 15,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "LT.BSE",
-      "name": "LT",
-      "price": 4050.2,
-      "change": 4.9424,
+      "ticker": "COALINDIA.BSE",
+      "name": "COALINDIA",
+      "price": 455.55,
+      "change": 1.0089,
       "signals": [
         {
           "type": "price_rally",
-          "value": 4.9424,
-          "reason": "Rally: +4.9%"
+          "value": 1.0089,
+          "reason": "Rally: +1.0%"
         },
         {
           "type": "volatility",
-          "value": 3.494220754477332,
-          "reason": "Range: 3.5%"
+          "value": 2.8492239467849148,
+          "reason": "Range: 2.8%"
         }
       ],
       "prediction_score": 25,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "PIDILITIND.BSE",
-      "name": "PIDILITIND",
-      "price": 1536.0,
-      "change": 2.482,
+      "ticker": "SUNPHARMA.BSE",
+      "name": "SUNPHARMA",
+      "price": 1819.95,
+      "change": 1.0718,
       "signals": [
         {
           "type": "price_rally",
-          "value": 2.482,
-          "reason": "Rally: +2.5%"
+          "value": 1.0718,
+          "reason": "Rally: +1.1%"
+        }
+      ],
+      "prediction_score": 15,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "CIPLA.BSE",
+      "name": "CIPLA",
+      "price": 1350.75,
+      "change": -1.6026,
+      "signals": [
+        {
+          "type": "price_drop",
+          "value": -1.6026,
+          "reason": "Drop: -1.6%"
         },
         {
           "type": "volatility",
-          "value": 2.4699884887354027,
-          "reason": "Range: 2.5%"
+          "value": 2.8693728008125627,
+          "reason": "Range: 2.9%"
         }
       ],
       "prediction_score": 25,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "TITAN.BSE",
-      "name": "TITAN",
-      "price": 4187.05,
-      "change": 4.0287,
+      "ticker": "INFY.BSE",
+      "name": "INFY",
+      "price": 1158.1,
+      "change": 3.7306,
       "signals": [
         {
           "type": "price_rally",
-          "value": 4.0287,
-          "reason": "Rally: +4.0%"
-        },
-        {
-          "type": "volatility",
-          "value": 3.6998629680382185,
-          "reason": "Range: 3.7%"
+          "value": 3.7306,
+          "reason": "Rally: +3.7%"
         }
       ],
-      "prediction_score": 25,
+      "prediction_score": 15,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "SBIN.BSE",
+      "name": "SBIN",
+      "price": 1026.0,
+      "change": 1.034,
+      "signals": [
+        {
+          "type": "price_rally",
+          "value": 1.034,
+          "reason": "Rally: +1.0%"
+        }
+      ],
+      "prediction_score": 15,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "ADANIPOWER.BSE",
+      "name": "ADANIPOWER",
+      "price": 220.35,
+      "change": -1.0108,
+      "signals": [
+        {
+          "type": "price_drop",
+          "value": -1.0108,
+          "reason": "Drop: -1.0%"
+        }
+      ],
+      "prediction_score": 15,
       "recommendation": "NEUTRAL"
     }
   ],

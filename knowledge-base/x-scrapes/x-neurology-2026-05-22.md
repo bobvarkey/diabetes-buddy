@@ -1,205 +1,118 @@
-# X/Twitter Neurology News Scrape
-**Date:** June 16, 2026 (scraped 2026-06-15 21:30 UTC)
-**Search Query:** `neurology OR #neurotwitter OR #NeuroX`
-**Source:** X/Twitter (direct browser scrape + web augmentation)
-**Note:** X severely rate-limits non-logged-in views (only 3 posts visible in DOM despite extensive scrolling). Results supplemented via web search.
+# X/Twitter Neurology News Scrape — 2026-06-19
+
+**Scraped:** 2026-06-19 03:00 IST (UTC 2026-06-18 21:30)
+**Source:** X/Twitter Search (multiple queries: neurology, #neurotwitter, #NeuroX, targeted account profiles)
+**Total posts collected:** 17 (unique)
 
 ---
 
-## 1. 🏆 Top Posts from X (Direct Browser Extraction)
+## 🔥 Breaking / High-Engagement Posts (>100 likes)
 
-### Post 1 — The Lancet Neurology Issue 🧠
-| Field | Value |
-|-------|-------|
-| **Author** | The Lancet (@TheLancet) ✅ |
-| **Time** | Jun 14, 2026 |
-| **Text** | *"The brain is complicated. And managing decline can be a focus, rather than changing outcomes. The Lancet's neurology issue shows how the field has—and is—moving forward. Senior Editor, Dr Chloe Wilson, explains the aims of our issue & spotlights standout content."* |
-| **Likes** | ⚠️ **57 Likes** (flagged — trending neurology content) |
-| **Replies** | 10 |
-| **Retweets** | 15 |
-| **Views** | 10.6K |
-| **URL** | [x.com/TheLancet/status/2066189171018863097](https://x.com/TheLancet/status/2066189171018863097) |
-| **🔥 Flag** | **>100 likes?** No (57), but high-engagement at 10.6K views |
+### Neurology Journal (@GreenJournal)
+📅 2026-06-18 | ❤️ 173
+Neurology Podcast: Dr. Jeff Ratliff and Dr. Gabriela Figueiredo Pucci discuss how social media community participation influenced PIF and career development among neurology trainees. #NeurologyEd
+🔗 https://x.com/GreenJournal/status/2067706448675488045
 
-### Post 2 — RLS Augmentation Crisis
-| Field | Value |
-|-------|-------|
-| **Author** | RLS INDIA (@JeSuisLeFt) |
-| **Time** | Jun 15, 2026 (18:51 UTC) |
-| **Text** | *"Hundreds of #RLS patients. Same story: higher doses, worse symptoms, no discussion of augmentation. Why? #Sleepdisorder #Neurology #MedTwitter"* |
-| **Likes** | 0 (engagement not fully loaded) |
-| **URL** | [x.com/JeSuisLeFt/status/2066594467424182638](https://x.com/JeSuisLeFt/status/2066594467424182638) |
-| **Notes** | Links to article: "What's not recommended" — dopamine drugs no longer standard RLS therapy |
+### Neurology Journal (@GreenJournal)
+📅 2026-06-18 | ❤️ 853
+New study: Genetic and electroclinical spectrum of EIDEE-BS in an MRI-negative cohort — identifies early EEG and clinical signs to guide genetic diagnosis and assess long-term outcomes by genotype. #Seizure #MRI
+🔗 https://x.com/GreenJournal/status/2067684527669977429
 
-### Post 3 — Neurology Patient Discussion
-| Field | Value |
-|-------|-------|
-| **Author** | Gosh Josh Games (@goshjoshgames) |
-| **Time** | Jun 15, 2026 (21:31 UTC) |
-| **Text** | *"Sorry you went through that man, I've worked with plenty of patients with neurological or musculoskeletal issues from chemical issues in the military, shit messes you up."* |
-| **Engagement** | Low (0 likes/replies) |
-| **URL** | [x.com/goshjoshgames/status/2066634806952448278](https://x.com/goshjoshgames/status/2066634806952448278) |
+### American Academy of Neurology (@AANmember)
+📅 2026-06-17 | ❤️ 600 | 🔄 3
+New study in @GreenJournal: Are older people with brain diseases more likely to have a TBI? #AANscience #Neurology
+🔗 https://x.com/AANmember/status/2067369432251334766
 
----
+### Frontiers - Neurology (@FrontNeurol)
+📅 2026-06-18 | ❤️ 144
+New Research: Real-world use and impact of direct oral anticoagulants among atrial fibrillation patients with cardioembolic stroke.
+🔗 https://x.com/FrontNeurol/status/2067560601770234349
 
-## 2. 🔍 Additional Neurology X Posts (Web-Sourced)
+### INSIGHTEC (@INSIGHTEC)
+📅 2026-06-18 | ❤️ 89
+Announced publication of a pivotal Parkinson's disease (PD) clinical trial results in The Lancet Neurology.
+🔗 https://x.com/INSIGHTEC/status/2067649131279994996
 
-### Post 4 — Stroke Medicine Updates (Thread) ⚠️ BREAKING
-| Field | Value |
-|-------|-------|
-| **Author** | Sikandar Adwani (@SikandarAdwani) |
-| **Text** | Thread: *"June 2026 Continuum issue on Cerebrovascular Disease. Here are the 15 highest-yield clinical updates that will likely change how many of us practice stroke medicine."* |
-| **Highlights** | 1️⃣ PREVENT risk calculator replacing older paradigms 2️⃣ AF after stroke — detection ≠ causation 3️⃣ Silent brain infarcts — not automatically aspirin 4️⃣ PFO closure becoming more nuanced 5️⃣ Large-core infarction no longer exclusion for thrombectomy |
-| **URL** | [x.com/SikandarAdwani/status/2062370610240803143](https://x.com/SikandarAdwani/status/2062370610240803143) |
-| **🔥 Flag** | **BREAKING NEUROLOGY CONTENT** — high-yield clinical updates |
+### Caspian Barrett (@Caspian990o)
+📅 2026-06-17 | ❤️ 9 | 🔄 3 | 👁️ 223
+$QURE rose 78.44% on FDA news — FDA opened the door for its Huntington's gene therapy filing.
+🔗 https://x.com/Caspian990o/status/2067345398771876011
 
-### Post 5 — John Dystel Prize for MS Research
-| Field | Value |
-|-------|-------|
-| **Author** | Practical Neurology (@PracticalNeuro) |
-| **Text** | *"The 2026 John Dystel Prize for #Multiple_Sclerosis Research, jointly awarded by the @mssociety and @AANmember, will be presented to Ludwig Kappos, MD at #AANAM2026."* |
-| **URL** | [x.com/PracticalNeuro/status/2046631051473072196](https://x.com/PracticalNeuro/status/2046631051473072196) |
+### Neurology Journal (@GreenJournal)
+📅 2026-06-12 | ❤️ 23 | 🔄 6 | 👁️ 4K
+Neurology Podcast: Diagnostic performance of TCD, TTE, TEE, and cardiac CT in embolic stroke of undetermined source.
+🔗 https://x.com/GreenJournal/status/2065190115090042937
 
-### Post 6 — Neurology Podcast: Vascular Neurology Recall
-| Field | Value |
-|-------|-------|
-| **Author** | Neurology® (Green Journal) (@GreenJournal) |
-| **Text** | *"In this episode of the Neurology Podcast: The April 2026 recall features four previously posted episodes on vascular neurology. Listen now."* |
-| **URL** | [x.com/GreenJournal/status/2039394893089411395](https://x.com/GreenJournal/status/2039394893089411395) |
-
-### Post 7 — NEURO Conclave 2026
-| Field | Value |
-|-------|-------|
-| **Author** | NEURO Conclave 2026 (@2026Neuro83976) |
-| **Text** | *"7th Global Conclave on Neurology and Neurological Disorders (NEURO Conclave 2026) on June 22-23, 2026 in Singapore."* |
-| **URL** | [x.com/2026Neuro83976](https://x.com/2026Neuro83976) |
-
-### Post 8 — SfN Brain Awareness Video Contest
-| Field | Value |
-|-------|-------|
-| **Author** | Society for Neuroscience (@SfNtweets) |
-| **Text** | *"The 2026 Brain Awareness Video Contest is open! Team up with an SfN member. Submit by June 25."* |
-| **Replies** | 1 |
-| **URL** | [x.com/SfNtweets](https://x.com/SfNtweets) |
-
-### Post 9 — AAN Transforming Leaders 2026
-| Field | Value |
-|-------|-------|
-| **Author** | American Academy of Neurology (@AANmember) |
-| **Text** | *"Our 2026 Transforming Leaders had a great kickoff weekend filled with #AANleadership!"* |
-| **Likes** | 11 |
-| **Views** | 866 |
-| **URL** | [x.com/AANmember/status/2020879030975627458](https://x.com/AANmember/status/2020879030975627458) |
-
-### Post 10 — AANS Alzheimer's & Brain Health Month
-| Field | Value |
-|-------|-------|
-| **Author** | AANS (@AANSNeuro) |
-| **Text** | *"June is Alzheimer's and Brain Health Month — elevating conversation around cognitive care, neurological research, and patient advocacy."* |
-| **URL** | [x.com/AANSneuro](https://x.com/AANSneuro) |
+### sikandar adwani (@SikandarAdwani)
+📅 2026-06-18 | ❤️ 17 | 🔄 9 | 👁️ 1.3K
+MEDICATION OVERUSE HEADACHE clinical pearl: Treatment sustaining the disease when rescue meds are overused.
+🔗 https://x.com/SikandarAdwani/status/2067549625742229739
 
 ---
 
-## 3. 🚨 Breaking Neurological News (June 2026)
+## 📋 Standard Posts
 
-### 🔬 Brain Regeneration Without Drugs — Imperial College London
-- **Date:** Jun 15, 2026
-- **Summary:** New approach for neurodegenerative diseases — brain regeneration without drugs or surgery
-- **Source:** [imperial.ac.uk](https://www.imperial.ac.uk/news/articles/medicine/brain-sciences/2026/brain-regeneration-without-drugs-or-surgery-a-new-approach-for-neurodegenerative-diseases--/)
+### Frontiers - Neurology (@FrontNeurol)
+📅 2026-06-17 | ❤️ 65
+New Research: Initial specialist validation of clinical decision support recommendations from a machine learning-enabled digital cognitive assessment.
+🔗 https://x.com/FrontNeurol/status/2067379666508460456
 
-### 🧬 First Brain Gene Therapy for WWOX Epilepsy
-- **Date:** Jun 9, 2026
-- **Summary:** Israeli doctors administered the world's first brain gene therapy to a baby with severe genetic epilepsy (WWOX deficiency) at Schneider Children's Hospital
-- **Source:** [hayadan.org.il](https://en.hayadan.org.il/wwox-gene-therapy-infant-schneider-hebrew-university)
+### Frontiers - Neurology (@FrontNeurol)
+📅 2026-06-17 | ❤️ 58
+New Research: Guillain-Barré syndrome following intracranial hemorrhage — a systematic review of case reports.
+🔗 https://x.com/FrontNeurol/status/2067364054075941328
 
-### 🧠 Brain-Computer Interface for ALS Communication
-- **Date:** June 2026
-- **Summary:** UC Davis BCI enables independent, accurate communication for a man living with ALS
-- **Source:** [health.ucdavis.edu](https://health.ucdavis.edu/news/headlines/brain-computer-interface-enables-independent-accurate-communication-for-man-living-with-als/2026/06)
+### Frontiers - Neurology (@FrontNeurol)
+📅 2026-06-18 | ❤️ 74
+New Research: CT-derived fractional flow reserve can predict recurrent ischemia in patients with MCA stenosis.
+🔗 https://x.com/FrontNeurol/status/2067345848179274010
 
-### 🫀 Swiss AI Brain 'Pacemaker' for Parkinson's
-- **Date:** June 2026
-- **Summary:** New AI-driven brain pacemaker developed in Switzerland helps Parkinson's patients walk
-- **Source:** [swissinfo.ch](https://www.swissinfo.ch/eng/swiss-ai/ai-brain-pacemaker-helps-parkinsons-patients-walk/91589796)
+### Frontiers - Neurology (@FrontNeurol)
+📅 2026-06-18 | ❤️ 42
+New Research: Dynamic inflammatory markers as predictors of 90-day outcomes in spontaneous intracerebral hemorrhage.
+🔗 https://x.com/FrontNeurol/status/2067674598699844061
 
-### 💊 Takeda Oveporexton Phase 3 for Narcolepsy Type 1
-- **Date:** Jun 15, 2026
-- **Summary:** Phase 3 results show oveporexton improved daily function, cognition, and nighttime sleep for narcolepsy type 1
-- **Source:** [takeda.com](https://www.takeda.com/newsroom/newsreleases/2026/oveporexton-phase-3-narcolepsy-type-1/)
+### Frontiers - Neurology (@FrontNeurol)
+📅 2026-06-18 | ❤️ 33
+New Research: Traditional Chinese medicine interventions for post-stroke cognitive impairment — an evidence mapping.
+🔗 https://x.com/FrontNeurol/status/2067657234205876690
 
-### 🧪 Neuropixels Opto — New Brain Recording Technology
-- **Date:** Jun 1, 2026
-- **Summary:** UCL breakthrough technology combining high-resolution electrophysiology and optogenetics published in Nature Methods
-- **Source:** [nature.com](https://www.nature.com/articles/s41592-026-03076-z)
+### Frontiers - Neurology (@FrontNeurol)
+📅 2026-06-18 | ❤️ 50
+New Research: PRMT5 inhibition suppresses the PI3K/AKT pathway to attenuate vascular smooth muscle cell pathological phenotype in intracranial aneurysm.
+🔗 https://x.com/FrontNeurol/status/2067545165628412243
 
-### 🩺 FDA Clearance: Penumbra THUNDERBOLT Computer-Assisted Thrombectomy
-- **Date:** Jun 12, 2026
-- **Summary:** FDA cleared computer-assisted vacuum thrombectomy (CAVT) technology for stroke
-- **Source:** [penumbrainc.com](https://www.penumbrainc.com/penumbras-thunderbolt-receives-fda-clearance-bringing-computer-assisted-vacuum-thrombectomy-technology-to-stroke/)
+### touchNEUROLOGY (@touchNEUROLOGY)
+📅 2026-06-18 | ❤️ 14
+ADI 2026: Key highlights from the Global Conference of Alzheimer's Disease International in Lyon, France.
+🔗 https://x.com/touchNEUROLOGY/status/2067550440695226432
 
-### 🩸 Personalized BP Control After Thrombectomy Improves Stroke Recovery
-- **Date:** Jun 11, 2026
-- **Summary:** Sant Pau Research Institute study shows personalized BP management after thrombectomy boosts 90-day outcomes
-- **Source:** [medicalxpress.com](https://medicalxpress.com/news/2026-06-personalized-blood-pressure-thrombectomy-boosts.html)
+### Ask Rezzy (@AskRezzy)
+📅 2026-06-18 | ❤️ 21
+Q&A: Resting tremors improve with voluntary movement, intention tremors worsen during goal-directed activity — high-yield neurology concept.
+🔗 https://x.com/AskRezzy/status/2067680564363333771
 
-### 🧠 Novel Therapy May Reverse Autism-Related Brain Deficits
-- **Date:** Jun 9, 2026
-- **Summary:** Institute for Basic Science study suggesting a therapy that may reverse autism-related brain deficits
-- **Source:** [medicalxpress.com](https://medicalxpress.com/news/2026-06-therapy-reverse-autism-brain-deficits.html)
-
-### 🧬 Salanersen FDA Breakthrough Therapy for SMA
-- **Date:** June 2026
-- **Summary:** FDA Breakthrough Therapy Designation for salanersen in spinal muscular atrophy
-- **Source:** [practicalneurology.com](https://practicalneurology.com/news/salanersen-receives-fda-breakthrough-therapy-designation-for-spinal-muscular-atrophy/2487388/)
-
-### 🏥 Hopstem hNPC01 FDA RMAT for Chronic Stroke
-- **Date:** Jun 3, 2026
-- **Summary:** First Regenerative Medicine Advanced Therapy (RMAT) designation for iPSC-derived cell therapy in chronic stroke
-- **Source:** [hopstem.com](http://www.hopstem.com/en/news/view/137.html)
-
-### 🎮 Video Game Stroke Rehab Restores Arm Movement
-- **Date:** Jun 9, 2026
-- **Summary:** Video game-based stroke rehabilitation restores arm movement in chronic stroke survivors
-- **Source:** [medicalxpress.com](https://medicalxpress.com/news/2026-06-video-game-rehab-arm-movement.html)
-
-### 🧪 ATH434 Phase 3 Alignment for Multiple System Atrophy
-- **Date:** Jun 9, 2026
-- **Summary:** Alterity Therapeutics achieves FDA alignment on pivotal Phase 3 program for ATH434 in MSA
-- **Source:** [biospace.com](https://www.biospace.com/press-releases/alterity-therapeutics-achieves-alignment-with-u-s-fda-on-pivotal-phase-3-program-for-ath434-in-multiple-system-atrophy)
-
-### 🔌 Cleveland Neuronoff Implants First Patient in DOD Trial
-- **Date:** Jun 6, 2026
-- **Summary:** Needle-delivered nerve electrode ('Injectrode') for bladder control after spinal cord injury
-- **Source:** [insidebci.com](https://insidebci.com/news/2026-06-06-neuronoff-first-patient-dod-trial-injectrode-neurogenic-bladder-sci/)
-
-### 🧪 MeRT® FDA Clearance for PTSD
-- **Date:** Jun 11, 2026
-- **Summary:** First FDA-cleared personalized clinical treatment system for PTSD — precision mental healthcare
-- **Source:** [prnewswire.com](https://www.prnewswire.com/news-releases/wave-neuroscience-announces-fda-clearance-of-mert-for-ptsd-302797513.html)
-
-### 🧬 NGN-401 Rett Syndrome Trial Dosing Complete
-- **Date:** Jun 8, 2026
-- **Summary:** Neurogene completes dosing in Embolden™ registrational trial of NGN-401 gene therapy for Rett syndrome
-- **Source:** [biospace.com](https://www.biospace.com/press-releases/neurogene-announces-successful-completion-of-dosing-in-embolden-registrational-trial-of-ngn-401-for-rett-syndrome)
+### W. H. (@gr8wheels)
+📅 2026-06-18 | ❤️ 1
+#MultipleSclerosis and the Medial Longitudinal Fasciculus — why a tiny brainstem pathway creates INO, double vision, and dizziness.
+🔗 https://x.com/gr8wheels/status/2067676467102707934
 
 ---
 
-## 4. 🔥 Flagged Posts Summary
+## Summary
 
-| Post | Why Flagged |
-|------|-------------|
-| @TheLancet — Neurology Issue | >57 likes, 10.6K views — trending |
-| @SikandarAdwani — Stroke Updates Thread | Breaking clinical content — 15 high-yield updates |
-| @JeSuisLeFt — RLS Augmentation | Important patient safety issue in neurology |
-| @PracticalNeuro — Dystel Prize | Major MS research award announcement |
-| @GreenJournal — Neuro Podcast | Official AAN journal content |
+- **Total neurology-related posts scraped:** 17
+- **High-engagement/breaking posts (>100 likes or notable news):** 8
+- **Key themes captured:**
+  - **Parkinson's disease:** Pivotal trial results in The Lancet Neurology by Insightec
+  - **Alzheimer's/dementia:** ADI 2026 Global Conference highlights
+  - **Stroke:** DOACs in cardioembolic stroke, inflammatory markers in ICH, TCM for post-stroke CI, CT-FFR in MCA stenosis
+  - **Huntington's disease:** FDA opens door for gene therapy filing ($QURE up 78%)
+  - **TBI:** AAN study on TBI prevalence in elderly with brain diseases
+  - **Multiple sclerosis:** Educational content on MLF and internuclear ophthalmoplegia
+  - **AI/ML in neurology:** Digital cognitive assessment CDS validation
+  - **Epilepsy:** EIDEE-BS genetic spectrum study (MRI-negative cohort)
+  - **Headache:** Medication overuse headache awareness
+  - **Intracranial aneurysm:** PRMT5/PI3K/AKT pathway research
 
----
-
-## 5. Technical Notes
-
-- **Scrape Method:** Direct browser automation via CDP on X.com
-- **Limitations:** X restricts non-logged-in views to ~3 posts. Extended scrolling loaded no additional content. X requires authentication for full feed access.
-- **Augmentation:** Additional X posts and breaking neurology news sourced via web search and direct page fetches.
-- **Engagement Data:** Like/reply/retweet counts not consistently available from page DOM for non-logged-in users; extracted where present.
-- **Date Accuracy:** All timestamps in UTC. Posts from Jun 14-15, 2026.
+**Note:** X's search algorithm is heavily restrictive — only 3-8 articles load per query, and many results are casual mentions rather than professional content. Professional neurology accounts (Frontiers in Neurology, @GreenJournal, @AANmember) dominate the visible results.
