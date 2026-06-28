@@ -1,0 +1,298 @@
+---
+topic: daily
+date: 2026-06-27
+tags: []
+---
+
+# Snapshot4
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - img [ref=e39]
+                - link "Follow" [ref=e42] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e45]
+                - link "Direct Messages" [ref=e48] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e51]
+                - link "Grok" [ref=e54] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e57]
+                - link "Profile" [ref=e60] [cursor=pointer]:
+                  - /url: /Cognito2026
+                  - img [ref=e63]
+                - button "More menu items" [ref=e66] [cursor=pointer]:
+                  - img [ref=e69]
+              - link "Post" [ref=e73] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e75]
+            - button "Account menu" [ref=e81] [cursor=pointer]:
+              - generic [ref=e89]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Cognito":
+                        - img "Cognito"
+        - main [ref=e92]:
+          - generic "Home timeline" [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e104]:
+                  - button "Back" [ref=e106] [cursor=pointer]:
+                    - img [ref=e108]
+                  - search "Search" [ref=e116]:
+                    - generic [ref=e121]:
+                      - img [ref=e123]
+                      - combobox "Search query" [ref=e128]: cerebral AVM OR intracranial aneurysm OR endovascular
+                  - button "More" [ref=e130] [cursor=pointer]:
+                    - img [ref=e132]
+                - navigation [ref=e136]:
+                  - generic [ref=e137]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e139]:
+                      - tab "Top" [selected] [ref=e140] [cursor=pointer]:
+                        - generic [ref=e143]: Top
+                      - tab "Latest" [ref=e145] [cursor=pointer]:
+                        - generic [ref=e148]: Latest
+                      - tab "People" [ref=e149] [cursor=pointer]:
+                        - generic [ref=e152]: People
+                      - tab "Media" [ref=e153] [cursor=pointer]:
+                        - generic [ref=e156]: Media
+                      - tab "Lists" [ref=e157] [cursor=pointer]:
+                        - generic [ref=e160]: Lists
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "Search timeline" [ref=e162]:
+              - heading "Search timeline" [level=1] [ref=e163]
+              - 'generic "Timeline: Search timeline" [ref=e164]':
+                - generic [ref=e165]:
+                  - 'article "Neurology Journal @GreenJournal Jan 24, 2024 This study provides Class II evidence that for patients with acute large vessel ischemic #stroke undergoing endovascular therapy (EVT), nerinetide did not significantly decrease early post-EVT infarct growth compared with placebo. bit.ly/41KeKaE #NeuroTwitter Image 15 reposts, 31 likes, 4 bookmarks, 5411 views" [ref=e612] [cursor=pointer]':
+                    - generic [ref=e618]:
+                      - link [ref=e630]:
+                        - /url: /GreenJournal
+                      - generic [ref=e633]:
+                        - generic [ref=e635]:
+                          - generic [ref=e638]:
+                            - link "Neurology Journal" [ref=e641]:
+                              - /url: /GreenJournal
+                              - generic [ref=e644]: Neurology Journal
+                            - generic [ref=e646]:
+                              - link "@GreenJournal" [ref=e648]:
+                                - /url: /GreenJournal
+                                - generic [ref=e649]: "@GreenJournal"
+                              - generic [ref=e650]: ·
+                              - link "Jan 24, 2024" [ref=e652]:
+                                - /url: /GreenJournal/status/1750170614785089742
+                                - time [ref=e653]: Jan 24, 2024
+                          - generic [ref=e655]:
+                            - button "Grok actions" [ref=e657]:
+                              - img [ref=e662]
+                            - button "More" [ref=e668]:
+                              - img [ref=e672]
+                        - generic [ref=e676]:
+                          - text: This study provides Class II evidence that for patients with acute large vessel ischemic
+                          - link "#stroke" [ref=e678]:
+                            - /url: /hashtag/stroke?src=hashtag_click
+                          - text: undergoing endovascular therapy (EVT), nerinetide did not significantly decrease early post-EVT infarct growth compared with placebo.
+                          - link "bit.ly/41KeKaE" [ref=e679]:
+                            - /url: https://t.co/3LQNjgGuvg
+                          - link "#NeuroTwitter" [ref=e681]:
+                            - /url: /hashtag/NeuroTwitter?src=hashtag_click
+                        - link "Image" [ref=e689]:
+                          - /url: /GreenJournal/status/1750170614785089742/photo/1
+                          - generic "Image" [ref=e693]:
+                            - img "Image" [ref=e695]
+                        - group "15 reposts, 31 likes, 4 bookmarks, 5411 views" [ref=e698]:
+                          - button "0 Replies. Reply" [ref=e700]:
+                            - img [ref=e704]
+                          - button "15 reposts. Repost" [ref=e711]:
+                            - generic [ref=e712]:
+                              - img [ref=e715]
+                              - generic [ref=e720]: "15"
+                          - button "31 Likes. Like" [ref=e722]:
+                            - generic [ref=e723]:
+                              - img [ref=e726]
+                              - generic [ref=e731]: "31"
+                          - link "5411 views. View post analytics" [ref=e733]:
+                            - /url: /GreenJournal/status/1750170614785089742/analytics
+                            - generic [ref=e734]:
+                              - img [ref=e737]
+                              - generic [ref=e742]: 5.4K
+                          - button "Bookmark" [ref=e744]:
+                            - img [ref=e748]
+                          - button "Share post" [ref=e753]:
+                            - img [ref=e757]
+                  - article "ReflowMedical Verified account @reflowmedical Jun 24 In complex CTO cases, cap entry and maintaining an intraluminal path can be critical steps. The Wingman™ CTO Crossing Catheter simplifies cap entry and intraluminal CTO crossing. With its extendable, rotating beveled tip and intuitive push-and-twist handle, Wingman is designed Embedded video 4 likes, 55 views" [ref=e763] [cursor=pointer]:
+                    - generic [ref=e769]:
+                      - link [ref=e781]:
+                        - /url: /reflowmedical
+                      - generic [ref=e784]:
+                        - generic [ref=e786]:
+                          - generic [ref=e789]:
+                            - link "ReflowMedical Verified account" [ref=e792]:
+                              - /url: /reflowmedical
+                              - generic [ref=e793]:
+                                - generic [ref=e795]: ReflowMedical
+                                - img "Verified account" [ref=e798]
+                            - generic [ref=e802]:
+                              - link "@reflowmedical" [ref=e804]:
+                                - /url: /reflowmedical
+                                - generic [ref=e805]: "@reflowmedical"
+                              - generic [ref=e806]: ·
+                              - link "Jun 24" [ref=e808]:
+                                - /url: /reflowmedical/status/2069778806982791548
+                                - time [ref=e809]: Jun 24
+                          - generic [ref=e811]:
+                            - button "Grok actions" [ref=e813]:
+                              - img [ref=e818]
+                            - button "More" [ref=e824]:
+                              - img [ref=e828]
+                        - generic [ref=e831]:
+                          - generic [ref=e832]: In complex CTO cases, cap entry and maintaining an intraluminal path can be critical steps. The Wingman™ CTO Crossing Catheter simplifies cap entry and intraluminal CTO crossing. With its extendable, rotating beveled tip and intuitive push-and-twist handle, Wingman is designed
+                          - button "Show more" [ref=e833]
+                        - generic "Embedded video" [ref=e845]:
+                          - generic "Embedded video" [ref=e847]:
+                            - img "Embedded video" [ref=e849]
+                          - generic:
+                            - generic:
+                              - generic: 0:35
+                          - button "Play this video" [ref=e850]:
+                            - img [ref=e851]
+                        - group "4 likes, 55 views" [ref=e857]:
+                          - button "0 Replies. Reply" [ref=e859]:
+                            - img [ref=e863]
+                          - button "0 reposts. Repost" [ref=e870]:
+                            - img [ref=e874]
+                          - button "4 Likes. Like" [ref=e881]:
+                            - generic [ref=e882]:
+                              - img [ref=e885]
+                              - generic [ref=e890]: "4"
+                          - link "55 views. View post analytics" [ref=e892]:
+                            - /url: /reflowmedical/status/2069778806982791548/analytics
+                            - generic [ref=e893]:
+                              - img [ref=e896]
+                              - generic [ref=e901]: "55"
+                          - button "Bookmark" [ref=e903]:
+                            - img [ref=e907]
+                          - button "Share post" [ref=e912]:
+                            - img [ref=e916]
+                  - article "MedicoNotes Verified account @MedicoNotes Jun 20 🚨 AORTIC DISSECTION Aortic dissection occurs when a tear develops in the aortic intima, allowing blood to enter the vessel wall and create a false lumen. It is a life-threatening emergency requiring immediate recognition and treatment. ⸻ 1️⃣ Risk Factors ➊ Hypertension Embedded video Made with Grok ImagineMake your own 23 reposts, 43 likes, 16 bookmarks, 2535 views" [ref=e922] [cursor=pointer]:
+                    - generic [ref=e928]:
+                      - link [ref=e940]:
+                        - /url: /MedicoNotes
+                      - generic [ref=e943]:
+                        - generic [ref=e945]:
+                          - generic [ref=e948]:
+                            - link "MedicoNotes Verified account" [ref=e951]:
+                              - /url: /MedicoNotes
+                              - generic [ref=e952]:
+                                - generic [ref=e954]: MedicoNotes
+                                - img "Verified account" [ref=e957]
+                            - generic [ref=e961]:
+                              - link "@MedicoNotes" [ref=e963]:
+                                - /url: /MedicoNotes
+                                - generic [ref=e964]: "@MedicoNotes"
+                              - generic [ref=e965]: ·
+                              - link "Jun 20" [ref=e967]:
+                                - /url: /MedicoNotes/status/2068301826135384189
+                                - time [ref=e968]: Jun 20
+                          - generic [ref=e970]:
+                            - button "Grok actions" [ref=e972]:
+                              - img [ref=e977]
+                            - button "More" [ref=e983]:
+                              - img [ref=e987]
+                        - generic [ref=e990]:
+                          - generic [ref=e991]:
+                            - img "🚨" [ref=e992]
+                            - text: AORTIC DISSECTION Aortic dissection occurs when a tear develops in the aortic intima, allowing blood to enter the vessel wall and create a false lumen. It is a life-threatening emergency requiring immediate recognition and treatment. ⸻
+                            - img "1️⃣" [ref=e993]
+                            - text: Risk Factors ➊ Hypertension
+                          - button "Show more" [ref=e994]
+                        - generic [ref=e998]:
+                          - generic "Embedded video" [ref=e1006]:
+                            - generic "Embedded video" [ref=e1008]:
+                              - img "Embedded video" [ref=e1010]
+                            - generic:
+                              - generic:
+                                - generic: 0:10
+                            - button "Play this video" [ref=e1011]:
+                              - img [ref=e1012]
+                          - generic [ref=e1016]:
+                            - img [ref=e1017]
+                            - text: Made with Grok Imagine
+                            - generic [ref=e1021]: ·
+                            - link "Make your own" [ref=e1022]:
+                              - /url: https://grok.com/imagine/post/d3b92cbe-864f-4375-b659-509f63c4133b
+                        - group "23 reposts, 43 likes, 16 bookmarks, 2535 views" [ref=e1025]:
+                          - button "0 Replies. Reply" [ref=e1027]:
+                            - img [ref=e1031]
+                          - button "23 reposts. Repost" [ref=e1038]:
+                            - generic [ref=e1039]:
+                              - img [ref=e1042]
+                              - generic [ref=e1047]: "23"
+                          - button "43 Likes. Like" [ref=e1049]:
+                            - generic [ref=e1050]:
+                              - img [ref=e1053]
+                              - generic [ref=e1058]: "43"
+                          - link "2535 views. View post analytics" [ref=e1060]:
+                            - /url: /MedicoNotes/status/2068301826135384189/analytics
+                            - generic [ref=e1061]:
+                              - img [ref=e1064]
+                              - generic [ref=e1069]: 2.5K
+                          - button "Bookmark" [ref=e1071]:
+                            - img [ref=e1075]
+                          - button "Share post" [ref=e1080]:
+                            - img [ref=e1084]

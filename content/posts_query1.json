@@ -1,0 +1,58 @@
+---
+topic: content
+date: 2026-06-28
+tags: []
+---
+
+# Posts Query1
+
+[
+  {
+    "author": "Neurology Journal",
+    "handle": "@GreenJournal",
+    "date": "2024-05-04T04:01:05.000Z",
+    "text": "#NeuroImage: Migration of Iophendylate Myelography Contrast to the Brain With Successful Thrombectomy https://bit.ly/3JIcvfP",
+    "likes": 18,
+    "reposts": 8,
+    "replies": 1,
+    "views": 4441,
+    "bookmarks": 1,
+    "url": "https://x.com/GreenJournal/status/1786606951595418107"
+  },
+  {
+    "author": "Resham Singh Thakur",
+    "handle": "@doctorResham09",
+    "date": "2026-06-26T18:24:54.000Z",
+    "text": "From complex neurointerventions and H & N embolisation to lienorenal shunt embolisation for recurrent HE and minimally invasive aortoiliac reconstruction and SFA revascularisation for PAD—our IR team continues to deliver scarless treatments across the head to toe spectrum.",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 3,
+    "views": 3,
+    "bookmarks": 0,
+    "url": "https://x.com/doctorResham09/status/2070574038322176347"
+  },
+  {
+    "author": "Dr Sharath Kumar G",
+    "handle": "@SharathKumarGG7",
+    "date": "2026-06-15T01:51:49.000Z",
+    "text": "New insights from the PEARL Trial! A post hoc analysis shows that adjunctive intra-arterial (IA) alteplase (0.225 mg/kg) is associated with improved 90-day functional outcomes for acute ischemic stroke patients who achieved near-complete or complete reperfusion (eTICI 2c/3)",
+    "likes": 8,
+    "reposts": 4,
+    "replies": 4,
+    "views": 569,
+    "bookmarks": 5,
+    "url": "https://x.com/SharathKumarGG7/status/2066337854134128735"
+  },
+  {
+    "author": "dietbloom",
+    "handle": "@dietbloom",
+    "date": "2026-06-22T14:15:31.000Z",
+    "text": "A stroke doesn't always happen \"suddenly.\" In many people, the body has been sending warning signs for years; high blood pressure, poor diet, uncontrolled sugar levels, smoking, inactivity, until one day, blood flow to the brain is disrupted.",
+    "likes": 2,
+    "reposts": 1,
+    "replies": 1,
+    "views": 1014,
+    "bookmarks": 0,
+    "url": "https://x.com/dietbloom/status/2069061727983952319"
+  }
+]

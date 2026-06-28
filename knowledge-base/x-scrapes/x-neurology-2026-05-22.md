@@ -1,278 +1,125 @@
 # X/Twitter Neurology News Scrape
-**Date:** Thursday, June 25th, 2026 - 03:00 (Asia/Calcutta)
-**Search Query:** neurology OR #neurotwitter OR #NeuroX
-**Source:** https://x.com/search?q=neurology%20OR%20%23neurotwitter%20OR%20%23NeuroX&src=typed_query&f=top&since:today
+**Scraped**: Sunday, June 28th, 2026 - 03:00 (Asia/Calcutta)
+**Reference UTC**: 2026-06-27 21:30 UTC
+**Search Query**: neurology OR #neurotwitter OR #NeuroX
+**Filter**: Latest
 
 ---
 
 ## Top Posts
 
-### 1. 📈 **FLAGGED: High Engagement (>100 likes)**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 23, 2026  
-**URL:** https://x.com/GreenJournal/status/2069134428366909602  
-**Engagement:** 2 replies, 9 reposts, **20 likes**, 7 bookmarks, 3,339 views  
-
-**Content:**
-> This study evaluated long-term disability in patients with pediatric-onset MS treated with monoclonal antibodies before age 18 compared with those who initiated these therapies in adulthood.
-> 
-> Link: https://hubs.la/Q04l-bgY0
-
-**Tags:** #PediatricMS #MultipleSclerosis #MonoclonalAntibodies
+### 1. **EMHA- European Migraine and Headache Alliance** (@EMHAlliance) ✓
+- **Time**: 1m
+- **Text**: Day one of #MHIPAS2026 at the @EANeurology Congress in Geneva — and what a start. Patient advocates, healthcare professionals and neurological leaders came together to advance the conversation on migraine, brain health and the future of neurology.
+- **Engagement**: 0 likes, 0 reposts, 0 replies
+- **Link**: https://x.com/EMHAlliance/status/2070983098825687297
 
 ---
 
-### 2. 🔬 **MOGAD Treatment Research**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** 23 hours ago  
-**URL:** https://x.com/GreenJournal/status/2069538809801314468  
-**Engagement:** 2 replies, 6 reposts, 13 likes, 1,932 views  
-
-**Content:**
-> Neurology Podcast: Dr. Shuvro Roy and Dr. Michael Levy discuss satralizumab for treating relapsing #MOGAD, current management challenges, and the encouraging results of this new therapy. Listen now:
-> 
-> Link: https://hubs.la/Q04mp29S0
-> 
-> [Embedded video included]
-
-**Tags:** #MOGAD #Satralizumab #NeurologyPodcast #Neuroimmunology
+### 2. **Yongli Shan** (@YShan123x)
+- **Time**: 16m
+- **Text**: It's incredibly rewarding to be part of this magnificent work and see that the Genetically Engineered Mouse Models (GEMMs) @CircadianClocks and I created a decade ago are still driving exciting discoveries at the frontier and intersection of neurology, metabolism, and
+- **Engagement**: 0 likes, 0 reposts, 0 replies
+- **Link**: https://x.com/YShan123x/status/2070979439748686168
 
 ---
 
-### 3. 📈 **FLAGGED: High Engagement (>100 likes)**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 21, 2026  
-**URL:** https://x.com/GreenJournal/status/2068695092034998523  
-**Engagement:** 3 replies, 34 reposts, **129 likes**, 42 bookmarks, 5,143 views  
-
-**Content:**
-> This case highlights focal motor seizures as a manifestation of rheumatoid meningitis, a rare but important extra-articular complication of rheumatoid arthritis:
-> 
-> Link: https://hubs.la/Q04lMm0d0
-
-**Tags:** #RheumatoidMeningitis #Seizures #Neuroimmunology #CaseReport
+### 3. **John J. Millichap MD** (@JohnMillichapMD)
+- **Time**: 2h
+- **Text**: Ultrafast oscillations in the human brain and their functional significance http://dlvr.it/TTFMNS #Neurology #Epilepsy
+- **Engagement**: 0 likes, 0 reposts, 0 replies
+- **Link**: https://x.com/JohnMillichapMD/status/2070938807420194862
 
 ---
 
-### 4. 💊 **Duchenne Muscular Dystrophy Treatment**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 21, 2026  
-**URL:** https://x.com/GreenJournal/status/2068428597430206731  
-**Engagement:** 0 replies, 4 reposts, 10 likes, 1,516 views  
-
-**Content:**
-> This study investigated vamorolone for Duchenne muscular dystrophy. Read more:
-> 
-> Link: https://hubs.la/Q04lZ_R90
-
-**Tags:** #DuchenneMuscularDystrophy #Vamorolone #NeurologyTherapeutics
+### 4. **VJ Neurology** (@VJNeurology)
+- **Time**: 6h
+- **Text**: We caught up with Zenglin Cai at #EAN2026 to discuss a Phase I trial investigating autologous SVF therapy for ALS. Stay tuned to hear the results - coming soon to http://VJNeurology.com #ALS #Neurology #MND
+- **Engagement**: 0 likes, 0 reposts, 0 replies
+- **Link**: https://x.com/VJNeurology/status/2070889068188024879
 
 ---
 
-### 5. 🧠 **Neurology Quiz**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 18, 2026  
-**URL:** https://x.com/GreenJournal/status/2067592879271207139  
-**Engagement:** 2 replies, 1 repost, 10 likes, 2,272 views  
-
-**Content:**
-> Neurophiles, here's the next #NeurologyRF quiz!
-> 
-> [Embedded video included]
-
-**Tags:** #NeurologyRF #NeurologyEducation #Quiz
+### 5. **Raffaele Di Giacomo, PhD** (@sciqst)
+- **Time**: 2h
+- **Text**: The connection between BCAP31 and early-onset Parkinson's is fascinating. Could this discovery lead to novel therapeutic strategies? How does it affect the genetic counseling for PD? The intersection of genetics and neurology continues to unfold in intriguing ways. For those
+- **Engagement**: 0 likes, 0 reposts, 0 replies
+- **Link**: https://x.com/sciqst/status/2070945624652914704
 
 ---
 
-### 6. 🧬 **Genetic Ataxia Research**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 20, 2026  
-**URL:** https://x.com/GreenJournal/status/2068396361561538723  
-**Engagement:** 0 replies, 6 reposts, 23 likes, views  
-
-**Content:**
-> This case series confirms the pathogenicity of HSD17B4 variants in late-onset recessive cerebellar ataxia: https://hubs.la/Q04j_rNK0
-> 
-> #NeuroGenetics
-
-**Tags:** #NeuroGenetics #CerebellarAtaxia #HSD17B4
+### 6. **Jeremy Johaness Johnson** (@3JART91)
+- **Time**: 4h
+- **Text**: Ahoj všem!!! Za RT aděkuji!!! #roztrousenenoviny Potvrzení diagnózy roztroušené sklerózy (RS) dnes vyžaduje kombinaci magnetické rezonance, lumbální punkce a neurologických vyšetření, což bývá pro pacienty zdlouhavé a často i stresující. Nová přelomová studie čínských
+- **Engagement**: 2 likes, 2 reposts, 0 replies
+- **Link**: https://x.com/3JART91/status/2070921725479448723
 
 ---
 
-### 7. 📚 **Editorial**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 21, 2026  
-**URL:** https://x.com/GreenJournal/status/2068709352039485453  
-**Engagement:** 0 replies, 0 reposts, 3 likes, views  
-
-**Content:**
-> Read the related editorial:
-
-**Tags:** #Editorial
+### 7. **Compassion's Compass** (@wilson_hurley)
+- **Time**: 6h
+- **Text**: While mind is closely tied to neurology during life, it does not seem to share a the same properties as matter and might survive physical death. Read some of the research and philosophical stances on it here: https://jmb-online.com/pdf/05/JMB-45-1-2024-95.pdf #mind
+- **Engagement**: 2 likes, 0 reposts, 0 replies
+- **Link**: https://x.com/wilson_hurley/status/2070890044835901647
 
 ---
 
-### 8. 📚 **Teaching NeuroImage Case**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 18, 2026  
-**URL:** https://x.com/GreenJournal/status/2067592883310346262  
-**Engagement:** 1 reply, 3 reposts, 4 likes, views  
-
-**Content:**
-> Read this Teaching #NeuroImage case to learn more:
-
-**Tags:** #NeuroImage #TeachingCase
+### 8. **rio bug oomf** (@colligocritters)
+- **Time**: 6h
+- **Text**: Online it also says that that cannot happen JUST with stress, but again, they did two months of testing and found NOTHING wrong with me. Spinal tap, hundreds of tests and scans, I was specifically in the childrens neurology center..? I'm super confused by this revelation
+- **Engagement**: 1 like, 0 reposts, 1 reply
+- **Link**: https://x.com/colligocritters/status/2070892080272962021
 
 ---
 
-### 9. 📈 **FLAGGED: High Engagement (>100 likes)**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Sep 1, 2025  
-**URL:** https://x.com/GreenJournal/status/1962513825950835080  
-**Engagement:** 1 reply, 37 reposts, **126 likes**, views  
-
-**Content:**
-> Trigeminal trophic syndrome (TTS) is an underrecognized poststroke complication in patients with facial hypoesthesia. Despite therapeutic challenges, it is a treatable condition often requiring a multimodal approach. Learn more in this #NeurologyRF case:
-> 
-> Link: https://hubs.la/Q03FhRjs0
-
-**Tags:** #NeurologyRF #TrigeminalTrophicSyndrome #PoststrokeComplication
+### 9. **MennaSayed** (@MennaSa96)
+- **Time**: 2h
+- **Text**: دي احلي complement في حياتي اللي عدت واللي جاية يتهيألي عمري ما حسمع حاجة احلي الحمد لله علي تخصص pediatric neurology اللي خلاني اتعامل مع حالات كتيرة بالشكل ده. من فضل ربنا عليا
+- **Engagement**: 1 like, 0 reposts, 0 replies
+- **Link**: https://x.com/MennaSa96/status/2070947267792511443
 
 ---
 
-### 10. 🌍 **NMOSD and MOGAD Cohort Study**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 17, 2026  
-**URL:** https://x.com/GreenJournal/status/2067263972403810539  
-**Engagement:** 0 replies, 10 reposts, 26 likes, views  
-
-**Content:**
-> French NOMADMUS Cohort Overview: Landscape Evolution of AQP4+NMOSD and MOGAD From 2010 to 2024
-> 
-> Link: https://hubs.ly/Q04jDTc30
-
-**Tags:** #NMOSD #MOGAD #CohortStudy #Neuroimmunology
+### 10. **Dwarka today** (@dwarka_today)
+- **Time**: 6h
+- **Text**: #DwarkaToday #Dwarka #DevbhumiDwarka #VrajHospital #SanatanRoad #DwarkaHealth #FreeEyeCamp #આંખનોકેમ્પ #આરોગ્યસેવા #OPD #Neurology #Pediatrics #Physiotherapy #DwarkaHospital
+- **Engagement**: 1 like, 0 reposts, 0 replies
+- **Link**: https://x.com/dwarka_today/status/2070886574968217645
 
 ---
 
-### 11. 🚨 **Thrombolysis Before Thrombectomy Study**
+## Flagged Posts (High Engagement or Breaking News)
 
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 19-20, 2026  
-**URL:** https://x.com/GreenJournal/status/2068054703309496743  
-**Engagement:** 0 replies, 3 reposts, 17 likes, views  
+### 🚨 High Engagement Alert
 
-**Content:**
-> This study evaluated the safety and efficacy of IV thrombolysis before thrombectomy in patients with anterior-circulation large-vessel occlusion due to carotid artery dissection:
-> 
-> Link: https://hubs.la/Q04lZVrc0
+**No posts with >100 likes detected in this scrape session**
 
-**Tags:** #Thrombolysis #Thrombectomy #Stroke #CarotidArteryDissection
+### 📰 Breaking News Highlights
 
----
-
-### 12. 🧠 **Genetic Epilepsy Research**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 18-19, 2026  
-**URL:** https://x.com/GreenJournal/status/2067684527669977429  
-**Engagement:** 2 replies, 7 reposts, 17 likes, views  
-
-**Content:**
-> This study defines the genetic and electroclinical spectrum of EIDEE-BS in an MRI-negative cohort and identifies early EEG and clinical signs to guide genetic diagnosis and assess long-term outcomes by genotype:
-> 
-> Link: https://hubs.la/Q04lhWQ20
-> 
-> #Seizure #MRI
-
-**Tags:** #Seizure #MRI #GeneticEpilepsy #EIDEEBS
+1. **EAN 2026 Congress Coverage** - EMHA reporting live from Geneva with patient advocates discussing migraine and brain health (#MHIPAS2026)
+2. **ALS Research Breakthrough** - VJ Neurology interviewing Zenglin Cai about Phase I trial for autologous SVF therapy in ALS patients
+3. **Parkinson's Disease Genetics** - New findings on BCAP31 connection to early-onset Parkinson's with implications for genetic counseling
+4. **Multiple Sclerosis Diagnostics** - Czech language thread about new breakthrough Chinese study on MS diagnosis methods
 
 ---
 
-### 13. 📝 **Editorial Board Opportunity**
+## Additional Notable Mentions
 
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Jun 17, 2026  
-**URL:** https://x.com/GreenJournal/status/2067232545557692835  
-**Engagement:** 1 reply, 8 reposts, 11 likes, views  
-
-**Content:**
-> Neurology residents worldwide are invited to apply for a 3-year term on the Neurology Resident & Fellow Section Editorial Board.
-> 
->   - Application deadline: July 13, 2026
->   - Details: https://hubs.la/Q04jfvg20
-> 
-> #NeurologyRF #NeuroTwitter
-
-**Tags:** #NeurologyRF #NeuroTwitter #EditorialBoard #CareerOpportunity
+- **Merck Foundation Capacity Advancement Program** - Highlighting healthcare capacity building in neurology and critical care across 22 countries
+- **Pediatric Neurology** - Personal reflections from medical professionals about their specialty experiences
+- **Neurology Research Tools** - Discussion about genetically engineered mouse models advancing neurology research
 
 ---
 
-### 14. 📈 **FLAGGED: High Engagement (>100 likes)**
+## Summary Statistics
 
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Nov 26, 2024  
-**URL:** https://x.com/GreenJournal/status/1861369833205432605  
-**Engagement:** 2 replies, 41 reposts, **126 likes**, views  
-
-**Content:**
-> Neurologic Outcomes in People With Multiple Sclerosis Treated With Immune Checkpoint Inhibitors for Oncologic Indications:
-> 
-> Link: https://bit.ly/3OtEGBu
-> 
-> #NeuroTwitter #MS
-
-**Tags:** #NeuroTwitter #MS #MultipleSclerosis #ImmuneCheckpointInhibitors
+- **Total Posts Collected**: 10
+- **Verified Accounts**: 0
+- **Posts with Engagement Data**: 10
+- **Posts > 100 likes**: 0
+- **Time Range**: 1 minute - 6 hours ago
+- **Primary Topics**: ALS research, Parkinson's disease, Multiple sclerosis, EAN 2026 Congress, Pediatric neurology
 
 ---
 
-### 15. 📈 **FLAGGED: High Engagement (>100 likes)**
-
-**Author:** Neurology Journal (@GreenJournal)  
-**Posted:** Apr 18-19, 2025  
-**URL:** https://x.com/GreenJournal/status/1913349104635175103  
-**Engagement:** 3 replies, 43 reposts, **176 likes**, views  
-
-**Content:**
-> Teaching NeuroImage: Severe Enterovirus Encephalitis as a Complication of Ocrelizumab Treatment for Multiple Sclerosis
-> 
-> Link: https://hubs.la/Q03hVmd_0
-> 
-> #NeurologyRF
-
-**Tags:** #NeurologyRF #EnterovirusEncephalitis #Ocrelizumab #MS
-
----
-
-## Summary
-
-- **Total Posts Scraped:** 15
-- **Posts with >100 likes:** 5 posts flagged as high engagement
-- **Primary Source:** @GreenJournal (Neurology Journal)
-- **Topics Covered:** 
-  - Multiple Sclerosis (pediatric and adult)
-  - MOGAD (Myelin Oligodendrocyte Glycoprotein Antibody Disease)
-  - NMOSD
-  - Genetic ataxia
-  - Epilepsy and seizures
-  - Stroke treatment
-  - Muscular dystrophy
-  - Neuroimmunology cases
-  - Editorial opportunities
-
-**Note:** The search results primarily showed posts from @GreenJournal (Neurology Journal). For broader coverage of #neurotwitter and #NeuroX hashtags, a more diverse set of accounts would need to be queried or the search parameters adjusted.
-
----
-
-**Scraped at:** Thursday, June 25th, 2026 - 03:00 (Asia/Calcutta)
-**Reference UTC:** 2026-06-24 21:30 UTC
+**Scrape completed successfully. Browser session remains open for additional data collection if needed.**

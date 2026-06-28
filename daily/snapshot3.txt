@@ -1,0 +1,281 @@
+---
+topic: daily
+date: 2026-06-27
+tags: []
+---
+
+# Snapshot3
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - img [ref=e39]
+                - link "Follow" [ref=e42] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e45]
+                - link "Direct Messages" [ref=e48] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e51]
+                - link "Grok" [ref=e54] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e57]
+                - link "Profile" [ref=e60] [cursor=pointer]:
+                  - /url: /Cognito2026
+                  - img [ref=e63]
+                - button "More menu items" [ref=e66] [cursor=pointer]:
+                  - img [ref=e69]
+              - link "Post" [ref=e73] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e75]
+            - button "Account menu" [ref=e81] [cursor=pointer]:
+              - generic [ref=e89]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Cognito":
+                        - img "Cognito"
+        - main [ref=e92]:
+          - generic "Home timeline" [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e104]:
+                  - button "Back" [ref=e106] [cursor=pointer]:
+                    - img [ref=e108]
+                  - search "Search" [ref=e116]:
+                    - generic [ref=e121]:
+                      - img [ref=e123]
+                      - combobox "Search query" [ref=e128]: cerebral AVM OR intracranial aneurysm OR endovascular
+                  - button "More" [ref=e130] [cursor=pointer]:
+                    - img [ref=e132]
+                - navigation [ref=e136]:
+                  - generic [ref=e137]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e139]:
+                      - tab "Top" [selected] [ref=e140] [cursor=pointer]:
+                        - generic [ref=e143]: Top
+                      - tab "Latest" [ref=e145] [cursor=pointer]:
+                        - generic [ref=e148]: Latest
+                      - tab "People" [ref=e149] [cursor=pointer]:
+                        - generic [ref=e152]: People
+                      - tab "Media" [ref=e153] [cursor=pointer]:
+                        - generic [ref=e156]: Media
+                      - tab "Lists" [ref=e157] [cursor=pointer]:
+                        - generic [ref=e160]: Lists
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "Search timeline" [ref=e162]:
+              - heading "Search timeline" [level=1] [ref=e163]
+              - 'generic "Timeline: Search timeline" [ref=e164]':
+                - generic [ref=e165]:
+                  - 'article "Neurology Journal @GreenJournal Jun 20 This study evaluated the safety and efficacy of IV thrombolysis before thrombectomy in patients with anterior-circulation large-vessel occlusion due to carotid artery dissection: hubs.la/Q04lZVrc0 Image 3 reposts, 17 likes, 5 bookmarks, 1909 views" [ref=e169] [cursor=pointer]':
+                    - generic [ref=e175]:
+                      - link [ref=e187]:
+                        - /url: /GreenJournal
+                      - generic [ref=e190]:
+                        - generic [ref=e192]:
+                          - generic [ref=e195]:
+                            - link "Neurology Journal" [ref=e198]:
+                              - /url: /GreenJournal
+                              - generic [ref=e201]: Neurology Journal
+                            - generic [ref=e203]:
+                              - link "@GreenJournal" [ref=e205]:
+                                - /url: /GreenJournal
+                                - generic [ref=e206]: "@GreenJournal"
+                              - generic [ref=e207]: ·
+                              - link "Jun 20" [ref=e209]:
+                                - /url: /GreenJournal/status/2068054703309496743
+                                - time [ref=e210]: Jun 20
+                          - generic [ref=e212]:
+                            - button "Grok actions" [ref=e214]:
+                              - img [ref=e219]
+                            - button "More" [ref=e225]:
+                              - img [ref=e229]
+                        - generic [ref=e233]:
+                          - text: "This study evaluated the safety and efficacy of IV thrombolysis before thrombectomy in patients with anterior-circulation large-vessel occlusion due to carotid artery dissection:"
+                          - link "hubs.la/Q04lZVrc0" [ref=e234]:
+                            - /url: https://t.co/kjJdwhl2J2
+                        - link "Image" [ref=e242]:
+                          - /url: /GreenJournal/status/2068054703309496743/photo/1
+                          - generic "Image" [ref=e246]:
+                            - img "Image" [ref=e248]
+                        - group "3 reposts, 17 likes, 5 bookmarks, 1909 views" [ref=e251]:
+                          - button "0 Replies. Reply" [ref=e253]:
+                            - img [ref=e257]
+                          - button "3 reposts. Repost" [ref=e264]:
+                            - generic [ref=e265]:
+                              - img [ref=e268]
+                              - generic [ref=e273]: "3"
+                          - button "17 Likes. Like" [ref=e275]:
+                            - generic [ref=e276]:
+                              - img [ref=e279]
+                              - generic [ref=e284]: "17"
+                          - link "1909 views. View post analytics" [ref=e286]:
+                            - /url: /GreenJournal/status/2068054703309496743/analytics
+                            - generic [ref=e287]:
+                              - img [ref=e290]
+                              - generic [ref=e295]: 1.9K
+                          - button "Bookmark" [ref=e297]:
+                            - img [ref=e301]
+                          - button "Share post" [ref=e306]:
+                            - img [ref=e310]
+                  - 'article "Neurology Journal @GreenJournal Jan 30 Admission Systolic Blood Pressure and Outcomes After Endovascular Thrombectomy: An International EVA-TRISP Cohort Study hubs.la/Q040X_K60 Image 2 replies, 1 repost, 4 likes, 4 bookmarks, 1093 views" [ref=e316] [cursor=pointer]':
+                    - generic [ref=e322]:
+                      - link [ref=e334]:
+                        - /url: /GreenJournal
+                      - generic [ref=e337]:
+                        - generic [ref=e339]:
+                          - generic [ref=e342]:
+                            - link "Neurology Journal" [ref=e345]:
+                              - /url: /GreenJournal
+                              - generic [ref=e348]: Neurology Journal
+                            - generic [ref=e350]:
+                              - link "@GreenJournal" [ref=e352]:
+                                - /url: /GreenJournal
+                                - generic [ref=e353]: "@GreenJournal"
+                              - generic [ref=e354]: ·
+                              - link "Jan 30" [ref=e356]:
+                                - /url: /GreenJournal/status/2017284562699665497
+                                - time [ref=e357]: Jan 30
+                          - generic [ref=e359]:
+                            - button "Grok actions" [ref=e361]:
+                              - img [ref=e366]
+                            - button "More" [ref=e372]:
+                              - img [ref=e376]
+                        - generic [ref=e380]:
+                          - text: "Admission Systolic Blood Pressure and Outcomes After Endovascular Thrombectomy: An International EVA-TRISP Cohort Study"
+                          - link "hubs.la/Q040X_K60" [ref=e381]:
+                            - /url: https://t.co/PFTh62jC65
+                        - link "Image" [ref=e389]:
+                          - /url: /GreenJournal/status/2017284562699665497/photo/1
+                          - generic "Image" [ref=e393]:
+                            - img "Image" [ref=e395]
+                        - group "2 replies, 1 repost, 4 likes, 4 bookmarks, 1093 views" [ref=e398]:
+                          - button "2 Replies. Reply" [ref=e400]:
+                            - generic [ref=e401]:
+                              - img [ref=e404]
+                              - generic [ref=e409]: "2"
+                          - button "1 repost. Repost" [ref=e411]:
+                            - generic [ref=e412]:
+                              - img [ref=e415]
+                              - generic [ref=e420]: "1"
+                          - button "4 Likes. Like" [ref=e422]:
+                            - generic [ref=e423]:
+                              - img [ref=e426]
+                              - generic [ref=e431]: "4"
+                          - link "1093 views. View post analytics" [ref=e433]:
+                            - /url: /GreenJournal/status/2017284562699665497/analytics
+                            - generic [ref=e434]:
+                              - img [ref=e437]
+                              - generic [ref=e442]: 1K
+                          - button "Bookmark" [ref=e444]:
+                            - img [ref=e448]
+                          - button "Share post" [ref=e453]:
+                            - img [ref=e457]
+                  - 'article "Neurology Journal @GreenJournal Apr 1 In this large, international cohort, contrast-associated acute kidney injury (CA-AKI) occurred in approximately 1 in 20 endovascular thrombectomy (EVT)-treated patients with acute ischemic #stroke and was independently associated with poor outcomes: hubs.la/Q0495R570 Image 1 reply, 4 reposts, 10 likes, 1 bookmark, 1385 views" [ref=e463] [cursor=pointer]':
+                    - generic [ref=e469]:
+                      - link [ref=e481]:
+                        - /url: /GreenJournal
+                      - generic [ref=e484]:
+                        - generic [ref=e486]:
+                          - generic [ref=e489]:
+                            - link "Neurology Journal" [ref=e492]:
+                              - /url: /GreenJournal
+                              - generic [ref=e495]: Neurology Journal
+                            - generic [ref=e497]:
+                              - link "@GreenJournal" [ref=e499]:
+                                - /url: /GreenJournal
+                                - generic [ref=e500]: "@GreenJournal"
+                              - generic [ref=e501]: ·
+                              - link "Apr 1" [ref=e503]:
+                                - /url: /GreenJournal/status/2039081548280938567
+                                - time [ref=e504]: Apr 1
+                          - generic [ref=e506]:
+                            - button "Grok actions" [ref=e508]:
+                              - img [ref=e513]
+                            - button "More" [ref=e519]:
+                              - img [ref=e523]
+                        - generic [ref=e527]:
+                          - text: In this large, international cohort, contrast-associated acute kidney injury (CA-AKI) occurred in approximately 1 in 20 endovascular thrombectomy (EVT)-treated patients with acute ischemic
+                          - link "#stroke" [ref=e529]:
+                            - /url: /hashtag/stroke?src=hashtag_click
+                          - text: "and was independently associated with poor outcomes:"
+                          - link "hubs.la/Q0495R570" [ref=e530]:
+                            - /url: https://t.co/qPAMM8bJUj
+                        - link "Image" [ref=e538]:
+                          - /url: /GreenJournal/status/2039081548280938567/photo/1
+                          - generic "Image" [ref=e542]:
+                            - img "Image" [ref=e544]
+                        - group "1 reply, 4 reposts, 10 likes, 1 bookmark, 1385 views" [ref=e547]:
+                          - button "1 Reply. Reply" [ref=e549]:
+                            - generic [ref=e550]:
+                              - img [ref=e553]
+                              - generic [ref=e558]: "1"
+                          - button "4 reposts. Repost" [ref=e560]:
+                            - generic [ref=e561]:
+                              - img [ref=e564]
+                              - generic [ref=e569]: "4"
+                          - button "10 Likes. Like" [ref=e571]:
+                            - generic [ref=e572]:
+                              - img [ref=e575]
+                              - generic [ref=e580]: "10"
+                          - link "1385 views. View post analytics" [ref=e582]:
+                            - /url: /GreenJournal/status/2039081548280938567/analytics
+                            - generic [ref=e583]:
+                              - img [ref=e586]
+                              - generic [ref=e591]: 1.3K
+                          - button "Bookmark" [ref=e593]:
+                            - img [ref=e597]
+                          - button "Share post" [ref=e602]:
+                            - img [ref=e606]

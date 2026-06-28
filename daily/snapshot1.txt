@@ -1,0 +1,356 @@
+---
+topic: daily
+date: 2026-06-27
+tags: []
+---
+
+# Snapshot1
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - img [ref=e39]
+                - link "Follow" [ref=e42] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e45]
+                - link "Direct Messages" [ref=e48] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e51]
+                - link "Grok" [ref=e54] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e57]
+                - link "Profile" [ref=e60] [cursor=pointer]:
+                  - /url: /Cognito2026
+                  - img [ref=e63]
+                - button "More menu items" [ref=e66] [cursor=pointer]:
+                  - img [ref=e69]
+              - link "Post" [ref=e73] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e75]
+            - button "Account menu" [ref=e81] [cursor=pointer]:
+              - generic [ref=e89]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Cognito":
+                        - img "Cognito"
+        - main [ref=e92]:
+          - generic "Home timeline" [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e104]:
+                  - button "Back" [ref=e106] [cursor=pointer]:
+                    - img [ref=e108]
+                  - search "Search" [ref=e116]:
+                    - generic [ref=e121]:
+                      - img [ref=e123]
+                      - combobox "Search query" [ref=e128]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                  - button "More" [ref=e130] [cursor=pointer]:
+                    - img [ref=e132]
+                - navigation [ref=e136]:
+                  - generic [ref=e137]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e139]:
+                      - tab "Top" [selected] [ref=e140] [cursor=pointer]:
+                        - generic [ref=e143]: Top
+                      - tab "Latest" [ref=e145] [cursor=pointer]:
+                        - generic [ref=e148]: Latest
+                      - tab "People" [ref=e149] [cursor=pointer]:
+                        - generic [ref=e152]: People
+                      - tab "Media" [ref=e153] [cursor=pointer]:
+                        - generic [ref=e156]: Media
+                      - tab "Lists" [ref=e157] [cursor=pointer]:
+                        - generic [ref=e160]: Lists
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "Search timeline" [ref=e162]:
+              - heading "Search timeline" [level=1] [ref=e163]
+              - 'generic "Timeline: Search timeline" [ref=e164]':
+                - generic [ref=e165]:
+                  - 'article "European Stroke Org @ESOstroke 12 hours ago 🎥 ESO Stroke Simulation Education Committee member Francesco Arba shares why stroke simulation training is essential for improving stroke care. 🔗 Apply for the next Train the Trainer Workshop by 15 July: ow.ly/XPv650ZbLVF #Stroke #SimulationTraining #VoiceOfStroke Embedded video Play Video 1 repost, 3 likes, 383 views" [ref=e338] [cursor=pointer]':
+                    - generic [ref=e344]:
+                      - link [ref=e356]:
+                        - /url: /ESOstroke
+                      - generic [ref=e359]:
+                        - generic [ref=e361]:
+                          - generic [ref=e364]:
+                            - link "European Stroke Org" [ref=e367]:
+                              - /url: /ESOstroke
+                              - generic [ref=e370]: European Stroke Org
+                            - generic [ref=e372]:
+                              - link "@ESOstroke" [ref=e374]:
+                                - /url: /ESOstroke
+                                - generic [ref=e375]: "@ESOstroke"
+                              - generic [ref=e376]: ·
+                              - link "12 hours ago" [ref=e378]:
+                                - /url: /ESOstroke/status/2070114838068486253
+                                - time [ref=e379]: 12h
+                          - generic [ref=e381]:
+                            - button "Grok actions" [ref=e383]:
+                              - img [ref=e388]
+                            - button "More" [ref=e394]:
+                              - img [ref=e398]
+                        - generic [ref=e402]:
+                          - img "🎥" [ref=e403]
+                          - text: ESO Stroke Simulation Education Committee member Francesco Arba shares why stroke simulation training is essential for improving stroke care.
+                          - img "🔗" [ref=e404]
+                          - text: "Apply for the next Train the Trainer Workshop by 15 July:"
+                          - link "ow.ly/XPv650ZbLVF" [ref=e405]:
+                            - /url: https://t.co/ojC7VShiLj
+                          - link "#Stroke" [ref=e407]:
+                            - /url: /hashtag/Stroke?src=hashtag_click
+                          - link "#SimulationTraining" [ref=e409]:
+                            - /url: /hashtag/SimulationTraining?src=hashtag_click
+                          - link "#VoiceOfStroke" [ref=e411]:
+                            - /url: /hashtag/VoiceOfStroke?src=hashtag_click
+                        - generic [ref=e428]:
+                          - generic "Embedded video" [ref=e431]
+                          - button "Play Video" [ref=e438]:
+                            - img [ref=e439]
+                        - group "1 repost, 3 likes, 383 views" [ref=e445]:
+                          - button "0 Replies. Reply" [ref=e447]:
+                            - img [ref=e451]
+                          - button "1 repost. Repost" [ref=e458]:
+                            - generic [ref=e459]:
+                              - img [ref=e462]
+                              - generic [ref=e467]: "1"
+                          - button "3 Likes. Like" [ref=e469]:
+                            - generic [ref=e470]:
+                              - img [ref=e473]
+                              - generic [ref=e478]: "3"
+                          - link "383 views. View post analytics" [ref=e480]:
+                            - /url: /ESOstroke/status/2070114838068486253/analytics
+                            - generic [ref=e481]:
+                              - img [ref=e484]
+                              - generic [ref=e489]: "383"
+                          - button "Bookmark" [ref=e491]:
+                            - img [ref=e495]
+                          - button "Share post" [ref=e500]:
+                            - img [ref=e504]
+                  - article "Dr. D.K. Gupta Verified account @drdkgupta 17 hours ago ब्रेन स्ट्रोक एक मेडिकल इमरजेंसी है, जिसमें समय पर इलाज बेहद महत्वपूर्ण होता है। स्ट्रोक के प्रकार और गंभीरता के आधार पर उपचार किया जाता है। इलाज में मरीज को तुरंत अस्पताल पहुंचाना, शुरुआती घंटों में Clot Buster Medicines देना, जरूरत पड़ने पर Clot Removal Procedure करना, Blood Embedded video 2:35 1 reply, 1 repost, 2 likes, 1 bookmark, 72 views" [ref=e975] [cursor=pointer]:
+                    - generic [ref=e516]:
+                      - link [ref=e528]:
+                        - /url: /drdkgupta
+                      - generic [ref=e531]:
+                        - generic [ref=e533]:
+                          - generic [ref=e536]:
+                            - link "Dr. D.K. Gupta Verified account" [ref=e539]:
+                              - /url: /drdkgupta
+                              - generic [ref=e540]:
+                                - generic [ref=e542]: Dr. D.K. Gupta
+                                - img "Verified account" [ref=e545]
+                            - generic [ref=e549]:
+                              - link "@drdkgupta" [ref=e551]:
+                                - /url: /drdkgupta
+                                - generic [ref=e552]: "@drdkgupta"
+                              - generic [ref=e553]: ·
+                              - link "17 hours ago" [ref=e555]:
+                                - /url: /drdkgupta/status/2070035869550198955
+                                - time [ref=e556]: 17h
+                          - generic [ref=e558]:
+                            - button "Grok actions" [ref=e560]:
+                              - img [ref=e565]
+                            - button "More" [ref=e571]:
+                              - img [ref=e575]
+                        - generic [ref=e578]:
+                          - generic [ref=e579]: ब्रेन स्ट्रोक एक मेडिकल इमरजेंसी है, जिसमें समय पर इलाज बेहद महत्वपूर्ण होता है। स्ट्रोक के प्रकार और गंभीरता के आधार पर उपचार किया जाता है। इलाज में मरीज को तुरंत अस्पताल पहुंचाना, शुरुआती घंटों में Clot Buster Medicines देना, जरूरत पड़ने पर Clot Removal Procedure करना, Blood
+                          - button "Show more" [ref=e580]
+                        - generic [ref=e597]:
+                          - generic "Embedded video" [ref=e600]
+                          - generic [ref=e602]:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic: 2:35
+                        - group "1 reply, 1 repost, 2 likes, 1 bookmark, 72 views" [ref=e609]:
+                          - button "1 Reply. Reply" [ref=e611]:
+                            - generic [ref=e612]:
+                              - img [ref=e615]
+                              - generic [ref=e620]: "1"
+                          - button "1 repost. Repost" [ref=e622]:
+                            - generic [ref=e623]:
+                              - img [ref=e626]
+                              - generic [ref=e631]: "1"
+                          - button "2 Likes. Like" [ref=e633]:
+                            - generic [ref=e634]:
+                              - img [ref=e637]
+                              - generic [ref=e642]: "2"
+                          - link "72 views. View post analytics" [ref=e644]:
+                            - /url: /drdkgupta/status/2070035869550198955/analytics
+                            - generic [ref=e645]:
+                              - img [ref=e648]
+                              - generic [ref=e653]: "72"
+                          - button "Bookmark" [ref=e655]:
+                            - img [ref=e659]
+                          - button "Share post" [ref=e664]:
+                            - img [ref=e668]
+                  - 'article "Neurology Journal @GreenJournal Jan 13 Class II evidence that in patients with #stroke due to anterior circulation tandem lesions, emergent carotid stenting during endovascular thrombectomy (EVT) improves 90-day functional outcomes compared with EVT alone: hubs.ly/Q03-nPPH0 @micheleromoli @ZiniAndrea Image 1 reply, 11 reposts, 21 likes, 13 bookmarks, 1626 views" [ref=e674] [cursor=pointer]':
+                    - generic [ref=e680]:
+                      - link [ref=e692]:
+                        - /url: /GreenJournal
+                      - generic [ref=e695]:
+                        - generic [ref=e697]:
+                          - generic [ref=e700]:
+                            - link "Neurology Journal" [ref=e703]:
+                              - /url: /GreenJournal
+                              - generic [ref=e706]: Neurology Journal
+                            - generic [ref=e708]:
+                              - link "@GreenJournal" [ref=e710]:
+                                - /url: /GreenJournal
+                                - generic [ref=e711]: "@GreenJournal"
+                              - generic [ref=e712]: ·
+                              - link "Jan 13" [ref=e714]:
+                                - /url: /GreenJournal/status/2011088563245371511
+                                - time [ref=e715]: Jan 13
+                          - generic [ref=e717]:
+                            - button "Grok actions" [ref=e719]:
+                              - img [ref=e724]
+                            - button "More" [ref=e730]:
+                              - img [ref=e734]
+                        - generic [ref=e738]:
+                          - text: Class II evidence that in patients with
+                          - link "#stroke" [ref=e740]:
+                            - /url: /hashtag/stroke?src=hashtag_click
+                          - text: "due to anterior circulation tandem lesions, emergent carotid stenting during endovascular thrombectomy (EVT) improves 90-day functional outcomes compared with EVT alone:"
+                          - link "hubs.ly/Q03-nPPH0" [ref=e741]:
+                            - /url: https://t.co/jyRJ5kIMAp
+                          - link "@micheleromoli" [ref=e744]:
+                            - /url: /micheleromoli
+                          - link "@ZiniAndrea" [ref=e747]:
+                            - /url: /ZiniAndrea
+                        - link "Image" [ref=e755]:
+                          - /url: /GreenJournal/status/2011088563245371511/photo/1
+                          - generic "Image" [ref=e759]:
+                            - img "Image" [ref=e761]
+                        - group "1 reply, 11 reposts, 21 likes, 13 bookmarks, 1626 views" [ref=e764]:
+                          - button "1 Reply. Reply" [ref=e766]:
+                            - generic [ref=e767]:
+                              - img [ref=e770]
+                              - generic [ref=e775]: "1"
+                          - button "11 reposts. Repost" [ref=e777]:
+                            - generic [ref=e778]:
+                              - img [ref=e781]
+                              - generic [ref=e786]: "11"
+                          - button "21 Likes. Like" [ref=e788]:
+                            - generic [ref=e789]:
+                              - img [ref=e792]
+                              - generic [ref=e797]: "21"
+                          - link "1626 views. View post analytics" [ref=e799]:
+                            - /url: /GreenJournal/status/2011088563245371511/analytics
+                            - generic [ref=e800]:
+                              - img [ref=e803]
+                              - generic [ref=e808]: 1.6K
+                          - button "Bookmark" [ref=e810]:
+                            - img [ref=e814]
+                          - button "Share post" [ref=e819]:
+                            - img [ref=e823]
+                  - 'article "Neurology Journal @GreenJournal Aug 14, 2025 This meta-analysis indicates that switching to warfarin after a #stroke while on direct oral anticoagulants (DOACs) seems less effective and safe in stroke recurrence prevention, intracranial hemorrhage, and mortality compared with DOAC-based strategies: hubs.la/Q03CfBQk0 Image 1 reply, 16 reposts, 40 likes, 10 bookmarks, 3207 views" [ref=e829] [cursor=pointer]':
+                    - generic [ref=e835]:
+                      - link [ref=e847]:
+                        - /url: /GreenJournal
+                      - generic [ref=e850]:
+                        - generic [ref=e852]:
+                          - generic [ref=e855]:
+                            - link "Neurology Journal" [ref=e858]:
+                              - /url: /GreenJournal
+                              - generic [ref=e861]: Neurology Journal
+                            - generic [ref=e863]:
+                              - link "@GreenJournal" [ref=e865]:
+                                - /url: /GreenJournal
+                                - generic [ref=e866]: "@GreenJournal"
+                              - generic [ref=e867]: ·
+                              - link "Aug 14, 2025" [ref=e869]:
+                                - /url: /GreenJournal/status/1955765782186496311
+                                - time [ref=e870]: Aug 14, 2025
+                          - generic [ref=e872]:
+                            - button "Grok actions" [ref=e874]:
+                              - img [ref=e879]
+                            - button "More" [ref=e885]:
+                              - img [ref=e889]
+                        - generic [ref=e893]:
+                          - text: This meta-analysis indicates that switching to warfarin after a
+                          - link "#stroke" [ref=e895]:
+                            - /url: /hashtag/stroke?src=hashtag_click
+                          - text: "while on direct oral anticoagulants (DOACs) seems less effective and safe in stroke recurrence prevention, intracranial hemorrhage, and mortality compared with DOAC-based strategies:"
+                          - link "hubs.la/Q03CfBQk0" [ref=e896]:
+                            - /url: https://t.co/tsaWNiFhCy
+                        - link "Image" [ref=e904]:
+                          - /url: /GreenJournal/status/1955765782186496311/photo/1
+                          - generic "Image" [ref=e908]:
+                            - img "Image" [ref=e910]
+                        - group "1 reply, 16 reposts, 40 likes, 10 bookmarks, 3207 views" [ref=e913]:
+                          - button "1 Reply. Reply" [ref=e915]:
+                            - generic [ref=e916]:
+                              - img [ref=e919]
+                              - generic [ref=e924]: "1"
+                          - button "16 reposts. Repost" [ref=e926]:
+                            - generic [ref=e927]:
+                              - img [ref=e930]
+                              - generic [ref=e935]: "16"
+                          - button "40 Likes. Like" [ref=e937]:
+                            - generic [ref=e938]:
+                              - img [ref=e941]
+                              - generic [ref=e946]: "40"
+                          - link "3207 views. View post analytics" [ref=e948]:
+                            - /url: /GreenJournal/status/1955765782186496311/analytics
+                            - generic [ref=e949]:
+                              - img [ref=e952]
+                              - generic [ref=e957]: 3.2K
+                          - button "Bookmark" [ref=e959]:
+                            - img [ref=e963]
+                          - button "Share post" [ref=e968]:
+                            - img [ref=e972]

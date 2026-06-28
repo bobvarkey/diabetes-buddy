@@ -6,7 +6,7 @@ from datetime import datetime
 from pathlib import Path
 
 # Parse posts from snapshot text
-def parse_posts_from_snapshot(snapshot_text):
+def parse_posts_from_snapshot(snapshot_text, search_query):
     posts = []
     # Split by article tags
     article_pattern = r'article "([^"]+)"'
@@ -58,6 +58,7 @@ def parse_posts_from_snapshot(snapshot_text):
             post['url'] = f"https://x.com/{url_match.group(1)}/status/{url_match.group(2)}"
         
         if post.get('author') and post.get('text'):
+            post['search_query'] = search_query
             posts.append(post)
     
     return posts
@@ -105,7 +106,7 @@ def save_to_db(posts, db_path):
                 post.get('bookmarks', 0),
                 post.get('views', '0'),
                 post.get('url', ''),
-                'neurointervention OR thrombectomy OR #Neurointervention OR #stroke'
+                post.get('search_query', '')
             ))
             if cursor.rowcount > 0:
                 inserted += 1
@@ -120,11 +121,12 @@ def save_to_db(posts, db_path):
 if __name__ == "__main__":
     import sys
     
-    if len(sys.argv) < 2:
-        print("Usage: python parse_x_posts.py <snapshot_file>")
+    if len(sys.argv) < 3:
+        print("Usage: python parse_x_posts.py <snapshot_file> <search_query>")
         sys.exit(1)
     
     snapshot_file = sys.argv[1]
+    search_query = sys.argv[2]
     db_path = Path.home() / ".openclaw" / "workspace" / "memory_x_posts.db"
     
     # Read snapshot
@@ -132,7 +134,7 @@ if __name__ == "__main__":
         snapshot_text = f.read()
     
     # Parse posts
-    posts = parse_posts_from_snapshot(snapshot_text)
+    posts = parse_posts_from_snapshot(snapshot_text, search_query)
     print(f"Parsed {len(posts)} posts from snapshot")
     
     # Save to database

@@ -1393,3 +1393,58 @@ Top Movers:
   Gainers: TORNTPHARM.BSE:+1.3%, POWERGRID.BSE:+0.8%, ADANIPOWER.BSE:+-0.3%
   Losers: COALINDIA.BSE:-1.1%, NTPC.BSE:-0.6%, ONGC.BSE:-0.4%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ BAJAJ-AUTO: ₹9749.35 (-2.66%)
+  ✅ HEROMOTOCO: ₹4896.70 (-1.51%)
+  ⚠️ EICHERMOT: Failed
+  ✅ POWERGRID: ₹290.80 (-0.50%)
+  ✅ APOLLOHOSP: ₹8573.50 (+1.01%)
+  ✅ ONGC: ₹240.05 (-1.80%)
+  ✅ COALINDIA: ₹441.75 (-0.48%)
+  ⚠️ NTPC: Failed
+  ✅ SUNPHARMA: ₹1874.70 (+0.37%)
+  ⚠️ DRREDDY: Failed
+
+=======================================================
+MARKET SCAN - 2026-06-25 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 7 stocks | Opportunities: 5
+
+WATCH (30-50):
+  BAJAJ-AUTO.BSE ₹9749.35 (-2.66%) | 35
+  ONGC.BSE ₹240.05 (-1.80%) | 35
+
+Top Movers:
+  Gainers: APOLLOHOSP.BSE:+1.0%, SUNPHARMA.BSE:+0.4%, COALINDIA.BSE:+-0.5%
+  Losers: BAJAJ-AUTO.BSE:-2.7%, ONGC.BSE:-1.8%, HEROMOTOCO.BSE:-1.5%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ APOLLOHOSP: ₹8593.25 (+0.23%)
+  ✅ TCS: ₹2095.60 (-0.62%)
+  ✅ INFY: ₹1041.40 (-0.99%)
+  ⚠️ ICICIBANK: Failed
+  ✅ SBIN: ₹1045.15 (+1.01%)
+  ✅ RELIANCE: ₹1318.25 (+0.35%)
+  ✅ HDFCBANK: ₹796.05 (+0.37%)
+  ⚠️ TITAN: Failed
+  ✅ MFSL: ₹1613.15 (-2.98%)
+  ✅ EICHERMOT: ₹7597.90 (+0.34%)
+
+=======================================================
+MARKET SCAN - 2026-06-26 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 8 stocks | Opportunities: 5
+
+WATCH (30-50):
+  MFSL.BSE ₹1613.15 (-2.98%) | 45
+
+Top Movers:
+  Gainers: SBIN.BSE:+1.0%, HDFCBANK.BSE:+0.4%, RELIANCE.BSE:+0.3%
+  Losers: MFSL.BSE:-3.0%, INFY.BSE:-1.0%, TCS.BSE:-0.6%
+=======================================================

@@ -1,0 +1,352 @@
+---
+topic: daily
+date: 2026-06-27
+tags: []
+---
+
+# Snapshot2
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - img [ref=e39]
+                - link "Follow" [ref=e42] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e45]
+                - link "Direct Messages" [ref=e48] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e51]
+                - link "Grok" [ref=e54] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e57]
+                - link "Profile" [ref=e60] [cursor=pointer]:
+                  - /url: /Cognito2026
+                  - img [ref=e63]
+                - button "More menu items" [ref=e66] [cursor=pointer]:
+                  - img [ref=e69]
+              - link "Post" [ref=e73] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e75]
+            - button "Account menu" [ref=e81] [cursor=pointer]:
+              - generic [ref=e89]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Cognito":
+                        - img "Cognito"
+        - main [ref=e92]:
+          - generic "Home timeline" [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e104]:
+                  - button "Back" [ref=e106] [cursor=pointer]:
+                    - img [ref=e108]
+                  - search "Search" [ref=e116]:
+                    - generic [ref=e121]:
+                      - img [ref=e123]
+                      - combobox "Search query" [ref=e128]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                  - button "More" [ref=e130] [cursor=pointer]:
+                    - img [ref=e132]
+                - navigation [ref=e136]:
+                  - generic [ref=e137]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e139]:
+                      - tab "Top" [selected] [ref=e140] [cursor=pointer]:
+                        - generic [ref=e143]: Top
+                      - tab "Latest" [ref=e145] [cursor=pointer]:
+                        - generic [ref=e148]: Latest
+                      - tab "People" [ref=e149] [cursor=pointer]:
+                        - generic [ref=e152]: People
+                      - tab "Media" [ref=e153] [cursor=pointer]:
+                        - generic [ref=e156]: Media
+                      - tab "Lists" [ref=e157] [cursor=pointer]:
+                        - generic [ref=e160]: Lists
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "Search timeline" [ref=e162]:
+              - heading "Search timeline" [level=1] [ref=e163]
+              - 'generic "Timeline: Search timeline" [ref=e164]':
+                - generic [ref=e165]:
+                  - 'article "Neurology Journal @GreenJournal Oct 27, 2023 According to this study, neuroimaging markers hold prognostic value in the identification of patients with #stroke who are at an increased risk of persistent poststroke cognitive impairment. Learn more: bit.ly/476FbJ6 #NeuroTwitter Image 22 reposts, 60 likes, 14 bookmarks, 9472 views" [ref=e979] [cursor=pointer]':
+                    - generic [ref=e985]:
+                      - link [ref=e997]:
+                        - /url: /GreenJournal
+                      - generic [ref=e1000]:
+                        - generic [ref=e1002]:
+                          - generic [ref=e1005]:
+                            - link "Neurology Journal" [ref=e1008]:
+                              - /url: /GreenJournal
+                              - generic [ref=e1011]: Neurology Journal
+                            - generic [ref=e1013]:
+                              - link "@GreenJournal" [ref=e1015]:
+                                - /url: /GreenJournal
+                                - generic [ref=e1016]: "@GreenJournal"
+                              - generic [ref=e1017]: ·
+                              - link "Oct 27, 2023" [ref=e1019]:
+                                - /url: /GreenJournal/status/1717653603689656829
+                                - time [ref=e1020]: Oct 27, 2023
+                          - generic [ref=e1022]:
+                            - button "Grok actions" [ref=e1024]:
+                              - img [ref=e1029]
+                            - button "More" [ref=e1035]:
+                              - img [ref=e1039]
+                        - generic [ref=e1043]:
+                          - text: According to this study, neuroimaging markers hold prognostic value in the identification of patients with
+                          - link "#stroke" [ref=e1045]:
+                            - /url: /hashtag/stroke?src=hashtag_click
+                          - text: "who are at an increased risk of persistent poststroke cognitive impairment. Learn more:"
+                          - link "bit.ly/476FbJ6" [ref=e1046]:
+                            - /url: https://t.co/Yjna4JTHxj
+                          - link "#NeuroTwitter" [ref=e1048]:
+                            - /url: /hashtag/NeuroTwitter?src=hashtag_click
+                        - link "Image" [ref=e1056]:
+                          - /url: /GreenJournal/status/1717653603689656829/photo/1
+                          - generic "Image" [ref=e1060]:
+                            - img "Image" [ref=e1062]
+                        - group "22 reposts, 60 likes, 14 bookmarks, 9472 views" [ref=e1065]:
+                          - button "0 Replies. Reply" [ref=e1067]:
+                            - img [ref=e1071]
+                          - button "22 reposts. Repost" [ref=e1078]:
+                            - generic [ref=e1079]:
+                              - img [ref=e1082]
+                              - generic [ref=e1087]: "22"
+                          - button "60 Likes. Like" [ref=e1089]:
+                            - generic [ref=e1090]:
+                              - img [ref=e1093]
+                              - generic [ref=e1098]: "60"
+                          - link "9472 views. View post analytics" [ref=e1100]:
+                            - /url: /GreenJournal/status/1717653603689656829/analytics
+                            - generic [ref=e1101]:
+                              - img [ref=e1104]
+                              - generic [ref=e1109]: 9.4K
+                          - button "Bookmark" [ref=e1111]:
+                            - img [ref=e1115]
+                          - button "Share post" [ref=e1120]:
+                            - img [ref=e1124]
+                  - 'article "Neurology Journal @GreenJournal Jun 10, 2023 #CME Opportunity: Analyses of Head-Impulse Tests in Patients With Posterior Circulation #Stroke and Vestibular Neuritis Read the article then click the \"CME Course\" tab to begin: bit.ly/3NfPWBO Image 1 repost, 19 likes, 3 bookmarks, 5918 views" [ref=e1130] [cursor=pointer]':
+                    - generic [ref=e1136]:
+                      - link [ref=e1148]:
+                        - /url: /GreenJournal
+                      - generic [ref=e1151]:
+                        - generic [ref=e1153]:
+                          - generic [ref=e1156]:
+                            - link "Neurology Journal" [ref=e1159]:
+                              - /url: /GreenJournal
+                              - generic [ref=e1162]: Neurology Journal
+                            - generic [ref=e1164]:
+                              - link "@GreenJournal" [ref=e1166]:
+                                - /url: /GreenJournal
+                                - generic [ref=e1167]: "@GreenJournal"
+                              - generic [ref=e1168]: ·
+                              - link "Jun 10, 2023" [ref=e1170]:
+                                - /url: /GreenJournal/status/1667320720618135558
+                                - time [ref=e1171]: Jun 10, 2023
+                          - generic [ref=e1173]:
+                            - button "Grok actions" [ref=e1175]:
+                              - img [ref=e1180]
+                            - button "More" [ref=e1186]:
+                              - img [ref=e1190]
+                        - generic [ref=e1194]:
+                          - link "#CME" [ref=e1196]:
+                            - /url: /hashtag/CME?src=hashtag_click
+                          - text: "Opportunity: Analyses of Head-Impulse Tests in Patients With Posterior Circulation"
+                          - link "#Stroke" [ref=e1198]:
+                            - /url: /hashtag/Stroke?src=hashtag_click
+                          - text: "and Vestibular Neuritis Read the article then click the \"CME Course\" tab to begin:"
+                          - link "bit.ly/3NfPWBO" [ref=e1199]:
+                            - /url: https://t.co/6yndBDDZwV
+                        - link "Image" [ref=e1207]:
+                          - /url: /GreenJournal/status/1667320720618135558/photo/1
+                          - generic "Image" [ref=e1211]:
+                            - img "Image" [ref=e1213]
+                        - group "1 repost, 19 likes, 3 bookmarks, 5918 views" [ref=e1216]:
+                          - button "0 Replies. Reply" [ref=e1218]:
+                            - img [ref=e1222]
+                          - button "1 repost. Repost" [ref=e1229]:
+                            - generic [ref=e1230]:
+                              - img [ref=e1233]
+                              - generic [ref=e1238]: "1"
+                          - button "19 Likes. Like" [ref=e1240]:
+                            - generic [ref=e1241]:
+                              - img [ref=e1244]
+                              - generic [ref=e1249]: "19"
+                          - link "5918 views. View post analytics" [ref=e1251]:
+                            - /url: /GreenJournal/status/1667320720618135558/analytics
+                            - generic [ref=e1252]:
+                              - img [ref=e1255]
+                              - generic [ref=e1260]: 5.9K
+                          - button "Bookmark" [ref=e1262]:
+                            - img [ref=e1266]
+                          - button "Share post" [ref=e1271]:
+                            - img [ref=e1275]
+                  - 'article "Neurology Journal @GreenJournal May 26, 2024 This study used data from nationwide prospective #stroke cohorts to develop and validate a prognostic score to predict the poor outcome for patients with posterior circulation ischemic stroke: bit.ly/3yw9cGi Image 1 reply, 5 reposts, 28 likes, 3 bookmarks, 4959 views" [ref=e1281] [cursor=pointer]':
+                    - generic [ref=e1287]:
+                      - link [ref=e1299]:
+                        - /url: /GreenJournal
+                      - generic [ref=e1302]:
+                        - generic [ref=e1304]:
+                          - generic [ref=e1307]:
+                            - link "Neurology Journal" [ref=e1310]:
+                              - /url: /GreenJournal
+                              - generic [ref=e1313]: Neurology Journal
+                            - generic [ref=e1315]:
+                              - link "@GreenJournal" [ref=e1317]:
+                                - /url: /GreenJournal
+                                - generic [ref=e1318]: "@GreenJournal"
+                              - generic [ref=e1319]: ·
+                              - link "May 26, 2024" [ref=e1321]:
+                                - /url: /GreenJournal/status/1794579736284275033
+                                - time [ref=e1322]: May 26, 2024
+                          - generic [ref=e1324]:
+                            - button "Grok actions" [ref=e1326]:
+                              - img [ref=e1331]
+                            - button "More" [ref=e1337]:
+                              - img [ref=e1341]
+                        - generic [ref=e1345]:
+                          - text: This study used data from nationwide prospective
+                          - link "#stroke" [ref=e1347]:
+                            - /url: /hashtag/stroke?src=hashtag_click
+                          - text: "cohorts to develop and validate a prognostic score to predict the poor outcome for patients with posterior circulation ischemic stroke:"
+                          - link "bit.ly/3yw9cGi" [ref=e1348]:
+                            - /url: https://t.co/IJUHuA1cLr
+                        - link "Image" [ref=e1356]:
+                          - /url: /GreenJournal/status/1794579736284275033/photo/1
+                          - generic "Image" [ref=e1360]:
+                            - img "Image" [ref=e1362]
+                        - group "1 reply, 5 reposts, 28 likes, 3 bookmarks, 4959 views" [ref=e1365]:
+                          - button "1 Reply. Reply" [ref=e1367]:
+                            - generic [ref=e1368]:
+                              - img [ref=e1371]
+                              - generic [ref=e1376]: "1"
+                          - button "5 reposts. Repost" [ref=e1378]:
+                            - generic [ref=e1379]:
+                              - img [ref=e1382]
+                              - generic [ref=e1387]: "5"
+                          - button "28 Likes. Like" [ref=e1389]:
+                            - generic [ref=e1390]:
+                              - img [ref=e1393]
+                              - generic [ref=e1398]: "28"
+                          - link "4959 views. View post analytics" [ref=e1400]:
+                            - /url: /GreenJournal/status/1794579736284275033/analytics
+                            - generic [ref=e1401]:
+                              - img [ref=e1404]
+                              - generic [ref=e1409]: 4.9K
+                          - button "Bookmark" [ref=e1411]:
+                            - img [ref=e1415]
+                          - button "Share post" [ref=e1420]:
+                            - img [ref=e1424]
+                  - 'article "Science Magazine Verified account @ScienceMagazine Jun 22 Using chlorpromazine and promethazine to induce #hypothermia, researchers find they can lower metabolism and body temperature to protect large animals from #stroke—and show the combo is safe in a phase one clinical trial. @ScienceTM scim.ag/4oBR4AU Image 5 replies, 19 reposts, 64 likes, 12 bookmarks, 21375 views" [ref=e1430] [cursor=pointer]':
+                    - generic [ref=e1436]:
+                      - link [ref=e1448]:
+                        - /url: /ScienceMagazine
+                      - generic [ref=e1451]:
+                        - generic [ref=e1453]:
+                          - generic [ref=e1456]:
+                            - link "Science Magazine Verified account" [ref=e1459]:
+                              - /url: /ScienceMagazine
+                              - generic [ref=e1460]:
+                                - generic [ref=e1462]: Science Magazine
+                                - img "Verified account" [ref=e1465]
+                            - generic [ref=e1469]:
+                              - link "@ScienceMagazine" [ref=e1471]:
+                                - /url: /ScienceMagazine
+                                - generic [ref=e1472]: "@ScienceMagazine"
+                              - generic [ref=e1473]: ·
+                              - link "Jun 22" [ref=e1475]:
+                                - /url: /ScienceMagazine/status/2069118308679381210
+                                - time [ref=e1476]: Jun 22
+                          - generic [ref=e1478]:
+                            - button "Grok actions" [ref=e1480]:
+                              - img [ref=e1485]
+                            - button "More" [ref=e1491]:
+                              - img [ref=e1495]
+                        - generic [ref=e1499]:
+                          - text: Using chlorpromazine and promethazine to induce
+                          - link "#hypothermia" [ref=e1501]:
+                            - /url: /hashtag/hypothermia?src=hashtag_click
+                          - text: ", researchers find they can lower metabolism and body temperature to protect large animals from"
+                          - link "#stroke" [ref=e1503]:
+                            - /url: /hashtag/stroke?src=hashtag_click
+                          - text: —and show the combo is safe in a phase one clinical trial.
+                          - link "@ScienceTM" [ref=e1506]:
+                            - /url: /ScienceTM
+                          - link "scim.ag/4oBR4AU" [ref=e1507]:
+                            - /url: https://t.co/QSk09RZnLo
+                        - link "Image" [ref=e1515]:
+                          - /url: /ScienceMagazine/status/2069118308679381210/photo/1
+                          - generic "Image" [ref=e1519]:
+                            - img "Image" [ref=e1521]
+                        - group "5 replies, 19 reposts, 64 likes, 12 bookmarks, 21375 views" [ref=e1524]:
+                          - button "5 Replies. Reply" [ref=e1526]:
+                            - generic [ref=e1527]:
+                              - img [ref=e1530]
+                              - generic [ref=e1535]: "5"
+                          - button "19 reposts. Repost" [ref=e1537]:
+                            - generic [ref=e1538]:
+                              - img [ref=e1541]
+                              - generic [ref=e1546]: "19"
+                          - button "64 Likes. Like" [ref=e1548]:
+                            - generic [ref=e1549]:
+                              - img [ref=e1552]
+                              - generic [ref=e1557]: "64"
+                          - link "21375 views. View post analytics" [ref=e1559]:
+                            - /url: /ScienceMagazine/status/2069118308679381210/analytics
+                            - generic [ref=e1560]:
+                              - img [ref=e1563]
+                              - generic [ref=e1568]: 21K
+                          - button "Bookmark" [ref=e1570]:
+                            - img [ref=e1574]
+                          - button "Share post" [ref=e1579]:
+                            - img [ref=e1583]
