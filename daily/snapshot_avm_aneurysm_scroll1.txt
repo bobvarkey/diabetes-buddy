@@ -1,0 +1,374 @@
+---
+topic: daily
+date: 2026-07-04
+tags: []
+---
+
+# Snapshot Avm Aneurysm Scroll1
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications (21 unread notifications)" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - generic [ref=e38]:
+                    - img [ref=e39]
+                    - generic "20+ unread items" [ref=e42]:
+                      - generic [ref=e43]: 20+
+                - link "Follow" [ref=e44] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e47]
+                - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e53]
+                - link "Grok" [ref=e56] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e59]
+                - link "Profile" [ref=e62] [cursor=pointer]:
+                  - /url: /Cognito2026
+                  - img [ref=e65]
+                - button "More menu items" [ref=e68] [cursor=pointer]:
+                  - img [ref=e71]
+              - link "Post" [ref=e75] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e77]
+            - button "Account menu" [ref=e83] [cursor=pointer]:
+              - generic [ref=e91]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Cognito":
+                        - img "Cognito"
+        - main [ref=e94]:
+          - generic "Home timeline" [ref=e99]:
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e106]:
+                  - button "Back" [ref=e108] [cursor=pointer]:
+                    - img [ref=e110]
+                  - search "Search" [ref=e118]:
+                    - generic [ref=e123]:
+                      - img [ref=e125]
+                      - combobox "Search query" [ref=e130]: cerebral AVM OR intracranial aneurysm OR endovascular
+                  - button "More" [ref=e132] [cursor=pointer]:
+                    - img [ref=e134]
+                - navigation [ref=e138]:
+                  - generic [ref=e139]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e141]:
+                      - tab "Top" [ref=e142] [cursor=pointer]:
+                        - generic [ref=e145]: Top
+                      - tab "Latest" [active] [selected] [ref=e147] [cursor=pointer]:
+                        - generic [ref=e150]: Latest
+                      - tab "People" [ref=e151] [cursor=pointer]:
+                        - generic [ref=e154]: People
+                      - tab "Media" [ref=e155] [cursor=pointer]:
+                        - generic [ref=e158]: Media
+                      - tab "Lists" [ref=e159] [cursor=pointer]:
+                        - generic [ref=e162]: Lists
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "Search timeline" [ref=e465]:
+              - heading "Search timeline" [level=1] [ref=e466]
+              - 'generic "Timeline: Search timeline" [ref=e467]':
+                - generic [ref=e468]:
+                  - 'article "JNET Followers @JnetFollowers 13 hours ago Review on endovascular therapy for intracranial atherosclerotic stenosis (ICAS). While medical management is first-line, evolving strategies like submaximal angioplasty (BASIS trial), drug-eluting devices, and specific patient selection renew interest. Quote JNET(Journal of Neuroendovascular Therapy) Verified account @JNETjournal Jul 2 Just Published Endovascular Therapy for Intracranial Atherosclerotic Stenosis: Evidence and Controversies doi.org/10.5797/jnet.r #Neuroendovascular Image 6 reposts, 5 likes, 279 views" [ref=e796] [cursor=pointer]':
+                    - generic [ref=e802]:
+                      - link [ref=e814]:
+                        - /url: /JnetFollowers
+                      - generic [ref=e817]:
+                        - generic [ref=e819]:
+                          - generic [ref=e822]:
+                            - link "JNET Followers" [ref=e825]:
+                              - /url: /JnetFollowers
+                              - generic [ref=e828]: JNET Followers
+                            - generic [ref=e830]:
+                              - link "@JnetFollowers" [ref=e832]:
+                                - /url: /JnetFollowers
+                                - generic [ref=e833]: "@JnetFollowers"
+                              - generic [ref=e834]: ·
+                              - link "13 hours ago" [ref=e836]:
+                                - /url: /JnetFollowers/status/2072823550030004602
+                                - time [ref=e837]: 13h
+                          - generic [ref=e839]:
+                            - button "Grok actions" [ref=e841]:
+                              - img [ref=e846]
+                            - button "More" [ref=e852]:
+                              - img [ref=e856]
+                        - generic [ref=e860]: Review on endovascular therapy for intracranial atherosclerotic stenosis (ICAS). While medical management is first-line, evolving strategies like submaximal angioplasty (BASIS trial), drug-eluting devices, and specific patient selection renew interest.
+                        - 'generic "Quote JNET(Journal of Neuroendovascular Therapy) Verified account @JNETjournal Jul 2 Just Published Endovascular Therapy for Intracranial Atherosclerotic Stenosis: Evidence and Controversies doi.org/10.5797/jnet.r #Neuroendovascular Image" [ref=e861]':
+                          - generic [ref=e862]:
+                            - generic [ref=e863]: Quote
+                            - 'link "JNET(Journal of Neuroendovascular Therapy) Verified account @JNETjournal Jul 2 Just Published Endovascular Therapy for Intracranial Atherosclerotic Stenosis: Evidence and Controversies doi.org/10.5797/jnet.r #Neuroendovascular Image" [ref=e864]':
+                              - generic [ref=e865]:
+                                - generic [ref=e883]:
+                                  - generic [ref=e887]:
+                                    - generic [ref=e889]: JNET(Journal of Neuroendovascular Therapy)
+                                    - img "Verified account" [ref=e892]
+                                  - generic [ref=e896]:
+                                    - generic [ref=e899]: "@JNETjournal"
+                                    - generic [ref=e900]: ·
+                                    - generic "Jul 2" [ref=e903]:
+                                      - time [ref=e904]: Jul 2
+                                - generic [ref=e906]:
+                                  - text: "Just Published Endovascular Therapy for Intracranial Atherosclerotic Stenosis: Evidence and Controversies"
+                                  - generic [ref=e907]: doi.org/10.5797/jnet.r …
+                                  - generic [ref=e908]: "#Neuroendovascular"
+                                - link "Image" [ref=e914]:
+                                  - /url: /JNETjournal/status/2072537690541810064/photo/1
+                                  - generic "Image" [ref=e918]:
+                                    - img "Image" [ref=e920]
+                        - group "6 reposts, 5 likes, 279 views" [ref=e923]:
+                          - button "0 Replies. Reply" [ref=e925]:
+                            - img [ref=e929]
+                          - button "6 reposts. Repost" [ref=e936]:
+                            - generic [ref=e937]:
+                              - img [ref=e940]
+                              - generic [ref=e945]: "6"
+                          - button "5 Likes. Like" [ref=e947]:
+                            - generic [ref=e948]:
+                              - img [ref=e951]
+                              - generic [ref=e956]: "5"
+                          - link "279 views. View post analytics" [ref=e958]:
+                            - /url: /JnetFollowers/status/2072823550030004602/analytics
+                            - generic [ref=e959]:
+                              - img [ref=e962]
+                              - generic [ref=e967]: "279"
+                          - button "Bookmark" [ref=e969]:
+                            - img [ref=e973]
+                          - button "Share post" [ref=e978]:
+                            - img [ref=e982]
+                  - 'article "CardioVisual: Powered by MedicalVisual @CardioVisualApp 15 hours ago How do you think claude performed? Continue learning about Cardiovascular Diseases, management, emerging endovascular technologies, and the latest trial data exclusively on the MedicalVisual Clinician Hub. Visit hcp.medicalvisual.com! Image Image Image Image 1 like, 1 bookmark, 92 views" [ref=e988] [cursor=pointer]':
+                    - generic [ref=e994]:
+                      - link [ref=e1006]:
+                        - /url: /CardioVisualApp
+                      - generic [ref=e1009]:
+                        - generic [ref=e1011]:
+                          - generic [ref=e1014]:
+                            - 'link "CardioVisual: Powered by MedicalVisual" [ref=e1017]':
+                              - /url: /CardioVisualApp
+                              - generic [ref=e1020]: "CardioVisual: Powered by MedicalVisual"
+                            - generic [ref=e1022]:
+                              - link "@CardioVisualApp" [ref=e1024]:
+                                - /url: /CardioVisualApp
+                                - generic [ref=e1025]: "@CardioVisualApp"
+                              - generic [ref=e1026]: ·
+                              - link "15 hours ago" [ref=e1028]:
+                                - /url: /CardioVisualApp/status/2072791772854661390
+                                - time [ref=e1029]: 15h
+                          - generic [ref=e1031]:
+                            - button "Grok actions" [ref=e1033]:
+                              - img [ref=e1038]
+                            - button "More" [ref=e1044]:
+                              - img [ref=e1048]
+                        - generic [ref=e1052]:
+                          - text: How do you think claude performed? Continue learning about Cardiovascular Diseases, management, emerging endovascular technologies, and the latest trial data exclusively on the MedicalVisual Clinician Hub. Visit
+                          - link "hcp.medicalvisual.com" [ref=e1053]:
+                            - /url: https://t.co/c0KRzVwKm3
+                          - text: "!"
+                        - generic [ref=e1062]:
+                          - generic [ref=e1063]:
+                            - link "Image" [ref=e1066]:
+                              - /url: /CardioVisualApp/status/2072791772854661390/photo/1
+                              - generic "Image" [ref=e1068]:
+                                - img "Image" [ref=e1070]
+                            - link "Image" [ref=e1073]:
+                              - /url: /CardioVisualApp/status/2072791772854661390/photo/2
+                              - generic "Image" [ref=e1075]:
+                                - img "Image" [ref=e1077]
+                          - generic [ref=e1078]:
+                            - link "Image" [ref=e1081]:
+                              - /url: /CardioVisualApp/status/2072791772854661390/photo/3
+                              - generic "Image" [ref=e1083]:
+                                - img "Image" [ref=e1085]
+                            - link "Image" [ref=e1088]:
+                              - /url: /CardioVisualApp/status/2072791772854661390/photo/4
+                              - generic "Image" [ref=e1090]:
+                                - img "Image" [ref=e1092]
+                        - group "1 like, 1 bookmark, 92 views" [ref=e1095]:
+                          - button "0 Replies. Reply" [ref=e1097]:
+                            - img [ref=e1101]
+                          - button "0 reposts. Repost" [ref=e1108]:
+                            - img [ref=e1112]
+                          - button "1 Like. Like" [ref=e1119]:
+                            - generic [ref=e1120]:
+                              - img [ref=e1123]
+                              - generic [ref=e1128]: "1"
+                          - link "92 views. View post analytics" [ref=e1130]:
+                            - /url: /CardioVisualApp/status/2072791772854661390/analytics
+                            - generic [ref=e1131]:
+                              - img [ref=e1134]
+                              - generic [ref=e1139]: "92"
+                          - button "Bookmark" [ref=e1141]:
+                            - img [ref=e1145]
+                          - button "Share post" [ref=e1150]:
+                            - img [ref=e1154]
+                  - 'article "Michael T. Lawton, MD Verified account @mtlawton 18 hours ago Thoughts leaving 3C: Endovascular tech empowers more interventionalists to treat vascular pathologies, which means more patient access. But it’s ok to operate when surgery is better or has equipoise. I show operative videos not only to teach surgery, but also to show that it’s Image Image Image Image 1 reply, 1 repost, 22 likes, 1518 views" [ref=e1160] [cursor=pointer]':
+                    - generic [ref=e1166]:
+                      - link [ref=e1178]:
+                        - /url: /mtlawton
+                      - generic [ref=e1181]:
+                        - generic [ref=e1183]:
+                          - generic [ref=e1186]:
+                            - link "Michael T. Lawton, MD Verified account" [ref=e1189]:
+                              - /url: /mtlawton
+                              - generic [ref=e1190]:
+                                - generic [ref=e1192]: Michael T. Lawton, MD
+                                - img "Verified account" [ref=e1195]
+                            - generic [ref=e1199]:
+                              - link "@mtlawton" [ref=e1201]:
+                                - /url: /mtlawton
+                                - generic [ref=e1202]: "@mtlawton"
+                              - generic [ref=e1203]: ·
+                              - link "18 hours ago" [ref=e1205]:
+                                - /url: /mtlawton/status/2072740649288565159
+                                - time [ref=e1206]: 18h
+                          - generic [ref=e1208]:
+                            - button "Grok actions" [ref=e1210]:
+                              - img [ref=e1215]
+                            - button "More" [ref=e1221]:
+                              - img [ref=e1225]
+                        - generic [ref=e1228]:
+                          - generic [ref=e1229]: "Thoughts leaving 3C: Endovascular tech empowers more interventionalists to treat vascular pathologies, which means more patient access. But it’s ok to operate when surgery is better or has equipoise. I show operative videos not only to teach surgery, but also to show that it’s"
+                          - button "Show more" [ref=e1230]
+                        - generic [ref=e1239]:
+                          - generic [ref=e1240]:
+                            - link "Image" [ref=e1243]:
+                              - /url: /mtlawton/status/2072740649288565159/photo/1
+                              - generic "Image" [ref=e1245]:
+                                - img "Image" [ref=e1247]
+                            - link "Image" [ref=e1250]:
+                              - /url: /mtlawton/status/2072740649288565159/photo/2
+                              - generic "Image" [ref=e1252]:
+                                - img "Image" [ref=e1254]
+                          - generic [ref=e1255]:
+                            - link "Image" [ref=e1258]:
+                              - /url: /mtlawton/status/2072740649288565159/photo/3
+                              - generic "Image" [ref=e1260]:
+                                - img "Image" [ref=e1262]
+                            - link "Image" [ref=e1265]:
+                              - /url: /mtlawton/status/2072740649288565159/photo/4
+                              - generic "Image" [ref=e1267]:
+                                - img "Image" [ref=e1269]
+                        - group "1 reply, 1 repost, 22 likes, 1518 views" [ref=e1272]:
+                          - button "1 Reply. Reply" [ref=e1274]:
+                            - generic [ref=e1275]:
+                              - img [ref=e1278]
+                              - generic [ref=e1283]: "1"
+                          - button "1 repost. Repost" [ref=e1285]:
+                            - generic [ref=e1286]:
+                              - img [ref=e1289]
+                              - generic [ref=e1294]: "1"
+                          - button "22 Likes. Like" [ref=e1296]:
+                            - generic [ref=e1297]:
+                              - img [ref=e1300]
+                              - generic [ref=e1305]: "22"
+                          - link "1518 views. View post analytics" [ref=e1307]:
+                            - /url: /mtlawton/status/2072740649288565159/analytics
+                            - generic [ref=e1308]:
+                              - img [ref=e1311]
+                              - generic [ref=e1316]: 1.5K
+                          - button "Bookmark" [ref=e1318]:
+                            - img [ref=e1322]
+                          - button "Share post" [ref=e1327]:
+                            - img [ref=e1331]
+                  - article "ESVS Verified account @ESVSmembership 20 hours ago How is ascending TEVAR changing the way we think about complex aortic disease? In this upcoming ESVS podcast episode, Joana Ferreira is joined by Professor Santi Trimarchi to discuss the new ESVS Clinical Practice Consensus Statement on ascending thoracic endovascular aortic Embedded video Play Video 1 like, 1 bookmark, 193 views" [ref=e1337] [cursor=pointer]:
+                    - generic [ref=e1343]:
+                      - link [ref=e1355]:
+                        - /url: /ESVSmembership
+                      - generic [ref=e1358]:
+                        - generic [ref=e1360]:
+                          - generic [ref=e1363]:
+                            - link "ESVS Verified account" [ref=e1366]:
+                              - /url: /ESVSmembership
+                              - generic [ref=e1367]:
+                                - generic [ref=e1369]: ESVS
+                                - img "Verified account" [ref=e1372]
+                            - generic [ref=e1376]:
+                              - link "@ESVSmembership" [ref=e1378]:
+                                - /url: /ESVSmembership
+                                - generic [ref=e1379]: "@ESVSmembership"
+                              - generic [ref=e1380]: ·
+                              - link "20 hours ago" [ref=e1382]:
+                                - /url: /ESVSmembership/status/2072711906436034700
+                                - time [ref=e1383]: 20h
+                          - generic [ref=e1385]:
+                            - button "Grok actions" [ref=e1387]:
+                              - img [ref=e1392]
+                            - button "More" [ref=e1398]:
+                              - img [ref=e1402]
+                        - generic [ref=e1405]:
+                          - generic [ref=e1406]: How is ascending TEVAR changing the way we think about complex aortic disease? In this upcoming ESVS podcast episode, Joana Ferreira is joined by Professor Santi Trimarchi to discuss the new ESVS Clinical Practice Consensus Statement on ascending thoracic endovascular aortic
+                          - button "Show more" [ref=e1407]
+                        - generic [ref=e1424]:
+                          - generic "Embedded video" [ref=e1427]
+                          - button "Play Video" [ref=e1434]:
+                            - img [ref=e1435]
+                        - group "1 like, 1 bookmark, 193 views" [ref=e1441]:
+                          - button "0 Replies. Reply" [ref=e1443]:
+                            - img [ref=e1447]
+                          - button "0 reposts. Repost" [ref=e1454]:
+                            - img [ref=e1458]
+                          - button "1 Like. Like" [ref=e1465]:
+                            - generic [ref=e1466]:
+                              - img [ref=e1469]
+                              - generic [ref=e1474]: "1"
+                          - link "193 views. View post analytics" [ref=e1476]:
+                            - /url: /ESVSmembership/status/2072711906436034700/analytics
+                            - generic [ref=e1477]:
+                              - img [ref=e1480]
+                              - generic [ref=e1485]: "193"
+                          - button "Bookmark" [ref=e1487]:
+                            - img [ref=e1491]
+                          - button "Share post" [ref=e1496]:
+                            - img [ref=e1500]

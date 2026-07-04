@@ -1,0 +1,519 @@
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- RootWebArea "(21) neurointervention OR thrombectomy OR #Neurointervention OR #stroke - Search / X"
+  - none
+    - generic
+      - generic
+        - generic
+          - generic
+            - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts"
+              - generic
+                - StaticText "To view keyboard shortcuts, press question mark"
+                  - InlineTextBox "T"
+                  - InlineTextBox "o"
+                  - InlineTextBox " "
+                  - InlineTextBox "v"
+                  - InlineTextBox "i"
+                  - InlineTextBox "e"
+                  - InlineTextBox "w"
+                  - InlineTextBox " "
+                  - InlineTextBox "k"
+                  - InlineTextBox "e"
+                  - InlineTextBox "y"
+                  - InlineTextBox "b"
+                  - InlineTextBox "o"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "d"
+                  - InlineTextBox " "
+                  - InlineTextBox "s"
+                  - InlineTextBox "h"
+                  - InlineTextBox "o"
+                  - InlineTextBox "r"
+                  - InlineTextBox "t"
+                  - InlineTextBox "c"
+                  - InlineTextBox "u"
+                  - InlineTextBox "t"
+                  - InlineTextBox "s"
+                  - InlineTextBox ","
+                  - InlineTextBox " "
+                  - InlineTextBox "p"
+                  - InlineTextBox "r"
+                  - InlineTextBox "e"
+                  - InlineTextBox "s"
+                  - InlineTextBox "s"
+                  - InlineTextBox " "
+                  - InlineTextBox "q"
+                  - InlineTextBox "u"
+                  - InlineTextBox "e"
+                  - InlineTextBox "s"
+                  - InlineTextBox "t"
+                  - InlineTextBox "i"
+                  - InlineTextBox "o"
+                  - InlineTextBox "n"
+                  - InlineTextBox " "
+                  - InlineTextBox "m"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "k"
+              - link "View keyboard shortcuts"
+                - StaticText "View keyboard shortcuts"
+                  - InlineTextBox "V"
+                  - InlineTextBox "i"
+                  - InlineTextBox "e"
+                  - InlineTextBox "w"
+                  - InlineTextBox " "
+                  - InlineTextBox "k"
+                  - InlineTextBox "e"
+                  - InlineTextBox "y"
+                  - InlineTextBox "b"
+                  - InlineTextBox "o"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "d"
+                  - InlineTextBox " "
+                  - InlineTextBox "s"
+                  - InlineTextBox "h"
+                  - InlineTextBox "o"
+                  - InlineTextBox "r"
+                  - InlineTextBox "t"
+                  - InlineTextBox "c"
+                  - InlineTextBox "u"
+                  - InlineTextBox "t"
+                  - InlineTextBox "s"
+            - generic
+              - generic
+                - generic
+                  - generic
+                    - generic
+            - generic
+              - button "Skip to home timeline"
+                - generic
+                  - generic
+                    - none
+              - button "Skip to trending"
+                - generic
+                  - generic
+                    - none
+              - banner
+                - generic
+                  - generic
+                    - generic
+                      - generic
+                        - generic
+                          - heading "X"
+                            - link "X"
+                              - generic
+                                - generic
+                                  - none
+                        - generic
+                          - navigation "Primary"
+                            - link "Home"
+                              - generic
+                                - generic
+                            - link "Search and explore"
+                              - generic
+                                - generic
+                            - link "Notifications (21 unread notifications)"
+                              - generic
+                                - generic
+                                  - generic "20+ unread items"
+                                    - none
+                                      - StaticText "20+"
+                                        - InlineTextBox "20+"
+                            - link "Follow"
+                              - generic
+                                - generic
+                            - link "Direct Messages"
+                              - generic
+                                - generic
+                            - link "Grok"
+                              - generic
+                                - generic
+                            - link "Profile"
+                              - generic
+                                - generic
+                            - button "More menu items"
+                              - generic
+                                - generic
+                        - generic
+                          - link "Post"
+                            - generic
+                              - generic
+                                - none
+                      - generic
+                        - generic
+                          - button "Account menu"
+                            - generic
+                              - generic
+                                - none
+                                - generic
+                                  - generic
+                                    - none
+                                    - generic
+                                      - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic "Cognito"
+                                        - generic
+                                        - image "Cognito"
+                                        - generic
+                                        - generic
+              - main
+                - generic
+                  - generic
+                    - generic
+                      - generic
+                        - generic "Home timeline"
+                          - generic
+                            - generic
+                              - generic
+                                - generic
+                                  - generic
+                                    - generic
+                                      - generic
+                                        - generic
+                                        - button "Back"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - search "Search"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - combobox "Search query" = "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                                        - none
+                                        - generic
+                                        - StaticText "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                                        - InlineTextBox "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - button "More"
+                                        - generic
+                                        - generic
+                                        - none
+                              - generic
+                                - navigation
+                                  - generic
+                                    - generic
+                                      - button "Previous"
+                                        - generic
+                                        - generic
+                                        - none
+                                    - generic
+                                      - tablist
+                                        - tab "Top"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Top"
+                                        - InlineTextBox "Top"
+                                        - generic
+                                        - tab "Latest"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Latest"
+                                        - InlineTextBox "Latest"
+                                        - generic
+                                        - tab "People"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "People"
+                                        - InlineTextBox "People"
+                                        - generic
+                                        - tab "Media"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Media"
+                                        - InlineTextBox "Media"
+                                        - generic
+                                        - tab "Lists"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Lists"
+                                        - InlineTextBox "Lists"
+                                        - generic
+                                    - generic
+                                      - button "Next"
+                                        - generic
+                                        - generic
+                                        - none
+                            - generic
+                              - generic
+                                - status
+                                  - none
+                                    - none
+                                      - none
+                                      - none
+                                        - none
+                                        - none
+                          - generic
+                          - generic
+                            - region "Search timeline"
+                              - heading "Search timeline"
+                                - StaticText "Search timeline"
+                                  - InlineTextBox "S"
+                                  - InlineTextBox "e"
+                                  - InlineTextBox "a"
+                                  - InlineTextBox "r"
+                                  - InlineTextBox "c"
+                                  - InlineTextBox "h"
+                                  - InlineTextBox " "
+                                  - InlineTextBox "t"
+                                  - InlineTextBox "i"
+                                  - InlineTextBox "m"
+                                  - InlineTextBox "e"
+                                  - InlineTextBox "l"
+                                  - InlineTextBox "i"
+                                  - InlineTextBox "n"
+                                  - InlineTextBox "e"
+                              - generic "Timeline: Search timeline"
+                                - generic
+                                  - generic
+                                    - generic
+                                      - generic
+                                        - article "Neurology Journal @GreenJournal Jun 12 Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with #EmbolicStroke of undetermined source. Listen now: hubs.la/Q04l5L0Q0 #Stroke Embedded video 0:16 2 replies, 6 reposts, 23 likes, 7 bookmarks, 4202 views"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - link "Neurology Journal"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Neurology Journal"
+                                        - InlineTextBox "Neurology Journal"
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - link "@GreenJournal"
+                                        - generic
+                                        - StaticText "@GreenJournal"
+                                        - InlineTextBox "@GreenJournal"
+                                        - none
+                                        - none
+                                        - none
+                                        - generic
+                                        - link "Jun 12"
+                                        - time
+                                        - StaticText "Jun 12"
+                                        - InlineTextBox "Jun 12"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - button "Grok actions"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - button "More"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - StaticText "Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with "
+                                        - InlineTextBox "Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour"
+                                        - InlineTextBox " "
+                                        - InlineTextBox "discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE,"
+                                        - InlineTextBox " "
+                                        - InlineTextBox "and cardiac CT in patients with "
+                                        - link "#EmbolicStroke"
+                                        - StaticText "#EmbolicStroke"
+                                        - InlineTextBox "#EmbolicStroke"
+                                        - StaticText " of undetermined source. Listen now: "
+                                        - InlineTextBox " of undetermined"
+                                        - InlineTextBox " "
+                                        - InlineTextBox "source. Listen now: "
+                                        - link "hubs.la/Q04l5L0Q0"
+                                        - none
+                                        - none
+                                        - StaticText "hubs.la/Q04l5L0Q0"
+                                        - InlineTextBox "hubs.la/Q04l5L0Q0"
+                                        - StaticText " 
+"
+                                        - InlineTextBox " "
+                                        - InlineTextBox "
+"
+                                        - link "#Stroke"
+                                        - StaticText "#Stroke"
+                                        - InlineTextBox "#Stroke"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - Video "Embedded video"
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - none
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - StaticText "0:16"
+                                        - InlineTextBox "0:16"
+                                        - none
+                                        - none
+                                        - none
+                                        - generic
+                                        - generic
+                                        - group "2 replies, 6 reposts, 23 likes, 7 bookmarks, 4202 views"
+                                        - generic
+                                        - button "2 Replies. Reply"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - none
+                                        - StaticText "2"
+                                        - InlineTextBox "2"
+                                        - generic
+                                        - button "6 reposts. Repost"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - none

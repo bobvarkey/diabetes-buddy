@@ -1,16 +1,36 @@
 {
-  "scan_date": "2026-06-26T08:00:16.902812",
-  "stocks_scanned": 8,
+  "scan_date": "2026-07-03T08:00:17.198685",
+  "stocks_scanned": 10,
   "opportunities": [
     {
-      "ticker": "TCS.BSE",
-      "name": "TCS",
-      "price": 2095.6001,
-      "change": -0.6236,
+      "ticker": "GODREJCP.BSE",
+      "name": "GODREJCP",
+      "price": 1077.3,
+      "change": 3.2688,
+      "signals": [
+        {
+          "type": "price_rally",
+          "value": 3.2688,
+          "reason": "Rally: +3.3%"
+        },
+        {
+          "type": "volatility",
+          "value": 3.609079684680406,
+          "reason": "Range: 3.6%"
+        }
+      ],
+      "prediction_score": 25,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "BAJAJ-AUTO.BSE",
+      "name": "BAJAJ-AUTO",
+      "price": 9859.3496,
+      "change": 0.1763,
       "signals": [
         {
           "type": "volatility",
-          "value": 2.832035704271413,
+          "value": 2.75347833150227,
           "reason": "Range: 2.8%"
         }
       ],
@@ -18,65 +38,45 @@
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "INFY.BSE",
-      "name": "INFY",
-      "price": 1041.4,
-      "change": -0.9935,
-      "signals": [
-        {
-          "type": "volatility",
-          "value": 2.743259085580305,
-          "reason": "Range: 2.7%"
-        }
-      ],
-      "prediction_score": 10,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "SBIN.BSE",
-      "name": "SBIN",
-      "price": 1045.15,
-      "change": 1.0148,
+      "ticker": "EICHERMOT.BSE",
+      "name": "EICHERMOT",
+      "price": 7252.25,
+      "change": 1.5985,
       "signals": [
         {
           "type": "price_rally",
-          "value": 1.0148,
-          "reason": "Rally: +1.0%"
+          "value": 1.5985,
+          "reason": "Rally: +1.6%"
         }
       ],
       "prediction_score": 15,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "MFSL.BSE",
-      "name": "MFSL",
-      "price": 1613.15,
-      "change": -2.9772,
+      "ticker": "ONGC.BSE",
+      "name": "ONGC",
+      "price": 235.95,
+      "change": 0.3402,
       "signals": [
         {
-          "type": "price_drop",
-          "value": -2.9772,
-          "reason": "Drop: -3.0%"
-        },
-        {
           "type": "volatility",
-          "value": 3.2199765053164278,
-          "reason": "Range: 3.2%"
+          "value": 2.3012998082250062,
+          "reason": "Range: 2.3%"
         }
       ],
-      "prediction_score": 45,
-      "recommendation": "WATCH"
+      "prediction_score": 10,
+      "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "EICHERMOT.BSE",
-      "name": "EICHERMOT",
-      "price": 7597.9,
-      "change": 0.3407,
+      "ticker": "DRREDDY.BSE",
+      "name": "DRREDDY",
+      "price": 1346.25,
+      "change": 0.5152,
       "signals": [
         {
           "type": "volatility",
-          "value": 2.221856267703045,
-          "reason": "Range: 2.2%"
+          "value": 2.326960130428345,
+          "reason": "Range: 2.3%"
         }
       ],
       "prediction_score": 10,

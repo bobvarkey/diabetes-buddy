@@ -1,46 +1,30 @@
 const posts = [];
-const articles = document.querySelectorAll("article");
-articles.forEach(article => {
+const articles = document.querySelectorAll('article[data-testid="tweet"]');
+articles.forEach((article, index) => {
   try {
-    const post = {};
+    const authorName = article.querySelector('[data-testid="User-Name"] span')?.textContent || "";
+    const handleEl = article.querySelector('a[href^="/"]');
+    const handle = handleEl?.href?.split('/')[1] || "";
+    const time = article.querySelector('time')?.getAttribute('datetime') || "";
+    const text = article.querySelector('[data-testid="tweetText"]')?.textContent || "";
+    const link = article.querySelector('a[href*="/status/"]')?.href || "";
     
-    // Author and handle
-    const authorElement = article.querySelector('[data-testid="User-Name"]');
-    if (authorElement) {
-      const nameSpan = authorElement.querySelector('span');
-      const handleLink = authorElement.querySelector('a[href^="/"]');
-      post.author = nameSpan ? nameSpan.textContent : "";
-      post.handle = handleLink ? handleLink.href.split("/").pop() : "";
-    }
+    const metrics = {};
+    article.querySelectorAll('[role="group"] button').forEach(btn => {
+      const ariaLabel = btn.getAttribute('aria-label') || "";
+      const match = ariaLabel.match(/(\d+)\s*(replies?|reposts?|likes?|bookmarks?|views?)/i);
+      if (match) {
+        const count = parseInt(match[1]);
+        const type = match[2].toLowerCase();
+        if (type.includes('repl')) metrics.replies = count;
+        else if (type.includes('repost')) metrics.reposts = count;
+        else if (type.includes('like')) metrics.likes = count;
+        else if (type.includes('bookmark')) metrics.bookmarks = count;
+        else if (type.includes('view')) metrics.views = count;
+      }
+    });
     
-    // Date
-    const timeElement = article.querySelector('time');
-    post.date = timeElement ? (timeElement.getAttribute('datetime') || timeElement.textContent) : "";
-    
-    // Text content
-    const textElement = article.querySelector('[data-testid="tweetText"]');
-    post.text = textElement ? textElement.textContent : "";
-    
-    // Engagement metrics
-    const replyButton = article.querySelector('[data-testid="reply"]');
-    const repostButton = article.querySelector('[data-testid="retweet"] ~ span, [data-testid="unretweet"] ~ span');
-    const likeButton = article.querySelector('[data-testid="like"] ~ span, [data-testid="unlike"] ~ span');
-    const viewCount = article.querySelector('[data-testid="analytics"] span');
-    
-    post.replies = replyButton ? (replyButton.getAttribute("aria-label") || "0") : "0";
-    post.reposts = repostButton ? repostButton.textContent : "0";
-    post.likes = likeButton ? likeButton.textContent : "0";
-    post.views = viewCount ? viewCount.textContent : "0";
-    
-    // URL
-    const linkElement = article.querySelector('a[href*="/status/"]');
-    post.url = linkElement ? linkElement.href : "";
-    
-    if (post.text || post.author) {
-      posts.push(post);
-    }
-  } catch (e) {
-    // Skip if error
-  }
+    posts.push({ authorName, handle, time, text, link, metrics });
+  } catch (e) {}
 });
 JSON.stringify(posts, null, 2);

@@ -1,0 +1,35 @@
+---
+topic: content
+date: 2026-07-01
+tags: []
+---
+
+# Tweets Set2
+
+{
+  "count": 2,
+  "tweets": [
+    {
+      "text": "Want to know exactly how Endovascular Aortic Aneurysm Repair (EVAR) works?\n\nDr. Hammed Ninalowo takes us step-by-step through this advanced, minimally invasive procedure.\n\nWatch as he explains the process in clear detail.\n\n#EndovascularAorticRepair #AorticAneurysmRepair",
+      "handle": "@Euracareng",
+      "author": "Euracare",
+      "url": "https://x.com/Euracareng/status/2071546590356033819",
+      "date": "2026-06-29T10:49:29.000Z",
+      "replies": "0",
+      "reposts": "0",
+      "likes": "1",
+      "views": "0"
+    },
+    {
+      "text": "This study assessed the relationship between individualized autoregulation-based blood pressure thresholds after endovascular thrombectomy and secondary brain injury and functional outcomes: https://hubs.la/Q03_xxc50",
+      "handle": "@GreenJournal",
+      "author": "Neurology Journal",
+      "url": "https://x.com/GreenJournal/status/2013989136928026870",
+      "date": "2026-01-21T14:56:43.000Z",
+      "replies": "1",
+      "reposts": "4",
+      "likes": "13",
+      "views": "0"
+    }
+  ]
+}

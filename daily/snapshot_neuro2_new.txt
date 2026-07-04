@@ -1,0 +1,287 @@
+---
+topic: daily
+date: 2026-07-02
+tags: []
+---
+
+# Snapshot Neuro2 New
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications (6 unread notifications)" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - generic [ref=e38]:
+                    - img [ref=e39]
+                    - generic "6 unread items" [ref=e42]:
+                      - generic [ref=e43]: "6"
+                - link "Follow" [ref=e44] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e47]
+                - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e53]
+                - link "Grok" [ref=e56] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e59]
+                - link "Profile" [ref=e62] [cursor=pointer]:
+                  - /url: /Cognito2026
+                  - img [ref=e65]
+                - button "More menu items" [ref=e68] [cursor=pointer]:
+                  - img [ref=e71]
+              - link "Post" [ref=e75] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e77]
+            - button "Account menu" [ref=e83] [cursor=pointer]:
+              - generic [ref=e91]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Cognito":
+                        - img "Cognito"
+        - main [ref=e94]:
+          - generic "Home timeline" [ref=e99]:
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e106]:
+                  - button "Back" [ref=e108] [cursor=pointer]:
+                    - img [ref=e110]
+                  - search "Search" [ref=e118]:
+                    - generic [ref=e123]:
+                      - img [ref=e125]
+                      - combobox "Search query" [ref=e130]: cerebral AVM OR intracranial aneurysm OR endovascular
+                  - button "More" [ref=e132] [cursor=pointer]:
+                    - img [ref=e134]
+                - navigation [ref=e138]:
+                  - generic [ref=e139]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e141]:
+                      - tab "Top" [selected] [ref=e142] [cursor=pointer]:
+                        - generic [ref=e145]: Top
+                      - tab "Latest" [ref=e147] [cursor=pointer]:
+                        - generic [ref=e150]: Latest
+                      - tab "People" [ref=e151] [cursor=pointer]:
+                        - generic [ref=e154]: People
+                      - tab "Media" [ref=e155] [cursor=pointer]:
+                        - generic [ref=e158]: Media
+                      - tab "Lists" [ref=e159] [cursor=pointer]:
+                        - generic [ref=e162]: Lists
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "Search timeline" [ref=e164]:
+              - heading "Search timeline" [level=1] [ref=e165]
+              - 'generic "Timeline: Search timeline" [ref=e166]':
+                - generic [ref=e167]:
+                  - 'article "Andres Surgical Path @Andresangel3 1 hour ago #Surgpath 68 yo woman with enlarged pelvic lymph nodes (core biopsy with touch prep). CT reported a 1.7 cm renal nodules and 3.5 cm pancreatic head complex mass. Opinion…….. Image Image Image Image 1 reply, 1 repost, 4 likes, 148 views" [ref=e171] [cursor=pointer]':
+                    - generic [ref=e177]:
+                      - link [ref=e189]:
+                        - /url: /Andresangel3
+                      - generic [ref=e193]:
+                        - generic [ref=e195]:
+                          - generic [ref=e198]:
+                            - link "Andres Surgical Path" [ref=e201]:
+                              - /url: /Andresangel3
+                              - generic [ref=e204]: Andres Surgical Path
+                            - generic [ref=e206]:
+                              - link "@Andresangel3" [ref=e208]:
+                                - /url: /Andresangel3
+                                - generic [ref=e209]: "@Andresangel3"
+                              - generic [ref=e210]: ·
+                              - link "1 hour ago" [ref=e212]:
+                                - /url: /Andresangel3/status/2072003514436378850
+                                - time [ref=e213]: 1h
+                          - generic [ref=e215]:
+                            - button "Grok actions" [ref=e217]:
+                              - img [ref=e222]
+                            - button "More" [ref=e228]:
+                              - img [ref=e232]
+                        - generic [ref=e236]:
+                          - link "#Surgpath" [ref=e238]:
+                            - /url: /hashtag/Surgpath?src=hashtag_click
+                          - text: 68 yo woman with enlarged pelvic lymph nodes (core biopsy with touch prep). CT reported a 1.7 cm renal nodules and 3.5 cm pancreatic head complex mass. Opinion……..
+                        - generic [ref=e247]:
+                          - generic [ref=e248]:
+                            - link "Image" [ref=e251]:
+                              - /url: /Andresangel3/status/2072003514436378850/photo/1
+                              - generic "Image" [ref=e253]:
+                                - img "Image" [ref=e255]
+                            - link "Image" [ref=e258]:
+                              - /url: /Andresangel3/status/2072003514436378850/photo/2
+                              - generic "Image" [ref=e260]:
+                                - img "Image" [ref=e262]
+                          - generic [ref=e263]:
+                            - link "Image" [ref=e266]:
+                              - /url: /Andresangel3/status/2072003514436378850/photo/3
+                              - generic "Image" [ref=e268]:
+                                - img "Image" [ref=e270]
+                            - link "Image" [ref=e273]:
+                              - /url: /Andresangel3/status/2072003514436378850/photo/4
+                              - generic "Image" [ref=e275]:
+                                - img "Image" [ref=e277]
+                        - group "1 reply, 1 repost, 4 likes, 148 views" [ref=e280]:
+                          - button "1 Reply. Reply" [ref=e282]:
+                            - generic [ref=e283]:
+                              - img [ref=e286]
+                              - generic [ref=e291]: "1"
+                          - button "1 repost. Repost" [ref=e293]:
+                            - generic [ref=e294]:
+                              - img [ref=e297]
+                              - generic [ref=e302]: "1"
+                          - button "4 Likes. Like" [ref=e304]:
+                            - generic [ref=e305]:
+                              - img [ref=e308]
+                              - generic [ref=e313]: "4"
+                          - link "148 views. View post analytics" [ref=e315]:
+                            - /url: /Andresangel3/status/2072003514436378850/analytics
+                            - generic [ref=e316]:
+                              - img [ref=e319]
+                              - generic [ref=e324]: "148"
+                          - button "Bookmark" [ref=e326]:
+                            - img [ref=e330]
+                          - button "Share post" [ref=e335]:
+                            - img [ref=e339]
+                  - article "Ibrahim Mansoor FCAP @IbrahimManff 2 minutes ago Replying to @Andresangel3 Interesting case. The epithelioid morphology with a rich histiocytic/inflammatory background opens a broad differential. Would definitely correlate with IHC (PAX8, RCC marker, CD10, CKs, melanocytic markers, histiocytic markers) and imaging before committing. Looking forward" [ref=e345] [cursor=pointer]:
+                    - generic [ref=e353]:
+                      - link [ref=e365]:
+                        - /url: /IbrahimManff
+                      - generic [ref=e368]:
+                        - generic [ref=e370]:
+                          - generic [ref=e373]:
+                            - link "Ibrahim Mansoor FCAP" [ref=e376]:
+                              - /url: /IbrahimManff
+                              - generic [ref=e379]: Ibrahim Mansoor FCAP
+                            - generic [ref=e381]:
+                              - link "@IbrahimManff" [ref=e383]:
+                                - /url: /IbrahimManff
+                                - generic [ref=e384]: "@IbrahimManff"
+                              - generic [ref=e385]: ·
+                              - link "2 minutes ago" [ref=e387]:
+                                - /url: /IbrahimManff/status/2072026542843015490
+                                - time [ref=e388]: 2m
+                          - generic [ref=e390]:
+                            - button "Grok actions" [ref=e392]:
+                              - img [ref=e397]
+                            - button "More" [ref=e403]:
+                              - img [ref=e407]
+                        - generic [ref=e411]:
+                          - text: Replying to
+                          - link "@Andresangel3" [ref=e413]:
+                            - /url: /Andresangel3
+                        - generic [ref=e415]: Interesting case. The epithelioid morphology with a rich histiocytic/inflammatory background opens a broad differential. Would definitely correlate with IHC (PAX8, RCC marker, CD10, CKs, melanocytic markers, histiocytic markers) and imaging before committing. Looking forward
+                        - group "1 view" [ref=e418]:
+                          - button "0 Replies. Reply" [ref=e420]:
+                            - img [ref=e424]
+                          - button "0 reposts. Repost" [ref=e431]:
+                            - img [ref=e435]
+                          - button "0 Likes. Like" [ref=e442]:
+                            - img [ref=e446]
+                          - link "1 view. View post analytics" [ref=e453]:
+                            - /url: /IbrahimManff/status/2072026542843015490/analytics
+                            - generic [ref=e454]:
+                              - img [ref=e457]
+                              - generic [ref=e462]: "1"
+                          - button "Bookmark" [ref=e464]:
+                            - img [ref=e468]
+                          - button "Share post" [ref=e473]:
+                            - img [ref=e477]
+                  - 'article "Euracare @Euracareng Jun 29 Want to know exactly how Endovascular Aortic Aneurysm Repair (EVAR) works? Dr. Hammed Ninalowo takes us step-by-step through this advanced, minimally invasive procedure. Watch as he explains the process in clear detail. #EndovascularAorticRepair #AorticAneurysmRepair Embedded video Play Video 1 like, 9 views" [ref=e483] [cursor=pointer]':
+                    - generic [ref=e489]:
+                      - link [ref=e501]:
+                        - /url: /Euracareng
+                      - generic [ref=e504]:
+                        - generic [ref=e506]:
+                          - generic [ref=e509]:
+                            - link "Euracare" [ref=e512]:
+                              - /url: /Euracareng
+                              - generic [ref=e515]: Euracare
+                            - generic [ref=e517]:
+                              - link "@Euracareng" [ref=e519]:
+                                - /url: /Euracareng
+                                - generic [ref=e520]: "@Euracareng"
+                              - generic [ref=e521]: ·
+                              - link "Jun 29" [ref=e523]:
+                                - /url: /Euracareng/status/2071546590356033819
+                                - time [ref=e524]: Jun 29
+                          - generic [ref=e526]:
+                            - button "Grok actions" [ref=e528]:
+                              - img [ref=e533]
+                            - button "More" [ref=e539]:
+                              - img [ref=e543]
+                        - generic [ref=e547]:
+                          - text: Want to know exactly how Endovascular Aortic Aneurysm Repair (EVAR) works? Dr. Hammed Ninalowo takes us step-by-step through this advanced, minimally invasive procedure. Watch as he explains the process in clear detail.
+                          - link "#EndovascularAorticRepair" [ref=e549]:
+                            - /url: /hashtag/EndovascularAorticRepair?src=hashtag_click
+                          - link "#AorticAneurysmRepair" [ref=e551]:
+                            - /url: /hashtag/AorticAneurysmRepair?src=hashtag_click
+                        - generic [ref=e568]:
+                          - generic "Embedded video" [ref=e571]
+                          - button "Play Video" [ref=e578]:
+                            - img [ref=e579]
+                        - group "1 like, 9 views" [ref=e585]:
+                          - button "0 Replies. Reply" [ref=e587]:
+                            - img [ref=e591]
+                          - button "0 reposts. Repost" [ref=e598]:
+                            - img [ref=e602]
+                          - button "1 Like. Like" [ref=e609]:
+                            - generic [ref=e610]:
+                              - img [ref=e613]
+                              - generic [ref=e618]: "1"
+                          - link "9 views. View post analytics" [ref=e620]:
+                            - /url: /Euracareng/status/2071546590356033819/analytics
+                            - generic [ref=e621]:
+                              - img [ref=e624]
+                              - generic [ref=e629]: "9"
+                          - button "Bookmark" [ref=e631]:
+                            - img [ref=e635]
+                          - button "Share post" [ref=e640]:
+                            - img [ref=e644]

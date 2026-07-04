@@ -1,0 +1,233 @@
+---
+topic: daily
+date: 2026-07-04
+tags: []
+---
+
+# Snapshot Avm Aneurysm Latest
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications (21 unread notifications)" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - generic [ref=e38]:
+                    - img [ref=e39]
+                    - generic "20+ unread items" [ref=e42]:
+                      - generic [ref=e43]: 20+
+                - link "Follow" [ref=e44] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e47]
+                - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e53]
+                - link "Grok" [ref=e56] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e59]
+                - link "Profile" [ref=e62] [cursor=pointer]:
+                  - /url: /Cognito2026
+                  - img [ref=e65]
+                - button "More menu items" [ref=e68] [cursor=pointer]:
+                  - img [ref=e71]
+              - link "Post" [ref=e75] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e77]
+            - button "Account menu" [ref=e83] [cursor=pointer]:
+              - generic [ref=e91]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Cognito":
+                        - img "Cognito"
+        - main [ref=e94]:
+          - generic "Home timeline" [ref=e99]:
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e106]:
+                  - button "Back" [ref=e108] [cursor=pointer]:
+                    - img [ref=e110]
+                  - search "Search" [ref=e118]:
+                    - generic [ref=e123]:
+                      - img [ref=e125]
+                      - combobox "Search query" [ref=e130]: cerebral AVM OR intracranial aneurysm OR endovascular
+                  - button "More" [ref=e132] [cursor=pointer]:
+                    - img [ref=e134]
+                - navigation [ref=e138]:
+                  - generic [ref=e139]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e141]:
+                      - tab "Top" [ref=e142] [cursor=pointer]:
+                        - generic [ref=e145]: Top
+                      - tab "Latest" [active] [selected] [ref=e147] [cursor=pointer]:
+                        - generic [ref=e150]: Latest
+                      - tab "People" [ref=e151] [cursor=pointer]:
+                        - generic [ref=e154]: People
+                      - tab "Media" [ref=e155] [cursor=pointer]:
+                        - generic [ref=e158]: Media
+                      - tab "Lists" [ref=e159] [cursor=pointer]:
+                        - generic [ref=e162]: Lists
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "Search timeline" [ref=e465]:
+              - heading "Search timeline" [level=1] [ref=e466]
+              - 'generic "Timeline: Search timeline" [ref=e467]':
+                - generic [ref=e468]:
+                  - 'article "𝗖𝗼𝗿𝗱𝗶𝘀 Verified account @cordis 9 minutes ago A quarter of a million patients. One philosophy: leave nothing behind. More than 250,000 patients worldwide have now been treated with SELUTION SLR™ Drug-Eluting Balloon, our sustained-release sirolimus drug-eluting balloon — a milestone that reflects the growing clinical Embedded video Play Video 1 like, 2 views" [ref=e472] [cursor=pointer]':
+                    - generic [ref=e478]:
+                      - link [ref=e490]:
+                        - /url: /cordis
+                      - generic [ref=e493]:
+                        - generic [ref=e495]:
+                          - generic [ref=e498]:
+                            - link "𝗖𝗼𝗿𝗱𝗶𝘀 Verified account" [ref=e501]:
+                              - /url: /cordis
+                              - generic [ref=e502]:
+                                - generic [ref=e504]: 𝗖𝗼𝗿𝗱𝗶𝘀
+                                - img "Verified account" [ref=e507]
+                            - generic [ref=e511]:
+                              - link "@cordis" [ref=e513]:
+                                - /url: /cordis
+                                - generic [ref=e514]: "@cordis"
+                              - generic [ref=e515]: ·
+                              - link "9 minutes ago" [ref=e517]:
+                                - /url: /cordis/status/2073020868356083844
+                                - time [ref=e518]: 9m
+                          - generic [ref=e520]:
+                            - button "Grok actions" [ref=e522]:
+                              - img [ref=e527]
+                            - button "More" [ref=e533]:
+                              - img [ref=e537]
+                        - generic [ref=e540]:
+                          - generic [ref=e541]: "A quarter of a million patients. One philosophy: leave nothing behind. More than 250,000 patients worldwide have now been treated with SELUTION SLR™ Drug-Eluting Balloon, our sustained-release sirolimus drug-eluting balloon — a milestone that reflects the growing clinical"
+                          - button "Show more" [ref=e542]
+                        - generic [ref=e559]:
+                          - generic "Embedded video" [ref=e562]
+                          - button "Play Video" [ref=e569]:
+                            - img [ref=e570]
+                        - group "1 like, 2 views" [ref=e576]:
+                          - button "0 Replies. Reply" [ref=e578]:
+                            - img [ref=e582]
+                          - button "0 reposts. Repost" [ref=e589]:
+                            - img [ref=e593]
+                          - button "1 Like. Like" [ref=e600]:
+                            - generic [ref=e601]:
+                              - img [ref=e604]
+                              - generic [ref=e609]: "1"
+                          - link "2 views. View post analytics" [ref=e611]:
+                            - /url: /cordis/status/2073020868356083844/analytics
+                            - generic [ref=e612]:
+                              - img [ref=e615]
+                              - generic [ref=e620]: "2"
+                          - button "Bookmark" [ref=e622]:
+                            - img [ref=e626]
+                          - button "Share post" [ref=e631]:
+                            - img [ref=e635]
+                  - 'article "Frontiers - Neurology Verified account @FrontNeurol 38 minutes ago New Research: Endovascular recanalization for acute posterior cerebral artery occlusion: a pre-specified secondary analysis of the ATTENTION, BAOCHE, and PLATO studies frontiersin.org/articles/10.33 #FrontiersIn #Neurology frontiersin.org Frontiers | Endovascular recanalization for acute posterior cerebral artery occlusion: a pre-spec... From frontiersin.org" [ref=e641] [cursor=pointer]':
+                    - generic [ref=e647]:
+                      - link [ref=e659]:
+                        - /url: /FrontNeurol
+                      - generic [ref=e662]:
+                        - generic [ref=e664]:
+                          - generic [ref=e667]:
+                            - link "Frontiers - Neurology Verified account" [ref=e670]:
+                              - /url: /FrontNeurol
+                              - generic [ref=e671]:
+                                - generic [ref=e673]: Frontiers - Neurology
+                                - img "Verified account" [ref=e676]
+                            - generic [ref=e680]:
+                              - link "@FrontNeurol" [ref=e682]:
+                                - /url: /FrontNeurol
+                                - generic [ref=e683]: "@FrontNeurol"
+                              - generic [ref=e684]: ·
+                              - link "38 minutes ago" [ref=e686]:
+                                - /url: /FrontNeurol/status/2073013446132793731
+                                - time [ref=e687]: 38m
+                          - generic [ref=e689]:
+                            - button "Grok actions" [ref=e691]:
+                              - img [ref=e696]
+                            - button "More" [ref=e702]:
+                              - img [ref=e706]
+                        - generic [ref=e710]:
+                          - text: "New Research: Endovascular recanalization for acute posterior cerebral artery occlusion: a pre-specified secondary analysis of the ATTENTION, BAOCHE, and PLATO studies"
+                          - link "frontiersin.org/articles/10.33" [ref=e711]:
+                            - /url: https://t.co/PcjNNnQKd1
+                            - text: frontiersin.org/articles/10.33 …
+                          - link "#FrontiersIn" [ref=e713]:
+                            - /url: /hashtag/FrontiersIn?src=hashtag_click
+                          - link "#Neurology" [ref=e715]:
+                            - /url: /hashtag/Neurology?src=hashtag_click
+                        - 'generic "frontiersin.org Frontiers | Endovascular recanalization for acute posterior cerebral artery occlusion: a pre-spec..." [ref=e716]':
+                          - 'generic "frontiersin.org Frontiers | Endovascular recanalization for acute posterior cerebral artery occlusion: a pre-spec..." [ref=e717]':
+                            - 'link "frontiersin.org Frontiers | Endovascular recanalization for acute posterior cerebral artery occlusion: a pre-spec..." [ref=e719]':
+                              - /url: https://t.co/PcjNNnQKd1
+                              - generic [ref=e725]:
+                                - generic:
+                                  - generic: "Frontiers | Endovascular recanalization for acute posterior cerebral artery occlusion: a pre-spec..."
+                          - link "From frontiersin.org" [ref=e728]:
+                            - /url: https://t.co/PcjNNnQKd1
+                        - group "45 views" [ref=e731]:
+                          - button "0 Replies. Reply" [ref=e733]:
+                            - img [ref=e737]
+                          - button "0 reposts. Repost" [ref=e744]:
+                            - img [ref=e748]
+                          - button "0 Likes. Like" [ref=e755]:
+                            - img [ref=e759]
+                          - link "45 views. View post analytics" [ref=e766]:
+                            - /url: /FrontNeurol/status/2073013446132793731/analytics
+                            - generic [ref=e767]:
+                              - img [ref=e770]
+                              - generic [ref=e775]: "45"
+                          - button "Bookmark" [ref=e777]:
+                            - img [ref=e781]
+                          - button "Share post" [ref=e786]:
+                            - img [ref=e790]

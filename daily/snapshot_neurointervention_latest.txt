@@ -1,0 +1,365 @@
+---
+topic: daily
+date: 2026-07-04
+tags: []
+---
+
+# Snapshot Neurointervention Latest
+
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications (21 unread notifications)" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - generic [ref=e38]:
+                    - img [ref=e39]
+                    - generic "20+ unread items" [ref=e42]:
+                      - generic [ref=e43]: 20+
+                - link "Follow" [ref=e44] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e47]
+                - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e53]
+                - link "Grok" [ref=e56] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e59]
+                - link "Profile" [ref=e62] [cursor=pointer]:
+                  - /url: /Cognito2026
+                  - img [ref=e65]
+                - button "More menu items" [ref=e68] [cursor=pointer]:
+                  - img [ref=e71]
+              - link "Post" [ref=e75] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e77]
+            - button "Account menu" [ref=e83] [cursor=pointer]:
+              - generic [ref=e91]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Cognito":
+                        - img "Cognito"
+        - main [ref=e94]:
+          - generic "Home timeline" [ref=e99]:
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e106]:
+                  - button "Back" [ref=e108] [cursor=pointer]:
+                    - img [ref=e110]
+                  - search "Search" [ref=e118]:
+                    - generic [ref=e123]:
+                      - img [ref=e125]
+                      - combobox "Search query" [ref=e130]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                  - button "More" [ref=e132] [cursor=pointer]:
+                    - img [ref=e134]
+                - navigation [ref=e138]:
+                  - generic [ref=e139]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e141]:
+                      - tab "Top" [ref=e142] [cursor=pointer]:
+                        - generic [ref=e145]: Top
+                      - tab "Latest" [active] [selected] [ref=e147] [cursor=pointer]:
+                        - generic [ref=e150]: Latest
+                      - tab "People" [ref=e151] [cursor=pointer]:
+                        - generic [ref=e154]: People
+                      - tab "Media" [ref=e155] [cursor=pointer]:
+                        - generic [ref=e158]: Media
+                      - tab "Lists" [ref=e159] [cursor=pointer]:
+                        - generic [ref=e162]: Lists
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "Search timeline" [ref=e652]:
+              - heading "Search timeline" [level=1] [ref=e653]
+              - 'generic "Timeline: Search timeline" [ref=e654]':
+                - generic [ref=e655]:
+                  - article "SLICE - Worldwide / Next Frontiers / Workshops @slice_inr 25 minutes ago 𝗦𝗟𝗜𝗖𝗘 𝗡𝗲𝘅𝘁 𝗙𝗿𝗼𝗻𝘁𝗶𝗲𝗿𝘀 𝟮𝟬𝟮𝟲 𝘀𝘁𝗮𝗿𝘁𝘀 𝗠𝗼𝗻𝗱𝗮𝘆. ⏳ Join us live on July 6-7 for two days of cutting-edge discussions, live cases, and groundbreaking insights from the world of neurointervention. It's still time to register 🔥 masterandfellow.com" [ref=e659] [cursor=pointer]:
+                    - generic [ref=e665]:
+                      - link [ref=e677]:
+                        - /url: /slice_inr
+                      - generic [ref=e680]:
+                        - generic [ref=e682]:
+                          - generic [ref=e685]:
+                            - link "SLICE - Worldwide / Next Frontiers / Workshops" [ref=e688]:
+                              - /url: /slice_inr
+                              - generic [ref=e691]: SLICE - Worldwide / Next Frontiers / Workshops
+                            - generic [ref=e693]:
+                              - link "@slice_inr" [ref=e695]:
+                                - /url: /slice_inr
+                                - generic [ref=e696]: "@slice_inr"
+                              - generic [ref=e697]: ·
+                              - link "25 minutes ago" [ref=e699]:
+                                - /url: /slice_inr/status/2073016156483375546
+                                - time [ref=e700]: 25m
+                          - generic [ref=e702]:
+                            - button "Grok actions" [ref=e704]:
+                              - img [ref=e709]
+                            - button "More" [ref=e715]:
+                              - img [ref=e719]
+                        - generic [ref=e723]:
+                          - text: 𝗦𝗟𝗜𝗖𝗘 𝗡𝗲𝘅𝘁 𝗙𝗿𝗼𝗻𝘁𝗶𝗲𝗿𝘀 𝟮𝟬𝟮𝟲 𝘀𝘁𝗮𝗿𝘁𝘀 𝗠𝗼𝗻𝗱𝗮𝘆.
+                          - img "⏳" [ref=e724]
+                          - text: Join us live on July 6-7 for two days of cutting-edge discussions, live cases, and groundbreaking insights from the world of neurointervention. It's still time to register
+                          - img "🔥" [ref=e725]
+                          - link "masterandfellow.com" [ref=e726]:
+                            - /url: https://t.co/JRkdzo7PSJ
+                        - group "9 views" [ref=e729]:
+                          - button "0 Replies. Reply" [ref=e731]:
+                            - img [ref=e735]
+                          - button "0 reposts. Repost" [ref=e742]:
+                            - img [ref=e746]
+                          - button "0 Likes. Like" [ref=e753]:
+                            - img [ref=e757]
+                          - link "9 views. View post analytics" [ref=e764]:
+                            - /url: /slice_inr/status/2073016156483375546/analytics
+                            - generic [ref=e765]:
+                              - img [ref=e768]
+                              - generic [ref=e773]: "9"
+                          - button "Bookmark" [ref=e775]:
+                            - img [ref=e779]
+                          - button "Share post" [ref=e784]:
+                            - img [ref=e788]
+                  - 'article "Post Stroke @PostStrokeOrg 51 minutes ago No one warns you that after a #stroke, you might feel abandoned by the people you always thought would be there. I explain why it happens and more importantly, what you can do to rebuild #connection! youtube.com The Truth About Loneliness After Stroke & How to Reconnect ❤️ Join this channel to get access to perks and support Post Stroke... 1 like, 11 views" [ref=e794] [cursor=pointer]:
+                    - generic [ref=e800]:
+                      - link [ref=e812]:
+                        - /url: /PostStrokeOrg
+                      - generic [ref=e815]:
+                        - generic [ref=e817]:
+                          - generic [ref=e820]:
+                            - link "Post Stroke" [ref=e823]:
+                              - /url: /PostStrokeOrg
+                              - generic [ref=e826]: Post Stroke
+                            - generic [ref=e828]:
+                              - link "@PostStrokeOrg" [ref=e830]:
+                                - /url: /PostStrokeOrg
+                                - generic [ref=e831]: "@PostStrokeOrg"
+                              - generic [ref=e832]: ·
+                              - link "51 minutes ago" [ref=e834]:
+                                - /url: /PostStrokeOrg/status/2073009514698211414
+                                - time [ref=e835]: 51m
+                          - generic [ref=e837]:
+                            - button "Grok actions" [ref=e839]:
+                              - img [ref=e844]
+                            - button "More" [ref=e850]:
+                              - img [ref=e854]
+                        - generic [ref=e858]:
+                          - text: No one warns you that after a
+                          - link "#stroke" [ref=e860]:
+                            - /url: /hashtag/stroke?src=hashtag_click
+                          - text: ", you might feel abandoned by the people you always thought would be there. I explain why it happens and more importantly, what you can do to rebuild"
+                          - link "#connection" [ref=e862]:
+                            - /url: /hashtag/connection?src=hashtag_click
+                          - text: "!"
+                        - generic "youtube.com The Truth About Loneliness After Stroke & How to Reconnect ❤️ Join this channel to get access to perks and support Post Stroke..." [ref=e863]:
+                          - generic "Play youtube.com The Truth About Loneliness After Stroke & How to Reconnect ❤️ Join this channel to get access to perks and support Post Stroke..." [ref=e864]:
+                            - img [ref=e874]
+                            - button "youtube.com The Truth About Loneliness After Stroke & How to Reconnect ❤️ Join this channel to get access to perks and support Post Stroke..." [ref=e879]:
+                              - generic [ref=e880]:
+                                - generic [ref=e882]: youtube.com
+                                - generic [ref=e884]: The Truth About Loneliness After Stroke & How to Reconnect
+                                - generic [ref=e886]:
+                                  - img "❤️" [ref=e887]
+                                  - text: Join this channel to get access to perks and support Post Stroke...
+                        - group "1 like, 11 views" [ref=e890]:
+                          - button "0 Replies. Reply" [ref=e892]:
+                            - img [ref=e896]
+                          - button "0 reposts. Repost" [ref=e903]:
+                            - img [ref=e907]
+                          - button "1 Like. Like" [ref=e914]:
+                            - generic [ref=e915]:
+                              - img [ref=e918]
+                              - generic [ref=e923]: "1"
+                          - link "11 views. View post analytics" [ref=e925]:
+                            - /url: /PostStrokeOrg/status/2073009514698211414/analytics
+                            - generic [ref=e926]:
+                              - img [ref=e929]
+                              - generic [ref=e934]: "11"
+                          - button "Bookmark" [ref=e936]:
+                            - img [ref=e940]
+                          - button "Share post" [ref=e945]:
+                            - img [ref=e949]
+                  - 'article "Sanskriti IAS Verified account @sanskritiias 1 hour ago İSLEEPS स्ट्रोक मरीजों की नींद का पहला एशियाई डेटाबेस [İSLEEPS The first Asian database on sleep in stroke patients] #iSLEEPS #Stroke #SleepResearch #MedicalResearch #Healthcare #Neurology #BrainHealth #SleepHealth #StrokeRecovery #HealthScience #ClinicalResearch #Medicine Image Image Image Image 1 reply, 4 likes, 154 views" [ref=e955] [cursor=pointer]:
+                    - generic [ref=e961]:
+                      - link [ref=e973]:
+                        - /url: /sanskritiias
+                      - generic [ref=e976]:
+                        - generic [ref=e978]:
+                          - generic [ref=e981]:
+                            - link "Sanskriti IAS Verified account" [ref=e984]:
+                              - /url: /sanskritiias
+                              - generic [ref=e985]:
+                                - generic [ref=e987]: Sanskriti IAS
+                                - img "Verified account" [ref=e990]
+                            - generic [ref=e994]:
+                              - link "@sanskritiias" [ref=e996]:
+                                - /url: /sanskritiias
+                                - generic [ref=e997]: "@sanskritiias"
+                              - generic [ref=e998]: ·
+                              - link "1 hour ago" [ref=e1000]:
+                                - /url: /sanskritiias/status/2073001000458174862
+                                - time [ref=e1001]: 1h
+                          - generic [ref=e1003]:
+                            - button "Grok actions" [ref=e1005]:
+                              - img [ref=e1010]
+                            - button "More" [ref=e1016]:
+                              - img [ref=e1020]
+                        - generic [ref=e1023]:
+                          - generic [ref=e1024]:
+                            - text: İSLEEPS स्ट्रोक मरीजों की नींद का पहला एशियाई डेटाबेस [İSLEEPS The first Asian database on sleep in stroke patients]
+                            - generic [ref=e1025]:
+                              - link "#iSLEEP" [ref=e1026]:
+                                - /url: /hashtag/iSLEEPS?src=hashtag_click
+                              - link "S" [ref=e1027]:
+                                - /url: /hashtag/iSLEEPS?src=hashtag_click
+                            - generic [ref=e1028]:
+                              - link "#Stro" [ref=e1029]:
+                                - /url: /hashtag/Stroke?src=hashtag_click
+                              - link "ke" [ref=e1030]:
+                                - /url: /hashtag/Stroke?src=hashtag_click
+                            - link "#SleepResearch" [ref=e1032]:
+                              - /url: /hashtag/SleepResearch?src=hashtag_click
+                            - link "#MedicalResearch" [ref=e1034]:
+                              - /url: /hashtag/MedicalResearch?src=hashtag_click
+                            - link "#Healthcare" [ref=e1036]:
+                              - /url: /hashtag/Healthcare?src=hashtag_click
+                            - link "#Neurology" [ref=e1038]:
+                              - /url: /hashtag/Neurology?src=hashtag_click
+                            - link "#BrainHealth" [ref=e1040]:
+                              - /url: /hashtag/BrainHealth?src=hashtag_click
+                            - link "#SleepHealth" [ref=e1042]:
+                              - /url: /hashtag/SleepHealth?src=hashtag_click
+                            - link "#StrokeRecovery" [ref=e1044]:
+                              - /url: /hashtag/StrokeRecovery?src=hashtag_click
+                            - link "#HealthScience" [ref=e1046]:
+                              - /url: /hashtag/HealthScience?src=hashtag_click
+                            - link "#ClinicalResearch" [ref=e1040]:
+                              - /url: /hashtag/ClinicalResearch?src=hashtag_click
+                            - link "#Medicine" [ref=e1050]:
+                              - /url: /hashtag/Medicine?src=hashtag_click
+                          - button "Show more" [ref=e1051]
+                        - generic [ref=e1060]:
+                          - generic [ref=e1061]:
+                            - link "Image" [ref=e1064]:
+                              - /url: /sanskritiias/status/2073001000458174862/photo/1
+                              - generic "Image" [ref=e1066]:
+                                - img "Image" [ref=e1068]
+                            - link "Image" [ref=e1071]:
+                              - /url: /sanskritiias/status/2073001000458174862/photo/2
+                              - generic "Image" [ref=e1073]:
+                                - img "Image" [ref1075]
+                          - generic [ref=e1076]:
+                            - link "Image" [ref=e1079]:
+                              - /url: /sanskritiias/status/2073001000458174862/photo/3
+                              - generic "Image" [ref=e1081]:
+                                - img "Image" [ref=e1083]
+                            - link "Image" [ref=e1086]:
+                              - /url: /sanskritiias/status/2073001000458174862/photo/4
+                              - generic "Image" [ref=e1088]:
+                                - img "Image" [ref=e1090]
+                        - group "1 reply, 4 likes, 154 views" [ref=e1093]:
+                          - button "1 Reply. Reply" [ref=e1095]:
+                            - generic [ref=e1096]:
+                              - img [ref=e1099]
+                              - generic [ref=e1104]: "1"
+                          - button "0 reposts. Repost" [ref=e1106]:
+                            - img [ref=e1110]
+                          - button "4 Likes. Like" [ref=e1117]:
+                            - generic [ref=e1118]:
+                              - img [ref=e1121]
+                              - generic [ref=e1126]: "4"
+                          - link "154 views. View post analytics" [ref=e1128]:
+                            - /url: /sanskritiias/status/2073001000458174862/analytics
+                            - generic [ref=e1129]:
+                              - img [ref=e1132]
+                              - generic [ref=e1137]: "154"
+                          - button "Bookmark" [ref=e1139]:
+                            - img [ref=e1143]
+                          - button "Share post" [ref=e1148]:
+                            - img [ref=e1152]
+                  - 'article "Al Bundy @anonoccu1 1 hour ago #Neurologist names three things that trigger a #stroke - yoga, gym and drink Dr Baibeng Chen says he avoids three risks and advises you do the same mirror.co.uk Neurologist names three things that trigger a stroke - yoga, gym and drink From mirror.co.uk" [ref=e1158] [cursor=pointer]:
+                    - generic [ref=e1164]:
+                      - link [ref=e1176]:
+                        - /url: /anonoccu1
+                      - generic [ref=e1179]:
+                        - generic [ref=e1181]:
+                          - generic [ref=e1184]:
+                            - link "Al Bundy" [ref=e1187]:
+                              - /url: /anonoccu1
+                              - generic [ref=e1190]: Al Bundy
+                            - generic [ref=e1192]:
+                              - link "@anonoccu1" [ref=e1194]:
+                                - /url: /anonoccu1
+                                - generic [ref=e1195]: "@anonoccu1"
+                              - generic [ref=e1196]: ·
+                              - link "1 hour ago" [ref=e1198]:
+                                - /url: /anonoccu1/status/2072998652570644648
+                                - time [ref=e1199]: 1h
+                          - generic [ref=e1201]:
+                            - button "Grok actions" [ref=e1203]:
+                              - img [ref=e1208]
+                            - button "More" [ref=e1214]:
+                              - img [refe1218]
+                        - generic [ref=e1222]:
+                          - link "#Neurologist" [ref=e1224]:
+                            - /url: /hashtag/Neurologist?src=hashtag_click
+                          - text: names three things that trigger a
+                          - link "#stroke" [ref=e1226]:
+                            - /url: /hashtag/stroke?src=hashtag_click
+                          - text: "- yoga, gym and drink Dr Baibeng Chen says he avoids three risks and advises you do the same"
+                        - generic "mirror.co.uk Neurologist names three things that trigger a stroke - yoga, gym and drink" [ref=e1227]:
+                          - generic "mirror.co.uk Neurologist names three things that trigger a stroke - yoga, gym and drink" [ref=e1228]:
+                            - link "mirror.co.uk Neurologist names three things that trigger a stroke - yoga, gym and drink" [ref=e1230]:
+                              - /url: https://t.co/k3LI2wy1cc
+                              - generic [ref=e1236]:
+                                - generic:
+                                  - generic: Neurologist names three things that trigger a stroke - yoga, gym and drink
+                          - link "From mirror.co.uk" [ref=e1239]:
+                            - /url: https://t.co/k3LI2wy1cc
+                        - group "5 views" [ref=e1242]:
+                          - button "0 Replies. Reply" [ref=e1244]:
+                            - img [ref=e1248]
+                          - button "0 reposts. Repost" [ref=e1255]:
+                            - img [ref=e1259]
+                          - button "0 Likes. Like" [ref=e1266]:
+                            - img [ref=e1270]
+                          - link "5 views. View post analytics" [ref=e1277]:
+                            - /url: /anonoccu1/status/2072998652570644648/analytics
+                            - generic [ref=e1278]:
+                              - img [ref=e1281]
+                              - generic [ref=e1286]: "5"
+                          - button "Bookmark" [ref=e1288]:
+                            - img [ref=e1292]
+                          - button "Share post" [ref=e1297]:
+                            - img [ref=e1301]

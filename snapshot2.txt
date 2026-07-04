@@ -1,0 +1,517 @@
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- RootWebArea "(21) cerebral AVM OR intracranial aneurysm OR endovascular - Search / X"
+  - none
+    - generic
+      - generic
+        - generic
+          - generic
+            - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts"
+              - generic
+                - StaticText "To view keyboard shortcuts, press question mark"
+                  - InlineTextBox "T"
+                  - InlineTextBox "o"
+                  - InlineTextBox " "
+                  - InlineTextBox "v"
+                  - InlineTextBox "i"
+                  - InlineTextBox "e"
+                  - InlineTextBox "w"
+                  - InlineTextBox " "
+                  - InlineTextBox "k"
+                  - InlineTextBox "e"
+                  - InlineTextBox "y"
+                  - InlineTextBox "b"
+                  - InlineTextBox "o"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "d"
+                  - InlineTextBox " "
+                  - InlineTextBox "s"
+                  - InlineTextBox "h"
+                  - InlineTextBox "o"
+                  - InlineTextBox "r"
+                  - InlineTextBox "t"
+                  - InlineTextBox "c"
+                  - InlineTextBox "u"
+                  - InlineTextBox "t"
+                  - InlineTextBox "s"
+                  - InlineTextBox ","
+                  - InlineTextBox " "
+                  - InlineTextBox "p"
+                  - InlineTextBox "r"
+                  - InlineTextBox "e"
+                  - InlineTextBox "s"
+                  - InlineTextBox "s"
+                  - InlineTextBox " "
+                  - InlineTextBox "q"
+                  - InlineTextBox "u"
+                  - InlineTextBox "e"
+                  - InlineTextBox "s"
+                  - InlineTextBox "t"
+                  - InlineTextBox "i"
+                  - InlineTextBox "o"
+                  - InlineTextBox "n"
+                  - InlineTextBox " "
+                  - InlineTextBox "m"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "k"
+              - link "View keyboard shortcuts"
+                - StaticText "View keyboard shortcuts"
+                  - InlineTextBox "V"
+                  - InlineTextBox "i"
+                  - InlineTextBox "e"
+                  - InlineTextBox "w"
+                  - InlineTextBox " "
+                  - InlineTextBox "k"
+                  - InlineTextBox "e"
+                  - InlineTextBox "y"
+                  - InlineTextBox "b"
+                  - InlineTextBox "o"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "d"
+                  - InlineTextBox " "
+                  - InlineTextBox "s"
+                  - InlineTextBox "h"
+                  - InlineTextBox "o"
+                  - InlineTextBox "r"
+                  - InlineTextBox "t"
+                  - InlineTextBox "c"
+                  - InlineTextBox "u"
+                  - InlineTextBox "t"
+                  - InlineTextBox "s"
+            - generic
+              - generic
+                - generic
+                  - generic
+                    - generic
+            - generic
+              - button "Skip to home timeline"
+                - generic
+                  - generic
+                    - none
+              - button "Skip to trending"
+                - generic
+                  - generic
+                    - none
+              - banner
+                - generic
+                  - generic
+                    - generic
+                      - generic
+                        - generic
+                          - heading "X"
+                            - link "X"
+                              - generic
+                                - generic
+                                  - none
+                        - generic
+                          - navigation "Primary"
+                            - link "Home"
+                              - generic
+                                - generic
+                            - link "Search and explore"
+                              - generic
+                                - generic
+                            - link "Notifications (21 unread notifications)"
+                              - generic
+                                - generic
+                                  - generic "20+ unread items"
+                                    - none
+                                      - StaticText "20+"
+                                        - InlineTextBox "20+"
+                            - link "Follow"
+                              - generic
+                                - generic
+                            - link "Direct Messages"
+                              - generic
+                                - generic
+                            - link "Grok"
+                              - generic
+                                - generic
+                            - link "Profile"
+                              - generic
+                                - generic
+                            - button "More menu items"
+                              - generic
+                                - generic
+                        - generic
+                          - link "Post"
+                            - generic
+                              - generic
+                                - none
+                      - generic
+                        - generic
+                          - button "Account menu"
+                            - generic
+                              - generic
+                                - none
+                                - generic
+                                  - generic
+                                    - none
+                                    - generic
+                                      - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic "Cognito"
+                                        - generic
+                                        - image "Cognito"
+                                        - generic
+                                        - generic
+              - main
+                - generic
+                  - generic
+                    - generic
+                      - generic
+                        - generic "Home timeline"
+                          - generic
+                            - generic
+                              - generic
+                                - generic
+                                  - generic
+                                    - generic
+                                      - generic
+                                        - generic
+                                        - button "Back"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - search "Search"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - combobox "Search query" = "cerebral AVM OR intracranial aneurysm OR endovascular"
+                                        - none
+                                        - generic
+                                        - StaticText "cerebral AVM OR intracranial aneurysm OR endovascular"
+                                        - InlineTextBox "cerebral AVM OR intracranial aneurysm OR endovascular"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - button "More"
+                                        - generic
+                                        - generic
+                                        - none
+                              - generic
+                                - navigation
+                                  - generic
+                                    - generic
+                                      - button "Previous"
+                                        - generic
+                                        - generic
+                                        - none
+                                    - generic
+                                      - tablist
+                                        - tab "Top"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Top"
+                                        - InlineTextBox "Top"
+                                        - generic
+                                        - tab "Latest"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Latest"
+                                        - InlineTextBox "Latest"
+                                        - generic
+                                        - tab "People"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "People"
+                                        - InlineTextBox "People"
+                                        - generic
+                                        - tab "Media"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Media"
+                                        - InlineTextBox "Media"
+                                        - generic
+                                        - tab "Lists"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Lists"
+                                        - InlineTextBox "Lists"
+                                        - generic
+                                    - generic
+                                      - button "Next"
+                                        - generic
+                                        - generic
+                                        - none
+                            - generic
+                              - generic
+                                - status
+                                  - none
+                                    - none
+                                      - none
+                                      - none
+                                        - none
+                                        - none
+                          - generic
+                          - generic
+                            - region "Search timeline"
+                              - heading "Search timeline"
+                                - StaticText "Search timeline"
+                                  - InlineTextBox "S"
+                                  - InlineTextBox "e"
+                                  - InlineTextBox "a"
+                                  - InlineTextBox "r"
+                                  - InlineTextBox "c"
+                                  - InlineTextBox "h"
+                                  - InlineTextBox " "
+                                  - InlineTextBox "t"
+                                  - InlineTextBox "i"
+                                  - InlineTextBox "m"
+                                  - InlineTextBox "e"
+                                  - InlineTextBox "l"
+                                  - InlineTextBox "i"
+                                  - InlineTextBox "n"
+                                  - InlineTextBox "e"
+                              - generic "Timeline: Search timeline"
+                                - generic
+                                  - generic
+                                    - generic
+                                      - generic
+                                        - article "Candace D. Verified account @DiaryofaSickGrl Jul 10, 2025 What’s the rarest diagnosis you have? (Or have had) 101 replies, 13 reposts, 72 likes, 19 bookmarks, 10703 views"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - link "Candace D. Verified account"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Candace D."
+                                        - InlineTextBox "Candace D."
+                                        - generic
+                                        - none
+                                        - image "Verified account"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - link "@DiaryofaSickGrl"
+                                        - generic
+                                        - StaticText "@DiaryofaSickGrl"
+                                        - InlineTextBox "@DiaryofaSickGrl"
+                                        - none
+                                        - none
+                                        - none
+                                        - generic
+                                        - generic
+                                        - link "Jul 10, 2025"
+                                        - time
+                                        - StaticText "Jul 10, 2025"
+                                        - InlineTextBox "Jul 10, 2025"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - button "Grok actions"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - button "More"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - StaticText "What’s the rarest diagnosis you have? (Or have had)"
+                                        - InlineTextBox "What’s the rarest diagnosis you have? (Or have had)"
+                                        - generic
+                                        - generic
+                                        - group "101 replies, 13 reposts, 72 likes, 19 bookmarks, 10703 views"
+                                        - generic
+                                        - button "101 Replies. Reply"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - none
+                                        - StaticText "101"
+                                        - InlineTextBox "101"
+                                        - generic
+                                        - button "13 reposts. Repost"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - none
+                                        - StaticText "13"
+                                        - InlineTextBox "13"
+                                        - generic
+                                        - button "72 Likes. Like"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - none
+                                        - StaticText "72"
+                                        - InlineTextBox "72"
+                                        - generic
+                                        - link "10703 views. View post analytics"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - none
+                                        - StaticText "10K"
+                                        - InlineTextBox "10K"
+                                        - generic
+                                        - button "Bookmark"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - button "Share post"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                  - generic
+                                    - generic
+                                      - generic
+                                        - article "Willow Verified account @__Granuaile__ Jul 10, 2025 Replying to @DiaryofaSickGrl Carotid aneurysm, usually accounts less than 1% of intracranial aneurysms. I have them bilaterally. Basiliar aneurysm, usually account for 2% of all intracranial aneurysms. Also have a vertebral aneurysm which accounts for 3-5% intracranial aneurysms. #EDS #VEDS Collage of my brain scans 9 likes, 253 views"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - link "Willow Verified account"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Willow"
+                                        - InlineTextBox "Willow"
+                                        - generic
+                                        - none
+                                        - image "Verified account"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - link "@__Granuaile__"
+                                        - generic
+                                        - StaticText "@__Granuaile__"
+                                        - InlineTextBox "@__Granuaile__"
+                                        - none
+                                        - none
+                                        - none
+                                        - generic

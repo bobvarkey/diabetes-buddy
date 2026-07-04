@@ -1,0 +1,362 @@
+---
+topic: daily
+date: 2026-07-04
+tags: []
+---
+
+# Snapshot Neurointervention Scroll1
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications (21 unread notifications)" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - generic [ref=e38]:
+                    - img [ref=e39]
+                    - generic "20+ unread items" [ref=e42]:
+                      - generic [ref=e43]: 20+
+                - link "Follow" [ref=e44] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e47]
+                - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e53]
+                - link "Grok" [ref=e56] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e59]
+                - link "Profile" [ref=e62] [cursor=pointer]:
+                  - /url: /Cognito2026
+                  - img [ref=e65]
+                - button "More menu items" [ref=e68] [cursor=pointer]:
+                  - img [ref=e71]
+              - link "Post" [ref=e75] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e77]
+            - button "Account menu" [ref=e83] [cursor=pointer]:
+              - generic [ref=e91]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Cognito":
+                        - img "Cognito"
+        - main [ref=e94]:
+          - generic "Home timeline" [ref=e99]:
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e106]:
+                  - button "Back" [ref=e108] [cursor=pointer]:
+                    - img [ref=e110]
+                  - search "Search" [ref=e118]:
+                    - generic [ref=e123]:
+                      - img [ref=e125]
+                      - combobox "Search query" [ref=e130]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                  - button "More" [ref=e132] [cursor=pointer]:
+                    - img [ref=e134]
+                - navigation [ref=e138]:
+                  - generic [ref=e139]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e141]:
+                      - tab "Top" [ref=e142] [cursor=pointer]:
+                        - generic [ref=e145]: Top
+                      - tab "Latest" [active] [selected] [ref=e147] [cursor=pointer]:
+                        - generic [ref=e150]: Latest
+                      - tab "People" [ref=e151] [cursor=pointer]:
+                        - generic [ref=e154]: People
+                      - tab "Media" [ref=e155] [cursor=pointer]:
+                        - generic [ref=e158]: Media
+                      - tab "Lists" [ref=e159] [cursor=pointer]:
+                        - generic [ref=e162]: Lists
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "Search timeline" [ref=e652]:
+              - heading "Search timeline" [level=1] [ref=e653]
+              - 'generic "Timeline: Search timeline" [ref=e654]':
+                - generic [ref=e655]:
+                  - article "Dr. Gleb Tsipursky Verified account @Gleb_Tsipursky 21 hours ago Since my last update, the Dr. House miniseries has been renewed for another season. I keep joking about that, but it really does feel that way. There are strange test results, doctors changing their facial expressions mid-conversation, rare organisms, unexplained blood clots, giveinkind.com Help Agnes Kick Cancer From giveinkind.com 2 likes, 219 views" [ref=e1307] [cursor=pointer]:
+                    - generic [ref=e1313]:
+                      - link [ref=e1325]:
+                        - /url: /Gleb_Tsipursky
+                      - generic [ref=e1328]:
+                        - generic [ref=e1330]:
+                          - generic [ref=e1333]:
+                            - link "Dr. Gleb Tsipursky Verified account" [ref=e1336]:
+                              - /url: /Gleb_Tsipursky
+                              - generic [ref=e1337]:
+                                - generic [ref=e1339]: Dr. Gleb Tsipursky
+                                - img "Verified account" [ref=e1342]
+                            - generic [ref=e1346]:
+                              - link "@Gleb_Tsipursky" [ref=e1348]:
+                                - /url: /Gleb_Tsipursky
+                                - generic [ref=e1349]: "@Gleb_Tsipursky"
+                              - generic [ref=e1350]: ·
+                              - link "21 hours ago" [ref=e1352]:
+                                - /url: /Gleb_Tsipursky/status/2072691909475045531
+                                - time [ref=e1353]: 21h
+                          - generic [ref=e1355]:
+                            - button "Grok actions" [ref=e1357]:
+                              - img [ref=e1362]
+                            - button "More" [ref=e1368]:
+                              - img [ref=e1372]
+                        - generic [ref=e1375]:
+                          - generic [ref=e1376]: Since my last update, the Dr. House miniseries has been renewed for another season. I keep joking about that, but it really does feel that way. There are strange test results, doctors changing their facial expressions mid-conversation, rare organisms, unexplained blood clots,
+                          - button "Show more" [ref=e1377]
+                        - generic "giveinkind.com Help Agnes Kick Cancer" [ref=e1378]:
+                          - generic "giveinkind.com Help Agnes Kick Cancer" [ref=e1379]:
+                            - link "giveinkind.com Help Agnes Kick Cancer" [ref=e1381]:
+                              - /url: https://t.co/oKXpy2lGmA
+                              - generic [ref=e1387]:
+                                - generic:
+                                  - generic: Help Agnes Kick Cancer
+                          - link "From giveinkind.com" [ref=e1390]:
+                            - /url: https://t.co/oKXpy2lGmA
+                        - group "2 likes, 219 views" [ref=e1393]:
+                          - button "0 Replies. Reply" [ref=e1395]:
+                            - img [ref=e1399]
+                          - button "0 reposts. Repost" [ref=e1406]:
+                            - img [ref=e1410]
+                          - button "2 Likes. Like" [ref=e1417]:
+                            - generic [ref=e1418]:
+                              - img [ref=e1421]
+                              - generic [ref=e1426]: "2"
+                          - link "219 views. View post analytics" [ref=e1428]:
+                            - /url: /Gleb_Tsipursky/status/2072691909475045531/analytics
+                            - generic [ref=e1429]:
+                              - img [ref=e1432]
+                              - generic [ref=e1437]: "219"
+                          - button "Bookmark" [ref=e1439]:
+                            - img [ref=e1443]
+                          - button "Share post" [ref=e1448]:
+                            - img [ref=e1452]
+                  - 'article "Sascha Deli @SaschaDeli 22 hours ago Well done to Nova for achieving Employee of the Month! ✨ ☺️ ☕️ #stroke @NUH_Stroke @NUHTeamStroke @Vickyy_Jones @NUHMedicine @Stroke_NUH @MedicineClinEds @SarahBrand21 Image 1 reply, 2 reposts, 5 likes, 74 views" [ref=e1458] [cursor=pointer]':
+                    - generic [ref=e1464]:
+                      - link [ref=e1476]:
+                        - /url: /SaschaDeli
+                      - generic [ref=e1479]:
+                        - generic [ref=e1481]:
+                          - generic [ref=e1484]:
+                            - link "Sascha Deli" [ref=e1487]:
+                              - /url: /SaschaDeli
+                              - generic [ref=e1490]: Sascha Deli
+                            - generic [ref=e1492]:
+                              - link "@SaschaDeli" [ref=e1494]:
+                                - /url: /SaschaDeli
+                                - generic [ref=e1495]: "@SaschaDeli"
+                              - generic [ref=e1496]: ·
+                              - link "22 hours ago" [ref=e1498]:
+                                - /url: /SaschaDeli/status/2072676324372607062
+                                - time [ref=e1499]: 22h
+                          - generic [ref=e1501]:
+                            - button "Grok actions" [ref=e1503]:
+                              - img [ref=e1508]
+                            - button "More" [ref=e1514]:
+                              - img [ref=e1518]
+                        - generic [ref=e1522]:
+                          - text: Well done to Nova for achieving Employee of the Month!
+                          - img "✨" [ref=e1523]
+                          - img "☺️" [ref=e1524]
+                          - img "☕️" [ref=e1525]
+                          - link "#stroke" [ref=e1527]:
+                            - /url: /hashtag/stroke?src=hashtag_click
+                          - link "@NUH_Stroke" [ref=e1530]:
+                            - /url: /NUH_Stroke
+                          - link "@NUHTeamStroke" [ref=e1533]:
+                            - /url: /NUHTeamStroke
+                          - link "@Vickyy_Jones" [ref=e1536]:
+                            - /url: /Vickyy_Jones
+                          - link "@NUHMedicine" [ref=e1539]:
+                            - /url: /NUHMedicine
+                          - link "@Stroke_NUH" [ref=e1542]:
+                            - /url: /Stroke_NUH
+                          - link "@MedicineClinEds" [ref=e1545]:
+                            - /url: /MedicineClinEds
+                          - link "@SarahBrand21" [ref=e1548]:
+                            - /url: /SarahBrand21
+                        - link "Image" [ref=e1556]:
+                          - /url: /SaschaDeli/status/2072676324372607062/photo/1
+                          - generic "Image" [ref=e1560]:
+                            - img "Image" [ref=e1562]
+                        - group "1 reply, 2 reposts, 5 likes, 74 views" [ref=e1565]:
+                          - button "1 Reply. Reply" [ref=e1567]:
+                            - generic [ref=e1568]:
+                              - img [ref=e1571]
+                              - generic [ref=e1576]: "1"
+                          - button "2 reposts. Repost" [ref=e1578]:
+                            - generic [ref=e1579]:
+                              - img [ref=e1582]
+                              - generic [ref=e1587]: "2"
+                          - button "5 Likes. Like" [ref=e1589]:
+                            - generic [ref=e1590]:
+                              - img [ref=e1593]
+                              - generic [ref=e1598]: "5"
+                          - link "74 views. View post analytics" [ref=e1600]:
+                            - /url: /SaschaDeli/status/2072676324372607062/analytics
+                            - generic [ref=e1601]:
+                              - img [ref=e1604]
+                              - generic [ref=e1609]: "74"
+                          - button "Bookmark" [ref=e1611]:
+                            - img [ref=e1615]
+                          - button "Share post" [ref=e1620]:
+                            - img [ref=e1624]
+                  - article "SVIN Verified account @svinsociety 23 hours ago Join us November 18–20, 2026, at Resorts World Las Vegas for a high-impact SVIN 2026 Annual Meeting designed to push the field forward. This year, we’re going ALL IN. ⮕ All in on bold ideas. ⮕ All in on groundbreaking research. ⮕ All in on the people shaping the future of Image 5 likes, 316 views" [ref=e1630] [cursor=pointer]:
+                    - generic [ref=e1636]:
+                      - link [ref=e1648]:
+                        - /url: /svinsociety
+                      - generic [ref=e1651]:
+                        - generic [ref=e1653]:
+                          - generic [ref=e1656]:
+                            - link "SVIN Verified account" [ref=e1659]:
+                              - /url: /svinsociety
+                              - generic [ref=e1660]:
+                                - generic [ref=e1662]: SVIN
+                                - img "Verified account" [ref=e1665]
+                            - generic [ref=e1669]:
+                              - link "@svinsociety" [ref=e1671]:
+                                - /url: /svinsociety
+                                - generic [ref=e1672]: "@svinsociety"
+                              - generic [ref=e1673]: ·
+                              - link "23 hours ago" [ref=e1675]:
+                                - /url: /svinsociety/status/2072666601103765646
+                                - time [ref=e1676]: 23h
+                          - generic [ref=e1678]:
+                            - button "Grok actions" [ref=e1680]:
+                              - img [ref=e1685]
+                            - button "More" [ref=e1691]:
+                              - img [ref=e1695]
+                        - generic [ref=e1698]:
+                          - generic [ref=e1699]: Join us November 18–20, 2026, at Resorts World Las Vegas for a high-impact SVIN 2026 Annual Meeting designed to push the field forward. This year, we’re going ALL IN. ⮕ All in on bold ideas. ⮕ All in on groundbreaking research. ⮕ All in on the people shaping the future of
+                          - button "Show more" [ref=e1700]
+                        - link "Image" [ref=e1708]:
+                          - /url: /svinsociety/status/2072666601103765646/photo/1
+                          - generic "Image" [ref=e1712]:
+                            - img "Image" [ref=e1714]
+                        - group "5 likes, 316 views" [ref=e1717]:
+                          - button "0 Replies. Reply" [ref=e1719]:
+                            - img [ref=e1723]
+                          - button "0 reposts. Repost" [ref=e1730]:
+                            - img [ref=e1734]
+                          - button "5 Likes. Like" [ref=e1741]:
+                            - generic [ref=e1742]:
+                              - img [ref=e1745]
+                              - generic [ref=e1750]: "5"
+                          - link "316 views. View post analytics" [ref=e1752]:
+                            - /url: /svinsociety/status/2072666601103765646/analytics
+                            - generic [ref=e1753]:
+                              - img [ref=e1756]
+                              - generic [ref=e1761]: "316"
+                          - button "Bookmark" [ref=e1763]:
+                            - img [ref=e1767]
+                          - button "Share post" [ref=e1772]:
+                            - img [ref=e1776]
+                  - 'article "Neuroglia @Neuroglia_MDPI Jul 2 🧠 🩸 🛡️ Reprogramming Neuroinflammation After Stroke: A Coupled Network Model of Microglial Control 👩‍💻 by Petra Yeboah and Ruoli Chen 📘 Read the article: mdpi.com/2571-6980/7/3/ #Neuroglia #Stroke #Microglia #Neuroinflammation Image" [ref=e1782] [cursor=pointer]':
+                    - generic [ref=e1788]:
+                      - link [ref=e1800]:
+                        - /url: /Neuroglia_MDPI
+                      - generic [ref=e1803]:
+                        - generic [ref=e1805]:
+                          - generic [ref=e1808]:
+                            - link "Neuroglia" [ref=e1811]:
+                              - /url: /Neuroglia_MDPI
+                              - generic [ref=e1814]: Neuroglia
+                            - generic [ref=e1816]:
+                              - link "@Neuroglia_MDPI" [ref=e1818]:
+                                - /url: /Neuroglia_MDPI
+                                - generic [ref=e1819]: "@Neuroglia_MDPI"
+                              - generic [ref=e1820]: ·
+                              - link "Jul 2" [ref=e1822]:
+                                - /url: /Neuroglia_MDPI/status/2072656030199124116
+                                - time [ref=e1823]: Jul 2
+                          - generic [ref=e1825]:
+                            - button "Grok actions" [ref=e1827]:
+                              - img [ref=e1832]
+                            - button "More" [ref=e1838]:
+                              - img [ref=e1842]
+                        - generic [ref=e1846]:
+                          - img "🧠" [ref=e1847]
+                          - img "🩸" [ref=e1848]
+                          - img "🛡️" [ref=e1849]
+                          - text: "Reprogramming Neuroinflammation After Stroke: A Coupled Network Model of Microglial Control"
+                          - img "👩‍💻" [ref=e1850]
+                          - text: by Petra Yeboah and Ruoli Chen
+                          - img "📘" [ref=e1851]
+                          - text: "Read the article:"
+                          - link "mdpi.com/2571-6980/7/3/" [ref=e1852]:
+                            - /url: https://t.co/sMjKTNBCGi
+                            - text: mdpi.com/2571-6980/7/3/ …
+                          - link "#Neuroglia" [ref=e1854]:
+                            - /url: /hashtag/Neuroglia?src=hashtag_click
+                          - link "#Stroke" [ref=e1856]:
+                            - /url: /hashtag/Stroke?src=hashtag_click
+                          - link "#Microglia" [ref=e1858]:
+                            - /url: /hashtag/Microglia?src=hashtag_click
+                          - link "#Neuroinflammation" [ref=e1860]:
+                            - /url: /hashtag/Neuroinflammation?src=hashtag_click
+                        - link "Image" [ref=e1868]:
+                          - /url: /Neuroglia_MDPI/status/2072656030199124116/photo/1
+                          - generic "Image" [ref=e1872]:
+                            - img "Image" [ref=e1874]
+                        - group "1 bookmark, 40 views" [ref=e1877]:
+                          - button "0 Replies. Reply" [ref=e1879]:
+                            - img [ref=e1883]
+                          - button "0 reposts. Repost" [ref=e1890]:
+                            - img [ref=e1894]
+                          - button "0 Likes. Like" [ref=e1901]:
+                            - img [ref=e1905]
+                          - link "40 views. View post analytics" [ref=e1912]:
+                            - /url: /Neuroglia_MDPI/status/2072656030199124116/analytics
+                            - generic [ref=e1913]:
+                              - img [ref=e1916]
+                              - generic [ref=e1921]: "40"
+                          - button "Bookmark" [ref=e1923]:
+                            - img [ref=e1927]
+                          - button "Share post" [ref=e1932]:
+                            - img [ref=e1936]

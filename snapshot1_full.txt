@@ -1,0 +1,545 @@
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- RootWebArea "(21) neurointervention OR thrombectomy OR #Neurointervention OR #stroke - Search / X"
+  - none
+    - generic
+      - generic
+        - generic
+          - generic
+            - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts"
+              - generic
+                - StaticText "To view keyboard shortcuts, press question mark"
+                  - InlineTextBox "T"
+                  - InlineTextBox "o"
+                  - InlineTextBox " "
+                  - InlineTextBox "v"
+                  - InlineTextBox "i"
+                  - InlineTextBox "e"
+                  - InlineTextBox "w"
+                  - InlineTextBox " "
+                  - InlineTextBox "k"
+                  - InlineTextBox "e"
+                  - InlineTextBox "y"
+                  - InlineTextBox "b"
+                  - InlineTextBox "o"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "d"
+                  - InlineTextBox " "
+                  - InlineTextBox "s"
+                  - InlineTextBox "h"
+                  - InlineTextBox "o"
+                  - InlineTextBox "r"
+                  - InlineTextBox "t"
+                  - InlineTextBox "c"
+                  - InlineTextBox "u"
+                  - InlineTextBox "t"
+                  - InlineTextBox "s"
+                  - InlineTextBox ","
+                  - InlineTextBox " "
+                  - InlineTextBox "p"
+                  - InlineTextBox "r"
+                  - InlineTextBox "e"
+                  - InlineTextBox "s"
+                  - InlineTextBox "s"
+                  - InlineTextBox " "
+                  - InlineTextBox "q"
+                  - InlineTextBox "u"
+                  - InlineTextBox "e"
+                  - InlineTextBox "s"
+                  - InlineTextBox "t"
+                  - InlineTextBox "i"
+                  - InlineTextBox "o"
+                  - InlineTextBox "n"
+                  - InlineTextBox " "
+                  - InlineTextBox "m"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "k"
+              - link "View keyboard shortcuts"
+                - StaticText "View keyboard shortcuts"
+                  - InlineTextBox "V"
+                  - InlineTextBox "i"
+                  - InlineTextBox "e"
+                  - InlineTextBox "w"
+                  - InlineTextBox " "
+                  - InlineTextBox "k"
+                  - InlineTextBox "e"
+                  - InlineTextBox "y"
+                  - InlineTextBox "b"
+                  - InlineTextBox "o"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "d"
+                  - InlineTextBox " "
+                  - InlineTextBox "s"
+                  - InlineTextBox "h"
+                  - InlineTextBox "o"
+                  - InlineTextBox "r"
+                  - InlineTextBox "t"
+                  - InlineTextBox "c"
+                  - InlineTextBox "u"
+                  - InlineTextBox "t"
+                  - InlineTextBox "s"
+            - generic
+              - generic
+                - generic
+                  - generic
+                    - generic
+            - generic
+              - button "Skip to home timeline"
+                - generic
+                  - generic
+                    - none
+              - button "Skip to trending"
+                - generic
+                  - generic
+                    - none
+              - banner
+                - generic
+                  - generic
+                    - generic
+                      - generic
+                        - generic
+                          - heading "X"
+                            - link "X"
+                              - generic
+                                - generic
+                                  - none
+                        - generic
+                          - navigation "Primary"
+                            - link "Home"
+                              - generic
+                                - generic
+                            - link "Search and explore"
+                              - generic
+                                - generic
+                            - link "Notifications (21 unread notifications)"
+                              - generic
+                                - generic
+                                  - generic "20+ unread items"
+                                    - none
+                                      - StaticText "20+"
+                                        - InlineTextBox "20+"
+                            - link "Follow"
+                              - generic
+                                - generic
+                            - link "Direct Messages"
+                              - generic
+                                - generic
+                            - link "Grok"
+                              - generic
+                                - generic
+                            - link "Profile"
+                              - generic
+                                - generic
+                            - button "More menu items"
+                              - generic
+                                - generic
+                        - generic
+                          - link "Post"
+                            - generic
+                              - generic
+                                - none
+                      - generic
+                        - generic
+                          - button "Account menu"
+                            - generic
+                              - generic
+                                - none
+                                - generic
+                                  - generic
+                                    - none
+                                    - generic
+                                      - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic "Cognito"
+                                        - generic
+                                        - image "Cognito"
+                                        - generic
+                                        - generic
+              - main
+                - generic
+                  - generic
+                    - generic
+                      - generic
+                        - generic "Home timeline"
+                          - generic
+                            - generic
+                              - generic
+                                - generic
+                                  - generic
+                                    - generic
+                                      - generic
+                                        - generic
+                                        - button "Back"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - search "Search"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - combobox "Search query" = "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                                        - none
+                                        - generic
+                                        - StaticText "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                                        - InlineTextBox "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - button "More"
+                                        - generic
+                                        - generic
+                                        - none
+                              - generic
+                                - navigation
+                                  - generic
+                                    - generic
+                                      - button "Previous"
+                                        - generic
+                                        - generic
+                                        - none
+                                    - generic
+                                      - tablist
+                                        - tab "Top"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Top"
+                                        - InlineTextBox "Top"
+                                        - generic
+                                        - tab "Latest"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Latest"
+                                        - InlineTextBox "Latest"
+                                        - generic
+                                        - tab "People"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "People"
+                                        - InlineTextBox "People"
+                                        - generic
+                                        - tab "Media"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Media"
+                                        - InlineTextBox "Media"
+                                        - generic
+                                        - tab "Lists"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "Lists"
+                                        - InlineTextBox "Lists"
+                                        - generic
+                                    - generic
+                                      - button "Next"
+                                        - generic
+                                        - generic
+                                        - none
+                            - generic
+                              - generic
+                                - status
+                                  - none
+                                    - none
+                                      - none
+                                      - none
+                                        - none
+                                        - none
+                          - generic
+                          - generic
+                            - region "Search timeline"
+                              - heading "Search timeline"
+                                - StaticText "Search timeline"
+                                  - InlineTextBox "S"
+                                  - InlineTextBox "e"
+                                  - InlineTextBox "a"
+                                  - InlineTextBox "r"
+                                  - InlineTextBox "c"
+                                  - InlineTextBox "h"
+                                  - InlineTextBox " "
+                                  - InlineTextBox "t"
+                                  - InlineTextBox "i"
+                                  - InlineTextBox "m"
+                                  - InlineTextBox "e"
+                                  - InlineTextBox "l"
+                                  - InlineTextBox "i"
+                                  - InlineTextBox "n"
+                                  - InlineTextBox "e"
+                              - generic "Timeline: Search timeline"
+                                - generic
+                                  - generic
+                                    - generic
+                                      - generic
+                                        - article "SVIN Verified account @svinsociety May 9 Don't miss the 🌍 World Thrombectomy Day 2026 Global Webinar Mission Thrombectomy x Collaterals Webinar!   A 10-hour global webinar featuring stroke and thrombectomy experts across Asia, Middle East, Africa, Europe, and the Americas.    🧠 Access, innovation, and real-world Image 4 reposts, 11 likes, 660 views"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - none
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - link "SVIN Verified account"
+                                        - generic
+                                        - generic
+                                        - none
+                                        - StaticText "SVIN"
+                                        - InlineTextBox "SVIN"
+                                        - generic
+                                        - none
+                                        - image "Verified account"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - link "@svinsociety"
+                                        - generic
+                                        - StaticText "@svinsociety"
+                                        - InlineTextBox "@svinsociety"
+                                        - none
+                                        - none
+                                        - none
+                                        - generic
+                                        - link "May 9"
+                                        - time
+                                        - StaticText "May 9"
+                                        - InlineTextBox "May 9"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - button "Grok actions"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - button "More"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - StaticText "Don't miss the  "
+                                        - InlineTextBox "Don't miss the  "
+                                        - image "🌍"
+                                        - StaticText " World "
+                                        - InlineTextBox " World "
+                                        - StaticText "Thrombectomy"
+                                        - InlineTextBox "Thrombectomy"
+                                        - StaticText " Day 2026 Global Webinar Mission "
+                                        - InlineTextBox " Day 2026 Global Webinar"
+                                        - InlineTextBox " "
+                                        - InlineTextBox "Mission "
+                                        - StaticText "Thrombectomy"
+                                        - InlineTextBox "Thrombectomy"
+                                        - StaticText " x Collaterals Webinar! 
+ 
+A 10-hour global webinar featuring stroke and "
+                                        - InlineTextBox " x Collaterals Webinar! "
+                                        - InlineTextBox "
+"
+                                        - InlineTextBox " "
+                                        - InlineTextBox "
+"
+                                        - InlineTextBox "A 10-hour global webinar featuring stroke and "
+                                        - StaticText "thrombectomy"
+                                        - InlineTextBox "thrombectomy"
+                                        - StaticText " experts across Asia, Middle East, Africa, Europe, and the Americas. 
+ 
+"
+                                        - InlineTextBox " experts"
+                                        - InlineTextBox " "
+                                        - InlineTextBox "across Asia, Middle East, Africa, Europe, and the Americas. "
+                                        - InlineTextBox "
+"
+                                        - InlineTextBox " "
+                                        - InlineTextBox "
+"
+                                        - image "🧠"
+                                        - StaticText " Access, innovation, and real-world"
+                                        - InlineTextBox " Access, innovation, and real-world"
+                                        - button "Show more"
+                                        - StaticText "Show more"
+                                        - InlineTextBox "Show more"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - link "Image"
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic "Image"
+                                        - generic
+                                        - image "Image"
+                                        - generic
+                                        - generic
+                                        - group "4 reposts, 11 likes, 660 views"
+                                        - generic
+                                        - button "0 Replies. Reply"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - none
+                                        - generic
+                                        - button "4 reposts. Repost"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - none
+                                        - StaticText "4"
+                                        - InlineTextBox "4"
+                                        - generic
+                                        - button "11 Likes. Like"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - none
+                                        - StaticText "11"
+                                        - InlineTextBox "11"
+                                        - generic
+                                        - link "660 views. View post analytics"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - none
+                                        - StaticText "660"
+                                        - InlineTextBox "660"
+                                        - generic
+                                        - button "Bookmark"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - button "Share post"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                  - generic
+                                    - generic
+                                      - generic
+                                        - article "Neurology Journal @GreenJournal Feb 8, 2022 Ischemic #Stroke and Pulmonary Arteriovenous Malformations: A Review bit.ly/34znyqi #NeuroScience #Neurology Image 19 reposts, 48 likes, 7 bookmarks"
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - generic
+                                        - generic
+                                        - none
+                                        - none

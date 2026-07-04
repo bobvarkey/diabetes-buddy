@@ -1,0 +1,215 @@
+---
+topic: daily
+date: 2026-07-04
+tags: []
+---
+
+# Snapshot Avm Aneurysm Top
+
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications (21 unread notifications)" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - generic [ref=e38]:
+                    - img [ref=e39]
+                    - generic "20+ unread items" [ref=e42]:
+                      - generic [ref=e43]: 20+
+                - link "Follow" [ref=e44] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e47]
+                - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e53]
+                - link "Grok" [ref=e56] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e59]
+                - link "Profile" [ref=e62] [cursor=pointer]:
+                  - /url: /Cognito2026
+                  - img [ref=e65]
+                - button "More menu items" [ref=e68] [cursor=pointer]:
+                  - img [ref=e71]
+              - link "Post" [ref=e75] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e77]
+            - button "Account menu" [ref=e83] [cursor=pointer]:
+              - generic [ref=e91]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Cognito":
+                        - img "Cognito"
+        - main [ref=e94]:
+          - generic "Home timeline" [ref=e99]:
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e106]:
+                  - button "Back" [ref=e108] [cursor=pointer]:
+                    - img [ref=e110]
+                  - search "Search" [ref=e118]:
+                    - generic [ref=e123]:
+                      - img [ref=e125]
+                      - combobox "Search query" [ref=e130]: cerebral AVM OR intracranial aneurysm OR endovascular
+                  - button "More" [ref=e132] [cursor=pointer]:
+                    - img [ref=e134]
+                - navigation [ref=e138]:
+                  - generic [ref=e139]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e141]:
+                      - tab "Top" [selected] [ref=e142] [cursor=pointer]:
+                        - generic [ref=e145]: Top
+                      - tab "Latest" [ref=e147] [cursor=pointer]:
+                        - generic [ref=e150]: Latest
+                      - tab "People" [ref=e151] [cursor=pointer]:
+                        - generic [ref=e154]: People
+                      - tab "Media" [ref=e155] [cursor=pointer]:
+                        - generic [ref=e158]: Media
+                      - tab "Lists" [ref=e159] [cursor=pointer]:
+                        - generic [ref=e162]: Lists
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "Search timeline" [ref=e164]:
+              - heading "Search timeline" [level=1] [ref=e165]
+              - 'generic "Timeline: Search timeline" [ref=e166]':
+                - generic [ref=e167]:
+                  - 'article "Neurology Journal @GreenJournal Mar 25, 2025 This study investigated underestimation of the follow-up infarct on DWI by baseline CT perfusion core imaging in patients with acute anterior circulation ischemic stroke caused by large vessel occlusion with complete endovascular reperfusion: hubs.la/Q03cZ5Sf0 Image 2 replies, 12 reposts, 35 likes, 11 bookmarks, 3013 views" [ref=e171] [cursor=pointer]':
+                    - generic [ref=e177]:
+                      - link [ref=e189]:
+                        - /url: /GreenJournal
+                      - generic [ref=e192]:
+                        - generic [ref=e194]:
+                          - generic [ref=e197]:
+                            - link "Neurology Journal" [ref=e200]:
+                              - /url: /GreenJournal
+                              - generic [ref=e203]: Neurology Journal
+                            - generic [ref=e205]:
+                              - link "@GreenJournal" [ref=e207]:
+                                - /url: /GreenJournal
+                                - generic [ref=e208]: "@GreenJournal"
+                              - generic [ref=e209]: ·
+                              - link "Mar 25, 2025" [ref=e211]:
+                                - /url: /GreenJournal/status/1904258402437472586
+                                - time [ref=e212]: Mar 25, 2025
+                          - generic [ref=e214]:
+                            - button "Grok actions" [ref=e216]:
+                              - img [ref=e221]
+                            - button "More" [ref=e227]:
+                              - img [ref=e231]
+                        - generic [ref=e235]:
+                          - text: "This study investigated underestimation of the follow-up infarct on DWI by baseline CT perfusion core imaging in patients with acute anterior circulation ischemic stroke caused by large vessel occlusion with complete endovascular reperfusion:"
+                          - link "hubs.la/Q03cZ5Sf0" [ref=e236]:
+                            - /url: https://t.co/TbKgsDGUpi
+                        - link "Image" [ref=e244]:
+                          - /url: /GreenJournal/status/1904258402437472586/photo/1
+                          - generic "Image" [ref=e248]:
+                            - img "Image" [ref=e250]
+                        - group "2 replies, 12 reposts, 35 likes, 11 bookmarks, 3013 views" [ref=e253]:
+                          - button "2 Replies. Reply" [ref=e255]:
+                            - generic [ref=e256]:
+                              - img [ref=e259]
+                              - generic [ref=e264]: "2"
+                          - button "12 reposts. Repost" [ref=e266]:
+                            - generic [ref=e267]:
+                              - img [ref=e270]
+                              - generic [ref=e275]: "12"
+                          - button "35 Likes. Like" [ref=e277]:
+                            - generic [ref=e278]:
+                              - img [ref=e281]
+                              - generic [ref=e286]: "35"
+                          - link "3013 views. View post analytics" [ref=e288]:
+                            - /url: /GreenJournal/status/1904258402437472586/analytics
+                            - generic [ref=e289]:
+                              - img [ref=e292]
+                              - generic [ref=e297]: 3K
+                          - button "Bookmark" [ref=e299]:
+                            - img [ref=e303]
+                          - button "Share post" [ref=e308]:
+                            - img [ref=e312]
+                  - 'article "Neurology Journal @GreenJournal Jul 12, 2025 Intra-Arterial Thrombolysis Following Endovascular Recanalization for Large Vessel Occlusion Stroke: A Systematic Review and Meta-Analysis hubs.la/Q03wLqk80 #NeuroX Image 3 replies, 6 reposts, 17 likes, 1 bookmark, 2507 views" [ref=e318] [cursor=pointer]':
+                    - generic [ref=e324]:
+                      - link [ref=e336]:
+                        - /url: /GreenJournal
+                      - generic [ref=e339]:
+                        - generic [ref=e341]:
+                          - generic [ref=e344]:
+                            - link "Neurology Journal" [ref=e347]:
+                              - /url: /GreenJournal
+                              - generic [ref=e350]: Neurology Journal
+                            - generic [ref=e352]:
+                              - link "@GreenJournal" [ref=e354]:
+                                - /url: /GreenJournal
+                                - generic [ref=e355]: "@GreenJournal"
+                              - generic [ref=e356]: ·
+                              - link "Jul 12, 2025" [ref=e358]:
+                                - /url: /GreenJournal/status/1943790444237766670
+                                - time [ref=e359]: Jul 12, 2025
+                          - generic [ref=e361]:
+                            - button "Grok actions" [ref=e363]:
+                              - img [ref=e368]
+                            - button "More" [ref=e374]:
+                              - img [ref=e378]
+                        - generic [ref=e382]:
+                          - text: "Intra-Arterial Thrombolysis Following Endovascular Recanalization for Large Vessel Occlusion Stroke: A Systematic Review and Meta-Analysis"
+                          - link "hubs.la/Q03wLqk80" [ref=e383]:
+                            - /url: https://t.co/tlJVvEetDO
+                          - link "#NeuroX" [ref=e385]:
+                            - /url: /hashtag/NeuroX?src=hashtag_click
+                        - link "Image" [ref=e393]:
+                          - /url: /GreenJournal/status/1943790444237766670/photo/1
+                          - generic "Image" [ref=e397]:
+                            - img "Image" [ref=e399]
+                        - group "3 replies, 6 reposts, 17 likes, 1 bookmark, 2507 views" [ref=e402]:
+                          - button "3 Replies. Reply" [ref=e404]:
+                            - generic [ref=e405]:
+                              - img [ref=e408]
+                              - generic [ref=e413]: "3"
+                          - button "6 reposts. Repost" [ref=e415]:
+                            - generic [ref=e416]:
+                              - img [ref=e419]
+                              - generic [ref=e424]: "6"
+                          - button "17 Likes. Like" [ref=e426]:
+                            - generic [ref=e427]:
+                              - img [ref=e430]
+                              - generic [ref=e435]: "17"
+                          - link "2507 views. View post analytics" [ref=e437]:
+                            - /url: /GreenJournal/status/1943790444237766670/analytics
+                            - generic [ref=e438]:
+                              - img [ref=e441]
+                              - generic [ref=e446]: 2.5K
+                          - button "Bookmark" [ref=e448]:
+                            - img [ref=e452]
+                          - button "Share post" [ref=e457]:
+                            - img [ref=e461]

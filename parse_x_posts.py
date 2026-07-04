@@ -1,146 +1,396 @@
 #!/usr/bin/env python3
-import sqlite3
-import json
+"""Parse X search results - v3 with better filtering."""
 import re
-from datetime import datetime
-from pathlib import Path
+import json
+import sqlite3
+import datetime
 
-# Parse posts from snapshot text
-def parse_posts_from_snapshot(snapshot_text):
+def parse_x_posts(text, query_label):
+    lines = text.split('\n')
     posts = []
-    # Split by article tags
-    article_pattern = r'article "([^"]+)"'
-    articles = re.findall(article_pattern, snapshot_text)
     
-    for article_text in articles:
-        post = {}
+    # Known non-post users/entries
+    skip_authors = {
+        'Follow', 'Follow back', 'Show more', 'Terms of Service', 'Privacy Policy',
+        'Cookie Policy', 'Accessibility', 'Ads info', 'More', 'Top', 'Latest',
+        'People', 'Media', 'Lists', 'Search timeline', 'See new posts',
+        'Who to follow', 'What\'s happening', 'Trending', 'Today\'s News',
+        'Search filters', 'Translated from Spanish', 'Show original',
+        'From anyone', 'People you follow', 'Location', 'Anywhere', 'Near you',
+        'Advanced search', 'Business & finance', 'Trending', 'News'
+    }
+    
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
         
-        # Extract author and handle
-        author_match = re.search(r'^([^\s@]+(?:\s+[^\s@]+)*)\s+(@[\w]+)', article_text)
-        if author_match:
-            post['author'] = author_match.group(1).strip()
-            post['handle'] = author_match.group(2).strip()
-        else:
-            author_match = re.search(r'^([^\s]+(?:\s+[^\s]+)?)\s+Verified account\s+(@[\w]+)', article_text)
-            if author_match:
-                post['author'] = author_match.group(1).strip()
-                post['handle'] = author_match.group(2).strip()
+        if not line or line.isdigit() or len(line) < 2:
+            i += 1
+            continue
+        if line in skip_authors:
+            i += 1
+            continue
+        if line.startswith(('To view', 'View keyboard', '© 20')):
+            i += 1
+            continue
+        if '·' in line and 'Trending in' in line:
+            i += 1
+            continue
+        if line.startswith('http'):
+            i += 1
+            continue
+        if line in ['Quote']:
+            i += 1
+            continue
         
-        # Extract date/time
-        time_match = re.search(r'(\d+\s+(?:hour|hours|day|days|month|months|year|years)\s+ago|\d+\s*(?:h|d|m|y)\b|\w+\s+\d+,\s+\d{4}|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s', article_text)
-        if time_match:
-            post['date'] = time_match.group(1).strip()
+        # Check if this line is an author (next line is @handle)
+        if i + 1 < len(lines):
+            next_line = lines[i+1].strip()
+            if next_line.startswith('@'):
+                # Skip "Who to follow" and sidebar entries
+                if line in skip_authors or '(' in line and ')' in line:
+                    i += 1
+                    continue
+                if line in ['Follow', 'Follows you', 'Follow back']:
+                    i += 1
+                    continue
+                
+                author = line
+                handle = next_line
+                
+                # Find the · separator and date
+                j = i + 2
+                while j < len(lines) and lines[j].strip() == '·':
+                    j += 1
+                
+                date_str = ''
+                if j < len(lines):
+                    date_str = lines[j].strip()
+                    j += 1
+                
+                # Skip "Translated from..." and "Show original"
+                while j < len(lines):
+                    l = lines[j].strip()
+                    if l.startswith('Translated from') or l == 'Show original':
+                        j += 1
+                    else:
+                        break
+                
+                # Collect text content
+                text_lines = []
+                k = j
+                
+                while k < len(lines):
+                    l = lines[k].strip()
+                    
+                    # End conditions
+                    if not l:
+                        k += 1
+                        # Check if next non-empty lines form engagement block
+                        continue
+                    
+                    # Check if this line starts engagement metric block
+                    if l.isdigit() and len(l) < 7:
+                        # Check if it's followed by more digits/K numbers
+                        eng_nums = [l]
+                        for m in range(1, 6):
+                            if k + m < len(lines):
+                                nl = lines[k+m].strip()
+                                if nl.isdigit() and len(nl) < 7:
+                                    eng_nums.append(nl)
+                                elif nl.endswith('K') and nl[:-1].replace(',','').replace('.','').isdigit():
+                                    eng_nums.append(nl)
+                                else:
+                                    break
+                            else:
+                                break
+                        
+                        if len(eng_nums) >= 2:
+                            # This is definitely an engagement block
+                            break
+                        else:
+                            # Single number - keep as text
+                            text_lines.append(l)
+                            k += 1
+                            continue
+                    
+                    # Check for next post pattern: this line + @handle on next
+                    if k + 1 < len(lines) and lines[k+1].strip().startswith('@'):
+                        if l not in ['', 'Quote', 'Show more']:
+                            text_lines.append(l)
+                        break
+                    
+                    # Check for "· date" pattern (next post)
+                    if k + 2 < len(lines) and lines[k+1].strip() == '·':
+                        if l not in ['', 'Quote']:
+                            text_lines.append(l)
+                        break
+                    
+                    if l == 'Quote' or l == 'Show more':
+                        text_lines.append(l)
+                        k += 1
+                        continue
+                    
+                    text_lines.append(l)
+                    k += 1
+                
+                # Extract engagement numbers from k onwards
+                eng_numbers = []
+                m = k
+                while m < len(lines):
+                    nl = lines[m].strip()
+                    if nl.isdigit() and len(nl) < 7:
+                        eng_numbers.append(int(nl))
+                    elif nl.endswith('K') and nl[:-1].replace(',','').replace('.','').isdigit():
+                        try:
+                            val = float(nl[:-1].replace(',', '')) * 1000
+                            eng_numbers.append(int(val))
+                        except:
+                            break
+                    elif nl == '':
+                        m += 1
+                        continue
+                    else:
+                        break
+                    m += 1
+                
+                # Parse engagement: replies, retweets, likes
+                replies = eng_numbers[0] if len(eng_numbers) >= 1 else 0
+                retweets = eng_numbers[1] if len(eng_numbers) >= 2 else 0
+                likes = eng_numbers[2] if len(eng_numbers) >= 3 else 0
+                views = str(eng_numbers[3]) if len(eng_numbers) >= 4 else ''
+                
+                text_content = '\n'.join(text_lines).strip()
+                text_content = re.sub(r'\nShow more$', '', text_content)
+                text_content = re.sub(r'\nQuote$', '', text_content)
+                
+                # Filter out junk posts
+                if (len(text_content) > 10 and 
+                    author not in skip_authors and
+                    'Follow' not in author and
+                    'Terms of' not in author and
+                    '© 20' not in author and
+                    not author.startswith('http') and
+                    not text_content.startswith('Terms of')):
+                    
+                    posts.append({
+                        'author': author,
+                        'handle': handle,
+                        'date': date_str,
+                        'text': text_content[:500],
+                        'likes': likes if isinstance(likes, int) else 0,
+                        'retweets': retweets if isinstance(retweets, int) else 0,
+                        'replies': replies if isinstance(replies, int) else 0,
+                        'views': views,
+                        'query': query_label
+                    })
+                
+                # Advance past engagement block or text end
+                if len(eng_numbers) > 0:
+                    i = m
+                else:
+                    i = k + 1
+                continue
         
-        # Extract text content (everything between handle and metrics)
-        text_start = article_text.find(' ')
-        if text_start > 0:
-            remaining = article_text[text_start:]
-            # Remove metrics from end
-            metrics_pos = remaining.rfind('group')
-            if metrics_pos > 0:
-                remaining = remaining[:metrics_pos]
-            # Clean up common X patterns
-            remaining = re.sub(r'\s+(?:Embedded video|Play Video|Image)\s+', ' ', remaining)
-            post['text'] = remaining.strip()
-        
-        # Extract engagement metrics
-        metrics_match = re.search(r'(\d+)\s+repl(y|ies)?\s*,\s*(\d+)\s+reposts?\s*,\s*(\d+)\s+likes?\s*,\s*(?:(\d+)\s+bookmarks?\s*,\s*)?(\d+[\.\d]*[KM]?)\s+views?', article_text)
-        if metrics_match:
-            post['replies'] = int(metrics_match.group(1))
-            post['reposts'] = int(metrics_match.group(3))
-            post['likes'] = int(metrics_match.group(4))
-            post['bookmarks'] = int(metrics_match.group(5)) if metrics_match.group(5) else 0
-            post['views'] = metrics_match.group(6)
-        
-        # Extract URL - look for status pattern
-        url_match = re.search(r'/(\w+)/status/(\d+)', article_text)
-        if url_match:
-            post['url'] = f"https://x.com/{url_match.group(1)}/status/{url_match.group(2)}"
-        
-        if post.get('author') and post.get('text'):
-            posts.append(post)
+        i += 1
     
     return posts
 
-# Save to SQLite database
-def save_to_db(posts, db_path):
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+
+def main():
+    today = datetime.date.today().isoformat()
     
-    # Create table if not exists
-    cursor.execute('''
+    with open('x_raw_text.txt', 'r') as f:
+        text1 = f.read()
+    with open('x_raw_text_2.txt', 'r') as f:
+        text2 = f.read()
+    
+    posts1 = parse_x_posts(text1, 'neurointervention/thrombectomy/stroke')
+    posts2 = parse_x_posts(text2, 'cerebral AVM/aneurysm/endovascular')
+    
+    all_posts = posts1 + posts2
+    
+    # Deduplicate
+    seen = set()
+    unique_posts = []
+    for p in all_posts:
+        key = (p['text'][:80], p['handle'])
+        if key not in seen:
+            seen.add(key)
+            unique_posts.append(p)
+    
+    print(f"\n{'='*70}")
+    print(f"QUERY 1: neurointervention/thrombectomy/stroke — {len(posts1)} posts")
+    print(f"{'='*70}")
+    for p in posts1:
+        print(f"\n  📍 {p['author']} {p['handle']} | {p['date']}")
+        print(f"     ❤️ {p['likes']} | 🔁 {p['retweets']} | 💬 {p['replies']}")
+        preview = p['text'][:150].replace('\n', ' | ')
+        print(f"     {preview}...")
+    
+    print(f"\n{'='*70}")
+    print(f"QUERY 2: cerebral AVM/aneurysm/endovascular — {len(posts2)} posts")
+    print(f"{'='*70}")
+    for p in posts2:
+        print(f"\n  📍 {p['author']} {p['handle']} | {p['date']}")
+        print(f"     ❤️ {p['likes']} | 🔁 {p['retweets']} | 💬 {p['replies']}")
+        preview = p['text'][:150].replace('\n', ' | ')
+        print(f"     {preview}...")
+    
+    # Save to SQLite
+    db_path = 'memory_x_posts.db'
+    conn = sqlite3.connect(db_path)
+    c = conn.cursor()
+    c.execute('''
         CREATE TABLE IF NOT EXISTS x_posts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             author TEXT,
             handle TEXT,
             date TEXT,
             text TEXT,
-            replies INTEGER,
-            reposts INTEGER,
-            likes INTEGER,
-            bookmarks INTEGER,
-            views TEXT,
-            url TEXT UNIQUE,
-            scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            search_query TEXT
+            likes INTEGER DEFAULT 0,
+            retweets INTEGER DEFAULT 0,
+            replies INTEGER DEFAULT 0,
+            views TEXT DEFAULT '',
+            query TEXT,
+            scraped_at TEXT DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(text, handle, date)
         )
     ''')
     
-    # Insert posts
-    inserted = 0
-    for post in posts:
+    new_count = 0
+    for p in unique_posts:
         try:
-            cursor.execute('''
-                INSERT OR IGNORE INTO x_posts 
-                (author, handle, date, text, replies, reposts, likes, bookmarks, views, url, search_query)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ''', (
-                post.get('author', ''),
-                post.get('handle', ''),
-                post.get('date', ''),
-                post.get('text', ''),
-                post.get('replies', 0),
-                post.get('reposts', 0),
-                post.get('likes', 0),
-                post.get('bookmarks', 0),
-                post.get('views', '0'),
-                post.get('url', ''),
-                'neurointervention OR thrombectomy OR #Neurointervention OR #stroke'
-            ))
-            if cursor.rowcount > 0:
-                inserted += 1
+            c.execute('''
+                INSERT OR IGNORE INTO x_posts (author, handle, date, text, likes, retweets, replies, views, query)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (p['author'], p['handle'], p['date'], p['text'], 
+                  p['likes'], p['retweets'], p['replies'], str(p['views']), p['query']))
+            if c.rowcount > 0:
+                new_count += 1
         except Exception as e:
-            print(f"Error inserting post: {e}")
+            pass
     
     conn.commit()
+    c.execute('SELECT COUNT(*) FROM x_posts')
+    total = c.fetchone()[0]
     conn.close()
-    return inserted
+    
+    # High engagement (>=50 likes)
+    high_eng = [p for p in unique_posts if p['likes'] >= 50]
+    high_eng_sorted = sorted(high_eng, key=lambda x: x['likes'], reverse=True)
+    
+    print(f"\n\n{'='*70}")
+    print(f"📊 SUMMARY")
+    print(f"{'='*70}")
+    print(f"  Query 1 posts: {len(posts1)}")
+    print(f"  Query 2 posts: {len(posts2)}")
+    print(f"  New posts saved to DB: {new_count}")
+    print(f"  Total posts in DB: {total}")
+    
+    print(f"\n🏆 HIGH ENGAGEMENT POSTS (≥50 likes): {len(high_eng_sorted)}")
+    for p in high_eng_sorted:
+        print(f"  #{p['likes']} ❤️ {p['author']} ({p['handle']})")
+        print(f"     {p['text'][:100].replace(chr(10), ' ')}...")
+    
+    # Save JSON
+    output = {
+        'date': today,
+        'query1_label': 'neurointervention/thrombectomy/stroke',
+        'query2_label': 'cerebral AVM/aneurysm/endovascular',
+        'query1_count': len(posts1),
+        'query2_count': len(posts2),
+        'new_saved': new_count,
+        'total_in_db': total,
+        'high_engagement_count': len(high_eng_sorted),
+        'high_engagement': [{
+            'author': p['author'],
+            'handle': p['handle'],
+            'date': p['date'],
+            'likes': p['likes'],
+            'retweets': p['retweets'],
+            'text_preview': p['text'][:150]
+        } for p in high_eng_sorted],
+        'posts': unique_posts
+    }
+    
+    with open('x_scrape_result.json', 'w') as f:
+        json.dump(output, f, indent=2, default=str, ensure_ascii=False)
+    
+    # Generate markdown report
+    report = generate_markdown_report(today, posts1, posts2, high_eng_sorted, new_count, total)
+    
+    # Save markdown
+    report_dir = 'knowledge-base/x-scrapes'
+    os.makedirs(report_dir, exist_ok=True)
+    report_path = os.path.join(report_dir, f'x-scrape-{today}.md')
+    
+    with open(report_path, 'w') as f:
+        f.write(report)
+    
+    print(f"\n📝 Report saved to {report_path}")
+    print(f"✅ All done!")
+    
+    return unique_posts, new_count, total, high_eng_sorted, report
 
-# Main execution
-if __name__ == "__main__":
-    import sys
+
+def generate_markdown_report(today, posts1, posts2, high_eng, new_count, total):
+    lines = [
+        f"# X Scrape Report — {today}",
+        f"",
+        f"**Generated:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M %Z')}",
+        f"**New posts saved:** {new_count} | **Total in DB:** {total}",
+        f"",
+        f"---",
+        f"",
+        f"## Query 1: neurointervention / thrombectomy / #stroke",
+        f"",
+        f"**Posts found: {len(posts1)}**",
+        f"",
+        f"| Author | Handle | Date | Likes | Text Preview |",
+        f"|--------|--------|------|-------|-------------|",
+    ]
     
-    if len(sys.argv) < 2:
-        print("Usage: python parse_x_posts.py <snapshot_file>")
-        sys.exit(1)
+    for p in posts1:
+        preview = p['text'][:80].replace('\n', ' ').replace('|', '/')
+        author_clean = p['author'].replace('|', '/')
+        lines.append(f"| {author_clean} | {p['handle']} | {p['date']} | {p['likes']} | {preview} |")
     
-    snapshot_file = sys.argv[1]
-    db_path = Path.home() / ".openclaw" / "workspace" / "memory_x_posts.db"
+    lines.extend([
+        f"",
+        f"## Query 2: cerebral AVM / intracranial aneurysm / endovascular",
+        f"",
+        f"**Posts found: {len(posts2)}**",
+        f"",
+        f"| Author | Handle | Date | Likes | Text Preview |",
+        f"|--------|--------|------|-------|-------------|",
+    ])
     
-    # Read snapshot
-    with open(snapshot_file, 'r') as f:
-        snapshot_text = f.read()
+    for p in posts2:
+        preview = p['text'][:80].replace('\n', ' ').replace('|', '/')
+        author_clean = p['author'].replace('|', '/')
+        lines.append(f"| {author_clean} | {p['handle']} | {p['date']} | {p['likes']} | {preview} |")
     
-    # Parse posts
-    posts = parse_posts_from_snapshot(snapshot_text)
-    print(f"Parsed {len(posts)} posts from snapshot")
+    lines.extend([
+        f"",
+        f"## 🔥 High Engagement Posts (≥50 Likes)",
+        f"",
+        f"**Total: {len(high_eng)}**",
+        f"",
+    ])
     
-    # Save to database
-    inserted = save_to_db(posts, db_path)
-    print(f"Inserted {inserted} new posts into database")
+    for p in high_eng:
+        lines.extend([
+            f"### ❤️ {p['likes']} — {p['author']} ({p['handle']})",
+            f"**Date:** {p['date']} | **Retweets:** {p['retweets']} | **Replies:** {p['replies']}",
+            f"",
+            f"{p['text'][:300]}",
+            f"",
+        ])
     
-    # Print summary
-    high_engagement = [p for p in posts if p.get('likes', 0) > 50]
-    print(f"\nHigh engagement posts (>{50} likes): {len(high_engagement)}")
-    for post in high_engagement:
-        print(f"  - {post.get('author')} (@{post.get('handle', '').lstrip('@')}): {post.get('likes')} likes")
+    return '\n'.join(lines)
+
+
+if __name__ == '__main__':
+    import os
+    main()
