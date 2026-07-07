@@ -1,190 +1,193 @@
-# X/Twitter Neurology News Scrape
-**Date:** Saturday, July 4th, 2026 - 03:00 (Asia/Calcutta)
-**Reference UTC:** 2026-07-03 21:30 UTC
+# X/Twitter Neurology News Scraping
+**Date:** 2026-07-07
+**Time:** 03:08 IST
 **Search Query:** `neurology OR #neurotwitter OR #NeuroX`
-**Tab:** Top
+**Filter:** Top posts, Today only
+**Source:** https://x.com/search?q=neurology%20OR%20%23neurotwitter%20OR%20%23NeuroX&src=typed_query&f=top&since:today
 
 ---
 
-## Top 10 Posts
+## Top Posts
 
-### 1. ⭐ **BREAKING: Alzheimer's Disease Treatment Trial** (High Engagement: 1,070 likes)
-**Author:** Evan Thomas MD/PhD (@EvanThomas84) ✓
-**Posted:** 3 hours ago
-**URL:** https://x.com/EvanThomas84/status/2073112405928751473
+### 1. Neurology Journal (@GreenJournal)
 
-**Text:** 
-> 1/Big week for Renaissance: LDRT-MIND just cleared IRB review and approval. So I can finally talk about what we're doing, which is treating Alzheimer's disease with a new style of low dose radiotherapy. 🧵
+**Posted:** 5 hours ago
+
+**Content:**
+Application of the 2024 McDonald Criteria in Individuals With Nonspecific Symptoms or Incidental Imaging Findings in a Multicenter Study: hubs.la/Q04nqHqn0
 
 **Engagement:**
-- Replies: 4
-- Reposts: 10
-- Likes: 16
-- Bookmarks: 4
-- Views: 817
+- 👍 8 likes
+- 💬 1 replies
+- 🔄 4 reposts
+- 👁️ 1,223 views
 
-**Media:** Image attached (ASTRO and 8 others tagged)
-**Hashtags:** Thread (🧵)
+📸 **Contains media**
 
-**Flag:** 🚨 **BREAKING NEWS** - First IRB-approved trial for low-dose radiotherapy treating Alzheimer's disease
+**URL:** https://x.com/GreenJournal/status/[status_id_needed]
 
 ---
 
-### 2. ⭐ **High Engagement: Cancer-Alzheimer's Paradox** (1,070 likes, 183K views)
-**Author:** Eric Topol (@EricTopol) ✓
-**Posted:** Jul 2
-**URL:** https://x.com/EricTopol/status/2072710798418362437
+### 2. Neurology Journal (@GreenJournal)
 
-**Text:** 
-> The cancer-Alzheimer's paradox, an inverse correlation, with an unexplained mechanism "The risk of Alzheimer's disease in patients with cancer is significantly reduced, and the risk of cancer in patients with Alzheimer's disease is halved."
+**Posted:** 5 hours ago
+
+**Content:**
+Replying to @GreenJournal
+Read the related editorial: neurology.org
+Redefining Multiple Sclerosis | Neurology
 
 **Engagement:**
-- Replies: 48
-- Reposts: 273
-- Likes: 1,070
-- Bookmarks: 530
-- Views: 183,458
+- 👍 0 likes
+- 💬 0 replies
+- 🔄 1 reposts
+- 👁️ 585 views
 
-**Media:** Link preview to Nature.com article
-**Link:** https://nature.com/articles/npj-aging-paradox
-
-**Flag:** 🚨 **HIGH ENGAGEMENT (>100 likes)** - Major epidemiological finding on cancer-Alzheimer's inverse correlation
+**URL:** https://x.com/GreenJournal/status/[status_id_needed]
 
 ---
 
-### 3. **Female Pelvic Neurology Sub-Specialty Development**
-**Author:** Dr. Riziki 🌜 (@_mpekethu_) ✓
-**Posted:** 1 hour ago
-**URL:** https://x.com/_mpekethu_/status/2073132896173355081
+### 3. FENS - Federation of European Neuroscience Societies (@FENSorg)
 
-**Text:** 
-> Today I met one of the top surgeons in Germany specialized in vulva reconstructive surgery. At the same hospital, they're developing a sub-specialty in female pelvic neurology. Just imagine what we could do for all women who have undergone FGM with these skills. Not only will we [truncated]
+**Posted:** 10 hours ago
+
+**Content:**
+🎉 #FENS2026 has officially started! 🧠
+
+We kicked things off today with the special symposium "Insights from psychiatry and neurology: translating multidisciplinary neuroscience research to the clinic"!
+
+🔗 Check out the full scientific programme: buff.ly/PiDnJKp
 
 **Engagement:**
-- Replies: 2
-- Reposts: 8
-- Likes: 38
-- Bookmarks: 1
-- Views: 962
+- 👍 15 likes
+- 💬 1 replies
+- 🔄 4 reposts
+- 👁️ 1,233 views
 
-**Flag:** Relevant to neurology subspecialty development
+📸 **Contains media**
+
+**URL:** https://x.com/FENSorg/status/[status_id_needed]
 
 ---
 
-### 4. **Neurology Podcast: Parkinson's Disease Communication**
-**Author:** Neurology Journal (@GreenJournal)
-**Posted:** 22 hours ago
-**URL:** https://x.com/GreenJournal/status/2072825292071096621
+### 4. New England Journal of Medicine (@NEJM)
 
-**Text:** 
-> Neurology Podcast: Dr. Greg Cooper and Dr. Elisabeth Kurpershoek discuss how clinicians communicate uncertainty during #ParkinsonDisease diagnosis and how this impacts patient trust and understanding. Listen now: hubs.la/Q04nsXzR0
+**Posted:** 34 minutes ago
+
+**Content:**
+Original Article: Rituximab versus Ocrelizumab in Newly Diagnosed Relapsing Multiple Sclerosis (phase 3 OVERLORD-MS)
+nej.md/3QJuaep
+
+Review Article: Advances in Multiple Sclerosis
+nej.md/3SDJGcn
+
+#Neurology
 
 **Engagement:**
-- Replies: 1
-- Reposts: 4
-- Likes: 4
-- Views: 1,922
+- 👍 7 likes
+- 💬 0 replies
+- 🔄 1 reposts
+- 👁️ 3,666 views
 
-**Media:** Embedded podcast video (0:43)
-**Hashtags:** #ParkinsonDisease
+📸 **Contains media (graphs)**
+
+🔥 **POTENTIAL BREAKING NEWS**
+
+**URL:** https://x.com/NEJM/status/[status_id_needed]
 
 ---
 
-### 5. **Neurology Podcast: Hereditary ATTR Amyloidosis**
-**Author:** Neurology Journal (@GreenJournal)
-**Posted:** Jul 1
-**URL:** https://x.com/GreenJournal/status/2072137042440384939
+### 5. Next Science (@NextScience)
 
-**Text:** 
-> Neurology Podcast: Dr. Katie Krulisky and Dr. Marcus Pinto discuss the diagnosis and management of hereditary ATTR amyloidosis. Listen now: hubs.la/Q04n9SrM0 #PeripheralNeuropathy
+**Posted:** Jul 5
+
+**Content:**
+🚨 The Hidden Trigger in Your Gut: A Breakthrough in Multiple Sclerosis Research
+
+Researchers have identified a specific gut bacterium that may be linked to Multiple Sclerosis (MS). People with MS were found to have higher levels of this bacterium compared to healthy individuals.
+
+In lab studies, it triggered immune responses similar to the nerve damage seen in MS. This suggests that gut bacteria could play a role in starting or worsening the disease.
+
+The discovery may lead to new treatments that target the gut microbiome to help prevent or slow MS in the future.
+
+Source: Nature Reviews Neurology - Gut microbiome and autoimmune mechanisms in multiple sclerosis
 
 **Engagement:**
-- Replies: 1
-- Reposts: 5
-- Likes: 13
-- Bookmarks: 1
-- Views: 2,465
+- 👍 135 likes
+- 💬 9 replies
+- 🔄 56 reposts
+- 👁️ 4,768 views
 
-**Media:** Embedded podcast video (0:46)
-**Hashtags:** #PeripheralNeuropathy
+⚠️ **FLAGGED: High engagement (>100 likes)**
+🔥 **POTENTIAL BREAKING NEWS**
+
+**URL:** https://x.com/NextScience/status/[status_id_needed]
 
 ---
 
-### 6. **Personal Achievement: Neurology Exam**
-**Author:** Investor Ben | OnLearn (@_InvestorBen) ✓
-**Posted:** 1 hour ago
-**URL:** https://x.com/_InvestorBen/status/2073131709067874622
+### 6. touchIMMUNOLOGY (@touchIMMUNOLOGY)
 
-**Text:** 
-> I scored the highest today in our neurology exam 100/100 🎉 🥳
+**Posted:** 7 hours ago
 
-**Engagement:**
-- Replies: 9
-- Reposts: 1
-- Likes: 20
-- Views: 1,271
+**Content:**
+Progression in MS doesn't always begin with a relapse.
 
-**Note:** Personal achievement post (not breaking news)
-
----
-
-### 7. **LDRT-MIND Trial: Safety Markers Thread**
-**Author:** Evan Thomas MD/PhD (@EvanThomas84) ✓
-**Posted:** 3 hours ago
-**URL:** https://x.com/EvanThomas84/status/2073112426703188096
-
-**Text:** 
-> 10/Alongside safety we'll follow cognition, inflammatory and neurodegenerative markers in blood, and imaging. We believe this can generate a real signal. But I'm not going to oversell a 50-patient feasibility trial. The job here is to generate the priors and earn the right to [truncated]
+In Module 1 of this touchMODULES microlearning, Dr Georgina Arrambide discusses progression independent of relapse activity (PIRA) and why recognising subtle signs of progression is becoming increasingly important in MS management.
 
 **Engagement:**
-- Replies: 1
-- Reposts: 0
-- Likes: 1
-- Views: 87
+- 👍 [likes not displayed in snapshot]
+- 💬 [replies not displayed]
+- 🔄 [reposts not displayed]
+- 👁️ [views not displayed]
 
-**Note:** Thread continuation from post #1
+📸 **Contains video (0:17)**
 
----
-
-### 8. **LDRT-MIND Trial: Team Acknowledgments**
-**Author:** Evan Thomas MD/PhD (@EvanThomas84) ✓
-**Posted:** 3 hours ago
-**URL:** https://x.com/EvanThomas84/status/2073112428561256485
-
-**Text:** 
-> 14/Real thanks to my co-investigator Dr. Sherif Makar and the whole team that got us here. Long road. Nobody solves this disease alone, and no single idea does it either. But the bold ones are worth testing carefully. Shout out to @rickysavjani and the @UCLAradonc team who I [truncated]
-
-**Engagement:**
-- Replies: 1
-- Reposts: 0
-- Likes: 1
-- Views: 103
-
-**Note:** Thread continuation from post #1
+**URL:** https://x.com/touchIMMUNOLOGY/status/[status_id_needed]
 
 ---
 
 ## Summary
 
-### Posts Flagged for Attention
+- **Total posts scraped:** 6
+- **Posts with >100 likes:** 1
+- **Potential breaking news:** 3
 
-#### 🚨 Breaking News
-1. **LDRT-MIND Alzheimer's Trial** - @EvanThomas84 announced IRB approval for a novel low-dose radiotherapy trial treating Alzheimer's disease. This represents a potentially groundbreaking approach to AD treatment.
+### High Engagement Posts (>100 likes):
 
-#### ⭐ High Engagement (>100 likes)
-1. **Cancer-Alzheimer's Paradox** - @EricTopol's post about the inverse correlation between cancer and Alzheimer's disease received 1,070 likes and 183K views, citing a Nature paper.
+**Next Science (@NextScience)**: 135 likes
+The gut microbiome discovery related to Multiple Sclerosis - significant engagement suggesting high interest in this breakthrough research.
 
-### Key Topics This Period
-- **Alzheimer's Disease Research:** Multiple posts about new treatment approaches (LDRT-MIND trial, cancer-AD paradox)
-- **Parkinson's Disease:** Clinical communication podcast
-- **Peripheral Neuropathy:** ATTR amyloidosis podcast
-- **Female Pelvic Neurology:** Emerging subspecialty development in Germany
+### Breaking News Candidates:
 
-### Neurology Professional Accounts to Follow
-- @GreenJournal (Neurology Journal - official AAN journal)
-- @EricTopol (Cardiologist, frequent neurology-related science communicator)
-- @EvanThomas84 (Radiation oncologist, Alzheimer's researcher)
+1. **NEJM** - Phase 3 OVERLORD-MS trial results: Rituximab vs Ocrelizumab in newly diagnosed relapsing MS
+2. **Next Science** - Gut bacterium linked to Multiple Sclerosis discovered
+3. **FENS** - #FENS2026 conference kick-off with psychiatry-neurology translation symposium
+
+### Key Topics Identified:
+
+1. **Multiple Sclerosis Research:**
+   - 2024 McDonald Criteria application
+   - Rituximab vs Ocrelizumab comparison (OVERLORD-MS trial)
+   - Gut microbiome and MS
+   - Progression independent of relapse activity (PIRA)
+
+2. **Conferences:**
+   - FENS 2026 started (neuroscience research translation)
+
+3. **Diagnostic Criteria:**
+   - McDonald Criteria updates and applications
 
 ---
 
-*Scraped via OpenClaw browser automation on 2026-07-04*
+## Notes
+
+- Posts were scraped from X/Twitter's "Top" filter for "today only"
+- Engagement metrics may not be complete due to X's dynamic loading
+- Actual tweet URLs would need to be clicked to get status IDs
+- The search query returned primarily MS-related posts on this date
+- One high-engagement post (>100 likes) identified: gut microbiome MS research
+
+---
+
+*Scraped by OpenClaw on 2026-07-07 at 03:08 IST*
+*Search performed using browser automation with the openclaw profile*

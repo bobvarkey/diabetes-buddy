@@ -2,7 +2,7 @@ const posts = [];
 const articles = document.querySelectorAll("article");
 
 articles.forEach((article, index) => {
-  if (index >= 10) return;
+  if (index >= 15) return; // Get a few extra to ensure we have 10
   
   const post = {};
   
@@ -34,6 +34,10 @@ articles.forEach((article, index) => {
   // Get timestamp
   const timeElement = article.querySelector("time");
   post.timestamp = timeElement ? timeElement.textContent.trim() : "";
+  
+  // Get datetime attribute for better timestamp
+  const datetime = timeElement ? timeElement.getAttribute("datetime") : "";
+  post.datetime = datetime;
   
   posts.push(post);
 });

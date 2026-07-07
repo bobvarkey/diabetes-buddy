@@ -1,85 +1,95 @@
 {
-  "scan_date": "2026-07-03T08:00:17.198685",
-  "stocks_scanned": 10,
+  "scan_date": "2026-07-06T08:00:15.896540",
+  "stocks_scanned": 8,
   "opportunities": [
     {
-      "ticker": "GODREJCP.BSE",
-      "name": "GODREJCP",
-      "price": 1077.3,
-      "change": 3.2688,
+      "ticker": "APOLLOHOSP.BSE",
+      "name": "APOLLOHOSP",
+      "price": 8897.35,
+      "change": 2.2972,
       "signals": [
         {
           "type": "price_rally",
-          "value": 3.2688,
-          "reason": "Rally: +3.3%"
+          "value": 2.2972,
+          "reason": "Rally: +2.3%"
         },
         {
           "type": "volatility",
-          "value": 3.609079684680406,
-          "reason": "Range: 3.6%"
+          "value": 2.5039942069631427,
+          "reason": "Range: 2.5%"
         }
       ],
       "prediction_score": 25,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "BAJAJ-AUTO.BSE",
-      "name": "BAJAJ-AUTO",
-      "price": 9859.3496,
-      "change": 0.1763,
+      "ticker": "INFY.BSE",
+      "name": "INFY",
+      "price": 1047.0,
+      "change": 0.5764,
       "signals": [
         {
           "type": "volatility",
-          "value": 2.75347833150227,
-          "reason": "Range: 2.8%"
+          "value": 2.438564218668944,
+          "reason": "Range: 2.4%"
         }
       ],
       "prediction_score": 10,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "EICHERMOT.BSE",
-      "name": "EICHERMOT",
-      "price": 7252.25,
-      "change": 1.5985,
+      "ticker": "SBIN.BSE",
+      "name": "SBIN",
+      "price": 1039.9,
+      "change": -1.1314,
+      "signals": [
+        {
+          "type": "price_drop",
+          "value": -1.1314,
+          "reason": "Drop: -1.1%"
+        },
+        {
+          "type": "volatility",
+          "value": 2.157048249763477,
+          "reason": "Range: 2.2%"
+        }
+      ],
+      "prediction_score": 25,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "BHARTIARTL.BSE",
+      "name": "BHARTIARTL",
+      "price": 1910.1,
+      "change": 1.815,
       "signals": [
         {
           "type": "price_rally",
-          "value": 1.5985,
-          "reason": "Rally: +1.6%"
+          "value": 1.815,
+          "reason": "Rally: +1.8%"
         }
       ],
       "prediction_score": 15,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "ONGC.BSE",
-      "name": "ONGC",
-      "price": 235.95,
-      "change": 0.3402,
-      "signals": [
-        {
-          "type": "volatility",
-          "value": 2.3012998082250062,
-          "reason": "Range: 2.3%"
-        }
-      ],
-      "prediction_score": 10,
-      "recommendation": "NEUTRAL"
-    },
-    {
       "ticker": "DRREDDY.BSE",
       "name": "DRREDDY",
-      "price": 1346.25,
-      "change": 0.5152,
+      "price": 1374.55,
+      "change": 2.1021,
       "signals": [
         {
+          "type": "price_rally",
+          "value": 2.1021,
+          "reason": "Rally: +2.1%"
+        },
+        {
           "type": "volatility",
-          "value": 2.326960130428345,
-          "reason": "Range: 2.3%"
+          "value": 2.9090105681776337,
+          "reason": "Range: 2.9%"
         }
       ],
-      "prediction_score": 10,
+      "prediction_score": 25,
       "recommendation": "NEUTRAL"
     }
   ],

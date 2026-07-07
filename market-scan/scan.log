@@ -1499,3 +1499,28 @@ Top Movers:
   Gainers: GODREJCP.BSE:+3.3%, EICHERMOT.BSE:+1.6%, COALINDIA.BSE:+0.9%
   Losers: MARUTI.BSE:-0.4%, NTPC.BSE:0.1%, BAJAJ-AUTO.BSE:0.2%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ APOLLOHOSP: ₹8897.35 (+2.30%)
+  ⚠️ TCS: Failed
+  ✅ INFY: ₹1047.00 (+0.58%)
+  ✅ SBIN: ₹1039.90 (-1.13%)
+  ✅ BHARTIARTL: ₹1910.10 (+1.81%)
+  ✅ DRREDDY: ₹1374.55 (+2.10%)
+  ✅ CIPLA: ₹1458.45 (+0.15%)
+  ✅ RELIANCE: ₹1304.25 (+0.03%)
+  ✅ HDFCBANK: ₹801.00 (+0.60%)
+  ⚠️ ICICIBANK: Failed
+
+=======================================================
+MARKET SCAN - 2026-07-06 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 8 stocks | Opportunities: 5
+
+
+Top Movers:
+  Gainers: APOLLOHOSP.BSE:+2.3%, DRREDDY.BSE:+2.1%, BHARTIARTL.BSE:+1.8%
+  Losers: SBIN.BSE:-1.1%, RELIANCE.BSE:0.0%, CIPLA.BSE:0.2%
+=======================================================

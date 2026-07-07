@@ -1,3 +1,11 @@
+---
+topic: daily
+date: 2026-07-05
+tags: []
+---
+
+# Snapshot2
+
 Config warnings:
 - plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
 │
