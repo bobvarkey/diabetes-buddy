@@ -1,0 +1,280 @@
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (7 unread notifications)" [ref=e505] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "7 unread items" [ref=e506]:
+                        - generic [ref=e507]: "7"
+                  - link "Follow" [ref=e42] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e45]
+                  - link "Direct Messages" [ref=e48] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e51]
+                  - link "SuperGrok" [ref=e54] [cursor=pointer]:
+                    - /url: /i/grok
+                    - img [ref=e57]
+                  - link "Profile" [ref=e60] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e63]
+                  - button "More menu items" [ref=e66] [cursor=pointer]:
+                    - img [ref=e69]
+                - link "Post" [ref=e73] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e75]
+              - button "Account menu" [ref=e81] [cursor=pointer]:
+                - generic [ref=e89]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e92]:
+            - generic "Home timeline" [ref=e97]:
+              - generic [ref=e98]:
+                - generic [ref=e99]:
+                  - generic [ref=e104]:
+                    - button "Back" [ref=e106] [cursor=pointer]:
+                      - img [ref=e108]
+                    - search "Search" [ref=e116]:
+                      - generic [ref=e121]:
+                        - img [ref=e123]
+                        - combobox "Search query" [ref=e128]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                    - button "More" [ref=e130] [cursor=pointer]:
+                      - img [ref=e132]
+                  - navigation [ref=e136]:
+                    - generic [ref=e137]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e139]:
+                        - tab "Top" [selected] [ref=e140] [cursor=pointer]:
+                          - generic [ref=e143]: Top
+                        - tab "Latest" [ref=e145] [cursor=pointer]:
+                          - generic [ref=e148]: Latest
+                        - tab "People" [ref=e149] [cursor=pointer]:
+                          - generic [ref=e152]: People
+                        - tab "Media" [ref=e153] [cursor=pointer]:
+                          - generic [ref=e156]: Media
+                        - tab "Lists" [ref=e157] [cursor=pointer]:
+                          - generic [ref=e160]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e162]:
+                - heading "Search timeline" [level=1] [ref=e163]
+                - 'generic "Timeline: Search timeline" [ref=e164]':
+                  - generic [ref=e165]:
+                    - article "XRP Ledger Announces Verified account @XRPL__A Mar 2, 2023 The Pendulum swings towards Mechanical thrombectomy in most cases of Large vessel occlusion Stroke- J. Fiehler Image 5 reposts, 30 likes, 1 bookmark, 3196 views" [ref=e656] [cursor=pointer]:
+                      - generic [ref=e662]:
+                        - link [ref=e674]:
+                          - /url: /XRPL__A
+                        - generic [ref=e677]:
+                          - generic [ref=e679]:
+                            - generic [ref=e682]:
+                              - link "XRP Ledger Announces Verified account" [ref=e685]:
+                                - /url: /XRPL__A
+                                - generic [ref=e686]:
+                                  - generic [ref=e688]: XRP Ledger Announces
+                                  - img "Verified account" [ref=e691]
+                              - generic [ref=e695]:
+                                - link "@XRPL__A" [ref=e697]:
+                                  - /url: /XRPL__A
+                                  - generic [ref=e698]: "@XRPL__A"
+                                - generic [ref=e699]: ·
+                                - link "Mar 2, 2023" [ref=e701]:
+                                  - /url: /XRPL__A/status/1631212347321712640
+                                  - time [ref=e702]: Mar 2, 2023
+                            - generic [ref=e704]:
+                              - button "Grok actions" [ref=e706]:
+                                - img [ref=e711]
+                              - button "More" [ref=e717]:
+                                - img [ref=e721]
+                          - generic [ref=e725]: The Pendulum swings towards Mechanical thrombectomy in most cases of Large vessel occlusion Stroke- J. Fiehler
+                          - link "Image" [ref=e733]:
+                            - /url: /XRPL__A/status/1631212347321712640/photo/1
+                            - generic "Image" [ref=e737]:
+                              - img "Image" [ref=e739]
+                          - group "5 reposts, 30 likes, 1 bookmark, 3196 views" [ref=e742]:
+                            - button "0 Replies. Reply" [ref=e744]:
+                              - img [ref=e748]
+                            - button "5 reposts. Repost" [ref=e755]:
+                              - generic [ref=e756]:
+                                - img [ref=e759]
+                                - generic [ref=e764]: "5"
+                            - button "30 Likes. Like" [ref=e766]:
+                              - generic [ref=e767]:
+                                - img [ref=e770]
+                                - generic [ref=e775]: "30"
+                            - link "3196 views. View post analytics" [ref=e777]:
+                              - /url: /XRPL__A/status/1631212347321712640/analytics
+                              - generic [ref=e778]:
+                                - img [ref=e781]
+                                - generic [ref=e786]: 3.1K
+                            - button "Bookmark" [ref=e788]:
+                              - img [ref=e792]
+                            - button "Share post" [ref=e797]:
+                              - img [ref=e801]
+                    - 'article "XRP Ledger Announces Verified account @XRPL__A Feb 28 The ''No-reflow'' phenomenon after mechanical thrombectomy in ischemic stroke; Even after recanalisation to TICI 2b or 3 flow in LVO, , the microcirculation often remains \"clogged.\" The Mechanisms of No-Reflow Distal Thrombin: When a major blockage occurs, the stagnant blood Image 2 replies, 16 reposts, 71 likes, 37 bookmarks, 4084 views" [ref=e807] [cursor=pointer]':
+                      - generic [ref=e813]:
+                        - link [ref=e825]:
+                          - /url: /XRPL__A
+                        - generic [ref=e828]:
+                          - generic [ref=e830]:
+                            - generic [ref=e833]:
+                              - link "XRP Ledger Announces Verified account" [ref=e836]:
+                                - /url: /XRPL__A
+                                - generic [ref=e837]:
+                                  - generic [ref=e839]: XRP Ledger Announces
+                                  - img "Verified account" [ref=e842]
+                              - generic [ref=e846]:
+                                - link "@XRPL__A" [ref=e848]:
+                                  - /url: /XRPL__A
+                                  - generic [ref=e849]: "@XRPL__A"
+                                - generic [ref=e850]: ·
+                                - link "Feb 28" [ref=e852]:
+                                  - /url: /XRPL__A/status/2027748894348882211
+                                  - time [ref=e853]: Feb 28
+                            - generic [ref=e855]:
+                              - button "Grok actions" [ref=e857]:
+                                - img [ref=e862]
+                              - button "More" [ref=e868]:
+                                - img [ref=e872]
+                          - generic [ref=e875]:
+                            - generic [ref=e876]: "The 'No-reflow' phenomenon after mechanical thrombectomy in ischemic stroke; Even after recanalisation to TICI 2b or 3 flow in LVO, , the microcirculation often remains \"clogged.\" The Mechanisms of No-Reflow Distal Thrombin: When a major blockage occurs, the stagnant blood"
+                            - button "Show more" [ref=e877]
+                          - link "Image" [ref=e885]:
+                            - /url: /XRPL__A/status/2027748894348882211/photo/1
+                            - generic "Image" [ref=e889]:
+                              - img "Image" [ref=e891]
+                          - group "2 replies, 16 reposts, 71 likes, 37 bookmarks, 4084 views" [ref=e894]:
+                            - button "2 Replies. Reply" [ref=e896]:
+                              - generic [ref=e897]:
+                                - img [ref=e900]
+                                - generic [ref=e905]: "2"
+                            - button "16 reposts. Repost" [ref=e907]:
+                              - generic [ref=e908]:
+                                - img [ref=e911]
+                                - generic [ref=e916]: "16"
+                            - button "71 Likes. Like" [ref=e918]:
+                              - generic [ref=e919]:
+                                - img [ref=e922]
+                                - generic [ref=e927]: "71"
+                            - link "4084 views. View post analytics" [ref=e929]:
+                              - /url: /XRPL__A/status/2027748894348882211/analytics
+                              - generic [ref=e930]:
+                                - img [ref=e933]
+                                - generic [ref=e938]: 4K
+                            - button "Bookmark" [ref=e940]:
+                              - img [ref=e944]
+                            - button "Share post" [ref=e949]:
+                              - img [ref=e953]
+                    - article "Imperative Care Stroke Verified account @ImpCare_Stroke Jul 6 What does the clinical data show for the ADAPT 2.0 technique? In the latest NeuroNews ( @NN_publishing ) feature, Dr. Maxim Mokin ( @MokinMax ) discusses recent clinical data on ADAPT 2.0 and the impact of Continuous Dual AspiraTion (CDAT) in stroke thrombectomy. These early Embedded video Play Video 2 likes, 117 views" [ref=e959] [cursor=pointer]:
+                      - generic [ref=e965]:
+                        - link [ref=e977]:
+                          - /url: /ImpCare_Stroke
+                        - generic [ref=e980]:
+                          - generic [ref=e982]:
+                            - generic [ref=e985]:
+                              - link "Imperative Care Stroke Verified account" [ref=e988]:
+                                - /url: /ImpCare_Stroke
+                                - generic [ref=e989]:
+                                  - generic [ref=e991]: Imperative Care Stroke
+                                  - img "Verified account" [ref=e994]
+                              - generic [ref=e998]:
+                                - link "@ImpCare_Stroke" [ref=e1000]:
+                                  - /url: /ImpCare_Stroke
+                                  - generic [ref=e1001]: "@ImpCare_Stroke"
+                                - generic [ref=e1002]: ·
+                                - link "Jul 6" [ref=e1004]:
+                                  - /url: /ImpCare_Stroke/status/2074123448696086562
+                                  - time [ref=e1005]: Jul 6
+                            - generic [ref=e1007]:
+                              - button "Grok actions" [ref=e1009]:
+                                - img [ref=e1014]
+                              - button "More" [ref=e1020]:
+                                - img [ref=e1024]
+                          - generic [ref=e1027]:
+                            - generic [ref=e1028]:
+                              - text: What does the clinical data show for the ADAPT 2.0 technique? In the latest NeuroNews (
+                              - link "@NN_publishing" [ref=e1031]:
+                                - /url: /NN_publishing
+                              - text: ) feature, Dr. Maxim Mokin (
+                              - link "@MokinMax" [ref=e1034]:
+                                - /url: /MokinMax
+                              - text: ) discusses recent clinical data on ADAPT 2.0 and the impact of Continuous Dual AspiraTion (CDAT) in stroke thrombectomy. These early
+                            - button "Show more" [ref=e1035]
+                          - generic [ref=e1052]:
+                            - generic "Embedded video" [ref=e1055]
+                            - button "Play Video" [ref=e1062]:
+                              - img [ref=e1063]
+                          - group "2 likes, 117 views" [ref=e1069]:
+                            - button "0 Replies. Reply" [ref=e1071]:
+                              - img [ref=e1075]
+                            - button "0 reposts. Repost" [ref=e1082]:
+                              - img [ref=e1086]
+                            - button "2 Likes. Like" [ref=e1093]:
+                              - generic [ref=e1094]:
+                                - img [ref=e1097]
+                                - generic [ref=e1102]: "2"
+                            - link "117 views. View post analytics" [ref=e1104]:
+                              - /url: /ImpCare_Stroke/status/2074123448696086562/analytics
+                              - generic [ref=e1105]:
+                                - img [ref=e1108]
+                                - generic [ref=e1113]: "117"
+                            - button "Bookmark" [ref=e1115]:
+                              - img [ref=e1119]
+                            - button "Share post" [ref=e1124]:
+                              - img [ref=e1128]
+  - generic:
+    - img
+  - generic:
+    - img

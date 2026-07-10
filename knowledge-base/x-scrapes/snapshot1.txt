@@ -1,0 +1,173 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (13 unread notifications)" [ref=e5880] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "13 unread items" [ref=e5881]:
+                        - generic [ref=e4479]: "13"
+                  - link "Follow" [ref=e44] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e47]
+                  - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e53]
+                  - link "SuperGrok" [ref=e56] [cursor=pointer]:
+                    - /url: /i/grok
+                    - img [ref=e59]
+                  - link "Profile" [ref=e62] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e65]
+                  - button "More menu items" [ref=e68] [cursor=pointer]:
+                    - img [ref=e71]
+                - link "Post" [ref=e75] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e77]
+              - button "Account menu" [ref=e83] [cursor=pointer]:
+                - generic [ref=e91]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e94]:
+            - generic "Home timeline" [ref=e99]:
+              - generic [ref=e100]:
+                - generic [ref=e101]:
+                  - generic [ref=e106]:
+                    - button "Back" [ref=e108] [cursor=pointer]:
+                      - img [ref=e110]
+                    - search "Search" [ref=e118]:
+                      - generic [ref=e123]:
+                        - img [ref=e125]
+                        - combobox "Search query" [ref=e130]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                    - button "More" [ref=e132] [cursor=pointer]:
+                      - img [ref=e134]
+                  - navigation [ref=e138]:
+                    - generic [ref=e139]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e141]:
+                        - tab "Top" [selected] [ref=e142] [cursor=pointer]:
+                          - generic [ref=e145]: Top
+                        - tab "Latest" [ref=e147] [cursor=pointer]:
+                          - generic [ref=e150]: Latest
+                        - tab "People" [ref=e151] [cursor=pointer]:
+                          - generic [ref=e154]: People
+                        - tab "Media" [ref=e155] [cursor=pointer]:
+                          - generic [ref=e158]: Media
+                        - tab "Lists" [ref=e159] [cursor=pointer]:
+                          - generic [ref=e162]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e164]:
+                - heading "Search timeline" [level=1] [ref=e165]
+                - 'generic "Timeline: Search timeline" [ref=e166]':
+                  - generic [ref=e167]:
+                    - 'article "Girişimsel Nöroloji @intrventneurotr Oct 1, 2025 🧠 1st WINNC ilk gün oturum başlıkları: -Neuroimaging in Acute Stroke in the Thrombectomy Era -Tandem ICA Occlusion in the Acute Setting -Large Core Infarct & Gray Zone Thrombectomies -Acute Basilar Occlusion #WINNC #Stroke #Neurointervention Image Image Image Image 1 reply, 4 reposts, 7 likes, 278 views" [ref=e5885] [cursor=pointer]':
+                      - generic [ref=e5891]:
+                        - link [ref=e5903]:
+                          - /url: /intrventneurotr
+                        - generic [ref=e5906]:
+                          - generic [ref=e5908]:
+                            - generic [ref=e5911]:
+                              - link "Girişimsel Nöroloji" [ref=e5914]:
+                                - /url: /intrventneurotr
+                                - generic [ref=e5917]: Girişimsel Nöroloji
+                              - generic [ref=e5919]:
+                                - link "@intrventneurotr" [ref=e5921]:
+                                  - /url: /intrventneurotr
+                                  - generic [ref=e5922]: "@intrventneurotr"
+                                - generic [ref=e5923]: ·
+                                - link "Oct 1, 2025" [ref=e5925]:
+                                  - /url: /intrventneurotr/status/1973349930883489965
+                                  - time [ref=e5926]: Oct 1, 2025
+                            - generic [ref=e5928]:
+                              - button "Grok actions" [ref=e5930]:
+                                - img [ref=e5935]
+                              - button "More" [ref=e5941]:
+                                - img [ref=e5945]
+                          - generic [ref=e5949]:
+                            - img "🧠" [ref=e5950]
+                            - text: "1st WINNC ilk gün oturum başlıkları: -Neuroimaging in Acute Stroke in the Thrombectomy Era -Tandem ICA Occlusion in the Acute Setting -Large Core Infarct & Gray Zone Thrombectomies -Acute Basilar Occlusion"
+                            - link "#WINNC" [ref=e5952]:
+                              - /url: /hashtag/WINNC?src=hashtag_click
+                            - link "#Stroke" [ref=e5954]:
+                              - /url: /hashtag/Stroke?src=hashtag_click
+                            - link "#Neurointervention" [ref=e5956]:
+                              - /url: /hashtag/Neurointervention?src=hashtag_click
+                          - generic [ref=e5965]:
+                            - generic [ref=e5966]:
+                              - link "Image" [ref=e5969]:
+                                - /url: /intrventneurotr/status/1973349930883489965/photo/1
+                                - generic "Image" [ref=e5971]:
+                                  - img "Image" [ref=e5973]
+                              - link "Image" [ref=e5976]:
+                                - /url: /intrventneurotr/status/1973349930883489965/photo/2
+                                - generic "Image" [ref=e5978]:
+                                  - img "Image" [ref=e5980]
+                            - generic [ref=e5981]:
+                              - link "Image" [ref=e5984]:
+                                - /url: /intrventneurotr/status/1973349930883489965/photo/3
+                                - generic "Image" [ref=e5986]:
+                                  - img "Image" [ref=e5988]
+                              - link "Image" [ref=e5991]:
+                                - /url: /intrventneurotr/status/1973349930883489965/photo/4
+                                - generic "Image" [ref=e5993]:
+                                  - img "Image" [ref=e5995]
+                          - group "1 reply, 4 reposts, 7 likes, 278 views" [ref=e5998]:
+                            - button "1 Reply. Reply" [ref=e6000]:
+                              - generic [ref=e6001]:
+                                - img [ref=e6004]
+                                - generic [ref=e6009]: "1"
+                            - button "4 reposts. Repost" [ref=e6011]:
+                              - generic [ref=e6012]:
+                                - img [ref=e6015]
+                                - generic [ref=e6020]: "4"
+                            - button "7 Likes. Like" [ref=e6022]:
+                              - generic [ref=e6023]:
+                                - img [ref=e6026]
+                                - generic [ref=e6031]: "7"
+                            - link "278 views. View post analytics" [ref=e6033]:
+                              - /url: /intrventneurotr/status/1973349930883489965/analytics
+                              - generic [ref=e6034]:
+                                - img [ref=e6037]
+                                - generic [ref=e6042]: "278"
+                            - button "Bookmark" [ref=e6044]:
+                              - img [ref=e6048]
+                            - button "Share post" [ref=e6053]:
+                              - img [ref=e6057]

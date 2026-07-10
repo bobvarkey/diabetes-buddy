@@ -1,217 +1,159 @@
 #!/usr/bin/env python3
 """
-Extract X/Twitter posts from aria snapshot and save to database
+Extract posts from browser snapshot and save to database
 """
-import re
-import sqlite3
-import json
-from pathlib import Path
-from datetime import datetime
 
-def extract_posts_from_aria(aria_text):
-    """Extract structured post data from aria snapshot"""
+import sys
+import re
+import json
+from datetime import datetime
+from pathlib import Path
+
+# Add the workspace to path
+sys.path.insert(0, '/Users/bobvarkey/.openclaw/workspace')
+from x_scraper import init_db, insert_post, append_markdown
+
+def parse_engagement(text):
+    """Parse engagement metrics from text like '2 replies, 6 reposts, 23 likes, 7 bookmarks, 4229 views'"""
+    metrics = {
+        'replies': 0,
+        'reposts': 0,
+        'likes': 0,
+        'views': 0
+    }
+    
+    # Extract numbers before each metric
+    replies_match = re.search(r'(\d+)\s+repl', text, re.IGNORECASE)
+    if replies_match:
+        metrics['replies'] = int(replies_match.group(1))
+    
+    reposts_match = re.search(r'(\d+)\s+repost', text, re.IGNORECASE)
+    if reposts_match:
+        metrics['reposts'] = int(reposts_match.group(1))
+    
+    likes_match = re.search(r'(\d+)\s+like', text, re.IGNORECASE)
+    if likes_match:
+        metrics['likes'] = int(likes_match.group(1))
+    
+    views_match = re.search(r'(\d+\.?\d*[Kk]?)\s+view', text, re.IGNORECASE)
+    if views_match:
+        view_str = views_match.group(1)
+        if 'K' in view_str or 'k' in view_str:
+            metrics['views'] = int(float(view_str.replace('K', '').replace('k', '')) * 1000)
+        else:
+            metrics['views'] = int(view_str)
+    
+    return metrics
+
+def extract_posts_from_snapshot(snapshot_text, search_query):
+    """Extract posts from aria snapshot text"""
     posts = []
     
-    # Split by article tags
+    # Find all article sections
     article_pattern = r'article "([^"]+)"'
-    articles = re.findall(article_pattern, aria_text)
+    articles = re.findall(article_pattern, snapshot_text)
     
-    for article_content in articles:
-        post = {}
-        
-        # Extract author name (usually first non-handle text before @)
-        author_match = re.search(r'^([^(]+?)\s+@', article_content)
-        if author_match:
-            post['author'] = author_match.group(1).strip()
-        
-        # Extract handle
-        handle_match = re.search(r'@(\w+)', article_content)
-        if handle_match:
-            post['handle'] = handle_match.group(0)
-        
-        # Extract timestamp
-        time_patterns = [
-            r'(\d+\s+(?:seconds?|minutes?|hours?|days?)\s+ago)',
-            r'((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d+)',
-        ]
-        for pattern in time_patterns:
-            match = re.search(pattern, article_content)
-            if match:
-                post['timestamp'] = match.group(1)
-                break
-        
-        # Extract text - everything after timestamp until engagement metrics
-        text_match = re.search(r'(?:ago|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d+)\s+(.+?)(?=\d+\s+(?:replies|likes|views|reposts)|$)', 
-                              article_content, re.DOTALL)
-        if text_match:
-            post['text'] = text_match.group(1).strip()[:500]  # Limit text length
-        else:
-            # Fallback: extract from the article summary
-            text_match2 = re.search(r'@\w+\s+(.+)', article_content)
-            if text_match2:
-                post['text'] = text_match2.group(1).strip()[:500]
-        
-        # Extract engagement metrics
-        metrics_patterns = {
-            'replies': r'(\d+)\s+(?:Replies|reply)',
-            'reposts': r'(\d+)\s+(?:reposts?|Retweet)',
-            'likes': r'(\d+)\s+(?:Likes?|like)',
-            'views': r'(\d+)\s+views?'
-        }
-        
-        for metric, pattern in metrics_patterns.items():
-            match = re.search(pattern, article_content, re.IGNORECASE)
-            post[metric] = int(match.group(1)) if match else 0
-        
-        # Generate URL
-        if 'handle' in post:
-            # Extract status ID if available, otherwise use handle
-            status_match = re.search(r'/status/(\d+)', aria_text)
-            if status_match:
-                post['url'] = f"https://x.com/{post['handle'][1:]}/status/{status_match.group(1)}"
+    for article_text in articles:
+        try:
+            # Parse article metadata
+            # Format: "Author @handle date text ... metrics"
+            
+            # Extract author (first part before @)
+            author_match = re.match(r'^([^\@]+)', article_text)
+            author = author_match.group(1).strip() if author_match else "Unknown"
+            
+            # Extract handle
+            handle_match = re.search(r'@(\w+)', article_text)
+            handle = handle_match.group(1) if handle_match else "unknown"
+            
+            # Extract date/time - look for patterns like "Jun 12" or "3 hours ago" or "3h"
+            date_match = re.search(r'(?:@[\w]+\s+)?(\w+ \d+|\d+[hmd]|today|\d+ hours? ago|\d+ days? ago)', article_text)
+            post_date = date_match.group(1) if date_match else "Unknown"
+            
+            # Extract URL - look for /status/ pattern
+            url_match = re.search(r'/([@\w]+)/status/(\d+)', article_text)
+            if url_match:
+                url = f"https://x.com/{url_match.group(1)}/status/{url_match.group(2)}"
             else:
-                post['url'] = f"https://x.com/{post['handle'][1:]}"
-        
-        if post.get('text') or post.get('author'):
+                url = f"https://x.com/{handle}"
+            
+            # Extract engagement from the end of the article
+            engagement_match = re.search(r'(\d+\s+repl[^"]+|\d+\s+like[^"]+|\d+\s+repost[^"]+|\d+\s+view[^"]+)$', article_text, re.IGNORECASE)
+            engagement_text = engagement_match.group(1) if engagement_match else ""
+            
+            # Parse engagement metrics
+            metrics = parse_engagement(engagement_text)
+            
+            # Extract text - everything between handle/date and metrics
+            # Remove the engagement part from the text
+            text = article_text
+            # Remove author and handle prefix
+            text = re.sub(r'^[^\@]+\@\w+\s+', '', text)
+            # Remove date
+            text = re.sub(r'^(\w+ \d+|\d+[hmd]|today|\d+ hours? ago|\d+ days? ago)\s+', '', text)
+            # Remove engagement metrics from end
+            text = re.sub(r'\s*\d+\s+(replies|reposts|likes|bookmarks|views).*$', '', text, flags=re.IGNORECASE)
+            
+            # Clean up text
+            text = text.strip()
+            # Remove common UI elements
+            text = re.sub(r'\s*(Embedded video|Play Video)\s*', ' ', text)
+            # Limit length
+            text = text[:500]
+            
+            # Create post dict
+            post = {
+                'author': author,
+                'handle': handle,
+                'post_date': post_date,
+                'text': text,
+                'likes': metrics['likes'],
+                'reposts': metrics['reposts'],
+                'replies': metrics['replies'],
+                'views': metrics['views'],
+                'url': url,
+                'scrape_date': datetime.now().strftime('%Y-%m-%d'),
+                'search_query': search_query
+            }
+            
             posts.append(post)
+            print(f"Extracted: {author} (@{handle}) - {text[:50]}...", file=sys.stderr)
+            
+        except Exception as e:
+            print(f"Error parsing article: {e}", file=sys.stderr)
+            continue
     
     return posts
 
-def save_posts_to_db(posts, db_path, search_query):
-    """Save posts to SQLite database"""
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+if __name__ == "__main__":
+    # Read snapshot from stdin or file
+    if len(sys.argv) > 1:
+        with open(sys.argv[1], 'r') as f:
+            snapshot_text = f.read()
+        search_query = sys.argv[2] if len(sys.argv) > 2 else "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+    else:
+        snapshot_text = sys.stdin.read()
+        search_query = "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
     
-    # Create table
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS x_posts (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            author TEXT,
-            handle TEXT,
-            timestamp TEXT,
-            text TEXT,
-            replies INTEGER DEFAULT 0,
-            reposts INTEGER DEFAULT 0,
-            likes INTEGER DEFAULT 0,
-            views INTEGER DEFAULT 0,
-            url TEXT,
-            search_query TEXT,
-            scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            UNIQUE(handle, text)
-        )
-    ''')
-    
-    # Create index for faster queries
-    cursor.execute('''
-        CREATE INDEX IF NOT EXISTS idx_posts_handle ON x_posts(handle)
-    ''')
-    cursor.execute('''
-        CREATE INDEX IF NOT EXISTS idx_posts_likes ON x_posts(likes DESC)
-    ''')
-    
-    inserted = 0
-    for post in posts:
-        try:
-            cursor.execute('''
-                INSERT OR IGNORE INTO x_posts 
-                (author, handle, timestamp, text, replies, reposts, likes, views, url, search_query)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ''', (
-                post.get('author', ''),
-                post.get('handle', ''),
-                post.get('timestamp', ''),
-                post.get('text', ''),
-                post.get('replies', 0),
-                post.get('reposts', 0),
-                post.get('likes', 0),
-                post.get('views', 0),
-                post.get('url', ''),
-                search_query
-            ))
-            if cursor.rowcount > 0:
-                inserted += 1
-        except Exception as e:
-            print(f"Error inserting: {e}")
-    
-    conn.commit()
-    conn.close()
-    return inserted
-
-def generate_markdown_report(posts, report_path):
-    """Generate markdown report of scraped posts"""
-    with open(report_path, 'w') as f:
-        f.write(f"# X/Twitter Neurointervention Scrape Report\n\n")
-        f.write(f"**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-        f.write(f"**Total Posts:** {len(posts)}\n\n")
-        
-        # High engagement posts (>50 likes)
-        high_engagement = [p for p in posts if p.get('likes', 0) > 50]
-        if high_engagement:
-            f.write(f"## High Engagement Posts (>50 likes)\n\n")
-            for i, post in enumerate(high_engagement, 1):
-                f.write(f"### {i}. {post.get('author', 'Unknown')} ({post.get('handle', 'N/A')})\n\n")
-                f.write(f"**Likes:** {post.get('likes', 0)} | **Views:** {post.get('views', 0)} | **Replies:** {post.get('replies', 0)}\n\n")
-                f.write(f"**Text:** {post.get('text', 'N/A')}\n\n")
-                f.write(f"**URL:** {post.get('url', 'N/A')}\n\n")
-                f.write(f"**Timestamp:** {post.get('timestamp', 'N/A')}\n\n")
-                f.write("---\n\n")
-        
-        # All posts summary
-        f.write(f"## All Posts\n\n")
-        for i, post in enumerate(posts, 1):
-            f.write(f"{i}. **{post.get('author', 'Unknown')}** ({post.get('handle', 'N/A')}) - ")
-            f.write(f"{post.get('likes', 0)} likes, {post.get('views', 0)} views\n")
-            f.write(f"   {post.get('text', 'N/A')[:100]}...\n\n")
-
-if __name__ == '__main__':
-    import sys
-    
-    # Paths
-    db_path = Path.home() / '.openclaw' / 'workspace' / 'memory_x_posts.db'
-    report_dir = Path.home() / '.openclaw' / 'workspace' / 'knowledge-base' / 'x-scrapes'
-    report_dir.mkdir(parents=True, exist_ok=True)
-    
-    # Parse aria files
-    all_posts = []
-    
-    # Parse AVM/aneurysm posts
-    aria_avm_path = Path('/tmp/aria_avm.txt')
-    if aria_avm_path.exists():
-        with open(aria_avm_path) as f:
-            aria_text = f.read()
-            posts = extract_posts_from_aria(aria_text)
-            print(f"Extracted {len(posts)} posts from AVM/aneurysm search")
-            for p in posts:
-                p['search_query'] = 'cerebral AVM OR intracranial aneurysm OR endovascular'
-            all_posts.extend(posts)
-    
-    # Parse neurointervention posts  
-    aria_neuro_path = Path('/tmp/aria_neuro.txt')
-    if aria_neuro_path.exists():
-        with open(aria_neuro_path) as f:
-            aria_text = f.read()
-            posts = extract_posts_from_aria(aria_text)
-            print(f"Extracted {len(posts)} posts from neurointervention search")
-            for p in posts:
-                p['search_query'] = '#AVM OR #aneurysm OR #endovascular'
-            all_posts.extend(posts)
+    # Extract posts
+    posts = extract_posts_from_snapshot(snapshot_text, search_query)
     
     # Save to database
-    inserted = 0
-    for post in all_posts:
-        inserted += save_posts_to_db([post], str(db_path), post.get('search_query', ''))
+    conn = init_db()
+    new_posts = 0
+    for post in posts:
+        if insert_post(conn, post):
+            new_posts += 1
     
-    print(f"Saved {inserted} new posts to database")
+    # Append to markdown
+    if posts:
+        append_markdown(posts, search_query)
     
-    # Generate report
-    from datetime import datetime
-    report_path = report_dir / f'x-scrape-{datetime.now().strftime("%Y-%m-%d")}.md'
-    generate_markdown_report(all_posts, str(report_path))
-    print(f"Report saved to {report_path}")
+    conn.close()
     
-    # Summary
-    print(f"\n=== Summary ===")
-    print(f"Total posts found: {len(all_posts)}")
-    print(f"New posts inserted: {inserted}")
-    high_engagement = [p for p in all_posts if p.get('likes', 0) > 50]
-    print(f"High engagement posts (>50 likes): {len(high_engagement)}")
+    # Output summary
+    print(json.dumps({
+        'total_posts': len(posts),
+        'new_posts': new_posts,
+        'high_engagement': len([p for p in posts if p.get('likes', 0) > 50])
+    }))

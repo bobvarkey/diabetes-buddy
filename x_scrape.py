@@ -1,221 +1,144 @@
 #!/usr/bin/env python3
-"""
-X/Twitter scraper using Playwright (headless Chrome).
-Uses cookies from ~/.x_cookies.json if available for authenticated scraping.
-Falls back to public-facing scraping if no cookies found.
-"""
-
-import sqlite3, os, re, json, time
+import json
+import sqlite3
+import os
 from datetime import datetime
-from pathlib import Path
+import requests
 
-# ── Config ──────────────────────────────────────────────────────────────────
-DB_PATH = "/Users/bobvarkey/.openclaw/workspace/memory_x_posts.db"
-MD_DIR = Path("/Users/bobvarkey/.openclaw/workspace/knowledge-base/x-scrapes")
-COOKIE_FILE = Path.home() / ".x_cookies.json"
-MD_DIR.mkdir(parents=True, exist_ok=True)
+# Browser CDP endpoint
+CDP_URL = "http://127.0.0.1:18800"
 
-SEARCHES = [
-    ("stroke-neurointervention", "https://x.com/search?q=stroke%20OR%20thrombectomy%20OR%20neurointervention%20OR%20%23Neurointervention&src=typed_query&f=top"),
-    ("neurology", "https://x.com/search?q=neurology%20OR%20%23NeuroTwitter%20OR%20%23NeuroX&src=typed_query&f=top"),
-    ("aneurysm-AVM", "https://x.com/search?q=cerebral%20aneurysm%20OR%20AVM%20OR%20endovascular%20OR%20%23Neurovascular&src=typed_query&f=top"),
-]
-
-# ── DB ──────────────────────────────────────────────────────────────────────
-
-def init_db():
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    c.execute("""CREATE TABLE IF NOT EXISTS x_posts (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        author TEXT, handle TEXT, text TEXT, likes INTEGER,
-        retweets INTEGER, post_time TEXT, url TEXT,
-        search_query TEXT, scraped_at TEXT
-    )""")
-    conn.commit()
-    conn.close()
-
-
-def save_to_db(posts, search_name):
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    now = datetime.now().isoformat()
-    for p in posts:
-        c.execute("""INSERT INTO x_posts
-            (author, handle, text, likes, retweets, post_time, url, search_query, scraped_at)
-            VALUES (?,?,?,?,?,?,?,?,?)""",
-            (p["author"], p["handle"], p["text"], p["likes"],
-             p["retweets"], p["time"], p["url"], search_name, now))
-    conn.commit()
-    conn.close()
-
-
-# ── Extract ─────────────────────────────────────────────────────────────────
-
-def extract_posts(page) -> list:
-    posts = []
+def cdp_request(method, params=None):
+    """Make a CDP request to the browser"""
+    url = f"{CDP_URL}/json"
     try:
-        articles = page.locator('article[data-testid="tweet"]').all()
-    except Exception:
-        return posts
+        # Get the list of targets
+        response = requests.get(url, timeout=5)
+        targets = response.json()
+        
+        # Find our tab (neurointervention-stroke-search)
+        target_id = None
+        for target in targets:
+            if 'neurointervention' in target.get('url', '') or 'stroke' in target.get('url', ''):
+                target_id = target.get('id')
+                break
+        
+        if not target_id:
+            print("No matching target found")
+            return None
+            
+        # Send CDP command
+        ws_url = f"ws://127.0.0.1:18800/devtools/page/{target_id}"
+        # For now, return the target info
+        return target
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
 
-    for article in articles:
-        try:
-            # Author
-            author_els = article.locator('[class*="displayName"]').all()
-            author = author_els[0].inner_text().strip() if author_els else "Unknown"
-
-            # Handle
-            handle_els = article.locator('[class*="screenName"], [class*="caution-inline"]').all()
-            handle_text = handle_els[0].inner_text().strip() if handle_els else ""
-            handle_m = re.search(r'@(\w+)', handle_text)
-            handle = "@" + handle_m.group(1) if handle_m else "@unknown"
-
-            # Text
-            text_el = article.locator('[data-testid="tweetText"]').first
-            text = text_el.inner_text().strip() if text_el.count() else ""
-
-            # Likes
-            likes = 0
-            like_els = article.locator('[data-testid="like"]').all()
-            if like_els:
-                t = like_els[0].inner_text().strip()
-                m = re.search(r'([\d,]+)', t)
-                if m:
-                    likes = int(m.group(1).replace(",", ""))
-
-            # Retweets
-            retweets = 0
-            rt_els = article.locator('[data-testid="retweet"]').all()
-            if rt_els:
-                t = rt_els[0].inner_text().strip()
-                m = re.search(r'([\d,]+)', t)
-                if m:
-                    retweets = int(m.group(1).replace(",", ""))
-
-            # Time
-            time_els = article.locator('time').all()
-            post_time = time_els[0].get_attribute("datetime") if time_els else ""
-
-            # URL
-            link_els = article.locator('a[href*="/status/"]').all()
-            url = link_els[0].get_attribute("href") if link_els else ""
-            if url and not url.startswith("http"):
-                url = "https://x.com" + url
-
-            if text and len(text) > 10:
-                posts.append({
-                    "author": author[:100],
-                    "handle": handle[:50],
-                    "text": text[:500],
-                    "likes": likes,
-                    "retweets": retweets,
-                    "time": post_time,
-                    "url": url,
-                })
-        except Exception:
-            continue
-    return posts
-
-
-# ── Markdown report ─────────────────────────────────────────────────────────
-
-def write_md(posts, search_name):
-    today = datetime.now().strftime("%Y-%m-%d")
-    md_path = MD_DIR / f"x-scrape-{today}.md"
-    mode = "a" if md_path.exists() else "w"
-    with open(md_path, mode) as f:
-        if mode == "w":
-            f.write(f"# X Scrape — {today}\n\n")
-        f.write(f"## Search: {search_name}\n")
-        f.write(f"Scraped: {datetime.now().isoformat()}\n\n")
-        if not posts:
-            f.write("No posts found.\n\n")
-            return 0
-        f.write(f"Found **{len(posts)}** posts.\n\n")
-        high = [p for p in posts if p["likes"] >= 50]
-        if high:
-            f.write(f"### High Engagement (≥50 likes)\n\n")
-            for p in sorted(high, key=lambda x: -x["likes"]):
-                f.write(f"**{p['author']}** {p['handle']} | Likes: {p['likes']} | RT: {p['retweets']} | {p['time']}\n")
-                f.write(f"- {p['text'][:200]}\n- {p['url']}\n\n")
-        f.write(f"### All Posts\n\n")
-        for p in posts:
-            f.write(f"- **{p['author']}** ({p['handle']}) | Likes: {p['likes']} | RT: {p['retweets']} | {p['time']}\n")
-            f.write(f"  {p['text'][:150]}...\n")
-        f.write("\n")
-    return len(posts)
-
-
-# ── Main ─────────────────────────────────────────────────────────────────────
-
-def main():
-    init_db()
-
-    from playwright.sync_api import sync_playwright
-
-    cookies = None
-    if COOKIE_FILE.exists():
-        try:
-            cookies = json.loads(COOKIE_FILE.read_text())
-            print(f"Loaded {len(cookies)} cookies from {COOKIE_FILE}")
-        except Exception as e:
-            print(f"Could not load cookies: {e}")
-            cookies = None
-    else:
-        print(f"No cookie file at {COOKIE_FILE} — scraping public view (may hit login wall)")
-
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        ctx = browser.new_context(
-            viewport={"width": 1280, "height": 800},
-            user_agent=(
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/120.0.0.0 Safari/537.36"
-            ),
-            extra_http_headers={
-                "Accept-Language": "en-US,en;q=0.9",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            },
+def init_database(db_path):
+    """Initialize SQLite database for X posts"""
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS x_posts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            author TEXT,
+            handle TEXT,
+            date TEXT,
+            text TEXT,
+            likes INTEGER DEFAULT 0,
+            retweets INTEGER DEFAULT 0,
+            replies INTEGER DEFAULT 0,
+            views INTEGER DEFAULT 0,
+            url TEXT UNIQUE,
+            search_query TEXT,
+            scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
+    ''')
+    
+    conn.commit()
+    return conn
 
-        if cookies:
-            try:
-                ctx.add_cookies(cookies)
-                print("Cookies applied successfully")
-            except Exception as e:
-                print(f"Cookie apply failed: {e}")
+def save_posts_to_db(posts, conn, search_query):
+    """Save posts to database"""
+    cursor = conn.cursor()
+    
+    for post in posts:
+        try:
+            cursor.execute('''
+                INSERT OR IGNORE INTO x_posts 
+                (author, handle, date, text, likes, retweets, replies, views, url, search_query)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (
+                post.get('author', ''),
+                post.get('handle', ''),
+                post.get('date', ''),
+                post.get('text', ''),
+                post.get('likes', 0),
+                post.get('retweets', 0),
+                post.get('replies', 0),
+                post.get('views', 0),
+                post.get('url', ''),
+                search_query
+            ))
+        except Exception as e:
+            print(f"Error saving post: {e}")
+    
+    conn.commit()
 
-        page = ctx.new_page()
-        page.set_default_timeout(30000)
+def generate_markdown_report(posts, output_path, search_query):
+    """Generate markdown report"""
+    date_str = datetime.now().strftime('%Y-%m-%d')
+    
+    report = f"# X/Twitter Scrape Report\n\n"
+    report += f"**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+    report += f"**Search Query:** {search_query}\n\n"
+    report += f"## Summary\n\n"
+    report += f"- Total posts found: {len(posts)}\n"
+    
+    high_engagement = [p for p in posts if p.get('likes', 0) > 50]
+    report += f"- High-engagement posts (>50 likes): {len(high_engagement)}\n\n"
+    
+    if high_engagement:
+        report += "## High-Engagement Posts\n\n"
+        for post in high_engagement:
+            report += f"### {post.get('author', 'Unknown')} (@{post.get('handle', 'unknown')})\n"
+            report += f"**Likes:** {post.get('likes', 0)} | "
+            report += f"**Retweets:** {post.get('retweets', 0)} | "
+            report += f"**Replies:** {post.get('replies', 0)}\n\n"
+            report += f"{post.get('text', '')}\n\n"
+            report += f"[Link]({post.get('url', '')})\n\n---\n\n"
+    
+    report += "## All Posts\n\n"
+    for i, post in enumerate(posts, 1):
+        report += f"{i}. **{post.get('author', 'Unknown')}** (@{post.get('handle', 'unknown')})\n"
+        report += f"   - Likes: {post.get('likes', 0)}\n"
+        text = post.get('text', '')[:200]
+        if len(post.get('text', '')) > 200:
+            text += '...'
+        report += f"   - {text}\n\n"
+    
+    # Ensure directory exists
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    
+    # Append to file
+    with open(output_path, 'a') as f:
+        f.write(report)
+    
+    return len(posts), len(high_engagement)
 
-        for name, url in SEARCHES:
-            print(f"\n=== Scraping: {name} ===")
-            try:
-                page.goto(url, wait_until="load", timeout=25000)
-                page.wait_for_timeout(3000)
-                page.evaluate("window.scrollBy(0, 500)")
-                page.wait_for_timeout(1500)
-
-                posts = extract_posts(page)
-                print(f"  Extracted {len(posts)} posts")
-
-                count = write_md(posts, name)
-                save_to_db(posts, name)
-                print(f"  Saved {count} posts")
-
-            except Exception as e:
-                print(f"  ERROR: {e}")
-                import traceback
-                traceback.print_exc()
-
-            time.sleep(1)
-
-        browser.close()
-
-    print(f"\n=== Done: {datetime.now().isoformat()} ===")
-
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    db_path = '/Users/bobvarkey/.openclaw/workspace/memory_x_posts.db'
+    report_path = '/Users/bobvarkey/.openclaw/workspace/knowledge-base/x-scrapes/x-scrape-2026-05-22.md'
+    
+    print("X/Twitter scraper initialized")
+    print(f"Database: {db_path}")
+    print(f"Report: {report_path}")
+    
+    # Test CDP connection
+    target = cdp_request("test")
+    if target:
+        print(f"Connected to target: {target.get('url', 'unknown')}")
+    else:
+        print("Could not connect to browser via CDP")

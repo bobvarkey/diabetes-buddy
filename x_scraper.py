@@ -1,164 +1,98 @@
 #!/usr/bin/env python3
 """
-X/Twitter scraper for neurointervention and stroke posts
+X/Twitter Neurointervention Scraper
+Scrapes neurointervention and stroke-related posts and saves to SQLite + Markdown
 """
-import json
+
 import sqlite3
+import json
 import os
 from datetime import datetime
 from pathlib import Path
 
+# Paths
 DB_PATH = "/Users/bobvarkey/.openclaw/workspace/memory_x_posts.db"
-REPORT_DIR = Path("/Users/bobvarkey/.openclaw/workspace/knowledge-base/x-scrapes")
-REPORT_PATH = REPORT_DIR / "x-scrape-2026-05-22.md"
+MARKDOWN_DIR = "/Users/bobvarkey/.openclaw/workspace/knowledge-base/x-scrapes"
+TODAY = datetime.now().strftime("%Y-%m-%d")
+MARKDOWN_FILE = f"{MARKDOWN_DIR}/x-scrape-{TODAY}.md"
 
-def init_database():
-    """Initialize SQLite database with posts table"""
+# Ensure directories exist
+os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+os.makedirs(MARKDOWN_DIR, exist_ok=True)
+
+# Initialize SQLite database
+def init_db():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS posts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            url TEXT UNIQUE,
             author TEXT,
             handle TEXT,
+            post_date TEXT,
             text TEXT,
-            datetime TEXT,
-            date_text TEXT,
-            replies TEXT,
-            reposts TEXT,
-            likes TEXT,
-            views TEXT,
-            bookmarks TEXT,
-            search_query TEXT,
-            scraped_at TEXT
+            likes INTEGER DEFAULT 0,
+            reposts INTEGER DEFAULT 0,
+            replies INTEGER DEFAULT 0,
+            views INTEGER DEFAULT 0,
+            url TEXT UNIQUE,
+            scrape_date TEXT,
+            search_query TEXT
         )
     ''')
-    
     conn.commit()
     return conn
 
-def parse_engagement(metric_str):
-    """Parse engagement metrics like '1.3K', '504', etc"""
-    if not metric_str:
-        return 0
-    metric_str = metric_str.strip().replace(',', '')
-    
-    multipliers = {'K': 1000, 'M': 1000000}
-    
-    if metric_str[-1] in multipliers:
-        return int(float(metric_str[:-1]) * multipliers[metric_str[-1]])
-    
-    try:
-        return int(float(metric_str))
-    except:
-        return 0
-
-def save_posts(posts, search_query, conn):
-    """Save posts to database"""
+# Insert post into database
+def insert_post(conn, post):
     cursor = conn.cursor()
-    scraped_at = datetime.utcnow().isoformat()
-    
-    new_count = 0
-    high_engagement = []
-    
-    for post in posts:
-        try:
-            likes_count = parse_engagement(post.get('likes', '0'))
-            
-            cursor.execute('''
-                INSERT OR IGNORE INTO posts 
-                (url, author, handle, text, datetime, date_text, replies, reposts, likes, views, bookmarks, search_query, scraped_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ''', (
-                post.get('url'),
-                post.get('author'),
-                post.get('handle'),
-                post.get('text'),
-                post.get('datetime'),
-                post.get('date_text'),
-                post.get('replies'),
-                post.get('reposts'),
-                post.get('likes'),
-                post.get('views'),
-                post.get('bookmarks'),
-                search_query,
-                scraped_at
-            ))
-            
-            if cursor.rowcount > 0:
-                new_count += 1
-                if likes_count > 50:
-                    high_engagement.append({
-                        'author': post.get('author'),
-                        'handle': post.get('handle'),
-                        'text': post.get('text', '')[:100] + '...',
-                        'likes': likes_count,
-                        'url': post.get('url')
-                    })
-        except Exception as e:
-            print(f"Error saving post: {e}")
-    
-    conn.commit()
-    return new_count, high_engagement
+    try:
+        cursor.execute('''
+            INSERT OR IGNORE INTO posts 
+            (author, handle, post_date, text, likes, reposts, replies, views, url, scrape_date, search_query)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            post['author'],
+            post['handle'],
+            post['post_date'],
+            post['text'],
+            post.get('likes', 0),
+            post.get('reposts', 0),
+            post.get('replies', 0),
+            post.get('views', 0),
+            post['url'],
+            post['scrape_date'],
+            post['search_query']
+        ))
+        conn.commit()
+        return cursor.rowcount > 0
+    except sqlite3.IntegrityError:
+        return False
 
-def create_markdown_report(all_posts, new_count, high_engagement_posts, search_queries):
-    """Create markdown report"""
-    REPORT_DIR.mkdir(parents=True, exist_ok=True)
+# Append to markdown report
+def append_markdown(posts, search_query):
+    # Check if file exists to determine if we need header
+    file_exists = os.path.exists(MARKDOWN_FILE)
     
-    report_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
-    report = f"""# X/Twitter Scrape Report - {report_date}
-
-## Summary
-
-- **Total new posts extracted**: {new_count}
-- **Search queries**: {', '.join(search_queries)}
-- **High-engagement posts (>50 likes)**: {len(high_engagement_posts)}
-
-## High-Engagement Posts
-
-"""
-    
-    if high_engagement_posts:
-        for i, post in enumerate(high_engagement_posts, 1):
-            report += f"""### {i}. {post['author']} ({post['handle']})
-- **Likes**: {post['likes']}
-- **Text**: {post['text']}
-- **URL**: [{post['url']}]({post['url']})
-
-"""
-    else:
-        report += "_No high-engagement posts found._\n\n"
-    
-    report += """## All Posts Extracted
-
-"""
-    
-    for i, post in enumerate(all_posts, 1):
-        report += f"""### Post {i}
-
-- **Author**: {post.get('author', 'N/A')}
-- **Handle**: {post.get('handle', 'N/A')}
-- **Text**: {post.get('text', 'N/A')}
-- **Date**: {post.get('date_text', 'N/A')} ({post.get('datetime', 'N/A')})
-- **Engagement**:
-  - Replies: {post.get('replies', '0')}
-  - Reposts: {post.get('reposts', '0')}
-  - Likes: {post.get('likes', '0')}
-  - Views: {post.get('views', 'N/A')}
-- **URL**: [{post.get('url', 'N/A')}]({post.get('url', '#')})
-
----
-
-"""
-    
-    with open(REPORT_PATH, 'w') as f:
-        f.write(report)
-    
-    return REPORT_PATH
+    with open(MARKDOWN_FILE, 'a' if file_exists else 'w') as f:
+        if not file_exists:
+            f.write(f"# X/Twitter Neurointervention Scrape Report\n\n")
+            f.write(f"**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+            f.write(f"---\n\n")
+        
+        f.write(f"\n## Search Query: {search_query}\n\n")
+        f.write(f"**Scraped at:** {datetime.now().strftime('%H:%M:%S')}\n\n")
+        
+        for post in posts:
+            f.write(f"\n### {post['author']} (@{post['handle']})\n\n")
+            f.write(f"**Date:** {post['post_date']}\n\n")
+            f.write(f"**Text:** {post['text']}\n\n")
+            f.write(f"**Engagement:** {post.get('likes', 0)} likes, {post.get('reposts', 0)} reposts, {post.get('replies', 0)} replies, {post.get('views', 0)} views\n\n")
+            f.write(f"**URL:** {post['url']}\n\n")
+            if post.get('likes', 0) > 50:
+                f.write(f"🔥 **High Engagement Post (>{50} likes)**\n\n")
+            f.write(f"---\n")
 
 if __name__ == "__main__":
-    print("X/Twitter Scraper for Neurointervention")
-    print("=" * 50)
+    # This will be called by the main scraper script
+    print("Database and markdown utilities initialized")

@@ -1,0 +1,224 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - img [ref=e39]
+                  - link "Follow" [ref=e42] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e45]
+                  - link "Direct Messages" [ref=e48] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e51]
+                  - link "SuperGrok" [ref=e54] [cursor=pointer]:
+                    - /url: /i/grok
+                    - img [ref=e57]
+                  - link "Profile" [ref=e60] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e63]
+                  - button "More menu items" [ref=e66] [cursor=pointer]:
+                    - img [ref=e69]
+                - link "Post" [ref=e73] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e75]
+              - button "Account menu" [ref=e81] [cursor=pointer]:
+                - generic [ref=e89]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e92]:
+            - generic "Home timeline" [ref=e97]:
+              - generic [ref=e98]:
+                - generic [ref=e99]:
+                  - generic [ref=e104]:
+                    - button "Back" [ref=e106] [cursor=pointer]:
+                      - img [ref=e108]
+                    - search "Search" [ref=e116]:
+                      - generic [ref=e121]:
+                        - img [ref=e123]
+                        - combobox "Search query" [ref=e128]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                    - button "More" [ref=e130] [cursor=pointer]:
+                      - img [ref=e132]
+                  - navigation [ref=e136]:
+                    - generic [ref=e137]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e139]:
+                        - tab "Top" [selected] [ref=e140] [cursor=pointer]:
+                          - generic [ref=e143]: Top
+                        - tab "Latest" [ref=e145] [cursor=pointer]:
+                          - generic [ref=e148]: Latest
+                        - tab "People" [ref=e149] [cursor=pointer]:
+                          - generic [ref=e152]: People
+                        - tab "Media" [ref=e153] [cursor=pointer]:
+                          - generic [ref=e156]: Media
+                        - tab "Lists" [ref=e157] [cursor=pointer]:
+                          - generic [ref=e160]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e162]:
+                - heading "Search timeline" [level=1] [ref=e163]
+                - 'generic "Timeline: Search timeline" [ref=e164]':
+                  - generic [ref=e165]:
+                    - 'article "Neurology Journal @GreenJournal Jun 12 Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with #EmbolicStroke of undetermined source. Listen now: hubs.la/Q04l5L0Q0 #Stroke Embedded video 0:30 2 replies, 6 reposts, 23 likes, 7 bookmarks, 4229 views" [ref=e169] [cursor=pointer]':
+                      - generic [ref=e175]:
+                        - link [ref=e187]:
+                          - /url: /GreenJournal
+                        - generic [ref=e190]:
+                          - generic [ref=e192]:
+                            - generic [ref=e195]:
+                              - link "Neurology Journal" [ref=e198]:
+                                - /url: /GreenJournal
+                                - generic [ref=e201]: Neurology Journal
+                              - generic [ref=e203]:
+                                - link "@GreenJournal" [ref=e205]:
+                                  - /url: /GreenJournal
+                                  - generic [ref=e206]: "@GreenJournal"
+                                - generic [ref=e207]: ·
+                                - link "Jun 12" [ref=e209]:
+                                  - /url: /GreenJournal/status/2065190115090042937
+                                  - time [ref=e210]: Jun 12
+                            - generic [ref=e212]:
+                              - button "Grok actions" [ref=e214]:
+                                - img [ref=e219]
+                              - button "More" [ref=e225]:
+                                - img [ref=e229]
+                          - generic [ref=e233]:
+                            - text: "Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with"
+                            - link "#EmbolicStroke" [ref=e235]:
+                              - /url: /hashtag/EmbolicStroke?src=hashtag_click
+                            - text: "of undetermined source. Listen now:"
+                            - link "hubs.la/Q04l5L0Q0" [ref=e236]:
+                              - /url: https://t.co/CfHEQyaCdr
+                            - link "#Stroke" [ref=e238]:
+                              - /url: /hashtag/Stroke?src=hashtag_click
+                          - generic [ref=e255]:
+                            - generic "Embedded video" [ref=e258]
+                            - generic [ref=e260]:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic: 0:30
+                          - group "2 replies, 6 reposts, 23 likes, 7 bookmarks, 4229 views" [ref=e267]:
+                            - button "2 Replies. Reply" [ref=e269]:
+                              - generic [ref=e270]:
+                                - img [ref=e273]
+                                - generic [ref=e278]: "2"
+                            - button "6 reposts. Repost" [ref=e280]:
+                              - generic [ref=e281]:
+                                - img [ref=e284]
+                                - generic [ref=e289]: "6"
+                            - button "23 Likes. Like" [ref=e291]:
+                              - generic [ref=e292]:
+                                - img [ref=e295]
+                                - generic [ref=e300]: "23"
+                            - link "4229 views. View post analytics" [ref=e302]:
+                              - /url: /GreenJournal/status/2065190115090042937/analytics
+                              - generic [ref=e303]:
+                                - img [ref=e306]
+                                - generic [ref=e311]: 4.2K
+                            - button "Bookmark" [ref=e313]:
+                              - img [ref=e317]
+                            - button "Share post" [ref=e322]:
+                              - img [ref=e326]
+                    - 'article "American Academy of Neurology Verified account @AANmember 3 hours ago Take a look at this case and see if your thinking aligns with what's presented in the full NeuroBytes video. Based on this case, when is the ideal time to start a direct oral anticoagulant (DOAC)? Watch to learn more: hubs.la/Q04p5C630 #Neurology #MedEd Embedded video Play Video 2 likes, 350 views" [ref=e332] [cursor=pointer]':
+                      - generic [ref=e338]:
+                        - link "Square profile picture" [ref=e350]:
+                          - /url: /AANmember
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic "Square profile picture":
+                                  - img "Square profile picture"
+                        - generic [ref=e353]:
+                          - generic [ref=e355]:
+                            - generic [ref=e358]:
+                              - link "American Academy of Neurology Verified account" [ref=e361]:
+                                - /url: /AANmember
+                                - generic [ref=e362]:
+                                  - generic [ref=e364]: American Academy of Neurology
+                                  - img "Verified account" [ref=e367]
+                              - generic [ref=e374]:
+                                - link "@AANmember" [ref=e376]:
+                                  - /url: /AANmember
+                                  - generic [ref=e377]: "@AANmember"
+                                - generic [ref=e378]: ·
+                                - link "3 hours ago" [ref=e380]:
+                                  - /url: /AANmember/status/2075323068990251441
+                                  - time [ref=e381]: 3h
+                            - generic [ref=e383]:
+                              - button "Grok actions" [ref=e385]:
+                                - img [ref=e390]
+                              - button "More" [ref=e396]:
+                                - img [ref=e400]
+                          - generic [ref=e404]:
+                            - text: "Take a look at this case and see if your thinking aligns with what's presented in the full NeuroBytes video. Based on this case, when is the ideal time to start a direct oral anticoagulant (DOAC)? Watch to learn more:"
+                            - link "hubs.la/Q04p5C630" [ref=e405]:
+                              - /url: https://t.co/WpZQAdgc68
+                            - link "#Neurology" [ref=e407]:
+                              - /url: /hashtag/Neurology?src=hashtag_click
+                            - link "#MedEd" [ref=e409]:
+                              - /url: /hashtag/MedEd?src=hashtag_click
+                          - generic [ref=e426]:
+                            - generic "Embedded video" [ref=e429]
+                            - button "Play Video" [ref=e436]:
+                              - img [ref=e437]
+                          - group "2 likes, 350 views" [ref=e443]:
+                            - button "0 Replies. Reply" [ref=e445]:
+                              - img [ref=e449]
+                            - button "0 reposts. Repost" [ref=e456]:
+                              - img [ref=e460]
+                            - button "2 Likes. Like" [ref=e467]:
+                              - generic [ref=e468]:
+                                - img [ref=e471]
+                                - generic [ref=e476]: "2"
+                            - link "350 views. View post analytics" [ref=e478]:
+                              - /url: /AANmember/status/2075323068990251441/analytics
+                              - generic [ref=e479]:
+                                - img [ref=e482]
+                                - generic [ref=e487]: "350"
+                            - button "Bookmark" [ref=e489]:
+                              - img [ref=e493]
+                            - button "Share post" [ref=e498]:
+                              - img [ref=e502]
+  - generic:
+    - img
+  - generic:
+    - img

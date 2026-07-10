@@ -1,0 +1,18 @@
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+~/.openclaw/media/browser/3fb4eaf7-d966-4f08-b0e3-b3a39e5ea113.png

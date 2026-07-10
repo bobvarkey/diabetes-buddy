@@ -1524,3 +1524,85 @@ Top Movers:
   Gainers: APOLLOHOSP.BSE:+2.3%, DRREDDY.BSE:+2.1%, BHARTIARTL.BSE:+1.8%
   Losers: SBIN.BSE:-1.1%, RELIANCE.BSE:0.0%, CIPLA.BSE:0.2%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ LT: ₹4039.75 (+0.32%)
+  ✅ KOTAKBANK: ₹381.25 (-3.89%)
+  ⚠️ HINDUNILVR: Failed
+  ✅ COLPAL: ₹2079.15 (+1.74%)
+  ✅ PIDILITIND: ₹1616.20 (+1.13%)
+  ✅ TITAN: ₹4485.10 (+0.56%)
+  ✅ HEROMOTOCO: ₹4944.65 (+1.86%)
+  ✅ ONGC: ₹243.90 (+2.57%)
+  ✅ NTPC: ₹356.30 (+0.00%)
+  ⚠️ POWERGRID: Failed
+
+=======================================================
+MARKET SCAN - 2026-07-07 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 8 stocks | Opportunities: 5
+
+BUY (50-75):
+  KOTAKBANK.BSE ₹381.25 (-3.89%) | 60
+
+Top Movers:
+  Gainers: ONGC.BSE:+2.6%, HEROMOTOCO.BSE:+1.9%, COLPAL.BSE:+1.7%
+  Losers: KOTAKBANK.BSE:-3.9%, NTPC.BSE:0.0%, LT.BSE:0.3%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ AARTIIND: ₹478.75 (-1.92%)
+  ⚠️ DEEPAKNTR: Failed
+  ✅ GODREJCP: ₹1097.50 (-0.20%)
+  ✅ MARUTI: ₹14542.15 (+0.61%)
+  ✅ BAJAJ-AUTO: ₹10112.50 (+0.72%)
+  ✅ HEROMOTOCO: ₹4992.80 (+0.97%)
+  ✅ ONGC: ₹244.25 (+0.14%)
+  ✅ NTPC: ₹354.00 (-0.65%)
+  ✅ POWERGRID: ₹284.00 (-0.49%)
+  ✅ DRREDDY: ₹1353.75 (-1.10%)
+
+=======================================================
+MARKET SCAN - 2026-07-08 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 9 stocks | Opportunities: 2
+
+WATCH (30-50):
+  AARTIIND.BSE ₹478.75 (-1.92%) | 35
+
+Top Movers:
+  Gainers: HEROMOTOCO.BSE:+1.0%, BAJAJ-AUTO.BSE:+0.7%, MARUTI.BSE:+0.6%
+  Losers: AARTIIND.BSE:-1.9%, DRREDDY.BSE:-1.1%, NTPC.BSE:-0.6%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ SUNPHARMA: ₹1887.95 (-0.79%)
+  ⚠️ CIPLA: Failed
+  ✅ APOLLOHOSP: ₹8749.80 (-0.95%)
+  ⚠️ HDFCBANK: Failed
+  ✅ INFY: ₹1069.35 (+2.13%)
+  ✅ POWERGRID: ₹279.90 (-1.44%)
+  ✅ DRREDDY: ₹1348.70 (-0.37%)
+  ✅ RELIANCE: ₹1276.00 (-2.35%)
+  ⚠️ TCS: Failed
+  ✅ ICICIBANK: ₹1381.00 (-2.36%)
+
+=======================================================
+MARKET SCAN - 2026-07-09 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 7 stocks | Opportunities: 7
+
+WATCH (30-50):
+  RELIANCE.BSE ₹1276.00 (-2.35%) | 35
+  ICICIBANK.BSE ₹1381.00 (-2.36%) | 35
+
+Top Movers:
+  Gainers: INFY.BSE:+2.1%, DRREDDY.BSE:+-0.4%, SUNPHARMA.BSE:+-0.8%
+  Losers: ICICIBANK.BSE:-2.4%, RELIANCE.BSE:-2.3%, POWERGRID.BSE:-1.4%
+=======================================================

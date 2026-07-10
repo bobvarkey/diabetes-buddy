@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-"""Parse X/Twitter snapshot and save posts to database."""
+"""Final extraction and reporting for X/Twitter posts."""
 
 import json
 import sqlite3
-import re
 from datetime import datetime
 from pathlib import Path
 
 DB_PATH = Path.home() / ".openclaw" / "workspace" / "memory_x_posts.db"
 REPORT_DIR = Path.home() / ".openclaw" / "workspace" / "knowledge-base" / "x-scrapes"
 
-# Sample snapshot data (this would come from the browser)
-posts_data = [
+# Posts from first search query
+posts_query1 = [
     {
         "author": "Josh Farkas MD 💊",
         "handle": "PulmCrit",
@@ -58,6 +57,32 @@ posts_data = [
     }
 ]
 
+# Posts from second search query (cerebral AVM, intracranial aneurysm, endovascular)
+posts_query2 = [
+    {
+        "author": "Behindwoods",
+        "handle": "behindwoods",
+        "date": "4 hours ago",
+        "text": "இளம் வயதில் கூட Heart Attack வரக்கூடுமா? 🤯 DR Babu Ezhumalai Awareness பேட்டி Dr. Babu Ezhumalai is a Senior Interventional Cardiologist at MGM Healthcare, Nelson Manickam Road, Chennai, specializing in Complex High-Risk (CHIP) angioplasty, structural heart interventions,",
+        "likes": 2,
+        "replies": 0,
+        "reposts": 0,
+        "views": 3012,
+        "url": "https://x.com/behindwoods/status/2074857447140028747"
+    },
+    {
+        "author": "ɴᴀᴠᴇᴇɴ ᴋᴜᴍᴀʀ",
+        "handle": "DrNovinoTailor",
+        "date": "1 hour ago",
+        "text": "Ewart's sign (dullness below left scapula) is seen in: #MedX",
+        "likes": 6,
+        "replies": 4,
+        "reposts": 1,
+        "views": 464,
+        "url": "https://x.com/DrNovinoTailor/status/2074906479505920031"
+    }
+]
+
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -79,7 +104,6 @@ def init_db():
         )
     """)
     cursor.execute("CREATE INDEX IF NOT EXISTS idx_posts_url ON posts(url)")
-    # Index on date column removed - text column not suitable for indexing
     conn.commit()
     return conn
 
@@ -151,16 +175,29 @@ def generate_markdown_report(posts, search_query, new_count):
     return report_file
 
 if __name__ == "__main__":
-    # Save first search query results
+    # Process both search queries
     query1 = "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
-    new_count1 = save_posts_to_db(posts_data, query1)
-    report_file = generate_markdown_report(posts_data, query1, new_count1)
+    query2 = "cerebral AVM OR intracranial aneurysm OR endovascular"
     
-    print(f"✓ Saved {new_count1} new posts to database")
-    print(f"✓ Report updated: {report_file}")
+    # Save first query
+    new_count1 = save_posts_to_db(posts_query1, query1)
+    print(f"Query 1: Saved {new_count1} new posts")
     
-    # Show summary
-    high_engagement = [p for p in posts_data if p.get('likes', 0) > 50]
-    print(f"\n✓ High engagement posts (>50 likes): {len(high_engagement)}")
+    # Save second query
+    new_count2 = save_posts_to_db(posts_query2, query2)
+    print(f"Query 2: Saved {new_count2} new posts")
+    
+    # Generate reports
+    generate_markdown_report(posts_query1, query1, new_count1)
+    report_file = generate_markdown_report(posts_query2, query2, new_count2)
+    
+    # Summary
+    all_posts = posts_query1 + posts_query2
+    high_engagement = [p for p in all_posts if p.get('likes', 0) > 50]
+    
+    print(f"\n✓ Total new posts: {new_count1 + new_count2}")
+    print(f"✓ High engagement posts (>50 likes): {len(high_engagement)}")
+    print(f"✓ Report saved: {report_file}")
+    
     for post in high_engagement:
         print(f"  - {post['author']} (@{post['handle']}): {post['likes']} likes")
