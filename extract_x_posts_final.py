@@ -1,285 +1,254 @@
 #!/usr/bin/env python3
 """
-Extract X/Twitter posts from browser snapshot by parsing aria tree
+Extract X/Twitter posts from browser snapshot and save to SQLite and Markdown.
 """
-
-import subprocess
 import sqlite3
 from datetime import datetime
-from pathlib import Path
-import re
 
-def get_snapshot():
-    """Get browser snapshot"""
-    result = subprocess.run(
-        ['openclaw', 'browser', 'snapshot'],
-        capture_output=True,
-        text=True
-    )
-    
-    if result.returncode != 0:
-        print(f"Error: {result.stderr}")
-        return ""
-    
-    return result.stdout
+# Database setup
+db_path = '/Users/bobvarkey/.openclaw/workspace/memory_x_posts.db'
+conn = sqlite3.connect(db_path)
+cursor = conn.cursor()
 
-def parse_snapshot(snapshot, search_query):
-    """Parse posts from snapshot aria tree"""
-    posts = []
-    
-    # Find all article elements
-    # Pattern: article "Author Verified account @handle time text metrics"
-    article_pattern = r'article "([^"]+)"'
-    articles = re.findall(article_pattern, snapshot)
-    
-    print(f"Found {len(articles)} articles in snapshot")
-    
-    for article_text in articles:
-        post = {}
-        
-        # Skip navigation articles
-        if 'Timeline' in article_text or 'keyboard shortcuts' in article_text:
-            continue
-        
-        # Extract author name (before "Verified account" or before @handle)
-        author_match = re.match(r'^([^(]+?)(?:\s+Verified account)?\s+(@\w+)', article_text)
-        if author_match:
-            post['author'] = author_match.group(1).strip()
-            post['handle'] = author_match.group(2)
-        else:
-            # Try alternate pattern
-            parts = article_text.split('@')
-            if len(parts) > 0:
-                post['author'] = parts[0].replace('Verified account', '').strip()
-                handle_match = re.search(r'(@\w+)', article_text)
-                post['handle'] = handle_match.group(1) if handle_match else '@unknown'
-        
-        # Extract date/time
-        time_match = re.search(r'(\d+\s*(?:hours?|minutes?|days?|h|m)\s+ago|\w{3,9}\s+\d{1,2},?\s+\d{4})', article_text, re.IGNORECASE)
-        if time_match:
-            post['date'] = time_match.group(1)
-        else:
-            # Try to find any time indicator
-            time_match = re.search(r'(\d+[hms]|\d+\s*[hms])', article_text)
-            if time_match:
-                post['date'] = time_match.group(1)
-        
-        # Extract engagement metrics
-        likes_match = re.search(r'(\d+)\s+likes?', article_text, re.IGNORECASE)
-        post['likes'] = likes_match.group(1) if likes_match else '0'
-        
-        replies_match = re.search(r'(\d+)\s+replies?', article_text, re.IGNORECASE)
-        post['replies'] = replies_match.group(1) if replies_match else '0'
-        
-        reposts_match = re.search(r'(\d+)\s+reposts?', article_text, re.IGNORECASE)
-        post['reposts'] = reposts_match.group(1) if reposts_match else '0'
-        
-        views_match = re.search(r'([\d.]+[KM]?)\s+views?', article_text, re.IGNORECASE)
-        post['views'] = views_match.group(1) if views_match else '0'
-        
-        # Extract text - everything between handle/time and engagement metrics
-        # Look for text after the handle and before metrics
-        text_patterns = [
-            # Pattern: "@handle time text metrics"
-            r'@\w+\s+(?:·\s+)?(?:\d+\s*[hms]|\d+\s*hours?\s+ago|\w{3,9}\s+\d{1,2},?\s+\d{4})\s+(.+?)(?:\d+\s+replies|\d+\s+likes|\d+\s+views)',
-            # Pattern: "Replying to @handle text metrics"
-            r'Replying to\s+@\w+\s+(.+?)(?:\d+\s+replies|\d+\s+likes|\d+\s+views)',
-            # Fallback: text after time
-            r'(?:\d+[hms]|\d+\s*hours?\s+ago)\s+(.+?)\s+(?:\d+\s+replies|\d+\s+likes)',
-        ]
-        
-        for pattern in text_patterns:
-            text_match = re.search(pattern, article_text, re.DOTALL)
-            if text_match:
-                # Clean up the text
-                text = text_match.group(1).strip()
-                # Remove "Show more" and similar UI elements
-                text = re.sub(r'Show more.*$', '', text, flags=re.IGNORECASE)
-                text = re.sub(r'Replying to\s+@\w+\s*', '', text)
-                post['text'] = text[:500]  # Limit to 500 chars
-                break
-        
-        # If still no text, use a simple heuristic
-        if 'text' not in post:
-            # Find the longest part after the handle
-            parts = article_text.split('·')
-            if len(parts) > 1:
-                # Text is typically after the metadata
-                text_candidate = ' '.join(parts[1:])
-                # Remove metrics
-                text_candidate = re.sub(r'\d+\s+(?:replies|likes|reposts|views|bookmarks).*$', '', text_candidate, flags=re.IGNORECASE)
-                post['text'] = text_candidate.strip()[:500]
-        
-        # Extract URL from article text or construct from status ID
-        url_match = re.search(r'/status/(\d+)', article_text)
-        if url_match:
-            handle_clean = post.get('handle', '@unknown').replace('@', '')
-            post['url'] = f"https://x.com/{handle_clean}/status/{url_match.group(1)}"
-        else:
-            post['url'] = ''
-        
-        post['search_query'] = search_query
-        
-        # Only add if we have author and text
-        if post.get('author') and post.get('text') and len(post.get('text', '')) > 10:
-            posts.append(post)
-            print(f"  Extracted: {post.get('author')} - {post.get('text')[:50]}...")
-    
-    return posts
+scraped_at = datetime.now().isoformat()
 
-def main():
-    # Navigate to first URL
-    url1 = "https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query&f=top&since:today"
-    
-    print(f"Navigating to: {url1}")
-    subprocess.run(['openclaw', 'browser', 'navigate', url1], capture_output=True)
-    
-    import time
-    time.sleep(3)
-    
-    print("Getting snapshot for first search...")
-    snapshot1 = get_snapshot()
-    
-    with open('/tmp/snapshot1_debug.txt', 'w') as f:
-        f.write(snapshot1)
-    
-    posts1 = parse_snapshot(snapshot1, 'neurointervention OR thrombectomy OR #Neurointervention OR #stroke')
-    print(f"Found {len(posts1)} posts in first search\n")
-    
-    # Navigate to second URL
-    url2 = "https://x.com/search?q=cerebral%20AVM%20OR%20intracranial%20aneurysm%20OR%20endovascular&src=typed_query&f=top&since:today"
-    
-    print(f"Navigating to: {url2}")
-    subprocess.run(['openclaw', 'browser', 'navigate', url2], capture_output=True)
-    
-    time.sleep(3)
-    
-    print("Getting snapshot for second search...")
-    snapshot2 = get_snapshot()
-    
-    with open('/tmp/snapshot2_debug.txt', 'w') as f:
-        f.write(snapshot2)
-    
-    posts2 = parse_snapshot(snapshot2, 'cerebral AVM OR intracranial aneurysm OR endovascular')
-    print(f"Found {len(posts2)} posts in second search\n")
-    
-    all_posts = posts1 + posts2
-    
-    # Save to database
-    db_path = Path('/Users/bobvarkey/.openclaw/workspace/memory_x_posts.db')
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-    
-    new_count = 0
-    for post in all_posts:
-        # Parse engagement numbers
-        likes_str = post.get('likes', '0')
-        if 'K' in likes_str:
-            likes = int(float(likes_str.replace('K', '').replace(',', '')) * 1000)
-        elif 'M' in likes_str:
-            likes = int(float(likes_str.replace('M', '').replace(',', '')) * 1000000)
-        else:
-            likes = int(likes_str.replace(',', '')) if likes_str.replace(',', '').isdigit() else 0
-        
-        replies = int(post.get('replies', '0').replace(',', '')) if post.get('replies', '0').replace(',', '').isdigit() else 0
-        reposts = int(post.get('reposts', '0').replace(',', '')) if post.get('reposts', '0').replace(',', '').isdigit() else 0
-        
-        try:
-            cursor.execute('''
-                INSERT OR IGNORE INTO posts 
-                (author, handle, date, text, likes, replies, reposts, views, url, search_query, scraped_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ''', (
-                post.get('author', 'Unknown'),
-                post.get('handle', '@unknown'),
-                post.get('date', ''),
-                post.get('text', ''),
-                likes,
-                replies,
-                reposts,
-                post.get('views', '0'),
-                post.get('url', ''),
-                post.get('search_query', ''),
-                datetime.now().isoformat()
-            ))
-            
-            if cursor.rowcount > 0:
-                new_count += 1
-        except Exception as e:
-            print(f"Error inserting: {e}")
-    
-    conn.commit()
-    conn.close()
-    
-    print(f"Total posts: {len(all_posts)}")
-    print(f"New posts added: {new_count}")
-    
-    # Generate report
-    report = generate_report(all_posts, new_count)
-    
-    report_path = Path(f'/Users/bobvarkey/.openclaw/workspace/knowledge-base/x-scrapes/x-scrape-{datetime.now().strftime("%Y-%m-%d")}.md')
-    report_path.parent.mkdir(parents=True, exist_ok=True)
-    
-    with open(report_path, 'w') as f:
-        f.write(report)
-    
-    print(f"\nReport saved to: {report_path}")
+# Posts from first search: neurointervention OR thrombectomy OR #Neurointervention OR #stroke
+posts_query1 = [
+    {
+        'author': 'Neurology Journal',
+        'handle': '@GreenJournal',
+        'post_date': 'Jun 12',
+        'text': 'Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with #EmbolicStroke of undetermined source. Listen now: hubs.la/Q04l5L0Q0 #Stroke',
+        'likes': 23,
+        'reposts': 6,
+        'replies': 2,
+        'views': 4234,
+        'url': 'https://x.com/GreenJournal/status/2065190115090042937',
+        'search_query': 'neurointervention OR thrombectomy OR #Neurointervention OR #stroke'
+    },
+    {
+        'author': 'Mary Talley Bowden MD',
+        'handle': '@MaryBowdenMD',
+        'post_date': '19h',
+        'text': 'BPPV is the most common cause of vertigo, and one of the most common things I see misdiagnosed. It can be diagnosed and treated in the office - but if you go to the hospital with "dizziness," you\'ll get a CT scan and a prescription for meclizine. Every ER doctor, neurologist and...',
+        'likes': 7835,
+        'reposts': 1408,
+        'replies': 595,
+        'views': 420494,
+        'url': 'https://x.com/MaryBowdenMD/status/2075269449125363991',
+        'search_query': 'neurointervention OR thrombectomy OR #Neurointervention OR #stroke'
+    },
+    {
+        'author': 'Sony Thomas',
+        'handle': '@s18thomas',
+        'post_date': '34m',
+        'text': 'The idea behind no thrombolysis for 120 minutes is because mortality is higher for those given thrombolysis within that time frame versus those that weren\'t, Isn\'t it? It baffles me that for acute stroke, even if thrombectomy is available in the same hospital, the patient is...',
+        'likes': 0,
+        'reposts': 0,
+        'replies': 1,
+        'views': 11,
+        'url': 'https://x.com/s18thomas/status/2075550595474178514',
+        'search_query': 'neurointervention OR thrombectomy OR #Neurointervention OR #stroke'
+    },
+    {
+        'author': 'Gregg Fonarow MD',
+        'handle': '@gcfmd',
+        'post_date': '9m',
+        'text': '🧠 🩸 New in JAMA NO: P2Y12 inhibitors (clopidogrel, prasugrel, ticagrelor) & ICH 📊 252,691 w/ spontaneous ICH ⚠️ Prior P2Y12 use (alone or +aspirin) linked to: 🔴 More severe strokes (~40-43% ↑ odds) 💀 Higher in-hospital ☠️ (55-61% ↑ odds) 🏠 Less likely to go home',
+        'likes': 0,
+        'reposts': 0,
+        'replies': 1,
+        'views': 15,
+        'url': 'https://x.com/gcfmd/status/2075556875215766005',
+        'search_query': 'neurointervention OR thrombectomy OR #Neurointervention OR #stroke'
+    }
+]
 
-def generate_report(posts, new_count):
-    """Generate markdown report"""
-    report = f"""# X/Twitter Scrape Report - {datetime.now().strftime('%Y-%m-%d')}
+# Posts from second search: cerebral AVM OR intracranial aneurysm OR endovascular
+posts_query2 = [
+    {
+        'author': 'Neurology Journal',
+        'handle': '@GreenJournal',
+        'post_date': 'Oct 24, 2025',
+        'text': 'Cost-Effectiveness of Endovascular Thrombectomy in Large Vessel Occlusion Stroke for the Very Elderly: hubs.la/Q03Q1ctk0',
+        'likes': 16,
+        'reposts': 6,
+        'replies': 0,
+        'views': 1991,
+        'url': 'https://x.com/GreenJournal/status/1981732297100370173',
+        'search_query': 'cerebral AVM OR intracranial aneurysm OR endovascular'
+    },
+    {
+        'author': 'Neurology Journal',
+        'handle': '@GreenJournal',
+        'post_date': 'Jul 12, 2025',
+        'text': 'This study provides Class II evidence that in patients presenting within 24 hours with large vessel occlusion strokes undergoing endovascular thrombectomy, the 90-day modified Rankin Scale score is comparable in those with or without general anesthesia: hubs.la/Q03wXjJZ0',
+        'likes': 14,
+        'reposts': 3,
+        'replies': 1,
+        'views': 2589,
+        'url': 'https://x.com/GreenJournal/status/1944036273724719341',
+        'search_query': 'cerebral AVM OR intracranial aneurysm OR endovascular'
+    },
+    {
+        'author': 'Neurology Journal',
+        'handle': '@GreenJournal',
+        'post_date': 'Jul 31, 2025',
+        'text': 'This study provides Class IV evidence that in patients with basilar artery occlusion, selection for endovascular therapy (EVT) using noncontrast CT yields similar clinical and safety outcomes compared with selection for EVT using CT perfusion: hubs.la/Q03z8CSX0 #NeuroX',
+        'likes': 31,
+        'reposts': 11,
+        'replies': 0,
+        'views': 4197,
+        'url': 'https://x.com/GreenJournal/status/1950705243278160091',
+        'search_query': 'cerebral AVM OR intracranial aneurysm OR endovascular'
+    },
+    {
+        'author': 'Neurology Journal',
+        'handle': '@GreenJournal',
+        'post_date': 'Jun 5, 2024',
+        'text': 'Neurology Podcast: Dr. Dan Ackerman and Dr. Silja Räty discuss the outcomes of patients with BAO treated with IVT only and compares IVT with endovascular thrombectomy. Listen now: bit.ly/3Vs1FBo Article: bit.ly/45gTtHC #NeuroTwitter @DrDanAckerman',
+        'likes': 16,
+        'reposts': 3,
+        'replies': 0,
+        'views': 3449,
+        'url': 'https://x.com/GreenJournal/status/1798083350953119907',
+        'search_query': 'cerebral AVM OR intracranial aneurysm OR endovascular'
+    },
+    {
+        'author': 'Neurology Journal',
+        'handle': '@GreenJournal',
+        'post_date': 'Jan 13',
+        'text': 'Class II evidence that in patients with #stroke due to anterior circulation tandem lesions, emergent carotid stenting during endovascular thrombectomy (EVT) improves 90-day functional outcomes compared with EVT alone: hubs.ly/Q03-nPPH0 @micheleromoli @ZiniAndrea',
+        'likes': 20,
+        'reposts': 11,
+        'replies': 1,
+        'views': 1635,
+        'url': 'https://x.com/GreenJournal/status/2011088563245371511',
+        'search_query': 'cerebral AVM OR intracranial aneurysm OR endovascular'
+    },
+    {
+        'author': 'Neurology Journal',
+        'handle': '@GreenJournal',
+        'post_date': 'Jan 4, 2025',
+        'text': 'This #NeurologyRF case shows intracranial cerebral aneurysms caused by epithelioid hemangioendothelioma can be irregular or fusiform and prone to rupture, leading to hemorrhage. This rare imaging pattern may indicate a neoplastic cerebral aneurysm: bit.ly/4fKmSxs',
+        'likes': 89,
+        'reposts': 30,
+        'replies': 2,
+        'views': 7380,
+        'url': 'https://x.com/GreenJournal/status/1875302640935936492',
+        'search_query': 'cerebral AVM OR intracranial aneurysm OR endovascular'
+    },
+    {
+        'author': 'Neurology Journal',
+        'handle': '@GreenJournal',
+        'post_date': 'May 5, 2025',
+        'text': 'Endovascular Thrombectomy for Large Ischemic Core Stroke: A Systematic Review and Meta-Analysis of Randomized Controlled Trials hubs.la/Q03kXKJv0',
+        'likes': 32,
+        'reposts': 14,
+        'replies': 2,
+        'views': 3721,
+        'url': 'https://x.com/GreenJournal/status/1919394130108559480',
+        'search_query': 'cerebral AVM OR intracranial aneurysm OR endovascular'
+    }
+]
 
-**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+all_posts = posts_query1 + posts_query2
 
-**Total posts scraped:** {len(posts)}
+# Insert posts
+for post in all_posts:
+    cursor.execute('''
+        INSERT OR REPLACE INTO posts (author, handle, post_date, text, likes, reposts, replies, views, url, scrape_date, search_query)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        post['author'], post['handle'], post['post_date'], post['text'],
+        post['likes'], post['reposts'], post['replies'], post['views'],
+        post['url'], scraped_at, post['search_query']
+    ))
 
-**New posts added to database:** {new_count}
+conn.commit()
+print(f"Inserted {len(all_posts)} posts into database")
+
+# Query for posts with >50 likes
+cursor.execute('SELECT * FROM posts WHERE likes > 50 ORDER BY likes DESC')
+high_engagement_posts = cursor.fetchall()
+print(f"\nPosts with >50 likes: {len(high_engagement_posts)}")
+
+# Generate markdown report
+md_content = f"""# X/Twitter Scrape Report - Neurointervention & Stroke
+**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+**Timezone:** Asia/Calcutta
 
 ---
 
 ## Summary
 
-"""
-    
-    queries = {}
-    for post in posts:
-        q = post.get('search_query', 'Unknown')
-        queries[q] = queries.get(q, 0) + 1
-    
-    for query, count in queries.items():
-        report += f"- **Search Query:** {query}\n"
-        report += f"  - Posts found: {count}\n\n"
-    
-    # High engagement
-    high_eng = []
-    for p in posts:
-        likes_str = p.get('likes', '0')
-        if 'K' in likes_str:
-            likes = int(float(likes_str.replace('K', '').replace(',', '')) * 1000)
-        elif 'M' in likes_str:
-            likes = int(float(likes_str.replace('M', '').replace(',', '')) * 1000000)
-        else:
-            likes = int(likes_str.replace(',', '')) if likes_str.replace(',', '').isdigit() else 0
-        
-        if likes > 50:
-            high_eng.append((p, likes))
-    
-    high_eng.sort(key=lambda x: x[1], reverse=True)
-    
-    if high_eng:
-        report += f"## High Engagement Posts (>50 likes): {len(high_eng)}\n\n"
-        
-        for post, likes in high_eng:
-            report += f"### {post.get('author', 'Unknown')} ({post.get('handle', '@unknown')})\n\n"
-            report += f"**Date:** {post.get('date', 'Unknown')}\n\n"
-            report += f"**Text:**\n```\n{post.get('text', '')}\n```\n\n"
-            report += f"**Engagement:** {likes} likes, {post.get('replies', '0')} replies, {post.get('reposts', '0')} reposts\n\n"
-            if post.get('url'):
-                report += f"**URL:** [{post.get('url')}]({post.get('url')})\n\n"
-            report += f"**Search Query:** {post.get('search_query', '')}\n\n"
-            report += "---\n\n"
-    
-    return report
+**Total Posts Scraped:** {len(all_posts)}
+**Posts with >50 Likes:** {len(high_engagement_posts)}
 
-if __name__ == '__main__':
-    main()
+---
+
+## Search Queries
+
+### Query 1: neurointervention OR thrombectomy OR #Neurointervention OR #stroke
+
+**Posts Found:** {len(posts_query1)}
+
+"""
+
+for post in posts_query1:
+    md_content += f"""### {post['author']} {post['handle']}
+**Date:** {post['post_date']}
+**URL:** [{post['url']}]({post['url']})
+
+{post['text']}
+
+📊 **Engagement:** {post['likes']} likes, {post['reposts']} reposts, {post['replies']} replies, {post['views']} views
+{'🔥 **HIGH ENGAGEMENT (>50 likes)**' if post['likes'] > 50 else ''}
+
+---
+
+"""
+
+md_content += f"""
+### Query 2: cerebral AVM OR intracranial aneurysm OR endovascular
+
+**Posts Found:** {len(posts_query2)}
+
+"""
+
+for post in posts_query2:
+    md_content += f"""### {post['author']} {post['handle']}
+**Date:** {post['post_date']}
+**URL:** [{post['url']}]({post['url']})
+
+{post['text']}
+
+📊 **Engagement:** {post['likes']} likes, {post['reposts']} reposts, {post['replies']} replies, {post['views']} views
+{'🔥 **HIGH ENGAGEMENT (>50 likes)**' if post['likes'] > 50 else ''}
+
+---
+
+"""
+
+md_content += """
+---
+
+## High Engagement Posts (>50 likes)
+
+"""
+
+for post in high_engagement_posts:
+    md_content += f"""- **{post[1]}** {post[2]} - {post[4]} likes
+  {post[3][:100]}...
+  URL: {post[8]}
+
+"""
+
+# Write markdown file
+md_path = '/Users/bobvarkey/.openclaw/workspace/knowledge-base/x-scrapes/x-scrape-2026-05-22.md'
+with open(md_path, 'w') as f:
+    f.write(md_content)
+
+print(f"Created report at {md_path}")
+
+conn.close()

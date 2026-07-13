@@ -1606,3 +1606,28 @@ Top Movers:
   Gainers: INFY.BSE:+2.1%, DRREDDY.BSE:+-0.4%, SUNPHARMA.BSE:+-0.8%
   Losers: ICICIBANK.BSE:-2.4%, RELIANCE.BSE:-2.3%, POWERGRID.BSE:-1.4%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ SBIN: ₹1021.65 (+0.35%)
+  ⚠️ BHARTIARTL: Failed
+  ✅ LT: ₹3887.30 (-0.21%)
+  ⚠️ KOTAKBANK: Failed
+  ✅ COLPAL: ₹2062.10 (+2.07%)
+  ✅ HINDUNILVR: ₹2144.10 (+0.39%)
+  ⚠️ DEEPAKNTR: Failed
+  ✅ ONGC: ₹243.70 (-1.34%)
+  ✅ NTPC: ₹343.50 (-1.51%)
+  ⚠️ POWERGRID: Failed
+
+=======================================================
+MARKET SCAN - 2026-07-10 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 6 stocks | Opportunities: 3
+
+
+Top Movers:
+  Gainers: COLPAL.BSE:+2.1%, HINDUNILVR.BSE:+0.4%, SBIN.BSE:+0.4%
+  Losers: NTPC.BSE:-1.5%, ONGC.BSE:-1.3%, LT.BSE:-0.2%
+=======================================================

@@ -13,26 +13,6 @@ os.makedirs(os.path.dirname(db_path), exist_ok=True)
 conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
-# Create table
-cursor.execute('''
-CREATE TABLE IF NOT EXISTS posts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    author TEXT,
-    handle TEXT,
-    text TEXT,
-    replies INTEGER DEFAULT 0,
-    reposts INTEGER DEFAULT 0,
-    likes INTEGER DEFAULT 0,
-    views TEXT,
-    date TEXT,
-    url TEXT UNIQUE,
-    search_query TEXT,
-    scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)
-''')
-
-conn.commit()
-
 # Parse posts from first search (neurointervention/stroke)
 posts_first_search = [
     {
@@ -215,7 +195,7 @@ for post in all_posts:
     try:
         views_num = parse_views(post.get('views', '0'))
         cursor.execute('''
-            INSERT OR IGNORE INTO posts (author, handle, text, replies, reposts, likes, views, date, url, search_query)
+            INSERT OR IGNORE INTO posts (author, handle, text, replies, reposts, likes, views, post_date, url, search_query)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
             post.get('author', 'Unknown'),

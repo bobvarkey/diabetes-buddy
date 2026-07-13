@@ -1,111 +1,126 @@
 #!/usr/bin/env python3
-"""Extract posts from X/Twitter using browser automation."""
-
 import json
-import sqlite3
+import re
 from datetime import datetime
-from pathlib import Path
 
-# Initialize database
-DB_PATH = Path.home() / ".openclaw" / "workspace" / "memory_x_posts.db"
-REPORT_DIR = Path.home() / ".openclaw" / "workspace" / "knowledge-base" / "x-scrapes"
+def extract_posts_from_snapshot(snapshot_text):
+    """Extract X/Twitter posts from accessibility tree snapshot"""
+    posts = []
+    
+    # Split by article tags
+    articles = re.split(r'article "[^"]+" \[ref=e\d+\]', snapshot_text)
+    
+    for article in articles:
+        if not article.strip():
+            continue
+            
+        post = {}
+        
+        # Extract author name
+        author_match = re.search(r'link "([^"]+)"(?:\s+Verified account)?(?:\s+\[ref=e\d+\])?', article)
+        if author_match:
+            post['author'] = author_match.group(1).strip()
+        
+        # Extract handle
+        handle_match = re.search(r'link "@([a-zA-Z0-9_]+)"', article)
+        if handle_match:
+            post['handle'] = f"@{handle_match.group(1)}"
+        
+        # Extract timestamp
+        time_match = re.search(r'link "([^"]+)"[^[]*\[\s*time \[\s*ref=e\d+\]\s*\]', article)
+        if time_match:
+            post['date'] = time_match.group(1)
+        else:
+            time_match2 = re.search(r'time \[\s*ref=e\d+\]\s*:\s*([^[]+)', article)
+            if time_match2:
+                post['date'] = time_match2.group(1).strip()
+        
+        # Extract post text - improved extraction
+        text_parts = []
+        
+        # Find the main text content after the handle/timestamp
+        # Look for the main generic that contains the tweet text
+        main_text_section = re.search(r'generic \[\s*ref=e\d+\s*\]:\s*(.+?)(?=\s*- group|"article "[^"]+" \[ref)', article, re.DOTALL)
+        if main_text_section:
+            text_content = main_text_section.group(1)
+            
+            # Extract text and links
+            # Match: text: "content" or link "text" [ref]
+            text_elements = re.findall(r'text:\s*"([^"]*)"\s*|link "([^"]*)"', text_content)
+            for elem in text_elements:
+                if elem[0]:  # text
+                    text_parts.append(elem[0])
+                elif elem[1]:  # link
+                    text_parts.append(elem[1])
+        
+        if text_parts:
+            post['text'] = ' '.join(text_parts)
+        else:
+            post['text'] = ''
+        
+        # Extract engagement metrics
+        metrics = {}
+        
+        # Extract replies
+        replies_match = re.search(r'(\d+) Replies?\. Reply', article)
+        if replies_match:
+            metrics['replies'] = int(replies_match.group(1))
+        else:
+            metrics['replies'] = 0
+        
+        # Extract reposts
+        reposts_match = re.search(r'(\d+) reposts?\. Repost', article)
+        if reposts_match:
+            metrics['reposts'] = int(reposts_match.group(1))
+        else:
+            metrics['reposts'] = 0
+        
+        # Extract likes
+        likes_match = re.search(r'(\d+) Likes?\. Like', article)
+        if likes_match:
+            metrics['likes'] = int(likes_match.group(1))
+        else:
+            metrics['likes'] = 0
+        
+        # Extract bookmarks if present
+        bookmarks_match = re.search(r'(\d+) bookmarks?', article)
+        if bookmarks_match:
+            metrics['bookmarks'] = int(bookmarks_match.group(1))
+        
+        # Extract views
+        views_match = re.search(r'(\d+(?:\.\d+)?[K]?) views', article)
+        if views_match:
+            views_str = views_match.group(1)
+            if 'K' in views_str:
+                metrics['views'] = int(float(views_str.replace('K', '')) * 1000)
+            else:
+                metrics['views'] = int(views_str)
+        else:
+            metrics['views'] = 0
+        
+        post['metrics'] = metrics
+        
+        # Extract URL
+        url_match = re.search(r'/url:\s*(/[a-zA-Z0-9_]+/status/\d+)', article)
+        if url_match:
+            post['url'] = f"https://x.com{url_match.group(1)}"
+        
+        # Only add if we have essential fields
+        if 'author' in post and 'handle' in post:
+            posts.append(post)
+    
+    return posts
 
-DB_PATH.parent.mkdir(parents=True, exist_ok=True)
-REPORT_DIR.mkdir(parents=True, exist_ok=True)
+def main():
+    import sys
+    
+    # Read snapshot from stdin
+    snapshot = sys.stdin.read()
+    
+    posts = extract_posts_from_snapshot(snapshot)
+    
+    # Output as JSON
+    print(json.dumps(posts, indent=2))
 
-def init_db():
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS posts (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            author TEXT NOT NULL,
-            handle TEXT NOT NULL,
-            date TEXT,
-            text TEXT,
-            likes INTEGER DEFAULT 0,
-            replies INTEGER DEFAULT 0,
-            reposts INTEGER DEFAULT 0,
-            views INTEGER DEFAULT 0,
-            url TEXT UNIQUE,
-            search_query TEXT,
-            scraped_at TEXT,
-            created_at TEXT DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_posts_url ON posts(url)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_posts_date ON posts(date)")
-    conn.commit()
-    return conn
-
-def save_posts_to_db(posts, search_query):
-    """Save posts to database."""
-    conn = init_db()
-    cursor = conn.cursor()
-    new_count = 0
-    
-    for post in posts:
-        try:
-            cursor.execute("""
-                INSERT OR IGNORE INTO posts 
-                (author, handle, date, text, likes, replies, reposts, views, url, search_query, scraped_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, (
-                post.get('author', 'Unknown'),
-                post.get('handle', 'unknown'),
-                post.get('date', ''),
-                post.get('text', ''),
-                post.get('likes', 0),
-                post.get('replies', 0),
-                post.get('reposts', 0),
-                post.get('views', 0),
-                post.get('url', ''),
-                search_query,
-                datetime.now().isoformat()
-            ))
-            if cursor.rowcount > 0:
-                new_count += 1
-        except Exception as e:
-            print(f"Error saving post: {e}")
-    
-    conn.commit()
-    conn.close()
-    return new_count
-
-def generate_markdown_report(posts, search_query, new_count):
-    """Generate markdown report."""
-    today = datetime.now().strftime("%Y-%m-%d")
-    report_file = REPORT_DIR / f"x-scrape-{today}.md"
-    
-    existing_content = ""
-    if report_file.exists():
-        existing_content = report_file.read_text()
-    
-    new_content = f"\n## Search: {search_query}\n\n"
-    new_content += f"**Scraped at:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
-    new_content += f"**New posts found:** {new_count}\n\n"
-    
-    high_engagement = [p for p in posts if p.get('likes', 0) > 50]
-    if high_engagement:
-        new_content += "### High Engagement Posts (>50 likes)\n\n"
-        for post in high_engagement:
-            new_content += f"#### {post.get('author', 'Unknown')} (@{post.get('handle', 'unknown')})\n\n"
-            new_content += f"**Date:** {post.get('date', 'Unknown')}\n\n"
-            new_content += f"{post.get('text', '')[:500]}...\n\n"
-            new_content += f"**Engagement:** {post.get('likes', 0)} likes, {post.get('replies', 0)} replies, {post.get('reposts', 0)} reposts\n\n"
-            new_content += f"**URL:** [{post.get('url', '')}]({post.get('url', '')})\n\n"
-            new_content += "---\n\n"
-    
-    if not existing_content:
-        header = f"# X/Twitter Scrape Report - {today}\n\n"
-        header += f"Generated: {datetime.now().strftime('%Y-%-%d %H:%M:%S')}\n\n"
-        report_file.write_text(header + new_content)
-    else:
-        report_file.write_text(existing_content + new_content)
-    
-    return report_file
-
-# This script will be populated by extracting data from the browser
-if __name__ == "__main__":
-    print("Database initialized at:", DB_PATH)
-    print("Report directory:", REPORT_DIR)
+if __name__ == '__main__':
+    main()

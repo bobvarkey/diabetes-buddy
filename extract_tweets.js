@@ -1,74 +1,47 @@
-const posts = [];
-const articles = document.querySelectorAll("article");
-
-articles.forEach(article => {
+// Extract all tweet articles from the timeline
+const articles = Array.from(document.querySelectorAll("article"));
+const posts = articles.map(article => {
   try {
-    // Extract author name
-    const authorNameEl = article.querySelector('[data-testid="User-Name"]');
-    const authorName = authorNameEl ? authorNameEl.textContent.split("@")[0].trim() : "";
+    // Get author info
+    const authorLink = article.querySelector('a[href^="/"]');
+    const authorName = authorLink?.querySelector('span')?.textContent || "";
+    const handle = article.querySelector('a[href^="/"] span')?.textContent || "";
     
-    // Extract handle
-    const handleEl = article.querySelector('a[href^="/"][role="link"]');
-    let handle = "";
-    if (handleEl) {
-      const match = handleEl.href.match(/x\.com\/([^\/]+)/);
-      handle = match ? "@" + match[1] : "";
-    }
+    // Get the tweet text
+    const tweetText = Array.from(article.querySelectorAll('[data-testid="tweetText"]'))
+      .map(el => el.textContent)
+      .join(" ");
     
-    // Extract post text
-    const textEl = article.querySelector('[data-testid="tweetText"]');
-    const text = textEl ? textEl.textContent : "";
+    // Get engagement metrics
+    const replies = article.querySelector('[data-testid="reply"]')?.textContent || "0";
+    const reposts = article.querySelector('[data-testid="repost"]')?.textContent || "0";
+    const likes = article.querySelector('[data-testid="like"]')?.textContent || "0";
+    const views = article.querySelector('[data-testid="viewCount"]')?.textContent || "0";
     
-    // Extract date
-    const timeEl = article.querySelector("time");
-    const dateStr = timeEl ? timeEl.getAttribute("datetime") : "";
+    // Get timestamp
+    const time = article.querySelector('time');
+    const datetime = time?.getAttribute('datetime') || "";
+    const dateText = time?.textContent || "";
     
-    // Extract post URL
-    const linkEl = article.querySelector('a[href*="/status/"]');
-    const postUrl = linkEl ? linkEl.href : "";
+    // Get URL
+    const tweetLink = article.querySelector('a[href*="/status/"]');
+    const url = tweetLink ? `https://x.com${tweetLink.getAttribute("href")}` : "";
     
-    // Extract engagement metrics from aria-labels
-    const replyBtn = article.querySelector('[data-testid="reply"]');
-    const repostBtn = article.querySelector('[data-testid="repost"]');
-    const likeBtn = article.querySelector('[data-testid="like"]');
-    
-    let replies = "0";
-    let reposts = "0";
-    let likes = "0";
-    
-    if (replyBtn) {
-      const replyMatch = replyBtn.getAttribute("aria-label").match(/\d+/);
-      replies = replyMatch ? replyMatch[0] : "0";
-    }
-    
-    if (repostBtn) {
-      const repostMatch = repostBtn.getAttribute("aria-label").match(/\d+/);
-      reposts = repostMatch ? repostMatch[0] : "0";
-    }
-    
-    if (likeBtn) {
-      const likeMatch = likeBtn.getAttribute("aria-label").match(/[\d,]+/);
-      likes = likeMatch ? likeMatch[0].replace(/,/g, "") : "0";
-    }
-    
-    // Extract views
-    const viewsEl = article.querySelector('[data-testid="views"]');
-    const views = viewsEl ? viewsEl.textContent : "";
-    
-    posts.push({
-      author: authorName.substring(0, 100),
+    return {
+      author: authorName,
       handle: handle,
-      text: text.substring(0, 500),
-      date: dateStr,
-      url: postUrl,
+      text: tweetText,
       replies: replies,
       reposts: reposts,
       likes: likes,
-      views: views
-    });
+      views: views,
+      date: dateText,
+      datetime: datetime,
+      url: url
+    };
   } catch (e) {
-    // Skip malformed articles
+    return null;
   }
-});
+}).filter(p => p && p.text);
 
-JSON.stringify(posts);
+return JSON.stringify(posts, null, 2);

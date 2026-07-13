@@ -1,45 +1,31 @@
-const articles = Array.from(document.querySelectorAll('article'));
-const tweets = [];
-
+const articles = Array.from(document.querySelectorAll("article"));
+const posts = [];
 articles.forEach(article => {
   try {
-    const tweet = {};
+    const time = article.querySelector('time');
+    const tweetLink = article.querySelector('a[href*="/status/"]');
+    const url = tweetLink ? 'https://x.com' + tweetLink.getAttribute('href') : '';
+    const handleEl = article.querySelector('a[href^="/"] span');
+    const handle = handleEl ? handleEl.textContent : '';
+    const authorEl = article.querySelector('a[href^="/"]');
+    const author = authorEl ? authorEl.querySelector('span')?.textContent : '';
+    const textEl = article.querySelector('[data-testid="tweetText"]');
+    const text = textEl ? textEl.textContent : '';
     
-    // Get all text content from the article
-    const allText = article.textContent;
+    const metrics = article.querySelectorAll('button');
+    let replies = '0', reposts = '0', likes = '0', views = '0';
+    metrics.forEach(btn => {
+      const ariaLabel = btn.getAttribute('aria-label') || '';
+      if (ariaLabel.includes('Repl')) replies = ariaLabel.match(/\d+/)?.[0] || '0';
+      if (ariaLabel.includes('repost')) reposts = ariaLabel.match(/\d+/)?.[0] || '0';
+      if (ariaLabel.includes('Like')) likes = ariaLabel.match(/\d+/)?.[0] || '0';
+    });
+    const viewEl = article.querySelector('[data-testid="viewCount"]');
+    if (viewEl) views = viewEl.textContent;
     
-    // Extract components using simpler selectors
-    const links = article.querySelectorAll('a[href*="/status/"]');
-    if (links.length > 0) {
-      const statusLink = links[0];
-      const href = statusLink.getAttribute('href');
-      tweet.url = 'https://x.com' + href;
+    if (text) {
+      posts.push({author, handle, text, replies, reposts, likes, views, date: time?.textContent || '', url});
     }
-    
-    // Get text content more directly
-    const textNodes = [];
-    const walker = document.createTreeWalker(
-      article,
-      NodeFilter.SHOW_TEXT,
-      null,
-      false
-    );
-    
-    let node;
-    while (node = walker.nextNode()) {
-      const text = node.textContent.trim();
-      if (text && text.length > 5) {
-        textNodes.push(text);
-      }
-    }
-    
-    tweet.textContent = textNodes.join(' | ');
-    tweet.rawText = allText;
-    
-    tweets.push(tweet);
-  } catch (e) {
-    // skip
-  }
+  } catch(e) {}
 });
-
-tweets;
+JSON.stringify(posts, null, 2);

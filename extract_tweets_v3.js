@@ -1,53 +1,66 @@
-const articles = document.querySelectorAll("article[data-testid='tweet']");
-const tweets = [];
-for (let i = 0; i < articles.length; i++) {
-  const article = articles[i];
-  const tweet = {};
+function extractTweets() {
+  const tweets = [];
+  const articles = document.querySelectorAll('article[data-testid="tweet"]');
   
-  // Get tweet text
-  const textEl = article.querySelector("[data-testid='tweetText']");
-  tweet.text = textEl ? textEl.textContent.trim() : "";
+  articles.forEach(article => {
+    try {
+      // Extract author name
+      const authorNameEl = article.querySelector('div[data-testid="User-Name"]');
+      const authorName = authorNameEl ? authorNameEl.querySelector('span')?.textContent : '';
+      
+      // Extract handle
+      const handleEl = article.querySelector('a[href^="/"] span');
+      const handle = handleEl ? handleEl.textContent : '';
+      
+      // Extract tweet text
+      const textEl = article.querySelector('div[data-testid="tweetText"]');
+      const text = textEl ? textEl.textContent : '';
+      
+      // Extract engagement metrics
+      const replyBtn = article.querySelector('button[data-testid="reply"]');
+      const repliesMatch = replyBtn?.getAttribute('aria-label')?.match(/(\d+)/);
+      const replies = repliesMatch ? repliesMatch[1] : '0';
+      
+      const repostBtn = article.querySelector('button[data-testid="unretweet"], button[data-testid="retweet"]');
+      const repostsMatch = repostBtn?.getAttribute('aria-label')?.match(/(\d+)/);
+      const reposts = repostsMatch ? repostsMatch[1] : '0';
+      
+      const likeBtn = article.querySelector('button[data-testid="unlike"], button[data-testid="like"]');
+      const likesMatch = likeBtn?.getAttribute('aria-label')?.match(/(\d+)/);
+      const likes = likesMatch ? likesMatch[1] : '0';
+      
+      const viewEl = article.querySelector('a[href*="/analytics"]');
+      const views = viewEl ? viewEl.textContent.trim() : '0';
+      
+      // Extract timestamp
+      const timeEl = article.querySelector('time');
+      const datetime = timeEl ? timeEl.getAttribute('datetime') : '';
+      const displayTime = timeEl ? timeEl.textContent : '';
+      
+      // Extract URL
+      const linkEl = article.querySelector('a[href*="/status/"]');
+      const url = linkEl ? 'https://x.com' + linkEl.getAttribute('href') : '';
+      
+      if (text && url) {
+        tweets.push({
+          author: authorName || 'Unknown',
+          handle: handle || 'Unknown',
+          text: text,
+          replies: replies,
+          reposts: reposts,
+          likes: likes,
+          views: views,
+          datetime: datetime,
+          displayTime: displayTime,
+          url: url
+        });
+      }
+    } catch (e) {
+      // Skip errors
+    }
+  });
   
-  // Get author info
-  const nameEl = article.querySelector("[data-testid='User-Name']");
-  if (nameEl) {
-    const nameText = nameEl.textContent;
-    const handleMatch = nameText.match(/@[\w]+/);
-    tweet.handle = handleMatch ? handleMatch[0] : "";
-    tweet.author = nameText.split("@")[0].trim();
-  } else {
-    tweet.author = "";
-    tweet.handle = "";
-  }
-  
-  // Get URL
-  const timeLink = article.querySelector("time");
-  if (timeLink && timeLink.parentElement && timeLink.parentElement.tagName === "A") {
-    tweet.url = "https://x.com" + timeLink.parentElement.getAttribute("href");
-    tweet.date = timeLink.getAttribute("datetime");
-  } else {
-    tweet.url = "";
-    tweet.date = "";
-  }
-  
-  // Get engagement metrics using aria-label
-  const replyBtn = article.querySelector("[data-testid='reply']");
-  const repostBtn = article.querySelector("[data-testid='retweet']");
-  const likeBtn = article.querySelector("[data-testid='like']");
-  const viewBtn = article.querySelector("[data-testid='viewCount']");
-  
-  // Parse numbers from aria-labels
-  tweet.replies = replyBtn ? (replyBtn.getAttribute("aria-label") || "").match(/(\d+)/)?.[1] || "0" : "0";
-  tweet.reposts = repostBtn ? (repostBtn.getAttribute("aria-label") || "").match(/(\d+)/)?.[1] || "0" : "0";
-  tweet.likes = likeBtn ? (likeBtn.getAttribute("aria-label") || "").match(/(\d+)/)?.[1] || "0" : "0";
-  tweet.views = viewBtn ? viewBtn.textContent.trim() : "0";
-  
-  if (tweet.text) {
-    tweets.push(tweet);
-  }
+  return tweets;
 }
 
-return JSON.stringify({
-  count: tweets.length,
-  tweets: tweets
-}, null, 2);
+JSON.stringify(extractTweets(), null, 2);
