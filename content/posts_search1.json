@@ -1,0 +1,24 @@
+---
+topic: content
+date: 2026-07-15
+tags: []
+---
+
+# Posts Search1
+
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+"[\n  {\n    \"author\": \"Matt Van Swol\",\n    \"handle\": \"@mattvanswol\",\n    \"text\": \"I’m sorry, but Lindsey Graham dying out of the blue like this doesn’t make any sense at all. \\n\\nWe have him on camera yesterday looking perfectly healthy. \\n\\nNone of this is making any sense…\",\n    \"date\": \"2026-07-12T10:29:16.000Z\",\n    \"likes\": 65,\n    \"reposts\": 13,\n    \"replies\": 23,\n    \"url\": \"https://x.com/mattvanswol/status/2076252546033660238\"\n  },\n  {\n    \"author\": \"Marlin\",\n    \"handle\": \"@MLCTXNM\",\n    \"text\": \"The Aorta thinning is rare and difficult to diagnose, \\nthe AAA repair surgery is needed STAT if you arrive at the hospital in time, \\n& diagnosed properly, the surgery is terrible removing all your intestines, stopping the heart to repair, if kidney problems, prepare to pass.\",\n    \"date\": \"2026-07-13T18:08:00.000Z\",\n    \"likes\": 1,\n    \"reposts\": 0,\n    \"replies\": 1,\n    \"url\": \"https://x.com/MLCTXNM/status/2076730378774089854\"\n  },\n  {\n    \"author\": \"Neurological Research\",\n    \"handle\": \"@neuroresearchj\",\n    \"text\": \"New article alert!\\n\\\"Prognostic value of dynamic changes in neutrophil-to-lymphocyte ratio and high-sensitivity troponin I after mechanical thrombectomy\\\"\\nPublished 2/06/2026\\nhttps://tandfonline.com/doi/full/10.1080/01616412.2026.2693802…\\n@WeAreTandF @tandfonline\",\n    \"date\": \"2026-07-06T12:00:02.000Z\",\n    \"likes\": 1,\n    \"reposts\": 0,\n    \"replies\": 0,\n    \"url\": \"https://x.com/neuroresearchj/status/2074101059258032436\"\n  },\n  {\n    \"author\": \"A. Sidarta\",\n    \"handle\": \"@ananda_sidarta\",\n    \"text\": \"NTU Singapore is part of the Future Health Technologies phase 2, \\\"Rehabilitation and Recovery\\\" in stroke. We are providing 2 x #PhD #scholarship who possess strong interests in #stroke #rehabilitation and a background in #biomedical eng and/or relevant #clinical fields\",\n    \"date\": \"2026-07-11T02:16:49.000Z\",\n    \"likes\": 0,\n    \"reposts\": 0,\n    \"replies\": 1,\n    \"url\": \"https://x.com/ananda_sidarta/status/2075766227558125839\"\n  },\n  {\n    \"author\": \"The Green Dragon Tavern\",\n    \"handle\": \"@greendragonhq\",\n    \"text\": \"36 Republicans in Oklahoma voted against ending child marriages.\\n\\nThis is not a joke or satire. \\n\\nListen to Rep JJ Humphry give his reasons why child marriage should exist in Oklahoma. \\n\\nThese people should be out on a government watch list.\",\n    \"date\": \"2026-07-12T22:10:51.000Z\",\n    \"likes\": 4,\n    \"reposts\": 17,\n    \"replies\": 183,\n    \"url\": \"https://x.com/greendragonhq/status/2076429105893879876\"\n  },\n  {\n    \"author\": \"Sportsandpolitics\",\n    \"handle\": \"@ofthebambino\",\n    \"text\": \"You also have no fucking clue why doctors would approve that course of action in someone that age.  I mean shit, you think insurance companies approve things that aren't medically necessary?\\n\\nTry getting an MRI without a medical reason for it.\",\n    \"date\": \"2026-07-13T17:49:10.000Z\",\n    \"likes\": 0,\n    \"reposts\": 0,\n    \"replies\": 1,\n    \"url\": \"https://x.com/ofthebambino/status/2076725636689756239\"\n  }\n]"
