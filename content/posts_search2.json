@@ -1,0 +1,24 @@
+---
+topic: content
+date: 2026-07-15
+tags: []
+---
+
+# Posts Search2
+
+│
+◇  Doctor warnings ───────────────────────────────────────────╮
+│                                                             │
+│  - State dir migration skipped: target already exists       │
+│    (/Users/bobvarkey/.openclaw). Remove or merge manually.  │
+│                                                             │
+├─────────────────────────────────────────────────────────────╯
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+"[\n  {\n    \"author\": \"RangerRob\",\n    \"handle\": \"@RangerRob12\",\n    \"text\": \"Didn’t know that; thanks. Still…\\nIntracranial aneurysm rupture within 3d after receiving mRNA C-19 vax: 3 case reports: \\nAll three cases developed SAH within 3 days of the 1st or 2nd dose of BNT162b2 mRNA shot.\",\n    \"date\": \"2026-07-12T23:06:12.000Z\",\n    \"likes\": 0,\n    \"reposts\": 0,\n    \"replies\": 1,\n    \"url\": \"https://x.com/RangerRob12/status/2076443032895864896\"\n  },\n  {\n    \"author\": \"Robotics Papers\",\n    \"handle\": \"@OWW\",\n    \"text\": \"Vascular Geometry Characterization for AI-Based Endovascular Navigation\\n\\nHan-Ru Wu, Harry Robertshaw, Lisa Dwyer-Joyce, Thomas C Booth, Alejandro Granados\\nhttps://arxiv.org/abs/2607.09130 [𝚌𝚜.𝚁𝙾]\",\n    \"date\": \"2026-07-13T12:53:10.000Z\",\n    \"likes\": 0,\n    \"reposts\": 0,\n    \"replies\": 0,\n    \"url\": \"https://x.com/OWW/status/2076651148262494373\"\n  },\n  {\n    \"author\": \"Endovascular Today\",\n    \"handle\": \"@EVToday\",\n    \"text\": \"Drs. Juan Diego Alzate, @johnboockvar, David Langer,  Miroslaw Janowski, and @yafellserulle share their perspectives on intra-arterial therapy techniques for glioblastoma, limitations, and the evolving role of precision delivery strategies.\",\n    \"date\": \"2026-07-13T17:20:00.000Z\",\n    \"likes\": 1,\n    \"reposts\": 1,\n    \"replies\": 0,\n    \"url\": \"https://x.com/EVToday/status/2076718297001681123\"\n  },\n  {\n    \"author\": \"rochatka_dla_zdrowia\",\n    \"handle\": \"@jerochatka\",\n    \"text\": \"Impact of modern treatment\\n•Development of treatment techniques reduced mortality from 30% to 10%.\\n•Good neurological development after treatment increased from 32% to 74%.\\n•Lasjaunias (2006) proposed a strict pre-treatment evaluation protocol (cerebral, cardiac, respiratory,\",\n    \"date\": \"2026-07-13T09:56:39.000Z\",\n    \"likes\": 1,\n    \"reposts\": 0,\n    \"replies\": 0,\n    \"url\": \"https://x.com/jerochatka/status/2076606725281419473\"\n  }\n]"
