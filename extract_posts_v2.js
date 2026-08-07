@@ -1,65 +1,65 @@
-const posts = [];
 const articles = document.querySelectorAll('article');
-
+const posts = [];
 articles.forEach(article => {
   try {
-    const authorEl = article.querySelector('[data-testid="User-Name"] span');
-    const author = authorEl ? authorEl.textContent : '';
-    
-    const links = article.querySelectorAll('a[href^="/"]');
+    // Get all links to user profiles
+    const allLinks = article.querySelectorAll('a[href^="/"]');
     let handle = '';
-    for (const link of links) {
-      const href = link.getAttribute('href') || '';
-      if (href.match(/^\/[a-zA-Z0-9_]+$/)) {
-        handle = href.substring(1);
+    let url = '';
+    
+    // Find the first link that's a user profile (not hashtag, not status)
+    for (const link of allLinks) {
+      const href = link.getAttribute('href');
+      if (href && !href.includes('/status/') && !href.includes('/hashtag/') && !href.startsWith('/i/')) {
+        handle = href.replace('/', '');
+        url = 'https://x.com' + href;
         break;
       }
     }
     
-    const timeEl = article.querySelector('time');
-    const datetime = timeEl ? timeEl.getAttribute('datetime') : '';
+    // Get author name
+    const authorSpan = article.querySelector('span');
+    const author = authorSpan ? authorSpan.textContent.trim() : '';
     
+    // Get tweet text
     const textEl = article.querySelector('[data-testid="tweetText"]');
-    const text = textEl ? textEl.textContent : '';
+    const text = textEl ? textEl.textContent.trim() : '';
     
-    const statusLink = article.querySelector('a[href*="/status/"]');
-    const url = statusLink ? statusLink.href : '';
+    // Get date
+    const timeEl = article.querySelector('time');
+    const date = timeEl ? timeEl.getAttribute('datetime') : '';
     
-    const metrics = { replies: 0, reposts: 0, likes: 0, views: 0 };
+    // Get engagement metrics
+    const likeBtn = article.querySelector('[data-testid="like"]');
+    const likesText = likeBtn ? likeBtn.textContent : '0';
+    const likes = parseInt(likesText.replace(/[^0-9]/g, '')) || 0;
+    
+    const repostBtn = article.querySelector('[data-testid="unretweet"], [data-testid="retweet"]');
+    const repostsText = repostBtn ? repostBtn.textContent : '0';
+    const reposts = parseInt(repostsText.replace(/[^0-9]/g, '')) || 0;
     
     const replyBtn = article.querySelector('[data-testid="reply"]');
-    if (replyBtn) {
-      const aria = replyBtn.getAttribute('aria-label') || '';
-      const m = aria.match(/(\d+)/);
-      if (m) metrics.replies = parseInt(m[1]);
-    }
+    const repliesText = replyBtn ? replyBtn.textContent : '0';
+    const replies = parseInt(repliesText.replace(/[^0-9]/g, '')) || 0;
     
-    const repostBtn = article.querySelector('[data-testid="retweet"], [data-testid="unretweet"]');
-    if (repostBtn) {
-      const aria = repostBtn.getAttribute('aria-label') || '';
-      const m = aria.match(/(\d+)/);
-      if (m) metrics.reposts = parseInt(m[1]);
-    }
+    // Get tweet URL - find link to status
+    const statusLink = article.querySelector('a[href*="/status/"]');
+    const tweetUrl = statusLink ? 'https://x.com' + statusLink.getAttribute('href').split('?')[0] : '';
     
-    const likeBtn = article.querySelector('[data-testid="like"], [data-testid="unlike"]');
-    if (likeBtn) {
-      const aria = likeBtn.getAttribute('aria-label') || '';
-      const m = aria.match(/(\d+)/);
-      if (m) metrics.likes = parseInt(m[1]);
+    if (author && text) {
+      posts.push({
+        author: author,
+        handle: '@' + handle,
+        text: text,
+        date: date,
+        likes: likes,
+        reposts: reposts,
+        replies: replies,
+        url: tweetUrl
+      });
     }
-    
-    const viewsSpan = article.querySelector('[data-testid="views"] span');
-    if (viewsSpan) {
-      const t = viewsSpan.textContent || '';
-      const n = parseFloat(t.replace(/[^0-9.K]/g, ''));
-      if (t.includes('K')) metrics.views = Math.round(n * 1000);
-      else if (!isNaN(n)) metrics.views = Math.round(n);
-    }
-    
-    if (author && text && url) {
-      posts.push({ author, handle, datetime, text, url, metrics });
-    }
-  } catch (e) {}
+  } catch (e) {
+    console.error('Error parsing article:', e);
+  }
 });
-
-posts.length + ' posts found: ' + posts.map(p => p.author).join(', ');
+return JSON.stringify(posts, null, 2);

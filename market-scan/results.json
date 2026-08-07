@@ -1,65 +1,95 @@
 {
-  "scan_date": "2026-07-10T08:00:19.804723",
-  "stocks_scanned": 6,
+  "scan_date": "2026-07-27T08:00:19.579075",
+  "stocks_scanned": 7,
   "opportunities": [
     {
-      "ticker": "COLPAL.BSE",
-      "name": "COLPAL",
-      "price": 2062.1001,
-      "change": 2.0665,
+      "ticker": "BAJAJ-AUTO.BSE",
+      "name": "BAJAJ-AUTO",
+      "price": 11128.0498,
+      "change": -1.3353,
       "signals": [
         {
-          "type": "price_rally",
-          "value": 2.0665,
-          "reason": "Rally: +2.1%"
+          "type": "price_drop",
+          "value": -1.3353,
+          "reason": "Drop: -1.3%"
+        }
+      ],
+      "prediction_score": 15,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "HEROMOTOCO.BSE",
+      "name": "HEROMOTOCO",
+      "price": 5010.8,
+      "change": -3.1542,
+      "signals": [
+        {
+          "type": "price_drop",
+          "value": -3.1542,
+          "reason": "Drop: -3.2%"
         },
         {
           "type": "volatility",
-          "value": 2.30330560150098,
+          "value": 2.3329673776662485,
           "reason": "Range: 2.3%"
         }
       ],
-      "prediction_score": 25,
-      "recommendation": "NEUTRAL"
+      "prediction_score": 45,
+      "recommendation": "WATCH"
     },
     {
       "ticker": "ONGC.BSE",
       "name": "ONGC",
-      "price": 243.7,
-      "change": -1.336,
+      "price": 248.75,
+      "change": -1.4266,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.336,
-          "reason": "Drop: -1.3%"
+          "value": -1.4266,
+          "reason": "Drop: -1.4%"
         },
         {
           "type": "volatility",
-          "value": 2.750451716522784,
-          "reason": "Range: 2.8%"
+          "value": 2.111286503551706,
+          "reason": "Range: 2.1%"
         }
       ],
       "prediction_score": 25,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "NTPC.BSE",
-      "name": "NTPC",
-      "price": 343.5,
-      "change": -1.5054,
+      "ticker": "EICHERMOT.BSE",
+      "name": "EICHERMOT",
+      "price": 7628.4,
+      "change": -1.175,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.5054,
-          "reason": "Drop: -1.5%"
+          "value": -1.175,
+          "reason": "Drop: -1.2%"
         },
         {
           "type": "volatility",
-          "value": 2.265232974910404,
-          "reason": "Range: 2.3%"
+          "value": 2.095644031127902,
+          "reason": "Range: 2.1%"
         }
       ],
       "prediction_score": 25,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "RELIANCE.BSE",
+      "name": "RELIANCE",
+      "price": 1278.15,
+      "change": 0.2195,
+      "signals": [
+        {
+          "type": "volatility",
+          "value": 2.5875009875957966,
+          "reason": "Range: 2.6%"
+        }
+      ],
+      "prediction_score": 10,
       "recommendation": "NEUTRAL"
     }
   ],

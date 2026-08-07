@@ -1,161 +1,110 @@
 #!/usr/bin/env python3
 import re
-import json
 import sqlite3
 from datetime import datetime
-from pathlib import Path
+import os
 
-def parse_aria_to_tweets(aria_text):
-    """Parse aria snapshot to extract tweet data"""
-    tweets = []
-    
-    # Split by article elements
-    articles = re.split(r'- article "(?=[^"]+(?:Replying to|@|hours ago|minutes ago|Jun|Jul))', aria_text)
-    
-    for article in articles[1:]:  # Skip first empty split
-        try:
-            tweet = {}
-            
-            # Extract author - first quoted string after "article"
-            author_match = re.search(r'^([^"]+)@"', article)
-            if author_match:
-                tweet['author'] = author_match.group(1).strip()
-            
-            # Extract handle - pattern like @username
-            handle_match = re.search(r'@(\w+)', article)
-            if handle_match:
-                tweet['handle'] = '@' + handle_match.group(1)
-            
-            # Extract timestamp
-            time_patterns = [
-                r'(\d+ (?:minutes?|hours?|days?) ago)',
-                r'(Jun \d+)',
-                r'(Jul \d+)',
-                r'(Jan \d+)',
-                r'(Feb \d+)',
-                r'(Mar \d+)',
-                r'(Apr \d+)',
-                r'(May \d+)',
-                r'(Aug \d+)',
-                r'(Sep \d+)',
-                r'(Oct \d+)',
-                r'(Nov \d+)',
-                r'(Dec \d+)'
-            ]
-            
-            for pattern in time_patterns:
-                time_match = re.search(pattern, article)
-                if time_match:
-                    tweet['timestamp'] = time_match.group(1)
-                    break
-            
-            # Extract text content - between timestamp and engagement metrics
-            text_match = re.search(r'(?:ago|Jun \d+|Jul \d+|Aug \d+)\s+(.+?)(?=\d+ (?:replies|likes|views|reposts)|$)', article, re.DOTALL)
-            if text_match:
-                tweet['text'] = text_match.group(1).strip()
-            
-            # Extract engagement metrics
-            replies_match = re.search(r'(\d+) (?:Replies|reply)', article, re.IGNORECASE)
-            reposts_match = re.search(r'(\d+) (?:reposts|repost)', article, re.IGNORECASE)
-            likes_match = re.search(r'(\d+) (?:Likes|likes|like)', article, re.IGNORECASE)
-            views_match = re.search(r'(\d+) views', article, re.IGNORECASE)
-            
-            tweet['replies'] = int(replies_match.group(1)) if replies_match else 0
-            tweet['reposts'] = int(reposts_match.group(1)) if reposts_match else 0
-            tweet['likes'] = int(likes_match.group(1)) if likes_match else 0
-            tweet['views'] = int(views_match.group(1)) if views_match else 0
-            
-            # Generate URL from handle and timestamp
-            if 'handle' in tweet:
-                # We don't have the status ID, so we'll use the handle
-                tweet['url'] = f"https://x.com/{tweet['handle'][1:]}"
-            
-            if tweet.get('text') or tweet.get('author'):
-                tweets.append(tweet)
-                
-        except Exception as e:
-            print(f"Error parsing article: {e}")
-            continue
-    
-    return tweets
+# Read aria snapshot
+with open('/tmp/aria_snapshot.txt', 'r', encoding='utf-8') as f:
+    content = f.read()
 
-def save_to_database(tweets, db_path):
-    """Save tweets to SQLite database"""
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-    
-    # Create table if not exists
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS x_posts (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            author TEXT,
-            handle TEXT,
-            timestamp TEXT,
-            text TEXT,
-            replies INTEGER,
-            reposts INTEGER,
-            likes INTEGER,
-            views INTEGER,
-            url TEXT,
-            search_query TEXT,
-            scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            UNIQUE(handle, text, timestamp)
-        )
-    ''')
-    
-    # Insert tweets
-    inserted_count = 0
-    for tweet in tweets:
-        try:
-            cursor.execute('''
-                INSERT OR IGNORE INTO x_posts 
-                (author, handle, timestamp, text, replies, reposts, likes, views, url)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ''', (
-                tweet.get('author', ''),
-                tweet.get('handle', ''),
-                tweet.get('timestamp', ''),
-                tweet.get('text', ''),
-                tweet.get('replies', 0),
-                tweet.get('reposts', 0),
-                tweet.get('likes', 0),
-                tweet.get('views', 0),
-                tweet.get('url', '')
-            ))
-            if cursor.rowcount > 0:
-                inserted_count += 1
-        except Exception as e:
-            print(f"Error inserting tweet: {e}")
-    
-    conn.commit()
-    conn.close()
-    
-    return inserted_count
+# Parse articles from aria
+articles = re.findall(r'article "([^"]+)"', content)
 
-if __name__ == '__main__':
-    import sys
+posts = []
+for article in articles:
+    post = {}
     
-    if len(sys.argv) < 2:
-        print("Usage: python parse_aria.py <aria_file>")
-        sys.exit(1)
+    # Extract author and handle
+    author_match = re.search(r'link "([^"]+)"[\s\S]*?link "@([^"]+)"', article)
+    if author_match:
+        post['author'] = author_match.group(1)
+        post['handle'] = '@' + author_match.group(2)
+    else:
+        author_match2 = re.search(r'link "([^"]+)"[\s\S]*?- StaticText "([^"]+)"[\s\S]*?link "@([^"]+)"', article)
+        if author_match2:
+            post['author'] = author_match2.group(2)
+            post['handle'] = '@' + author_match2.group(3)
     
-    aria_file = sys.argv[1]
-    with open(aria_file, 'r') as f:
-        aria_text = f.read()
+    # Extract date
+    date_match = re.search(r'link "([^"]+)"[\s\S]*?time', article)
+    if date_match:
+        post['date'] = date_match.group(1)
     
-    tweets = parse_aria_to_tweets(aria_text)
-    print(f"Extracted {len(tweets)} tweets")
+    # Extract text (after handle and before metrics)
+    # Find StaticText after the links
+    text_parts = re.findall(r'StaticText "([^"]+)"', article)
+    if len(text_parts) > 3:
+        # Skip first few (author, handle, date) and last few (metrics)
+        post['text'] = ' '.join(text_parts[3:-10])
     
-    # Save to database
-    db_path = Path.home() / '.openclaw' / 'workspace' / 'memory_x_posts.db'
-    inserted = save_to_database(tweets, str(db_path))
-    print(f"Inserted {inserted} new tweets into database")
+    # Extract metrics from the article description (at the end)
+    metrics_match = re.search(r'(\d+) repl[^,]*,\s*(\d+) repost[^,]*,\s*(\d+) like[^,]*,\s*(\d+) bookmark[^,]*,\s*(\d+) view', article)
+    if metrics_match:
+        post['replies'] = int(metrics_match.group(1))
+        post['reposts'] = int(metrics_match.group(2))
+        post['likes'] = int(metrics_match.group(3))
+        post['bookmarks'] = int(metrics_match.group(4))
+        post['views'] = int(metrics_match.group(5))
+    else:
+        # Try alternative format
+        metrics_match2 = re.search(r'(\d+)\s+(\d+)\s+(\d+)\s+(\d+[KkMm]?)\s*$', article)
+        if metrics_match2:
+            post['replies'] = int(metrics_match2.group(1))
+            post['reposts'] = int(metrics_match2.group(2))
+            post['likes'] = int(metrics_match2.group(3))
+            # Convert K/M to numbers
+            views_str = metrics_match2.group(4)
+            if 'K' in views_str or 'k' in views_str:
+                post['views'] = int(float(views_str.replace('K', '').replace('k', '')) * 1000)
+            elif 'M' in views_str or 'm' in views_str:
+                post['views'] = int(float(views_str.replace('M', '').replace('m', '')) * 1000000)
+            else:
+                post['views'] = int(views_str)
     
-    # Print tweets for verification
-    for i, tweet in enumerate(tweets, 1):
-        print(f"\n--- Tweet {i} ---")
-        print(f"Author: {tweet.get('author', 'N/A')}")
-        print(f"Handle: {tweet.get('handle', 'N/A')}")
-        print(f"Time: {tweet.get('timestamp', 'N/A')}")
-        print(f"Text: {tweet.get('text', 'N/A')[:100]}...")
-        print(f"Likes: {tweet.get('likes', 0)} | Views: {tweet.get('views', 0)}")
+    # Generate URL (we'll need to construct it)
+    if 'handle' in post:
+        # Extract status ID if available, or we'll construct a placeholder
+        post['url'] = f"https://x.com/{post['handle'].lstrip('@')}/status/placeholder"
+    
+    posts.append(post)
+
+print(f"Found {len(posts)} posts")
+for i, post in enumerate(posts[:3], 1):
+    print(f"\n{i}. {post.get('author', 'Unknown')} ({post.get('handle', '@unknown')})")
+    print(f"   Date: {post.get('date', 'Unknown')}")
+    print(f"   Text: {post.get('text', 'No text')[:100]}...")
+    print(f"   Metrics: {post.get('likes', 0)} likes, {post.get('reposts', 0)} reposts, {post.get('views', 0)} views")
+
+# Save to database
+db_path = "/Users/bobvarkey/.openclaw/workspace/memory_x_posts.db"
+conn = sqlite3.connect(db_path)
+cursor = conn.cursor()
+
+# Insert posts
+for post in posts:
+    try:
+        cursor.execute('''
+            INSERT OR IGNORE INTO x_posts 
+            (author, handle, date, text, url, replies, reposts, likes, bookmarks, views, search_query)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            post.get('author', ''),
+            post.get('handle', ''),
+            post.get('date', ''),
+            post.get('text', ''),
+            post.get('url', ''),
+            post.get('replies', 0),
+            post.get('reposts', 0),
+            post.get('likes', 0),
+            post.get('bookmarks', 0),
+            post.get('views', 0),
+            'neurointervention OR thrombectomy OR #Neurointervention OR #stroke'
+        ))
+    except Exception as e:
+        print(f"Error inserting post: {e}")
+
+conn.commit()
+conn.close()
+
+print(f"\nSaved {len(posts)} posts to database")
