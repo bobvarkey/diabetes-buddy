@@ -1,0 +1,169 @@
+---
+topic: daily
+date: 2026-08-10
+tags: []
+---
+
+# X Neuro Snapshot
+
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (9 unread notifications)" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "9 unread items" [ref=e42]:
+                        - generic [ref=e43]: "9"
+                  - link "Follow" [ref=e44] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e47]
+                  - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e53]
+                  - link "Grok" [ref=e56] [cursor=pointer]:
+                    - /url: /i/grok
+                    - generic [ref=e58]:
+                      - img [ref=e59]
+                      - generic "undefined unread items" [ref=e62]
+                  - link "Profile" [ref=e63] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e66]
+                  - button "More menu items" [ref=e69] [cursor=pointer]:
+                    - img [ref=e72]
+                - link "Post" [ref=e76] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e78]
+              - button "Account menu" [ref=e84] [cursor=pointer]:
+                - generic [ref=e92]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e95]:
+            - generic "Home timeline" [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - generic [ref=e107]:
+                    - button "Back" [ref=e109] [cursor=pointer]:
+                      - img [ref=e111]
+                    - search "Search" [ref=e119]:
+                      - generic [ref=e124]:
+                        - img [ref=e126]
+                        - combobox "Search query" [ref=e131]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                    - button "More" [ref=e133] [cursor=pointer]:
+                      - img [ref=e135]
+                  - navigation [ref=e139]:
+                    - generic [ref=e140]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e142]:
+                        - tab "Top" [selected] [ref=e143] [cursor=pointer]:
+                          - generic [ref=e146]: Top
+                        - tab "Latest" [ref=e148] [cursor=pointer]:
+                          - generic [ref=e151]: Latest
+                        - tab "People" [ref=e152] [cursor=pointer]:
+                          - generic [ref=e155]: People
+                        - tab "Media" [ref=e156] [cursor=pointer]:
+                          - generic [ref=e159]: Media
+                        - tab "Lists" [ref=e160] [cursor=pointer]:
+                          - generic [ref=e163]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e165]:
+                - heading "Search timeline" [level=1] [ref=e166]
+                - 'generic "Timeline: Search timeline" [ref=e167]':
+                  - 'article "Neurology Journal @GreenJournal Jun 12 Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with #EmbolicStroke of undetermined source. Listen now: hubs.la/Q04l5L0Q0 #Stroke Embedded video Play Video. 45 seconds long 2 replies, 6 reposts, 23 likes, 7 bookmarks, 4306 views" [ref=e172] [cursor=pointer]':
+                    - generic [ref=e178]:
+                      - link [ref=e190]:
+                        - /url: /GreenJournal
+                      - generic [ref=e193]:
+                        - generic [ref=e195]:
+                          - generic [ref=e198]:
+                            - link "Neurology Journal" [ref=e201]:
+                              - /url: /GreenJournal
+                              - generic [ref=e204]: Neurology Journal
+                            - generic [ref=e206]:
+                              - link "@GreenJournal" [ref=e208]:
+                                - /url: /GreenJournal
+                                - generic [ref=e209]: "@GreenJournal"
+                              - generic [ref=e210]: ·
+                              - link "Jun 12" [ref=e212]:
+                                - /url: /GreenJournal/status/2065190115090042937
+                                - time [ref=e213]: Jun 12
+                          - generic [ref=e215]:
+                            - button "Grok actions" [ref=e217]:
+                              - img [ref=e222]
+                            - button "More" [ref=e228]:
+                              - img [ref=e232]
+                        - generic [ref=e236]:
+                          - text: "Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with"
+                          - link "#EmbolicStroke" [ref=e238]:
+                            - /url: /hashtag/EmbolicStroke?src=hashtag_click
+                          - text: "of undetermined source. Listen now:"
+                          - link "hubs.la/Q04l5L0Q0" [ref=e239]:
+                            - /url: https://t.co/CfHEQyaCdr
+                          - link "#Stroke" [ref=e241]:
+                            - /url: /hashtag/Stroke?src=hashtag_click
+                        - generic [ref=e258]:
+                          - generic "Embedded video" [ref=e261]
+                          - button "Play Video. 45 seconds long" [ref=e268]:
+                            - img [ref=e269]
+                        - group "2 replies, 6 reposts, 23 likes, 7 bookmarks, 4306 views" [ref=e275]:
+                          - button "2 Replies. Reply" [ref=e277]:
+                            - generic [ref=e278]:
+                              - img [ref=e281]
+                              - generic [ref=e286]: "2"
+                          - button "6 reposts. Repost" [ref=e288]:
+                            - generic [ref=e289]:
+                              - img [ref=e292]
+                              - generic [ref=e297]: "6"
+                          - button "23 Likes. Like" [ref=e299]:
+                            - generic [ref=e300]:
+                              - img [ref=e303]
+                              - generic [ref=e308]: "23"
+                          - link "4306 views. View post analytics" [ref=e310]:
+                            - /url: /GreenJournal/status/2065190115090042937/analytics
+                            - generic [ref=e311]:
+                              - img [ref=e314]
+                              - generic [ref=e319]: 4.3K
+                          - button "Bookmark" [ref=e321]:
+                            - img [ref=e325]
+                          - button "Share post" [ref=e330]:
+                            - img [ref=e334]
+  - generic:
+    - region "Notifications alt+T"

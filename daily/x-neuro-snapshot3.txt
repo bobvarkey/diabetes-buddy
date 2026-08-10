@@ -1,0 +1,442 @@
+---
+topic: daily
+date: 2026-08-10
+tags: []
+---
+
+# X Neuro Snapshot3
+
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (9 unread notifications)" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "9 unread items" [ref=e42]:
+                        - generic [ref=e43]: "9"
+                  - link "Follow" [ref=e44] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e47]
+                  - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e53]
+                  - link "Grok" [ref=e56] [cursor=pointer]:
+                    - /url: /i/grok
+                    - generic [ref=e58]:
+                      - img [ref=e59]
+                      - generic "undefined unread items" [ref=e62]
+                  - link "Profile" [ref=e63] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e66]
+                  - button "More menu items" [ref=e69] [cursor=pointer]:
+                    - img [ref=e72]
+                - link "Post" [ref=e76] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e78]
+              - button "Account menu" [ref=e84] [cursor=pointer]:
+                - generic [ref=e92]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e95]:
+            - generic "Home timeline" [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - generic [ref=e107]:
+                    - button "Back" [ref=e109] [cursor=pointer]:
+                      - img [ref=e111]
+                    - search "Search" [ref=e119]:
+                      - generic [ref=e124]:
+                        - img [ref=e126]
+                        - combobox "Search query" [ref=e131]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                    - button "More" [ref=e133] [cursor=pointer]:
+                      - img [ref=e135]
+                  - navigation [ref=e139]:
+                    - generic [ref=e140]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e142]:
+                        - tab "Top" [selected] [ref=e143] [cursor=pointer]:
+                          - generic [ref=e146]: Top
+                        - tab "Latest" [ref=e148] [cursor=pointer]:
+                          - generic [ref=e151]: Latest
+                        - tab "People" [ref=e152] [cursor=pointer]:
+                          - generic [ref=e155]: People
+                        - tab "Media" [ref=e156] [cursor=pointer]:
+                          - generic [ref=e159]: Media
+                        - tab "Lists" [ref=e160] [cursor=pointer]:
+                          - generic [ref=e163]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e165]:
+                - heading "Search timeline" [level=1] [ref=e166]
+                - 'generic "Timeline: Search timeline" [ref=e167]':
+                  - generic [ref=e168]:
+                    - 'article "Raymond Catton, MD @catton_md May 25, 2025 May is Stroke Awareness Month. I''m going #ALLHANDSIN with @svinsociety to help raise awareness about stroke, stroke interventions, and stroke recovery. #neurointervention #stroke #thrombectomy Embedded video 1:18 of 2:01 Play 1:19 / 2:02 Show captions Unmute 100 percent Video Settings Picture-in-Picture Full screen 1 reply, 10 reposts, 30 likes, 3920 views" [ref=e1271] [cursor=pointer]':
+                      - generic [ref=e812]:
+                        - link [ref=e824]:
+                          - /url: /catton_md
+                        - generic [ref=e827]:
+                          - generic [ref=e829]:
+                            - generic [ref=e832]:
+                              - link "Raymond Catton, MD" [ref=e835]:
+                                - /url: /catton_md
+                                - generic [ref=e838]: Raymond Catton, MD
+                              - generic [ref=e840]:
+                                - link "@catton_md" [ref=e842]:
+                                  - /url: /catton_md
+                                  - generic [ref=e843]: "@catton_md"
+                                - generic [ref=e844]: ·
+                                - link "May 25, 2025" [ref=e846]:
+                                  - /url: /catton_md/status/1926639728641654870
+                                  - time [ref=e847]: May 25, 2025
+                            - generic [ref=e849]:
+                              - button "Grok actions" [ref=e851]:
+                                - img [ref=e856]
+                              - button "More" [ref=e862]:
+                                - img [ref=e866]
+                          - generic [ref=e870]:
+                            - text: May is Stroke Awareness Month. I'm going
+                            - link "#ALLHANDSIN" [ref=e872]:
+                              - /url: /hashtag/ALLHANDSIN?src=hashtag_click
+                            - text: with
+                            - link "@svinsociety" [ref=e875]:
+                              - /url: /svinsociety
+                            - text: to help raise awareness about stroke, stroke interventions, and stroke recovery.
+                            - link "#neurointervention" [ref=e877]:
+                              - /url: /hashtag/neurointervention?src=hashtag_click
+                            - link "#stroke" [ref=e879]:
+                              - /url: /hashtag/stroke?src=hashtag_click
+                            - link "#thrombectomy" [ref=e881]:
+                              - /url: /hashtag/thrombectomy?src=hashtag_click
+                          - generic [ref=e898]:
+                            - generic "Embedded video" [ref=e901]
+                            - generic [ref=e1274]:
+                              - slider "Seek slider" [ref=e1280]
+                              - generic [ref=e1281]:
+                                - button "Play" [ref=e1283]:
+                                  - img [ref=e1285]
+                                - generic [ref=e1289]:
+                                  - generic [ref=e1290]: 1:19 / 2:02
+                                  - button "Show captions" [ref=e1292]:
+                                    - img [ref=e1294]
+                                  - generic [ref=e1298]:
+                                    - button "Unmute" [ref=e1299]:
+                                      - img [ref=e1301]
+                                    - slider "Volume slider" [ref=e1306]
+                                  - button "Video Settings" [ref=e1310]:
+                                    - img [ref=e1312]
+                                  - button "Picture-in-Picture" [ref=e1316]:
+                                    - img [ref=e1318]
+                                  - button "Full screen" [ref=e1322]:
+                                    - img [ref=e1324]
+                          - group "1 reply, 10 reposts, 30 likes, 3920 views" [ref=e910]:
+                            - button "1 Reply. Reply" [ref=e912]:
+                              - generic [ref=e913]:
+                                - img [ref=e916]
+                                - generic [ref=e921]: "1"
+                            - button "10 reposts. Repost" [ref=e923]:
+                              - generic [ref=e924]:
+                                - img [ref=e927]
+                                - generic [ref=e932]: "10"
+                            - button "30 Likes. Like" [ref=e934]:
+                              - generic [ref=e935]:
+                                - img [ref=e938]
+                                - generic [ref=e943]: "30"
+                            - link "3920 views. View post analytics" [ref=e945]:
+                              - /url: /catton_md/status/1926639728641654870/analytics
+                              - generic [ref=e946]:
+                                - img [ref=e949]
+                                - generic [ref=e954]: 3.9K
+                            - button "Bookmark" [ref=e956]:
+                              - img [ref=e960]
+                            - button "Share post" [ref=e965]:
+                              - img [ref=e969]
+                    - 'article "JAMA Neurology @JAMANeuro Jan 2 Among patients <70 years with acute #BasilarArteryOcclusion, endovascular thrombectomy doubled the rate of ambulatory and self-care capable outcomes at 3 years vs medical treatment. ja.ma/4jqaGFG Horizontal bar graph titled ''Distribution of Functional Outcomes at 3 Years'' compares Thrombectomy (n=203) and Control (n=104) groups by mRS score (0-6). The Thrombectomy group shows a higher percentage with lower mRS scores. 1 reply, 13 reposts, 50 likes, 16 bookmarks, 6162 views" [ref=e975] [cursor=pointer]':
+                      - generic [ref=e981]:
+                        - link [ref=e993]:
+                          - /url: /JAMANeuro
+                        - generic [ref=e996]:
+                          - generic [ref=e998]:
+                            - generic [ref=e1001]:
+                              - link "JAMA Neurology" [ref=e1004]:
+                                - /url: /JAMANeuro
+                                - generic [ref=e1007]: JAMA Neurology
+                              - generic [ref=e1009]:
+                                - link "@JAMANeuro" [ref=e1011]:
+                                  - /url: /JAMANeuro
+                                  - generic [ref=e1012]: "@JAMANeuro"
+                                - generic [ref=e1013]: ·
+                                - link "Jan 2" [ref=e1015]:
+                                  - /url: /JAMANeuro/status/2007119696215085550
+                                  - time [ref=e1016]: Jan 2
+                            - generic [ref=e1018]:
+                              - button "Grok actions" [ref=e1020]:
+                                - img [ref=e1025]
+                              - button "More" [ref=e1031]:
+                                - img [ref=e1035]
+                          - generic [ref=e1039]:
+                            - text: Among patients <70 years with acute
+                            - link "#BasilarArteryOcclusion" [ref=e1041]:
+                              - /url: /hashtag/BasilarArteryOcclusion?src=hashtag_click
+                            - text: ", endovascular thrombectomy doubled the rate of ambulatory and self-care capable outcomes at 3 years vs medical treatment."
+                            - link "ja.ma/4jqaGFG" [ref=e1042]:
+                              - /url: https://t.co/Tlv2ftRPuu
+                          - link "Horizontal bar graph titled 'Distribution of Functional Outcomes at 3 Years' compares Thrombectomy (n=203) and Control (n=104) groups by mRS score (0-6). The Thrombectomy group shows a higher percentage with lower mRS scores." [ref=e1050]:
+                            - /url: /JAMANeuro/status/2007119696215085550/photo/1
+                            - generic "Horizontal bar graph titled 'Distribution of Functional Outcomes at 3 Years' compares Thrombectomy (n=203) and Control (n=104) groups by mRS score (0-6). The Thrombectomy group shows a higher percentage with lower mRS scores." [ref=e1054]:
+                              - img "Horizontal bar graph titled 'Distribution of Functional Outcomes at 3 Years' compares Thrombectomy (n=203) and Control (n=104) groups by mRS score (0-6). The Thrombectomy group shows a higher percentage with lower mRS scores." [ref=e1056]
+                          - group "1 reply, 13 reposts, 50 likes, 16 bookmarks, 6162 views" [ref=e1059]:
+                            - button "1 Reply. Reply" [ref=e1061]:
+                              - generic [ref=e1062]:
+                                - img [ref=e1065]
+                                - generic [ref=e1070]: "1"
+                            - button "13 reposts. Repost" [ref=e1072]:
+                              - generic [ref=e1073]:
+                                - img [ref=e1076]
+                                - generic [ref=e1081]: "13"
+                            - button "50 Likes. Like" [ref=e1083]:
+                              - generic [ref=e1084]:
+                                - img [ref=e1087]
+                                - generic [ref=e1092]: "50"
+                            - link "6162 views. View post analytics" [ref=e1094]:
+                              - /url: /JAMANeuro/status/2007119696215085550/analytics
+                              - generic [ref=e1095]:
+                                - img [ref=e1098]
+                                - generic [ref=e1103]: 6.1K
+                            - button "Bookmark" [ref=e1105]:
+                              - img [ref=e1109]
+                            - button "Share post" [ref=e1114]:
+                              - img [ref=e1118]
+                    - 'article "Stroke AHA/ASA @StrokeAHA_ASA Aug 4 🧵 Special Report by Albers et al.: The 2026 updated AHA #STROKE Guidelines were recently published. The authors here propose that the levels of evidence for some of the new recommendations should be corrected to accurately reflect the supporting data. ahajournals.org/doi/full/10.11 Figure. 2026 American Heart Association (AHA) Guideline for the early management of patients with acute ischemic stroke (AIS). Adapted from Prabhakaran et al1 with permission. Copyright ©2026, the AHA, Inc. 2 replies, 20 reposts, 47 likes, 28 bookmarks, 10551 views" [ref=e1124] [cursor=pointer]':
+                      - generic [ref=e1130]:
+                        - link [ref=e1142]:
+                          - /url: /StrokeAHA_ASA
+                        - generic [ref=e1145]:
+                          - generic [ref=e1147]:
+                            - generic [ref=e1150]:
+                              - link "Stroke AHA/ASA" [ref=e1153]:
+                                - /url: /StrokeAHA_ASA
+                                - generic [ref=e1156]: Stroke AHA/ASA
+                              - generic [ref=e1158]:
+                                - link "@StrokeAHA_ASA" [ref=e1160]:
+                                  - /url: /StrokeAHA_ASA
+                                  - generic [ref=e1161]: "@StrokeAHA_ASA"
+                                - generic [ref=e1162]: ·
+                                - link "Aug 4" [ref=e1164]:
+                                  - /url: /StrokeAHA_ASA/status/2084645988518555853
+                                  - time [ref=e1165]: Aug 4
+                            - generic [ref=e1167]:
+                              - button "Grok actions" [ref=e1169]:
+                                - img [ref=e1174]
+                              - button "More" [ref=e1180]:
+                                - img [ref=e1184]
+                          - generic [ref=e1188]:
+                            - img "🧵" [ref=e1189]
+                            - text: "Special Report by Albers et al.: The 2026 updated AHA"
+                            - link "#STROKE" [ref=e1191]:
+                              - /url: /hashtag/STROKE?src=hashtag_click
+                            - text: Guidelines were recently published. The authors here propose that the levels of evidence for some of the new recommendations should be corrected to accurately reflect the supporting data.
+                            - link "ahajournals.org/doi/full/10.11" [ref=e1192]:
+                              - /url: https://t.co/Ei6Lq9PTnv
+                              - text: ahajournals.org/doi/full/10.11 …
+                          - link "Figure. 2026 American Heart Association (AHA) Guideline for the early management of patients with acute ischemic stroke (AIS). Adapted from Prabhakaran et al1 with permission. Copyright ©2026, the AHA, Inc." [ref=e1200]:
+                            - /url: /StrokeAHA_ASA/status/2084645988518555853/photo/1
+                            - generic "Figure. 2026 American Heart Association (AHA) Guideline for the early management of patients with acute ischemic stroke (AIS). Adapted from Prabhakaran et al1 with permission. Copyright ©2026, the AHA, Inc." [ref=e1204]:
+                              - img "Figure. 2026 American Heart Association (AHA) Guideline for the early management of patients with acute ischemic stroke (AIS). Adapted from Prabhakaran et al1 with permission. Copyright ©2026, the AHA, Inc." [ref=e1206]
+                          - group "2 replies, 20 reposts, 47 likes, 28 bookmarks, 10551 views" [ref=e1209]:
+                            - button "2 Replies. Reply" [ref=e1211]:
+                              - generic [ref=e1212]:
+                                - img [ref=e1215]
+                                - generic [ref=e1220]: "2"
+                            - button "20 reposts. Repost" [ref=e1222]:
+                              - generic [ref=e1223]:
+                                - img [ref=e1226]
+                                - generic [ref=e1231]: "20"
+                            - button "47 Likes. Like" [ref=e1233]:
+                              - generic [ref=e1234]:
+                                - img [ref=e1237]
+                                - generic [ref=e1242]: "47"
+                            - link "10551 views. View post analytics" [ref=e1244]:
+                              - /url: /StrokeAHA_ASA/status/2084645988518555853/analytics
+                              - generic [ref=e1245]:
+                                - img [ref=e1248]
+                                - generic [ref=e1253]: 10K
+                            - button "Bookmark" [ref=e1255]:
+                              - img [ref=e1259]
+                            - button "Share post" [ref=e1264]:
+                              - img [ref=e1268]
+                    - 'article "Fawaz Al-Mufti, MD, FSVIN @almuftifawaz Oct 14, 2025 #SEGA says… 🎮 maybe *Game Over* for GA vs Sedation in thrombectomy. Coming in hot @JAMANeuro : 260 pts, 10 U.S. stroke centers, randomized 1:1 GA vs sedation 90d outcomes: GA favored (OR 1.22, CrI 0.79–1.87), 81% prob. superiority Reperfusion: higher w/ GA (69% prob.) sICH: Embedded video Play Video. 24 seconds long Mohammad El-Ghanem and 9 others 1 reply, 16 reposts, 58 likes, 15 bookmarks, 4366 views" [ref=e1330] [cursor=pointer]':
+                      - generic [ref=e1336]:
+                        - link [ref=e1348]:
+                          - /url: /almuftifawaz
+                        - generic [ref=e1351]:
+                          - generic [ref=e1353]:
+                            - generic [ref=e1356]:
+                              - link "Fawaz Al-Mufti, MD, FSVIN" [ref=e1359]:
+                                - /url: /almuftifawaz
+                                - generic [ref=e1362]: Fawaz Al-Mufti, MD, FSVIN
+                              - generic [ref=e1364]:
+                                - link "@almuftifawaz" [ref=e1366]:
+                                  - /url: /almuftifawaz
+                                  - generic [ref=e1367]: "@almuftifawaz"
+                                - generic [ref=e1368]: ·
+                                - link "Oct 14, 2025" [ref=e1371]:
+                                  - /url: /almuftifawaz/status/1978082867948187732
+                                  - time [ref=e1372]: Oct 14, 2025
+                            - generic [ref=e1374]:
+                              - button "Grok actions" [ref=e1376]:
+                                - img [ref=e1381]
+                              - button "More" [ref=e1387]:
+                                - img [ref=e1391]
+                          - generic [ref=e1394]:
+                            - generic [ref=e1395]:
+                              - link "#SEGA" [ref=e1397]:
+                                - /url: /hashtag/SEGA?src=hashtag_click
+                              - text: says…
+                              - img "🎮" [ref=e1398]
+                              - text: maybe *Game Over* for GA vs Sedation in thrombectomy. Coming in hot
+                              - link "@JAMANeuro" [ref=e1401]:
+                                - /url: /JAMANeuro
+                              - text: ": 260 pts, 10 U.S. stroke centers, randomized 1:1 GA vs sedation 90d outcomes: GA favored (OR 1.22, CrI 0.79–1.87), 81% prob. superiority Reperfusion: higher w/ GA (69% prob.) sICH:"
+                            - button "Show more" [ref=e1402]
+                          - generic [ref=e1406]:
+                            - generic [ref=e1419]:
+                              - generic "Embedded video" [ref=e1422]
+                              - button "Play Video. 24 seconds long" [ref=e1429]:
+                                - img [ref=e1430]
+                            - link "Mohammad El-Ghanem and 9 others" [ref=e1435]:
+                              - /url: /almuftifawaz/status/1978082867948187732/media_tags
+                              - generic [ref=e1436]:
+                                - generic [ref=e1437]: Mohammad El-Ghanem
+                                - text: and 9 others
+                          - group "1 reply, 16 reposts, 58 likes, 15 bookmarks, 4366 views" [ref=e1440]:
+                            - button "1 Reply. Reply" [ref=e1442]:
+                              - generic [ref=e1443]:
+                                - img [ref=e1446]
+                                - generic [ref=e1451]: "1"
+                            - button "16 reposts. Repost" [ref=e1453]:
+                              - generic [ref=e1454]:
+                                - img [ref=e1457]
+                                - generic [ref=e1462]: "16"
+                            - button "58 Likes. Like" [ref=e1464]:
+                              - generic [ref=e1465]:
+                                - img [ref=e1468]
+                                - generic [ref=e1473]: "58"
+                            - link "4366 views. View post analytics" [ref=e1475]:
+                              - /url: /almuftifawaz/status/1978082867948187732/analytics
+                              - generic [ref=e1476]:
+                                - img [ref=e1479]
+                                - generic [ref=e1484]: 4.3K
+                            - button "Bookmark" [ref=e1486]:
+                              - img [ref=e1490]
+                            - button "Share post" [ref=e1495]:
+                              - img [ref=e1499]
+                    - 'article "UT Health SA Neurosurgery Residents @UthsaNsurgRes Jul 16, 2025 Congratulations to @jmascite presenting at #SNIS2025 during the Late Breaking Abstract session on thrombectomy for medium vessel occlusion #stroke #neurointervention #neurosurgery @UTHealthNeuro Image Justin R. Mascitelli, MD, FAANS and Imperative Care Stroke 8 reposts, 27 likes, 1483 views" [ref=e1505] [cursor=pointer]':
+                      - generic [ref=e1511]:
+                        - link [ref=e1523]:
+                          - /url: /UthsaNsurgRes
+                        - generic [ref=e1526]:
+                          - generic [ref=e1528]:
+                            - generic [ref=e1531]:
+                              - link "UT Health SA Neurosurgery Residents" [ref=e1534]:
+                                - /url: /UthsaNsurgRes
+                                - generic [ref=e1537]: UT Health SA Neurosurgery Residents
+                              - generic [ref=e1539]:
+                                - link "@UthsaNsurgRes" [ref=e1541]:
+                                  - /url: /UthsaNsurgRes
+                                  - generic [ref=e1542]: "@UthsaNsurgRes"
+                                - generic [ref=e1543]: ·
+                                - link "Jul 16, 2025" [ref=e1545]:
+                                  - /url: /UthsaNsurgRes/status/1945523068484432319
+                                  - time [ref=e1546]: Jul 16, 2025
+                            - generic [ref=e1548]:
+                              - button "Grok actions" [ref=e1550]:
+                                - img [ref=e1555]
+                              - button "More" [ref=e1561]:
+                                - img [ref=e1565]
+                          - generic [ref=e1569]:
+                            - text: Congratulations to
+                            - link "@jmascite" [ref=e1572]:
+                              - /url: /jmascite
+                            - text: presenting at
+                            - link "#SNIS2025" [ref=e1574]:
+                              - /url: /hashtag/SNIS2025?src=hashtag_click
+                            - text: during the Late Breaking Abstract session on thrombectomy for medium vessel occlusion
+                            - link "#stroke" [ref=e1576]:
+                              - /url: /hashtag/stroke?src=hashtag_click
+                            - link "#neurointervention" [ref=e1578]:
+                              - /url: /hashtag/neurointervention?src=hashtag_click
+                            - link "#neurosurgery" [ref=e1580]:
+                              - /url: /hashtag/neurosurgery?src=hashtag_click
+                            - link "@UTHealthNeuro" [ref=e1583]:
+                              - /url: /UTHealthNeuro
+                          - generic [ref=e1587]:
+                            - link "Image" [ref=e1591]:
+                              - /url: /UthsaNsurgRes/status/1945523068484432319/photo/1
+                              - generic "Image" [ref=e1595]:
+                                - img "Image" [ref=e1597]
+                            - link "Justin R. Mascitelli, MD, FAANS and Imperative Care Stroke" [ref=e1599]:
+                              - /url: /UthsaNsurgRes/status/1945523068484432319/media_tags
+                              - generic [ref=e1600]:
+                                - generic [ref=e1601]: Justin R. Mascitelli, MD, FAANS
+                                - text: and
+                                - generic [ref=e1602]: Imperative Care Stroke
+                          - group "8 reposts, 27 likes, 1483 views" [ref=e1605]:
+                            - button "0 Replies. Reply" [ref=e1607]:
+                              - img [ref=e1611]
+                            - button "8 reposts. Repost" [ref=e1618]:
+                              - generic [ref=e1619]:
+                                - img [ref=e1622]
+                                - generic [ref=e1627]: "8"
+                            - button "27 Likes. Like" [ref=e1629]:
+                              - generic [ref=e1630]:
+                                - img [ref=e1633]
+                                - generic [ref=e1638]: "27"
+                            - link "1483 views. View post analytics" [ref=e1640]:
+                              - /url: /UthsaNsurgRes/status/1945523068484432319/analytics
+                              - generic [ref=e1641]:
+                                - img [ref=e1644]
+                                - generic [ref=e1649]: 1.4K
+                            - button "Bookmark" [ref=e1651]:
+                              - img [ref=e1655]
+                            - button "Share post" [ref=e1660]:
+                              - img [ref=e1664]
+  - generic:
+    - region "Notifications alt+T"

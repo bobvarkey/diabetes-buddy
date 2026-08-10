@@ -1,0 +1,412 @@
+---
+topic: daily
+date: 2026-08-10
+tags: []
+---
+
+# X Avm Snapshot3
+
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (9 unread notifications)" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "9 unread items" [ref=e42]:
+                        - generic [ref=e43]: "9"
+                  - link "Follow" [ref=e44] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e47]
+                  - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e53]
+                  - link "Grok" [ref=e56] [cursor=pointer]:
+                    - /url: /i/grok
+                    - generic [ref=e58]:
+                      - img [ref=e59]
+                      - generic "undefined unread items" [ref=e62]
+                  - link "Profile" [ref=e63] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e66]
+                  - button "More menu items" [ref=e69] [cursor=pointer]:
+                    - img [ref=e72]
+                - link "Post" [ref=e76] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e78]
+              - button "Account menu" [ref=e84] [cursor=pointer]:
+                - generic [ref=e92]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e95]:
+            - generic "Home timeline" [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - generic [ref=e107]:
+                    - button "Back" [ref=e109] [cursor=pointer]:
+                      - img [ref=e111]
+                    - search "Search" [ref=e119]:
+                      - generic [ref=e124]:
+                        - img [ref=e126]
+                        - combobox "Search query" [ref=e131]: cerebral AVM OR intracranial aneurysm OR endovascular
+                    - button "More" [ref=e133] [cursor=pointer]:
+                      - img [ref=e135]
+                  - navigation [ref=e139]:
+                    - generic [ref=e140]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e142]:
+                        - tab "Top" [selected] [ref=e143] [cursor=pointer]:
+                          - generic [ref=e146]: Top
+                        - tab "Latest" [ref=e148] [cursor=pointer]:
+                          - generic [ref=e151]: Latest
+                        - tab "People" [ref=e152] [cursor=pointer]:
+                          - generic [ref=e155]: People
+                        - tab "Media" [ref=e156] [cursor=pointer]:
+                          - generic [ref=e159]: Media
+                        - tab "Lists" [ref=e160] [cursor=pointer]:
+                          - generic [ref=e163]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e165]:
+                - heading "Search timeline" [level=1] [ref=e166]
+                - 'generic "Timeline: Search timeline" [ref=e167]':
+                  - generic [ref=e168]:
+                    - 'article "SREEVATSA NADIG DM FSCAI FESC Verified account @nadig_cardio Aug 4 Differentiating a true LV aneurysm from a pseudoaneurysm is critical Fellows on #CardioTwitter @PCRonline @ESC_Journals 👉 True LV aneurysm • Results from transmural MI with scarred, thinned myocardium, without free-wall rupture. • The aneurysm communicates with the LV through Image Quote SREEVATSA NADIG DM FSCAI FESC Verified account @nadig_cardio Aug 4 Embedded video Replying to @nadig_cardio Large (59*40) apical aneurysm extending well beyond RV apex communicating freely with lv cavity #Echo_First 1 repost, 15 likes, 2 bookmarks, 1266 views" [ref=e668] [cursor=pointer]':
+                      - generic [ref=e674]:
+                        - link [ref=e686]:
+                          - /url: /nadig_cardio
+                        - generic [ref=e689]:
+                          - generic [ref=e691]:
+                            - generic [ref=e694]:
+                              - link "SREEVATSA NADIG DM FSCAI FESC Verified account" [ref=e697]:
+                                - /url: /nadig_cardio
+                                - generic [ref=e698]:
+                                  - generic [ref=e700]: SREEVATSA NADIG DM FSCAI FESC
+                                  - img "Verified account" [ref=e703]
+                              - generic [ref=e707]:
+                                - link "@nadig_cardio" [ref=e709]:
+                                  - /url: /nadig_cardio
+                                  - generic [ref=e710]: "@nadig_cardio"
+                                - generic [ref=e711]: ·
+                                - link "Aug 4" [ref=e713]:
+                                  - /url: /nadig_cardio/status/2084661547402703289
+                                  - time [ref=e714]: Aug 4
+                            - generic [ref=e716]:
+                              - button "Grok actions" [ref=e718]:
+                                - img [ref=e723]
+                              - button "More" [ref=e729]:
+                                - img [ref=e733]
+                          - generic [ref=e736]:
+                            - generic [ref=e737]:
+                              - text: Differentiating a true LV aneurysm from a pseudoaneurysm is critical Fellows on
+                              - link "#CardioTwitter" [ref=e739]:
+                                - /url: /hashtag/CardioTwitter?src=hashtag_click
+                              - link "@PCRonline" [ref=e742]:
+                                - /url: /PCRonline
+                              - link "@ESC_Journals" [ref=e745]:
+                                - /url: /ESC_Journals
+                              - img "👉" [ref=e746]
+                              - text: True LV aneurysm • Results from transmural MI with scarred, thinned myocardium, without free-wall rupture. • The aneurysm communicates with the LV through
+                            - button "Show more" [ref=e747]
+                          - 'generic "Quote SREEVATSA NADIG DM FSCAI FESC Verified account @nadig_cardio Aug 4 Embedded video Replying to @nadig_cardio Large (59*40) apical aneurysm extending well beyond RV apex communicating freely with lv cavity #Echo_First" [ref=e748]':
+                            - link "Image" [ref=e755]:
+                              - /url: /nadig_cardio/status/2084661547402703289/photo/1
+                              - generic "Image" [ref=e759]:
+                                - img "Image" [ref=e761]
+                            - generic [ref=e762]:
+                              - generic [ref=e763]: Quote
+                              - 'link "SREEVATSA NADIG DM FSCAI FESC Verified account @nadig_cardio Aug 4 Embedded video Replying to @nadig_cardio Large (59*40) apical aneurysm extending well beyond RV apex communicating freely with lv cavity #Echo_First" [ref=e764]':
+                                - generic [ref=e765]:
+                                  - generic [ref=e783]:
+                                    - generic [ref=e787]:
+                                      - generic [ref=e789]: SREEVATSA NADIG DM FSCAI FESC
+                                      - img "Verified account" [ref=e792]
+                                    - generic [ref=e796]:
+                                      - generic [ref=e799]: "@nadig_cardio"
+                                      - generic [ref=e800]: ·
+                                      - generic "Aug 4" [ref=e803]:
+                                        - time [ref=e804]: Aug 4
+                                  - generic [ref=e805]:
+                                    - generic "Embedded video" [ref=e815]:
+                                      - generic "Embedded video" [ref=e817]:
+                                        - img "Embedded video" [ref=e819]
+                                      - generic:
+                                        - generic:
+                                          - generic: 0:03
+                                    - generic [ref=e821]:
+                                      - generic [ref=e822]:
+                                        - text: Replying to
+                                        - generic [ref=e823]: "@nadig_cardio"
+                                      - generic [ref=e824]:
+                                        - text: Large (59*40) apical aneurysm extending well beyond RV apex communicating freely with lv cavity
+                                        - generic [ref=e825]: "#Echo_First"
+                          - group "1 repost, 15 likes, 2 bookmarks, 1266 views" [ref=e828]:
+                            - button "0 Replies. Reply" [ref=e830]:
+                              - img [ref=e834]
+                            - button "1 repost. Repost" [ref=e841]:
+                              - generic [ref=e842]:
+                                - img [ref=e845]
+                                - generic [ref=e850]: "1"
+                            - button "15 Likes. Like" [ref=e852]:
+                              - generic [ref=e853]:
+                                - img [ref=e856]
+                                - generic [ref=e861]: "15"
+                            - link "1266 views. View post analytics" [ref=e863]:
+                              - /url: /nadig_cardio/status/2084661547402703289/analytics
+                              - generic [ref=e864]:
+                                - img [ref=e867]
+                                - generic [ref=e872]: 1.2K
+                            - button "Bookmark" [ref=e874]:
+                              - img [ref=e878]
+                            - button "Share post" [ref=e883]:
+                              - img [ref=e887]
+                    - 'article "Michael Tso @MikeTso1 Apr 10, 2023 Trends in the size of treated unruptured intracranial aneurysms over 35 years #neurosurgery #aneurysm #endovascular thejns.org/view/journals/ 1 reply, 2 reposts, 4 likes, 974 views" [ref=e893] [cursor=pointer]':
+                      - generic [ref=e899]:
+                        - link [ref=e911]:
+                          - /url: /MikeTso1
+                        - generic [ref=e914]:
+                          - generic [ref=e916]:
+                            - generic [ref=e919]:
+                              - link "Michael Tso" [ref=e922]:
+                                - /url: /MikeTso1
+                                - generic [ref=e925]: Michael Tso
+                              - generic [ref=e927]:
+                                - link "@MikeTso1" [ref=e929]:
+                                  - /url: /MikeTso1
+                                  - generic [ref=e930]: "@MikeTso1"
+                                - generic [ref=e931]: ·
+                                - link "Apr 10, 2023" [ref=e933]:
+                                  - /url: /MikeTso1/status/1645157258043752450
+                                  - time [ref=e934]: Apr 10, 2023
+                            - generic [ref=e936]:
+                              - button "Grok actions" [ref=e938]:
+                                - img [ref=e943]
+                              - button "More" [ref=e949]:
+                                - img [ref=e953]
+                          - generic [ref=e957]:
+                            - text: Trends in the size of treated unruptured intracranial aneurysms over 35 years
+                            - link "#neurosurgery" [ref=e959]:
+                              - /url: /hashtag/neurosurgery?src=hashtag_click
+                            - link "#aneurysm" [ref=e961]:
+                              - /url: /hashtag/aneurysm?src=hashtag_click
+                            - link "#endovascular" [ref=e963]:
+                              - /url: /hashtag/endovascular?src=hashtag_click
+                            - link "thejns.org/view/journals/" [ref=e964]:
+                              - /url: https://t.co/WFKr6N6hzn
+                              - text: thejns.org/view/journals/ …
+                          - group "1 reply, 2 reposts, 4 likes, 974 views" [ref=e967]:
+                            - button "1 Reply. Reply" [ref=e969]:
+                              - generic [ref=e970]:
+                                - img [ref=e973]
+                                - generic [ref=e978]: "1"
+                            - button "2 reposts. Repost" [ref=e980]:
+                              - generic [ref=e981]:
+                                - img [ref=e984]
+                                - generic [ref=e989]: "2"
+                            - button "4 Likes. Like" [ref=e991]:
+                              - generic [ref=e992]:
+                                - img [ref=e995]
+                                - generic [ref=e1000]: "4"
+                            - link "974 views. View post analytics" [ref=e1002]:
+                              - /url: /MikeTso1/status/1645157258043752450/analytics
+                              - generic [ref=e1003]:
+                                - img [ref=e1006]
+                                - generic [ref=e1011]: "974"
+                            - button "Bookmark" [ref=e1013]:
+                              - img [ref=e1017]
+                            - button "Share post" [ref=e1022]:
+                              - img [ref=e1026]
+                    - article "Ashish Chauhan Verified account @ashishchauhan Dec 29, 2020 Xi Jinping to undergo surgery due to worsening intracranial aneurysm followcn.com/xi-jinping-to- 5 replies, 16 reposts, 33 likes, 1 bookmark" [ref=e1032] [cursor=pointer]:
+                      - generic [ref=e1038]:
+                        - link [ref=e1050]:
+                          - /url: /ashishchauhan
+                        - generic [ref=e1053]:
+                          - generic [ref=e1055]:
+                            - generic [ref=e1058]:
+                              - link "Ashish Chauhan Verified account" [ref=e1061]:
+                                - /url: /ashishchauhan
+                                - generic [ref=e1062]:
+                                  - generic [ref=e1064]: Ashish Chauhan
+                                  - generic [ref=e1066]:
+                                    - img "Verified account" [ref=e1067]
+                                    - link [ref=e1070]
+                              - generic [ref=e1078]:
+                                - link "@ashishchauhan" [ref=e1080]:
+                                  - /url: /ashishchauhan
+                                  - generic [ref=e1081]: "@ashishchauhan"
+                                - generic [ref=e1082]: ·
+                                - link "Dec 29, 2020" [ref=e1084]:
+                                  - /url: /ashishchauhan/status/1343905633993551872
+                                  - time [ref=e1085]: Dec 29, 2020
+                            - generic [ref=e1087]:
+                              - button "Grok actions" [ref=e1089]:
+                                - img [ref=e1094]
+                              - button "More" [ref=e1100]:
+                                - img [ref=e1104]
+                          - generic [ref=e1108]:
+                            - text: Xi Jinping to undergo surgery due to worsening intracranial aneurysm
+                            - link "followcn.com/xi-jinping-to-" [ref=e1109]:
+                              - /url: https://t.co/u7nRTCO3Hl
+                              - text: followcn.com/xi-jinping-to- …
+                          - group "5 replies, 16 reposts, 33 likes, 1 bookmark" [ref=e1112]:
+                            - button "5 Replies. Reply" [ref=e1114]:
+                              - generic [ref=e1115]:
+                                - img [ref=e1118]
+                                - generic [ref=e1123]: "5"
+                            - button "16 reposts. Repost" [ref=e1125]:
+                              - generic [ref=e1126]:
+                                - img [ref=e1129]
+                                - generic [ref=e1134]: "16"
+                            - button "33 Likes. Like" [ref=e1136]:
+                              - generic [ref=e1137]:
+                                - img [ref=e1140]
+                                - generic [ref=e1145]: "33"
+                            - link "View post analytics" [ref=e1147]:
+                              - /url: /ashishchauhan/status/1343905633993551872/analytics
+                              - img [ref=e1151]
+                            - button "Bookmark" [ref=e1155]:
+                              - img [ref=e1159]
+                            - button "Share post" [ref=e1164]:
+                              - img [ref=e1168]
+                    - article "Neurochecklists Verified account @neurochecklists Aug 6 Endovascular Treatment of Medium-Vessel-Occlusion Strokes nejm.org/doi/full/10.10 Image 1 repost, 234 views" [ref=e1177] [cursor=pointer]:
+                      - generic [ref=e1183]:
+                        - link [ref=e1195]:
+                          - /url: /neurochecklists
+                        - generic [ref=e1198]:
+                          - generic [ref=e1200]:
+                            - generic [ref=e1203]:
+                              - link "Neurochecklists Verified account" [ref=e1206]:
+                                - /url: /neurochecklists
+                                - generic [ref=e1207]:
+                                  - generic [ref=e1209]: Neurochecklists
+                                  - img "Verified account" [ref=e1212]
+                              - generic [ref=e1216]:
+                                - link "@neurochecklists" [ref=e1218]:
+                                  - /url: /neurochecklists
+                                  - generic [ref=e1219]: "@neurochecklists"
+                                - generic [ref=e1220]: ·
+                                - link "Aug 6" [ref=e1222]:
+                                  - /url: /neurochecklists/status/2085305783244177636
+                                  - time [ref=e1223]: Aug 6
+                            - generic [ref=e1225]:
+                              - button "Grok actions" [ref=e1227]:
+                                - img [ref=e1232]
+                              - button "More" [ref=e1238]:
+                                - img [ref=e1242]
+                          - generic [ref=e1246]:
+                            - text: Endovascular Treatment of Medium-Vessel-Occlusion Strokes
+                            - link "nejm.org/doi/full/10.10" [ref=e1247]:
+                              - /url: https://t.co/8QahO6wKAj
+                              - text: nejm.org/doi/full/10.10 …
+                          - link "Image" [ref=e1255]:
+                            - /url: /neurochecklists/status/2085305783244177636/photo/1
+                            - generic "Image" [ref=e1259]:
+                              - img "Image" [ref=e1261]
+                          - group "1 repost, 234 views" [ref=e1264]:
+                            - button "0 Replies. Reply" [ref=e1266]:
+                              - img [ref=e1270]
+                            - button "1 repost. Repost" [ref=e1277]:
+                              - generic [ref=e1278]:
+                                - img [ref=e1281]
+                                - generic [ref=e1286]: "1"
+                            - button "0 Likes. Like" [ref=e1288]:
+                              - img [ref=e1292]
+                            - link "234 views. View post analytics" [ref=e1299]:
+                              - /url: /neurochecklists/status/2085305783244177636/analytics
+                              - generic [ref=e1300]:
+                                - img [ref=e1303]
+                                - generic [ref=e1308]: "234"
+                            - button "Bookmark" [ref=e1310]:
+                              - img [ref=e1314]
+                            - button "Share post" [ref=e1319]:
+                              - img [ref=e1323]
+                    - 'article "Neurology Journal @GreenJournal Jun 9, 2024 This study evaluated the clinical outcomes of patients selected for endovascular therapy by noncontrast CT compared with those medically managed in the extended time window. Read more: bit.ly/4ca7WXR Image 5 reposts, 17 likes, 4 bookmarks, 4415 views" [ref=e1329] [cursor=pointer]':
+                      - generic [ref=e1335]:
+                        - link [ref=e1347]:
+                          - /url: /GreenJournal
+                        - generic [ref=e1350]:
+                          - generic [ref=e1352]:
+                            - generic [ref=e1355]:
+                              - link "Neurology Journal" [ref=e1358]:
+                                - /url: /GreenJournal
+                                - generic [ref=e1361]: Neurology Journal
+                              - generic [ref=e1363]:
+                                - link "@GreenJournal" [ref=e1365]:
+                                  - /url: /GreenJournal
+                                  - generic [ref=e1366]: "@GreenJournal"
+                                - generic [ref=e1367]: ·
+                                - link "Jun 9, 2024" [ref=e1369]:
+                                  - /url: /GreenJournal/status/1799841659389165676
+                                  - time [ref=e1370]: Jun 9, 2024
+                            - generic [ref=e1372]:
+                              - button "Grok actions" [ref=e1374]:
+                                - img [ref=e1379]
+                              - button "More" [ref=e1385]:
+                                - img [ref=e1389]
+                          - generic [ref=e1393]:
+                            - text: "This study evaluated the clinical outcomes of patients selected for endovascular therapy by noncontrast CT compared with those medically managed in the extended time window. Read more:"
+                            - link "bit.ly/4ca7WXR" [ref=e1394]:
+                              - /url: https://t.co/lZTskXfOD7
+                          - link "Image" [ref=e1402]:
+                            - /url: /GreenJournal/status/1799841659389165676/photo/1
+                            - generic "Image" [ref=e1406]:
+                              - img "Image" [ref=e1408]
+                          - group "5 reposts, 17 likes, 4 bookmarks, 4415 views" [ref=e1411]:
+                            - button "0 Replies. Reply" [ref=e1413]:
+                              - img [ref=e1417]
+                            - button "5 reposts. Repost" [ref=e1424]:
+                              - generic [ref=e1425]:
+                                - img [ref=e1428]
+                                - generic [ref=e1433]: "5"
+                            - button "17 Likes. Like" [ref=e1435]:
+                              - generic [ref=e1436]:
+                                - img [ref=e1439]
+                                - generic [ref=e1444]: "17"
+                            - link "4415 views. View post analytics" [ref=e1446]:
+                              - /url: /GreenJournal/status/1799841659389165676/analytics
+                              - generic [ref=e1447]:
+                                - img [ref=e1450]
+                                - generic [ref=e1455]: 4.4K
+                            - button "Bookmark" [ref=e1457]:
+                              - img [ref=e1461]
+                            - button "Share post" [ref=e1466]:
+                              - img [ref=e1470]
+  - generic:
+    - region "Notifications alt+T"
