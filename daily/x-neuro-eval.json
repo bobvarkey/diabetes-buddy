@@ -1,0 +1,12 @@
+---
+topic: daily
+date: 2026-08-10
+tags: []
+---
+
+# X Neuro Eval
+
+GatewayClientRequestError: Error: page.evaluate: Error: Invalid evaluate function: Invalid regular expression flags
+    at anonymous (eval at evaluate (:303:30), <anonymous>:22:17)
+    at UtilityScript.evaluate (<anonymous>:305:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)

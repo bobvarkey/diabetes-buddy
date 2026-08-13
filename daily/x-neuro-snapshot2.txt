@@ -1,0 +1,404 @@
+---
+topic: daily
+date: 2026-08-10
+tags: []
+---
+
+# X Neuro Snapshot2
+
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (9 unread notifications)" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "9 unread items" [ref=e42]:
+                        - generic [ref=e43]: "9"
+                  - link "Follow" [ref=e44] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e47]
+                  - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e53]
+                  - link "Grok" [ref=e56] [cursor=pointer]:
+                    - /url: /i/grok
+                    - generic [ref=e58]:
+                      - img [ref=e59]
+                      - generic "undefined unread items" [ref=e62]
+                  - link "Profile" [ref=e63] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e66]
+                  - button "More menu items" [ref=e69] [cursor=pointer]:
+                    - img [ref=e72]
+                - link "Post" [ref=e76] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e78]
+              - button "Account menu" [ref=e84] [cursor=pointer]:
+                - generic [ref=e92]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e95]:
+            - generic "Home timeline" [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - generic [ref=e107]:
+                    - button "Back" [ref=e109] [cursor=pointer]:
+                      - img [ref=e111]
+                    - search "Search" [ref=e119]:
+                      - generic [ref=e124]:
+                        - img [ref=e126]
+                        - combobox "Search query" [ref=e131]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                    - button "More" [ref=e133] [cursor=pointer]:
+                      - img [ref=e135]
+                  - navigation [ref=e139]:
+                    - generic [ref=e140]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e142]:
+                        - tab "Top" [selected] [ref=e143] [cursor=pointer]:
+                          - generic [ref=e146]: Top
+                        - tab "Latest" [ref=e148] [cursor=pointer]:
+                          - generic [ref=e151]: Latest
+                        - tab "People" [ref=e152] [cursor=pointer]:
+                          - generic [ref=e155]: People
+                        - tab "Media" [ref=e156] [cursor=pointer]:
+                          - generic [ref=e159]: Media
+                        - tab "Lists" [ref=e160] [cursor=pointer]:
+                          - generic [ref=e163]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e165]:
+                - heading "Search timeline" [level=1] [ref=e166]
+                - 'generic "Timeline: Search timeline" [ref=e167]':
+                  - generic [ref=e168]:
+                    - 'article "JAMA Neurology @JAMANeuro May 5 Delayed onset of hemichorea and dystonia can occur after cortical temporal #Stroke, even when imaging reveals small acute ischemic lesions and routine blood tests are normal. ja.ma/42O1GSV Image 1 reply, 17 reposts, 73 likes, 35 bookmarks, 7885 views" [ref=e505] [cursor=pointer]':
+                      - generic [ref=e511]:
+                        - link [ref=e523]:
+                          - /url: /JAMANeuro
+                        - generic [ref=e526]:
+                          - generic [ref=e528]:
+                            - generic [ref=e531]:
+                              - link "JAMA Neurology" [ref=e534]:
+                                - /url: /JAMANeuro
+                                - generic [ref=e537]: JAMA Neurology
+                              - generic [ref=e539]:
+                                - link "@JAMANeuro" [ref=e541]:
+                                  - /url: /JAMANeuro
+                                  - generic [ref=e542]: "@JAMANeuro"
+                                - generic [ref=e543]: ·
+                                - link "May 5" [ref=e545]:
+                                  - /url: /JAMANeuro/status/2051663206335000731
+                                  - time [ref=e546]: May 5
+                            - generic [ref=e548]:
+                              - button "Grok actions" [ref=e550]:
+                                - img [ref=e555]
+                              - button "More" [ref=e561]:
+                                - img [ref=e565]
+                          - generic [ref=e569]:
+                            - text: Delayed onset of hemichorea and dystonia can occur after cortical temporal
+                            - link "#Stroke" [ref=e571]:
+                              - /url: /hashtag/Stroke?src=hashtag_click
+                            - text: ", even when imaging reveals small acute ischemic lesions and routine blood tests are normal."
+                            - link "ja.ma/42O1GSV" [ref=e572]:
+                              - /url: https://t.co/v4RKoWSc55
+                          - link "Image" [ref=e580]:
+                            - /url: /JAMANeuro/status/2051663206335000731/photo/1
+                            - generic "Image" [ref=e584]:
+                              - img "Image" [ref=e586]
+                          - group "1 reply, 17 reposts, 73 likes, 35 bookmarks, 7885 views" [ref=e589]:
+                            - button "1 Reply. Reply" [ref=e591]:
+                              - generic [ref=e592]:
+                                - img [ref=e595]
+                                - generic [ref=e600]: "1"
+                            - button "17 reposts. Repost" [ref=e602]:
+                              - generic [ref=e603]:
+                                - img [ref=e606]
+                                - generic [ref=e611]: "17"
+                            - button "73 Likes. Like" [ref=e613]:
+                              - generic [ref=e614]:
+                                - img [ref=e617]
+                                - generic [ref=e622]: "73"
+                            - link "7885 views. View post analytics" [ref=e624]:
+                              - /url: /JAMANeuro/status/2051663206335000731/analytics
+                              - generic [ref=e625]:
+                                - img [ref=e628]
+                                - generic [ref=e633]: 7.8K
+                            - button "Bookmark" [ref=e635]:
+                              - img [ref=e639]
+                            - button "Share post" [ref=e644]:
+                              - img [ref=e648]
+                    - 'article "XRP Ledger Announces Verified account @XRPL__A Feb 28 The ''No-reflow'' phenomenon after mechanical thrombectomy in ischemic stroke; Even after recanalisation to TICI 2b or 3 flow in LVO, , the microcirculation often remains \"clogged.\" The Mechanisms of No-Reflow Distal Thrombin: When a major blockage occurs, the stagnant blood Image 2 replies, 16 reposts, 71 likes, 37 bookmarks, 4094 views" [ref=e654] [cursor=pointer]':
+                      - generic [ref=e660]:
+                        - link [ref=e672]:
+                          - /url: /XRPL__A
+                        - generic [ref=e675]:
+                          - generic [ref=e677]:
+                            - generic [ref=e680]:
+                              - link "XRP Ledger Announces Verified account" [ref=e683]:
+                                - /url: /XRPL__A
+                                - generic [ref=e684]:
+                                  - generic [ref=e686]: XRP Ledger Announces
+                                  - img "Verified account" [ref=e689]
+                              - generic [ref=e693]:
+                                - link "@XRPL__A" [ref=e695]:
+                                  - /url: /XRPL__A
+                                  - generic [ref=e696]: "@XRPL__A"
+                                - generic [ref=e697]: ·
+                                - link "Feb 28" [ref=e699]:
+                                  - /url: /XRPL__A/status/2027748894348882211
+                                  - time [ref=e700]: Feb 28
+                            - generic [ref=e702]:
+                              - button "Grok actions" [ref=e704]:
+                                - img [ref=e709]
+                              - button "More" [ref=e715]:
+                                - img [ref=e719]
+                          - generic [ref=e722]:
+                            - generic [ref=e723]: "The 'No-reflow' phenomenon after mechanical thrombectomy in ischemic stroke; Even after recanalisation to TICI 2b or 3 flow in LVO, , the microcirculation often remains \"clogged.\" The Mechanisms of No-Reflow Distal Thrombin: When a major blockage occurs, the stagnant blood"
+                            - button "Show more" [ref=e724]
+                          - link "Image" [ref=e732]:
+                            - /url: /XRPL__A/status/2027748894348882211/photo/1
+                            - generic "Image" [ref=e736]:
+                              - img "Image" [ref=e738]
+                          - group "2 replies, 16 reposts, 71 likes, 37 bookmarks, 4094 views" [ref=e741]:
+                            - button "2 Replies. Reply" [ref=e743]:
+                              - generic [ref=e744]:
+                                - img [ref=e747]
+                                - generic [ref=e752]: "2"
+                            - button "16 reposts. Repost" [ref=e754]:
+                              - generic [ref=e755]:
+                                - img [ref=e758]
+                                - generic [ref=e763]: "16"
+                            - button "71 Likes. Like" [ref=e765]:
+                              - generic [ref=e766]:
+                                - img [ref=e769]
+                                - generic [ref=e774]: "71"
+                            - link "4094 views. View post analytics" [ref=e776]:
+                              - /url: /XRPL__A/status/2027748894348882211/analytics
+                              - generic [ref=e777]:
+                                - img [ref=e780]
+                                - generic [ref=e785]: 4K
+                            - button "Bookmark" [ref=e787]:
+                              - img [ref=e791]
+                            - button "Share post" [ref=e796]:
+                              - img [ref=e800]
+                    - 'article "Raymond Catton, MD @catton_md May 25, 2025 May is Stroke Awareness Month. I''m going #ALLHANDSIN with @svinsociety to help raise awareness about stroke, stroke interventions, and stroke recovery. #neurointervention #stroke #thrombectomy Embedded video 1:55 1 reply, 10 reposts, 30 likes, 3920 views" [ref=e806] [cursor=pointer]':
+                      - generic [ref=e812]:
+                        - link [ref=e824]:
+                          - /url: /catton_md
+                        - generic [ref=e827]:
+                          - generic [ref=e829]:
+                            - generic [ref=e832]:
+                              - link "Raymond Catton, MD" [ref=e835]:
+                                - /url: /catton_md
+                                - generic [ref=e838]: Raymond Catton, MD
+                              - generic [ref=e840]:
+                                - link "@catton_md" [ref=e842]:
+                                  - /url: /catton_md
+                                  - generic [ref=e843]: "@catton_md"
+                                - generic [ref=e844]: ·
+                                - link "May 25, 2025" [ref=e846]:
+                                  - /url: /catton_md/status/1926639728641654870
+                                  - time [ref=e847]: May 25, 2025
+                            - generic [ref=e849]:
+                              - button "Grok actions" [ref=e851]:
+                                - img [ref=e856]
+                              - button "More" [ref=e862]:
+                                - img [ref=e866]
+                          - generic [ref=e870]:
+                            - text: May is Stroke Awareness Month. I'm going
+                            - link "#ALLHANDSIN" [ref=e872]:
+                              - /url: /hashtag/ALLHANDSIN?src=hashtag_click
+                            - text: with
+                            - link "@svinsociety" [ref=e875]:
+                              - /url: /svinsociety
+                            - text: to help raise awareness about stroke, stroke interventions, and stroke recovery.
+                            - link "#neurointervention" [ref=e877]:
+                              - /url: /hashtag/neurointervention?src=hashtag_click
+                            - link "#stroke" [ref=e879]:
+                              - /url: /hashtag/stroke?src=hashtag_click
+                            - link "#thrombectomy" [ref=e881]:
+                              - /url: /hashtag/thrombectomy?src=hashtag_click
+                          - generic [ref=e898]:
+                            - generic "Embedded video" [ref=e901]
+                            - generic [ref=e903]:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic: 1:55
+                          - group "1 reply, 10 reposts, 30 likes, 3920 views" [ref=e910]:
+                            - button "1 Reply. Reply" [ref=e912]:
+                              - generic [ref=e913]:
+                                - img [ref=e916]
+                                - generic [ref=e921]: "1"
+                            - button "10 reposts. Repost" [ref=e923]:
+                              - generic [ref=e924]:
+                                - img [ref=e927]
+                                - generic [ref=e932]: "10"
+                            - button "30 Likes. Like" [ref=e934]:
+                              - generic [ref=e935]:
+                                - img [ref=e938]
+                                - generic [ref=e943]: "30"
+                            - link "3920 views. View post analytics" [ref=e945]:
+                              - /url: /catton_md/status/1926639728641654870/analytics
+                              - generic [ref=e946]:
+                                - img [ref=e949]
+                                - generic [ref=e954]: 3.9K
+                            - button "Bookmark" [ref=e956]:
+                              - img [ref=e960]
+                            - button "Share post" [ref=e965]:
+                              - img [ref=e969]
+                    - 'article "JAMA Neurology @JAMANeuro Jan 2 Among patients <70 years with acute #BasilarArteryOcclusion, endovascular thrombectomy doubled the rate of ambulatory and self-care capable outcomes at 3 years vs medical treatment. ja.ma/4jqaGFG Horizontal bar graph titled ''Distribution of Functional Outcomes at 3 Years'' compares Thrombectomy (n=203) and Control (n=104) groups by mRS score (0-6). The Thrombectomy group shows a higher percentage with lower mRS scores. 1 reply, 13 reposts, 50 likes, 16 bookmarks, 6162 views" [ref=e975] [cursor=pointer]':
+                      - generic [ref=e981]:
+                        - link [ref=e993]:
+                          - /url: /JAMANeuro
+                        - generic [ref=e996]:
+                          - generic [ref=e998]:
+                            - generic [ref=e1001]:
+                              - link "JAMA Neurology" [ref=e1004]:
+                                - /url: /JAMANeuro
+                                - generic [ref=e1007]: JAMA Neurology
+                              - generic [ref=e1009]:
+                                - link "@JAMANeuro" [ref=e1011]:
+                                  - /url: /JAMANeuro
+                                  - generic [ref=e1012]: "@JAMANeuro"
+                                - generic [ref=e1013]: ·
+                                - link "Jan 2" [ref=e1015]:
+                                  - /url: /JAMANeuro/status/2007119696215085550
+                                  - time [ref=e1016]: Jan 2
+                            - generic [ref=e1018]:
+                              - button "Grok actions" [ref=e1020]:
+                                - img [ref=e1025]
+                              - button "More" [ref=e1031]:
+                                - img [ref=e1035]
+                          - generic [ref=e1039]:
+                            - text: Among patients <70 years with acute
+                            - link "#BasilarArteryOcclusion" [ref=e1041]:
+                              - /url: /hashtag/BasilarArteryOcclusion?src=hashtag_click
+                            - text: ", endovascular thrombectomy doubled the rate of ambulatory and self-care capable outcomes at 3 years vs medical treatment."
+                            - link "ja.ma/4jqaGFG" [ref=e1042]:
+                              - /url: https://t.co/Tlv2ftRPuu
+                          - link "Horizontal bar graph titled 'Distribution of Functional Outcomes at 3 Years' compares Thrombectomy (n=203) and Control (n=104) groups by mRS score (0-6). The Thrombectomy group shows a higher percentage with lower mRS scores." [ref=e1050]:
+                            - /url: /JAMANeuro/status/2007119696215085550/photo/1
+                            - generic "Horizontal bar graph titled 'Distribution of Functional Outcomes at 3 Years' compares Thrombectomy (n=203) and Control (n=104) groups by mRS score (0-6). The Thrombectomy group shows a higher percentage with lower mRS scores." [ref=e1054]:
+                              - img "Horizontal bar graph titled 'Distribution of Functional Outcomes at 3 Years' compares Thrombectomy (n=203) and Control (n=104) groups by mRS score (0-6). The Thrombectomy group shows a higher percentage with lower mRS scores." [ref=e1056]
+                          - group "1 reply, 13 reposts, 50 likes, 16 bookmarks, 6162 views" [ref=e1059]:
+                            - button "1 Reply. Reply" [ref=e1061]:
+                              - generic [ref=e1062]:
+                                - img [ref=e1065]
+                                - generic [ref=e1070]: "1"
+                            - button "13 reposts. Repost" [ref=e1072]:
+                              - generic [ref=e1073]:
+                                - img [ref=e1076]
+                                - generic [ref=e1081]: "13"
+                            - button "50 Likes. Like" [ref=e1083]:
+                              - generic [ref=e1084]:
+                                - img [ref=e1087]
+                                - generic [ref=e1092]: "50"
+                            - link "6162 views. View post analytics" [ref=e1094]:
+                              - /url: /JAMANeuro/status/2007119696215085550/analytics
+                              - generic [ref=e1095]:
+                                - img [ref=e1098]
+                                - generic [ref=e1103]: 6.1K
+                            - button "Bookmark" [ref=e1105]:
+                              - img [ref=e1109]
+                            - button "Share post" [ref=e1114]:
+                              - img [ref=e1118]
+                    - 'article "Stroke AHA/ASA @StrokeAHA_ASA Aug 4 🧵 Special Report by Albers et al.: The 2026 updated AHA #STROKE Guidelines were recently published. The authors here propose that the levels of evidence for some of the new recommendations should be corrected to accurately reflect the supporting data. ahajournals.org/doi/full/10.11 Figure. 2026 American Heart Association (AHA) Guideline for the early management of patients with acute ischemic stroke (AIS). Adapted from Prabhakaran et al1 with permission. Copyright ©2026, the AHA, Inc. 2 replies, 20 reposts, 47 likes, 28 bookmarks, 10551 views" [ref=e1124] [cursor=pointer]':
+                      - generic [ref=e1130]:
+                        - link [ref=e1142]:
+                          - /url: /StrokeAHA_ASA
+                        - generic [ref=e1145]:
+                          - generic [ref=e1147]:
+                            - generic [ref=e1150]:
+                              - link "Stroke AHA/ASA" [ref=e1153]:
+                                - /url: /StrokeAHA_ASA
+                                - generic [ref=e1156]: Stroke AHA/ASA
+                              - generic [ref=e1158]:
+                                - link "@StrokeAHA_ASA" [ref=e1160]:
+                                  - /url: /StrokeAHA_ASA
+                                  - generic [ref=e1161]: "@StrokeAHA_ASA"
+                                - generic [ref=e1162]: ·
+                                - link "Aug 4" [ref=e1164]:
+                                  - /url: /StrokeAHA_ASA/status/2084645988518555853
+                                  - time [ref=e1165]: Aug 4
+                            - generic [ref=e1167]:
+                              - button "Grok actions" [ref=e1169]:
+                                - img [ref=e1174]
+                              - button "More" [ref=e1180]:
+                                - img [ref=e1184]
+                          - generic [ref=e1188]:
+                            - img "🧵" [ref=e1189]
+                            - text: "Special Report by Albers et al.: The 2026 updated AHA"
+                            - link "#STROKE" [ref=e1191]:
+                              - /url: /hashtag/STROKE?src=hashtag_click
+                            - text: Guidelines were recently published. The authors here propose that the levels of evidence for some of the new recommendations should be corrected to accurately reflect the supporting data.
+                            - link "ahajournals.org/doi/full/10.11" [ref=e1192]:
+                              - /url: https://t.co/Ei6Lq9PTnv
+                              - text: ahajournals.org/doi/full/10.11 …
+                          - link "Figure. 2026 American Heart Association (AHA) Guideline for the early management of patients with acute ischemic stroke (AIS). Adapted from Prabhakaran et al1 with permission. Copyright ©2026, the AHA, Inc." [ref=e1200]:
+                            - /url: /StrokeAHA_ASA/status/2084645988518555853/photo/1
+                            - generic "Figure. 2026 American Heart Association (AHA) Guideline for the early management of patients with acute ischemic stroke (AIS). Adapted from Prabhakaran et al1 with permission. Copyright ©2026, the AHA, Inc." [ref=e1204]:
+                              - img "Figure. 2026 American Heart Association (AHA) Guideline for the early management of patients with acute ischemic stroke (AIS). Adapted from Prabhakaran et al1 with permission. Copyright ©2026, the AHA, Inc." [ref=e1206]
+                          - group "2 replies, 20 reposts, 47 likes, 28 bookmarks, 10551 views" [ref=e1209]:
+                            - button "2 Replies. Reply" [ref=e1211]:
+                              - generic [ref=e1212]:
+                                - img [ref=e1215]
+                                - generic [ref=e1220]: "2"
+                            - button "20 reposts. Repost" [ref=e1222]:
+                              - generic [ref=e1223]:
+                                - img [ref=e1226]
+                                - generic [ref=e1231]: "20"
+                            - button "47 Likes. Like" [ref=e1233]:
+                              - generic [ref=e1234]:
+                                - img [ref=e1237]
+                                - generic [ref=e1242]: "47"
+                            - link "10551 views. View post analytics" [ref=e1244]:
+                              - /url: /StrokeAHA_ASA/status/2084645988518555853/analytics
+                              - generic [ref=e1245]:
+                                - img [ref=e1248]
+                                - generic [ref=e1253]: 10K
+                            - button "Bookmark" [ref=e1255]:
+                              - img [ref=e1259]
+                            - button "Share post" [ref=e1264]:
+                              - img [ref=e1268]
+  - generic:
+    - region "Notifications alt+T"

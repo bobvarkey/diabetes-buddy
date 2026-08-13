@@ -1,0 +1,231 @@
+---
+topic: daily
+date: 2026-08-10
+tags: []
+---
+
+# X Avm Snapshot1
+
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (9 unread notifications)" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "9 unread items" [ref=e42]:
+                        - generic [ref=e43]: "9"
+                  - link "Follow" [ref=e44] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e47]
+                  - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e53]
+                  - link "Grok" [ref=e56] [cursor=pointer]:
+                    - /url: /i/grok
+                    - generic [ref=e58]:
+                      - img [ref=e59]
+                      - generic "undefined unread items" [ref=e62]
+                  - link "Profile" [ref=e63] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e66]
+                  - button "More menu items" [ref=e69] [cursor=pointer]:
+                    - img [ref=e72]
+                - link "Post" [ref=e76] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e78]
+              - button "Account menu" [ref=e84] [cursor=pointer]:
+                - generic [ref=e92]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e95]:
+            - generic "Home timeline" [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - generic [ref=e107]:
+                    - button "Back" [ref=e109] [cursor=pointer]:
+                      - img [ref=e111]
+                    - search "Search" [ref=e119]:
+                      - generic [ref=e124]:
+                        - img [ref=e126]
+                        - combobox "Search query" [ref=e131]: cerebral AVM OR intracranial aneurysm OR endovascular
+                    - button "More" [ref=e133] [cursor=pointer]:
+                      - img [ref=e135]
+                  - navigation [ref=e139]:
+                    - generic [ref=e140]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e142]:
+                        - tab "Top" [selected] [ref=e143] [cursor=pointer]:
+                          - generic [ref=e146]: Top
+                        - tab "Latest" [ref=e148] [cursor=pointer]:
+                          - generic [ref=e151]: Latest
+                        - tab "People" [ref=e152] [cursor=pointer]:
+                          - generic [ref=e155]: People
+                        - tab "Media" [ref=e156] [cursor=pointer]:
+                          - generic [ref=e159]: Media
+                        - tab "Lists" [ref=e160] [cursor=pointer]:
+                          - generic [ref=e163]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e165]:
+                - heading "Search timeline" [level=1] [ref=e166]
+                - 'generic "Timeline: Search timeline" [ref=e167]':
+                  - generic [ref=e168]:
+                    - 'article "Neurology Journal @GreenJournal Feb 11, 2022 Patients and caregivers, learn more about #stroke and endovascular therapy with this interactive infographic from the #Neurology Patient Page: bit.ly/3GAVhx4 Embedded video Pause GIF 5 reposts, 8 likes" [ref=e172] [cursor=pointer]':
+                      - generic [ref=e178]:
+                        - link [ref=e190]:
+                          - /url: /GreenJournal
+                        - generic [ref=e193]:
+                          - generic [ref=e195]:
+                            - generic [ref=e198]:
+                              - link "Neurology Journal" [ref=e201]:
+                                - /url: /GreenJournal
+                                - generic [ref=e204]: Neurology Journal
+                              - generic [ref=e206]:
+                                - link "@GreenJournal" [ref=e208]:
+                                  - /url: /GreenJournal
+                                  - generic [ref=e209]: "@GreenJournal"
+                                - generic [ref=e210]: ·
+                                - link "Feb 11, 2022" [ref=e212]:
+                                  - /url: /GreenJournal/status/1491849583290466315
+                                  - time [ref=e213]: Feb 11, 2022
+                            - generic [ref=e215]:
+                              - button "Grok actions" [ref=e217]:
+                                - img [ref=e222]
+                              - button "More" [ref=e228]:
+                                - img [ref=e232]
+                          - generic [ref=e236]:
+                            - text: Patients and caregivers, learn more about
+                            - link "#stroke" [ref=e238]:
+                              - /url: /hashtag/stroke?src=hashtag_click
+                            - text: and endovascular therapy with this interactive infographic from the
+                            - link "#Neurology" [ref=e240]:
+                              - /url: /hashtag/Neurology?src=hashtag_click
+                            - text: "Patient Page:"
+                            - link "bit.ly/3GAVhx4" [ref=e241]:
+                              - /url: https://t.co/MxcI6KFvb4
+                          - generic [ref=e258]:
+                            - generic "Embedded video" [ref=e261]
+                            - generic [ref=e262]:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - button "Pause" [ref=e266]:
+                                      - img [ref=e267]
+                                    - generic:
+                                      - generic: GIF
+                          - group "5 reposts, 8 likes" [ref=e273]:
+                            - button "0 Replies. Reply" [ref=e275]:
+                              - img [ref=e279]
+                            - button "5 reposts. Repost" [ref=e286]:
+                              - generic [ref=e287]:
+                                - img [ref=e290]
+                                - generic [ref=e295]: "5"
+                            - button "8 Likes. Like" [ref=e297]:
+                              - generic [ref=e298]:
+                                - img [ref=e301]
+                                - generic [ref=e306]: "8"
+                            - link "View post analytics" [ref=e308]:
+                              - /url: /GreenJournal/status/1491849583290466315/analytics
+                              - img [ref=e312]
+                            - button "Bookmark" [ref=e316]:
+                              - img [ref=e320]
+                            - button "Share post" [ref=e325]:
+                              - img [ref=e329]
+                    - 'article "Vineeth Jaison @JaisonVineeth Nov 25, 2018 Endovascular Mechanical Thrombectomy for a young adult within 2 hours of occlusion - TICI 3 achieved patient improved from GCS improved from E2M2Vt to E4V4M6 within 24 hours @pb10_bmt @preethijaison #cmcludhiana Post EVT video #neurointervention Embedded video Play Video. 1 second long 3 replies, 10 reposts, 13 likes" [ref=e335] [cursor=pointer]':
+                      - generic [ref=e341]:
+                        - link [ref=e353]:
+                          - /url: /JaisonVineeth
+                        - generic [ref=e356]:
+                          - generic [ref=e358]:
+                            - generic [ref=e361]:
+                              - link "Vineeth Jaison" [ref=e364]:
+                                - /url: /JaisonVineeth
+                                - generic [ref=e367]: Vineeth Jaison
+                              - generic [ref=e369]:
+                                - link "@JaisonVineeth" [ref=e371]:
+                                  - /url: /JaisonVineeth
+                                  - generic [ref=e372]: "@JaisonVineeth"
+                                - generic [ref=e373]: ·
+                                - link "Nov 25, 2018" [ref=e375]:
+                                  - /url: /JaisonVineeth/status/1066664837932097536
+                                  - time [ref=e376]: Nov 25, 2018
+                            - generic [ref=e378]:
+                              - button "Grok actions" [ref=e380]:
+                                - img [ref=e385]
+                              - button "More" [ref=e391]:
+                                - img [ref=e395]
+                          - generic [ref=e399]:
+                            - text: Endovascular Mechanical Thrombectomy for a young adult within 2 hours of occlusion - TICI 3 achieved patient improved from GCS improved from E2M2Vt to E4V4M6 within 24 hours
+                            - link "@pb10_bmt" [ref=e402]:
+                              - /url: /pb10_bmt
+                            - link "@preethijaison" [ref=e405]:
+                              - /url: /preethijaison
+                            - link "#cmcludhiana" [ref=e407]:
+                              - /url: /hashtag/cmcludhiana?src=hashtag_click
+                            - text: Post EVT video
+                            - link "#neurointervention" [ref=e409]:
+                              - /url: /hashtag/neurointervention?src=hashtag_click
+                          - generic [ref=e426]:
+                            - generic "Embedded video" [ref=e429]
+                            - button "Play Video. 1 second long" [ref=e436]:
+                              - img [ref=e437]
+                          - group "3 replies, 10 reposts, 13 likes" [ref=e443]:
+                            - button "3 Replies. Reply" [ref=e445]:
+                              - generic [ref=e446]:
+                                - img [ref=e449]
+                                - generic [ref=e454]: "3"
+                            - button "10 reposts. Repost" [ref=e456]:
+                              - generic [ref=e457]:
+                                - img [ref=e460]
+                                - generic [ref=e465]: "10"
+                            - button "13 Likes. Like" [ref=e467]:
+                              - generic [ref=e468]:
+                                - img [ref=e471]
+                                - generic [ref=e476]: "13"
+                            - link "View post analytics" [ref=e478]:
+                              - /url: /JaisonVineeth/status/1066664837932097536/analytics
+                              - img [ref=e482]
+                            - button "Bookmark" [ref=e486]:
+                              - img [ref=e490]
+                            - button "Share post" [ref=e495]:
+                              - img [ref=e499]
+  - generic:
+    - region "Notifications alt+T"
