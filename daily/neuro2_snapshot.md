@@ -1,0 +1,293 @@
+---
+topic: daily
+date: 2026-08-15
+tags: []
+---
+
+# Neuro2 Snapshot
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (9 unread notifications)" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "9 unread items" [ref=e42]:
+                        - generic [ref=e43]: "9"
+                  - link "Follow" [ref=e44] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e47]
+                  - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e53]
+                  - link "Grok" [ref=e56] [cursor=pointer]:
+                    - /url: /i/grok
+                    - generic [ref=e58]:
+                      - img [ref=e59]
+                      - generic "undefined unread items" [ref=e62]
+                  - link "Profile" [ref=e63] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e66]
+                  - button "More menu items" [ref=e69] [cursor=pointer]:
+                    - img [ref=e72]
+                - link "Post" [ref=e76] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e78]
+              - button "Account menu" [ref=e84] [cursor=pointer]:
+                - generic [ref=e92]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e95]:
+            - generic "Home timeline" [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - generic [ref=e107]:
+                    - button "Back" [ref=e109] [cursor=pointer]:
+                      - img [ref=e111]
+                    - search "Search" [ref=e119]:
+                      - generic [ref=e124]:
+                        - img [ref=e126]
+                        - combobox "Search query" [ref=e131]: cerebral AVM OR intracranial aneurysm OR endovascular
+                    - button "More" [ref=e133] [cursor=pointer]:
+                      - img [ref=e135]
+                  - navigation [ref=e139]:
+                    - generic [ref=e140]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e142]:
+                        - tab "Top" [selected] [ref=e143] [cursor=pointer]:
+                          - generic [ref=e146]: Top
+                        - tab "Latest" [ref=e148] [cursor=pointer]:
+                          - generic [ref=e151]: Latest
+                        - tab "People" [ref=e152] [cursor=pointer]:
+                          - generic [ref=e155]: People
+                        - tab "Media" [ref=e156] [cursor=pointer]:
+                          - generic [ref=e159]: Media
+                        - tab "Lists" [ref=e160] [cursor=pointer]:
+                          - generic [ref=e163]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e165]:
+                - heading "Search timeline" [level=1] [ref=e166]
+                - 'generic "Timeline: Search timeline" [ref=e167]':
+                  - generic [ref=e168]:
+                    - article "frank arko @farkomd 20 hours ago Endovascular therapy has transformed aortic surgery. But open surgery remains the ultimate bailou and the ability to perform complex open reconstruction still matters. Image 4 replies, 11 reposts, 83 likes, 5 bookmarks, 5165 views" [ref=e172] [cursor=pointer]:
+                      - generic [ref=e178]:
+                        - link [ref=e190]:
+                          - /url: /farkomd
+                        - generic [ref=e193]:
+                          - generic [ref=e195]:
+                            - generic [ref=e198]:
+                              - link "frank arko" [ref=e201]:
+                                - /url: /farkomd
+                                - generic [ref=e204]: frank arko
+                              - generic [ref=e206]:
+                                - link "@farkomd" [ref=e208]:
+                                  - /url: /farkomd
+                                  - generic [ref=e209]: "@farkomd"
+                                - generic [ref=e210]: ·
+                                - link "20 hours ago" [ref=e212]:
+                                  - /url: /farkomd/status/2087656118675759118
+                                  - time [ref=e213]: 20h
+                            - generic [ref=e215]:
+                              - button "Grok actions" [ref=e217]:
+                                - img [ref=e222]
+                              - button "More" [ref=e228]:
+                                - img [ref=e232]
+                          - generic [ref=e236]: Endovascular therapy has transformed aortic surgery. But open surgery remains the ultimate bailou and the ability to perform complex open reconstruction still matters.
+                          - link "Image" [ref=e244]:
+                            - /url: /farkomd/status/2087656118675759118/photo/1
+                            - generic "Image" [ref=e248]:
+                              - img "Image" [ref=e250]
+                          - group "4 replies, 11 reposts, 83 likes, 5 bookmarks, 5165 views" [ref=e253]:
+                            - button "4 Replies. Reply" [ref=e255]:
+                              - generic [ref=e256]:
+                                - img [ref=e259]
+                                - generic [ref=e264]: "4"
+                            - button "11 reposts. Repost" [ref=e266]:
+                              - generic [ref=e267]:
+                                - img [ref=e270]
+                                - generic [ref=e275]: "11"
+                            - button "83 Likes. Like" [ref=e277]:
+                              - generic [ref=e278]:
+                                - img [ref=e281]
+                                - generic [ref=e286]: "83"
+                            - link "5165 views. View post analytics" [ref=e288]:
+                              - /url: /farkomd/status/2087656118675759118/analytics
+                              - generic [ref=e289]:
+                                - img [ref=e292]
+                                - generic [ref=e297]: 5.1K
+                            - button "Bookmark" [ref=e299]:
+                              - img [ref=e303]
+                            - button "Share post" [ref=e308]:
+                              - img [ref=e312]
+                    - article "Emily Fridenmaker @emily_fri Apr 12, 2021 Today I learned about giving a big dose of adenosine intraoperatively during open intracranial aneurysm repair to stop the heart if they start to bleed? 😰 21 replies, 12 reposts, 248 likes, 11 bookmarks" [ref=e318] [cursor=pointer]:
+                      - generic [ref=e324]:
+                        - link [ref=e336]:
+                          - /url: /emily_fri
+                        - generic [ref=e339]:
+                          - generic [ref=e341]:
+                            - generic [ref=e344]:
+                              - link "Emily Fridenmaker" [ref=e347]:
+                                - /url: /emily_fri
+                                - generic [ref=e350]: Emily Fridenmaker
+                              - generic [ref=e352]:
+                                - link "@emily_fri" [ref=e354]:
+                                  - /url: /emily_fri
+                                  - generic [ref=e355]: "@emily_fri"
+                                - generic [ref=e356]: ·
+                                - link "Apr 12, 2021" [ref=e358]:
+                                  - /url: /emily_fri/status/1381652092624965634
+                                  - time [ref=e359]: Apr 12, 2021
+                            - generic [ref=e361]:
+                              - button "Grok actions" [ref=e363]:
+                                - img [ref=e368]
+                              - button "More" [ref=e374]:
+                                - img [ref=e378]
+                          - generic [ref=e382]:
+                            - text: Today I learned about giving a big dose of adenosine intraoperatively during open intracranial aneurysm repair to stop the heart if they start to bleed?
+                            - img "😰" [ref=e383]
+                          - group "21 replies, 12 reposts, 248 likes, 11 bookmarks" [ref=e386]:
+                            - button "21 Replies. Reply" [ref=e388]:
+                              - generic [ref=e389]:
+                                - img [ref=e392]
+                                - generic [ref=e397]: "21"
+                            - button "12 reposts. Repost" [ref=e399]:
+                              - generic [ref=e400]:
+                                - img [ref=e403]
+                                - generic [ref=e408]: "12"
+                            - button "248 Likes. Like" [ref=e410]:
+                              - generic [ref=e411]:
+                                - img [ref=e414]
+                                - generic [ref=e419]: "248"
+                            - link "View post analytics" [ref=e421]:
+                              - /url: /emily_fri/status/1381652092624965634/analytics
+                              - img [ref=e425]
+                            - button "Bookmark" [ref=e429]:
+                              - img [ref=e433]
+                            - button "Share post" [ref=e438]:
+                              - img [ref=e442]
+                    - group "Is this post relevant to your search?" [ref=e448]:
+                      - generic [ref=e450]:
+                        - generic [ref=e452]: Is this post relevant to your search?
+                        - generic [ref=e453]:
+                          - button "No" [ref=e454] [cursor=pointer]:
+                            - generic [ref=e458]:
+                              - generic [ref=e459]: "No"
+                              - img [ref=e460]
+                          - button "Yes" [ref=e463] [cursor=pointer]:
+                            - generic [ref=e467]:
+                              - generic [ref=e468]: "Yes"
+                              - img [ref=e469]
+                    - 'article "Neurology Journal @GreenJournal Feb 11, 2022 Patients and caregivers, learn more about #stroke and endovascular therapy with this interactive infographic from the #Neurology Patient Page: bit.ly/3GAVhx4 Embedded video Play Video Play GIF 5 reposts, 8 likes" [ref=e475] [cursor=pointer]':
+                      - generic [ref=e481]:
+                        - link [ref=e493]:
+                          - /url: /GreenJournal
+                        - generic [ref=e496]:
+                          - generic [ref=e498]:
+                            - generic [ref=e501]:
+                              - link "Neurology Journal" [ref=e504]:
+                                - /url: /GreenJournal
+                                - generic [ref=e507]: Neurology Journal
+                              - generic [ref=e509]:
+                                - link "@GreenJournal" [ref=e511]:
+                                  - /url: /GreenJournal
+                                  - generic [ref=e512]: "@GreenJournal"
+                                - generic [ref=e513]: ·
+                                - link "Feb 11, 2022" [ref=e515]:
+                                  - /url: /GreenJournal/status/1491849583290466315
+                                  - time [ref=e516]: Feb 11, 2022
+                            - generic [ref=e518]:
+                              - button "Grok actions" [ref=e520]:
+                                - img [ref=e525]
+                              - button "More" [ref=e531]:
+                                - img [ref=e535]
+                          - generic [ref=e539]:
+                            - text: Patients and caregivers, learn more about
+                            - link "#stroke" [ref=e541]:
+                              - /url: /hashtag/stroke?src=hashtag_click
+                            - text: and endovascular therapy with this interactive infographic from the
+                            - link "#Neurology" [ref=e543]:
+                              - /url: /hashtag/Neurology?src=hashtag_click
+                            - text: "Patient Page:"
+                            - link "bit.ly/3GAVhx4" [ref=e544]:
+                              - /url: https://t.co/MxcI6KFvb4
+                          - generic [ref=e561]:
+                            - generic "Embedded video" [ref=e564]
+                            - generic [ref=e565]:
+                              - generic:
+                                - button "Play Video" [ref=e570]:
+                                  - img [ref=e571]
+                                - generic:
+                                  - generic:
+                                    - button "Play" [ref=e577]:
+                                      - img [ref=e578]
+                                    - generic:
+                                      - generic: GIF
+                          - group "5 reposts, 8 likes" [ref=e584]:
+                            - button "0 Replies. Reply" [ref=e586]:
+                              - img [ref=e590]
+                            - button "5 reposts. Repost" [ref=e597]:
+                              - generic [ref=e598]:
+                                - img [ref=e601]
+                                - generic [ref=e606]: "5"
+                            - button "8 Likes. Like" [ref=e608]:
+                              - generic [ref=e609]:
+                                - img [ref=e612]
+                                - generic [ref=e617]: "8"
+                            - link "View post analytics" [ref=e619]:
+                              - /url: /GreenJournal/status/1491849583290466315/analytics
+                              - img [ref=e623]
+                            - button "Bookmark" [ref=e627]:
+                              - img [ref=e631]
+                            - button "Share post" [ref=e636]:
+                              - img [ref=e640]
+  - generic:
+    - region "Notifications alt+T"
