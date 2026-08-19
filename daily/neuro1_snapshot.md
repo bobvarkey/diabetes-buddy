@@ -1,0 +1,427 @@
+---
+topic: daily
+date: 2026-08-15
+tags: []
+---
+
+# Neuro1 Snapshot
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (9 unread notifications)" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "9 unread items" [ref=e42]:
+                        - generic [ref=e43]: "9"
+                  - link "Follow" [ref=e44] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e47]
+                  - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e53]
+                  - link "Grok" [ref=e56] [cursor=pointer]:
+                    - /url: /i/grok
+                    - generic [ref=e58]:
+                      - img [ref=e59]
+                      - generic "undefined unread items" [ref=e62]
+                  - link "Profile" [ref=e63] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e66]
+                  - button "More menu items" [ref=e69] [cursor=pointer]:
+                    - img [ref=e72]
+                - link "Post" [ref=e76] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e78]
+              - button "Account menu" [ref=e84] [cursor=pointer]:
+                - generic [ref=e92]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e95]:
+            - generic "Home timeline" [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - generic [ref=e107]:
+                    - button "Back" [ref=e109] [cursor=pointer]:
+                      - img [ref=e111]
+                    - search "Search" [ref=e119]:
+                      - generic [ref=e124]:
+                        - img [ref=e126]
+                        - combobox "Search query" [ref=e131]: "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                    - button "More" [ref=e133] [cursor=pointer]:
+                      - img [ref=e135]
+                  - navigation [ref=e139]:
+                    - generic [ref=e140]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e142]:
+                        - tab "Top" [selected] [ref=e143] [cursor=pointer]:
+                          - generic [ref=e146]: Top
+                        - tab "Latest" [ref=e148] [cursor=pointer]:
+                          - generic [ref=e151]: Latest
+                        - tab "People" [ref=e152] [cursor=pointer]:
+                          - generic [ref=e155]: People
+                        - tab "Media" [ref=e156] [cursor=pointer]:
+                          - generic [ref=e159]: Media
+                        - tab "Lists" [ref=e160] [cursor=pointer]:
+                          - generic [ref=e163]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e165]:
+                - heading "Search timeline" [level=1] [ref=e166]
+                - 'generic "Timeline: Search timeline" [ref=e167]':
+                  - generic [ref=e168]:
+                    - 'article "Chinmay Nagesh @ChinmayNagesh Apr 7, 2025 Cerebral venous thrombosis: Most do well with medical management, but some require more aggressive measures. Here''s a young gentleman with CVT who had progression of clinical symptoms despite LMWH becoming obtunded with left hemiparesis. Mechanical thrombectomy of the superior Embedded video Play Video. 41 seconds long 4 replies, 4 reposts, 48 likes, 14 bookmarks, 3541 views" [ref=e476] [cursor=pointer]':
+                      - generic [ref=e482]:
+                        - link [ref=e494]:
+                          - /url: /ChinmayNagesh
+                        - generic [ref=e497]:
+                          - generic [ref=e499]:
+                            - generic [ref=e502]:
+                              - link "Chinmay Nagesh" [ref=e505]:
+                                - /url: /ChinmayNagesh
+                                - generic [ref=e508]: Chinmay Nagesh
+                              - generic [ref=e510]:
+                                - link "@ChinmayNagesh" [ref=e512]:
+                                  - /url: /ChinmayNagesh
+                                  - generic [ref=e513]: "@ChinmayNagesh"
+                                - generic [ref=e514]: ·
+                                - link "Apr 7, 2025" [ref=e516]:
+                                  - /url: /ChinmayNagesh/status/1909086494456762616
+                                  - time [ref=e517]: Apr 7, 2025
+                            - generic [ref=e519]:
+                              - button "Grok actions" [ref=e521]:
+                                - img [ref=e526]
+                              - button "More" [ref=e532]:
+                                - img [ref=e536]
+                          - generic [ref=e539]:
+                            - generic [ref=e540]: "Cerebral venous thrombosis: Most do well with medical management, but some require more aggressive measures. Here's a young gentleman with CVT who had progression of clinical symptoms despite LMWH becoming obtunded with left hemiparesis. Mechanical thrombectomy of the superior"
+                            - button "Show more" [ref=e541]
+                          - generic [ref=e558]:
+                            - generic "Embedded video" [ref=e561]
+                            - button "Play Video. 41 seconds long" [ref=e568]:
+                              - img [ref=e569]
+                          - group "4 replies, 4 reposts, 48 likes, 14 bookmarks, 3541 views" [ref=e575]:
+                            - button "4 Replies. Reply" [ref=e577]:
+                              - generic [ref=e578]:
+                                - img [ref=e581]
+                                - generic [ref=e586]: "4"
+                            - button "4 reposts. Repost" [ref=e588]:
+                              - generic [ref=e589]:
+                                - img [ref=e592]
+                                - generic [ref=e597]: "4"
+                            - button "48 Likes. Like" [ref=e599]:
+                              - generic [ref=e600]:
+                                - img [ref=e603]
+                                - generic [ref=e608]: "48"
+                            - link "3541 views. View post analytics" [ref=e610]:
+                              - /url: /ChinmayNagesh/status/1909086494456762616/analytics
+                              - generic [ref=e611]:
+                                - img [ref=e614]
+                                - generic [ref=e619]: 3.5K
+                            - button "Bookmark" [ref=e621]:
+                              - img [ref=e625]
+                            - button "Share post" [ref=e630]:
+                              - img [ref=e634]
+                    - article "Dra. Yolanda Aburto Murrieta Verified account @yitaam73 Oct 7, 2025 I presented the latest advances in the management of large core ischemic stroke (ASPECTS ≤5) 🧠 @INNNMVS Current evidence shows that mechanical thrombectomy is not only safe but also improves functional independence and reduces mortality, even in these patients. Changing Previous Image Image Image Next 2 replies, 12 reposts, 101 likes, 29 bookmarks, 8153 views" [ref=e640] [cursor=pointer]:
+                      - generic [ref=e646]:
+                        - link [ref=e658]:
+                          - /url: /yitaam73
+                        - generic [ref=e661]:
+                          - generic [ref=e663]:
+                            - generic [ref=e666]:
+                              - link "Dra. Yolanda Aburto Murrieta Verified account" [ref=e669]:
+                                - /url: /yitaam73
+                                - generic [ref=e670]:
+                                  - generic [ref=e672]: Dra. Yolanda Aburto Murrieta
+                                  - img "Verified account" [ref=e675]
+                              - generic [ref=e679]:
+                                - link "@yitaam73" [ref=e681]:
+                                  - /url: /yitaam73
+                                  - generic [ref=e682]: "@yitaam73"
+                                - generic [ref=e683]: ·
+                                - link "Oct 7, 2025" [ref=e685]:
+                                  - /url: /yitaam73/status/1975295986080657803
+                                  - time [ref=e686]: Oct 7, 2025
+                            - generic [ref=e688]:
+                              - button "Grok actions" [ref=e690]:
+                                - img [ref=e695]
+                              - button "More" [ref=e701]:
+                                - img [ref=e705]
+                          - generic [ref=e708]:
+                            - generic [ref=e709]:
+                              - text: I presented the latest advances in the management of large core ischemic stroke (ASPECTS ≤5)
+                              - img "🧠" [ref=e710]
+                              - link "@INNNMVS" [ref=e713]:
+                                - /url: /INNNMVS
+                              - text: Current evidence shows that mechanical thrombectomy is not only safe but also improves functional independence and reduces mortality, even in these patients. Changing
+                            - button "Show more" [ref=e714]
+                          - navigation [ref=e720]:
+                            - generic [ref=e721]:
+                              - generic:
+                                - button "Previous" [disabled]:
+                                  - generic:
+                                    - img
+                              - tablist [ref=e723]:
+                                - link "Image" [ref=e726]:
+                                  - /url: /yitaam73/status/1975295986080657803/photo/1
+                                  - generic "Image" [ref=e728]:
+                                    - img "Image" [ref=e730]
+                                - link "Image" [ref=e733]:
+                                  - /url: /yitaam73/status/1975295986080657803/photo/2
+                                  - generic "Image" [ref=e735]:
+                                    - img "Image" [ref=e737]
+                                - link "Image" [ref=e740]:
+                                  - /url: /yitaam73/status/1975295986080657803/photo/3
+                                  - generic "Image" [ref=e742]:
+                                    - img "Image" [ref=e744]
+                              - generic:
+                                - button "Next" [disabled]:
+                                  - generic:
+                                    - img
+                          - group "2 replies, 12 reposts, 101 likes, 29 bookmarks, 8153 views" [ref=e747]:
+                            - button "2 Replies. Reply" [ref=e749]:
+                              - generic [ref=e750]:
+                                - img [ref=e753]
+                                - generic [ref=e758]: "2"
+                            - button "12 reposts. Repost" [ref=e760]:
+                              - generic [ref=e761]:
+                                - img [ref=e764]
+                                - generic [ref=e769]: "12"
+                            - button "101 Likes. Like" [ref=e771]:
+                              - generic [ref=e772]:
+                                - img [ref=e775]
+                                - generic [ref=e780]: "101"
+                            - link "8153 views. View post analytics" [ref=e782]:
+                              - /url: /yitaam73/status/1975295986080657803/analytics
+                              - generic [ref=e783]:
+                                - img [ref=e786]
+                                - generic [ref=e791]: 8.1K
+                            - button "Bookmark" [ref=e793]:
+                              - img [ref=e797]
+                            - button "Share post" [ref=e802]:
+                              - img [ref=e806]
+                    - 'article "Dr.Mayank pareek ⚕️ (UR) @iamdocmayank Aug 12 🔥 #NEETPG 2026 Medicine — Highest-Yield Topics Save it for last minute revision 👇🏻 🫀 1. CARDIOLOGY — ⭐ ⭐ ⭐ ⭐ ⭐ Do these first ECG: MI localization STEMI vs NSTEMI Thrombolysis: indications + contraindications PCI indications Heart failure: HFrEF drugs & mortality benefit 9 replies, 33 reposts, 165 likes, 424 bookmarks, 10156 views" [ref=e812] [cursor=pointer]':
+                      - generic [ref=e818]:
+                        - link [ref=e830]:
+                          - /url: /iamdocmayank
+                        - generic [ref=e833]:
+                          - generic [ref=e835]:
+                            - generic [ref=e838]:
+                              - link "Dr.Mayank pareek ⚕️ (UR)" [ref=e841]:
+                                - /url: /iamdocmayank
+                                - generic [ref=e844]:
+                                  - text: Dr.Mayank pareek
+                                  - img "⚕️" [ref=e845]
+                                  - text: (UR)
+                              - generic [ref=e847]:
+                                - link "@iamdocmayank" [ref=e849]:
+                                  - /url: /iamdocmayank
+                                  - generic [ref=e850]: "@iamdocmayank"
+                                - generic [ref=e851]: ·
+                                - link "Aug 12" [ref=e853]:
+                                  - /url: /iamdocmayank/status/2087485305817616884
+                                  - time [ref=e854]: Aug 12
+                            - generic [ref=e856]:
+                              - button "Grok actions" [ref=e858]:
+                                - img [ref=e863]
+                              - button "More" [ref=e869]:
+                                - img [ref=e873]
+                          - generic [ref=e876]:
+                            - generic [ref=e877]:
+                              - img "🔥" [ref=e878]
+                              - link "#NEETPG" [ref=e880]:
+                                - /url: /hashtag/NEETPG?src=hashtag_click
+                              - text: 2026 Medicine — Highest-Yield Topics Save it for last minute revision
+                              - img "👇🏻" [ref=e881]
+                              - img "🫀" [ref=e882]
+                              - text: 1. CARDIOLOGY —
+                              - img "⭐" [ref=e883]
+                              - img "⭐" [ref=e884]
+                              - img "⭐" [ref=e885]
+                              - img "⭐" [ref=e886]
+                              - img "⭐" [ref=e887]
+                              - text: "Do these first ECG: MI localization STEMI vs NSTEMI Thrombolysis: indications + contraindications PCI indications Heart failure: HFrEF drugs & mortality benefit"
+                            - button "Show more" [ref=e888]
+                          - group "9 replies, 33 reposts, 165 likes, 424 bookmarks, 10156 views" [ref=e891]:
+                            - button "9 Replies. Reply" [ref=e893]:
+                              - generic [ref=e894]:
+                                - img [ref=e897]
+                                - generic [ref=e902]: "9"
+                            - button "33 reposts. Repost" [ref=e904]:
+                              - generic [ref=e905]:
+                                - img [ref=e908]
+                                - generic [ref=e913]: "33"
+                            - button "165 Likes. Like" [ref=e915]:
+                              - generic [ref=e916]:
+                                - img [ref=e919]
+                                - generic [ref=e924]: "165"
+                            - link "10156 views. View post analytics" [ref=e926]:
+                              - /url: /iamdocmayank/status/2087485305817616884/analytics
+                              - generic [ref=e927]:
+                                - img [ref=e930]
+                                - generic [ref=e935]: 10K
+                            - button "Bookmark" [ref=e937]:
+                              - img [ref=e941]
+                            - button "Share post" [ref=e946]:
+                              - img [ref=e950]
+                    - 'article "POPLINE Verified account @POPLINE_org Aug 12 Cases report: Experience with rheolytic thrombectomy device (Angiojet) in acute ST elevation myocardial infarction with large amount of coronary thrombus popline.org Cases report: Experience with rheolytic thrombectomy device (Angiojet) in acute ST elevation... Primary percutaneous coronary intervention (PCI) in acute ST elevation myocardial infarction (STEMI) is a clinical challenge. Adequate thrombus rem..." [ref=e956] [cursor=pointer]':
+                      - generic [ref=e962]:
+                        - link [ref=e974]:
+                          - /url: /POPLINE_org
+                        - generic [ref=e977]:
+                          - generic [ref=e979]:
+                            - generic [ref=e982]:
+                              - link "POPLINE Verified account" [ref=e985]:
+                                - /url: /POPLINE_org
+                                - generic [ref=e986]:
+                                  - generic [ref=e988]: POPLINE
+                                  - img "Verified account" [ref=e991]
+                              - generic [ref=e995]:
+                                - link "@POPLINE_org" [ref=e997]:
+                                  - /url: /POPLINE_org
+                                  - generic [ref=e998]: "@POPLINE_org"
+                                - generic [ref=e999]: ·
+                                - link "Aug 12" [ref=e1001]:
+                                  - /url: /POPLINE_org/status/2087278854658269694
+                                  - time [ref=e1002]: Aug 12
+                            - generic [ref=e1004]:
+                              - button "Grok actions" [ref=e1006]:
+                                - img [ref=e1011]
+                              - button "More" [ref=e1017]:
+                                - img [ref=e1021]
+                          - generic [ref=e1025]: "Cases report: Experience with rheolytic thrombectomy device (Angiojet) in acute ST elevation myocardial infarction with large amount of coronary thrombus"
+                          - 'generic "popline.org Cases report: Experience with rheolytic thrombectomy device (Angiojet) in acute ST elevation... Primary percutaneous coronary intervention (PCI) in acute ST elevation myocardial infarction (STEMI) is a clinical challenge. Adequate thrombus rem..." [ref=e1026]':
+                            - 'generic "POPLINE logo popline.org Cases report: Experience with rheolytic thrombectomy device (Angiojet) in acute ST elevation... Primary percutaneous coronary intervention (PCI) in acute ST elevation myocardial infarction (STEMI) is a clinical challenge. Adequate thrombus rem..." [ref=e1027]':
+                              - link [ref=e1029]:
+                                - /url: https://t.co/jgHyReYXEZ
+                                - img [ref=e1035]
+                              - 'link "popline.org Cases report: Experience with rheolytic thrombectomy device (Angiojet) in acute ST elevation... Primary percutaneous coronary intervention (PCI) in acute ST elevation myocardial infarction (STEMI) is a clinical challenge. Adequate thrombus rem..." [ref=e1037]':
+                                - /url: https://t.co/jgHyReYXEZ
+                                - generic [ref=e1038]:
+                                  - generic [ref=e1040]: popline.org
+                                  - generic [ref=e1042]: "Cases report: Experience with rheolytic thrombectomy device (Angiojet) in acute ST elevation..."
+                                  - generic [ref=e1044]: Primary percutaneous coronary intervention (PCI) in acute ST elevation myocardial infarction (STEMI) is a clinical challenge. Adequate thrombus rem...
+                          - group "12 views" [ref=e1047]:
+                            - button "0 Replies. Reply" [ref=e1049]:
+                              - img [ref=e1053]
+                            - button "0 reposts. Repost" [ref=e1060]:
+                              - img [ref=e1064]
+                            - button "0 Likes. Like" [ref=e1071]:
+                              - img [ref=e1075]
+                            - link "12 views. View post analytics" [ref=e1082]:
+                              - /url: /POPLINE_org/status/2087278854658269694/analytics
+                              - generic [ref=e1083]:
+                                - img [ref=e1086]
+                                - generic [ref=e1091]: "12"
+                            - button "Bookmark" [ref=e1093]:
+                              - img [ref=e1097]
+                            - button "Share post" [ref=e1102]:
+                              - img [ref=e1106]
+                    - group "Is this post relevant to your search?" [ref=e1112]:
+                      - generic [ref=e1114]:
+                        - generic [ref=e1116]: Is this post relevant to your search?
+                        - generic [ref=e1117]:
+                          - button "No" [ref=e1118] [cursor=pointer]:
+                            - generic [ref=e1122]:
+                              - generic [ref=e1123]: "No"
+                              - img [ref=e1124]
+                          - button "Yes" [ref=e1127] [cursor=pointer]:
+                            - generic [ref=e1131]:
+                              - generic [ref=e1132]: "Yes"
+                              - img [ref=e1133]
+                    - article "Ezekiel @ForeverQE4 Aug 10 Transcanial Pulse Stimulation PS (brain + vagus assessment) → If stable → Apheresis (microclot / endothelial clearance) → HBOT (vascular reconstruction / angiogenesis). 1/n. 2 replies, 1 repost, 2 likes, 125 views" [ref=e1139] [cursor=pointer]:
+                      - generic [ref=e1145]:
+                        - link [ref=e1157]:
+                          - /url: /ForeverQE4
+                        - generic [ref=e1160]:
+                          - generic [ref=e1162]:
+                            - generic [ref=e1165]:
+                              - link "Ezekiel" [ref=e1168]:
+                                - /url: /ForeverQE4
+                                - generic [ref=e1171]: Ezekiel
+                              - generic [ref=e1173]:
+                                - link "@ForeverQE4" [ref=e1175]:
+                                  - /url: /ForeverQE4
+                                  - generic [ref=e1176]: "@ForeverQE4"
+                                - generic [ref=e1177]: ·
+                                - link "Aug 10" [ref=e1179]:
+                                  - /url: /ForeverQE4/status/2086547878151860506
+                                  - time [ref=e1180]: Aug 10
+                            - generic [ref=e1182]:
+                              - button "Grok actions" [ref=e1184]:
+                                - img [ref=e1189]
+                              - button "More" [ref=e1195]:
+                                - img [ref=e1199]
+                          - generic [ref=e1203]: Transcanial Pulse Stimulation PS (brain + vagus assessment) → If stable → Apheresis (microclot / endothelial clearance) → HBOT (vascular reconstruction / angiogenesis). 1/n.
+                          - group "2 replies, 1 repost, 2 likes, 125 views" [ref=e1206]:
+                            - button "2 Replies. Reply" [ref=e1208]:
+                              - generic [ref=e1209]:
+                                - img [ref=e1212]
+                                - generic [ref=e1217]: "2"
+                            - button "1 repost. Repost" [ref=e1219]:
+                              - generic [ref=e1220]:
+                                - img [ref=e1223]
+                                - generic [ref=e1228]: "1"
+                            - button "2 Likes. Like" [ref=e1230]:
+                              - generic [ref=e1231]:
+                                - img [ref=e1234]
+                                - generic [ref=e1239]: "2"
+                            - link "125 views. View post analytics" [ref=e1241]:
+                              - /url: /ForeverQE4/status/2086547878151860506/analytics
+                              - generic [ref=e1242]:
+                                - img [ref=e1245]
+                                - generic [ref=e1250]: "125"
+                            - button "Bookmark" [ref=e1252]:
+                              - img [ref=e1256]
+                            - button "Share post" [ref=e1261]:
+                              - img [ref=e1265]
+  - generic:
+    - region "Notifications alt+T"
