@@ -1,80 +1,110 @@
 {
-  "scan_date": "2026-08-13T08:00:25.285171",
+  "scan_date": "2026-08-19T08:00:38.312867",
   "stocks_scanned": 10,
   "opportunities": [
     {
-      "ticker": "APOLLOHOSP.BSE",
-      "name": "APOLLOHOSP",
-      "price": 8565.0,
-      "change": -2.1255,
+      "ticker": "HINDUNILVR.BSE",
+      "name": "HINDUNILVR",
+      "price": 2036.0,
+      "change": -1.4139,
       "signals": [
         {
           "type": "price_drop",
-          "value": -2.1255,
-          "reason": "Drop: -2.1%"
-        },
-        {
-          "type": "volatility",
-          "value": 3.3647727272727317,
-          "reason": "Range: 3.4%"
+          "value": -1.4139,
+          "reason": "Drop: -1.4%"
         }
       ],
-      "prediction_score": 35,
-      "recommendation": "WATCH"
+      "prediction_score": 15,
+      "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "TCS.BSE",
-      "name": "TCS",
-      "price": 2349.7,
-      "change": -3.7087,
+      "ticker": "COLPAL.BSE",
+      "name": "COLPAL",
+      "price": 1903.5,
+      "change": -3.1298,
       "signals": [
         {
           "type": "price_drop",
-          "value": -3.7087,
-          "reason": "Drop: -3.7%"
+          "value": -3.1298,
+          "reason": "Drop: -3.1%"
         },
         {
           "type": "volatility",
-          "value": 6.0276840772654765,
-          "reason": "Range: 6.0%"
+          "value": 2.923618551966946,
+          "reason": "Range: 2.9%"
         }
       ],
       "prediction_score": 45,
       "recommendation": "WATCH"
     },
     {
-      "ticker": "INFY.BSE",
-      "name": "INFY",
-      "price": 1175.8,
-      "change": -1.0269,
+      "ticker": "TORNTPHARM.BSE",
+      "name": "TORNTPHARM",
+      "price": 4975.0,
+      "change": 1.6343,
       "signals": [
         {
-          "type": "price_drop",
-          "value": -1.0269,
-          "reason": "Drop: -1.0%"
+          "type": "price_rally",
+          "value": 1.6343,
+          "reason": "Rally: +1.6%"
         },
         {
           "type": "volatility",
-          "value": 2.222969281842253,
-          "reason": "Range: 2.2%"
+          "value": 2.6727997295442356,
+          "reason": "Range: 2.7%"
         }
       ],
       "prediction_score": 25,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "LT.BSE",
-      "name": "LT",
-      "price": 3992.0,
-      "change": -1.1881,
+      "ticker": "ADANIPOWER.BSE",
+      "name": "ADANIPOWER",
+      "price": 204.5,
+      "change": 0.2943,
+      "signals": [
+        {
+          "type": "volatility",
+          "value": 2.5018395879323005,
+          "reason": "Range: 2.5%"
+        }
+      ],
+      "prediction_score": 10,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "KOTAKBANK.BSE",
+      "name": "KOTAKBANK",
+      "price": 387.3,
+      "change": -1.1107,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.1881,
-          "reason": "Drop: -1.2%"
+          "value": -1.1107,
+          "reason": "Drop: -1.1%"
         }
       ],
       "prediction_score": 15,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "MFSL.BSE",
+      "name": "MFSL",
+      "price": 1584.45,
+      "change": 1.1136,
+      "signals": [
+        {
+          "type": "price_rally",
+          "value": 1.1136,
+          "reason": "Rally: +1.1%"
+        },
+        {
+          "type": "volatility",
+          "value": 2.4904580152671816,
+          "reason": "Range: 2.5%"
+        }
+      ],
+      "prediction_score": 25,
       "recommendation": "NEUTRAL"
     }
   ],

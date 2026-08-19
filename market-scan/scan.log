@@ -1944,3 +1944,30 @@ Top Movers:
   Gainers: RELIANCE.BSE:+0.4%, ICICIBANK.BSE:+0.1%, KOTAKBANK.BSE:+0.0%
   Losers: TCS.BSE:-3.7%, APOLLOHOSP.BSE:-2.1%, LT.BSE:-1.2%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ HINDUNILVR: ₹2036.00 (-1.41%)
+  ✅ COLPAL: ₹1903.50 (-3.13%)
+  ✅ TITAN: ₹5050.40 (-0.39%)
+  ✅ TORNTPHARM: ₹4975.00 (+1.63%)
+  ✅ ADANIPOWER: ₹204.50 (+0.29%)
+  ✅ LT: ₹4082.00 (+0.15%)
+  ✅ KOTAKBANK: ₹387.30 (-1.11%)
+  ✅ PIDILITIND: ₹1673.05 (+0.19%)
+  ✅ MFSL: ₹1584.45 (+1.11%)
+  ✅ MARUTI: ₹13720.00 (-0.58%)
+
+=======================================================
+MARKET SCAN - 2026-08-19 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 10 stocks | Opportunities: 6
+
+WATCH (30-50):
+  COLPAL.BSE ₹1903.50 (-3.13%) | 45
+
+Top Movers:
+  Gainers: TORNTPHARM.BSE:+1.6%, MFSL.BSE:+1.1%, ADANIPOWER.BSE:+0.3%
+  Losers: COLPAL.BSE:-3.1%, HINDUNILVR.BSE:-1.4%, KOTAKBANK.BSE:-1.1%
+=======================================================
