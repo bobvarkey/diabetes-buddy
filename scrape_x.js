@@ -1,69 +1,52 @@
-const { chromium } = require('playwright');
-const sqlite3 = require('sqlite3').verbose();
-const fs = require('fs');
-const path = require('path');
-
-async function scrapeXSearch() {
-  const browser = await chromium.launch({ headless: false });
-  const context = await browser.newContext();
-  const page = await context.newPage();
-  
-  // Navigate to the first search
-  await page.goto('https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query&f=top&since:today', {
-    waitUntil: 'networkidle'
-  });
-  
-  // Wait for tweets to load
-  await page.waitForSelector('article[data-testid="tweet"]', { timeout: 30000 });
-  
-  // Extract tweets
-  const tweets = await page.evaluate(() => {
-    const tweetElements = Array.from(document.querySelectorAll('article[data-testid="tweet"]'));
-    return tweetElements.map(tweet => {
-      try {
-        const authorName = tweet.querySelector('[data-testid="User-Name"] span')?.textContent || "";
-        const handleEl = tweet.querySelector('a[href^="/"]');
-        const href = handleEl?.href || "";
-        let handle = "";
-        if (href && href.includes("/")) {
-          const parts = href.split("/");
-          if (parts.length > 3) {
-            handle = parts[3].split("?")[0].replace("@", "");
-          }
-        }
-        const text = tweet.querySelector('[data-testid="tweetText"]')?.textContent || "";
-        const likes = tweet.querySelector('[data-testid="like"]')?.textContent || "0";
-        const retweets = tweet.querySelector('[data-testid="retweet"]')?.textContent || "0";
-        const replies = tweet.querySelector('[data-testid="reply"]')?.textContent || "0";
-        const views = tweet.querySelector('[data-testid="viewCount"]')?.textContent || "";
-        const timeEl = tweet.querySelector('time');
-        const date = timeEl?.getAttribute("datetime") || "";
-        const url = timeEl?.closest("a")?.href || "";
-        
-        return {
-          author: authorName,
-          handle: handle,
-          text: text,
-          likes: likes,
-          retweets: retweets,
-          replies: replies,
-          views: views,
-          date: date,
-          url: url
-        };
-      } catch (e) {
-        return null;
+function extractPosts(){
+  function parseNum(t){ if(!t) return null; let m=t.match(/[\d.]+[KMB]?/); if(!m) return null; let v=parseFloat(m[0].replace(/K/,"e3").replace(/M/,"e6").replace(/B/,"e9")); return isNaN(v)?null:v;}
+  const arts=document.querySelectorAll("article");
+  const posts=[];
+  arts.forEach(a=>{
+    try{
+      const author = a.querySelector('[data-testid="User-Name"] a');
+      const name=author ? (author.querySelector("span")?.textContent?.trim()||author.textContent.trim()) : "";
+      const handle=author ? author.getAttribute("href")?.replace("/","") : "";
+      const timeEl=a.querySelector("time");
+      const postDate=timeEl?timeEl.getAttribute("datetime")||timeEl.textContent:"";
+      const url=timeEl?timeEl.closest("a")?.href:"";
+      const textEls=a.querySelectorAll('[data-testid="tweetText"]');
+      const text=textEls.length?Array.from(textEls).map(e=>e.textContent).join("\n"):"";
+      const group=a.querySelector('[role="group"]');
+      let likes=null,replies=null,reposts=null,bookmarks=null,views=null;
+      if(group){
+        group.querySelectorAll("button").forEach(b=>{
+          const label=b.getAttribute("aria-label")||"";
+          const num=b.textContent.trim();
+          if(label.includes("Like")) likes=parseNum(num);
+          else if(label.includes("Reply")) replies=parseNum(num);
+          else if(label.includes("Repost")||label.includes("retweet")) reposts=parseNum(num);
+          else if(label.includes("Bookmark")) bookmarks=parseNum(num);
+        });
+        const viewLink=group.querySelector('a[href*="/analytics"]');
+        if(viewLink) views=parseNum(viewLink.textContent.trim());
       }
-    }).filter(t => t !== null);
+      if(name||text) posts.push({name,handle,postDate,text,url,likes,replies,reposts,bookmarks,views});
+    }catch(e){}
   });
-  
-  await browser.close();
-  return tweets;
+  return {count:posts.length, posts:posts};
 }
-
-scrapeXSearch().then(tweets => {
-  console.log(JSON.stringify(tweets, null, 2));
-}).catch(err => {
-  console.error('Error:', err);
-  process.exit(1);
-});
+function scrollAndCollect(times=5, callback){
+  let postsMap = new Map();
+  let prevCount=0;
+  let i=0;
+  function collect(){
+    const r=extractPosts();
+    r.posts.forEach(p=>{ if(p.url) postsMap.set(p.url, p); });
+    if(i>=times){
+      if(callback) callback({count:postsMap.size, posts:Array.from(postsMap.values())});
+      return;
+    }
+    i++;
+    window.scrollBy(0,1200);
+    setTimeout(collect, 1200);
+  }
+  collect();
+}
+// Run
+scrollAndCollect(5, r=>{ window.__X_SCRAPED = r; });

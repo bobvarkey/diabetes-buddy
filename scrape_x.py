@@ -1,153 +1,177 @@
 #!/usr/bin/env python3
-"""
-Complete X/Twitter scraper using browser CLI
-"""
-import subprocess
-import json
-import time
-import os
-import sys
-from datetime import datetime
+import json, os, re, sqlite3, sys, time
+from datetime import datetime, timezone
 
-# Add workspace to path
-sys.path.insert(0, '/Users/bobvarkey/.openclaw/workspace')
-from parse_x_aria import parse_aria_snapshot, save_to_sqlite, append_markdown_report
+from helpers import *
 
-def run_browser_command(cmd):
-    """Run browser CLI command and return output"""
-    full_cmd = f"openclaw browser {cmd}"
-    result = subprocess.run(full_cmd, shell=True, capture_output=True, text=True)
-    return result.stdout
+DB_PATH = "/Users/bobvarkey/.openclaw/workspace/memory_x_posts.db"
+REPORT_DIR = "/Users/bobvarkey/.openclaw/workspace/knowledge-base/x-scrapes"
+REPORT_PATH = os.path.join(REPORT_DIR, "x-scrape-2026-05-22.md")
+TODAY = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-def focus_tab(tab_name):
-    """Focus a browser tab by name"""
-    print(f"Focusing tab: {tab_name}")
-    run_browser_command(f"focus {tab_name}")
+URLS = [
+    ("neurointervention_stroke", "https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query&f=top&since:today"),
+    ("avm_aneurysm_endovascular", "https://x.com/search?q=cerebral%20AVM%20OR%20intracranial%20aneurysm%20OR%20endovascular&src=typed_query&f=top&since:today"),
+]
 
-def get_snapshot(limit=1000):
-    """Get aria snapshot of current page"""
-    print(f"Capturing aria snapshot (limit: {limit})...")
-    output = run_browser_command(f"snapshot --format aria --limit {limit}")
-    return output
+def parse_count(text):
+    if not text:
+        return 0
+    text = text.strip().replace(",", "")
+    if text.endswith("K"):
+        return int(float(text[:-1]) * 1000)
+    if text.endswith("M"):
+        return int(float(text[:-1]) * 1000000)
+    try:
+        return int(text)
+    except:
+        return 0
 
-def scroll_down():
-    """Scroll down to load more posts"""
-    print("Scrolling down...")
-    run_browser_command("press End")
-    time.sleep(2)  # Wait for content to load
+def extract_tweets():
+    js("""
+    window.parseCount = function(text) {
+        if (!text) return 0;
+        text = String(text).trim().replace(/,/g, '');
+        if (text.endsWith('K')) return Math.round(parseFloat(text.slice(0,-1)) * 1000);
+        if (text.endsWith('M')) return Math.round(parseFloat(text.slice(0,-1)) * 1000000);
+        const n = parseInt(text, 10);
+        return isNaN(n) ? 0 : n;
+    }
+    """)
+    script = """
+    (function() {
+        const articles = document.querySelectorAll('article[data-testid="tweet"]');
+        const posts = [];
+        articles.forEach(article => {
+            try {
+                const userNameEl = article.querySelector('[data-testid="User-Name"]');
+                let author = '', handle = '';
+                if (userNameEl) {
+                    const spans = userNameEl.querySelectorAll('span');
+                    spans.forEach(span => {
+                        const txt = span.textContent.trim();
+                        if (txt.startsWith('@') && !handle) handle = txt;
+                        else if (!author && txt) author = txt;
+                    });
+                }
+                const timeEl = article.querySelector('time');
+                const date = timeEl ? timeEl.getAttribute('datetime') : '';
+                let url = '';
+                if (timeEl) {
+                    const a = timeEl.closest('a');
+                    if (a && a.getAttribute('href')) {
+                        url = 'https://x.com' + a.getAttribute('href').split('?')[0];
+                    }
+                }
+                const textEl = article.querySelector('[data-testid="tweetText"]');
+                const text = textEl ? textEl.textContent : '';
+                const getMetric = (testid) => {
+                    const el = article.querySelector(`[data-testid="${testid}"]`);
+                    return el ? el.textContent : '';
+                };
+                const replies = parseCount(getMetric('reply'));
+                const reposts = parseCount(getMetric('retweet'));
+                const likes = parseCount(getMetric('like'));
+                const views = parseCount(getMetric('app-text-transition-container') || '');
+                posts.push({ author, handle, date, text, url, replies, reposts, likes, views });
+            } catch(e) {}
+        });
+        return JSON.stringify(posts);
+    })();
+    """
+    return json.loads(js(script))
 
-def scrape_search_query(query_label, url, tab_name, db_path, report_path):
-    """Scrape a search query"""
-    print(f"\n{'='*60}")
-    print(f"Scraping: {query_label}")
-    print(f"URL: {url}")
-    print(f"{'='*60}\n")
-    
-    # Focus the tab
-    focus_tab(tab_name)
-    time.sleep(2)
-    
-    all_posts = []
-    scroll_count = 0
-    max_scrolls = 3  # Limit scrolls to avoid rate limits
-    
-    while scroll_count < max_scrolls:
-        # Get snapshot
-        snapshot = get_snapshot(limit=2000)
-        
-        # Parse posts
-        posts = parse_aria_snapshot(snapshot, query_label)
-        print(f"Found {len(posts)} posts in snapshot")
-        
-        all_posts.extend(posts)
-        
-        # Scroll for more
-        scroll_down()
-        scroll_count += 1
-        time.sleep(3)  # Be gentle
-    
-    # Remove duplicates based on handle + text
+def collect_posts(url, label, max_scrolls=8):
+    new_tab(url)
+    wait_for_load()
+    time.sleep(3)
     seen = set()
-    unique_posts = []
-    for post in all_posts:
-        key = (post['handle'], post['text'][:100])
-        if key not in seen:
-            seen.add(key)
-            unique_posts.append(post)
-    
-    print(f"\nTotal unique posts found: {len(unique_posts)}")
-    
-    # Save to database
-    if unique_posts:
-        print(f"Saving to database: {db_path}")
-        inserted, duplicates = save_to_sqlite(unique_posts, db_path)
-        print(f"Inserted: {inserted}, Duplicates: {duplicates}")
-        
-        # Append to markdown report
-        print(f"Appending to report: {report_path}")
-        append_markdown_report(unique_posts, report_path, query_label)
-    
-    return unique_posts
+    posts = []
+    for i in range(max_scrolls):
+        batch = extract_tweets()
+        added = 0
+        for p in batch:
+            key = (p.get("handle"), p.get("date"), p.get("text", "")[:80])
+            if key not in seen and p.get("text"):
+                seen.add(key)
+                p["search_query"] = label
+                p["search_url"] = url
+                p["scrape_date"] = datetime.now(timezone.utc).isoformat()
+                posts.append(p)
+                added += 1
+        print(f"  scroll {i+1}: found {len(batch)} articles, {added} new, total {len(posts)}")
+        if added == 0:
+            break
+        js("window.scrollBy(0, 900)")
+        time.sleep(2.5)
+    return posts
+
+def save_posts(posts):
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    new_count = 0
+    for p in posts:
+        try:
+            c.execute("""
+                INSERT INTO x_posts (search_query, search_url, author, handle, date, text, url, replies, reposts, likes, views, scrape_date)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                p.get("search_query"), p.get("search_url"), p.get("author"), p.get("handle"),
+                p.get("date"), p.get("text"), p.get("url"),
+                p.get("replies", 0), p.get("reposts", 0), p.get("likes", 0), p.get("views", 0),
+                p.get("scrape_date")
+            ))
+            new_count += 1
+        except sqlite3.IntegrityError:
+            pass
+    conn.commit()
+    conn.close()
+    return new_count
+
+def append_report(posts):
+    os.makedirs(REPORT_DIR, exist_ok=True)
+    high_engagement = [p for p in posts if p.get("likes", 0) > 50]
+    lines = [
+        f"\n## Scrape run: {TODAY} UTC\n",
+        f"- Total posts collected: {len(posts)}",
+        f"- New posts saved to DB: {len(posts)}",
+        f"- High-engagement posts (>50 likes): {len(high_engagement)}\n"
+    ]
+    lines.append("### Search queries\n")
+    for label, url in URLS:
+        lines.append(f"- **{label}**: {url}\n")
+    if posts:
+        lines.append("### Posts\n")
+        for p in posts:
+            lines.append(f"**{p.get('author')} ({p.get('handle')})** — {p.get('date')}")
+            lines.append(f"{p.get('text')[:300]}{'...' if len(p.get('text',''))>300 else ''}")
+            lines.append(f"🔗 {p.get('url')} | 💬 {p.get('replies',0)} 🔁 {p.get('reposts',0)} ❤️ {p.get('likes',0)} 👁️ {p.get('views',0)}")
+            lines.append("")
+    if high_engagement:
+        lines.append("### High-engagement posts\n")
+        for p in high_engagement:
+            lines.append(f"- {p.get('author')} ({p.get('handle')}): ❤️ {p.get('likes',0)} — {p.get('text')[:120]}{'...' if len(p.get('text',''))>120 else ''}")
+        lines.append("")
+    with open(REPORT_PATH, "a", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
 
 def main():
-    # Paths
-    db_path = '/Users/bobvarkey/.openclaw/workspace/memory_x_posts.db'
-    report_path = '/Users/bobvarkey/.openclaw/workspace/knowledge-base/x-scrapes/x-scrape-2026-05-22.md'
-    
-    # Create report directory
-    os.makedirs(os.path.dirname(report_path), exist_ok=True)
-    
-    # Initialize report file
-    if not os.path.exists(report_path):
-        with open(report_path, 'w') as f:
-            f.write(f"# X/Twitter Scrapes\n\nGenerated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-    
-    # Search queries with their tab names
-    queries = [
-        {
-            'label': 'neurointervention OR thrombectomy OR #Neurointervention OR #stroke',
-            'url': 'https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query&f=top&since:today',
-            'tab': 'neurointervention-stroke-search'
-        },
-        {
-            'label': 'cerebral AVM OR intracranial aneurysm OR endovascular',
-            'url': 'https://x.com/search?q=cerebral%20AVM%20OR%20intracranial%20aneurysm%20OR%20endovascular&src=typed_query&f=top&since:today',
-            'tab': 't97'  # From earlier tab listing
-        }
-    ]
-    
-    total_posts = 0
-    total_high_engagement = 0
-    
-    for query in queries:
-        posts = scrape_search_query(
-            query['label'],
-            query['url'],
-            query['tab'],
-            db_path,
-            report_path
-        )
-        
-        total_posts += len(posts)
-        total_high_engagement += sum(1 for p in posts if p['likes'] > 50)
-    
-    print(f"\n{'='*60}")
-    print(f"SCRAPING COMPLETE")
-    print(f"{'='*60}")
-    print(f"Total posts found: {total_posts}")
-    print(f"High-engagement posts (>50 likes): {total_high_engagement}")
-    print(f"Database: {db_path}")
-    print(f"Report: {report_path}")
-    print(f"{'='*60}\n")
-    
-    # Send notification
-    message = f"✅ X/Twitter Scrape Complete\n\n"
-    message += f"📊 Total posts: {total_posts}\n"
-    message += f"🔥 High-engagement (>50 likes): {total_high_engagement}\n"
-    message += f"📁 Database: memory_x_posts.db\n"
-    message += f"📝 Report: x-scrape-2026-05-22.md"
-    
-    print(message)
+    all_posts = []
+    for label, url in URLS:
+        print(f"Collecting: {label}")
+        posts = collect_posts(url, label)
+        all_posts.extend(posts)
+    print(f"Total collected: {len(all_posts)}")
+    new_count = save_posts(all_posts)
+    append_report(all_posts)
+    high = [p for p in all_posts if p.get("likes", 0) > 50]
+    print(f"Saved {new_count} new posts to {DB_PATH}")
+    print(f"Report appended to {REPORT_PATH}")
+    print(f"High-engagement posts (>50 likes): {len(high)}")
+    if high:
+        print("High-engagement:")
+        for p in high[:10]:
+            print(f"  - {p.get('author')} ({p.get('handle')}): {p.get('likes')} likes — {p.get('text')[:100]}{'...' if len(p.get('text',''))>100 else ''}")
 
-if __name__ == '__main__':
-    main()
+main()

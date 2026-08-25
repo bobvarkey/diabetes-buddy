@@ -1,0 +1,501 @@
+---
+topic: daily
+date: 2026-08-24
+tags: []
+---
+
+# Neuro1 Full
+
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+{
+  "count": 40,
+  "posts": [
+    {
+      "name": "JNIS",
+      "handle": "@JNIS_BMJ",
+      "postDate": "2025-04-27T08:39:05.000Z",
+      "text": "Mechanical thrombectomy for DMVOs is gaining traction!  In a multicenter study of 102 patients, the RED 43 catheter was found to be safe and effective for distal aspiration. https://bit.ly/4jNHWFE @Nickkhat \n#Stroke #DMVO #Thrombectomy #EndovascularTherapy #NeuroIR",
+      "url": "https://x.com/JNIS_BMJ/status/1916411768399671578",
+      "likes": 47,
+      "replies": 0,
+      "reposts": 18,
+      "bookmarks": null,
+      "views": 5743
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2023-05-09T11:24:18.000Z",
+      "text": "Right eye chemosis and proptosis , noticed after failed mechanical thrombectomy of an MCA M1 segment occlusion. Probably due to hyperperusion of the right Ophthalmic artery via preferential flow through the OA",
+      "url": "https://x.com/XRPL__A/status/1655896471705882624",
+      "likes": 40,
+      "replies": 1,
+      "reposts": 4,
+      "bookmarks": null,
+      "views": 5297
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2020-08-27T21:30:03.000Z",
+      "text": "Natalizumab in acute ischemic #stroke (ACTION II)\nA randomized, placebo-controlled trial https://bit.ly/3gpLkpf #Neurology",
+      "url": "https://x.com/GreenJournal/status/1299096866429296647",
+      "likes": 30,
+      "replies": 0,
+      "reposts": 17,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2023-02-12T03:21:02.000Z",
+      "text": "Looks like Mechanical thrombectomy is becoming the panacea for all LVOs within 24 hours even with a large core! Pretty soon the only place for clots to hide will be within an aspiration chamber or Stentreiver.",
+      "url": "https://x.com/XRPL__A/status/1624609498211172352",
+      "likes": 20,
+      "replies": 1,
+      "reposts": 2,
+      "bookmarks": null,
+      "views": 7792
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2019-05-22T06:50:00.000Z",
+      "text": "Women with minor or transient neuro events are more likely than men to be diagnosed as a #stroke #mimic despite no #SexDifference in symptoms https://ja.ma/2QbVAG0",
+      "url": "https://x.com/JAMANeuro/status/1131089811593453568",
+      "likes": 30,
+      "replies": 0,
+      "reposts": 20,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Jamaica Hospital",
+      "handle": "@JamaicaHospital",
+      "postDate": "2026-08-21T20:05:15.000Z",
+      "text": "Did you know you could have a #stroke and not realize it? This is called a silent stroke. Abigail Hasan explains what a silent stroke is and ways to prevent it.\n#StrokeAwareness #StrokePrevention",
+      "url": "https://x.com/JamaicaHospital/status/2090893009487380594",
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "bookmarks": null,
+      "views": 41
+    },
+    {
+      "name": "Nat Rev Neurology",
+      "handle": "@NatRevNeurol",
+      "postDate": "2016-05-12T09:11:12.000Z",
+      "text": "Interested in immune interventions in #stroke? Check out this Review: http://rdcu.be/h9WW #ESOC16",
+      "url": "https://x.com/NatRevNeurol/status/730686754500562944",
+      "likes": 15,
+      "replies": 0,
+      "reposts": 17,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2021-11-14T20:25:01.000Z",
+      "text": "Class II evidence that in anterior circulation acute ischemic #stroke treated with EVT, patients with premorbid disability compared to those without disability were more likely not to accumulate more disability but were more likely to die. http://bit.ly/3F6J0jL #NeuroTwitter",
+      "url": "https://x.com/GreenJournal/status/1459980712577318914",
+      "likes": 42,
+      "replies": 0,
+      "reposts": 7,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2022-05-03T04:08:01.000Z",
+      "text": "Etiology and Outcome of Ischemic #Stroke in Patients With Renal Impairment Including Chronic Kidney Disease: Japan Stroke Data Bank http://bit.ly/38HosDy #NeuroTwitter #Neurology",
+      "url": "https://x.com/GreenJournal/status/1521340779955986432",
+      "likes": 22,
+      "replies": 0,
+      "reposts": 12,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2023-09-11T06:43:05.000Z",
+      "text": "Published online: Association of Neuroimaging Markers on Clinical CT Scans With Domain-Specific Cognitive Impairment in the Early and Later Post-Stroke Stages http://bit.ly/3RejJNU\n\n#NeuroTwitter #Stroke",
+      "url": "https://x.com/GreenJournal/status/1701124183801938182",
+      "likes": 21,
+      "replies": 0,
+      "reposts": 4,
+      "bookmarks": null,
+      "views": 3825
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2018-10-17T12:00:02.000Z",
+      "text": "Read about advances in lacunar #stroke pathophysiology. What’s the underlying vessel pathology? How are they related to other sequelae of small vessel disease, or to systemic processes? Find out https://ja.ma/2NFWcAN",
+      "url": "https://x.com/JAMANeuro/status/1052529667641630722",
+      "likes": 71,
+      "replies": 0,
+      "reposts": 33,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Atul D. Bali, MD",
+      "handle": "@ABaliMD",
+      "postDate": "2025-10-24T20:35:47.000Z",
+      "text": "High risk PE on call last nightp/w syncope &  BP\n\nHeavily impacted bilateral PE w/ saddle, RV/LV 1.6. Opening hemos c/w normotensive shock (on inotropes CI 1.4). MCS on standby.\n\nImmediate response to thrombectomy. \nPOD1 - walking, normal RV fxn on TTE.\n\n#PERT @PERTConsortium",
+      "url": "https://x.com/ABaliMD/status/1981821949920915810",
+      "likes": 524,
+      "replies": 29,
+      "reposts": 63,
+      "bookmarks": null,
+      "views": 47160
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2020-09-17T16:13:03.000Z",
+      "text": "The MRI (A: DWI, B: ADC) & MRA (C) of an afebrile 12 yo girl with acute right facial droop & hemiparesis are shown. Thrombectomy achieves full reperfusion & retrieves a yellowish, gelatinous specimen. Her abdominal aorta arterial angiogram (D) and cardiac MRI (E) are also shown.",
+      "url": "https://x.com/GreenJournal/status/1306627234632028161",
+      "likes": 47,
+      "replies": 2,
+      "reposts": 23,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2022-11-08T05:20:03.000Z",
+      "text": "This study assessed the relationship between blood biomarkers of inflammation and lesion growth within the penumbra in patients with acute ischemic stroke treated with mechanical thrombectomy. Read the article now: http://bit.ly/3DzSQeA #NeuroTwitter #AcuteIschemicStroke",
+      "url": "https://x.com/GreenJournal/status/1589850211920510976",
+      "likes": 34,
+      "replies": 0,
+      "reposts": 9,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2026-06-09T14:00:01.000Z",
+      "text": "A reperfusion-guided systolic blood pressure strategy improved functional outcomes and reduced hemorrhagic transformation for patients with acute #Stroke after endovascular therapy compared with guideline-recommended management. https://ja.ma/4v2f2HU",
+      "url": "https://x.com/JAMANeuro/status/2064346781979177303",
+      "likes": 34,
+      "replies": 1,
+      "reposts": 19,
+      "bookmarks": null,
+      "views": 3970
+    },
+    {
+      "name": "Ashutosh Mahapatra, MD",
+      "handle": "@brainplumberMD",
+      "postDate": "2023-05-25T19:14:51.000Z",
+      "text": "A young male patient in his 50s who presented with 2 days of fluctuating mental status, L FD, L sided significant ataxia. NIHSS 4 > 8. \n\nSuccessful basilar thrombectomy via right radial access. TICI 3, 1 pass. NIHSS 0 by POD1. #StrokeAwarenessMonth #neurointervention",
+      "url": "https://x.com/brainplumberMD/status/1661813094887161863",
+      "likes": 28,
+      "replies": 3,
+      "reposts": 2,
+      "bookmarks": null,
+      "views": 3377
+    },
+    {
+      "name": "Nat Rev Neurology",
+      "handle": "@NatRevNeurol",
+      "postDate": "2020-04-22T13:39:22.000Z",
+      "text": "New Review online today: Multilevel omics for the discovery of biomarkers and therapeutic targets for stroke, by Joan Montaner et al. https://go.nature.com/2Kq3ZUe #stroke #neurology #biomarkers #NewfromNRNeurology @VHIR_",
+      "url": "https://x.com/NatRevNeurol/status/1252955155651268608",
+      "likes": 45,
+      "replies": 1,
+      "reposts": 28,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Medscape Neurology",
+      "handle": "@MedscapeNeuro",
+      "postDate": "2020-12-28T19:32:06.000Z",
+      "text": "Some #COVID_19 patients also present with neurologic disorders, including encephalopathy, #stroke, Guillain-Barre syndrome. http://ms.spr.ly/6015pwTLV",
+      "url": "https://x.com/MedscapeNeuro/status/1343640890502488064",
+      "likes": 18,
+      "replies": 0,
+      "reposts": 10,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2026-03-09T13:00:01.000Z",
+      "text": "In patients with #AtrialFibrillation and recent #stroke, adding catheter ablation to oral anticoagulation did not significantly reduce recurrent stroke, systemic embolism, death, or hospitalization for heart failure compared to standard therapy. \n\nhttps://ja.ma/4ri4hOU",
+      "url": "https://x.com/JAMANeuro/status/2030991999415746791",
+      "likes": 22,
+      "replies": 1,
+      "reposts": 4,
+      "bookmarks": null,
+      "views": 1804
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2018-09-03T20:00:02.000Z",
+      "text": "Read about advances in lacunar #stroke pathophysiology. What’s the underlying vessel pathology? How are they related to other sequelae of small vessel disease, or to systemic processes? Find out https://ja.ma/2N7FLku",
+      "url": "https://x.com/JAMANeuro/status/1036705396168314880",
+      "likes": 131,
+      "replies": 1,
+      "reposts": 68,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2021-04-12T16:00:06.000Z",
+      "text": "E-cigarette use is common in #stroke survivors who smoke conventional cigarettes. Clinicians should counsel patients about the unknown harms of dual use, and suggest use of guideline-recommended smoking-cessation therapies https://ja.ma/3wPjcoY @nealsparikhmd @hoomankamel",
+      "url": "https://x.com/JAMANeuro/status/1381638265598574594",
+      "likes": 20,
+      "replies": 0,
+      "reposts": 10,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2023-06-23T00:54:05.000Z",
+      "text": "The results of this large international case-control study suggest that individual and cumulative symptoms of sleep disturbance may be important modifiable risk factors of #stroke. Learn more: https://bit.ly/3IEULBU \n\n#CME: Read the article then click \"CME Course\" tab to begin.",
+      "url": "https://x.com/GreenJournal/status/1672045326813782017",
+      "likes": 21,
+      "replies": 0,
+      "reposts": 5,
+      "bookmarks": null,
+      "views": 3989
+    },
+    {
+      "name": "Brain",
+      "handle": "@Brain1878",
+      "postDate": "2020-05-23T17:28:00.000Z",
+      "text": "Saionz et al. show that the first 3 months after an occipital #stroke are characterized by a gradual – not sudden – loss of visual perceptual abilities. Training in the subacute period can stop this degradation. https://bit.ly/36jZMM3",
+      "url": "https://x.com/Brain1878/status/1264246715625943043",
+      "likes": 92,
+      "replies": 0,
+      "reposts": 43,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Nat Rev Neurology",
+      "handle": "@NatRevNeurol",
+      "postDate": "2018-04-21T21:52:07.000Z",
+      "text": "New Review by Jean-Claude Baron: Protecting the ischaemic penumbra as an adjunct to thrombectomy for acute stroke https://go.nature.com/2JgySbh #newfromnrneurology",
+      "url": "https://x.com/NatRevNeurol/status/987811243082776577",
+      "likes": 51,
+      "replies": 0,
+      "reposts": 36,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2019-11-09T20:00:00.000Z",
+      "text": "Excluding patients from thrombectomy based purely on low ASPECTS, which encompasses a wide range of core volumes, risks excluding patients who have relatively small core volumes and the potential to benefit https://ja.ma/2BcA11q",
+      "url": "https://x.com/JAMANeuro/status/1193256946427674624",
+      "likes": 56,
+      "replies": 1,
+      "reposts": 30,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Jay Mohan, D.O., FACC, FSCAI, FASE, RPVI",
+      "handle": "@DrJayMohan",
+      "postDate": "2022-11-11T17:08:40.000Z",
+      "text": "1/ For the fellows and #ACCEarlyCareer! \n\nIt’s a coronary thrombus! When to consider thrombectomy? What do you do? Let’s walk through this…#Tweetorial \n\n#Cardiotwitter #Cardiology #STEMI",
+      "url": "https://x.com/DrJayMohan/status/1591115708125310976",
+      "likes": 464,
+      "replies": 21,
+      "reposts": 148,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2023-05-26T00:02:05.000Z",
+      "text": "The results of this large international case-control study suggest that individual and cumulative symptoms of sleep disturbance may be important modifiable risk factors of #stroke. Learn more: https://bit.ly/3IEULBU \n\n#CME: Read the article then click \"CME Course\" tab to begin.",
+      "url": "https://x.com/GreenJournal/status/1661885380415635456",
+      "likes": 70,
+      "replies": 1,
+      "reposts": 26,
+      "bookmarks": null,
+      "views": 11601
+    },
+    {
+      "name": "Stroke: Vascular and Interventional Neurology",
+      "handle": "@SVINJournal",
+      "postDate": "2026-08-21T21:57:26.000Z",
+      "text": "Impact of Balloon Guide Catheter on Thrombectomy Outcomes in Intracranial Carotid Artery Embolic Occlusion: A Retrospective Cohort Study\n\nhttps://ahajrnls.org/4zwsVR9",
+      "url": "https://x.com/SVINJournal/status/2090921243738247465",
+      "likes": 7,
+      "replies": 1,
+      "reposts": 5,
+      "bookmarks": null,
+      "views": 855
+    },
+    {
+      "name": "Daniel M. Heiferman, MD",
+      "handle": "@DanHeifermanMD",
+      "postDate": "2022-03-06T18:52:05.000Z",
+      "text": "There are few things more rewarding than a patient having a hemispheric stroke going back to baseline on the table after a thrombectomy \n\nA wonderful reminder of why we do this\n\n#stroke #neuroendovascular #neurointervention",
+      "url": "https://x.com/DanHeifermanMD/status/1500544766467100682",
+      "likes": 56,
+      "replies": 3,
+      "reposts": 4,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2017-01-10T18:31:39.000Z",
+      "text": "Thrombolysis and Thrombectomy vs Thrombectomy Alone for Ischemic Stroke http://ja.ma/2jA04IT",
+      "url": "https://x.com/JAMANeuro/status/818888047731220480",
+      "likes": 13,
+      "replies": 0,
+      "reposts": 15,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Medscape Neurology",
+      "handle": "@MedscapeNeuro",
+      "postDate": "2018-10-25T22:23:00.000Z",
+      "text": "Every hour of delay in undergoing a #stroke thrombectomy reduces quality of life and substantially decreases the economic value of healthcare, researchers report at #WSC2018.",
+      "url": "https://x.com/MedscapeNeuro/status/1055585544246312961",
+      "likes": 17,
+      "replies": 1,
+      "reposts": 17,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Josh Wilcox",
+      "handle": "@jdrwilcox",
+      "postDate": "2022-06-10T20:23:01.000Z",
+      "text": "Reading the replies to this is disheartening. Lots of accusations of overreaching, territory stamping. It’s important to realise that the NNT for thrombectomy is 2! We’ve known this since 2015, and the avalanche of neurointervention is still awaited…\n\nhttps://jacc.org/doi/abs/10.1016/j.jcin.2021.01.025…",
+      "url": "https://x.com/jdrwilcox/status/1535356883883663362",
+      "likes": 54,
+      "replies": 3,
+      "reposts": 15,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2018-01-24T23:00:01.000Z",
+      "text": "#Reperfusion was associated with reduced brain #edema in patients with acute ischemic #stroke enrolled in the MR CLEAN trial http://ja.ma/2Fa2x3z",
+      "url": "https://x.com/JAMANeuro/status/956300585837490176",
+      "likes": 27,
+      "replies": 0,
+      "reposts": 15,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2018-10-01T20:00:01.000Z",
+      "text": "This #case report describes an unusual #ophthalmologic emergency after a 59-year-old man experiences an ischemic #stroke in the right middle cerebral artery. Learn more https://ja.ma/2DMERqp",
+      "url": "https://x.com/JAMANeuro/status/1046852255620763648",
+      "likes": 22,
+      "replies": 1,
+      "reposts": 14,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2022-10-07T20:24:01.000Z",
+      "text": "Acute Arterial Ischemic #Stroke Following #COVID-19 Vaccination: A Systematic Review and Meta-analysis http://bit.ly/3M9imv3 #NeuroTwitter",
+      "url": "https://x.com/GreenJournal/status/1578481293792116736",
+      "likes": 27,
+      "replies": 0,
+      "reposts": 7,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2026-03-04T07:33:08.000Z",
+      "text": " Extended thrombectomy window: What the 2025-2026 trials tell us\n\nThe DAWN and DEFENSE trials changed everything. But new 2025 data pushes the envelope further.\n\nHere's what matters for your practice \n\n1/ Wake-up stroke & late presentation now have evidence for thrombectomy",
+      "url": "https://x.com/XRPL__A/status/2029097798671675652",
+      "likes": 54,
+      "replies": 0,
+      "reposts": 12,
+      "bookmarks": null,
+      "views": 2929
+    },
+    {
+      "name": "Brain",
+      "handle": "@Brain1878",
+      "postDate": "2020-02-19T12:08:46.000Z",
+      "text": "In a longitudinal fMRI study of recovery from post-stroke aphasia, Stockert et al. compare patterns of language reorganization in patients with left frontal versus temporo-parietal #stroke. https://bit.ly/328UUXM",
+      "url": "https://x.com/Brain1878/status/1230101917965209600",
+      "likes": 40,
+      "replies": 0,
+      "reposts": 23,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2023-03-18T22:00:16.000Z",
+      "text": "This analysis of the Save ChildS retrospective cohort study found that obtaining hyperacute perfusion imaging is technically feasible without delaying time to recanalization for children with #stroke because of LVO. Read the article: https://bit.ly/3YVm4xp\n\n#NeuroTwitter",
+      "url": "https://x.com/GreenJournal/status/1637212346597756930",
+      "likes": 21,
+      "replies": 0,
+      "reposts": 7,
+      "bookmarks": null,
+      "views": 5504
+    },
+    {
+      "name": "Nat Rev Neurology",
+      "handle": "@NatRevNeurol",
+      "postDate": "2016-05-11T10:58:49.000Z",
+      "text": "Missed yesterday's session on neuropsychiatric sequelae of #stroke? Check this out: http://rdcu.be/h79Y #ESOC16",
+      "url": "https://x.com/NatRevNeurol/status/730351450451234816",
+      "likes": 24,
+      "replies": 0,
+      "reposts": 24,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2024-08-26T16:00:02.000Z",
+      "text": "Among patients with basilar artery occlusion within 12 hours of onset, the benefits of endovascular thrombectomy at one year compared with 90 days were sustained for favorable outcome and enhanced for excellent outcome. https://ja.ma/3WYSckx",
+      "url": "https://x.com/JAMANeuro/status/1828100099823530424",
+      "likes": 86,
+      "replies": 0,
+      "reposts": 28,
+      "bookmarks": null,
+      "views": 9628
+    }
+  ]
+}

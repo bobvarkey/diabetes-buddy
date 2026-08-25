@@ -1971,3 +1971,28 @@ Top Movers:
   Gainers: TORNTPHARM.BSE:+1.6%, MFSL.BSE:+1.1%, ADANIPOWER.BSE:+0.3%
   Losers: COLPAL.BSE:-3.1%, HINDUNILVR.BSE:-1.4%, KOTAKBANK.BSE:-1.1%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ AARTIIND: ₹526.80 (+1.02%)
+  ⚠️ DEEPAKNTR: Failed
+  ✅ GODREJCP: ₹931.95 (-1.20%)
+  ✅ BAJAJ-AUTO: ₹11720.00 (-0.26%)
+  ✅ HEROMOTOCO: ₹5710.00 (-0.38%)
+  ✅ MARUTI: ₹13580.00 (-1.51%)
+  ✅ EICHERMOT: ₹8001.05 (-0.70%)
+  ✅ POWERGRID: ₹272.30 (+2.66%)
+  ⚠️ CIPLA: Failed
+  ✅ RELIANCE: ₹1314.00 (-0.12%)
+
+=======================================================
+MARKET SCAN - 2026-08-24 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 8 stocks | Opportunities: 4
+
+
+Top Movers:
+  Gainers: POWERGRID.BSE:+2.7%, AARTIIND.BSE:+1.0%, RELIANCE.BSE:+-0.1%
+  Losers: MARUTI.BSE:-1.5%, GODREJCP.BSE:-1.2%, EICHERMOT.BSE:-0.7%
+=======================================================

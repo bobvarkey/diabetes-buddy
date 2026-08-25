@@ -1,0 +1,393 @@
+---
+topic: daily
+date: 2026-08-24
+tags: []
+---
+
+# Neuro1 Scroll
+
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+{
+  "count": 31,
+  "posts": [
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2023-07-11T23:45:47.000Z",
+      "text": "Ocular hyperperfusion syndrome after mechanical thrombectomy. An ICA which was occluded below the ophthalmic origin. After mTICI flow, next day developed a red eye and severe chemosis with raised IOP",
+      "url": "https://x.com/XRPL__A/status/1678913507243462657",
+      "likes": null,
+      "replies": 54113028000,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2023-04-05T03:36:53.000Z",
+      "text": "We have just used our first DRONE in the Cathlab ( double radial ONE hand puncture) for chemical angioplasty for dual access into the Rt Vertebral and Rt carotid arteries). Femoral approach was avoided due to prolonged Prothrombin time. DRONE is feasible in Neurointervention",
+      "url": "https://x.com/XRPL__A/status/1643457655749636096",
+      "likes": null,
+      "replies": 22283900,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2022-12-29T13:03:35.000Z",
+      "text": "A helpful guide for distal access catheters for intracranial access in Mechanical thrombectomy. Go ahead and add other common DACs that you use and I will update the list!",
+      "url": "https://x.com/XRPL__A/status/1608448645627805696",
+      "likes": null,
+      "replies": 4385200,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2026-03-26T15:01:57.000Z",
+      "text": "This study provides new insight into no‑reflow after thrombectomy, demonstrating that it is not a static marker of infarcted tissue but a dynamic process characterized by progression, delayed onset, and potential resolution: https://hubs.la/Q048hWfR0 \n\n#NeuroTwitter #Stroke",
+      "url": "https://x.com/GreenJournal/status/2037183278105448570",
+      "likes": null,
+      "replies": 25272000,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2025-04-19T23:45:17.000Z",
+      "text": " Middle Meningeal Artery (MMA) & Migraine: An interventional option for intractable headache?\n\n The brain feels no pain—but the dura mater does. Irritation near its feeder, the MMA, can spark migraine pathways via trigeminal afferents.\n\n Trigeminal activation → peptide",
+      "url": "https://x.com/XRPL__A/status/1913740716586750030",
+      "likes": null,
+      "replies": 15263000,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Therapeutic Advances in Neurological Disorders",
+      "handle": "@TANeurolDisord",
+      "postDate": "2026-08-22T07:05:01.000Z",
+      "text": "New online!\n\nWhat is the role of cerebral small vessel disease in dynamic cerebral autoregulation and\nfunctional outcomes after endovascular thrombectomy for #stroke? \n\nhttps://journals.sagepub.com/doi/full/10.1177/17562864261470197…",
+      "url": "https://x.com/TANeurolDisord/status/2091059048481243474",
+      "likes": null,
+      "replies": 62,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Vineeth Jaison",
+      "handle": "@JaisonVineeth",
+      "postDate": "2018-11-25T12:08:09.000Z",
+      "text": "Endovascular Mechanical Thrombectomy for a young adult within 2 hours of occlusion - TICI 3 achieved patient improved from GCS improved from E2M2Vt to E4V4M6 within 24 hours @pb10_bmt @preethijaison #cmcludhiana Post EVT video #neurointervention",
+      "url": "https://x.com/JaisonVineeth/status/1066664837932097536",
+      "likes": null,
+      "replies": 31013,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2024-04-07T16:45:06.000Z",
+      "text": "Migration of Iophendylate Myelography Contrast to the Brain With Successful Thrombectomy: https://bit.ly/3TMtbYf\n\n#NeuroTwitter #NeuroImage",
+      "url": "https://x.com/GreenJournal/status/1777014751463108860",
+      "likes": null,
+      "replies": 4173800,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2023-01-19T05:07:27.000Z",
+      "text": "Doom & Gloom! Failed thrombectomy & Pt goes under the knife for a decompressive craniectomy. Every interventional neurologist's worst nightmare. Time to bring out the Sackcloth and ashes.",
+      "url": "https://x.com/XRPL__A/status/1615938970411765760",
+      "likes": null,
+      "replies": 24539800,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2025-11-02T11:00:01.000Z",
+      "text": "Case report: a 65-year-old man with a mobile filling defect detected in his middle cerebral artery during mechanical thrombectomy. https://ja.ma/432g0rL",
+      "url": "https://x.com/JAMANeuro/status/1984938540422066677",
+      "likes": null,
+      "replies": 24506700,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2021-11-20T01:28:01.000Z",
+      "text": "Saini et al provide an up-to-date review of the incidence of #stroke and large vessel occlusion around the globe, as well as the eligibility and access to acute ischemic stroke interventions. http://bit.ly/30wieCm #Neurology #NeuroTwitter",
+      "url": "https://x.com/GreenJournal/status/1461868902758199297",
+      "likes": null,
+      "replies": 621,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2025-12-31T14:00:00.000Z",
+      "text": "Among patients <70 years with acute #BasilarArteryOcclusion, endovascular thrombectomy doubled the rate of ambulatory and self-care capable outcomes at 3 years vs medical treatment.\n\nhttps://ja.ma/4jnUTXN",
+      "url": "https://x.com/JAMANeuro/status/2006364721725764052",
+      "likes": null,
+      "replies": 16302500,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2022-07-03T00:58:48.000Z",
+      "text": "We should be doing a lot more! The number needed to treat  for Mechanical thrombectomy for a pt to be independent @ 90 days is only~3-4 compared to a primary angioplasty [33] for  MI (to prevent reinfarction). However, primary plasty  outnumbers  stroke MT by a factor of >100 .",
+      "url": "https://x.com/XRPL__A/status/1543398818942980096",
+      "likes": null,
+      "replies": 541110,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "curzen",
+      "handle": "@ncurzen",
+      "postDate": "2022-06-10T09:04:34.000Z",
+      "text": "The formal position statement from BCIS about stroke thrombectomy…. Hugely effective, life-changing treatment. Currently only a tiny minority get access… interventional cardiologists are offering to provide realistic workforce. Time for action nhs? Let’s sort this out? @bcis",
+      "url": "https://x.com/ncurzen/status/1535186147995009026",
+      "likes": null,
+      "replies": 2480225,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "EM:RAP",
+      "handle": "@emrap_tweets",
+      "postDate": "2026-08-21T17:31:01.000Z",
+      "text": " New stroke studies don’t always lead to changing your practice. They can, however, give us some new ways of thinking about our current treatments. In this analysis of a new adjunct treatment for tenecteplase, Jenny and Matt dive into the numbers to help you understand how we",
+      "url": "https://x.com/emrap_tweets/status/2090854196916756989",
+      "likes": null,
+      "replies": 12185,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Brain",
+      "handle": "@Brain1878",
+      "postDate": "2025-01-23T14:17:41.000Z",
+      "text": "Von Braun et al. have developed an AI method for predicting patient-specific responses to thrombectomy following acute ischaemic stroke. The model analyses brain scans and patient data to forecast tissue and clinical outcomes. https://tinyurl.com/muweu8xm",
+      "url": "https://x.com/Brain1878/status/1882432520320643257",
+      "likes": null,
+      "replies": 9342800,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2023-04-08T05:16:04.000Z",
+      "text": "LIST (Local intra-sinus thrombolysis) in Cerebral venous thrombosis - Due to a rock hard clot, aspiration thrombectomy was unsuccessful and IA 36 hour infusion of 1mg/hour tPA resulted in partial recanalisation",
+      "url": "https://x.com/XRPL__A/status/1644569777942454274",
+      "likes": null,
+      "replies": 27395800,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2025-06-01T16:00:01.000Z",
+      "text": "This study demonstrated the feasibility and safety of using the new RATIONAL robot-assisted thrombectomy system for treating acute ischemic stroke. https://ja.ma/3HAflFR",
+      "url": "https://x.com/JAMANeuro/status/1929206306855944693",
+      "likes": null,
+      "replies": 117586800,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Ambarish Satwik",
+      "handle": "@AmbarishSatwik",
+      "postDate": "2020-12-28T14:03:25.000Z",
+      "text": "This is Mohamed Hewaihi, from Gaza. We trained him in 2018 on the high diving board at the Institute of Vascular and Endovascular Sciences, Ganga Ram Hospital, Delhi. Here, he's doing a thrombectomy to save the limb of a COVID patient with arterial thrombosis in Khanyounis, Gaza.",
+      "url": "https://x.com/AmbarishSatwik/status/1343558174595399682",
+      "likes": null,
+      "replies": 15101613,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2025-12-02T15:00:00.000Z",
+      "text": "In patients with AIS-LVO admitted to non-thrombectomy centers after 4.5 hours, IVT before transfer for endovascular therapy was associated with improved 3-month functional outcomes and higher rates of recanalization during transfer. \n\nhttps://ja.ma/3KrcLUv",
+      "url": "https://x.com/JAMANeuro/status/1995870570911604865",
+      "likes": null,
+      "replies": 22454400,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2025-10-19T11:00:00.000Z",
+      "text": "Adding argatroban or eptifibatide to intravenous thrombolysis did not improve reperfusion rates or clinical outcomes in endovascular thrombectomy for acute ischemic stroke. https://ja.ma/4742y7G",
+      "url": "https://x.com/JAMANeuro/status/1979865107581522233",
+      "likes": null,
+      "replies": 117565100,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "henry anderson",
+      "handle": "@henry80212",
+      "postDate": "2026-08-22T03:51:51.000Z",
+      "text": "Mitral valve replacement combined with thrombectomy  precise anatomical procedures that saved lives.",
+      "url": "https://x.com/henry80212/status/2091010434031640936",
+      "likes": null,
+      "replies": 11,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Raymond Catton, MD",
+      "handle": "@catton_md",
+      "postDate": "2025-05-25T14:01:21.000Z",
+      "text": "May is Stroke Awareness Month. I'm going #ALLHANDSIN with @svinsociety to help raise awareness about stroke, stroke interventions, and stroke recovery. #neurointervention #stroke #thrombectomy",
+      "url": "https://x.com/catton_md/status/1926639728641654870",
+      "likes": null,
+      "replies": 19303900,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2026-01-28T15:00:00.000Z",
+      "text": "Among patients with #Stroke and #PatentForamenOvale, the PASCAL classification system identified those likely to benefit from closure and those at risk of increased atrial fibrillation. https://ja.ma/45xB0I5",
+      "url": "https://x.com/JAMANeuro/status/2016526680911647116",
+      "likes": null,
+      "replies": 326210000,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Romil Singh MD (he/him)",
+      "handle": "@romilsingh1892",
+      "postDate": "2026-03-23T01:26:39.000Z",
+      "text": " Excited to be speaking at the @StrokeMena Cerebrovascular Grand Round in collaboration with @svinsociety and @MThrombectomy \n\n Topic: Recognizing & Treating ICAD During Thrombectomy — A Rescue Case\n\n March 26, 2026\n 9:00–10:30 PM (Dubai Time)\n 1:00 PM – 2:30 PM (EDT)",
+      "url": "https://x.com/romilsingh1892/status/2035890937319027152",
+      "likes": null,
+      "replies": 15231800,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2023-04-04T20:00:00.000Z",
+      "text": "In patients treated with mechanical thrombectomy for anterior circulation acute ischemic stroke, general anesthesia and procedural sedation were associated with similar rates of functional independence and major periprocedural complications. https://ja.ma/3nJIe8M",
+      "url": "https://x.com/JAMANeuro/status/1643342677260353541",
+      "likes": null,
+      "replies": 18319700,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Nat Rev Neurology",
+      "handle": "@NatRevNeurol",
+      "postDate": "2018-07-03T09:06:57.000Z",
+      "text": "#Stroke is finally recognized as a neurological disease in the newly released @WHO #ICD11. We mark this release with a collection on Stroke as a neurological disease, including articles that address some of the latest and most exciting advances in stroke https://go.nature.com/2IJJZsg",
+      "url": "https://x.com/NatRevNeurol/status/1014072994099015680",
+      "likes": null,
+      "replies": 5358,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2022-03-21T00:45:01.000Z",
+      "text": "Association of Infarct Topography and Outcome After Endovascular Thrombectomy in Patients With Acute Ischemic #Stroke: http://bit.ly/3wdl3pt #NeuroTwitter #Neurology",
+      "url": "https://x.com/GreenJournal/status/1505707014290345987",
+      "likes": null,
+      "replies": 1636,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JNIS",
+      "handle": "@JNIS_BMJ",
+      "postDate": "2025-05-17T22:50:05.000Z",
+      "text": " NEW INSIGHTS IN STROKE TREATMENT! \n\nMulticenter study reveals the significant benefit of using balloon guide catheters (BGC) in distal medium vessel occlusion (DMVO) stroke thrombectomy. \n\nKey Findings:\n Higher rates of first pass effect (53.4% vs 13.7%)\n Improved",
+      "url": "https://x.com/JNIS_BMJ/status/1923873688216093029",
+      "likes": null,
+      "replies": 119373400,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "JNIS",
+      "handle": "@JNIS_BMJ",
+      "postDate": "2025-04-27T08:39:05.000Z",
+      "text": "Mechanical thrombectomy for DMVOs is gaining traction!  In a multicenter study of 102 patients, the RED 43 catheter was found to be safe and effective for distal aspiration. https://bit.ly/4jNHWFE @Nickkhat \n#Stroke #DMVO #Thrombectomy #EndovascularTherapy #NeuroIR",
+      "url": "https://x.com/JNIS_BMJ/status/1916411768399671578",
+      "likes": null,
+      "replies": 18475700,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2023-05-09T11:24:18.000Z",
+      "text": "Right eye chemosis and proptosis , noticed after failed mechanical thrombectomy of an MCA M1 segment occlusion. Probably due to hyperperusion of the right Ophthalmic artery via preferential flow through the OA",
+      "url": "https://x.com/XRPL__A/status/1655896471705882624",
+      "likes": null,
+      "replies": 14405200,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    }
+  ]
+}

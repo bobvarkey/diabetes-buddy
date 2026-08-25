@@ -1,0 +1,309 @@
+---
+topic: daily
+date: 2026-08-24
+tags: []
+---
+
+# Neuro2 Full
+
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+{
+  "count": 24,
+  "posts": [
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2022-08-08T13:46:08.000Z",
+      "text": "Type D",
+      "url": "https://x.com/XRPL__A/status/1556637889965879296",
+      "likes": 5,
+      "replies": 1,
+      "reposts": 1,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "XRP Ledger Announces",
+      "handle": "@XRPL__A",
+      "postDate": "2022-08-08T13:46:09.000Z",
+      "text": "Rx with endovascular embolisation of ECA branches to CS. Gradual resolution of symptoms over the next one week. Take home message; Consider Dural fistula's in the event of headache, raised ICP, encephalopathy, CN palsies & remote h/o head trauma",
+      "url": "https://x.com/XRPL__A/status/1556637894151852033",
+      "likes": 17,
+      "replies": 1,
+      "reposts": 3,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2024-06-09T16:31:05.000Z",
+      "text": "This study evaluated the clinical outcomes of patients selected for endovascular therapy by noncontrast CT compared with those medically managed in the extended time window. Read more: https://bit.ly/4ca7WXR",
+      "url": "https://x.com/GreenJournal/status/1799841659389165676",
+      "likes": 17,
+      "replies": 0,
+      "reposts": 5,
+      "bookmarks": null,
+      "views": 4415
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2026-07-26T16:07:01.000Z",
+      "text": "This study aimed to determine whether blood-brain barrier disruption assessed before interhospital transfer for endovascular therapy is associated with 24-hour hemorrhagic transformation and 3-month functional outcome. Learn more: https://hubs.la/Q04qK4nG0",
+      "url": "https://x.com/GreenJournal/status/2081410972992872727",
+      "likes": 38,
+      "replies": 1,
+      "reposts": 12,
+      "bookmarks": null,
+      "views": 3765
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2022-02-10T19:00:32.000Z",
+      "text": "Patients and caregivers, learn more about #stroke and endovascular therapy with this interactive infographic from the #Neurology Patient Page: http://bit.ly/3GAVhx4",
+      "url": "https://x.com/GreenJournal/status/1491849583290466315",
+      "likes": 8,
+      "replies": 0,
+      "reposts": 5,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2026-07-17T16:03:54.000Z",
+      "text": "The role of endovascular treatment—particularly for M2 occlusions—is controversial. This study investigated whether baseline clinical severity modifies the association between successful recanalization and 90-day outcomes in patients with M2 occlusion: https://hubs.la/Q04nDHxG0",
+      "url": "https://x.com/GreenJournal/status/2078148696454140317",
+      "likes": 15,
+      "replies": 2,
+      "reposts": 7,
+      "bookmarks": null,
+      "views": 2298
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2026-01-21T14:56:43.000Z",
+      "text": "This study assessed the relationship between individualized autoregulation-based blood pressure thresholds after endovascular thrombectomy and secondary brain injury and functional outcomes: https://hubs.la/Q03_xxc50",
+      "url": "https://x.com/GreenJournal/status/2013989136928026870",
+      "likes": 13,
+      "replies": 1,
+      "reposts": 4,
+      "bookmarks": null,
+      "views": 1097
+    },
+    {
+      "name": "Tyler Scullen",
+      "handle": "@ScullenTyler",
+      "postDate": "2026-08-21T16:53:30.000Z",
+      "text": "Beautiful view of the angiographic anatomy of the medial orbital ophthalmic artery, as illustrated in this left ICA injection for a ruptured anterior ethmoidal dural arteriovenous fistula safely treated via a transvenous approach #neurosurgery #endovascular #fistula",
+      "url": "https://x.com/ScullenTyler/status/2090844756729278702",
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "bookmarks": null,
+      "views": 67
+    },
+    {
+      "name": "Carmen García- Cabo",
+      "handle": "@Carmen_GCabo",
+      "postDate": "2026-08-22T14:51:45.000Z",
+      "text": "Head position after endovascular treatment for large vessel occlusion stroke: does it matter?  https://pubmed.ncbi.nlm.nih.gov/42624522/",
+      "url": "https://x.com/Carmen_GCabo/status/2091176504403066895",
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "bookmarks": null,
+      "views": 25
+    },
+    {
+      "name": "Alan Lumsden, MD, CV Chairman/Director",
+      "handle": "@AlanLumsdenMD",
+      "postDate": "2026-08-14T17:41:00.000Z",
+      "text": "Next robotic video",
+      "url": "https://x.com/AlanLumsdenMD/status/2088319993306124752",
+      "likes": 7,
+      "replies": 1,
+      "reposts": 3,
+      "bookmarks": null,
+      "views": 1680
+    },
+    {
+      "name": "Gian Paolo Zamboni",
+      "handle": "@gpzamboni",
+      "postDate": "2026-08-16T04:53:47.000Z",
+      "text": "Why it wasn’t removed with advanced endovascular technics? (Forceps, laser etc)",
+      "url": "https://x.com/gpzamboni/status/2088851693412684287",
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "bookmarks": null,
+      "views": 15
+    },
+    {
+      "name": "Frontiers - Neurology",
+      "handle": "@FrontNeurol",
+      "postDate": "2026-08-19T15:08:35.000Z",
+      "text": "New Research: CT-based intrathrombus and perithrombus radiomics for predicting complete recanalization after endovascular thrombectomy in acute ischemic stroke https://frontiersin.org/articles/10.3389/fneur.2026.1868821?utm_source=twitter&utm_medium=social&utm_content=&utm_campaign=imp_impartaut-_05-24_fneur_en_n--ww… #FrontiersIn #Neurology",
+      "url": "https://x.com/FrontNeurol/status/2090093575568781719",
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "bookmarks": null,
+      "views": 255
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2026-08-05T19:09:32.000Z",
+      "text": "This review examines the current literature on a new wave of adjunctive and multiple thrombolytic dosing strategies for both intravenous thrombolysis (IVT) alone and IVT combined with endovascular thrombectomy for acute ischemic stroke: https://hubs.la/Q04rgfvq0",
+      "url": "https://x.com/GreenJournal/status/2085080785736946007",
+      "likes": 33,
+      "replies": 0,
+      "reposts": 12,
+      "bookmarks": null,
+      "views": 3872
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2025-07-01T18:01:00.000Z",
+      "text": "Neighborhood Socioeconomic Status and the Functional Outcome of Patients Treated With Endovascular Thrombectomy for Ischemic Stroke: https://hubs.ly/Q03vsqPY0\n\n#NeuroTwitter #NeuroX",
+      "url": "https://x.com/GreenJournal/status/1940108391440846991",
+      "likes": 15,
+      "replies": 0,
+      "reposts": 2,
+      "bookmarks": null,
+      "views": 2474
+    },
+    {
+      "name": "Neurosurgical Atlas",
+      "handle": "@neurosurgatlas",
+      "postDate": "2026-08-21T22:01:03.000Z",
+      "text": "In this operative video, Dr. Cohen demonstrates a transfalcine approach for resection of a peri-atrial AVM.\n\nThe dissection is carried along the margins of the nidus while maintaining the plane outside the malformation. This approach provides access to the lateral aspect of the",
+      "url": "https://x.com/neurosurgatlas/status/2090922153504104898",
+      "likes": 23,
+      "replies": 1,
+      "reposts": 5,
+      "bookmarks": null,
+      "views": 1641
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2026-03-31T20:45:00.000Z",
+      "text": "In this large, international cohort, contrast-associated acute kidney injury (CA-AKI) occurred in approximately 1 in 20 endovascular thrombectomy (EVT)-treated patients with acute ischemic #stroke and was independently associated with poor outcomes: https://hubs.la/Q0495R570",
+      "url": "https://x.com/GreenJournal/status/2039081548280938567",
+      "likes": 10,
+      "replies": 1,
+      "reposts": 4,
+      "bookmarks": null,
+      "views": 1399
+    },
+    {
+      "name": "They Keep Saying Its Rare",
+      "handle": "@mRNAdeaths",
+      "postDate": "2024-08-02T20:50:55.000Z",
+      "text": "Healthy 44 year old woman\nIntracranial aneurysm rupture 4 hours after 2nd dose of #Pfizer #mRNA vaccine.\nhttps://tinyurl.com/yme7vffa",
+      "url": "https://x.com/mRNAdeaths/status/1819475993805181346",
+      "likes": 153,
+      "replies": 3,
+      "reposts": 112,
+      "bookmarks": null,
+      "views": 7702
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2025-07-12T14:09:00.000Z",
+      "text": "This study provides Class II evidence that in patients presenting within 24 hours with large vessel occlusion strokes undergoing endovascular thrombectomy, the 90-day modified Rankin Scale score is comparable in those with or without general anesthesia: https://hubs.la/Q03wXjJZ0",
+      "url": "https://x.com/GreenJournal/status/1944036273724719341",
+      "likes": 14,
+      "replies": 1,
+      "reposts": 3,
+      "bookmarks": null,
+      "views": 2593
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2022-09-29T22:25:02.000Z",
+      "text": "Neurology Podcast: Dr. Southerland @ASouthStrokeDoc talks with Dr. Garcia-Esperon about the association of endovascular thrombectomy with functional outcome in patients with acute #stroke with a large ischemic core. Listen now: http://bit.ly/3Cl65k1 #NeuroTwitter #Neurology",
+      "url": "https://x.com/GreenJournal/status/1575612644639350827",
+      "likes": 2,
+      "replies": 0,
+      "reposts": 0,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Brian Grant MD",
+      "handle": "@briangrantmd",
+      "postDate": "2026-08-20T13:04:00.000Z",
+      "text": " For dialysis patients, your vascular access is your lifeline. Whether you need a new fistula, graft, dialysis catheter, or help with a failing access, our goal is to keep you receiving the treatment you depend on. \n\nUsing advanced imaging and minimally invasive techniques, we",
+      "url": "https://x.com/briangrantmd/status/2090424612752433524",
+      "likes": 1,
+      "replies": 0,
+      "reposts": 1,
+      "bookmarks": null,
+      "views": 48
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2024-06-04T20:04:12.000Z",
+      "text": "Neurology Podcast: Dr. Dan Ackerman and Dr. Silja Räty discuss the outcomes of patients with BAO treated with IVT only and compares IVT with endovascular thrombectomy. Listen now: https://bit.ly/3Vs1FBo Article: https://bit.ly/45gTtHC\n#NeuroTwitter @DrDanAckerman",
+      "url": "https://x.com/GreenJournal/status/1798083350953119907",
+      "likes": 16,
+      "replies": 0,
+      "reposts": 3,
+      "bookmarks": null,
+      "views": 3457
+    },
+    {
+      "name": "American Academy of Neurology",
+      "handle": "@AANmember",
+      "postDate": "2020-04-25T14:15:02.000Z",
+      "text": "Featured Job Post: Reading Hospital/Tower Health is seeking experienced Vascular Neurologist or Endovascular Neurosurgeon to be the Stroke Medical Director & lead a very talented multidisciplinary team in the development of a Comprehensive Stroke Program https://bit.ly/34ZcGON",
+      "url": "https://x.com/AANmember/status/1254051294492463105",
+      "likes": 2,
+      "replies": 0,
+      "reposts": 1,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Dr.Haitham Hamoud | د.هيثم",
+      "handle": "@hemo_shk",
+      "postDate": "2024-11-01T08:58:35.000Z",
+      "text": "Q) Subdural hematoma most commonly results from which of the following?\n\na. Rupture of an intracranial aneurysm\nb. Rupture of a cerebral AVM\nc. Injury to cortical bridging veins\nd. Hemophilia\n\n#MedX #MEDHM @IhabFathiSulima",
+      "url": "https://x.com/hemo_shk/status/1852274023410917667",
+      "likes": 26,
+      "replies": 5,
+      "reposts": 2,
+      "bookmarks": null,
+      "views": 1307
+    },
+    {
+      "name": "JAMA Neurology",
+      "handle": "@JAMANeuro",
+      "postDate": "2026-06-09T14:00:01.000Z",
+      "text": "A reperfusion-guided systolic blood pressure strategy improved functional outcomes and reduced hemorrhagic transformation for patients with acute #Stroke after endovascular therapy compared with guideline-recommended management. https://ja.ma/4v2f2HU",
+      "url": "https://x.com/JAMANeuro/status/2064346781979177303",
+      "likes": 34,
+      "replies": 1,
+      "reposts": 19,
+      "bookmarks": null,
+      "views": 3970
+    }
+  ]
+}

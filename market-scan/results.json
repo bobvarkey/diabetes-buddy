@@ -1,107 +1,72 @@
 {
-  "scan_date": "2026-08-19T08:00:38.312867",
-  "stocks_scanned": 10,
+  "scan_date": "2026-08-24T08:00:18.187410",
+  "stocks_scanned": 8,
   "opportunities": [
     {
-      "ticker": "HINDUNILVR.BSE",
-      "name": "HINDUNILVR",
-      "price": 2036.0,
-      "change": -1.4139,
-      "signals": [
-        {
-          "type": "price_drop",
-          "value": -1.4139,
-          "reason": "Drop: -1.4%"
-        }
-      ],
-      "prediction_score": 15,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "COLPAL.BSE",
-      "name": "COLPAL",
-      "price": 1903.5,
-      "change": -3.1298,
-      "signals": [
-        {
-          "type": "price_drop",
-          "value": -3.1298,
-          "reason": "Drop: -3.1%"
-        },
-        {
-          "type": "volatility",
-          "value": 2.923618551966946,
-          "reason": "Range: 2.9%"
-        }
-      ],
-      "prediction_score": 45,
-      "recommendation": "WATCH"
-    },
-    {
-      "ticker": "TORNTPHARM.BSE",
-      "name": "TORNTPHARM",
-      "price": 4975.0,
-      "change": 1.6343,
+      "ticker": "AARTIIND.BSE",
+      "name": "AARTIIND",
+      "price": 526.8,
+      "change": 1.0163,
       "signals": [
         {
           "type": "price_rally",
-          "value": 1.6343,
-          "reason": "Rally: +1.6%"
+          "value": 1.0163,
+          "reason": "Rally: +1.0%"
         },
         {
           "type": "volatility",
-          "value": 2.6727997295442356,
-          "reason": "Range: 2.7%"
+          "value": 3.3262630158118007,
+          "reason": "Range: 3.3%"
         }
       ],
       "prediction_score": 25,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "ADANIPOWER.BSE",
-      "name": "ADANIPOWER",
-      "price": 204.5,
-      "change": 0.2943,
-      "signals": [
-        {
-          "type": "volatility",
-          "value": 2.5018395879323005,
-          "reason": "Range: 2.5%"
-        }
-      ],
-      "prediction_score": 10,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "KOTAKBANK.BSE",
-      "name": "KOTAKBANK",
-      "price": 387.3,
-      "change": -1.1107,
+      "ticker": "GODREJCP.BSE",
+      "name": "GODREJCP",
+      "price": 931.95,
+      "change": -1.198,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.1107,
-          "reason": "Drop: -1.1%"
+          "value": -1.198,
+          "reason": "Drop: -1.2%"
         }
       ],
       "prediction_score": 15,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "MFSL.BSE",
-      "name": "MFSL",
-      "price": 1584.45,
-      "change": 1.1136,
+      "ticker": "MARUTI.BSE",
+      "name": "MARUTI",
+      "price": 13580.0,
+      "change": -1.5128,
+      "signals": [
+        {
+          "type": "price_drop",
+          "value": -1.5128,
+          "reason": "Drop: -1.5%"
+        }
+      ],
+      "prediction_score": 15,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "POWERGRID.BSE",
+      "name": "POWERGRID",
+      "price": 272.3,
+      "change": 2.6579,
       "signals": [
         {
           "type": "price_rally",
-          "value": 1.1136,
-          "reason": "Rally: +1.1%"
+          "value": 2.6579,
+          "reason": "Rally: +2.7%"
         },
         {
           "type": "volatility",
-          "value": 2.4904580152671816,
-          "reason": "Range: 2.5%"
+          "value": 4.110105580693808,
+          "reason": "Range: 4.1%"
         }
       ],
       "prediction_score": 25,

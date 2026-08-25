@@ -1,0 +1,45 @@
+---
+topic: content
+date: 2026-08-24
+tags: []
+---
+
+# Neuro1 Posts
+
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+{
+  "count": 2,
+  "posts": [
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2026-06-11T21:51:07.000Z",
+      "text": "Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with #EmbolicStroke of undetermined source. Listen now: https://hubs.la/Q04l5L0Q0 \n#Stroke",
+      "url": "https://x.com/GreenJournal/status/2065190115090042937",
+      "likes": null,
+      "replies": 26234300,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    },
+    {
+      "name": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "postDate": "2026-08-21T18:09:24.000Z",
+      "text": "IV thrombolysis in the extended time window for acute ischemic stroke was associated with improved functional outcomes without increased mortality, supporting its use in selected patients despite a higher rate of symptomatic intracranial hemorrhage: https://hubs.la/Q04tRytk0",
+      "url": "https://x.com/GreenJournal/status/2090863858046902696",
+      "likes": null,
+      "replies": 114363900,
+      "reposts": null,
+      "bookmarks": null,
+      "views": null
+    }
+  ]
+}
