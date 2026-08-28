@@ -1,0 +1,80 @@
+---
+topic: daily
+date: 2026-08-28
+tags: []
+---
+
+# Neuro Query1
+
+{
+  "ok": true,
+  "targetId": "3989443E681B1C5B721B6AB57DC8B7EA",
+  "url": "https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query&f=top&since:today",
+  "result": [
+    {
+      "index": 0,
+      "author": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "date": "2026-01-13T14:50:52.000Z",
+      "text": "Class II evidence that in patients with #stroke due to anterior circulation tandem lesions, emergent carotid stenting during endovascular thrombectomy (EVT) improves 90-day functional outcomes compared with EVT alone: \nhttps://\nhubs.ly/Q03-nPPH0\n\n \n@micheleromoli\n \n@ZiniAndrea",
+      "url": "https://x.com/GreenJournal/status/2011088563245371511",
+      "replies": 1,
+      "retweets": 11,
+      "likes": 20,
+      "bookmarks": 0,
+      "views": 1600
+    },
+    {
+      "index": 1,
+      "author": "Shadi Yaghi",
+      "handle": "@ShadiYaghi2",
+      "date": "2026-08-27T00:31:55.000Z",
+      "text": "Join us for this FREE stroke symposium featuring a terrific line up of speakers discussing what’s new in the stroke world. #stroke #meded \nhttps://\nevents.hackensackmeridianhealth.org/event/fallstro\nke2026/summary\n…",
+      "url": "https://x.com/ShadiYaghi2/status/2092772058312659305",
+      "replies": 0,
+      "retweets": 0,
+      "likes": 9,
+      "bookmarks": 0,
+      "views": 1000
+    },
+    {
+      "index": 2,
+      "author": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "date": "2025-05-05T14:09:55.000Z",
+      "text": "Endovascular Thrombectomy for Large Ischemic Core Stroke: A Systematic Review and Meta-Analysis of Randomized Controlled Trials\n\nhttps://\nhubs.la/Q03kXKJv0",
+      "url": "https://x.com/GreenJournal/status/1919394130108559480",
+      "replies": 2,
+      "retweets": 13,
+      "likes": 32,
+      "bookmarks": 0,
+      "views": 3700
+    },
+    {
+      "index": 3,
+      "author": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "date": "2026-08-21T18:09:24.000Z",
+      "text": "IV thrombolysis in the extended time window for acute ischemic stroke was associated with improved functional outcomes without increased mortality, supporting its use in selected patients despite a higher rate of symptomatic intracranial hemorrhage: \nhttps://\nhubs.la/Q04tRytk0",
+      "url": "https://x.com/GreenJournal/status/2090863858046902696",
+      "replies": 1,
+      "retweets": 16,
+      "likes": 41,
+      "bookmarks": 0,
+      "views": 5200
+    },
+    {
+      "index": 4,
+      "author": "JNIS",
+      "handle": "@JNIS_BMJ",
+      "date": "2025-04-27T08:39:05.000Z",
+      "text": "Mechanical thrombectomy for DMVOs is gaining traction!  In a multicenter study of 102 patients, the RED 43 catheter was found to be safe and effective for distal aspiration. \nhttps://\nbit.ly/4jNHWFE \n@Nickkhat\n \n#Stroke #DMVO #Thrombectomy #EndovascularTherapy #NeuroIR",
+      "url": "https://x.com/JNIS_BMJ/status/1916411768399671578",
+      "replies": 0,
+      "retweets": 18,
+      "likes": 47,
+      "bookmarks": 0,
+      "views": 5700
+    }
+  ]
+}

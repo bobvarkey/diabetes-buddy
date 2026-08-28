@@ -1996,3 +1996,53 @@ Top Movers:
   Gainers: POWERGRID.BSE:+2.7%, AARTIIND.BSE:+1.0%, RELIANCE.BSE:+-0.1%
   Losers: MARUTI.BSE:-1.5%, GODREJCP.BSE:-1.2%, EICHERMOT.BSE:-0.7%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ SBIN: ₹1047.00 (+0.87%)
+  ✅ BHARTIARTL: ₹1942.00 (+0.28%)
+  ✅ HINDUNILVR: ₹2024.00 (-0.15%)
+  ✅ COLPAL: ₹1877.00 (-0.69%)
+  ✅ TITAN: ₹5115.00 (+0.98%)
+  ✅ LT: ₹4116.40 (+0.76%)
+  ✅ KOTAKBANK: ₹402.00 (+0.11%)
+  ✅ PIDILITIND: ₹1658.90 (+0.05%)
+  ✅ MFSL: ₹1586.00 (+1.11%)
+  ⚠️ DEEPAKNTR: Failed
+
+=======================================================
+MARKET SCAN - 2026-08-26 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 9 stocks | Opportunities: 2
+
+
+Top Movers:
+  Gainers: MFSL.BSE:+1.1%, TITAN.BSE:+1.0%, SBIN.BSE:+0.9%
+  Losers: COLPAL.BSE:-0.7%, HINDUNILVR.BSE:-0.1%, PIDILITIND.BSE:0.1%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ ADANIPOWER: ₹207.35 (+0.51%)
+  ✅ CONCOR: ₹514.80 (+0.29%)
+  ✅ AARTIIND: ₹542.65 (+0.71%)
+  ✅ GODREJCP: ₹927.00 (+0.73%)
+  ✅ BAJAJ-AUTO: ₹11750.00 (-1.46%)
+  ⚠️ DEEPAKNTR: Failed
+  ✅ MARUTI: ₹13528.00 (-0.89%)
+  ✅ POWERGRID: ₹266.00 (-1.48%)
+  ✅ CIPLA: ₹1408.40 (-0.82%)
+  ✅ RELIANCE: ₹1299.00 (-1.04%)
+
+=======================================================
+MARKET SCAN - 2026-08-27 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 9 stocks | Opportunities: 6
+
+
+Top Movers:
+  Gainers: GODREJCP.BSE:+0.7%, AARTIIND.BSE:+0.7%, ADANIPOWER.BSE:+0.5%
+  Losers: POWERGRID.BSE:-1.5%, BAJAJ-AUTO.BSE:-1.5%, RELIANCE.BSE:-1.0%
+=======================================================

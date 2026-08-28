@@ -1,37 +1,47 @@
 {
-  "scan_date": "2026-08-24T08:00:18.187410",
-  "stocks_scanned": 8,
+  "scan_date": "2026-08-27T08:00:20.530262",
+  "stocks_scanned": 9,
   "opportunities": [
     {
-      "ticker": "AARTIIND.BSE",
-      "name": "AARTIIND",
-      "price": 526.8,
-      "change": 1.0163,
+      "ticker": "ADANIPOWER.BSE",
+      "name": "ADANIPOWER",
+      "price": 207.35,
+      "change": 0.509,
       "signals": [
         {
-          "type": "price_rally",
-          "value": 1.0163,
-          "reason": "Rally: +1.0%"
-        },
-        {
           "type": "volatility",
-          "value": 3.3262630158118007,
-          "reason": "Range: 3.3%"
+          "value": 3.3574879227053085,
+          "reason": "Range: 3.4%"
         }
       ],
-      "prediction_score": 25,
+      "prediction_score": 10,
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "GODREJCP.BSE",
-      "name": "GODREJCP",
-      "price": 931.95,
-      "change": -1.198,
+      "ticker": "AARTIIND.BSE",
+      "name": "AARTIIND",
+      "price": 542.65,
+      "change": 0.7146,
+      "signals": [
+        {
+          "type": "volatility",
+          "value": 2.3042320756449013,
+          "reason": "Range: 2.3%"
+        }
+      ],
+      "prediction_score": 10,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "BAJAJ-AUTO.BSE",
+      "name": "BAJAJ-AUTO",
+      "price": 11750.0,
+      "change": -1.4592,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.198,
-          "reason": "Drop: -1.2%"
+          "value": -1.4592,
+          "reason": "Drop: -1.5%"
         }
       ],
       "prediction_score": 15,
@@ -40,12 +50,27 @@
     {
       "ticker": "MARUTI.BSE",
       "name": "MARUTI",
-      "price": 13580.0,
-      "change": -1.5128,
+      "price": 13528.0,
+      "change": -0.8938,
+      "signals": [
+        {
+          "type": "volatility",
+          "value": 2.2961086396177817,
+          "reason": "Range: 2.3%"
+        }
+      ],
+      "prediction_score": 10,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "POWERGRID.BSE",
+      "name": "POWERGRID",
+      "price": 266.0,
+      "change": -1.4815,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.5128,
+          "value": -1.4815,
           "reason": "Drop: -1.5%"
         }
       ],
@@ -53,23 +78,18 @@
       "recommendation": "NEUTRAL"
     },
     {
-      "ticker": "POWERGRID.BSE",
-      "name": "POWERGRID",
-      "price": 272.3,
-      "change": 2.6579,
+      "ticker": "RELIANCE.BSE",
+      "name": "RELIANCE",
+      "price": 1299.0,
+      "change": -1.0361,
       "signals": [
         {
-          "type": "price_rally",
-          "value": 2.6579,
-          "reason": "Rally: +2.7%"
-        },
-        {
-          "type": "volatility",
-          "value": 4.110105580693808,
-          "reason": "Range: 4.1%"
+          "type": "price_drop",
+          "value": -1.0361,
+          "reason": "Drop: -1.0%"
         }
       ],
-      "prediction_score": 25,
+      "prediction_score": 15,
       "recommendation": "NEUTRAL"
     }
   ],

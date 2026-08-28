@@ -1,0 +1,270 @@
+---
+topic: daily
+date: 2026-08-26
+tags: []
+---
+
+# X Neuro Search 1
+
+{
+  "ok": true,
+  "format": "ai",
+  "targetId": "1CE5B8465FE77D2D0F811AB642FABFD4",
+  "url": "https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query&f=top&since:today",
+  "snapshot": "- document:\n  - heading \"To view keyboard shortcuts, press question mark View keyboard shortcuts\" [ref=e1] [level=2]:\n    - text: To view keyboard shortcuts, press question mark\n    - link \"View keyboard shortcuts\" [ref=e2]:\n      - /url: /i/keyboard_shortcuts\n  - button \"Skip to home timeline\" [ref=e3]\n  - button \"Skip to trending\" [ref=e4]\n  - banner:\n    - heading \"X\" [ref=e5] [level=1]:\n      - link \"X\" [ref=e6]:\n        - /url: /home\n    - navigation \"Primary\" [ref=e7]:\n      - link \"Home\" [ref=e8]:\n        - /url: /home\n      - link \"Search and explore\" [ref=e9]:\n        - /url: /explore\n      - link \"Notifications\" [ref=e10]:\n        - /url: /notifications\n      - link \"Follow\" [ref=e11]:\n        - /url: /i/connect_people\n      - link \"Direct Messages\" [ref=e12]:\n        - /url: /i/chat\n      - link \"Grok\" [ref=e13]:\n        - /url: /i/grok\n      - link \"Profile\" [ref=e14]:\n        - /url: /Cognito2026\n      - button \"More menu items\" [ref=e15]\n    - link \"Post\" [ref=e16]:\n      - /url: /compose/post\n    - button \"Account menu\" [ref=e17]:\n      - img \"Cognito\"\n  - main:\n    - button \"Back\" [ref=e18]\n    - search \"Search\":\n      - combobox \"Search query\" [ref=e19]: \"neurointervention OR thrombectomy OR #Neurointervention OR #stroke\"\n    - button \"More\" [ref=e20]\n    - navigation:\n      - button \"Previous\" [ref=e21] [disabled]\n      - tablist:\n        - tab \"Top\" [ref=e22] [selected]\n        - tab \"Latest\" [ref=e23]\n        - tab \"People\" [ref=e24]\n        - tab \"Media\" [ref=e25]\n        - tab \"Lists\" [ref=e26]\n      - button \"Next\" [ref=e27] [disabled]\n    - status\n    - region \"Search timeline\" [ref=e28]:\n      - heading \"Search timeline\" [ref=e29] [level=1]\n      - 'article \"Neurology Journal @GreenJournal Aug 21 IV thrombolysis in the extended time window for acute ischemic stroke was associated with improved functional outcomes without increased mortality, supporting its use in selected patients despite a higher rate of symptomatic intracranial hemorrhage: hubs.la/Q04tRytk0 Image 1 reply, 16 reposts, 41 likes, 15 bookmarks, 5028 views\"':\n        - link \"Neurology Journal\" [ref=e30]:\n          - /url: /GreenJournal\n        - link \"@GreenJournal\" [ref=e31]:\n          - /url: /GreenJournal\n        - link \"Aug 21\" [ref=e32]:\n          - /url: /GreenJournal/status/2090863858046902696\n          - time: Aug 21\n        - button \"Grok actions\" [ref=e33]\n        - button \"More\" [ref=e34] [nth=1]\n        - text: \"IV thrombolysis in the extended time window for acute ischemic stroke was associated with improved functional outcomes without increased mortality, supporting its use in selected patients despite a higher rate of symptomatic intracranial hemorrhage:\"\n        - link \"hubs.la/Q04tRytk0\" [ref=e35]:\n          - /url: https://t.co/G325KDB9ZU\n        - link \"Image\" [ref=e36]:\n          - /url: /GreenJournal/status/2090863858046902696/photo/1\n          - img \"Image\"\n        - group \"1 reply, 16 reposts, 41 likes, 15 bookmarks, 5028 views\":\n          - button \"1 Reply. Reply\" [ref=e37]: \"1\"\n          - button \"16 reposts. Repost\" [ref=e38]: \"16\"\n          - button \"41 Likes. Like\" [ref=e39]: \"41\"\n          - link \"5028 views. View post analytics\" [ref=e40]:\n            - /url: /GreenJournal/status/2090863858046902696/analytics\n            - text: 5K\n          - button \"Bookmark\" [ref=e41]\n          - button \"Share post\" [ref=e42]\n      - 'article \"Neurology Journal @GreenJournal Aug 20 This study found that fewer than 1 in 4 patients with #stroke and fewer than 1 in 7 patients with #TBI receive IRF care, with significant disparities among racial and ethnic minority groups, publicly insured patients, and those from lower-income areas: hubs.la/Q04tDXft0 Image 2 reposts, 5 likes, 2478 views\"':\n        - link \"Neurology Journal\" [ref=e43] [nth=1]:\n          - /url: /GreenJournal\n        - link \"@GreenJournal\" [ref=e44] [nth=1]:\n          - /url: /GreenJournal\n        - link \"Aug 20\" [ref=e45]:\n          - /url: /GreenJournal/status/2090470336605106410\n          - time: Aug 20\n        - button \"Grok actions\" [ref=e46] [nth=1]\n        - button \"More\" [ref=e47] [nth=2]\n        - text: This study found that fewer than 1 in 4 patients with\n        - link \"#stroke\" [ref=e48]:\n          - /url: /hashtag/stroke?src=hashtag_click\n        - text: and fewer than 1 in 7 patients with\n        - link \"#TBI\" [ref=e49]:\n          - /url: /hashtag/TBI?src=hashtag_click\n        - text: \"receive IRF care, with significant disparities among racial and ethnic minority groups, publicly insured patients, and those from lower-income areas:\"\n        - link \"hubs.la/Q04tDXft0\" [ref=e50]:\n          - /url: https://t.co/qbEjgGTTqX\n        - link \"Image\" [ref=e51] [nth=1]:\n          - /url: /GreenJournal/status/2090470336605106410/photo/1\n          - img \"Image\"\n        - group \"2 reposts, 5 likes, 2478 views\":\n          - button \"0 Replies. Reply\" [ref=e52]\n          - button \"2 reposts. Repost\" [ref=e53]: \"2\"\n          - button \"5 Likes. Like\" [ref=e54]: \"5\"\n          - link \"2478 views. View post analytics\" [ref=e55]:\n            - /url: /GreenJournal/status/2090470336605106410/analytics\n            - text: 2.4K\n          - button \"Bookmark\" [ref=e56] [nth=1]\n          - button \"Share post\" [ref=e57] [nth=1]\n  - region \"Notifications alt+T\" [ref=e58]\n\nLinks:\n1. View keyboard shortcuts -> https://x.com/i/keyboard_shortcuts\n2. X -> https://x.com/home\n3. Search and explore -> https://x.com/explore\n4. Notifications -> https://x.com/notifications\n5. Follow -> https://x.com/i/connect_people\n6. Direct Messages -> https://x.com/i/chat\n7. Grok -> https://x.com/i/grok\n8. Profile -> https://x.com/Cognito2026\n9. Post -> https://x.com/compose/post\n10. Top -> https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query\n11. Latest -> https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query&f=live\n12. People -> https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query&f=user\n13. Media -> https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query&f=media\n14. Lists -> https://x.com/search?q=neurointervention%20OR%20thrombectomy%20OR%20%23Neurointervention%20OR%20%23stroke&src=typed_query&f=list\n15. https://x.com/GreenJournal -> https://x.com/GreenJournal\n16. Aug 21 -> https://x.com/GreenJournal/status/2090863858046902696\n17. https://hubs.la/Q04tRytk0 -> https://t.co/G325KDB9ZU\n18. https://x.com/GreenJournal/status/2090863858046902696/photo/1 -> https://x.com/GreenJournal/status/2090863858046902696/photo/1\n19. 5K -> https://x.com/GreenJournal/status/2090863858046902696/analytics\n20. Aug 20 -> https://x.com/GreenJournal/status/2090470336605106410\n21. #stroke -> https://x.com/hashtag/stroke?src=hashtag_click\n22. #TBI -> https://x.com/hashtag/TBI?src=hashtag_click\n23. https://hubs.la/Q04tDXft0 -> https://t.co/qbEjgGTTqX\n24. https://x.com/GreenJournal/status/2090470336605106410/photo/1 -> https://x.com/GreenJournal/status/2090470336605106410/photo/1\n25. 2.4K -> https://x.com/GreenJournal/status/2090470336605106410/analytics",
+  "refs": {
+    "e1": {
+      "role": "heading",
+      "name": "To view keyboard shortcuts, press question mark View keyboard shortcuts"
+    },
+    "e2": {
+      "role": "link",
+      "name": "View keyboard shortcuts"
+    },
+    "e3": {
+      "role": "button",
+      "name": "Skip to home timeline"
+    },
+    "e4": {
+      "role": "button",
+      "name": "Skip to trending"
+    },
+    "e5": {
+      "role": "heading",
+      "name": "X"
+    },
+    "e6": {
+      "role": "link",
+      "name": "X"
+    },
+    "e7": {
+      "role": "navigation",
+      "name": "Primary"
+    },
+    "e8": {
+      "role": "link",
+      "name": "Home"
+    },
+    "e9": {
+      "role": "link",
+      "name": "Search and explore"
+    },
+    "e10": {
+      "role": "link",
+      "name": "Notifications"
+    },
+    "e11": {
+      "role": "link",
+      "name": "Follow"
+    },
+    "e12": {
+      "role": "link",
+      "name": "Direct Messages"
+    },
+    "e13": {
+      "role": "link",
+      "name": "Grok"
+    },
+    "e14": {
+      "role": "link",
+      "name": "Profile"
+    },
+    "e15": {
+      "role": "button",
+      "name": "More menu items"
+    },
+    "e16": {
+      "role": "link",
+      "name": "Post"
+    },
+    "e17": {
+      "role": "button",
+      "name": "Account menu"
+    },
+    "e18": {
+      "role": "button",
+      "name": "Back"
+    },
+    "e19": {
+      "role": "combobox",
+      "name": "Search query"
+    },
+    "e20": {
+      "role": "button",
+      "name": "More",
+      "nth": 0
+    },
+    "e21": {
+      "role": "button",
+      "name": "Previous"
+    },
+    "e22": {
+      "role": "tab",
+      "name": "Top"
+    },
+    "e23": {
+      "role": "tab",
+      "name": "Latest"
+    },
+    "e24": {
+      "role": "tab",
+      "name": "People"
+    },
+    "e25": {
+      "role": "tab",
+      "name": "Media"
+    },
+    "e26": {
+      "role": "tab",
+      "name": "Lists"
+    },
+    "e27": {
+      "role": "button",
+      "name": "Next"
+    },
+    "e28": {
+      "role": "region",
+      "name": "Search timeline"
+    },
+    "e29": {
+      "role": "heading",
+      "name": "Search timeline"
+    },
+    "e30": {
+      "role": "link",
+      "name": "Neurology Journal",
+      "nth": 0
+    },
+    "e31": {
+      "role": "link",
+      "name": "@GreenJournal",
+      "nth": 0
+    },
+    "e32": {
+      "role": "link",
+      "name": "Aug 21"
+    },
+    "e33": {
+      "role": "button",
+      "name": "Grok actions",
+      "nth": 0
+    },
+    "e34": {
+      "role": "button",
+      "name": "More",
+      "nth": 1
+    },
+    "e35": {
+      "role": "link",
+      "name": "hubs.la/Q04tRytk0"
+    },
+    "e36": {
+      "role": "link",
+      "name": "Image",
+      "nth": 0
+    },
+    "e37": {
+      "role": "button",
+      "name": "1 Reply. Reply"
+    },
+    "e38": {
+      "role": "button",
+      "name": "16 reposts. Repost"
+    },
+    "e39": {
+      "role": "button",
+      "name": "41 Likes. Like"
+    },
+    "e40": {
+      "role": "link",
+      "name": "5028 views. View post analytics"
+    },
+    "e41": {
+      "role": "button",
+      "name": "Bookmark",
+      "nth": 0
+    },
+    "e42": {
+      "role": "button",
+      "name": "Share post",
+      "nth": 0
+    },
+    "e43": {
+      "role": "link",
+      "name": "Neurology Journal",
+      "nth": 1
+    },
+    "e44": {
+      "role": "link",
+      "name": "@GreenJournal",
+      "nth": 1
+    },
+    "e45": {
+      "role": "link",
+      "name": "Aug 20"
+    },
+    "e46": {
+      "role": "button",
+      "name": "Grok actions",
+      "nth": 1
+    },
+    "e47": {
+      "role": "button",
+      "name": "More",
+      "nth": 2
+    },
+    "e48": {
+      "role": "link",
+      "name": "#stroke"
+    },
+    "e49": {
+      "role": "link",
+      "name": "#TBI"
+    },
+    "e50": {
+      "role": "link",
+      "name": "hubs.la/Q04tDXft0"
+    },
+    "e51": {
+      "role": "link",
+      "name": "Image",
+      "nth": 1
+    },
+    "e52": {
+      "role": "button",
+      "name": "0 Replies. Reply"
+    },
+    "e53": {
+      "role": "button",
+      "name": "2 reposts. Repost"
+    },
+    "e54": {
+      "role": "button",
+      "name": "5 Likes. Like"
+    },
+    "e55": {
+      "role": "link",
+      "name": "2478 views. View post analytics"
+    },
+    "e56": {
+      "role": "button",
+      "name": "Bookmark",
+      "nth": 1
+    },
+    "e57": {
+      "role": "button",
+      "name": "Share post",
+      "nth": 1
+    },
+    "e58": {
+      "role": "region",
+      "name": "Notifications alt+T"
+    }
+  },
+  "stats": {
+    "lines": 132,
+    "chars": 7257,
+    "refs": 58,
+    "interactive": 52
+  }
+}

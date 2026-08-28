@@ -1,72 +1,71 @@
-# X/Twitter Neurology News Scrape
+# X Neurology News Scrape
 
-**Date:** August 25, 2026
-**Source:** Web Search (X/Twitter alternative due to browser tool limitation)
-**Search Terms:** neurology OR #neurotwitter OR #Neurology
-
----
-
-## Top Neurology News (Breaking/High Engagement)
-
-### 🔴 BREAKING NEWS
-
-#### 1. FDA Clears PrecivityAD2 - Alzheimer's Blood Test
-- **Source:** Healio / WashU Medicine
-- **Summary:** FDA cleared PrecivityAD2, a single blood test for Alzheimer's disease detection as early as age 40
-- **Engagement:** HIGH (major regulatory news)
-- **URL:** https://www.healio.com/news/neurology/20260821/fda-clears-precivityad2-alzheimers-disease-blood-test-as-early-as-age-40-years
-
-#### 2. Long-Term Stroke Thrombectomy Benefits Confirmed
-- **Source:** Northwestern Medicine
-- **Summary:** Study finds long-term benefits of stroke thrombectomy (1-year follow-up data)
-- **Engagement:** HIGH (clinical practice changing)
-- **URL:** https://news.feinberg.northwestern.edu/2026/08/21/study-finds-long-term-benefits-of-stroke-thrombectomy/
-
-#### 3. AI Brain Age Predicts Dementia Risk Years Ahead
-- **Source:** Medical Xpress
-- **Summary:** AI-calculated brain age can predict dementia risk years before clinical diagnosis
-- **Engagement:** HIGH (innovation/newsworthy)
-- **URL:** https://medicalxpress.com/news/2026-08-ai-brain-age-dementia-years.html
+**Date:** 2026-08-27 (scheduled file name 2026-05-22)  
+**Query:** `neurology OR #neurotwitter OR #NeuroX`  
+**Source:** https://x.com/search?q=neurology%20OR%20%23neurotwitter%20OR%20%23NeuroX&src=typed_query&f=top&since:today  
+**Scraped at:** 2026-08-27 21:00 IST (15:30 UTC)  
+**Browser profile:** openclaw
 
 ---
 
-### Other Notable Neurology News
+## Summary
 
-#### 4. Estrogen Therapy & Alzheimer's Risk
-- **Source:** Stanford Medicine
-- **Summary:** Study ties estrogen-based menopausal hormone therapy to lower Alzheimer's risk
-- **URL:** https://med.stanford.edu/news/all-news/2026/08/study-ties-estrogen-based-menopausal-hormone-therapy-to-lower-alzheimers-risk.html
-
-#### 5. Parkinson's Treatment Breakthrough
-- **Source:** UT Southwestern
-- **Summary:** Brain activity discovery could transform Parkinson's treatment - new details about electrophysiological signals
-- **URL:** https://www.utsouthwestern.edu/newsroom/articles/year-2026/aug-brain-activity-parkinsons-treatment.html
-
-#### 6. Brain Cell Formation & Depression
-- **Source:** Columbia University / Medical Xpress
-- **Summary:** New brain cell formation stalls in adults with depression
-- **URL:** https://medicalxpress.com/news/2026-08-brain-cell-formation-stalls-adults.html
-
-#### 7. Bipolar Depression Treatment
-- **Source:** VCH Research Institute
-- **Summary:** New possible treatment for severe bipolar depression discovered
-- **URL:** https://www.vchri.ca/stories/2026/08/23/new-possible-treatment-severe-bipolar-depression
-
-#### 8. Global TBI Causes Study
-- **Source:** OHSU News
-- **Summary:** Causes of traumatic brain injury vary widely worldwide - first global study
-- **URL:** https://news.ohsu.edu/2026/08/19/causes-of-traumatic-brain-injury-vary-widely-worldwide-study-finds
+Only **2 posts** were visible on the Top feed for this query with the `since:today` filter.  
+**No posts exceeded 100 likes.**  
+**No breaking-news posts detected.**  
 
 ---
 
-## #NeuroTwitter Community Highlights
+## Top Posts
 
-- **@NeurologyToday** - Official AAN news source (65K+ followers)
-- Active hashtag: #neurologymatch2026 for residency matching discussions
-- Academic discussions continuing on #NeuroTwitter
+### 1. Neurology Journal — #NeurologyRF quiz
+
+- **Author:** Neurology Journal  
+- **@Handle:** @GreenJournal  
+- **Time:** 2h (posted ~2026-08-27 18:00 IST / 11:30 UTC)  
+- **Text:**  
+  > Fire up your synapses for the latest #NeurologyRF quiz!  
+  > Embedded video (1:03).
+- **URL:** https://x.com/GreenJournal/status/2092954011750048247  
+- **Engagement:**
+  - Replies: 1
+  - Reposts: 0 (shown as “0 reposts” in accessibility tree)
+  - Likes: 1
+  - Views: 699
+  - Bookmarks: 1
+- **Flags:** None (>100 likes ❌; breaking news ❌)
+
+### 2. Neurology Journal — MS disease-modifying therapy sequencing review
+
+- **Author:** Neurology Journal  
+- **@Handle:** @GreenJournal  
+- **Time:** Aug 25  
+- **Text:**  
+  > This narrative review synthesizes mechanistic insights and real-world clinical evidence to guide sequencing strategies for disease-modifying therapies in multiple sclerosis.  
+  > Link: hubs.la/Q04rd8Mh0 (redirects via https://t.co/dKK78R7y20)
+- **URL:** https://x.com/GreenJournal/status/2092250346064060677  
+- **Engagement:**
+  - Replies: 1
+  - Reposts: 13
+  - Likes: 43
+  - Views: 3,586 (shown as “3.5K”)
+  - Bookmarks: 22
+- **Flags:** Highest engagement in scrape, but still below 100 likes (>100 likes ❌; breaking news ❌)
 
 ---
 
-**Note:** Browser automation was unavailable (Node.js version requirement). News sourced via web search as alternative method.
+## Flagged Items
 
-*Scraped: 2026-08-25 03:00 IST*
+| Flag | Post # | Details |
+|------|--------|---------|
+| >100 likes | — | No posts crossed the 100-like threshold. |
+| Breaking news | — | No posts appeared to be breaking clinical news; both are educational/quiz and review-article promotion. |
+
+---
+
+## Notes
+
+- Feed was captured on the **Top** tab with `since:today` filter.
+- Screenshot saved at: `~/.openclaw/media/browser/4c0e6435-ccc4-4fd4-aef6-a09592221e43.jpg`
+- Only two posts rendered in the viewport; rest of the timeline showed blank/white space (likely end of available results for this exact query/filter combination).
+- Engagement counts are as reported by X at the time of scraping and may change.

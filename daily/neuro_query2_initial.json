@@ -1,0 +1,41 @@
+---
+topic: daily
+date: 2026-08-28
+tags: []
+---
+
+# Neuro Query2 Initial
+
+{
+  "ok": true,
+  "targetId": "AC68917F33F304E3BA9F3029D366A0EE",
+  "url": "https://x.com/search?q=cerebral%20AVM%20OR%20intracranial%20aneurysm%20OR%20endovascular&src=typed_query&f=top&since:today",
+  "result": [
+    {
+      "index": 0,
+      "author": "Neurology Journal",
+      "handle": "@GreenJournal",
+      "date": "2022-02-10T19:00:32.000Z",
+      "text": "Patients and caregivers, learn more about #stroke and endovascular therapy with this interactive infographic from the #Neurology Patient Page: \nhttp://\nbit.ly/3GAVhx4",
+      "url": "https://x.com/GreenJournal/status/1491849583290466315",
+      "replies": 0,
+      "retweets": 5,
+      "likes": 8,
+      "bookmarks": 0,
+      "views": 0
+    },
+    {
+      "index": 1,
+      "author": "They Keep Saying Its Rare",
+      "handle": "@mRNAdeaths",
+      "date": "2024-08-02T20:50:55.000Z",
+      "text": "Healthy 44 year old woman\nIntracranial aneurysm rupture 4 hours after 2nd dose of #Pfizer #mRNA vaccine.\n\nhttps://\ntinyurl.com/yme7vffa",
+      "url": "https://x.com/mRNAdeaths/status/1819475993805181346",
+      "replies": 3,
+      "retweets": 112,
+      "likes": 153,
+      "bookmarks": 0,
+      "views": 7700
+    }
+  ]
+}

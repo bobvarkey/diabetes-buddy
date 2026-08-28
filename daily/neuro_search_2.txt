@@ -1,0 +1,354 @@
+---
+topic: daily
+date: 2026-08-26
+tags: []
+---
+
+# Neuro Search 2
+
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (8 unread notifications)" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "8 unread items" [ref=e42]:
+                        - generic [ref=e43]: "8"
+                  - link "Follow" [ref=e44] [cursor=pointer]:
+                    - /url: /i/connect_people
+                    - img [ref=e47]
+                  - link "Direct Messages" [ref=e50] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e53]
+                  - link "Grok" [ref=e56] [cursor=pointer]:
+                    - /url: /i/grok
+                    - generic [ref=e58]:
+                      - img [ref=e59]
+                      - generic "undefined unread items" [ref=e62]
+                  - link "Profile" [ref=e63] [cursor=pointer]:
+                    - /url: /Cognito2026
+                    - img [ref=e66]
+                  - button "More menu items" [ref=e69] [cursor=pointer]:
+                    - img [ref=e72]
+                - link "Post" [ref=e76] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e78]
+              - button "Account menu" [ref=e84] [cursor=pointer]:
+                - generic [ref=e92]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Cognito":
+                          - img "Cognito"
+          - main [ref=e95]:
+            - generic "Home timeline" [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - generic [ref=e107]:
+                    - button "Back" [ref=e109] [cursor=pointer]:
+                      - img [ref=e111]
+                    - search "Search" [ref=e119]:
+                      - generic [ref=e124]:
+                        - img [ref=e126]
+                        - combobox "Search query" [ref=e131]: cerebral AVM OR intracranial aneurysm OR endovascular
+                    - button "More" [ref=e133] [cursor=pointer]:
+                      - img [ref=e135]
+                  - navigation [ref=e139]:
+                    - generic [ref=e140]:
+                      - generic:
+                        - button "Previous" [disabled]:
+                          - generic:
+                            - img
+                      - tablist [ref=e142]:
+                        - tab "Top" [selected] [ref=e143] [cursor=pointer]:
+                          - generic [ref=e146]: Top
+                        - tab "Latest" [ref=e148] [cursor=pointer]:
+                          - generic [ref=e151]: Latest
+                        - tab "People" [ref=e152] [cursor=pointer]:
+                          - generic [ref=e155]: People
+                        - tab "Media" [ref=e156] [cursor=pointer]:
+                          - generic [ref=e159]: Media
+                        - tab "Lists" [ref=e160] [cursor=pointer]:
+                          - generic [ref=e163]: Lists
+                      - generic:
+                        - button "Next" [disabled]:
+                          - generic:
+                            - img
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "Search timeline" [ref=e165]:
+                - heading "Search timeline" [level=1] [ref=e166]
+                - 'generic "Timeline: Search timeline" [ref=e167]':
+                  - generic [ref=e168]:
+                    - 'article "Neurology Journal @GreenJournal Aug 30, 2025 Endovascular Treatment in Acute Ischemic Stroke Due to Occlusion of Medium or Distal Vessels: A Systematic Review and Meta-Analysis hubs.ly/Q03GgWhH0 Image 17 reposts, 46 likes, 12 bookmarks, 3387 views" [ref=e172] [cursor=pointer]':
+                      - generic [ref=e178]:
+                        - link [ref=e190]:
+                          - /url: /GreenJournal
+                        - generic [ref=e193]:
+                          - generic [ref=e195]:
+                            - generic [ref=e198]:
+                              - link "Neurology Journal" [ref=e201]:
+                                - /url: /GreenJournal
+                                - generic [ref=e204]: Neurology Journal
+                              - generic [ref=e206]:
+                                - link "@GreenJournal" [ref=e208]:
+                                  - /url: /GreenJournal
+                                  - generic [ref=e209]: "@GreenJournal"
+                                - generic [ref=e210]: ·
+                                - link "Aug 30, 2025" [ref=e212]:
+                                  - /url: /GreenJournal/status/1961791252703138228
+                                  - time [ref=e213]: Aug 30, 2025
+                            - generic [ref=e215]:
+                              - button "Grok actions" [ref=e217]:
+                                - img [ref=e222]
+                              - button "More" [ref=e228]:
+                                - img [ref=e232]
+                          - generic [ref=e236]:
+                            - text: "Endovascular Treatment in Acute Ischemic Stroke Due to Occlusion of Medium or Distal Vessels: A Systematic Review and Meta-Analysis"
+                            - link "hubs.ly/Q03GgWhH0" [ref=e237]:
+                              - /url: https://t.co/grx6qUOufm
+                          - link "Image" [ref=e245]:
+                            - /url: /GreenJournal/status/1961791252703138228/photo/1
+                            - generic "Image" [ref=e249]:
+                              - img "Image" [ref=e251]
+                          - group "17 reposts, 46 likes, 12 bookmarks, 3387 views" [ref=e254]:
+                            - button "0 Replies. Reply" [ref=e256]:
+                              - img [ref=e260]
+                            - button "17 reposts. Repost" [ref=e267]:
+                              - generic [ref=e268]:
+                                - img [ref=e271]
+                                - generic [ref=e276]: "17"
+                            - button "46 Likes. Like" [ref=e278]:
+                              - generic [ref=e279]:
+                                - img [ref=e282]
+                                - generic [ref=e287]: "46"
+                            - link "3387 views. View post analytics" [ref=e289]:
+                              - /url: /GreenJournal/status/1961791252703138228/analytics
+                              - generic [ref=e290]:
+                                - img [ref=e293]
+                                - generic [ref=e298]: 3.3K
+                            - button "Bookmark" [ref=e300]:
+                              - img [ref=e304]
+                            - button "Share post" [ref=e309]:
+                              - img [ref=e313]
+                    - 'article "AJNR @TheAJNR 16 hours ago Check #AJNR Fellows’ Journal Choice of the month: ‘The Infundibulum-Aneurysm Conundrum: A Longitudinal Single-Center Analysis’ This retrospective single-center study evaluated the natural history of 665 intracranial arterial outpouchings classified as either unequivocal Previous Image Image Image Image Next 3 reposts, 24 likes, 17 bookmarks, 1603 views" [ref=e319] [cursor=pointer]':
+                      - generic [ref=e325]:
+                        - link [ref=e337]:
+                          - /url: /TheAJNR
+                        - generic [ref=e340]:
+                          - generic [ref=e342]:
+                            - generic [ref=e345]:
+                              - link "AJNR" [ref=e348]:
+                                - /url: /TheAJNR
+                                - generic [ref=e351]: AJNR
+                              - generic [ref=e353]:
+                                - link "@TheAJNR" [ref=e355]:
+                                  - /url: /TheAJNR
+                                  - generic [ref=e356]: "@TheAJNR"
+                                - generic [ref=e357]: ·
+                                - link "16 hours ago" [ref=e359]:
+                                  - /url: /TheAJNR/status/2091895833356624342
+                                  - time [ref=e360]: 16h
+                            - generic [ref=e362]:
+                              - button "Grok actions" [ref=e364]:
+                                - img [ref=e369]
+                              - button "More" [ref=e375]:
+                                - img [ref=e379]
+                          - generic [ref=e382]:
+                            - generic [ref=e383]:
+                              - text: Check
+                              - link "#AJNR" [ref=e385]:
+                                - /url: /hashtag/AJNR?src=hashtag_click
+                              - text: "Fellows’ Journal Choice of the month: ‘The Infundibulum-Aneurysm Conundrum: A Longitudinal Single-Center Analysis’ This retrospective single-center study evaluated the natural history of 665 intracranial arterial outpouchings classified as either unequivocal"
+                            - button "Show more" [ref=e386]
+                          - navigation [ref=e394]:
+                            - generic [ref=e395]:
+                              - generic:
+                                - button "Previous" [disabled]:
+                                  - generic:
+                                    - img
+                              - tablist [ref=e397]:
+                                - link "Image" [ref=e400]:
+                                  - /url: /TheAJNR/status/2091895833356624342/photo/1
+                                  - generic "Image" [ref=e402]:
+                                    - img "Image" [ref=e404]
+                                - link "Image" [ref=e407]:
+                                  - /url: /TheAJNR/status/2091895833356624342/photo/2
+                                  - generic "Image" [ref=e409]:
+                                    - img "Image" [ref=e411]
+                                - link "Image" [ref=e414]:
+                                  - /url: /TheAJNR/status/2091895833356624342/photo/3
+                                  - generic "Image" [ref=e416]:
+                                    - img "Image" [ref=e418]
+                                - link "Image" [ref=e421]:
+                                  - /url: /TheAJNR/status/2091895833356624342/photo/4
+                                  - generic "Image" [ref=e423]:
+                                    - img "Image" [ref=e425]
+                              - generic:
+                                - button "Next" [disabled]:
+                                  - generic:
+                                    - img
+                          - group "3 reposts, 24 likes, 17 bookmarks, 1603 views" [ref=e428]:
+                            - button "0 Replies. Reply" [ref=e430]:
+                              - img [ref=e434]
+                            - button "3 reposts. Repost" [ref=e441]:
+                              - generic [ref=e442]:
+                                - img [ref=e445]
+                                - generic [ref=e450]: "3"
+                            - button "24 Likes. Like" [ref=e452]:
+                              - generic [ref=e453]:
+                                - img [ref=e456]
+                                - generic [ref=e461]: "24"
+                            - link "1603 views. View post analytics" [ref=e463]:
+                              - /url: /TheAJNR/status/2091895833356624342/analytics
+                              - generic [ref=e464]:
+                                - img [ref=e467]
+                                - generic [ref=e472]: 1.6K
+                            - button "Bookmark" [ref=e474]:
+                              - img [ref=e478]
+                            - button "Share post" [ref=e483]:
+                              - img [ref=e487]
+                    - 'article "Neurology Journal @GreenJournal Mar 25, 2025 This study investigated underestimation of the follow-up infarct on DWI by baseline CT perfusion core imaging in patients with acute anterior circulation ischemic stroke caused by large vessel occlusion with complete endovascular reperfusion: hubs.la/Q03cZ5Sf0 Image 2 replies, 12 reposts, 35 likes, 11 bookmarks, 3021 views" [ref=e493] [cursor=pointer]':
+                      - generic [ref=e499]:
+                        - link [ref=e511]:
+                          - /url: /GreenJournal
+                        - generic [ref=e514]:
+                          - generic [ref=e516]:
+                            - generic [ref=e519]:
+                              - link "Neurology Journal" [ref=e522]:
+                                - /url: /GreenJournal
+                                - generic [ref=e525]: Neurology Journal
+                              - generic [ref=e527]:
+                                - link "@GreenJournal" [ref=e529]:
+                                  - /url: /GreenJournal
+                                  - generic [ref=e530]: "@GreenJournal"
+                                - generic [ref=e531]: ·
+                                - link "Mar 25, 2025" [ref=e533]:
+                                  - /url: /GreenJournal/status/1904258402437472586
+                                  - time [ref=e534]: Mar 25, 2025
+                            - generic [ref=e536]:
+                              - button "Grok actions" [ref=e538]:
+                                - img [ref=e543]
+                              - button "More" [ref=e549]:
+                                - img [ref=e553]
+                          - generic [ref=e557]:
+                            - text: "This study investigated underestimation of the follow-up infarct on DWI by baseline CT perfusion core imaging in patients with acute anterior circulation ischemic stroke caused by large vessel occlusion with complete endovascular reperfusion:"
+                            - link "hubs.la/Q03cZ5Sf0" [ref=e558]:
+                              - /url: https://t.co/TbKgsDGUpi
+                          - link "Image" [ref=e566]:
+                            - /url: /GreenJournal/status/1904258402437472586/photo/1
+                            - generic "Image" [ref=e570]:
+                              - img "Image" [ref=e572]
+                          - group "2 replies, 12 reposts, 35 likes, 11 bookmarks, 3021 views" [ref=e575]:
+                            - button "2 Replies. Reply" [ref=e577]:
+                              - generic [ref=e578]:
+                                - img [ref=e581]
+                                - generic [ref=e586]: "2"
+                            - button "12 reposts. Repost" [ref=e588]:
+                              - generic [ref=e589]:
+                                - img [ref=e592]
+                                - generic [ref=e597]: "12"
+                            - button "35 Likes. Like" [ref=e599]:
+                              - generic [ref=e600]:
+                                - img [ref=e603]
+                                - generic [ref=e608]: "35"
+                            - link "3021 views. View post analytics" [ref=e610]:
+                              - /url: /GreenJournal/status/1904258402437472586/analytics
+                              - generic [ref=e611]:
+                                - img [ref=e614]
+                                - generic [ref=e619]: 3K
+                            - button "Bookmark" [ref=e621]:
+                              - img [ref=e625]
+                            - button "Share post" [ref=e630]:
+                              - img [ref=e634]
+                    - 'article "Neurology Journal @GreenJournal Jul 17 The role of endovascular treatment—particularly for M2 occlusions—is controversial. This study investigated whether baseline clinical severity modifies the association between successful recanalization and 90-day outcomes in patients with M2 occlusion: hubs.la/Q04nDHxG0 Image 2 replies, 7 reposts, 15 likes, 5 bookmarks, 2303 views" [ref=e640] [cursor=pointer]':
+                      - generic [ref=e646]:
+                        - link [ref=e658]:
+                          - /url: /GreenJournal
+                        - generic [ref=e661]:
+                          - generic [ref=e663]:
+                            - generic [ref=e666]:
+                              - link "Neurology Journal" [ref=e669]:
+                                - /url: /GreenJournal
+                                - generic [ref=e672]: Neurology Journal
+                              - generic [ref=e674]:
+                                - link "@GreenJournal" [ref=e676]:
+                                  - /url: /GreenJournal
+                                  - generic [ref=e677]: "@GreenJournal"
+                                - generic [ref=e678]: ·
+                                - link "Jul 17" [ref=e680]:
+                                  - /url: /GreenJournal/status/2078148696454140317
+                                  - time [ref=e681]: Jul 17
+                            - generic [ref=e683]:
+                              - button "Grok actions" [ref=e685]:
+                                - img [ref=e690]
+                              - button "More" [ref=e696]:
+                                - img [ref=e700]
+                          - generic [ref=e704]:
+                            - text: "The role of endovascular treatment—particularly for M2 occlusions—is controversial. This study investigated whether baseline clinical severity modifies the association between successful recanalization and 90-day outcomes in patients with M2 occlusion:"
+                            - link "hubs.la/Q04nDHxG0" [ref=e705]:
+                              - /url: https://t.co/K3s3AU8l0O
+                          - link "Image" [ref=e713]:
+                            - /url: /GreenJournal/status/2078148696454140317/photo/1
+                            - generic "Image" [ref=e717]:
+                              - img "Image" [ref=e719]
+                          - group "2 replies, 7 reposts, 15 likes, 5 bookmarks, 2303 views" [ref=e722]:
+                            - button "2 Replies. Reply" [ref=e724]:
+                              - generic [ref=e725]:
+                                - img [ref=e728]
+                                - generic [ref=e733]: "2"
+                            - button "7 reposts. Repost" [ref=e735]:
+                              - generic [ref=e736]:
+                                - img [ref=e739]
+                                - generic [ref=e744]: "7"
+                            - button "15 Likes. Like" [ref=e746]:
+                              - generic [ref=e747]:
+                                - img [ref=e750]
+                                - generic [ref=e755]: "15"
+                            - link "2303 views. View post analytics" [ref=e757]:
+                              - /url: /GreenJournal/status/2078148696454140317/analytics
+                              - generic [ref=e758]:
+                                - img [ref=e761]
+                                - generic [ref=e766]: 2.3K
+                            - button "Bookmark" [ref=e768]:
+                              - img [ref=e772]
+                            - button "Share post" [ref=e777]:
+                              - img [ref=e781]
+  - generic:
+    - region "Notifications alt+T"

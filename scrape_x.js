@@ -1,52 +1,41 @@
-function extractPosts(){
-  function parseNum(t){ if(!t) return null; let m=t.match(/[\d.]+[KMB]?/); if(!m) return null; let v=parseFloat(m[0].replace(/K/,"e3").replace(/M/,"e6").replace(/B/,"e9")); return isNaN(v)?null:v;}
-  const arts=document.querySelectorAll("article");
-  const posts=[];
-  arts.forEach(a=>{
-    try{
-      const author = a.querySelector('[data-testid="User-Name"] a');
-      const name=author ? (author.querySelector("span")?.textContent?.trim()||author.textContent.trim()) : "";
-      const handle=author ? author.getAttribute("href")?.replace("/","") : "";
-      const timeEl=a.querySelector("time");
-      const postDate=timeEl?timeEl.getAttribute("datetime")||timeEl.textContent:"";
-      const url=timeEl?timeEl.closest("a")?.href:"";
-      const textEls=a.querySelectorAll('[data-testid="tweetText"]');
-      const text=textEls.length?Array.from(textEls).map(e=>e.textContent).join("\n"):"";
-      const group=a.querySelector('[role="group"]');
-      let likes=null,replies=null,reposts=null,bookmarks=null,views=null;
-      if(group){
-        group.querySelectorAll("button").forEach(b=>{
-          const label=b.getAttribute("aria-label")||"";
-          const num=b.textContent.trim();
-          if(label.includes("Like")) likes=parseNum(num);
-          else if(label.includes("Reply")) replies=parseNum(num);
-          else if(label.includes("Repost")||label.includes("retweet")) reposts=parseNum(num);
-          else if(label.includes("Bookmark")) bookmarks=parseNum(num);
-        });
-        const viewLink=group.querySelector('a[href*="/analytics"]');
-        if(viewLink) views=parseNum(viewLink.textContent.trim());
-      }
-      if(name||text) posts.push({name,handle,postDate,text,url,likes,replies,reposts,bookmarks,views});
-    }catch(e){}
-  });
-  return {count:posts.length, posts:posts};
-}
-function scrollAndCollect(times=5, callback){
-  let postsMap = new Map();
-  let prevCount=0;
-  let i=0;
-  function collect(){
-    const r=extractPosts();
-    r.posts.forEach(p=>{ if(p.url) postsMap.set(p.url, p); });
-    if(i>=times){
-      if(callback) callback({count:postsMap.size, posts:Array.from(postsMap.values())});
-      return;
+() => {
+  const articles = Array.from(document.querySelectorAll('article[data-testid="tweet"]'));
+  return articles.map((a, i) => {
+    const userInfo = a.querySelector('div[data-testid="User-Name"]');
+    const links = userInfo ? Array.from(userInfo.querySelectorAll('a[href^="/"]')) : [];
+    const displayNameEl = links[0] ? links[0].querySelector('span') : null;
+    const handleEl = links[1] || links[0] || null;
+    const timeEl = a.querySelector('time');
+    const textEl = a.querySelector('div[data-testid="tweetText"]');
+    const text = textEl ? textEl.innerText : '';
+    const url = timeEl && timeEl.parentElement ? 'https://x.com' + (timeEl.parentElement.getAttribute('href') || '') : '';
+    const date = timeEl ? timeEl.getAttribute('datetime') : '';
+    const metrics = { replies: 0, retweets: 0, likes: 0, bookmarks: 0 };
+    a.querySelectorAll('button[aria-label]').forEach(b => {
+      const label = b.getAttribute('aria-label') || '';
+      const numMatch = label.match(/(\d[\d,]*(?:\.\d+)?)\s*(K?)/);
+      const val = numMatch ? (numMatch[2] ? parseFloat(numMatch[1].replace(/,/g, '')) * 1000 : parseInt(numMatch[1].replace(/,/g, ''))) : 0;
+      if (label.includes('Like')) metrics.likes = val;
+      else if (label.includes('Reply')) metrics.replies = val;
+      else if (label.includes('Repost') || label.includes('Retweet')) metrics.retweets = val;
+      else if (label.includes('Bookmark')) metrics.bookmarks = val;
+    });
+    let views = 0;
+    const viewLink = a.querySelector('a[href$="/analytics"]');
+    if (viewLink) {
+      const txt = viewLink.innerText || '';
+      const m = txt.match(/(\d[\d,]*(?:\.\d+)?)\s*(K|M?)/);
+      if (m) views = m[2] === 'K' ? parseFloat(m[1].replace(/,/g, '')) * 1000 : m[2] === 'M' ? parseFloat(m[1].replace(/,/g, '')) * 1000000 : parseInt(m[1].replace(/,/g, ''));
     }
-    i++;
-    window.scrollBy(0,1200);
-    setTimeout(collect, 1200);
-  }
-  collect();
+    return {
+      index: i,
+      author: displayNameEl ? displayNameEl.innerText : '',
+      handle: handleEl ? handleEl.innerText : '',
+      date,
+      text,
+      url,
+      ...metrics,
+      views
+    };
+  });
 }
-// Run
-scrollAndCollect(5, r=>{ window.__X_SCRAPED = r; });

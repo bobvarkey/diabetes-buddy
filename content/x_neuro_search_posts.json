@@ -1,0 +1,17 @@
+---
+topic: content
+date: 2026-08-26
+tags: []
+---
+
+# X Neuro Search Posts
+
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.discord: plugin not installed: discord — install the  │
+│    official external plugin with: openclaw plugins install               │
+│    @openclaw/discord                                                     │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+"[]"

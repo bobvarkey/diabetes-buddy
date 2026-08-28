@@ -1,0 +1,599 @@
+---
+topic: daily
+date: 2026-08-28
+tags: []
+---
+
+# Neuro Query2 Snapshot
+
+{
+  "ok": true,
+  "format": "ai",
+  "targetId": "AC68917F33F304E3BA9F3029D366A0EE",
+  "url": "https://x.com/search?q=cerebral%20AVM%20OR%20intracranial%20aneurysm%20OR%20endovascular&src=typed_query&f=top&since:today",
+  "snapshot": "- generic [active] [ref=e1]:\n  - generic [ref=e2]:\n    - generic:\n      - generic:\n        - heading \"To view keyboard shortcuts, press question mark View keyboard shortcuts\" [level=2] [ref=e3]:\n          - generic [ref=e4]: To view keyboard shortcuts, press question mark\n          - link \"View keyboard shortcuts\" [ref=e5] [cursor=pointer]:\n            - /url: /i/keyboard_shortcuts\n        - generic [ref=e6]:\n          - button \"Skip to home timeline\" [ref=e7] [cursor=pointer]\n          - button \"Skip to trending\" [ref=e9] [cursor=pointer]\n          - banner [ref=e11]:\n            - generic [ref=e13]:\n              - generic [ref=e14]:\n                - heading \"X\" [level=1] [ref=e16] [cursor=pointer]:\n                  - link \"X\" [ref=e17]:\n                    - /url: /home\n                    - img [ref=e19]\n                - navigation \"Primary\" [ref=e23]:\n                  - link \"Home\" [ref=e24] [cursor=pointer]:\n                    - /url: /home\n                    - img [ref=e27]\n                  - link \"Search and explore\" [ref=e30] [cursor=pointer]:\n                    - /url: /explore\n                    - img [ref=e33]\n                  - link \"Notifications (3 unread notifications)\" [ref=e36] [cursor=pointer]:\n                    - /url: /notifications\n                    - generic [ref=e38]:\n                      - img [ref=e39]\n                      - generic \"3 unread items\" [ref=e42]:\n                        - generic [ref=e43]: \"3\"\n                  - link \"Follow\" [ref=e44] [cursor=pointer]:\n                    - /url: /i/connect_people\n                    - img [ref=e47]\n                  - link \"Direct Messages\" [ref=e50] [cursor=pointer]:\n                    - /url: /i/chat\n                    - img [ref=e53]\n                  - link \"Grok\" [ref=e56] [cursor=pointer]:\n                    - /url: /i/grok\n                    - generic [ref=e58]:\n                      - img [ref=e59]\n                      - generic \"undefined unread items\" [ref=e62]\n                  - link \"Profile\" [ref=e63] [cursor=pointer]:\n                    - /url: /Cognito2026\n                    - img [ref=e66]\n                  - button \"More menu items\" [ref=e69] [cursor=pointer]:\n                    - img [ref=e72]\n                - link \"Post\" [ref=e76] [cursor=pointer]:\n                  - /url: /compose/post\n                  - img [ref=e78]\n              - button \"Account menu\" [ref=e84] [cursor=pointer]:\n                - generic [ref=e92]:\n                  - generic:\n                    - generic:\n                      - generic:\n                        - generic \"Cognito\":\n                          - img \"Cognito\"\n          - main [ref=e95]:\n            - generic \"Home timeline\" [ref=e100]:\n              - generic [ref=e101]:\n                - generic [ref=e102]:\n                  - generic [ref=e107]:\n                    - button \"Back\" [ref=e109] [cursor=pointer]:\n                      - img [ref=e111]\n                    - search \"Search\" [ref=e119]:\n                      - generic [ref=e124]:\n                        - img [ref=e126]\n                        - combobox \"Search query\" [ref=e131]: cerebral AVM OR intracranial aneurysm OR endovascular\n                    - button \"More\" [ref=e133] [cursor=pointer]:\n                      - img [ref=e135]\n                  - navigation [ref=e139]:\n                    - generic [ref=e140]:\n                      - generic:\n                        - button \"Previous\" [disabled]:\n                          - generic:\n                            - img\n                      - tablist [ref=e142]:\n                        - tab \"Top\" [selected] [ref=e143] [cursor=pointer]:\n                          - generic [ref=e146]: Top\n                        - tab \"Latest\" [ref=e148] [cursor=pointer]:\n                          - generic [ref=e151]: Latest\n                        - tab \"People\" [ref=e152] [cursor=pointer]:\n                          - generic [ref=e155]: People\n                        - tab \"Media\" [ref=e156] [cursor=pointer]:\n                          - generic [ref=e159]: Media\n                        - tab \"Lists\" [ref=e160] [cursor=pointer]:\n                          - generic [ref=e163]: Lists\n                      - generic:\n                        - button \"Next\" [disabled]:\n                          - generic:\n                            - img\n                - generic:\n                  - generic:\n                    - status:\n                      - button:\n                        - generic:\n                          - img\n                          - generic: See new posts\n              - region \"Search timeline\" [ref=e165]:\n                - heading \"Search timeline\" [level=1] [ref=e166]\n                - 'generic \"Timeline: Search timeline\" [ref=e167]':\n                  - generic [ref=e168]:\n                    - 'article \"Neurology Journal @GreenJournal Feb 11, 2022 Patients and caregivers, learn more about #stroke and endovascular therapy with this interactive infographic from the #Neurology Patient Page: bit.ly/3GAVhx4 Embedded video Pause GIF 5 reposts, 8 likes\" [ref=e172] [cursor=pointer]':\n                      - generic [ref=e178]:\n                        - link [ref=e190]:\n                          - /url: /GreenJournal\n                        - generic [ref=e193]:\n                          - generic [ref=e195]:\n                            - generic [ref=e198]:\n                              - link \"Neurology Journal\" [ref=e201]:\n                                - /url: /GreenJournal\n                                - generic [ref=e204]: Neurology Journal\n                              - generic [ref=e206]:\n                                - link \"@GreenJournal\" [ref=e208]:\n                                  - /url: /GreenJournal\n                                  - generic [ref=e209]: \"@GreenJournal\"\n                                - generic [ref=e210]: ·\n                                - link \"Feb 11, 2022\" [ref=e212]:\n                                  - /url: /GreenJournal/status/1491849583290466315\n                                  - time [ref=e213]: Feb 11, 2022\n                            - generic [ref=e215]:\n                              - button \"Grok actions\" [ref=e217]:\n                                - img [ref=e222]\n                              - button \"More\" [ref=e228]:\n                                - img [ref=e232]\n                          - generic [ref=e236]:\n                            - text: Patients and caregivers, learn more about\n                            - link \"#stroke\" [ref=e238]:\n                              - /url: /hashtag/stroke?src=hashtag_click\n                            - text: and endovascular therapy with this interactive infographic from the\n                            - link \"#Neurology\" [ref=e240]:\n                              - /url: /hashtag/Neurology?src=hashtag_click\n                            - text: \"Patient Page:\"\n                            - link \"bit.ly/3GAVhx4\" [ref=e241]:\n                              - /url: https://t.co/MxcI6KFvb4\n                          - generic [ref=e258]:\n                            - generic \"Embedded video\" [ref=e261]\n                            - generic [ref=e262]:\n                              - generic:\n                                - generic:\n                                  - generic:\n                                    - button \"Pause\" [ref=e266]:\n                                      - img [ref=e267]\n                                    - generic:\n                                      - generic: GIF\n                          - group \"5 reposts, 8 likes\" [ref=e273]:\n                            - button \"0 Replies. Reply\" [ref=e275]:\n                              - img [ref=e279]\n                            - button \"5 reposts. Repost\" [ref=e286]:\n                              - generic [ref=e287]:\n                                - img [ref=e290]\n                                - generic [ref=e295]: \"5\"\n                            - button \"8 Likes. Like\" [ref=e297]:\n                              - generic [ref=e298]:\n                                - img [ref=e301]\n                                - generic [ref=e306]: \"8\"\n                            - link \"View post analytics\" [ref=e308]:\n                              - /url: /GreenJournal/status/1491849583290466315/analytics\n                              - img [ref=e312]\n                            - button \"Bookmark\" [ref=e316]:\n                              - img [ref=e320]\n                            - button \"Share post\" [ref=e325]:\n                              - img [ref=e329]\n                    - group \"Is this post relevant to your search?\" [ref=e335]:\n                      - generic [ref=e337]:\n                        - generic [ref=e339]: Is this post relevant to your search?\n                        - generic [ref=e340]:\n                          - button \"No\" [ref=e341] [cursor=pointer]:\n                            - generic [ref=e345]:\n                              - generic [ref=e346]: \"No\"\n                              - img [ref=e347]\n                          - button \"Yes\" [ref=e350] [cursor=pointer]:\n                            - generic [ref=e354]:\n                              - generic [ref=e355]: \"Yes\"\n                              - img [ref=e356]\n                    - 'article \"They Keep Saying Its Rare @mRNAdeaths Aug 3, 2024 Healthy 44 year old woman Intracranial aneurysm rupture 4 hours after 2nd dose of #Pfizer #mRNA vaccine. tinyurl.com/yme7vffa Image 3 replies, 112 reposts, 153 likes, 15 bookmarks, 7702 views\" [ref=e362] [cursor=pointer]':\n                      - generic [ref=e368]:\n                        - link [ref=e380]:\n                          - /url: /mRNAdeaths\n                        - generic [ref=e383]:\n                          - generic [ref=e385]:\n                            - generic [ref=e388]:\n                              - link \"They Keep Saying Its Rare\" [ref=e391]:\n                                - /url: /mRNAdeaths\n                                - generic [ref=e394]: They Keep Saying Its Rare\n                              - generic [ref=e396]:\n                                - link \"@mRNAdeaths\" [ref=e398]:\n                                  - /url: /mRNAdeaths\n                                  - generic [ref=e399]: \"@mRNAdeaths\"\n                                - generic [ref=e400]: ·\n                                - link \"Aug 3, 2024\" [ref=e402]:\n                                  - /url: /mRNAdeaths/status/1819475993805181346\n                                  - time [ref=e403]: Aug 3, 2024\n                            - generic [ref=e405]:\n                              - button \"Grok actions\" [ref=e407]:\n                                - img [ref=e412]\n                              - button \"More\" [ref=e418]:\n                                - img [ref=e422]\n                          - generic [ref=e426]:\n                            - text: Healthy 44 year old woman Intracranial aneurysm rupture 4 hours after 2nd dose of\n                            - link \"#Pfizer\" [ref=e428]:\n                              - /url: /hashtag/Pfizer?src=hashtag_click\n                            - link \"#mRNA\" [ref=e430]:\n                              - /url: /hashtag/mRNA?src=hashtag_click\n                            - text: vaccine.\n                            - link \"tinyurl.com/yme7vffa\" [ref=e431]:\n                              - /url: https://t.co/HQKDoaJYE2\n                          - link \"Image\" [ref=e439]:\n                            - /url: /mRNAdeaths/status/1819475993805181346/photo/1\n                            - generic \"Image\" [ref=e443]:\n                              - img \"Image\" [ref=e445]\n                          - group \"3 replies, 112 reposts, 153 likes, 15 bookmarks, 7702 views\" [ref=e448]:\n                            - button \"3 Replies. Reply\" [ref=e450]:\n                              - generic [ref=e451]:\n                                - img [ref=e454]\n                                - generic [ref=e459]: \"3\"\n                            - button \"112 reposts. Repost\" [ref=e461]:\n                              - generic [ref=e462]:\n                                - img [ref=e465]\n                                - generic [ref=e470]: \"112\"\n                            - button \"153 Likes. Like\" [ref=e472]:\n                              - generic [ref=e473]:\n                                - img [ref=e476]\n                                - generic [ref=e481]: \"153\"\n                            - link \"7702 views. View post analytics\" [ref=e483]:\n                              - /url: /mRNAdeaths/status/1819475993805181346/analytics\n                              - generic [ref=e484]:\n                                - img [ref=e487]\n                                - generic [ref=e492]: 7.7K\n                            - button \"Bookmark\" [ref=e494]:\n                              - img [ref=e498]\n                            - button \"Share post\" [ref=e503]:\n                              - img [ref=e507]\n  - generic:\n    - region \"Notifications alt+T\"",
+  "refs": {
+    "e1": {
+      "role": "generic"
+    },
+    "e2": {
+      "role": "generic"
+    },
+    "e3": {
+      "role": "heading",
+      "name": "To view keyboard shortcuts, press question mark View keyboard shortcuts"
+    },
+    "e4": {
+      "role": "generic"
+    },
+    "e5": {
+      "role": "link",
+      "name": "View keyboard shortcuts"
+    },
+    "e6": {
+      "role": "generic"
+    },
+    "e7": {
+      "role": "button",
+      "name": "Skip to home timeline"
+    },
+    "e9": {
+      "role": "button",
+      "name": "Skip to trending"
+    },
+    "e11": {
+      "role": "banner"
+    },
+    "e13": {
+      "role": "generic"
+    },
+    "e14": {
+      "role": "generic"
+    },
+    "e16": {
+      "role": "heading",
+      "name": "X"
+    },
+    "e17": {
+      "role": "link",
+      "name": "X"
+    },
+    "e19": {
+      "role": "img"
+    },
+    "e23": {
+      "role": "navigation",
+      "name": "Primary"
+    },
+    "e24": {
+      "role": "link",
+      "name": "Home"
+    },
+    "e27": {
+      "role": "img"
+    },
+    "e30": {
+      "role": "link",
+      "name": "Search and explore"
+    },
+    "e33": {
+      "role": "img"
+    },
+    "e36": {
+      "role": "link",
+      "name": "Notifications (3 unread notifications)"
+    },
+    "e38": {
+      "role": "generic"
+    },
+    "e39": {
+      "role": "img"
+    },
+    "e42": {
+      "role": "generic",
+      "name": "3 unread items"
+    },
+    "e43": {
+      "role": "generic"
+    },
+    "e44": {
+      "role": "link",
+      "name": "Follow"
+    },
+    "e47": {
+      "role": "img"
+    },
+    "e50": {
+      "role": "link",
+      "name": "Direct Messages"
+    },
+    "e53": {
+      "role": "img"
+    },
+    "e56": {
+      "role": "link",
+      "name": "Grok"
+    },
+    "e58": {
+      "role": "generic"
+    },
+    "e59": {
+      "role": "img"
+    },
+    "e62": {
+      "role": "generic",
+      "name": "undefined unread items"
+    },
+    "e63": {
+      "role": "link",
+      "name": "Profile"
+    },
+    "e66": {
+      "role": "img"
+    },
+    "e69": {
+      "role": "button",
+      "name": "More menu items"
+    },
+    "e72": {
+      "role": "img"
+    },
+    "e76": {
+      "role": "link",
+      "name": "Post"
+    },
+    "e78": {
+      "role": "img"
+    },
+    "e84": {
+      "role": "button",
+      "name": "Account menu"
+    },
+    "e92": {
+      "role": "generic"
+    },
+    "e95": {
+      "role": "main"
+    },
+    "e100": {
+      "role": "generic",
+      "name": "Home timeline"
+    },
+    "e101": {
+      "role": "generic"
+    },
+    "e102": {
+      "role": "generic"
+    },
+    "e107": {
+      "role": "generic"
+    },
+    "e109": {
+      "role": "button",
+      "name": "Back"
+    },
+    "e111": {
+      "role": "img"
+    },
+    "e119": {
+      "role": "search",
+      "name": "Search"
+    },
+    "e124": {
+      "role": "generic"
+    },
+    "e126": {
+      "role": "img"
+    },
+    "e131": {
+      "role": "combobox",
+      "name": "Search query"
+    },
+    "e133": {
+      "role": "button",
+      "name": "More"
+    },
+    "e135": {
+      "role": "img"
+    },
+    "e139": {
+      "role": "navigation"
+    },
+    "e140": {
+      "role": "generic"
+    },
+    "e142": {
+      "role": "tablist"
+    },
+    "e143": {
+      "role": "tab",
+      "name": "Top"
+    },
+    "e146": {
+      "role": "generic"
+    },
+    "e148": {
+      "role": "tab",
+      "name": "Latest"
+    },
+    "e151": {
+      "role": "generic"
+    },
+    "e152": {
+      "role": "tab",
+      "name": "People"
+    },
+    "e155": {
+      "role": "generic"
+    },
+    "e156": {
+      "role": "tab",
+      "name": "Media"
+    },
+    "e159": {
+      "role": "generic"
+    },
+    "e160": {
+      "role": "tab",
+      "name": "Lists"
+    },
+    "e163": {
+      "role": "generic"
+    },
+    "e165": {
+      "role": "region",
+      "name": "Search timeline"
+    },
+    "e166": {
+      "role": "heading",
+      "name": "Search timeline"
+    },
+    "e168": {
+      "role": "generic"
+    },
+    "e178": {
+      "role": "generic"
+    },
+    "e190": {
+      "role": "link"
+    },
+    "e193": {
+      "role": "generic"
+    },
+    "e195": {
+      "role": "generic"
+    },
+    "e198": {
+      "role": "generic"
+    },
+    "e201": {
+      "role": "link",
+      "name": "Neurology Journal"
+    },
+    "e204": {
+      "role": "generic"
+    },
+    "e206": {
+      "role": "generic"
+    },
+    "e208": {
+      "role": "link",
+      "name": "@GreenJournal"
+    },
+    "e209": {
+      "role": "generic"
+    },
+    "e210": {
+      "role": "generic"
+    },
+    "e212": {
+      "role": "link",
+      "name": "Feb 11, 2022"
+    },
+    "e213": {
+      "role": "time"
+    },
+    "e215": {
+      "role": "generic"
+    },
+    "e217": {
+      "role": "button",
+      "name": "Grok actions"
+    },
+    "e222": {
+      "role": "img"
+    },
+    "e228": {
+      "role": "button",
+      "name": "More"
+    },
+    "e232": {
+      "role": "img"
+    },
+    "e236": {
+      "role": "generic"
+    },
+    "e238": {
+      "role": "link",
+      "name": "#stroke"
+    },
+    "e240": {
+      "role": "link",
+      "name": "#Neurology"
+    },
+    "e241": {
+      "role": "link",
+      "name": "bit.ly/3GAVhx4"
+    },
+    "e258": {
+      "role": "generic"
+    },
+    "e261": {
+      "role": "generic",
+      "name": "Embedded video"
+    },
+    "e262": {
+      "role": "generic"
+    },
+    "e266": {
+      "role": "button",
+      "name": "Pause"
+    },
+    "e267": {
+      "role": "img"
+    },
+    "e273": {
+      "role": "group",
+      "name": "5 reposts, 8 likes"
+    },
+    "e275": {
+      "role": "button",
+      "name": "0 Replies. Reply"
+    },
+    "e279": {
+      "role": "img"
+    },
+    "e286": {
+      "role": "button",
+      "name": "5 reposts. Repost"
+    },
+    "e287": {
+      "role": "generic"
+    },
+    "e290": {
+      "role": "img"
+    },
+    "e295": {
+      "role": "generic"
+    },
+    "e297": {
+      "role": "button",
+      "name": "8 Likes. Like"
+    },
+    "e298": {
+      "role": "generic"
+    },
+    "e301": {
+      "role": "img"
+    },
+    "e306": {
+      "role": "generic"
+    },
+    "e308": {
+      "role": "link",
+      "name": "View post analytics"
+    },
+    "e312": {
+      "role": "img"
+    },
+    "e316": {
+      "role": "button",
+      "name": "Bookmark"
+    },
+    "e320": {
+      "role": "img"
+    },
+    "e325": {
+      "role": "button",
+      "name": "Share post"
+    },
+    "e329": {
+      "role": "img"
+    },
+    "e335": {
+      "role": "group",
+      "name": "Is this post relevant to your search?"
+    },
+    "e337": {
+      "role": "generic"
+    },
+    "e339": {
+      "role": "generic"
+    },
+    "e340": {
+      "role": "generic"
+    },
+    "e341": {
+      "role": "button",
+      "name": "No"
+    },
+    "e345": {
+      "role": "generic"
+    },
+    "e346": {
+      "role": "generic"
+    },
+    "e347": {
+      "role": "img"
+    },
+    "e350": {
+      "role": "button",
+      "name": "Yes"
+    },
+    "e354": {
+      "role": "generic"
+    },
+    "e355": {
+      "role": "generic"
+    },
+    "e356": {
+      "role": "img"
+    },
+    "e368": {
+      "role": "generic"
+    },
+    "e380": {
+      "role": "link"
+    },
+    "e383": {
+      "role": "generic"
+    },
+    "e385": {
+      "role": "generic"
+    },
+    "e388": {
+      "role": "generic"
+    },
+    "e391": {
+      "role": "link",
+      "name": "They Keep Saying Its Rare"
+    },
+    "e394": {
+      "role": "generic"
+    },
+    "e396": {
+      "role": "generic"
+    },
+    "e398": {
+      "role": "link",
+      "name": "@mRNAdeaths"
+    },
+    "e399": {
+      "role": "generic"
+    },
+    "e400": {
+      "role": "generic"
+    },
+    "e402": {
+      "role": "link",
+      "name": "Aug 3, 2024"
+    },
+    "e403": {
+      "role": "time"
+    },
+    "e405": {
+      "role": "generic"
+    },
+    "e407": {
+      "role": "button",
+      "name": "Grok actions"
+    },
+    "e412": {
+      "role": "img"
+    },
+    "e418": {
+      "role": "button",
+      "name": "More"
+    },
+    "e422": {
+      "role": "img"
+    },
+    "e426": {
+      "role": "generic"
+    },
+    "e428": {
+      "role": "link",
+      "name": "#Pfizer"
+    },
+    "e430": {
+      "role": "link",
+      "name": "#mRNA"
+    },
+    "e431": {
+      "role": "link",
+      "name": "tinyurl.com/yme7vffa"
+    },
+    "e439": {
+      "role": "link",
+      "name": "Image"
+    },
+    "e443": {
+      "role": "generic",
+      "name": "Image"
+    },
+    "e445": {
+      "role": "img",
+      "name": "Image"
+    },
+    "e448": {
+      "role": "group",
+      "name": "3 replies, 112 reposts, 153 likes, 15 bookmarks, 7702 views"
+    },
+    "e450": {
+      "role": "button",
+      "name": "3 Replies. Reply"
+    },
+    "e451": {
+      "role": "generic"
+    },
+    "e454": {
+      "role": "img"
+    },
+    "e459": {
+      "role": "generic"
+    },
+    "e461": {
+      "role": "button",
+      "name": "112 reposts. Repost"
+    },
+    "e462": {
+      "role": "generic"
+    },
+    "e465": {
+      "role": "img"
+    },
+    "e470": {
+      "role": "generic"
+    },
+    "e472": {
+      "role": "button",
+      "name": "153 Likes. Like"
+    },
+    "e473": {
+      "role": "generic"
+    },
+    "e476": {
+      "role": "img"
+    },
+    "e481": {
+      "role": "generic"
+    },
+    "e483": {
+      "role": "link",
+      "name": "7702 views. View post analytics"
+    },
+    "e484": {
+      "role": "generic"
+    },
+    "e487": {
+      "role": "img"
+    },
+    "e492": {
+      "role": "generic"
+    },
+    "e494": {
+      "role": "button",
+      "name": "Bookmark"
+    },
+    "e498": {
+      "role": "img"
+    },
+    "e503": {
+      "role": "button",
+      "name": "Share post"
+    },
+    "e507": {
+      "role": "img"
+    }
+  }
+}
