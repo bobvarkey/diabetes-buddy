@@ -1,95 +1,60 @@
 {
-  "scan_date": "2026-08-27T08:00:20.530262",
-  "stocks_scanned": 9,
+  "scan_date": "2026-08-28T08:00:26.669998",
+  "stocks_scanned": 10,
   "opportunities": [
     {
-      "ticker": "ADANIPOWER.BSE",
-      "name": "ADANIPOWER",
-      "price": 207.35,
-      "change": 0.509,
-      "signals": [
-        {
-          "type": "volatility",
-          "value": 3.3574879227053085,
-          "reason": "Range: 3.4%"
-        }
-      ],
-      "prediction_score": 10,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "AARTIIND.BSE",
-      "name": "AARTIIND",
-      "price": 542.65,
-      "change": 0.7146,
-      "signals": [
-        {
-          "type": "volatility",
-          "value": 2.3042320756449013,
-          "reason": "Range: 2.3%"
-        }
-      ],
-      "prediction_score": 10,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "BAJAJ-AUTO.BSE",
-      "name": "BAJAJ-AUTO",
-      "price": 11750.0,
-      "change": -1.4592,
+      "ticker": "NTPC.BSE",
+      "name": "NTPC",
+      "price": 328.7,
+      "change": -2.0268,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.4592,
-          "reason": "Drop: -1.5%"
-        }
-      ],
-      "prediction_score": 15,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "MARUTI.BSE",
-      "name": "MARUTI",
-      "price": 13528.0,
-      "change": -0.8938,
-      "signals": [
+          "value": -2.0268,
+          "reason": "Drop: -2.0%"
+        },
         {
           "type": "volatility",
-          "value": 2.2961086396177817,
-          "reason": "Range: 2.3%"
+          "value": 2.459749552772809,
+          "reason": "Range: 2.5%"
         }
       ],
-      "prediction_score": 10,
-      "recommendation": "NEUTRAL"
-    },
-    {
-      "ticker": "POWERGRID.BSE",
-      "name": "POWERGRID",
-      "price": 266.0,
-      "change": -1.4815,
-      "signals": [
-        {
-          "type": "price_drop",
-          "value": -1.4815,
-          "reason": "Drop: -1.5%"
-        }
-      ],
-      "prediction_score": 15,
-      "recommendation": "NEUTRAL"
+      "prediction_score": 35,
+      "recommendation": "WATCH"
     },
     {
       "ticker": "RELIANCE.BSE",
       "name": "RELIANCE",
-      "price": 1299.0,
-      "change": -1.0361,
+      "price": 1286.0,
+      "change": -1.0008,
       "signals": [
         {
           "type": "price_drop",
-          "value": -1.0361,
+          "value": -1.0008,
           "reason": "Drop: -1.0%"
         }
       ],
       "prediction_score": 15,
+      "recommendation": "NEUTRAL"
+    },
+    {
+      "ticker": "INFY.BSE",
+      "name": "INFY",
+      "price": 1106.65,
+      "change": -1.2625,
+      "signals": [
+        {
+          "type": "price_drop",
+          "value": -1.2625,
+          "reason": "Drop: -1.3%"
+        },
+        {
+          "type": "volatility",
+          "value": 2.149767108563239,
+          "reason": "Range: 2.1%"
+        }
+      ],
+      "prediction_score": 25,
       "recommendation": "NEUTRAL"
     }
   ],
