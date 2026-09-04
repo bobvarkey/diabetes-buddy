@@ -1,0 +1,1004 @@
+---
+topic: daily
+date: 2026-09-04
+tags: []
+---
+
+# X Snapshot Raw
+
+Config warnings:
+- plugins.entries.discord: plugin not installed: discord — install the official external plugin with: openclaw plugins install @openclaw/discord
+{
+  "ok": true,
+  "format": "ai",
+  "targetId": "6ADF86D19DC475C8BEE1CD8D0792DC15",
+  "url": "https://x.com/search?q=neurology%20OR%20%23neurotwitter%20OR%20%23NeuroX&src=typed_query&f=top&since:today",
+  "snapshot": "- generic [active] [ref=e1]:\n  - generic [ref=e2]:\n    - generic:\n      - generic:\n        - heading \"To view keyboard shortcuts, press question mark View keyboard shortcuts\" [level=2] [ref=e3]:\n          - generic [ref=e4]: To view keyboard shortcuts, press question mark\n          - link \"View keyboard shortcuts\" [ref=e5] [cursor=pointer]:\n            - /url: /i/keyboard_shortcuts\n        - generic [ref=e6]:\n          - button \"Skip to home timeline\" [ref=e7] [cursor=pointer]\n          - button \"Skip to trending\" [ref=e9] [cursor=pointer]\n          - banner [ref=e11]:\n            - generic [ref=e13]:\n              - generic [ref=e14]:\n                - heading \"X\" [level=1] [ref=e16] [cursor=pointer]:\n                  - link \"X\" [ref=e17]:\n                    - /url: /home\n                    - img [ref=e19]\n                - navigation \"Primary\" [ref=e23]:\n                  - link \"Home\" [ref=e24] [cursor=pointer]:\n                    - /url: /home\n                    - img [ref=e27]\n                  - link \"Search and explore\" [ref=e30] [cursor=pointer]:\n                    - /url: /explore\n                    - img [ref=e33]\n                  - link \"Notifications (8 unread notifications)\" [ref=e36] [cursor=pointer]:\n                    - /url: /notifications\n                    - generic [ref=e38]:\n                      - img [ref=e39]\n                      - generic \"8 unread items\" [ref=e42]:\n                        - generic [ref=e43]: \"8\"\n                  - link \"Follow\" [ref=e44] [cursor=pointer]:\n                    - /url: /i/connect_people\n                    - img [ref=e47]\n                  - link \"Direct Messages\" [ref=e50] [cursor=pointer]:\n                    - /url: /i/chat\n                    - img [ref=e53]\n                  - link \"Grok\" [ref=e56] [cursor=pointer]:\n                    - /url: /i/grok\n                    - generic [ref=e58]:\n                      - img [ref=e59]\n                      - generic \"undefined unread items\" [ref=e62]\n                  - link \"Profile\" [ref=e63] [cursor=pointer]:\n                    - /url: /Cognito2026\n                    - img [ref=e66]\n                  - button \"More menu items\" [ref=e69] [cursor=pointer]:\n                    - img [ref=e72]\n                - link \"Post\" [ref=e76] [cursor=pointer]:\n                  - /url: /compose/post\n                  - img [ref=e78]\n              - button \"Account menu\" [ref=e84] [cursor=pointer]:\n                - generic [ref=e92]:\n                  - generic:\n                    - generic:\n                      - generic:\n                        - generic \"Cognito\":\n                          - img \"Cognito\"\n          - main [ref=e95]:\n            - generic \"Home timeline\" [ref=e100]:\n              - generic [ref=e101]:\n                - generic [ref=e102]:\n                  - generic [ref=e107]:\n                    - button \"Back\" [ref=e109] [cursor=pointer]:\n                      - img [ref=e111]\n                    - search \"Search\" [ref=e119]:\n                      - generic [ref=e124]:\n                        - img [ref=e126]\n                        - combobox \"Search query\" [ref=e131]: \"neurology OR #neurotwitter OR #NeuroX\"\n                    - button \"More\" [ref=e133] [cursor=pointer]:\n                      - img [ref=e135]\n                  - navigation [ref=e139]:\n                    - generic [ref=e140]:\n                      - generic:\n                        - button \"Previous\" [disabled]:\n                          - generic:\n                            - img\n                      - tablist [ref=e142]:\n                        - tab \"Top\" [selected] [ref=e143] [cursor=pointer]:\n                          - generic [ref=e146]: Top\n                        - tab \"Latest\" [ref=e148] [cursor=pointer]:\n                          - generic [ref=e151]: Latest\n                        - tab \"People\" [ref=e152] [cursor=pointer]:\n                          - generic [ref=e155]: People\n                        - tab \"Media\" [ref=e156] [cursor=pointer]:\n                          - generic [ref=e159]: Media\n                        - tab \"Lists\" [ref=e160] [cursor=pointer]:\n                          - generic [ref=e163]: Lists\n                      - generic:\n                        - button \"Next\" [disabled]:\n                          - generic:\n                            - img\n                - generic:\n                  - generic:\n                    - status:\n                      - button:\n                        - generic:\n                          - img\n                          - generic: See new posts\n              - region \"Search timeline\" [ref=e165]:\n                - heading \"Search timeline\" [level=1] [ref=e166]\n                - 'generic \"Timeline: Search timeline\" [ref=e167]':\n                  - generic [ref=e168]:\n                    - 'article \"Neurology Journal @GreenJournal Jan 9, 2023 Pearls & Oy-sters: Vibration-Induced Downbeat Nystagmus: A New Cerebellar Sign Observed in Paraneoplastic Syndrome bit.ly/3ZbXnht #NeuroTwitter #NeurologyRF Embedded video Play Video. 1 minute 1 second long 1 reply, 39 reposts, 140 likes, 17 bookmarks, 34139 views\" [ref=e172] [cursor=pointer]':\n                      - generic [ref=e178]:\n                        - link [ref=e190]:\n                          - /url: /GreenJournal\n                        - generic [ref=e193]:\n                          - generic [ref=e195]:\n                            - generic [ref=e198]:\n                              - link \"Neurology Journal\" [ref=e201]:\n                                - /url: /GreenJournal\n                                - generic [ref=e204]: Neurology Journal\n                              - generic [ref=e206]:\n                                - link \"@GreenJournal\" [ref=e208]:\n                                  - /url: /GreenJournal\n                                  - generic [ref=e209]: \"@GreenJournal\"\n                                - generic [ref=e210]: ·\n                                - link \"Jan 9, 2023\" [ref=e212]:\n                                  - /url: /GreenJournal/status/1612205297291911170\n                                  - time [ref=e213]: Jan 9, 2023\n                            - generic [ref=e215]:\n                              - button \"Grok actions\" [ref=e217]:\n                                - img [ref=e222]\n                              - button \"More\" [ref=e228]:\n                                - img [ref=e232]\n                          - generic [ref=e236]:\n                            - text: \"Pearls & Oy-sters: Vibration-Induced Downbeat Nystagmus: A New Cerebellar Sign Observed in Paraneoplastic Syndrome\"\n                            - link \"bit.ly/3ZbXnht\" [ref=e237]:\n                              - /url: https://t.co/hCt8Nxn3X7\n                            - link \"#NeuroTwitter\" [ref=e239]:\n                              - /url: /hashtag/NeuroTwitter?src=hashtag_click\n                            - link \"#NeurologyRF\" [ref=e241]:\n                              - /url: /hashtag/NeurologyRF?src=hashtag_click\n                          - generic [ref=e258]:\n                            - generic \"Embedded video\" [ref=e261]\n                            - button \"Play Video. 1 minute 1 second long\" [ref=e268]:\n                              - img [ref=e269]\n                          - group \"1 reply, 39 reposts, 140 likes, 17 bookmarks, 34139 views\" [ref=e275]:\n                            - button \"1 Reply. Reply\" [ref=e277]:\n                              - generic [ref=e278]:\n                                - img [ref=e281]\n                                - generic [ref=e286]: \"1\"\n                            - button \"39 reposts. Repost\" [ref=e288]:\n                              - generic [ref=e289]:\n                                - img [ref=e292]\n                                - generic [ref=e297]: \"39\"\n                            - button \"140 Likes. Like\" [ref=e299]:\n                              - generic [ref=e300]:\n                                - img [ref=e303]\n                                - generic [ref=e308]: \"140\"\n                            - link \"34139 views. View post analytics\" [ref=e310]:\n                              - /url: /GreenJournal/status/1612205297291911170/analytics\n                              - generic [ref=e311]:\n                                - img [ref=e314]\n                                - generic [ref=e319]: 34K\n                            - button \"Bookmark\" [ref=e321]:\n                              - img [ref=e325]\n                            - button \"Share post\" [ref=e330]:\n                              - img [ref=e334]\n                    - article \"Marcus Pinto, MD, MS Verified account @MarcusVPinto Apr 10 Dear neurology trainees, throughout your career, you will encounter hundreds of patients with presentations you've never seen before. That is when applying the basics becomes most crucial. Define the tempo, localization, and syndrome, then proceed to differential and work up. 5 replies, 33 reposts, 212 likes, 51 bookmarks, 13643 views\" [ref=e340] [cursor=pointer]:\n                      - generic [ref=e346]:\n                        - link [ref=e358]:\n                          - /url: /MarcusVPinto\n                        - generic [ref=e361]:\n                          - generic [ref=e363]:\n                            - generic [ref=e366]:\n                              - link \"Marcus Pinto, MD, MS Verified account\" [ref=e369]:\n                                - /url: /MarcusVPinto\n                                - generic [ref=e370]:\n                                  - generic [ref=e372]: Marcus Pinto, MD, MS\n                                  - img \"Verified account\" [ref=e375]\n                              - generic [ref=e379]:\n                                - link \"@MarcusVPinto\" [ref=e381]:\n                                  - /url: /MarcusVPinto\n                                  - generic [ref=e382]: \"@MarcusVPinto\"\n                                - generic [ref=e383]: ·\n                                - link \"Apr 10\" [ref=e385]:\n                                  - /url: /MarcusVPinto/status/2042420999224787131\n                                  - time [ref=e386]: Apr 10\n                            - generic [ref=e388]:\n                              - button \"Grok actions\" [ref=e390]:\n                                - img [ref=e395]\n                              - button \"More\" [ref=e401]:\n                                - img [ref=e405]\n                          - generic [ref=e409]: Dear neurology trainees, throughout your career, you will encounter hundreds of patients with presentations you've never seen before. That is when applying the basics becomes most crucial. Define the tempo, localization, and syndrome, then proceed to differential and work up.\n                          - group \"5 replies, 33 reposts, 212 likes, 51 bookmarks, 13643 views\" [ref=e412]:\n                            - button \"5 Replies. Reply\" [ref=e414]:\n                              - generic [ref=e415]:\n                                - img [ref=e418]\n                                - generic [ref=e423]: \"5\"\n                            - button \"33 reposts. Repost\" [ref=e425]:\n                              - generic [ref=e426]:\n                                - img [ref=e429]\n                                - generic [ref=e434]: \"33\"\n                            - button \"212 Likes. Like\" [ref=e436]:\n                              - generic [ref=e437]:\n                                - img [ref=e440]\n                                - generic [ref=e445]: \"212\"\n                            - link \"13643 views. View post analytics\" [ref=e447]:\n                              - /url: /MarcusVPinto/status/2042420999224787131/analytics\n                              - generic [ref=e448]:\n                                - img [ref=e451]\n                                - generic [ref=e456]: 13K\n                            - button \"Bookmark\" [ref=e458]:\n                              - img [ref=e462]\n                            - button \"Share post\" [ref=e467]:\n                              - img [ref=e471]\n                    - 'article \"Neurology Journal @GreenJournal Aug 29 This study investigated peripheral iron metabolism and inflammation in relation to prodromal clinical features and disease progression in isolated REM sleep behavior disorder. Read more: hubs.la/Q04vKYWy0 Image 1 reply, 5 reposts, 15 likes, 4 bookmarks, 3411 views\" [ref=e477] [cursor=pointer]':\n                      - generic [ref=e483]:\n                        - link [ref=e495]:\n                          - /url: /GreenJournal\n                        - generic [ref=e498]:\n                          - generic [ref=e500]:\n                            - generic [ref=e503]:\n                              - link \"Neurology Journal\" [ref=e506]:\n                                - /url: /GreenJournal\n                                - generic [ref=e509]: Neurology Journal\n                              - generic [ref=e511]:\n                                - link \"@GreenJournal\" [ref=e513]:\n                                  - /url: /GreenJournal\n                                  - generic [ref=e514]: \"@GreenJournal\"\n                                - generic [ref=e515]: ·\n                                - link \"Aug 29\" [ref=e517]:\n                                  - /url: /GreenJournal/status/2093670183487291833\n                                  - time [ref=e518]: Aug 29\n                            - generic [ref=e520]:\n                              - button \"Grok actions\" [ref=e522]:\n                                - img [ref=e527]\n                              - button \"More\" [ref=e533]:\n                                - img [ref=e537]\n                          - generic [ref=e541]:\n                            - text: \"This study investigated peripheral iron metabolism and inflammation in relation to prodromal clinical features and disease progression in isolated REM sleep behavior disorder. Read more:\"\n                            - link \"hubs.la/Q04vKYWy0\" [ref=e542]:\n                              - /url: https://t.co/a4jtSC2fSh\n                          - link \"Image\" [ref=e550]:\n                            - /url: /GreenJournal/status/2093670183487291833/photo/1\n                            - generic \"Image\" [ref=e554]:\n                              - img \"Image\" [ref=e556]\n                          - group \"1 reply, 5 reposts, 15 likes, 4 bookmarks, 3411 views\" [ref=e559]:\n                            - button \"1 Reply. Reply\" [ref=e561]:\n                              - generic [ref=e562]:\n                                - img [ref=e565]\n                                - generic [ref=e570]: \"1\"\n                            - button \"5 reposts. Repost\" [ref=e572]:\n                              - generic [ref=e573]:\n                                - img [ref=e576]\n                                - generic [ref=e581]: \"5\"\n                            - button \"15 Likes. Like\" [ref=e583]:\n                              - generic [ref=e584]:\n                                - img [ref=e587]\n                                - generic [ref=e592]: \"15\"\n                            - link \"3411 views. View post analytics\" [ref=e594]:\n                              - /url: /GreenJournal/status/2093670183487291833/analytics\n                              - generic [ref=e595]:\n                                - img [ref=e598]\n                                - generic [ref=e603]: 3.4K\n                            - button \"Bookmark\" [ref=e605]:\n                              - img [ref=e609]\n                            - button \"Share post\" [ref=e614]:\n                              - img [ref=e618]\n                    - 'article \"Neurology Journal @GreenJournal Nov 11, 2025 This #NeurologyEd Teaching Neurovisual by Sutherland and Gummerson details the Head-Impulse-Nystagmus-Test-of-Skew exam, which uses special maneuvers to identify central etiologies of acute vestibular syndrome with greater sensitivity than hyperacute MRI: hubs.la/Q03SdHC90 Image 62 reposts, 223 likes, 106 bookmarks, 11739 views\" [ref=e624] [cursor=pointer]':\n                      - generic [ref=e630]:\n                        - link [ref=e642]:\n                          - /url: /GreenJournal\n                        - generic [ref=e645]:\n                          - generic [ref=e647]:\n                            - generic [ref=e650]:\n                              - link \"Neurology Journal\" [ref=e653]:\n                                - /url: /GreenJournal\n                                - generic [ref=e656]: Neurology Journal\n                              - generic [ref=e658]:\n                                - link \"@GreenJournal\" [ref=e660]:\n                                  - /url: /GreenJournal\n                                  - generic [ref=e661]: \"@GreenJournal\"\n                                - generic [ref=e662]: ·\n                                - link \"Nov 11, 2025\" [ref=e664]:\n                                  - /url: /GreenJournal/status/1988040575598125102\n                                  - time [ref=e665]: Nov 11, 2025\n                            - generic [ref=e667]:\n                              - button \"Grok actions\" [ref=e669]:\n                                - img [ref=e674]\n                              - button \"More\" [ref=e680]:\n                                - img [ref=e684]\n                          - generic [ref=e688]:\n                            - text: This\n                            - link \"#NeurologyEd\" [ref=e690]:\n                              - /url: /hashtag/NeurologyEd?src=hashtag_click\n                            - text: \"Teaching Neurovisual by Sutherland and Gummerson details the Head-Impulse-Nystagmus-Test-of-Skew exam, which uses special maneuvers to identify central etiologies of acute vestibular syndrome with greater sensitivity than hyperacute MRI:\"\n                            - link \"hubs.la/Q03SdHC90\" [ref=e691]:\n                              - /url: https://t.co/3RMvuWVoZw\n                          - link \"Image\" [ref=e699]:\n                            - /url: /GreenJournal/status/1988040575598125102/photo/1\n                            - generic \"Image\" [ref=e703]:\n                              - img \"Image\" [ref=e705]\n                          - group \"62 reposts, 223 likes, 106 bookmarks, 11739 views\" [ref=e708]:\n                            - button \"0 Replies. Reply\" [ref=e710]:\n                              - img [ref=e714]\n                            - button \"62 reposts. Repost\" [ref=e721]:\n                              - generic [ref=e722]:\n                                - img [ref=e725]\n                                - generic [ref=e730]: \"62\"\n                            - button \"223 Likes. Like\" [ref=e732]:\n                              - generic [ref=e733]:\n                                - img [ref=e736]\n                                - generic [ref=e741]: \"223\"\n                            - link \"11739 views. View post analytics\" [ref=e743]:\n                              - /url: /GreenJournal/status/1988040575598125102/analytics\n                              - generic [ref=e744]:\n                                - img [ref=e747]\n                                - generic [ref=e752]: 11K\n                            - button \"Bookmark\" [ref=e754]:\n                              - img [ref=e758]\n                            - button \"Share post\" [ref=e763]:\n                              - img [ref=e767]\n                    - 'article \"Neurology Journal @GreenJournal 2 hours ago Introducing the Neurology Resident & Fellow section''s latest initiative: Technology in Neurology! This initiative highlights innovative uses of technology and its evolving role in neurologic practice, education, and research. Learn more: hubs.la/Q04vYmnP0 #NeurologyRF Image 1 reply, 1 repost, 7 likes, 1749 views\" [ref=e773] [cursor=pointer]':\n                      - generic [ref=e779]:\n                        - link [ref=e791]:\n                          - /url: /GreenJournal\n                        - generic [ref=e794]:\n                          - generic [ref=e796]:\n                            - generic [ref=e799]:\n                              - link \"Neurology Journal\" [ref=e802]:\n                                - /url: /GreenJournal\n                                - generic [ref=e805]: Neurology Journal\n                              - generic [ref=e807]:\n                                - link \"@GreenJournal\" [ref=e809]:\n                                  - /url: /GreenJournal\n                                  - generic [ref=e810]: \"@GreenJournal\"\n                                - generic [ref=e811]: ·\n                                - link \"2 hours ago\" [ref=e813]:\n                                  - /url: /GreenJournal/status/2094905395730858389\n                                  - time [ref=e814]: 2h\n                            - generic [ref=e816]:\n                              - button \"Grok actions\" [ref=e818]:\n                                - img [ref=e823]\n                              - button \"More\" [ref=e829]:\n                                - img [ref=e833]\n                          - generic [ref=e837]:\n                            - text: \"Introducing the Neurology Resident & Fellow section's latest initiative: Technology in Neurology! This initiative highlights innovative uses of technology and its evolving role in neurologic practice, education, and research. Learn more:\"\n                            - link \"hubs.la/Q04vYmnP0\" [ref=e838]:\n                              - /url: https://t.co/A7dXAZv4tk\n                            - link \"#NeurologyRF\" [ref=e840]:\n                              - /url: /hashtag/NeurologyRF?src=hashtag_click\n                          - link \"Image\" [ref=e848]:\n                            - /url: /GreenJournal/status/2094905395730858389/photo/1\n                            - generic \"Image\" [ref=e852]:\n                              - img \"Image\" [ref=e854]\n                          - group \"1 reply, 1 repost, 7 likes, 1749 views\" [ref=e857]:\n                            - button \"1 Reply. Reply\" [ref=e859]:\n                              - generic [ref=e860]:\n                                - img [ref=e863]\n                                - generic [ref=e868]: \"1\"\n                            - button \"1 repost. Repost\" [ref=e870]:\n                              - generic [ref=e871]:\n                                - img [ref=e874]\n                                - generic [ref=e879]: \"1\"\n                            - button \"7 Likes. Like\" [ref=e881]:\n                              - generic [ref=e882]:\n                                - img [ref=e885]\n                                - generic [ref=e890]: \"7\"\n                            - link \"1749 views. View post analytics\" [ref=e892]:\n                              - /url: /GreenJournal/status/2094905395730858389/analytics\n                              - generic [ref=e893]:\n                                - img [ref=e896]\n                                - generic [ref=e901]: 1.7K\n                            - button \"Bookmark\" [ref=e903]:\n                              - img [ref=e907]\n                            - button \"Share post\" [ref=e912]:\n                              - img [ref=e916]\n  - generic:\n    - region \"Notifications alt+T\"",
+  "refs": {
+    "e1": {
+      "role": "generic"
+    },
+    "e2": {
+      "role": "generic"
+    },
+    "e3": {
+      "role": "heading",
+      "name": "To view keyboard shortcuts, press question mark View keyboard shortcuts"
+    },
+    "e4": {
+      "role": "generic"
+    },
+    "e5": {
+      "role": "link",
+      "name": "View keyboard shortcuts"
+    },
+    "e6": {
+      "role": "generic"
+    },
+    "e7": {
+      "role": "button",
+      "name": "Skip to home timeline"
+    },
+    "e9": {
+      "role": "button",
+      "name": "Skip to trending"
+    },
+    "e11": {
+      "role": "banner"
+    },
+    "e13": {
+      "role": "generic"
+    },
+    "e14": {
+      "role": "generic"
+    },
+    "e16": {
+      "role": "heading",
+      "name": "X"
+    },
+    "e17": {
+      "role": "link",
+      "name": "X"
+    },
+    "e19": {
+      "role": "img"
+    },
+    "e23": {
+      "role": "navigation",
+      "name": "Primary"
+    },
+    "e24": {
+      "role": "link",
+      "name": "Home"
+    },
+    "e27": {
+      "role": "img"
+    },
+    "e30": {
+      "role": "link",
+      "name": "Search and explore"
+    },
+    "e33": {
+      "role": "img"
+    },
+    "e36": {
+      "role": "link",
+      "name": "Notifications (8 unread notifications)"
+    },
+    "e38": {
+      "role": "generic"
+    },
+    "e39": {
+      "role": "img"
+    },
+    "e42": {
+      "role": "generic",
+      "name": "8 unread items"
+    },
+    "e43": {
+      "role": "generic"
+    },
+    "e44": {
+      "role": "link",
+      "name": "Follow"
+    },
+    "e47": {
+      "role": "img"
+    },
+    "e50": {
+      "role": "link",
+      "name": "Direct Messages"
+    },
+    "e53": {
+      "role": "img"
+    },
+    "e56": {
+      "role": "link",
+      "name": "Grok"
+    },
+    "e58": {
+      "role": "generic"
+    },
+    "e59": {
+      "role": "img"
+    },
+    "e62": {
+      "role": "generic",
+      "name": "undefined unread items"
+    },
+    "e63": {
+      "role": "link",
+      "name": "Profile"
+    },
+    "e66": {
+      "role": "img"
+    },
+    "e69": {
+      "role": "button",
+      "name": "More menu items"
+    },
+    "e72": {
+      "role": "img"
+    },
+    "e76": {
+      "role": "link",
+      "name": "Post"
+    },
+    "e78": {
+      "role": "img"
+    },
+    "e84": {
+      "role": "button",
+      "name": "Account menu"
+    },
+    "e92": {
+      "role": "generic"
+    },
+    "e95": {
+      "role": "main"
+    },
+    "e100": {
+      "role": "generic",
+      "name": "Home timeline"
+    },
+    "e101": {
+      "role": "generic"
+    },
+    "e102": {
+      "role": "generic"
+    },
+    "e107": {
+      "role": "generic"
+    },
+    "e109": {
+      "role": "button",
+      "name": "Back"
+    },
+    "e111": {
+      "role": "img"
+    },
+    "e119": {
+      "role": "search",
+      "name": "Search"
+    },
+    "e124": {
+      "role": "generic"
+    },
+    "e126": {
+      "role": "img"
+    },
+    "e131": {
+      "role": "combobox",
+      "name": "Search query"
+    },
+    "e133": {
+      "role": "button",
+      "name": "More"
+    },
+    "e135": {
+      "role": "img"
+    },
+    "e139": {
+      "role": "navigation"
+    },
+    "e140": {
+      "role": "generic"
+    },
+    "e142": {
+      "role": "tablist"
+    },
+    "e143": {
+      "role": "tab",
+      "name": "Top"
+    },
+    "e146": {
+      "role": "generic"
+    },
+    "e148": {
+      "role": "tab",
+      "name": "Latest"
+    },
+    "e151": {
+      "role": "generic"
+    },
+    "e152": {
+      "role": "tab",
+      "name": "People"
+    },
+    "e155": {
+      "role": "generic"
+    },
+    "e156": {
+      "role": "tab",
+      "name": "Media"
+    },
+    "e159": {
+      "role": "generic"
+    },
+    "e160": {
+      "role": "tab",
+      "name": "Lists"
+    },
+    "e163": {
+      "role": "generic"
+    },
+    "e165": {
+      "role": "region",
+      "name": "Search timeline"
+    },
+    "e166": {
+      "role": "heading",
+      "name": "Search timeline"
+    },
+    "e168": {
+      "role": "generic"
+    },
+    "e178": {
+      "role": "generic"
+    },
+    "e190": {
+      "role": "link"
+    },
+    "e193": {
+      "role": "generic"
+    },
+    "e195": {
+      "role": "generic"
+    },
+    "e198": {
+      "role": "generic"
+    },
+    "e201": {
+      "role": "link",
+      "name": "Neurology Journal"
+    },
+    "e204": {
+      "role": "generic"
+    },
+    "e206": {
+      "role": "generic"
+    },
+    "e208": {
+      "role": "link",
+      "name": "@GreenJournal"
+    },
+    "e209": {
+      "role": "generic"
+    },
+    "e210": {
+      "role": "generic"
+    },
+    "e212": {
+      "role": "link",
+      "name": "Jan 9, 2023"
+    },
+    "e213": {
+      "role": "time"
+    },
+    "e215": {
+      "role": "generic"
+    },
+    "e217": {
+      "role": "button",
+      "name": "Grok actions"
+    },
+    "e222": {
+      "role": "img"
+    },
+    "e228": {
+      "role": "button",
+      "name": "More"
+    },
+    "e232": {
+      "role": "img"
+    },
+    "e236": {
+      "role": "generic"
+    },
+    "e237": {
+      "role": "link",
+      "name": "bit.ly/3ZbXnht"
+    },
+    "e239": {
+      "role": "link",
+      "name": "#NeuroTwitter"
+    },
+    "e241": {
+      "role": "link",
+      "name": "#NeurologyRF"
+    },
+    "e258": {
+      "role": "generic"
+    },
+    "e261": {
+      "role": "generic",
+      "name": "Embedded video"
+    },
+    "e268": {
+      "role": "button",
+      "name": "Play Video. 1 minute 1 second long"
+    },
+    "e269": {
+      "role": "img"
+    },
+    "e275": {
+      "role": "group",
+      "name": "1 reply, 39 reposts, 140 likes, 17 bookmarks, 34139 views"
+    },
+    "e277": {
+      "role": "button",
+      "name": "1 Reply. Reply"
+    },
+    "e278": {
+      "role": "generic"
+    },
+    "e281": {
+      "role": "img"
+    },
+    "e286": {
+      "role": "generic"
+    },
+    "e288": {
+      "role": "button",
+      "name": "39 reposts. Repost"
+    },
+    "e289": {
+      "role": "generic"
+    },
+    "e292": {
+      "role": "img"
+    },
+    "e297": {
+      "role": "generic"
+    },
+    "e299": {
+      "role": "button",
+      "name": "140 Likes. Like"
+    },
+    "e300": {
+      "role": "generic"
+    },
+    "e303": {
+      "role": "img"
+    },
+    "e308": {
+      "role": "generic"
+    },
+    "e310": {
+      "role": "link",
+      "name": "34139 views. View post analytics"
+    },
+    "e311": {
+      "role": "generic"
+    },
+    "e314": {
+      "role": "img"
+    },
+    "e319": {
+      "role": "generic"
+    },
+    "e321": {
+      "role": "button",
+      "name": "Bookmark"
+    },
+    "e325": {
+      "role": "img"
+    },
+    "e330": {
+      "role": "button",
+      "name": "Share post"
+    },
+    "e334": {
+      "role": "img"
+    },
+    "e340": {
+      "role": "article",
+      "name": "Marcus Pinto, MD, MS Verified account @MarcusVPinto Apr 10 Dear neurology trainees, throughout your career, you will encounter hundreds of patients with presentations you've never seen before. That is when applying the basics becomes most crucial. Define the tempo, localization, and syndrome, then proceed to differential and work up. 5 replies, 33 reposts, 212 likes, 51 bookmarks, 13643 views"
+    },
+    "e346": {
+      "role": "generic"
+    },
+    "e358": {
+      "role": "link"
+    },
+    "e361": {
+      "role": "generic"
+    },
+    "e363": {
+      "role": "generic"
+    },
+    "e366": {
+      "role": "generic"
+    },
+    "e369": {
+      "role": "link",
+      "name": "Marcus Pinto, MD, MS Verified account"
+    },
+    "e370": {
+      "role": "generic"
+    },
+    "e372": {
+      "role": "generic"
+    },
+    "e375": {
+      "role": "img",
+      "name": "Verified account"
+    },
+    "e379": {
+      "role": "generic"
+    },
+    "e381": {
+      "role": "link",
+      "name": "@MarcusVPinto"
+    },
+    "e382": {
+      "role": "generic"
+    },
+    "e383": {
+      "role": "generic"
+    },
+    "e385": {
+      "role": "link",
+      "name": "Apr 10"
+    },
+    "e386": {
+      "role": "time"
+    },
+    "e388": {
+      "role": "generic"
+    },
+    "e390": {
+      "role": "button",
+      "name": "Grok actions"
+    },
+    "e395": {
+      "role": "img"
+    },
+    "e401": {
+      "role": "button",
+      "name": "More"
+    },
+    "e405": {
+      "role": "img"
+    },
+    "e409": {
+      "role": "generic"
+    },
+    "e412": {
+      "role": "group",
+      "name": "5 replies, 33 reposts, 212 likes, 51 bookmarks, 13643 views"
+    },
+    "e414": {
+      "role": "button",
+      "name": "5 Replies. Reply"
+    },
+    "e415": {
+      "role": "generic"
+    },
+    "e418": {
+      "role": "img"
+    },
+    "e423": {
+      "role": "generic"
+    },
+    "e425": {
+      "role": "button",
+      "name": "33 reposts. Repost"
+    },
+    "e426": {
+      "role": "generic"
+    },
+    "e429": {
+      "role": "img"
+    },
+    "e434": {
+      "role": "generic"
+    },
+    "e436": {
+      "role": "button",
+      "name": "212 Likes. Like"
+    },
+    "e437": {
+      "role": "generic"
+    },
+    "e440": {
+      "role": "img"
+    },
+    "e445": {
+      "role": "generic"
+    },
+    "e447": {
+      "role": "link",
+      "name": "13643 views. View post analytics"
+    },
+    "e448": {
+      "role": "generic"
+    },
+    "e451": {
+      "role": "img"
+    },
+    "e456": {
+      "role": "generic"
+    },
+    "e458": {
+      "role": "button",
+      "name": "Bookmark"
+    },
+    "e462": {
+      "role": "img"
+    },
+    "e467": {
+      "role": "button",
+      "name": "Share post"
+    },
+    "e471": {
+      "role": "img"
+    },
+    "e483": {
+      "role": "generic"
+    },
+    "e495": {
+      "role": "link"
+    },
+    "e498": {
+      "role": "generic"
+    },
+    "e500": {
+      "role": "generic"
+    },
+    "e503": {
+      "role": "generic"
+    },
+    "e506": {
+      "role": "link",
+      "name": "Neurology Journal"
+    },
+    "e509": {
+      "role": "generic"
+    },
+    "e511": {
+      "role": "generic"
+    },
+    "e513": {
+      "role": "link",
+      "name": "@GreenJournal"
+    },
+    "e514": {
+      "role": "generic"
+    },
+    "e515": {
+      "role": "generic"
+    },
+    "e517": {
+      "role": "link",
+      "name": "Aug 29"
+    },
+    "e518": {
+      "role": "time"
+    },
+    "e520": {
+      "role": "generic"
+    },
+    "e522": {
+      "role": "button",
+      "name": "Grok actions"
+    },
+    "e527": {
+      "role": "img"
+    },
+    "e533": {
+      "role": "button",
+      "name": "More"
+    },
+    "e537": {
+      "role": "img"
+    },
+    "e541": {
+      "role": "generic"
+    },
+    "e542": {
+      "role": "link",
+      "name": "hubs.la/Q04vKYWy0"
+    },
+    "e550": {
+      "role": "link",
+      "name": "Image"
+    },
+    "e554": {
+      "role": "generic",
+      "name": "Image"
+    },
+    "e556": {
+      "role": "img",
+      "name": "Image"
+    },
+    "e559": {
+      "role": "group",
+      "name": "1 reply, 5 reposts, 15 likes, 4 bookmarks, 3411 views"
+    },
+    "e561": {
+      "role": "button",
+      "name": "1 Reply. Reply"
+    },
+    "e562": {
+      "role": "generic"
+    },
+    "e565": {
+      "role": "img"
+    },
+    "e570": {
+      "role": "generic"
+    },
+    "e572": {
+      "role": "button",
+      "name": "5 reposts. Repost"
+    },
+    "e573": {
+      "role": "generic"
+    },
+    "e576": {
+      "role": "img"
+    },
+    "e581": {
+      "role": "generic"
+    },
+    "e583": {
+      "role": "button",
+      "name": "15 Likes. Like"
+    },
+    "e584": {
+      "role": "generic"
+    },
+    "e587": {
+      "role": "img"
+    },
+    "e592": {
+      "role": "generic"
+    },
+    "e594": {
+      "role": "link",
+      "name": "3411 views. View post analytics"
+    },
+    "e595": {
+      "role": "generic"
+    },
+    "e598": {
+      "role": "img"
+    },
+    "e603": {
+      "role": "generic"
+    },
+    "e605": {
+      "role": "button",
+      "name": "Bookmark"
+    },
+    "e609": {
+      "role": "img"
+    },
+    "e614": {
+      "role": "button",
+      "name": "Share post"
+    },
+    "e618": {
+      "role": "img"
+    },
+    "e630": {
+      "role": "generic"
+    },
+    "e642": {
+      "role": "link"
+    },
+    "e645": {
+      "role": "generic"
+    },
+    "e647": {
+      "role": "generic"
+    },
+    "e650": {
+      "role": "generic"
+    },
+    "e653": {
+      "role": "link",
+      "name": "Neurology Journal"
+    },
+    "e656": {
+      "role": "generic"
+    },
+    "e658": {
+      "role": "generic"
+    },
+    "e660": {
+      "role": "link",
+      "name": "@GreenJournal"
+    },
+    "e661": {
+      "role": "generic"
+    },
+    "e662": {
+      "role": "generic"
+    },
+    "e664": {
+      "role": "link",
+      "name": "Nov 11, 2025"
+    },
+    "e665": {
+      "role": "time"
+    },
+    "e667": {
+      "role": "generic"
+    },
+    "e669": {
+      "role": "button",
+      "name": "Grok actions"
+    },
+    "e674": {
+      "role": "img"
+    },
+    "e680": {
+      "role": "button",
+      "name": "More"
+    },
+    "e684": {
+      "role": "img"
+    },
+    "e688": {
+      "role": "generic"
+    },
+    "e690": {
+      "role": "link",
+      "name": "#NeurologyEd"
+    },
+    "e691": {
+      "role": "link",
+      "name": "hubs.la/Q03SdHC90"
+    },
+    "e699": {
+      "role": "link",
+      "name": "Image"
+    },
+    "e703": {
+      "role": "generic",
+      "name": "Image"
+    },
+    "e705": {
+      "role": "img",
+      "name": "Image"
+    },
+    "e708": {
+      "role": "group",
+      "name": "62 reposts, 223 likes, 106 bookmarks, 11739 views"
+    },
+    "e710": {
+      "role": "button",
+      "name": "0 Replies. Reply"
+    },
+    "e714": {
+      "role": "img"
+    },
+    "e721": {
+      "role": "button",
+      "name": "62 reposts. Repost"
+    },
+    "e722": {
+      "role": "generic"
+    },
+    "e725": {
+      "role": "img"
+    },
+    "e730": {
+      "role": "generic"
+    },
+    "e732": {
+      "role": "button",
+      "name": "223 Likes. Like"
+    },
+    "e733": {
+      "role": "generic"
+    },
+    "e736": {
+      "role": "img"
+    },
+    "e741": {
+      "role": "generic"
+    },
+    "e743": {
+      "role": "link",
+      "name": "11739 views. View post analytics"
+    },
+    "e744": {
+      "role": "generic"
+    },
+    "e747": {
+      "role": "img"
+    },
+    "e752": {
+      "role": "generic"
+    },
+    "e754": {
+      "role": "button",
+      "name": "Bookmark"
+    },
+    "e758": {
+      "role": "img"
+    },
+    "e763": {
+      "role": "button",
+      "name": "Share post"
+    },
+    "e767": {
+      "role": "img"
+    },
+    "e779": {
+      "role": "generic"
+    },
+    "e791": {
+      "role": "link"
+    },
+    "e794": {
+      "role": "generic"
+    },
+    "e796": {
+      "role": "generic"
+    },
+    "e799": {
+      "role": "generic"
+    },
+    "e802": {
+      "role": "link",
+      "name": "Neurology Journal"
+    },
+    "e805": {
+      "role": "generic"
+    },
+    "e807": {
+      "role": "generic"
+    },
+    "e809": {
+      "role": "link",
+      "name": "@GreenJournal"
+    },
+    "e810": {
+      "role": "generic"
+    },
+    "e811": {
+      "role": "generic"
+    },
+    "e813": {
+      "role": "link",
+      "name": "2 hours ago"
+    },
+    "e814": {
+      "role": "time"
+    },
+    "e816": {
+      "role": "generic"
+    },
+    "e818": {
+      "role": "button",
+      "name": "Grok actions"
+    },
+    "e823": {
+      "role": "img"
+    },
+    "e829": {
+      "role": "button",
+      "name": "More"
+    },
+    "e833": {
+      "role": "img"
+    },
+    "e837": {
+      "role": "generic"
+    },
+    "e838": {
+      "role": "link",
+      "name": "hubs.la/Q04vYmnP0"
+    },
+    "e840": {
+      "role": "link",
+      "name": "#NeurologyRF"
+    },
+    "e848": {
+      "role": "link",
+      "name": "Image"
+    },
+    "e852": {
+      "role": "generic",
+      "name": "Image"
+    },
+    "e854": {
+      "role": "img",
+      "name": "Image"
+    },
+    "e857": {
+      "role": "group",
+      "name": "1 reply, 1 repost, 7 likes, 1749 views"
+    },
+    "e859": {
+      "role": "button",
+      "name": "1 Reply. Reply"
+    },
+    "e860": {
+      "role": "generic"
+    },
+    "e863": {
+      "role": "img"
+    },
+    "e868": {
+      "role": "generic"
+    },
+    "e870": {
+      "role": "button",
+      "name": "1 repost. Repost"
+    },
+    "e871": {
+      "role": "generic"
+    },
+    "e874": {
+      "role": "img"
+    },
+    "e879": {
+      "role": "generic"
+    },
+    "e881": {
+      "role": "button",
+      "name": "7 Likes. Like"
+    },
+    "e882": {
+      "role": "generic"
+    },
+    "e885": {
+      "role": "img"
+    },
+    "e890": {
+      "role": "generic"
+    },
+    "e892": {
+      "role": "link",
+      "name": "1749 views. View post analytics"
+    },
+    "e893": {
+      "role": "generic"
+    },
+    "e896": {
+      "role": "img"
+    },
+    "e901": {
+      "role": "generic"
+    },
+    "e903": {
+      "role": "button",
+      "name": "Bookmark"
+    },
+    "e907": {
+      "role": "img"
+    },
+    "e912": {
+      "role": "button",
+      "name": "Share post"
+    },
+    "e916": {
+      "role": "img"
+    }
+  }
+}
