@@ -1,0 +1,585 @@
+- RootWebArea "(8) neurointervention OR thrombectomy OR #Neurointervention OR #stroke - Search / X"
+  - none
+    - none
+      - generic "To view keyboard shortcuts, press question markView keyboard shortcuts8TopLatestPeopleMediaListsSee " [ref=e1] [onclick]
+        - generic
+          - generic
+            - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [ref=e3]
+              - generic
+                - StaticText "To view keyboard shortcuts, press question mark"
+                  - InlineTextBox "T"
+                  - InlineTextBox "o"
+                  - InlineTextBox " "
+                  - InlineTextBox "v"
+                  - InlineTextBox "i"
+                  - InlineTextBox "e"
+                  - InlineTextBox "w"
+                  - InlineTextBox " "
+                  - InlineTextBox "k"
+                  - InlineTextBox "e"
+                  - InlineTextBox "y"
+                  - InlineTextBox "b"
+                  - InlineTextBox "o"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "d"
+                  - InlineTextBox " "
+                  - InlineTextBox "s"
+                  - InlineTextBox "h"
+                  - InlineTextBox "o"
+                  - InlineTextBox "r"
+                  - InlineTextBox "t"
+                  - InlineTextBox "c"
+                  - InlineTextBox "u"
+                  - InlineTextBox "t"
+                  - InlineTextBox "s"
+                  - InlineTextBox ","
+                  - InlineTextBox " "
+                  - InlineTextBox "p"
+                  - InlineTextBox "r"
+                  - InlineTextBox "e"
+                  - InlineTextBox "s"
+                  - InlineTextBox "s"
+                  - InlineTextBox " "
+                  - InlineTextBox "q"
+                  - InlineTextBox "u"
+                  - InlineTextBox "e"
+                  - InlineTextBox "s"
+                  - InlineTextBox "t"
+                  - InlineTextBox "i"
+                  - InlineTextBox "o"
+                  - InlineTextBox "n"
+                  - InlineTextBox " "
+                  - InlineTextBox "m"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "k"
+              - link "View keyboard shortcuts" [ref=e5]
+                - StaticText "View keyboard shortcuts"
+                  - InlineTextBox "V"
+                  - InlineTextBox "i"
+                  - InlineTextBox "e"
+                  - InlineTextBox "w"
+                  - InlineTextBox " "
+                  - InlineTextBox "k"
+                  - InlineTextBox "e"
+                  - InlineTextBox "y"
+                  - InlineTextBox "b"
+                  - InlineTextBox "o"
+                  - InlineTextBox "a"
+                  - InlineTextBox "r"
+                  - InlineTextBox "d"
+                  - InlineTextBox " "
+                  - InlineTextBox "s"
+                  - InlineTextBox "h"
+                  - InlineTextBox "o"
+                  - InlineTextBox "r"
+                  - InlineTextBox "t"
+                  - InlineTextBox "c"
+                  - InlineTextBox "u"
+                  - InlineTextBox "t"
+                  - InlineTextBox "s"
+            - generic
+              - generic
+                - generic
+                  - generic
+                    - generic
+            - generic "8TopLatestPeopleMediaListsSee new postsSearch timelineNeurology Journal@GreenJournal·Jun 12Neurology" [ref=e4] [onclick]
+              - button "Skip to home timeline" [ref=e6]
+                - generic
+                  - generic
+                    - none
+              - button "Skip to trending" [ref=e7]
+                - generic
+                  - generic
+                    - none
+              - banner
+                - generic
+                  - generic
+                    - generic
+                      - generic
+                        - generic
+                          - heading "X" [ref=e10] [cursor:pointer]
+                            - link "X" [ref=e14]
+                              - generic
+                                - generic
+                                  - none
+                        - generic
+                          - navigation "Primary" [ref=e11]
+                            - link "Home" [ref=e15]
+                              - generic
+                                - generic
+                            - link "Search and explore" [ref=e16]
+                              - generic
+                                - generic
+                            - link "Notifications (8 unread notifications)" [ref=e17]
+                              - generic
+                                - generic
+                                  - generic "8 unread items"
+                                    - none
+                                      - StaticText "8"
+                                        - InlineTextBox "8"
+                            - link "Follow" [ref=e18]
+                              - generic
+                                - generic
+                            - link "Direct Messages" [ref=e19]
+                              - generic
+                                - generic
+                            - link "Grok" [ref=e20]
+                              - generic
+                                - generic
+                                  - generic "undefined unread items"
+                            - link "Profile" [ref=e21]
+                              - generic
+                                - generic
+                            - button "More menu items" [ref=e22]
+                              - generic
+                                - generic
+                        - generic
+                          - link "Post" [ref=e12]
+                            - generic
+                              - generic
+                                - none
+                      - generic
+                        - generic [ref=e8] [onclick]
+                          - button "Account menu" [ref=e13]
+                            - generic
+                              - generic
+                                - none
+                                - generic
+                                  - generic
+                                    - none
+                                    - generic
+                                      - generic
+                                        - generic
+                                          - generic
+                                        - generic
+                                          - generic
+                                        - generic
+                                          - generic
+                                            - none
+                                            - generic
+                                              - generic "Cognito"
+                                                - generic
+                                                - image "Cognito"
+                                        - generic
+                                          - generic [ref=e39] [nth=3] [cursor:pointer, onclick]
+              - main
+                - generic
+                  - generic
+                    - generic
+                      - generic
+                        - generic "Home timeline" [ref=e9] [tabindex]
+                          - generic
+                            - generic
+                              - generic
+                                - generic
+                                  - generic
+                                    - generic
+                                      - generic
+                                        - generic
+                                          - button "Back" [ref=e40]
+                                            - generic
+                                              - generic
+                                                - none
+                                        - generic
+                                          - generic
+                                          - generic
+                                            - generic
+                                              - generic
+                                                - generic
+                                                  - search "Search"
+                                                    - generic
+                                                      - generic
+                                                        - generic
+                                                          - generic
+                                                            - generic
+                                                              - generic
+                                                              - generic
+                                                                - generic
+                                                                  - combobox "Search query" [ref=e80] value="neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                                                                    - none
+                                                                    - generic
+                                                                      - StaticText "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                                                                        - InlineTextBox "neurointervention OR thrombectomy OR #Neurointervention OR #stroke"
+                                                              - generic
+                                                    - generic
+                                        - generic
+                                          - button "More" [ref=e41]
+                                            - generic
+                                              - generic
+                                                - none
+                              - generic
+                                - navigation
+                                  - generic "TopLatestPeopleMediaLists" [ref=e25] [onclick]
+                                    - generic [ref=e26] [nth=1] [onclick]
+                                      - button "Previous" [ref=e30]
+                                        - generic
+                                          - generic
+                                            - none
+                                    - generic
+                                      - tablist
+                                        - tab "Top" [ref=e32]
+                                          - generic
+                                            - generic
+                                              - none
+                                                - StaticText "Top"
+                                                  - InlineTextBox "Top"
+                                              - generic
+                                        - tab "Latest" [ref=e33]
+                                          - generic
+                                            - generic
+                                              - none
+                                                - StaticText "Latest"
+                                                  - InlineTextBox "Latest"
+                                              - generic
+                                        - tab "People" [ref=e34]
+                                          - generic
+                                            - generic
+                                              - none
+                                                - StaticText "People"
+                                                  - InlineTextBox "People"
+                                              - generic
+                                        - tab "Media" [ref=e35]
+                                          - generic
+                                            - generic
+                                              - none
+                                                - StaticText "Media"
+                                                  - InlineTextBox "Media"
+                                              - generic
+                                        - tab "Lists" [ref=e36]
+                                          - generic
+                                            - generic
+                                              - none
+                                                - StaticText "Lists"
+                                                  - InlineTextBox "Lists"
+                                              - generic
+                                    - generic [ref=e27] [nth=2] [onclick]
+                                      - button "Next" [ref=e31]
+                                        - generic
+                                          - generic
+                                            - none
+                            - generic
+                              - generic
+                                - status
+                                  - none
+                                    - none
+                                      - none
+                                      - none
+                                        - none
+                                          - none
+                          - generic
+                          - generic
+                            - region "Search timeline" [ref=e23]
+                              - heading "Search timeline" [ref=e24]
+                                - StaticText "Search timeline"
+                                  - InlineTextBox "S"
+                                  - InlineTextBox "e"
+                                  - InlineTextBox "a"
+                                  - InlineTextBox "r"
+                                  - InlineTextBox "c"
+                                  - InlineTextBox "h"
+                                  - InlineTextBox " "
+                                  - InlineTextBox "t"
+                                  - InlineTextBox "i"
+                                  - InlineTextBox "m"
+                                  - InlineTextBox "e"
+                                  - InlineTextBox "l"
+                                  - InlineTextBox "i"
+                                  - InlineTextBox "n"
+                                  - InlineTextBox "e"
+                              - generic "Timeline: Search timeline"
+                                - generic
+                                  - generic
+                                    - generic "Neurology Journal@GreenJournal·Jun 12Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahr" [ref=e28] [onclick]
+                                      - generic
+                                        - article "Neurology Journal @GreenJournal Jun 12 Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with #EmbolicStroke of undetermined source. Listen now: hubs.la/Q04l5L0Q0 #Stroke Embedded video Play Video. 45 seconds long 0:45 2 replies, 6 reposts, 23 likes, 7 bookmarks, 4360 views" [ref=e37] [cursor:pointer, onclick, tabindex]
+                                          - generic
+                                            - generic "Neurology Journal@GreenJournal·Jun 12Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahr" [ref=e42] [nth=1] [cursor:pointer, onclick]
+                                              - generic
+                                                - generic
+                                                  - generic
+                                              - generic
+                                                - generic
+                                                  - generic
+                                                    - generic
+                                                      - generic
+                                                        - generic
+                                                          - none
+                                                          - generic
+                                                            - generic
+                                                              - none
+                                                              - generic
+                                                                - generic
+                                                                  - none
+                                                                    - none
+                                                                      - none
+                                                                    - none
+                                                                      - none
+                                                                    - none
+                                                                      - none
+                                                                        - none
+                                                                        - none
+                                                                          - none
+                                                                            - none
+                                                                            - none
+                                                                    - none
+                                                                      - none
+                                                - generic
+                                                  - generic
+                                                    - generic
+                                                      - generic
+                                                        - generic
+                                                          - generic
+                                                            - generic
+                                                              - generic
+                                                                - link "Neurology Journal" [ref=e65]
+                                                                  - generic
+                                                                    - generic
+                                                                      - none
+                                                                        - StaticText "Neurology Journal"
+                                                                          - InlineTextBox "Neurology Journal"
+                                                                    - generic
+                                                                      - none
+                                                            - generic
+                                                              - generic
+                                                                - generic
+                                                                  - link "@GreenJournal" [ref=e81]
+                                                                    - generic
+                                                                      - StaticText "@GreenJournal"
+                                                                        - InlineTextBox "@GreenJournal"
+                                                                - none
+                                                                  - none
+                                                                    - none
+                                                                - generic
+                                                                  - link "Jun 12" [ref=e82]
+                                                                    - time
+                                                                      - StaticText "Jun 12"
+                                                                        - InlineTextBox "Jun 12"
+                                                      - generic
+                                                        - generic
+                                                          - generic
+                                                            - button "Grok actions" [ref=e60]
+                                                              - generic
+                                                                - generic
+                                                                  - generic [ref=e83] [nth=15] [cursor:pointer, onclick]
+                                                                  - generic
+                                                          - generic
+                                                            - generic
+                                                              - generic
+                                                                - button "More" [ref=e66] [nth=1]
+                                                                  - generic
+                                                                    - generic
+                                                                      - generic [ref=e89] [nth=19] [cursor:pointer, onclick]
+                                                  - generic
+                                                    - generic
+                                                      - StaticText "Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE, and cardiac CT in patients with "
+                                                        - InlineTextBox "Neurology Podcast: Dr. Dan Ackerman and Dr. Reza Bavarsad Shahripour"
+                                                        - InlineTextBox " "
+                                                        - InlineTextBox "discuss the diagnostic performance of 4 major modalities: TCD, TTE, TEE,"
+                                                        - InlineTextBox " "
+                                                        - InlineTextBox "and cardiac CT in patients with "
+                                                      - link "#EmbolicStroke" [ref=e44]
+                                                        - StaticText "#EmbolicStroke"
+                                                          - InlineTextBox "#EmbolicStroke"
+                                                      - StaticText " of undetermined source. Listen now: "
+                                                        - InlineTextBox " of undetermined"
+                                                        - InlineTextBox " "
+                                                        - InlineTextBox "source. Listen now: "
+                                                      - link "hubs.la/Q04l5L0Q0" [ref=e45]
+                                                        - none
+                                                          - none
+                                                        - StaticText "hubs.la/Q04l5L0Q0"
+                                                          - InlineTextBox "hubs.la/Q04l5L0Q0"
+                                                      - StaticText " \n"
+                                                        - InlineTextBox " "
+                                                        - InlineTextBox "\n"
+                                                      - link "#Stroke" [ref=e46]
+                                                        - StaticText "#Stroke"
+                                                          - InlineTextBox "#Stroke"
+                                                  - generic
+                                                    - generic
+                                                      - generic
+                                                        - generic
+                                                          - generic "0:45" [ref=e48] [cursor:pointer, onclick]
+                                                            - generic
+                                                              - generic "0:45" [ref=e64] [nth=1] [cursor:pointer, onclick]
+                                                                - generic
+                                                                  - generic
+                                                                    - none
+                                                                    - generic
+                                                                      - generic
+                                                                        - generic "0:45" [ref=e91] [nth=2] [cursor:pointer, onclick]
+                                                                          - generic
+                                                                            - none
+                                                                            - generic
+                                                                              - generic
+                                                                                - generic
+                                                                                  - generic
+                                                                                    - Video "Embedded video"
+                                                                                      - none
+                                                                                      - none
+                                                                                        - none
+                                                                                        - none
+                                                                                          - none
+                                                                                        - none
+                                                                                          - none
+                                                                                            - none
+                                                                                            - none
+                                                                                              - none
+                                                                                                - none
+                                                                                              - none
+                                                                                              - none
+                                                                                                - none
+                                                                                                - none
+                                                                                                - none
+                                                                                              - none
+                                                                                                - none
+                                                                                              - none
+                                                                                                - none
+                                                                                            - none
+                                                                                        - none
+                                                                                        - none
+                                                                                        - none
+                                                                                        - none
+                                                                                        - none
+                                                                                          - none
+                                                                                          - none
+                                                                                          - none
+                                                                                          - none
+                                                                                          - none
+                                                                                          - none
+                                                                                          - none
+                                                                                          - none
+                                                                                          - none
+                                                                                          - none
+                                                                                - generic "0:45" [ref=e92] [nth=3] [cursor:pointer, tabindex]
+                                                                                  - generic "0:45" [ref=e93] [nth=4] [cursor:pointer, onclick]
+                                                                                    - generic
+                                                                                      - generic
+                                                                                      - button "Play Video. 45 seconds long" [ref=e94]
+                                                                                        - generic
+                                                                                          - generic
+                                                                                          - none
+                                                                                      - generic
+                                                                                        - progressbar
+                                                                                          - generic
+                                                                                            - image
+                                                                                      - none
+                                                                                        - none
+                                                                                      - generic
+                                                                                        - generic
+                                                                                          - generic
+                                                                                            - generic
+                                                                                              - StaticText "0:45"
+                                                                                                - InlineTextBox "0:45"
+                                                                                      - none
+                                                                                      - none
+                                                                                      - none
+                                                  - generic
+                                                    - generic
+                                                      - group "2 replies, 6 reposts, 23 likes, 7 bookmarks, 4360 views"
+                                                        - generic
+                                                          - button "2 Replies. Reply" [ref=e49]
+                                                            - generic
+                                                              - generic
+                                                                - generic [ref=e67] [nth=5] [cursor:pointer, onclick]
+                                                                - none
+                                                              - generic
+                                                                - none
+                                                                  - StaticText "2"
+                                                                    - InlineTextBox "2"
+                                                        - generic
+                                                          - button "6 reposts. Repost" [ref=e50]
+                                                            - generic
+                                                              - generic
+                                                                - generic [ref=e68] [nth=6] [cursor:pointer, onclick]
+                                                                - none
+                                                              - generic
+                                                                - none
+                                                                  - StaticText "6"
+                                                                    - InlineTextBox "6"
+                                                        - generic
+                                                          - button "23 Likes. Like" [ref=e51]
+                                                            - generic
+                                                              - generic
+                                                                - generic [ref=e69] [nth=7] [cursor:pointer, onclick]
+                                                                - none
+                                                              - generic
+                                                                - none
+                                                                  - StaticText "23"
+                                                                    - InlineTextBox "23"
+                                                        - generic
+                                                          - link "4360 views. View post analytics" [ref=e52]
+                                                            - generic
+                                                              - generic
+                                                                - generic [ref=e70] [nth=8] [cursor:pointer, onclick]
+                                                                - none
+                                                              - generic
+                                                                - none
+                                                                  - StaticText "4.3K"
+                                                                    - InlineTextBox "4.3K"
+                                                        - generic
+                                                          - button "Bookmark" [ref=e53]
+                                                            - generic
+                                                              - generic
+                                                                - generic [ref=e71] [nth=9] [cursor:pointer, onclick]
+                                                                - none
+                                                        - generic
+                                                          - generic
+                                                            - button "Share post" [ref=e61]
+                                                              - generic
+                                                                - generic
+                                                                  - generic [ref=e84] [nth=16] [cursor:pointer, onclick]
+                                                                  - none
+                                  - generic
+                                    - generic "Neurology Journal@GreenJournal·Sep 3Class II evidence that in patients undergoing mechanical thrombe" [ref=e29] [onclick]
+                                      - generic
+                                        - article "Neurology Journal @GreenJournal Sep 3 Class II evidence that in patients undergoing mechanical thrombectomy for stroke due to anterior large vessel occlusion, functional outcomes at 90 days were similar with individualized blood pressure (BP) management and standard BP management: hubs.la/Q04tLz8T0 Image 2 replies, 1 repost, 12 likes, 6 bookmarks, 2935 views" [ref=e38] [cursor:pointer, onclick, tabindex]
+                                          - generic
+                                            - generic "Neurology Journal@GreenJournal·Sep 3Class II evidence that in patients undergoing mechanical thrombe" [ref=e43] [nth=1] [cursor:pointer, onclick]
+                                              - generic
+                                                - generic
+                                                  - generic
+                                              - generic
+                                                - generic
+                                                  - generic
+                                                    - generic
+                                                      - generic
+                                                        - generic
+                                                          - none
+                                                          - generic
+                                                            - generic
+                                                              - none
+                                                              - generic
+                                                                - generic
+                                                                  - none
+                                                                    - none
+                                                                      - none
+                                                                    - none
+                                                                      - none
+                                                                    - none
+                                                                      - none
+                                                                        - none
+                                                                        - none
+                                                                          - none
+                                                                            - none
+                                                                            - none
+                                                                    - none
+                                                                      - none
+                                                - generic
+                                                  - generic
+                                                    - generic
+                                                      - generic
+                                                        - generic
+                                                          - generic
+                                                            - generic
+                                                              - generic
+                                                                - link "Neurology Journal" [ref=e72] [nth=1]
+                                                                  - generic
+                                                                    - generic
+                                                                      - none
+                                                                        - StaticText "Neurology Journal"
+                                                                          - InlineTextBox "Neurology Journal"
+
+[...TRUNCATED - page too large]
