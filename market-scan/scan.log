@@ -2146,3 +2146,112 @@ Thresholds: Drop <-1.0%, Rally >1.0%
 Scanned: 6 stocks | Opportunities: 0
 
 No opportunities detected.
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ TCS: ₹2209.00 (-2.26%)
+  ✅ HDFCBANK: ₹687.25 (-2.23%)
+  ⚠️ ICICIBANK: Failed
+  ✅ SBIN: ₹1001.60 (-0.63%)
+  ✅ BHARTIARTL: ₹1818.80 (-1.14%)
+  ✅ INFY: ₹1035.00 (-4.43%)
+  ✅ KOTAKBANK: ₹414.40 (-0.68%)
+  ✅ PIDILITIND: ₹1572.50 (-1.04%)
+  ✅ MFSL: ₹1461.10 (-3.24%)
+  ⚠️ DEEPAKNTR: Failed
+
+=======================================================
+MARKET SCAN - 2026-09-10 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 8 stocks | Opportunities: 6
+
+WATCH (30-50):
+  INFY.BSE ₹1035.00 (-4.43%) | 45
+  MFSL.BSE ₹1461.10 (-3.24%) | 45
+  HDFCBANK.BSE ₹687.25 (-2.23%) | 40
+  TCS.BSE ₹2209.00 (-2.26%) | 35
+
+Top Movers:
+  Gainers: SBIN.BSE:+-0.6%, KOTAKBANK.BSE:+-0.7%, PIDILITIND.BSE:+-1.0%
+  Losers: INFY.BSE:-4.4%, MFSL.BSE:-3.2%, TCS.BSE:-2.3%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ PIDILITIND: ₹1569.00 (-0.22%)
+  ✅ TITAN: ₹5010.00 (+0.40%)
+  ⚠️ TORNTPHARM: Failed
+  ✅ ADANIPOWER: ₹213.00 (-0.70%)
+  ✅ CONCOR: ₹505.80 (-0.73%)
+  ⚠️ MFSL: Failed
+  ⚠️ DEEPAKNTR: Failed
+  ⚠️ MARUTI: Failed
+  ✅ ONGC: ₹237.00 (+1.37%)
+  ⚠️ POWERGRID: Failed
+
+=======================================================
+MARKET SCAN - 2026-09-11 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 5 stocks | Opportunities: 1
+
+
+Top Movers:
+  Gainers: ONGC.BSE:+1.4%, TITAN.BSE:+0.4%, PIDILITIND.BSE:+-0.2%
+  Losers: CONCOR.BSE:-0.7%, ADANIPOWER.BSE:-0.7%, PIDILITIND.BSE:-0.2%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ BAJAJ-AUTO: ₹11684.00 (-1.07%)
+  ✅ HEROMOTOCO: ₹5225.00 (-1.04%)
+  ✅ EICHERMOT: ₹7540.00 (-2.08%)
+  ✅ COALINDIA: ₹425.60 (-1.82%)
+  ✅ NTPC: ₹333.30 (-1.10%)
+  ✅ ONGC: ₹232.55 (-1.88%)
+  ✅ POWERGRID: ₹269.10 (-1.07%)
+  ✅ CIPLA: ₹1365.00 (-1.09%)
+  ✅ RELIANCE: ₹1258.00 (-1.33%)
+  ✅ INFY: ₹1038.20 (+0.64%)
+
+=======================================================
+MARKET SCAN - 2026-09-14 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 10 stocks | Opportunities: 9
+
+WATCH (30-50):
+  POWERGRID.BSE ₹269.10 (-1.07%) | 40
+  COALINDIA.BSE ₹425.60 (-1.82%) | 35
+  ONGC.BSE ₹232.55 (-1.88%) | 35
+
+Top Movers:
+  Gainers: INFY.BSE:+0.6%, HEROMOTOCO.BSE:+-1.0%, POWERGRID.BSE:+-1.1%
+  Losers: EICHERMOT.BSE:-2.1%, ONGC.BSE:-1.9%, COALINDIA.BSE:-1.8%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ APOLLOHOSP: ₹8850.00 (-0.28%)
+  ✅ TCS: ₹2202.00 (-0.65%)
+  ✅ HDFCBANK: ₹708.00 (+2.02%)
+  ✅ SBIN: ₹997.00 (-0.75%)
+  ✅ BHARTIARTL: ₹1832.00 (-0.27%)
+  ✅ RELIANCE: ₹1258.00 (-1.33%)
+  ✅ INFY: ₹1038.20 (+0.64%)
+  ✅ ICICIBANK: ₹1379.15 (-0.35%)
+  ✅ KOTAKBANK: ₹418.70 (+0.42%)
+  ✅ MFSL: ₹1478.50 (+0.28%)
+
+=======================================================
+MARKET SCAN - 2026-09-15 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 10 stocks | Opportunities: 5
+
+
+Top Movers:
+  Gainers: HDFCBANK.BSE:+2.0%, INFY.BSE:+0.6%, KOTAKBANK.BSE:+0.4%
+  Losers: RELIANCE.BSE:-1.3%, SBIN.BSE:-0.7%, TCS.BSE:-0.7%
+=======================================================
