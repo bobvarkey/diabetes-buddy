@@ -2334,3 +2334,31 @@ Top Movers:
   Gainers: DRREDDY.BSE:+2.3%, KOTAKBANK.BSE:+0.5%, APOLLOHOSP.BSE:+0.4%
   Losers: HDFCBANK.BSE:-1.3%, SBIN.BSE:-0.7%, INFY.BSE:-0.4%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ LT: ₹3860.00 (+0.78%)
+  ✅ HINDUNILVR: ₹1934.95 (-1.07%)
+  ✅ COLPAL: ₹1885.00 (+1.54%)
+  ✅ PIDILITIND: ₹1566.10 (+0.84%)
+  ✅ TITAN: ₹4756.50 (-2.11%)
+  ✅ KOTAKBANK: ₹412.80 (-1.01%)
+  ⚠️ MFSL: Failed
+  ⚠️ DEEPAKNTR: Failed
+  ✅ MARUTI: ₹12145.00 (-1.98%)
+  ⚠️ BAJAJ-AUTO: Failed
+
+=======================================================
+MARKET SCAN - 2026-09-21 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 7 stocks | Opportunities: 6
+
+WATCH (30-50):
+  TITAN.BSE ₹4756.50 (-2.11%) | 35
+  MARUTI.BSE ₹12145.00 (-1.98%) | 35
+
+Top Movers:
+  Gainers: COLPAL.BSE:+1.5%, PIDILITIND.BSE:+0.8%, LT.BSE:+0.8%
+  Losers: TITAN.BSE:-2.1%, MARUTI.BSE:-2.0%, HINDUNILVR.BSE:-1.1%
+=======================================================

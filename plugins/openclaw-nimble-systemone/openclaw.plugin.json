@@ -1,0 +1,30 @@
+{
+  "id": "nimble-systemone",
+  "name": "Nimble SystemOne",
+  "description": "Typed noul/choice scoring via Bespoke Nimble on Modal",
+  "categories": ["developer-tools"],
+  "contracts": {
+    "tools": ["nimble_systemone"]
+  },
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "baseUrl": {
+        "type": "string",
+        "description": "Modal base URL, no trailing slash"
+      },
+      "token": {
+        "type": "string",
+        "description": "Optional Bearer token if the endpoint is not public"
+      },
+      "model": {
+        "type": "string",
+        "description": "Default model id"
+      }
+    }
+  }
+}
