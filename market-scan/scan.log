@@ -2362,3 +2362,103 @@ Top Movers:
   Gainers: COLPAL.BSE:+1.5%, PIDILITIND.BSE:+0.8%, LT.BSE:+0.8%
   Losers: TITAN.BSE:-2.1%, MARUTI.BSE:-2.0%, HINDUNILVR.BSE:-1.1%
 =======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ AARTIIND: ₹499.45 (+1.82%)
+  ✅ GODREJCP: ₹870.00 (-1.58%)
+  ✅ HEROMOTOCO: ₹5412.00 (+2.11%)
+  ✅ EICHERMOT: ₹7545.00 (+0.60%)
+  ⚠️ COALINDIA: Failed
+  ⚠️ DEEPAKNTR: Failed
+  ⚠️ MARUTI: Failed
+  ✅ BAJAJ-AUTO: ₹11490.00 (-0.09%)
+  ✅ ONGC: ₹235.40 (+1.25%)
+  ✅ CIPLA: ₹1385.00 (+0.99%)
+
+=======================================================
+MARKET SCAN - 2026-09-22 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 7 stocks | Opportunities: 4
+
+
+Top Movers:
+  Gainers: HEROMOTOCO.BSE:+2.1%, AARTIIND.BSE:+1.8%, ONGC.BSE:+1.2%
+  Losers: GODREJCP.BSE:-1.6%, BAJAJ-AUTO.BSE:-0.1%, EICHERMOT.BSE:0.6%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ POWERGRID: ₹266.00 (-0.34%)
+  ✅ SUNPHARMA: ₹1844.00 (-1.28%)
+  ✅ DRREDDY: ₹1212.00 (+0.83%)
+  ✅ APOLLOHOSP: ₹8887.75 (-0.58%)
+  ✅ RELIANCE: ₹1242.00 (-0.46%)
+  ⚠️ CIPLA: Failed
+  ✅ TCS: ₹2106.00 (-1.13%)
+  ✅ INFY: ₹1029.80 (-0.98%)
+  ⚠️ ICICIBANK: Failed
+  ✅ KOTAKBANK: ₹412.50 (-0.60%)
+
+=======================================================
+MARKET SCAN - 2026-09-23 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 8 stocks | Opportunities: 3
+
+
+Top Movers:
+  Gainers: DRREDDY.BSE:+0.8%, POWERGRID.BSE:+-0.3%, RELIANCE.BSE:+-0.5%
+  Losers: SUNPHARMA.BSE:-1.3%, TCS.BSE:-1.1%, INFY.BSE:-1.0%
+=======================================================
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ⚠️ SBIN: Failed
+  ⚠️ BHARTIARTL: Failed
+  ⚠️ LT: Failed
+  ⚠️ HINDUNILVR: Failed
+  ⚠️ COLPAL: Failed
+  ⚠️ KOTAKBANK: Failed
+  ⚠️ MFSL: Failed
+  ⚠️ DEEPAKNTR: Failed
+  ⚠️ MARUTI: Failed
+  ⚠️ ONGC: Failed
+No data - retry with new stocks
+Fetching 10 quotes...
+  ⚠️ CONCOR: Failed
+  ⚠️ AARTIIND: Failed
+  ⚠️ DEEPAKNTR: Failed
+  ⚠️ GODREJCP: Failed
+  ⚠️ MARUTI: Failed
+  ⚠️ BAJAJ-AUTO: Failed
+  ⚠️ HEROMOTOCO: Failed
+  ⚠️ EICHERMOT: Failed
+  ⚠️ ONGC: Failed
+  ⚠️ COALINDIA: Failed
+Still no data. API may be rate-limited.
+Starting Enhanced Market Scan...
+Fetching 10 quotes...
+  ✅ NTPC: ₹326.50 (+0.00%)
+  ✅ POWERGRID: ₹267.00 (-1.26%)
+  ⚠️ SUNPHARMA: Failed
+  ✅ DRREDDY: ₹1200.40 (-0.80%)
+  ⚠️ CIPLA: Failed
+  ✅ CONCOR: ₹466.00 (+0.19%)
+  ✅ AARTIIND: ₹489.00 (-0.42%)
+  ⚠️ DEEPAKNTR: Failed
+  ⚠️ GODREJCP: Failed
+  ✅ MARUTI: ₹12013.35 (-1.57%)
+
+=======================================================
+MARKET SCAN - 2026-09-25 08:00
+=======================================================
+Sensitivity: high | Macro: neutral
+Thresholds: Drop <-1.0%, Rally >1.0%
+Scanned: 6 stocks | Opportunities: 3
+
+
+Top Movers:
+  Gainers: CONCOR.BSE:+0.2%, NTPC.BSE:+0.0%, AARTIIND.BSE:+-0.4%
+  Losers: MARUTI.BSE:-1.6%, POWERGRID.BSE:-1.3%, DRREDDY.BSE:-0.8%
+=======================================================
